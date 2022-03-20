@@ -19,7 +19,7 @@ from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n!instill/model/v1alpha/model.proto\x12\x15instill.model.v1alpha\x1a\x1cgoogle/protobuf/struct.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\"+\n\x0fLivenessRequest\x12\x18\n\x07service\x18\x01 \x01(\tR\x07service\"\xce\x01\n\x10LivenessResponse\x12M\n\x06status\x18\x01 \x01(\x0e\x32\x35.instill.model.v1alpha.LivenessResponse.ServingStatusR\x06status\"k\n\rServingStatus\x12\x1e\n\x1aSERVING_STATUS_UNSPECIFIED\x10\x00\x12\x1a\n\x16SERVING_STATUS_SERVING\x10\x01\x12\x1e\n\x1aSERVING_STATUS_NOT_SERVING\x10\x02\",\n\x10ReadinessRequest\x12\x18\n\x07service\x18\x01 \x01(\tR\x07service\"\xd0\x01\n\x11ReadinessResponse\x12N\n\x06status\x18\x01 \x01(\x0e\x32\x36.instill.model.v1alpha.ReadinessResponse.ServingStatusR\x06status\"k\n\rServingStatus\x12\x1e\n\x1aSERVING_STATUS_UNSPECIFIED\x10\x00\x12\x1a\n\x16SERVING_STATUS_SERVING\x10\x01\x12\x1e\n\x1aSERVING_STATUS_NOT_SERVING\x10\x02\"\xfa\x02\n\x0cModelVersion\x12\x18\n\x07version\x18\x01 \x01(\x04R\x07version\x12\x19\n\x08model_id\x18\x02 \x01(\x04R\x07modelId\x12 \n\x0b\x64\x65scription\x18\x03 \x01(\tR\x0b\x64\x65scription\x12\x39\n\ncreated_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tcreatedAt\x12\x39\n\nupdated_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x42\n\x06status\x18\x06 \x01(\x0e\x32*.instill.model.v1alpha.ModelVersion.StatusR\x06status\"Y\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x12\n\x0eSTATUS_OFFLINE\x10\x01\x12\x11\n\rSTATUS_ONLINE\x10\x02\x12\x10\n\x0cSTATUS_ERROR\x10\x03\"\xa0\x02\n\x05Model\x12\x13\n\x02id\x18\x01 \x01(\x04\x42\x03\xe0\x41\x01R\x02id\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12 \n\tfull_name\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x08\x66ullName\x12\x35\n\x04task\x18\x04 \x01(\x0e\x32!.instill.model.v1alpha.Model.TaskR\x04task\x12J\n\x0emodel_versions\x18\x05 \x03(\x0b\x32#.instill.model.v1alpha.ModelVersionR\rmodelVersions\"I\n\x04Task\x12\x14\n\x10TASK_UNSPECIFIED\x10\x00\x12\x17\n\x13TASK_CLASSIFICATION\x10\x01\x12\x12\n\x0eTASK_DETECTION\x10\x02\"\xa4\x01\n\rModelInitData\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\x12\x17\n\x04\x62yte\x18\x02 \x01(\x0c\x42\x03\xe0\x41\x02R\x04\x62yte\x12%\n\x0b\x64\x65scription\x18\x03 \x01(\tB\x03\xe0\x41\x01R\x0b\x64\x65scription\x12:\n\x04task\x18\x04 \x01(\x0e\x32!.instill.model.v1alpha.Model.TaskB\x03\xe0\x41\x01R\x04task\"g\n\x12\x43reateModelRequest\x12Q\n\x0fmodel_init_data\x18\x01 \x01(\x0b\x32$.instill.model.v1alpha.ModelInitDataB\x03\xe0\x41\x02R\rmodelInitData\"N\n\x13\x43reateModelResponse\x12\x37\n\x05model\x18\x01 \x01(\x0b\x32\x1c.instill.model.v1alpha.ModelB\x03\xe0\x41\x02R\x05model\"w\n\"CreateModelBinaryFileUploadRequest\x12Q\n\x0fmodel_init_data\x18\x01 \x01(\x0b\x32$.instill.model.v1alpha.ModelInitDataB\x03\xe0\x41\x02R\rmodelInitData\"^\n#CreateModelBinaryFileUploadResponse\x12\x37\n\x05model\x18\x01 \x01(\x0b\x32\x1c.instill.model.v1alpha.ModelB\x03\xe0\x41\x02R\x05model\"\x83\x02\n\x19UpdateModelVersionRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\x12\x1d\n\x07version\x18\x02 \x01(\x04\x42\x03\xe0\x41\x02R\x07version\x12%\n\x0b\x64\x65scription\x18\x03 \x01(\tB\x03\xe0\x41\x01R\x0b\x64\x65scription\x12G\n\x06status\x18\x04 \x01(\x0e\x32*.instill.model.v1alpha.ModelVersion.StatusB\x03\xe0\x41\x01R\x06status\x12>\n\nfield_mask\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\tfieldMask\"k\n\x1aUpdateModelVersionResponse\x12M\n\rmodel_version\x18\x01 \x01(\x0b\x32#.instill.model.v1alpha.ModelVersionB\x03\xe0\x41\x02R\x0cmodelVersion\"\x12\n\x10ListModelRequest\"I\n\x11ListModelResponse\x12\x34\n\x06models\x18\x01 \x03(\x0b\x32\x1c.instill.model.v1alpha.ModelR\x06models\"*\n\x0fGetModelRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\"K\n\x10GetModelResponse\x12\x37\n\x05model\x18\x01 \x01(\x0b\x32\x1c.instill.model.v1alpha.ModelB\x03\xe0\x41\x02R\x05model\"-\n\x12\x44\x65leteModelRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\"\x15\n\x13\x44\x65leteModelResponse\"S\n\x19\x44\x65leteModelVersionRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\x12\x1d\n\x07version\x18\x02 \x01(\x04\x42\x03\xe0\x41\x02R\x07version\"\x1c\n\x1a\x44\x65leteModelVersionResponse\"S\n\x05Input\x12\x1d\n\timage_url\x18\x01 \x01(\tH\x00R\x08imageUrl\x12#\n\x0cimage_base64\x18\x02 \x01(\tH\x00R\x0bimageBase64B\x06\n\x04type\"9\n\x06Output\x12/\n\x06output\x18\x01 \x01(\x0b\x32\x17.google.protobuf.StructR\x06output\"\x88\x01\n\x13TriggerModelRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\x12\x1d\n\x07version\x18\x02 \x01(\x04\x42\x03\xe0\x41\x02R\x07version\x12\x39\n\x06inputs\x18\x03 \x03(\x0b\x32\x1c.instill.model.v1alpha.InputB\x03\xe0\x41\x02R\x06inputs\"M\n\x14TriggerModelResponse\x12\x35\n\x06output\x18\x01 \x01(\x0b\x32\x1d.instill.model.v1alpha.OutputR\x06output\"x\n#TriggerModelBinaryFileUploadRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\x12\x1d\n\x07version\x18\x02 \x01(\x04\x42\x03\xe0\x41\x02R\x07version\x12\x19\n\x05\x63hunk\x18\x03 \x01(\x0c\x42\x03\xe0\x41\x02R\x05\x63hunk\"]\n$TriggerModelBinaryFileUploadResponse\x12\x35\n\x06output\x18\x01 \x01(\x0b\x32\x1d.instill.model.v1alpha.OutputR\x06output\"H\n\x14\x43lassificationOutput\x12\x1a\n\x08\x63\x61tegory\x18\x01 \x01(\tR\x08\x63\x61tegory\x12\x14\n\x05score\x18\x02 \x01(\x02R\x05score\"{\n\x15\x43lassificationOutputs\x12\x62\n\x16\x63lassification_outputs\x18\x01 \x03(\x0b\x32+.instill.model.v1alpha.ClassificationOutputR\x15\x63lassificationOutputs\"a\n\x0b\x42oundingBox\x12\x10\n\x03top\x18\x01 \x01(\x02R\x03top\x12\x12\n\x04left\x18\x02 \x01(\x02R\x04left\x12\x14\n\x05width\x18\x03 \x01(\x02R\x05width\x12\x16\n\x06height\x18\x04 \x01(\x02R\x06height\"\x8c\x01\n\x11\x42oundingBoxObject\x12\x1a\n\x08\x63\x61tegory\x18\x01 \x01(\tR\x08\x63\x61tegory\x12\x14\n\x05score\x18\x02 \x01(\x02R\x05score\x12\x45\n\x0c\x62ounding_box\x18\x03 \x01(\x0b\x32\".instill.model.v1alpha.BoundingBoxR\x0b\x62oundingBox\"m\n\x0f\x44\x65tectionOutput\x12Z\n\x14\x62ounding_box_objects\x18\x01 \x03(\x0b\x32(.instill.model.v1alpha.BoundingBoxObjectR\x12\x62oundingBoxObjects\"e\n\x10\x44\x65tectionOutputs\x12Q\n\x10\x64\x65tection_output\x18\x01 \x03(\x0b\x32&.instill.model.v1alpha.DetectionOutputR\x0f\x64\x65tectionOutput2\x90\x0c\n\x0cModelService\x12\x81\x01\n\x08Liveness\x12&.instill.model.v1alpha.LivenessRequest\x1a\'.instill.model.v1alpha.LivenessResponse\"$\x82\xd3\xe4\x93\x02\x1eZ\x0f\x12\r/health/model\x12\x0b/__liveness\x12t\n\tReadiness\x12\'.instill.model.v1alpha.ReadinessRequest\x1a(.instill.model.v1alpha.ReadinessResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/__readiness\x12x\n\x0b\x43reateModel\x12).instill.model.v1alpha.CreateModelRequest\x1a*.instill.model.v1alpha.CreateModelResponse\"\x12\x82\xd3\xe4\x93\x02\x0c:\x01*\"\x07/models\x12\x98\x01\n\x1b\x43reateModelBinaryFileUpload\x12\x39.instill.model.v1alpha.CreateModelBinaryFileUploadRequest\x1a:.instill.model.v1alpha.CreateModelBinaryFileUploadResponse\"\x00(\x01\x12o\n\tListModel\x12\'.instill.model.v1alpha.ListModelRequest\x1a(.instill.model.v1alpha.ListModelResponse\"\x0f\x82\xd3\xe4\x93\x02\t\x12\x07/models\x12s\n\x08GetModel\x12&.instill.model.v1alpha.GetModelRequest\x1a\'.instill.model.v1alpha.GetModelResponse\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/models/{name}\x12\xa7\x01\n\x12UpdateModelVersion\x12\x30.instill.model.v1alpha.UpdateModelVersionRequest\x1a\x31.instill.model.v1alpha.UpdateModelVersionResponse\",\x82\xd3\xe4\x93\x02&:\x01*2!/models/{name}/versions/{version}\x12|\n\x0b\x44\x65leteModel\x12).instill.model.v1alpha.DeleteModelRequest\x1a*.instill.model.v1alpha.DeleteModelResponse\"\x16\x82\xd3\xe4\x93\x02\x10*\x0e/models/{name}\x12\xa4\x01\n\x12\x44\x65leteModelVersion\x12\x30.instill.model.v1alpha.DeleteModelVersionRequest\x1a\x31.instill.model.v1alpha.DeleteModelVersionResponse\")\x82\xd3\xe4\x93\x02#*!/models/{name}/versions/{version}\x12\x9d\x01\n\x0cTriggerModel\x12*.instill.model.v1alpha.TriggerModelRequest\x1a+.instill.model.v1alpha.TriggerModelResponse\"4\x82\xd3\xe4\x93\x02.:\x01*\")/models/{name}/versions/{version}/outputs\x12\x9b\x01\n\x1cTriggerModelBinaryFileUpload\x12:.instill.model.v1alpha.TriggerModelBinaryFileUploadRequest\x1a;.instill.model.v1alpha.TriggerModelBinaryFileUploadResponse\"\x00(\x01\x42\xe3\x01\n\x19\x63om.instill.model.v1alphaB\nModelProtoP\x01ZDgithub.com/instill-ai/protogen-go/instill/model/v1alpha;modelv1alpha\xa2\x02\x03IMX\xaa\x02\x15Instill.Model.V1alpha\xca\x02\x15Instill\\Model\\V1alpha\xe2\x02!Instill\\Model\\V1alpha\\GPBMetadata\xea\x02\x17Instill::Model::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n!instill/model/v1alpha/model.proto\x12\x15instill.model.v1alpha\x1a\x1cgoogle/protobuf/struct.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\"+\n\x0fLivenessRequest\x12\x18\n\x07service\x18\x01 \x01(\tR\x07service\"\xce\x01\n\x10LivenessResponse\x12M\n\x06status\x18\x01 \x01(\x0e\x32\x35.instill.model.v1alpha.LivenessResponse.ServingStatusR\x06status\"k\n\rServingStatus\x12\x1e\n\x1aSERVING_STATUS_UNSPECIFIED\x10\x00\x12\x1a\n\x16SERVING_STATUS_SERVING\x10\x01\x12\x1e\n\x1aSERVING_STATUS_NOT_SERVING\x10\x02\",\n\x10ReadinessRequest\x12\x18\n\x07service\x18\x01 \x01(\tR\x07service\"\xd0\x01\n\x11ReadinessResponse\x12N\n\x06status\x18\x01 \x01(\x0e\x32\x36.instill.model.v1alpha.ReadinessResponse.ServingStatusR\x06status\"k\n\rServingStatus\x12\x1e\n\x1aSERVING_STATUS_UNSPECIFIED\x10\x00\x12\x1a\n\x16SERVING_STATUS_SERVING\x10\x01\x12\x1e\n\x1aSERVING_STATUS_NOT_SERVING\x10\x02\"\xfa\x02\n\x0cModelVersion\x12\x18\n\x07version\x18\x01 \x01(\x04R\x07version\x12\x19\n\x08model_id\x18\x02 \x01(\x04R\x07modelId\x12 \n\x0b\x64\x65scription\x18\x03 \x01(\tR\x0b\x64\x65scription\x12\x39\n\ncreated_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tcreatedAt\x12\x39\n\nupdated_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x42\n\x06status\x18\x06 \x01(\x0e\x32*.instill.model.v1alpha.ModelVersion.StatusR\x06status\"Y\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x12\n\x0eSTATUS_OFFLINE\x10\x01\x12\x11\n\rSTATUS_ONLINE\x10\x02\x12\x10\n\x0cSTATUS_ERROR\x10\x03\"\xa0\x02\n\x05Model\x12\x13\n\x02id\x18\x01 \x01(\x04\x42\x03\xe0\x41\x01R\x02id\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12 \n\tfull_name\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x08\x66ullName\x12\x35\n\x04task\x18\x04 \x01(\x0e\x32!.instill.model.v1alpha.Model.TaskR\x04task\x12J\n\x0emodel_versions\x18\x05 \x03(\x0b\x32#.instill.model.v1alpha.ModelVersionR\rmodelVersions\"I\n\x04Task\x12\x14\n\x10TASK_UNSPECIFIED\x10\x00\x12\x17\n\x13TASK_CLASSIFICATION\x10\x01\x12\x12\n\x0eTASK_DETECTION\x10\x02\"\xa4\x01\n\rModelInitData\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\x12\x17\n\x04\x62yte\x18\x02 \x01(\x0c\x42\x03\xe0\x41\x02R\x04\x62yte\x12%\n\x0b\x64\x65scription\x18\x03 \x01(\tB\x03\xe0\x41\x01R\x0b\x64\x65scription\x12:\n\x04task\x18\x04 \x01(\x0e\x32!.instill.model.v1alpha.Model.TaskB\x03\xe0\x41\x01R\x04task\"g\n\x12\x43reateModelRequest\x12Q\n\x0fmodel_init_data\x18\x01 \x01(\x0b\x32$.instill.model.v1alpha.ModelInitDataB\x03\xe0\x41\x02R\rmodelInitData\"N\n\x13\x43reateModelResponse\x12\x37\n\x05model\x18\x01 \x01(\x0b\x32\x1c.instill.model.v1alpha.ModelB\x03\xe0\x41\x02R\x05model\"w\n\"CreateModelBinaryFileUploadRequest\x12Q\n\x0fmodel_init_data\x18\x01 \x01(\x0b\x32$.instill.model.v1alpha.ModelInitDataB\x03\xe0\x41\x02R\rmodelInitData\"^\n#CreateModelBinaryFileUploadResponse\x12\x37\n\x05model\x18\x01 \x01(\x0b\x32\x1c.instill.model.v1alpha.ModelB\x03\xe0\x41\x02R\x05model\"\x7f\n\x17UpdateModelVersionPatch\x12 \n\x0b\x64\x65scription\x18\x01 \x01(\tR\x0b\x64\x65scription\x12\x42\n\x06status\x18\x02 \x01(\x0e\x32*.instill.model.v1alpha.ModelVersion.StatusR\x06status\"\xed\x01\n\x19UpdateModelVersionRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\x12\x1d\n\x07version\x18\x02 \x01(\x04\x42\x03\xe0\x41\x02R\x07version\x12X\n\rversion_patch\x18\x03 \x01(\x0b\x32..instill.model.v1alpha.UpdateModelVersionPatchB\x03\xe0\x41\x02R\x0cversionPatch\x12>\n\nfield_mask\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\tfieldMask\"k\n\x1aUpdateModelVersionResponse\x12M\n\rmodel_version\x18\x01 \x01(\x0b\x32#.instill.model.v1alpha.ModelVersionB\x03\xe0\x41\x02R\x0cmodelVersion\"\x12\n\x10ListModelRequest\"I\n\x11ListModelResponse\x12\x34\n\x06models\x18\x01 \x03(\x0b\x32\x1c.instill.model.v1alpha.ModelR\x06models\"*\n\x0fGetModelRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\"K\n\x10GetModelResponse\x12\x37\n\x05model\x18\x01 \x01(\x0b\x32\x1c.instill.model.v1alpha.ModelB\x03\xe0\x41\x02R\x05model\"-\n\x12\x44\x65leteModelRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\"\x15\n\x13\x44\x65leteModelResponse\"S\n\x19\x44\x65leteModelVersionRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\x12\x1d\n\x07version\x18\x02 \x01(\x04\x42\x03\xe0\x41\x02R\x07version\"\x1c\n\x1a\x44\x65leteModelVersionResponse\"S\n\x05Input\x12\x1d\n\timage_url\x18\x01 \x01(\tH\x00R\x08imageUrl\x12#\n\x0cimage_base64\x18\x02 \x01(\tH\x00R\x0bimageBase64B\x06\n\x04type\"\x88\x01\n\x13TriggerModelRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\x12\x1d\n\x07version\x18\x02 \x01(\x04\x42\x03\xe0\x41\x02R\x07version\x12\x39\n\x06inputs\x18\x03 \x03(\x0b\x32\x1c.instill.model.v1alpha.InputB\x03\xe0\x41\x02R\x06inputs\"G\n\x14TriggerModelResponse\x12/\n\x06output\x18\x01 \x01(\x0b\x32\x17.google.protobuf.StructR\x06output\"x\n#TriggerModelBinaryFileUploadRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\x12\x1d\n\x07version\x18\x02 \x01(\x04\x42\x03\xe0\x41\x02R\x07version\x12\x19\n\x05\x63hunk\x18\x03 \x01(\x0c\x42\x03\xe0\x41\x02R\x05\x63hunk\"W\n$TriggerModelBinaryFileUploadResponse\x12/\n\x06output\x18\x01 \x01(\x0b\x32\x17.google.protobuf.StructR\x06output\"H\n\x14\x43lassificationOutput\x12\x1a\n\x08\x63\x61tegory\x18\x01 \x01(\tR\x08\x63\x61tegory\x12\x14\n\x05score\x18\x02 \x01(\x02R\x05score\"{\n\x15\x43lassificationOutputs\x12\x62\n\x16\x63lassification_outputs\x18\x01 \x03(\x0b\x32+.instill.model.v1alpha.ClassificationOutputR\x15\x63lassificationOutputs\"a\n\x0b\x42oundingBox\x12\x10\n\x03top\x18\x01 \x01(\x02R\x03top\x12\x12\n\x04left\x18\x02 \x01(\x02R\x04left\x12\x14\n\x05width\x18\x03 \x01(\x02R\x05width\x12\x16\n\x06height\x18\x04 \x01(\x02R\x06height\"\x8c\x01\n\x11\x42oundingBoxObject\x12\x1a\n\x08\x63\x61tegory\x18\x01 \x01(\tR\x08\x63\x61tegory\x12\x14\n\x05score\x18\x02 \x01(\x02R\x05score\x12\x45\n\x0c\x62ounding_box\x18\x03 \x01(\x0b\x32\".instill.model.v1alpha.BoundingBoxR\x0b\x62oundingBox\"m\n\x0f\x44\x65tectionOutput\x12Z\n\x14\x62ounding_box_objects\x18\x01 \x03(\x0b\x32(.instill.model.v1alpha.BoundingBoxObjectR\x12\x62oundingBoxObjects\"e\n\x10\x44\x65tectionOutputs\x12Q\n\x10\x64\x65tection_output\x18\x01 \x03(\x0b\x32&.instill.model.v1alpha.DetectionOutputR\x0f\x64\x65tectionOutput2\x9c\x0c\n\x0cModelService\x12\x81\x01\n\x08Liveness\x12&.instill.model.v1alpha.LivenessRequest\x1a\'.instill.model.v1alpha.LivenessResponse\"$\x82\xd3\xe4\x93\x02\x1eZ\x0f\x12\r/health/model\x12\x0b/__liveness\x12t\n\tReadiness\x12\'.instill.model.v1alpha.ReadinessRequest\x1a(.instill.model.v1alpha.ReadinessResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/__readiness\x12x\n\x0b\x43reateModel\x12).instill.model.v1alpha.CreateModelRequest\x1a*.instill.model.v1alpha.CreateModelResponse\"\x12\x82\xd3\xe4\x93\x02\x0c:\x01*\"\x07/models\x12\x98\x01\n\x1b\x43reateModelBinaryFileUpload\x12\x39.instill.model.v1alpha.CreateModelBinaryFileUploadRequest\x1a:.instill.model.v1alpha.CreateModelBinaryFileUploadResponse\"\x00(\x01\x12o\n\tListModel\x12\'.instill.model.v1alpha.ListModelRequest\x1a(.instill.model.v1alpha.ListModelResponse\"\x0f\x82\xd3\xe4\x93\x02\t\x12\x07/models\x12s\n\x08GetModel\x12&.instill.model.v1alpha.GetModelRequest\x1a\'.instill.model.v1alpha.GetModelResponse\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/models/{name}\x12\xb3\x01\n\x12UpdateModelVersion\x12\x30.instill.model.v1alpha.UpdateModelVersionRequest\x1a\x31.instill.model.v1alpha.UpdateModelVersionResponse\"8\x82\xd3\xe4\x93\x02\x32:\rversion_patch2!/models/{name}/versions/{version}\x12|\n\x0b\x44\x65leteModel\x12).instill.model.v1alpha.DeleteModelRequest\x1a*.instill.model.v1alpha.DeleteModelResponse\"\x16\x82\xd3\xe4\x93\x02\x10*\x0e/models/{name}\x12\xa4\x01\n\x12\x44\x65leteModelVersion\x12\x30.instill.model.v1alpha.DeleteModelVersionRequest\x1a\x31.instill.model.v1alpha.DeleteModelVersionResponse\")\x82\xd3\xe4\x93\x02#*!/models/{name}/versions/{version}\x12\x9d\x01\n\x0cTriggerModel\x12*.instill.model.v1alpha.TriggerModelRequest\x1a+.instill.model.v1alpha.TriggerModelResponse\"4\x82\xd3\xe4\x93\x02.:\x01*\")/models/{name}/versions/{version}/outputs\x12\x9b\x01\n\x1cTriggerModelBinaryFileUpload\x12:.instill.model.v1alpha.TriggerModelBinaryFileUploadRequest\x1a;.instill.model.v1alpha.TriggerModelBinaryFileUploadResponse\"\x00(\x01\x42\xe3\x01\n\x19\x63om.instill.model.v1alphaB\nModelProtoP\x01ZDgithub.com/instill-ai/protogen-go/instill/model/v1alpha;modelv1alpha\xa2\x02\x03IMX\xaa\x02\x15Instill.Model.V1alpha\xca\x02\x15Instill\\Model\\V1alpha\xe2\x02!Instill\\Model\\V1alpha\\GPBMetadata\xea\x02\x17Instill::Model::V1alphab\x06proto3')
 
 
 
@@ -34,6 +34,7 @@ _CREATEMODELREQUEST = DESCRIPTOR.message_types_by_name['CreateModelRequest']
 _CREATEMODELRESPONSE = DESCRIPTOR.message_types_by_name['CreateModelResponse']
 _CREATEMODELBINARYFILEUPLOADREQUEST = DESCRIPTOR.message_types_by_name['CreateModelBinaryFileUploadRequest']
 _CREATEMODELBINARYFILEUPLOADRESPONSE = DESCRIPTOR.message_types_by_name['CreateModelBinaryFileUploadResponse']
+_UPDATEMODELVERSIONPATCH = DESCRIPTOR.message_types_by_name['UpdateModelVersionPatch']
 _UPDATEMODELVERSIONREQUEST = DESCRIPTOR.message_types_by_name['UpdateModelVersionRequest']
 _UPDATEMODELVERSIONRESPONSE = DESCRIPTOR.message_types_by_name['UpdateModelVersionResponse']
 _LISTMODELREQUEST = DESCRIPTOR.message_types_by_name['ListModelRequest']
@@ -45,7 +46,6 @@ _DELETEMODELRESPONSE = DESCRIPTOR.message_types_by_name['DeleteModelResponse']
 _DELETEMODELVERSIONREQUEST = DESCRIPTOR.message_types_by_name['DeleteModelVersionRequest']
 _DELETEMODELVERSIONRESPONSE = DESCRIPTOR.message_types_by_name['DeleteModelVersionResponse']
 _INPUT = DESCRIPTOR.message_types_by_name['Input']
-_OUTPUT = DESCRIPTOR.message_types_by_name['Output']
 _TRIGGERMODELREQUEST = DESCRIPTOR.message_types_by_name['TriggerModelRequest']
 _TRIGGERMODELRESPONSE = DESCRIPTOR.message_types_by_name['TriggerModelResponse']
 _TRIGGERMODELBINARYFILEUPLOADREQUEST = DESCRIPTOR.message_types_by_name['TriggerModelBinaryFileUploadRequest']
@@ -137,6 +137,13 @@ CreateModelBinaryFileUploadResponse = _reflection.GeneratedProtocolMessageType('
   })
 _sym_db.RegisterMessage(CreateModelBinaryFileUploadResponse)
 
+UpdateModelVersionPatch = _reflection.GeneratedProtocolMessageType('UpdateModelVersionPatch', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATEMODELVERSIONPATCH,
+  '__module__' : 'instill.model.v1alpha.model_pb2'
+  # @@protoc_insertion_point(class_scope:instill.model.v1alpha.UpdateModelVersionPatch)
+  })
+_sym_db.RegisterMessage(UpdateModelVersionPatch)
+
 UpdateModelVersionRequest = _reflection.GeneratedProtocolMessageType('UpdateModelVersionRequest', (_message.Message,), {
   'DESCRIPTOR' : _UPDATEMODELVERSIONREQUEST,
   '__module__' : 'instill.model.v1alpha.model_pb2'
@@ -213,13 +220,6 @@ Input = _reflection.GeneratedProtocolMessageType('Input', (_message.Message,), {
   # @@protoc_insertion_point(class_scope:instill.model.v1alpha.Input)
   })
 _sym_db.RegisterMessage(Input)
-
-Output = _reflection.GeneratedProtocolMessageType('Output', (_message.Message,), {
-  'DESCRIPTOR' : _OUTPUT,
-  '__module__' : 'instill.model.v1alpha.model_pb2'
-  # @@protoc_insertion_point(class_scope:instill.model.v1alpha.Output)
-  })
-_sym_db.RegisterMessage(Output)
 
 TriggerModelRequest = _reflection.GeneratedProtocolMessageType('TriggerModelRequest', (_message.Message,), {
   'DESCRIPTOR' : _TRIGGERMODELREQUEST,
@@ -320,10 +320,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _UPDATEMODELVERSIONREQUEST.fields_by_name['name']._serialized_options = b'\340A\002'
   _UPDATEMODELVERSIONREQUEST.fields_by_name['version']._options = None
   _UPDATEMODELVERSIONREQUEST.fields_by_name['version']._serialized_options = b'\340A\002'
-  _UPDATEMODELVERSIONREQUEST.fields_by_name['description']._options = None
-  _UPDATEMODELVERSIONREQUEST.fields_by_name['description']._serialized_options = b'\340A\001'
-  _UPDATEMODELVERSIONREQUEST.fields_by_name['status']._options = None
-  _UPDATEMODELVERSIONREQUEST.fields_by_name['status']._serialized_options = b'\340A\001'
+  _UPDATEMODELVERSIONREQUEST.fields_by_name['version_patch']._options = None
+  _UPDATEMODELVERSIONREQUEST.fields_by_name['version_patch']._serialized_options = b'\340A\002'
   _UPDATEMODELVERSIONREQUEST.fields_by_name['field_mask']._options = None
   _UPDATEMODELVERSIONREQUEST.fields_by_name['field_mask']._serialized_options = b'\340A\002'
   _UPDATEMODELVERSIONRESPONSE.fields_by_name['model_version']._options = None
@@ -361,7 +359,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _MODELSERVICE.methods_by_name['GetModel']._options = None
   _MODELSERVICE.methods_by_name['GetModel']._serialized_options = b'\202\323\344\223\002\020\022\016/models/{name}'
   _MODELSERVICE.methods_by_name['UpdateModelVersion']._options = None
-  _MODELSERVICE.methods_by_name['UpdateModelVersion']._serialized_options = b'\202\323\344\223\002&:\001*2!/models/{name}/versions/{version}'
+  _MODELSERVICE.methods_by_name['UpdateModelVersion']._serialized_options = b'\202\323\344\223\0022:\rversion_patch2!/models/{name}/versions/{version}'
   _MODELSERVICE.methods_by_name['DeleteModel']._options = None
   _MODELSERVICE.methods_by_name['DeleteModel']._serialized_options = b'\202\323\344\223\002\020*\016/models/{name}'
   _MODELSERVICE.methods_by_name['DeleteModelVersion']._options = None
@@ -398,50 +396,50 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _CREATEMODELBINARYFILEUPLOADREQUEST._serialized_end=1874
   _CREATEMODELBINARYFILEUPLOADRESPONSE._serialized_start=1876
   _CREATEMODELBINARYFILEUPLOADRESPONSE._serialized_end=1970
-  _UPDATEMODELVERSIONREQUEST._serialized_start=1973
-  _UPDATEMODELVERSIONREQUEST._serialized_end=2232
-  _UPDATEMODELVERSIONRESPONSE._serialized_start=2234
-  _UPDATEMODELVERSIONRESPONSE._serialized_end=2341
-  _LISTMODELREQUEST._serialized_start=2343
-  _LISTMODELREQUEST._serialized_end=2361
-  _LISTMODELRESPONSE._serialized_start=2363
-  _LISTMODELRESPONSE._serialized_end=2436
-  _GETMODELREQUEST._serialized_start=2438
-  _GETMODELREQUEST._serialized_end=2480
-  _GETMODELRESPONSE._serialized_start=2482
-  _GETMODELRESPONSE._serialized_end=2557
-  _DELETEMODELREQUEST._serialized_start=2559
-  _DELETEMODELREQUEST._serialized_end=2604
-  _DELETEMODELRESPONSE._serialized_start=2606
-  _DELETEMODELRESPONSE._serialized_end=2627
-  _DELETEMODELVERSIONREQUEST._serialized_start=2629
-  _DELETEMODELVERSIONREQUEST._serialized_end=2712
-  _DELETEMODELVERSIONRESPONSE._serialized_start=2714
-  _DELETEMODELVERSIONRESPONSE._serialized_end=2742
-  _INPUT._serialized_start=2744
-  _INPUT._serialized_end=2827
-  _OUTPUT._serialized_start=2829
-  _OUTPUT._serialized_end=2886
-  _TRIGGERMODELREQUEST._serialized_start=2889
-  _TRIGGERMODELREQUEST._serialized_end=3025
-  _TRIGGERMODELRESPONSE._serialized_start=3027
-  _TRIGGERMODELRESPONSE._serialized_end=3104
-  _TRIGGERMODELBINARYFILEUPLOADREQUEST._serialized_start=3106
-  _TRIGGERMODELBINARYFILEUPLOADREQUEST._serialized_end=3226
-  _TRIGGERMODELBINARYFILEUPLOADRESPONSE._serialized_start=3228
-  _TRIGGERMODELBINARYFILEUPLOADRESPONSE._serialized_end=3321
-  _CLASSIFICATIONOUTPUT._serialized_start=3323
-  _CLASSIFICATIONOUTPUT._serialized_end=3395
-  _CLASSIFICATIONOUTPUTS._serialized_start=3397
-  _CLASSIFICATIONOUTPUTS._serialized_end=3520
-  _BOUNDINGBOX._serialized_start=3522
-  _BOUNDINGBOX._serialized_end=3619
-  _BOUNDINGBOXOBJECT._serialized_start=3622
-  _BOUNDINGBOXOBJECT._serialized_end=3762
-  _DETECTIONOUTPUT._serialized_start=3764
-  _DETECTIONOUTPUT._serialized_end=3873
-  _DETECTIONOUTPUTS._serialized_start=3875
-  _DETECTIONOUTPUTS._serialized_end=3976
-  _MODELSERVICE._serialized_start=3979
-  _MODELSERVICE._serialized_end=5531
+  _UPDATEMODELVERSIONPATCH._serialized_start=1972
+  _UPDATEMODELVERSIONPATCH._serialized_end=2099
+  _UPDATEMODELVERSIONREQUEST._serialized_start=2102
+  _UPDATEMODELVERSIONREQUEST._serialized_end=2339
+  _UPDATEMODELVERSIONRESPONSE._serialized_start=2341
+  _UPDATEMODELVERSIONRESPONSE._serialized_end=2448
+  _LISTMODELREQUEST._serialized_start=2450
+  _LISTMODELREQUEST._serialized_end=2468
+  _LISTMODELRESPONSE._serialized_start=2470
+  _LISTMODELRESPONSE._serialized_end=2543
+  _GETMODELREQUEST._serialized_start=2545
+  _GETMODELREQUEST._serialized_end=2587
+  _GETMODELRESPONSE._serialized_start=2589
+  _GETMODELRESPONSE._serialized_end=2664
+  _DELETEMODELREQUEST._serialized_start=2666
+  _DELETEMODELREQUEST._serialized_end=2711
+  _DELETEMODELRESPONSE._serialized_start=2713
+  _DELETEMODELRESPONSE._serialized_end=2734
+  _DELETEMODELVERSIONREQUEST._serialized_start=2736
+  _DELETEMODELVERSIONREQUEST._serialized_end=2819
+  _DELETEMODELVERSIONRESPONSE._serialized_start=2821
+  _DELETEMODELVERSIONRESPONSE._serialized_end=2849
+  _INPUT._serialized_start=2851
+  _INPUT._serialized_end=2934
+  _TRIGGERMODELREQUEST._serialized_start=2937
+  _TRIGGERMODELREQUEST._serialized_end=3073
+  _TRIGGERMODELRESPONSE._serialized_start=3075
+  _TRIGGERMODELRESPONSE._serialized_end=3146
+  _TRIGGERMODELBINARYFILEUPLOADREQUEST._serialized_start=3148
+  _TRIGGERMODELBINARYFILEUPLOADREQUEST._serialized_end=3268
+  _TRIGGERMODELBINARYFILEUPLOADRESPONSE._serialized_start=3270
+  _TRIGGERMODELBINARYFILEUPLOADRESPONSE._serialized_end=3357
+  _CLASSIFICATIONOUTPUT._serialized_start=3359
+  _CLASSIFICATIONOUTPUT._serialized_end=3431
+  _CLASSIFICATIONOUTPUTS._serialized_start=3433
+  _CLASSIFICATIONOUTPUTS._serialized_end=3556
+  _BOUNDINGBOX._serialized_start=3558
+  _BOUNDINGBOX._serialized_end=3655
+  _BOUNDINGBOXOBJECT._serialized_start=3658
+  _BOUNDINGBOXOBJECT._serialized_end=3798
+  _DETECTIONOUTPUT._serialized_start=3800
+  _DETECTIONOUTPUT._serialized_end=3909
+  _DETECTIONOUTPUTS._serialized_start=3911
+  _DETECTIONOUTPUTS._serialized_end=4012
+  _MODELSERVICE._serialized_start=4015
+  _MODELSERVICE._serialized_end=5579
 # @@protoc_insertion_point(module_scope)
