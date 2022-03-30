@@ -25,6 +25,11 @@ class ModelServiceStub(object):
                 request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.ReadinessRequest.SerializeToString,
                 response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.ReadinessResponse.FromString,
                 )
+        self.CreateModelByGitHub = channel.unary_unary(
+                '/instill.model.v1alpha.ModelService/CreateModelByGitHub',
+                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelByGitHubRequest.SerializeToString,
+                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelByGitHubResponse.FromString,
+                )
         self.CreateModelBinaryFileUpload = channel.stream_unary(
                 '/instill.model.v1alpha.ModelService/CreateModelBinaryFileUpload',
                 request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadRequest.SerializeToString,
@@ -84,6 +89,15 @@ class ModelServiceServicer(object):
         """Readiness method receives a ReadinessRequest message and returns a
         ReadinessResponse message.
         See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateModelByGitHub(self, request, context):
+        """CreateModelByGitHub method receives a
+        CreateModelByGitHubRequest message and returns a
+        CreateModelByGitHubResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -168,6 +182,11 @@ def add_ModelServiceServicer_to_server(servicer, server):
                     request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.ReadinessRequest.FromString,
                     response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.ReadinessResponse.SerializeToString,
             ),
+            'CreateModelByGitHub': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateModelByGitHub,
+                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelByGitHubRequest.FromString,
+                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelByGitHubResponse.SerializeToString,
+            ),
             'CreateModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
                     servicer.CreateModelBinaryFileUpload,
                     request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadRequest.FromString,
@@ -250,6 +269,23 @@ class ModelService(object):
         return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/Readiness',
             instill_dot_model_dot_v1alpha_dot_model__pb2.ReadinessRequest.SerializeToString,
             instill_dot_model_dot_v1alpha_dot_model__pb2.ReadinessResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateModelByGitHub(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/CreateModelByGitHub',
+            instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelByGitHubRequest.SerializeToString,
+            instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelByGitHubResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
