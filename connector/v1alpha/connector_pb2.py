@@ -12,49 +12,40 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
-from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
-from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
+from instill.connector.v1alpha import definition_pb2 as instill_dot_connector_dot_v1alpha_dot_definition__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)instill/connector/v1alpha/connector.proto\x12\x19instill.connector.v1alpha\x1a\x1cgoogle/protobuf/struct.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\"0\n\x0fLivenessRequest\x12\x1d\n\x07service\x18\x01 \x01(\tB\x03\xe0\x41\x01R\x07service\"\xd7\x01\n\x10LivenessResponse\x12V\n\x06status\x18\x01 \x01(\x0e\x32\x39.instill.connector.v1alpha.LivenessResponse.ServingStatusB\x03\xe0\x41\x03R\x06status\"k\n\rServingStatus\x12\x1e\n\x1aSERVING_STATUS_UNSPECIFIED\x10\x00\x12\x1a\n\x16SERVING_STATUS_SERVING\x10\x01\x12\x1e\n\x1aSERVING_STATUS_NOT_SERVING\x10\x02\"1\n\x10ReadinessRequest\x12\x1d\n\x07service\x18\x01 \x01(\tB\x03\xe0\x41\x01R\x07service\"\xd9\x01\n\x11ReadinessResponse\x12W\n\x06status\x18\x01 \x01(\x0e\x32:.instill.connector.v1alpha.ReadinessResponse.ServingStatusB\x03\xe0\x41\x03R\x06status\"k\n\rServingStatus\x12\x1e\n\x1aSERVING_STATUS_UNSPECIFIED\x10\x00\x12\x1a\n\x16SERVING_STATUS_SERVING\x10\x01\x12\x1e\n\x1aSERVING_STATUS_NOT_SERVING\x10\x02\"\x90\x03\n\x06Source\x12\x13\n\x02id\x18\x01 \x01(\x04\x42\x03\xe0\x41\x03R\x02id\x12\x17\n\x04name\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x04name\x12%\n\x0b\x64\x65scription\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x0b\x64\x65scription\x12?\n\x04type\x18\x04 \x01(\x0e\x32&.instill.connector.v1alpha.Source.TypeB\x03\xe0\x41\x03R\x04type\x12\x34\n\x06\x63onfig\x18\x05 \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x03R\x06\x63onfig\x12>\n\ncreated_at\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\tcreatedAt\x12>\n\nupdated_at\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\tupdatedAt\":\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\r\n\tTYPE_HTTP\x10\x01\x12\r\n\tTYPE_GRPC\x10\x02\"\xa4\x01\n\x13\x43reateSourceRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\x12%\n\x0b\x64\x65scription\x18\x02 \x01(\tB\x03\xe0\x41\x01R\x0b\x64\x65scription\x12\x17\n\x04type\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x04type\x12\x34\n\x06\x63onfig\x18\x04 \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x02R\x06\x63onfig\"V\n\x14\x43reateSourceResponse\x12>\n\x06source\x18\x01 \x01(\x0b\x32!.instill.connector.v1alpha.SourceB\x03\xe0\x41\x03R\x06source\"\xed\x02\n\x0b\x44\x65stination\x12\x13\n\x02id\x18\x01 \x01(\x04\x42\x03\xe0\x41\x03R\x02id\x12\x17\n\x04name\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x04name\x12%\n\x0b\x64\x65scription\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x0b\x64\x65scription\x12\x17\n\x04type\x18\x04 \x01(\tB\x03\xe0\x41\x03R\x04type\x12\x34\n\x06\x63onfig\x18\x05 \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x03R\x06\x63onfig\x12>\n\ncreated_at\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\tcreatedAt\x12>\n\nupdated_at\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\tupdatedAt\":\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\r\n\tTYPE_HTTP\x10\x01\x12\r\n\tTYPE_GRPC\x10\x02\"\xa9\x01\n\x18\x43reateDestinationRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\x12%\n\x0b\x64\x65scription\x18\x02 \x01(\tB\x03\xe0\x41\x01R\x0b\x64\x65scription\x12\x17\n\x04type\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x04type\x12\x34\n\x06\x63onfig\x18\x04 \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x02R\x06\x63onfig\"j\n\x19\x43reateDestinationResponse\x12M\n\x0b\x64\x65stination\x18\x01 \x01(\x0b\x32&.instill.connector.v1alpha.DestinationB\x03\xe0\x41\x03R\x0b\x64\x65stination\"Y\n\x11ListSourceRequest\x12 \n\tpage_size\x18\x01 \x01(\x04\x42\x03\xe0\x41\x01R\x08pageSize\x12\"\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01R\tpageToken\"\x83\x01\n\x12ListSourceResponse\x12@\n\x07sources\x18\x01 \x03(\x0b\x32!.instill.connector.v1alpha.SourceB\x03\xe0\x41\x03R\x07sources\x12+\n\x0fnext_page_token\x18\x02 \x01(\tB\x03\xe0\x41\x03R\rnextPageToken\"^\n\x16ListDestinationRequest\x12 \n\tpage_size\x18\x01 \x01(\x04\x42\x03\xe0\x41\x01R\x08pageSize\x12\"\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01R\tpageToken\"\x97\x01\n\x17ListDestinationResponse\x12O\n\x0c\x64\x65stinations\x18\x01 \x03(\x0b\x32&.instill.connector.v1alpha.DestinationB\x03\xe0\x41\x03R\x0c\x64\x65stinations\x12+\n\x0fnext_page_token\x18\x02 \x01(\tB\x03\xe0\x41\x03R\rnextPageToken\"+\n\x10GetSourceRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\"S\n\x11GetSourceResponse\x12>\n\x06source\x18\x01 \x01(\x0b\x32!.instill.connector.v1alpha.SourceB\x03\xe0\x41\x03R\x06source\"0\n\x15GetDestinationRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\"g\n\x16GetDestinationResponse\x12M\n\x0b\x64\x65stination\x18\x01 \x01(\x0b\x32&.instill.connector.v1alpha.DestinationB\x03\xe0\x41\x03R\x0b\x64\x65stination\"\xa2\x01\n\x11UpdateSourcePatch\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x01R\x04name\x12%\n\x0b\x64\x65scription\x18\x02 \x01(\tB\x03\xe0\x41\x01R\x0b\x64\x65scription\x12\x17\n\x04type\x18\x03 \x01(\tB\x03\xe0\x41\x01R\x04type\x12\x34\n\x06\x63onfig\x18\x04 \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x01R\x06\x63onfig\"\xc4\x01\n\x13UpdateSourceRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\x12T\n\x0csource_patch\x18\x02 \x01(\x0b\x32,.instill.connector.v1alpha.UpdateSourcePatchB\x03\xe0\x41\x02R\x0bsourcePatch\x12>\n\nfield_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\tfieldMask\"V\n\x14UpdateSourceResponse\x12>\n\x06source\x18\x01 \x01(\x0b\x32!.instill.connector.v1alpha.SourceB\x03\xe0\x41\x03R\x06source\"\xa7\x01\n\x16UpdateDestinationPatch\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x01R\x04name\x12%\n\x0b\x64\x65scription\x18\x02 \x01(\tB\x03\xe0\x41\x01R\x0b\x64\x65scription\x12\x17\n\x04type\x18\x03 \x01(\tB\x03\xe0\x41\x01R\x04type\x12\x34\n\x06\x63onfig\x18\x04 \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x01R\x06\x63onfig\"\xd8\x01\n\x18UpdateDestinationRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\x12\x63\n\x11\x64\x65stination_patch\x18\x02 \x01(\x0b\x32\x31.instill.connector.v1alpha.UpdateDestinationPatchB\x03\xe0\x41\x02R\x10\x64\x65stinationPatch\x12>\n\nfield_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\tfieldMask\"j\n\x19UpdateDestinationResponse\x12M\n\x0b\x64\x65stination\x18\x01 \x01(\x0b\x32&.instill.connector.v1alpha.DestinationB\x03\xe0\x41\x03R\x0b\x64\x65stination\".\n\x13\x44\x65leteSourceRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\"\x16\n\x14\x44\x65leteSourceResponse\"3\n\x18\x44\x65leteDestinationRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\"\x1b\n\x19\x44\x65leteDestinationResponse2\xdd\r\n\x10\x43onnectorService\x12\x8d\x01\n\x08Liveness\x12*.instill.connector.v1alpha.LivenessRequest\x1a+.instill.connector.v1alpha.LivenessResponse\"(\x82\xd3\xe4\x93\x02\"Z\x13\x12\x11/health/connector\x12\x0b/__liveness\x12|\n\tReadiness\x12+.instill.connector.v1alpha.ReadinessRequest\x1a,.instill.connector.v1alpha.ReadinessResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/__readiness\x12\x84\x01\n\x0c\x43reateSource\x12..instill.connector.v1alpha.CreateSourceRequest\x1a/.instill.connector.v1alpha.CreateSourceResponse\"\x13\x82\xd3\xe4\x93\x02\r:\x01*\"\x08/sources\x12\x98\x01\n\x11\x43reateDestination\x12\x33.instill.connector.v1alpha.CreateDestinationRequest\x1a\x34.instill.connector.v1alpha.CreateDestinationResponse\"\x18\x82\xd3\xe4\x93\x02\x12:\x01*\"\r/destinations\x12{\n\nListSource\x12,.instill.connector.v1alpha.ListSourceRequest\x1a-.instill.connector.v1alpha.ListSourceResponse\"\x10\x82\xd3\xe4\x93\x02\n\x12\x08/sources\x12\x8f\x01\n\x0fListDestination\x12\x31.instill.connector.v1alpha.ListDestinationRequest\x1a\x32.instill.connector.v1alpha.ListDestinationResponse\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/destinations\x12\x7f\n\tGetSource\x12+.instill.connector.v1alpha.GetSourceRequest\x1a,.instill.connector.v1alpha.GetSourceResponse\"\x17\x82\xd3\xe4\x93\x02\x11\x12\x0f/sources/{name}\x12\x93\x01\n\x0eGetDestination\x12\x30.instill.connector.v1alpha.GetDestinationRequest\x1a\x31.instill.connector.v1alpha.GetDestinationResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/destinations/{name}\x12\x96\x01\n\x0cUpdateSource\x12..instill.connector.v1alpha.UpdateSourceRequest\x1a/.instill.connector.v1alpha.UpdateSourceResponse\"%\x82\xd3\xe4\x93\x02\x1f:\x0csource_patch2\x0f/sources/{name}\x12\xaf\x01\n\x11UpdateDestination\x12\x33.instill.connector.v1alpha.UpdateDestinationRequest\x1a\x34.instill.connector.v1alpha.UpdateDestinationResponse\"/\x82\xd3\xe4\x93\x02):\x11\x64\x65stination_patch2\x14/destinations/{name}\x12\x88\x01\n\x0c\x44\x65leteSource\x12..instill.connector.v1alpha.DeleteSourceRequest\x1a/.instill.connector.v1alpha.DeleteSourceResponse\"\x17\x82\xd3\xe4\x93\x02\x11*\x0f/sources/{name}\x12\x9c\x01\n\x11\x44\x65leteDestination\x12\x33.instill.connector.v1alpha.DeleteDestinationRequest\x1a\x34.instill.connector.v1alpha.DeleteDestinationResponse\"\x1c\x82\xd3\xe4\x93\x02\x16*\x14/destinations/{name}B\x83\x02\n\x1d\x63om.instill.connector.v1alphaB\x0e\x43onnectorProtoP\x01ZLgithub.com/instill-ai/protogen-go/instill/connector/v1alpha;connectorv1alpha\xa2\x02\x03ICX\xaa\x02\x19Instill.Connector.V1alpha\xca\x02\x19Instill\\Connector\\V1alpha\xe2\x02%Instill\\Connector\\V1alpha\\GPBMetadata\xea\x02\x1bInstill::Connector::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)instill/connector/v1alpha/connector.proto\x12\x19instill.connector.v1alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a*instill/connector/v1alpha/definition.proto\"3\n\x12HealthCheckRequest\x12\x1d\n\x07service\x18\x01 \x01(\tB\x03\xe0\x41\x01R\x07service\"\xdd\x01\n\x13HealthCheckResponse\x12Y\n\x06status\x18\x01 \x01(\x0e\x32<.instill.connector.v1alpha.HealthCheckResponse.ServingStatusB\x03\xe0\x41\x03R\x06status\"k\n\rServingStatus\x12\x1e\n\x1aSERVING_STATUS_UNSPECIFIED\x10\x00\x12\x1a\n\x16SERVING_STATUS_SERVING\x10\x01\x12\x1e\n\x1aSERVING_STATUS_NOT_SERVING\x10\x02\"w\n\x0fLivenessRequest\x12\x64\n\x14health_check_request\x18\x01 \x01(\x0b\x32-.instill.connector.v1alpha.HealthCheckRequestB\x03\xe0\x41\x01R\x12healthCheckRequest\"{\n\x10LivenessResponse\x12g\n\x15health_check_response\x18\x01 \x01(\x0b\x32..instill.connector.v1alpha.HealthCheckResponseB\x03\xe0\x41\x03R\x13healthCheckResponse\"x\n\x10ReadinessRequest\x12\x64\n\x14health_check_request\x18\x01 \x01(\x0b\x32-.instill.connector.v1alpha.HealthCheckRequestB\x03\xe0\x41\x01R\x12healthCheckRequest\"|\n\x11ReadinessResponse\x12g\n\x15health_check_response\x18\x01 \x01(\x0b\x32..instill.connector.v1alpha.HealthCheckResponseB\x03\xe0\x41\x03R\x13healthCheckResponse\"c\n\x1bListSourceDefinitionRequest\x12 \n\tpage_size\x18\x02 \x01(\x04\x42\x03\xe0\x41\x01R\x08pageSize\x12\"\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01R\tpageToken\"\xac\x01\n\x1cListSourceDefinitionResponse\x12_\n\x12source_definitions\x18\x01 \x03(\x0b\x32+.instill.connector.v1alpha.SourceDefinitionB\x03\xe0\x41\x03R\x11sourceDefinitions\x12+\n\x0fnext_page_token\x18\x02 \x01(\tB\x03\xe0\x41\x03R\rnextPageToken\"J\n\x1aGetSourceDefinitionRequest\x12\x13\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x01R\x02id\x12\x17\n\x04name\x18\x02 \x01(\tB\x03\xe0\x41\x01R\x04name\"\x82\x01\n\x1bGetSourceDefinitionResponse\x12\x63\n\x14\x63onnector_definition\x18\x01 \x01(\x0b\x32+.instill.connector.v1alpha.SourceDefinitionB\x03\xe0\x41\x03R\x13\x63onnectorDefinition2\x88\x05\n\x10\x43onnectorService\x12\x8d\x01\n\x08Liveness\x12*.instill.connector.v1alpha.LivenessRequest\x1a+.instill.connector.v1alpha.LivenessResponse\"(\x82\xd3\xe4\x93\x02\"Z\x13\x12\x11/health/connector\x12\x0b/__liveness\x12|\n\tReadiness\x12+.instill.connector.v1alpha.ReadinessRequest\x1a,.instill.connector.v1alpha.ReadinessResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/__readiness\x12\xaf\x01\n\x14ListSourceDefinition\x12\x36.instill.connector.v1alpha.ListSourceDefinitionRequest\x1a\x37.instill.connector.v1alpha.ListSourceDefinitionResponse\"&\x82\xd3\xe4\x93\x02 \x12\x1e/connectors/source-definitions\x12\xb3\x01\n\x13GetSourceDefinition\x12\x35.instill.connector.v1alpha.GetSourceDefinitionRequest\x1a\x36.instill.connector.v1alpha.GetSourceDefinitionResponse\"-\x82\xd3\xe4\x93\x02\'\x12%/connectors/source-definitions/{name}B\x83\x02\n\x1d\x63om.instill.connector.v1alphaB\x0e\x43onnectorProtoP\x01ZLgithub.com/instill-ai/protogen-go/instill/connector/v1alpha;connectorv1alpha\xa2\x02\x03ICX\xaa\x02\x19Instill.Connector.V1alpha\xca\x02\x19Instill\\Connector\\V1alpha\xe2\x02%Instill\\Connector\\V1alpha\\GPBMetadata\xea\x02\x1bInstill::Connector::V1alphab\x06proto3')
 
 
 
+_HEALTHCHECKREQUEST = DESCRIPTOR.message_types_by_name['HealthCheckRequest']
+_HEALTHCHECKRESPONSE = DESCRIPTOR.message_types_by_name['HealthCheckResponse']
 _LIVENESSREQUEST = DESCRIPTOR.message_types_by_name['LivenessRequest']
 _LIVENESSRESPONSE = DESCRIPTOR.message_types_by_name['LivenessResponse']
 _READINESSREQUEST = DESCRIPTOR.message_types_by_name['ReadinessRequest']
 _READINESSRESPONSE = DESCRIPTOR.message_types_by_name['ReadinessResponse']
-_SOURCE = DESCRIPTOR.message_types_by_name['Source']
-_CREATESOURCEREQUEST = DESCRIPTOR.message_types_by_name['CreateSourceRequest']
-_CREATESOURCERESPONSE = DESCRIPTOR.message_types_by_name['CreateSourceResponse']
-_DESTINATION = DESCRIPTOR.message_types_by_name['Destination']
-_CREATEDESTINATIONREQUEST = DESCRIPTOR.message_types_by_name['CreateDestinationRequest']
-_CREATEDESTINATIONRESPONSE = DESCRIPTOR.message_types_by_name['CreateDestinationResponse']
-_LISTSOURCEREQUEST = DESCRIPTOR.message_types_by_name['ListSourceRequest']
-_LISTSOURCERESPONSE = DESCRIPTOR.message_types_by_name['ListSourceResponse']
-_LISTDESTINATIONREQUEST = DESCRIPTOR.message_types_by_name['ListDestinationRequest']
-_LISTDESTINATIONRESPONSE = DESCRIPTOR.message_types_by_name['ListDestinationResponse']
-_GETSOURCEREQUEST = DESCRIPTOR.message_types_by_name['GetSourceRequest']
-_GETSOURCERESPONSE = DESCRIPTOR.message_types_by_name['GetSourceResponse']
-_GETDESTINATIONREQUEST = DESCRIPTOR.message_types_by_name['GetDestinationRequest']
-_GETDESTINATIONRESPONSE = DESCRIPTOR.message_types_by_name['GetDestinationResponse']
-_UPDATESOURCEPATCH = DESCRIPTOR.message_types_by_name['UpdateSourcePatch']
-_UPDATESOURCEREQUEST = DESCRIPTOR.message_types_by_name['UpdateSourceRequest']
-_UPDATESOURCERESPONSE = DESCRIPTOR.message_types_by_name['UpdateSourceResponse']
-_UPDATEDESTINATIONPATCH = DESCRIPTOR.message_types_by_name['UpdateDestinationPatch']
-_UPDATEDESTINATIONREQUEST = DESCRIPTOR.message_types_by_name['UpdateDestinationRequest']
-_UPDATEDESTINATIONRESPONSE = DESCRIPTOR.message_types_by_name['UpdateDestinationResponse']
-_DELETESOURCEREQUEST = DESCRIPTOR.message_types_by_name['DeleteSourceRequest']
-_DELETESOURCERESPONSE = DESCRIPTOR.message_types_by_name['DeleteSourceResponse']
-_DELETEDESTINATIONREQUEST = DESCRIPTOR.message_types_by_name['DeleteDestinationRequest']
-_DELETEDESTINATIONRESPONSE = DESCRIPTOR.message_types_by_name['DeleteDestinationResponse']
-_LIVENESSRESPONSE_SERVINGSTATUS = _LIVENESSRESPONSE.enum_types_by_name['ServingStatus']
-_READINESSRESPONSE_SERVINGSTATUS = _READINESSRESPONSE.enum_types_by_name['ServingStatus']
-_SOURCE_TYPE = _SOURCE.enum_types_by_name['Type']
-_DESTINATION_TYPE = _DESTINATION.enum_types_by_name['Type']
+_LISTSOURCEDEFINITIONREQUEST = DESCRIPTOR.message_types_by_name['ListSourceDefinitionRequest']
+_LISTSOURCEDEFINITIONRESPONSE = DESCRIPTOR.message_types_by_name['ListSourceDefinitionResponse']
+_GETSOURCEDEFINITIONREQUEST = DESCRIPTOR.message_types_by_name['GetSourceDefinitionRequest']
+_GETSOURCEDEFINITIONRESPONSE = DESCRIPTOR.message_types_by_name['GetSourceDefinitionResponse']
+_HEALTHCHECKRESPONSE_SERVINGSTATUS = _HEALTHCHECKRESPONSE.enum_types_by_name['ServingStatus']
+HealthCheckRequest = _reflection.GeneratedProtocolMessageType('HealthCheckRequest', (_message.Message,), {
+  'DESCRIPTOR' : _HEALTHCHECKREQUEST,
+  '__module__' : 'instill.connector.v1alpha.connector_pb2'
+  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.HealthCheckRequest)
+  })
+_sym_db.RegisterMessage(HealthCheckRequest)
+
+HealthCheckResponse = _reflection.GeneratedProtocolMessageType('HealthCheckResponse', (_message.Message,), {
+  'DESCRIPTOR' : _HEALTHCHECKRESPONSE,
+  '__module__' : 'instill.connector.v1alpha.connector_pb2'
+  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.HealthCheckResponse)
+  })
+_sym_db.RegisterMessage(HealthCheckResponse)
+
 LivenessRequest = _reflection.GeneratedProtocolMessageType('LivenessRequest', (_message.Message,), {
   'DESCRIPTOR' : _LIVENESSREQUEST,
   '__module__' : 'instill.connector.v1alpha.connector_pb2'
@@ -83,383 +74,95 @@ ReadinessResponse = _reflection.GeneratedProtocolMessageType('ReadinessResponse'
   })
 _sym_db.RegisterMessage(ReadinessResponse)
 
-Source = _reflection.GeneratedProtocolMessageType('Source', (_message.Message,), {
-  'DESCRIPTOR' : _SOURCE,
+ListSourceDefinitionRequest = _reflection.GeneratedProtocolMessageType('ListSourceDefinitionRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTSOURCEDEFINITIONREQUEST,
   '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.Source)
+  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.ListSourceDefinitionRequest)
   })
-_sym_db.RegisterMessage(Source)
+_sym_db.RegisterMessage(ListSourceDefinitionRequest)
 
-CreateSourceRequest = _reflection.GeneratedProtocolMessageType('CreateSourceRequest', (_message.Message,), {
-  'DESCRIPTOR' : _CREATESOURCEREQUEST,
+ListSourceDefinitionResponse = _reflection.GeneratedProtocolMessageType('ListSourceDefinitionResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTSOURCEDEFINITIONRESPONSE,
   '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.CreateSourceRequest)
+  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.ListSourceDefinitionResponse)
   })
-_sym_db.RegisterMessage(CreateSourceRequest)
+_sym_db.RegisterMessage(ListSourceDefinitionResponse)
 
-CreateSourceResponse = _reflection.GeneratedProtocolMessageType('CreateSourceResponse', (_message.Message,), {
-  'DESCRIPTOR' : _CREATESOURCERESPONSE,
+GetSourceDefinitionRequest = _reflection.GeneratedProtocolMessageType('GetSourceDefinitionRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETSOURCEDEFINITIONREQUEST,
   '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.CreateSourceResponse)
+  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.GetSourceDefinitionRequest)
   })
-_sym_db.RegisterMessage(CreateSourceResponse)
+_sym_db.RegisterMessage(GetSourceDefinitionRequest)
 
-Destination = _reflection.GeneratedProtocolMessageType('Destination', (_message.Message,), {
-  'DESCRIPTOR' : _DESTINATION,
+GetSourceDefinitionResponse = _reflection.GeneratedProtocolMessageType('GetSourceDefinitionResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETSOURCEDEFINITIONRESPONSE,
   '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.Destination)
+  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.GetSourceDefinitionResponse)
   })
-_sym_db.RegisterMessage(Destination)
-
-CreateDestinationRequest = _reflection.GeneratedProtocolMessageType('CreateDestinationRequest', (_message.Message,), {
-  'DESCRIPTOR' : _CREATEDESTINATIONREQUEST,
-  '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.CreateDestinationRequest)
-  })
-_sym_db.RegisterMessage(CreateDestinationRequest)
-
-CreateDestinationResponse = _reflection.GeneratedProtocolMessageType('CreateDestinationResponse', (_message.Message,), {
-  'DESCRIPTOR' : _CREATEDESTINATIONRESPONSE,
-  '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.CreateDestinationResponse)
-  })
-_sym_db.RegisterMessage(CreateDestinationResponse)
-
-ListSourceRequest = _reflection.GeneratedProtocolMessageType('ListSourceRequest', (_message.Message,), {
-  'DESCRIPTOR' : _LISTSOURCEREQUEST,
-  '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.ListSourceRequest)
-  })
-_sym_db.RegisterMessage(ListSourceRequest)
-
-ListSourceResponse = _reflection.GeneratedProtocolMessageType('ListSourceResponse', (_message.Message,), {
-  'DESCRIPTOR' : _LISTSOURCERESPONSE,
-  '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.ListSourceResponse)
-  })
-_sym_db.RegisterMessage(ListSourceResponse)
-
-ListDestinationRequest = _reflection.GeneratedProtocolMessageType('ListDestinationRequest', (_message.Message,), {
-  'DESCRIPTOR' : _LISTDESTINATIONREQUEST,
-  '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.ListDestinationRequest)
-  })
-_sym_db.RegisterMessage(ListDestinationRequest)
-
-ListDestinationResponse = _reflection.GeneratedProtocolMessageType('ListDestinationResponse', (_message.Message,), {
-  'DESCRIPTOR' : _LISTDESTINATIONRESPONSE,
-  '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.ListDestinationResponse)
-  })
-_sym_db.RegisterMessage(ListDestinationResponse)
-
-GetSourceRequest = _reflection.GeneratedProtocolMessageType('GetSourceRequest', (_message.Message,), {
-  'DESCRIPTOR' : _GETSOURCEREQUEST,
-  '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.GetSourceRequest)
-  })
-_sym_db.RegisterMessage(GetSourceRequest)
-
-GetSourceResponse = _reflection.GeneratedProtocolMessageType('GetSourceResponse', (_message.Message,), {
-  'DESCRIPTOR' : _GETSOURCERESPONSE,
-  '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.GetSourceResponse)
-  })
-_sym_db.RegisterMessage(GetSourceResponse)
-
-GetDestinationRequest = _reflection.GeneratedProtocolMessageType('GetDestinationRequest', (_message.Message,), {
-  'DESCRIPTOR' : _GETDESTINATIONREQUEST,
-  '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.GetDestinationRequest)
-  })
-_sym_db.RegisterMessage(GetDestinationRequest)
-
-GetDestinationResponse = _reflection.GeneratedProtocolMessageType('GetDestinationResponse', (_message.Message,), {
-  'DESCRIPTOR' : _GETDESTINATIONRESPONSE,
-  '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.GetDestinationResponse)
-  })
-_sym_db.RegisterMessage(GetDestinationResponse)
-
-UpdateSourcePatch = _reflection.GeneratedProtocolMessageType('UpdateSourcePatch', (_message.Message,), {
-  'DESCRIPTOR' : _UPDATESOURCEPATCH,
-  '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.UpdateSourcePatch)
-  })
-_sym_db.RegisterMessage(UpdateSourcePatch)
-
-UpdateSourceRequest = _reflection.GeneratedProtocolMessageType('UpdateSourceRequest', (_message.Message,), {
-  'DESCRIPTOR' : _UPDATESOURCEREQUEST,
-  '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.UpdateSourceRequest)
-  })
-_sym_db.RegisterMessage(UpdateSourceRequest)
-
-UpdateSourceResponse = _reflection.GeneratedProtocolMessageType('UpdateSourceResponse', (_message.Message,), {
-  'DESCRIPTOR' : _UPDATESOURCERESPONSE,
-  '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.UpdateSourceResponse)
-  })
-_sym_db.RegisterMessage(UpdateSourceResponse)
-
-UpdateDestinationPatch = _reflection.GeneratedProtocolMessageType('UpdateDestinationPatch', (_message.Message,), {
-  'DESCRIPTOR' : _UPDATEDESTINATIONPATCH,
-  '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.UpdateDestinationPatch)
-  })
-_sym_db.RegisterMessage(UpdateDestinationPatch)
-
-UpdateDestinationRequest = _reflection.GeneratedProtocolMessageType('UpdateDestinationRequest', (_message.Message,), {
-  'DESCRIPTOR' : _UPDATEDESTINATIONREQUEST,
-  '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.UpdateDestinationRequest)
-  })
-_sym_db.RegisterMessage(UpdateDestinationRequest)
-
-UpdateDestinationResponse = _reflection.GeneratedProtocolMessageType('UpdateDestinationResponse', (_message.Message,), {
-  'DESCRIPTOR' : _UPDATEDESTINATIONRESPONSE,
-  '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.UpdateDestinationResponse)
-  })
-_sym_db.RegisterMessage(UpdateDestinationResponse)
-
-DeleteSourceRequest = _reflection.GeneratedProtocolMessageType('DeleteSourceRequest', (_message.Message,), {
-  'DESCRIPTOR' : _DELETESOURCEREQUEST,
-  '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.DeleteSourceRequest)
-  })
-_sym_db.RegisterMessage(DeleteSourceRequest)
-
-DeleteSourceResponse = _reflection.GeneratedProtocolMessageType('DeleteSourceResponse', (_message.Message,), {
-  'DESCRIPTOR' : _DELETESOURCERESPONSE,
-  '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.DeleteSourceResponse)
-  })
-_sym_db.RegisterMessage(DeleteSourceResponse)
-
-DeleteDestinationRequest = _reflection.GeneratedProtocolMessageType('DeleteDestinationRequest', (_message.Message,), {
-  'DESCRIPTOR' : _DELETEDESTINATIONREQUEST,
-  '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.DeleteDestinationRequest)
-  })
-_sym_db.RegisterMessage(DeleteDestinationRequest)
-
-DeleteDestinationResponse = _reflection.GeneratedProtocolMessageType('DeleteDestinationResponse', (_message.Message,), {
-  'DESCRIPTOR' : _DELETEDESTINATIONRESPONSE,
-  '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.DeleteDestinationResponse)
-  })
-_sym_db.RegisterMessage(DeleteDestinationResponse)
+_sym_db.RegisterMessage(GetSourceDefinitionResponse)
 
 _CONNECTORSERVICE = DESCRIPTOR.services_by_name['ConnectorService']
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\035com.instill.connector.v1alphaB\016ConnectorProtoP\001ZLgithub.com/instill-ai/protogen-go/instill/connector/v1alpha;connectorv1alpha\242\002\003ICX\252\002\031Instill.Connector.V1alpha\312\002\031Instill\\Connector\\V1alpha\342\002%Instill\\Connector\\V1alpha\\GPBMetadata\352\002\033Instill::Connector::V1alpha'
-  _LIVENESSREQUEST.fields_by_name['service']._options = None
-  _LIVENESSREQUEST.fields_by_name['service']._serialized_options = b'\340A\001'
-  _LIVENESSRESPONSE.fields_by_name['status']._options = None
-  _LIVENESSRESPONSE.fields_by_name['status']._serialized_options = b'\340A\003'
-  _READINESSREQUEST.fields_by_name['service']._options = None
-  _READINESSREQUEST.fields_by_name['service']._serialized_options = b'\340A\001'
-  _READINESSRESPONSE.fields_by_name['status']._options = None
-  _READINESSRESPONSE.fields_by_name['status']._serialized_options = b'\340A\003'
-  _SOURCE.fields_by_name['id']._options = None
-  _SOURCE.fields_by_name['id']._serialized_options = b'\340A\003'
-  _SOURCE.fields_by_name['name']._options = None
-  _SOURCE.fields_by_name['name']._serialized_options = b'\340A\003'
-  _SOURCE.fields_by_name['description']._options = None
-  _SOURCE.fields_by_name['description']._serialized_options = b'\340A\003'
-  _SOURCE.fields_by_name['type']._options = None
-  _SOURCE.fields_by_name['type']._serialized_options = b'\340A\003'
-  _SOURCE.fields_by_name['config']._options = None
-  _SOURCE.fields_by_name['config']._serialized_options = b'\340A\003'
-  _SOURCE.fields_by_name['created_at']._options = None
-  _SOURCE.fields_by_name['created_at']._serialized_options = b'\340A\003'
-  _SOURCE.fields_by_name['updated_at']._options = None
-  _SOURCE.fields_by_name['updated_at']._serialized_options = b'\340A\003'
-  _CREATESOURCEREQUEST.fields_by_name['name']._options = None
-  _CREATESOURCEREQUEST.fields_by_name['name']._serialized_options = b'\340A\002'
-  _CREATESOURCEREQUEST.fields_by_name['description']._options = None
-  _CREATESOURCEREQUEST.fields_by_name['description']._serialized_options = b'\340A\001'
-  _CREATESOURCEREQUEST.fields_by_name['type']._options = None
-  _CREATESOURCEREQUEST.fields_by_name['type']._serialized_options = b'\340A\002'
-  _CREATESOURCEREQUEST.fields_by_name['config']._options = None
-  _CREATESOURCEREQUEST.fields_by_name['config']._serialized_options = b'\340A\002'
-  _CREATESOURCERESPONSE.fields_by_name['source']._options = None
-  _CREATESOURCERESPONSE.fields_by_name['source']._serialized_options = b'\340A\003'
-  _DESTINATION.fields_by_name['id']._options = None
-  _DESTINATION.fields_by_name['id']._serialized_options = b'\340A\003'
-  _DESTINATION.fields_by_name['name']._options = None
-  _DESTINATION.fields_by_name['name']._serialized_options = b'\340A\003'
-  _DESTINATION.fields_by_name['description']._options = None
-  _DESTINATION.fields_by_name['description']._serialized_options = b'\340A\003'
-  _DESTINATION.fields_by_name['type']._options = None
-  _DESTINATION.fields_by_name['type']._serialized_options = b'\340A\003'
-  _DESTINATION.fields_by_name['config']._options = None
-  _DESTINATION.fields_by_name['config']._serialized_options = b'\340A\003'
-  _DESTINATION.fields_by_name['created_at']._options = None
-  _DESTINATION.fields_by_name['created_at']._serialized_options = b'\340A\003'
-  _DESTINATION.fields_by_name['updated_at']._options = None
-  _DESTINATION.fields_by_name['updated_at']._serialized_options = b'\340A\003'
-  _CREATEDESTINATIONREQUEST.fields_by_name['name']._options = None
-  _CREATEDESTINATIONREQUEST.fields_by_name['name']._serialized_options = b'\340A\002'
-  _CREATEDESTINATIONREQUEST.fields_by_name['description']._options = None
-  _CREATEDESTINATIONREQUEST.fields_by_name['description']._serialized_options = b'\340A\001'
-  _CREATEDESTINATIONREQUEST.fields_by_name['type']._options = None
-  _CREATEDESTINATIONREQUEST.fields_by_name['type']._serialized_options = b'\340A\002'
-  _CREATEDESTINATIONREQUEST.fields_by_name['config']._options = None
-  _CREATEDESTINATIONREQUEST.fields_by_name['config']._serialized_options = b'\340A\002'
-  _CREATEDESTINATIONRESPONSE.fields_by_name['destination']._options = None
-  _CREATEDESTINATIONRESPONSE.fields_by_name['destination']._serialized_options = b'\340A\003'
-  _LISTSOURCEREQUEST.fields_by_name['page_size']._options = None
-  _LISTSOURCEREQUEST.fields_by_name['page_size']._serialized_options = b'\340A\001'
-  _LISTSOURCEREQUEST.fields_by_name['page_token']._options = None
-  _LISTSOURCEREQUEST.fields_by_name['page_token']._serialized_options = b'\340A\001'
-  _LISTSOURCERESPONSE.fields_by_name['sources']._options = None
-  _LISTSOURCERESPONSE.fields_by_name['sources']._serialized_options = b'\340A\003'
-  _LISTSOURCERESPONSE.fields_by_name['next_page_token']._options = None
-  _LISTSOURCERESPONSE.fields_by_name['next_page_token']._serialized_options = b'\340A\003'
-  _LISTDESTINATIONREQUEST.fields_by_name['page_size']._options = None
-  _LISTDESTINATIONREQUEST.fields_by_name['page_size']._serialized_options = b'\340A\001'
-  _LISTDESTINATIONREQUEST.fields_by_name['page_token']._options = None
-  _LISTDESTINATIONREQUEST.fields_by_name['page_token']._serialized_options = b'\340A\001'
-  _LISTDESTINATIONRESPONSE.fields_by_name['destinations']._options = None
-  _LISTDESTINATIONRESPONSE.fields_by_name['destinations']._serialized_options = b'\340A\003'
-  _LISTDESTINATIONRESPONSE.fields_by_name['next_page_token']._options = None
-  _LISTDESTINATIONRESPONSE.fields_by_name['next_page_token']._serialized_options = b'\340A\003'
-  _GETSOURCEREQUEST.fields_by_name['name']._options = None
-  _GETSOURCEREQUEST.fields_by_name['name']._serialized_options = b'\340A\002'
-  _GETSOURCERESPONSE.fields_by_name['source']._options = None
-  _GETSOURCERESPONSE.fields_by_name['source']._serialized_options = b'\340A\003'
-  _GETDESTINATIONREQUEST.fields_by_name['name']._options = None
-  _GETDESTINATIONREQUEST.fields_by_name['name']._serialized_options = b'\340A\002'
-  _GETDESTINATIONRESPONSE.fields_by_name['destination']._options = None
-  _GETDESTINATIONRESPONSE.fields_by_name['destination']._serialized_options = b'\340A\003'
-  _UPDATESOURCEPATCH.fields_by_name['name']._options = None
-  _UPDATESOURCEPATCH.fields_by_name['name']._serialized_options = b'\340A\001'
-  _UPDATESOURCEPATCH.fields_by_name['description']._options = None
-  _UPDATESOURCEPATCH.fields_by_name['description']._serialized_options = b'\340A\001'
-  _UPDATESOURCEPATCH.fields_by_name['type']._options = None
-  _UPDATESOURCEPATCH.fields_by_name['type']._serialized_options = b'\340A\001'
-  _UPDATESOURCEPATCH.fields_by_name['config']._options = None
-  _UPDATESOURCEPATCH.fields_by_name['config']._serialized_options = b'\340A\001'
-  _UPDATESOURCEREQUEST.fields_by_name['name']._options = None
-  _UPDATESOURCEREQUEST.fields_by_name['name']._serialized_options = b'\340A\002'
-  _UPDATESOURCEREQUEST.fields_by_name['source_patch']._options = None
-  _UPDATESOURCEREQUEST.fields_by_name['source_patch']._serialized_options = b'\340A\002'
-  _UPDATESOURCEREQUEST.fields_by_name['field_mask']._options = None
-  _UPDATESOURCEREQUEST.fields_by_name['field_mask']._serialized_options = b'\340A\002'
-  _UPDATESOURCERESPONSE.fields_by_name['source']._options = None
-  _UPDATESOURCERESPONSE.fields_by_name['source']._serialized_options = b'\340A\003'
-  _UPDATEDESTINATIONPATCH.fields_by_name['name']._options = None
-  _UPDATEDESTINATIONPATCH.fields_by_name['name']._serialized_options = b'\340A\001'
-  _UPDATEDESTINATIONPATCH.fields_by_name['description']._options = None
-  _UPDATEDESTINATIONPATCH.fields_by_name['description']._serialized_options = b'\340A\001'
-  _UPDATEDESTINATIONPATCH.fields_by_name['type']._options = None
-  _UPDATEDESTINATIONPATCH.fields_by_name['type']._serialized_options = b'\340A\001'
-  _UPDATEDESTINATIONPATCH.fields_by_name['config']._options = None
-  _UPDATEDESTINATIONPATCH.fields_by_name['config']._serialized_options = b'\340A\001'
-  _UPDATEDESTINATIONREQUEST.fields_by_name['name']._options = None
-  _UPDATEDESTINATIONREQUEST.fields_by_name['name']._serialized_options = b'\340A\002'
-  _UPDATEDESTINATIONREQUEST.fields_by_name['destination_patch']._options = None
-  _UPDATEDESTINATIONREQUEST.fields_by_name['destination_patch']._serialized_options = b'\340A\002'
-  _UPDATEDESTINATIONREQUEST.fields_by_name['field_mask']._options = None
-  _UPDATEDESTINATIONREQUEST.fields_by_name['field_mask']._serialized_options = b'\340A\002'
-  _UPDATEDESTINATIONRESPONSE.fields_by_name['destination']._options = None
-  _UPDATEDESTINATIONRESPONSE.fields_by_name['destination']._serialized_options = b'\340A\003'
-  _DELETESOURCEREQUEST.fields_by_name['name']._options = None
-  _DELETESOURCEREQUEST.fields_by_name['name']._serialized_options = b'\340A\002'
-  _DELETEDESTINATIONREQUEST.fields_by_name['name']._options = None
-  _DELETEDESTINATIONREQUEST.fields_by_name['name']._serialized_options = b'\340A\002'
+  _HEALTHCHECKREQUEST.fields_by_name['service']._options = None
+  _HEALTHCHECKREQUEST.fields_by_name['service']._serialized_options = b'\340A\001'
+  _HEALTHCHECKRESPONSE.fields_by_name['status']._options = None
+  _HEALTHCHECKRESPONSE.fields_by_name['status']._serialized_options = b'\340A\003'
+  _LIVENESSREQUEST.fields_by_name['health_check_request']._options = None
+  _LIVENESSREQUEST.fields_by_name['health_check_request']._serialized_options = b'\340A\001'
+  _LIVENESSRESPONSE.fields_by_name['health_check_response']._options = None
+  _LIVENESSRESPONSE.fields_by_name['health_check_response']._serialized_options = b'\340A\003'
+  _READINESSREQUEST.fields_by_name['health_check_request']._options = None
+  _READINESSREQUEST.fields_by_name['health_check_request']._serialized_options = b'\340A\001'
+  _READINESSRESPONSE.fields_by_name['health_check_response']._options = None
+  _READINESSRESPONSE.fields_by_name['health_check_response']._serialized_options = b'\340A\003'
+  _LISTSOURCEDEFINITIONREQUEST.fields_by_name['page_size']._options = None
+  _LISTSOURCEDEFINITIONREQUEST.fields_by_name['page_size']._serialized_options = b'\340A\001'
+  _LISTSOURCEDEFINITIONREQUEST.fields_by_name['page_token']._options = None
+  _LISTSOURCEDEFINITIONREQUEST.fields_by_name['page_token']._serialized_options = b'\340A\001'
+  _LISTSOURCEDEFINITIONRESPONSE.fields_by_name['source_definitions']._options = None
+  _LISTSOURCEDEFINITIONRESPONSE.fields_by_name['source_definitions']._serialized_options = b'\340A\003'
+  _LISTSOURCEDEFINITIONRESPONSE.fields_by_name['next_page_token']._options = None
+  _LISTSOURCEDEFINITIONRESPONSE.fields_by_name['next_page_token']._serialized_options = b'\340A\003'
+  _GETSOURCEDEFINITIONREQUEST.fields_by_name['id']._options = None
+  _GETSOURCEDEFINITIONREQUEST.fields_by_name['id']._serialized_options = b'\340A\001'
+  _GETSOURCEDEFINITIONREQUEST.fields_by_name['name']._options = None
+  _GETSOURCEDEFINITIONREQUEST.fields_by_name['name']._serialized_options = b'\340A\001'
+  _GETSOURCEDEFINITIONRESPONSE.fields_by_name['connector_definition']._options = None
+  _GETSOURCEDEFINITIONRESPONSE.fields_by_name['connector_definition']._serialized_options = b'\340A\003'
   _CONNECTORSERVICE.methods_by_name['Liveness']._options = None
   _CONNECTORSERVICE.methods_by_name['Liveness']._serialized_options = b'\202\323\344\223\002\"Z\023\022\021/health/connector\022\013/__liveness'
   _CONNECTORSERVICE.methods_by_name['Readiness']._options = None
   _CONNECTORSERVICE.methods_by_name['Readiness']._serialized_options = b'\202\323\344\223\002\016\022\014/__readiness'
-  _CONNECTORSERVICE.methods_by_name['CreateSource']._options = None
-  _CONNECTORSERVICE.methods_by_name['CreateSource']._serialized_options = b'\202\323\344\223\002\r:\001*\"\010/sources'
-  _CONNECTORSERVICE.methods_by_name['CreateDestination']._options = None
-  _CONNECTORSERVICE.methods_by_name['CreateDestination']._serialized_options = b'\202\323\344\223\002\022:\001*\"\r/destinations'
-  _CONNECTORSERVICE.methods_by_name['ListSource']._options = None
-  _CONNECTORSERVICE.methods_by_name['ListSource']._serialized_options = b'\202\323\344\223\002\n\022\010/sources'
-  _CONNECTORSERVICE.methods_by_name['ListDestination']._options = None
-  _CONNECTORSERVICE.methods_by_name['ListDestination']._serialized_options = b'\202\323\344\223\002\017\022\r/destinations'
-  _CONNECTORSERVICE.methods_by_name['GetSource']._options = None
-  _CONNECTORSERVICE.methods_by_name['GetSource']._serialized_options = b'\202\323\344\223\002\021\022\017/sources/{name}'
-  _CONNECTORSERVICE.methods_by_name['GetDestination']._options = None
-  _CONNECTORSERVICE.methods_by_name['GetDestination']._serialized_options = b'\202\323\344\223\002\026\022\024/destinations/{name}'
-  _CONNECTORSERVICE.methods_by_name['UpdateSource']._options = None
-  _CONNECTORSERVICE.methods_by_name['UpdateSource']._serialized_options = b'\202\323\344\223\002\037:\014source_patch2\017/sources/{name}'
-  _CONNECTORSERVICE.methods_by_name['UpdateDestination']._options = None
-  _CONNECTORSERVICE.methods_by_name['UpdateDestination']._serialized_options = b'\202\323\344\223\002):\021destination_patch2\024/destinations/{name}'
-  _CONNECTORSERVICE.methods_by_name['DeleteSource']._options = None
-  _CONNECTORSERVICE.methods_by_name['DeleteSource']._serialized_options = b'\202\323\344\223\002\021*\017/sources/{name}'
-  _CONNECTORSERVICE.methods_by_name['DeleteDestination']._options = None
-  _CONNECTORSERVICE.methods_by_name['DeleteDestination']._serialized_options = b'\202\323\344\223\002\026*\024/destinations/{name}'
-  _LIVENESSREQUEST._serialized_start=232
-  _LIVENESSREQUEST._serialized_end=280
-  _LIVENESSRESPONSE._serialized_start=283
-  _LIVENESSRESPONSE._serialized_end=498
-  _LIVENESSRESPONSE_SERVINGSTATUS._serialized_start=391
-  _LIVENESSRESPONSE_SERVINGSTATUS._serialized_end=498
-  _READINESSREQUEST._serialized_start=500
-  _READINESSREQUEST._serialized_end=549
-  _READINESSRESPONSE._serialized_start=552
-  _READINESSRESPONSE._serialized_end=769
-  _READINESSRESPONSE_SERVINGSTATUS._serialized_start=391
-  _READINESSRESPONSE_SERVINGSTATUS._serialized_end=498
-  _SOURCE._serialized_start=772
-  _SOURCE._serialized_end=1172
-  _SOURCE_TYPE._serialized_start=1114
-  _SOURCE_TYPE._serialized_end=1172
-  _CREATESOURCEREQUEST._serialized_start=1175
-  _CREATESOURCEREQUEST._serialized_end=1339
-  _CREATESOURCERESPONSE._serialized_start=1341
-  _CREATESOURCERESPONSE._serialized_end=1427
-  _DESTINATION._serialized_start=1430
-  _DESTINATION._serialized_end=1795
-  _DESTINATION_TYPE._serialized_start=1114
-  _DESTINATION_TYPE._serialized_end=1172
-  _CREATEDESTINATIONREQUEST._serialized_start=1798
-  _CREATEDESTINATIONREQUEST._serialized_end=1967
-  _CREATEDESTINATIONRESPONSE._serialized_start=1969
-  _CREATEDESTINATIONRESPONSE._serialized_end=2075
-  _LISTSOURCEREQUEST._serialized_start=2077
-  _LISTSOURCEREQUEST._serialized_end=2166
-  _LISTSOURCERESPONSE._serialized_start=2169
-  _LISTSOURCERESPONSE._serialized_end=2300
-  _LISTDESTINATIONREQUEST._serialized_start=2302
-  _LISTDESTINATIONREQUEST._serialized_end=2396
-  _LISTDESTINATIONRESPONSE._serialized_start=2399
-  _LISTDESTINATIONRESPONSE._serialized_end=2550
-  _GETSOURCEREQUEST._serialized_start=2552
-  _GETSOURCEREQUEST._serialized_end=2595
-  _GETSOURCERESPONSE._serialized_start=2597
-  _GETSOURCERESPONSE._serialized_end=2680
-  _GETDESTINATIONREQUEST._serialized_start=2682
-  _GETDESTINATIONREQUEST._serialized_end=2730
-  _GETDESTINATIONRESPONSE._serialized_start=2732
-  _GETDESTINATIONRESPONSE._serialized_end=2835
-  _UPDATESOURCEPATCH._serialized_start=2838
-  _UPDATESOURCEPATCH._serialized_end=3000
-  _UPDATESOURCEREQUEST._serialized_start=3003
-  _UPDATESOURCEREQUEST._serialized_end=3199
-  _UPDATESOURCERESPONSE._serialized_start=3201
-  _UPDATESOURCERESPONSE._serialized_end=3287
-  _UPDATEDESTINATIONPATCH._serialized_start=3290
-  _UPDATEDESTINATIONPATCH._serialized_end=3457
-  _UPDATEDESTINATIONREQUEST._serialized_start=3460
-  _UPDATEDESTINATIONREQUEST._serialized_end=3676
-  _UPDATEDESTINATIONRESPONSE._serialized_start=3678
-  _UPDATEDESTINATIONRESPONSE._serialized_end=3784
-  _DELETESOURCEREQUEST._serialized_start=3786
-  _DELETESOURCEREQUEST._serialized_end=3832
-  _DELETESOURCERESPONSE._serialized_start=3834
-  _DELETESOURCERESPONSE._serialized_end=3856
-  _DELETEDESTINATIONREQUEST._serialized_start=3858
-  _DELETEDESTINATIONREQUEST._serialized_end=3909
-  _DELETEDESTINATIONRESPONSE._serialized_start=3911
-  _DELETEDESTINATIONRESPONSE._serialized_end=3938
-  _CONNECTORSERVICE._serialized_start=3941
-  _CONNECTORSERVICE._serialized_end=5698
+  _CONNECTORSERVICE.methods_by_name['ListSourceDefinition']._options = None
+  _CONNECTORSERVICE.methods_by_name['ListSourceDefinition']._serialized_options = b'\202\323\344\223\002 \022\036/connectors/source-definitions'
+  _CONNECTORSERVICE.methods_by_name['GetSourceDefinition']._options = None
+  _CONNECTORSERVICE.methods_by_name['GetSourceDefinition']._serialized_options = b'\202\323\344\223\002\'\022%/connectors/source-definitions/{name}'
+  _HEALTHCHECKREQUEST._serialized_start=179
+  _HEALTHCHECKREQUEST._serialized_end=230
+  _HEALTHCHECKRESPONSE._serialized_start=233
+  _HEALTHCHECKRESPONSE._serialized_end=454
+  _HEALTHCHECKRESPONSE_SERVINGSTATUS._serialized_start=347
+  _HEALTHCHECKRESPONSE_SERVINGSTATUS._serialized_end=454
+  _LIVENESSREQUEST._serialized_start=456
+  _LIVENESSREQUEST._serialized_end=575
+  _LIVENESSRESPONSE._serialized_start=577
+  _LIVENESSRESPONSE._serialized_end=700
+  _READINESSREQUEST._serialized_start=702
+  _READINESSREQUEST._serialized_end=822
+  _READINESSRESPONSE._serialized_start=824
+  _READINESSRESPONSE._serialized_end=948
+  _LISTSOURCEDEFINITIONREQUEST._serialized_start=950
+  _LISTSOURCEDEFINITIONREQUEST._serialized_end=1049
+  _LISTSOURCEDEFINITIONRESPONSE._serialized_start=1052
+  _LISTSOURCEDEFINITIONRESPONSE._serialized_end=1224
+  _GETSOURCEDEFINITIONREQUEST._serialized_start=1226
+  _GETSOURCEDEFINITIONREQUEST._serialized_end=1300
+  _GETSOURCEDEFINITIONRESPONSE._serialized_start=1303
+  _GETSOURCEDEFINITIONRESPONSE._serialized_end=1433
+  _CONNECTORSERVICE._serialized_start=1436
+  _CONNECTORSERVICE._serialized_end=2084
 # @@protoc_insertion_point(module_scope)
