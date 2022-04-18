@@ -36,6 +36,16 @@ class ConnectorServiceStub(object):
                 request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.GetSourceDefinitionRequest.SerializeToString,
                 response_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.GetSourceDefinitionResponse.FromString,
                 )
+        self.ListDestinationDefinition = channel.unary_unary(
+                '/instill.connector.v1alpha.ConnectorService/ListDestinationDefinition',
+                request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.ListDestinationDefinitionRequest.SerializeToString,
+                response_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.ListDestinationDefinitionResponse.FromString,
+                )
+        self.GetDestinationDefinition = channel.unary_unary(
+                '/instill.connector.v1alpha.ConnectorService/GetDestinationDefinition',
+                request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.GetDestinationDefinitionRequest.SerializeToString,
+                response_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.GetDestinationDefinitionResponse.FromString,
+                )
 
 
 class ConnectorServiceServicer(object):
@@ -77,6 +87,22 @@ class ConnectorServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListDestinationDefinition(self, request, context):
+        """ListDestinationDefinition method receives a ListDestinationDefinitionRequest message and returns
+        a ListDestinationDefinitionResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetDestinationDefinition(self, request, context):
+        """GetDestinationDefinition method receives a GetDestinationDefinitionRequest message and returns
+        a GetDestinationDefinitionResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ConnectorServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -99,6 +125,16 @@ def add_ConnectorServiceServicer_to_server(servicer, server):
                     servicer.GetSourceDefinition,
                     request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.GetSourceDefinitionRequest.FromString,
                     response_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.GetSourceDefinitionResponse.SerializeToString,
+            ),
+            'ListDestinationDefinition': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListDestinationDefinition,
+                    request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.ListDestinationDefinitionRequest.FromString,
+                    response_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.ListDestinationDefinitionResponse.SerializeToString,
+            ),
+            'GetDestinationDefinition': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetDestinationDefinition,
+                    request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.GetDestinationDefinitionRequest.FromString,
+                    response_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.GetDestinationDefinitionResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -177,5 +213,39 @@ class ConnectorService(object):
         return grpc.experimental.unary_unary(request, target, '/instill.connector.v1alpha.ConnectorService/GetSourceDefinition',
             instill_dot_connector_dot_v1alpha_dot_connector__pb2.GetSourceDefinitionRequest.SerializeToString,
             instill_dot_connector_dot_v1alpha_dot_connector__pb2.GetSourceDefinitionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListDestinationDefinition(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/instill.connector.v1alpha.ConnectorService/ListDestinationDefinition',
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.ListDestinationDefinitionRequest.SerializeToString,
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.ListDestinationDefinitionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetDestinationDefinition(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/instill.connector.v1alpha.ConnectorService/GetDestinationDefinition',
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.GetDestinationDefinitionRequest.SerializeToString,
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.GetDestinationDefinitionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

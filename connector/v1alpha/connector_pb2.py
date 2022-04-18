@@ -17,7 +17,7 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from instill.connector.v1alpha import definition_pb2 as instill_dot_connector_dot_v1alpha_dot_definition__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)instill/connector/v1alpha/connector.proto\x12\x19instill.connector.v1alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a*instill/connector/v1alpha/definition.proto\"3\n\x12HealthCheckRequest\x12\x1d\n\x07service\x18\x01 \x01(\tB\x03\xe0\x41\x01R\x07service\"\xdd\x01\n\x13HealthCheckResponse\x12Y\n\x06status\x18\x01 \x01(\x0e\x32<.instill.connector.v1alpha.HealthCheckResponse.ServingStatusB\x03\xe0\x41\x03R\x06status\"k\n\rServingStatus\x12\x1e\n\x1aSERVING_STATUS_UNSPECIFIED\x10\x00\x12\x1a\n\x16SERVING_STATUS_SERVING\x10\x01\x12\x1e\n\x1aSERVING_STATUS_NOT_SERVING\x10\x02\"w\n\x0fLivenessRequest\x12\x64\n\x14health_check_request\x18\x01 \x01(\x0b\x32-.instill.connector.v1alpha.HealthCheckRequestB\x03\xe0\x41\x01R\x12healthCheckRequest\"{\n\x10LivenessResponse\x12g\n\x15health_check_response\x18\x01 \x01(\x0b\x32..instill.connector.v1alpha.HealthCheckResponseB\x03\xe0\x41\x03R\x13healthCheckResponse\"x\n\x10ReadinessRequest\x12\x64\n\x14health_check_request\x18\x01 \x01(\x0b\x32-.instill.connector.v1alpha.HealthCheckRequestB\x03\xe0\x41\x01R\x12healthCheckRequest\"|\n\x11ReadinessResponse\x12g\n\x15health_check_response\x18\x01 \x01(\x0b\x32..instill.connector.v1alpha.HealthCheckResponseB\x03\xe0\x41\x03R\x13healthCheckResponse\"c\n\x1bListSourceDefinitionRequest\x12 \n\tpage_size\x18\x02 \x01(\x04\x42\x03\xe0\x41\x01R\x08pageSize\x12\"\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01R\tpageToken\"\xac\x01\n\x1cListSourceDefinitionResponse\x12_\n\x12source_definitions\x18\x01 \x03(\x0b\x32+.instill.connector.v1alpha.SourceDefinitionB\x03\xe0\x41\x03R\x11sourceDefinitions\x12+\n\x0fnext_page_token\x18\x02 \x01(\tB\x03\xe0\x41\x03R\rnextPageToken\"J\n\x1aGetSourceDefinitionRequest\x12\x13\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x01R\x02id\x12\x17\n\x04name\x18\x02 \x01(\tB\x03\xe0\x41\x01R\x04name\"\x82\x01\n\x1bGetSourceDefinitionResponse\x12\x63\n\x14\x63onnector_definition\x18\x01 \x01(\x0b\x32+.instill.connector.v1alpha.SourceDefinitionB\x03\xe0\x41\x03R\x13\x63onnectorDefinition2\x88\x05\n\x10\x43onnectorService\x12\x8d\x01\n\x08Liveness\x12*.instill.connector.v1alpha.LivenessRequest\x1a+.instill.connector.v1alpha.LivenessResponse\"(\x82\xd3\xe4\x93\x02\"Z\x13\x12\x11/health/connector\x12\x0b/__liveness\x12|\n\tReadiness\x12+.instill.connector.v1alpha.ReadinessRequest\x1a,.instill.connector.v1alpha.ReadinessResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/__readiness\x12\xaf\x01\n\x14ListSourceDefinition\x12\x36.instill.connector.v1alpha.ListSourceDefinitionRequest\x1a\x37.instill.connector.v1alpha.ListSourceDefinitionResponse\"&\x82\xd3\xe4\x93\x02 \x12\x1e/connectors/source-definitions\x12\xb3\x01\n\x13GetSourceDefinition\x12\x35.instill.connector.v1alpha.GetSourceDefinitionRequest\x1a\x36.instill.connector.v1alpha.GetSourceDefinitionResponse\"-\x82\xd3\xe4\x93\x02\'\x12%/connectors/source-definitions/{name}B\x83\x02\n\x1d\x63om.instill.connector.v1alphaB\x0e\x43onnectorProtoP\x01ZLgithub.com/instill-ai/protogen-go/instill/connector/v1alpha;connectorv1alpha\xa2\x02\x03ICX\xaa\x02\x19Instill.Connector.V1alpha\xca\x02\x19Instill\\Connector\\V1alpha\xe2\x02%Instill\\Connector\\V1alpha\\GPBMetadata\xea\x02\x1bInstill::Connector::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)instill/connector/v1alpha/connector.proto\x12\x19instill.connector.v1alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a*instill/connector/v1alpha/definition.proto\"3\n\x12HealthCheckRequest\x12\x1d\n\x07service\x18\x01 \x01(\tB\x03\xe0\x41\x01R\x07service\"\xdd\x01\n\x13HealthCheckResponse\x12Y\n\x06status\x18\x01 \x01(\x0e\x32<.instill.connector.v1alpha.HealthCheckResponse.ServingStatusB\x03\xe0\x41\x03R\x06status\"k\n\rServingStatus\x12\x1e\n\x1aSERVING_STATUS_UNSPECIFIED\x10\x00\x12\x1a\n\x16SERVING_STATUS_SERVING\x10\x01\x12\x1e\n\x1aSERVING_STATUS_NOT_SERVING\x10\x02\"w\n\x0fLivenessRequest\x12\x64\n\x14health_check_request\x18\x01 \x01(\x0b\x32-.instill.connector.v1alpha.HealthCheckRequestB\x03\xe0\x41\x01R\x12healthCheckRequest\"{\n\x10LivenessResponse\x12g\n\x15health_check_response\x18\x01 \x01(\x0b\x32..instill.connector.v1alpha.HealthCheckResponseB\x03\xe0\x41\x03R\x13healthCheckResponse\"x\n\x10ReadinessRequest\x12\x64\n\x14health_check_request\x18\x01 \x01(\x0b\x32-.instill.connector.v1alpha.HealthCheckRequestB\x03\xe0\x41\x01R\x12healthCheckRequest\"|\n\x11ReadinessResponse\x12g\n\x15health_check_response\x18\x01 \x01(\x0b\x32..instill.connector.v1alpha.HealthCheckResponseB\x03\xe0\x41\x03R\x13healthCheckResponse\"e\n\x1bListSourceDefinitionRequest\x12 \n\tpage_size\x18\x01 \x01(\x04\x42\x03\xe0\x41\x01R\x08pageSize\x12$\n\x0bpage_cursor\x18\x02 \x01(\tB\x03\xe0\x41\x01R\npageCursor\"\xae\x01\n\x1cListSourceDefinitionResponse\x12_\n\x12source_definitions\x18\x01 \x03(\x0b\x32+.instill.connector.v1alpha.SourceDefinitionB\x03\xe0\x41\x03R\x11sourceDefinitions\x12-\n\x10next_page_cursor\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x0enextPageCursor\"1\n\x1aGetSourceDefinitionRequest\x12\x13\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x02id\"|\n\x1bGetSourceDefinitionResponse\x12]\n\x11source_definition\x18\x01 \x01(\x0b\x32+.instill.connector.v1alpha.SourceDefinitionB\x03\xe0\x41\x03R\x10sourceDefinition\"j\n ListDestinationDefinitionRequest\x12 \n\tpage_size\x18\x01 \x01(\x04\x42\x03\xe0\x41\x01R\x08pageSize\x12$\n\x0bpage_cursor\x18\x02 \x01(\tB\x03\xe0\x41\x01R\npageCursor\"\xc2\x01\n!ListDestinationDefinitionResponse\x12n\n\x17\x64\x65stination_definitions\x18\x01 \x03(\x0b\x32\x30.instill.connector.v1alpha.DestinationDefinitionB\x03\xe0\x41\x03R\x16\x64\x65stinationDefinitions\x12-\n\x10next_page_cursor\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x0enextPageCursor\"6\n\x1fGetDestinationDefinitionRequest\x12\x13\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x02id\"\x90\x01\n GetDestinationDefinitionResponse\x12l\n\x16\x64\x65stination_definition\x18\x01 \x01(\x0b\x32\x30.instill.connector.v1alpha.DestinationDefinitionB\x03\xe0\x41\x03R\x15\x64\x65stinationDefinition2\x94\x08\n\x10\x43onnectorService\x12\x8d\x01\n\x08Liveness\x12*.instill.connector.v1alpha.LivenessRequest\x1a+.instill.connector.v1alpha.LivenessResponse\"(\x82\xd3\xe4\x93\x02\"Z\x13\x12\x11/health/connector\x12\x0b/__liveness\x12|\n\tReadiness\x12+.instill.connector.v1alpha.ReadinessRequest\x1a,.instill.connector.v1alpha.ReadinessResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/__readiness\x12\xaf\x01\n\x14ListSourceDefinition\x12\x36.instill.connector.v1alpha.ListSourceDefinitionRequest\x1a\x37.instill.connector.v1alpha.ListSourceDefinitionResponse\"&\x82\xd3\xe4\x93\x02 \x12\x1e/connectors/source-definitions\x12\xb1\x01\n\x13GetSourceDefinition\x12\x35.instill.connector.v1alpha.GetSourceDefinitionRequest\x1a\x36.instill.connector.v1alpha.GetSourceDefinitionResponse\"+\x82\xd3\xe4\x93\x02%\x12#/connectors/source-definitions/{id}\x12\xc3\x01\n\x19ListDestinationDefinition\x12;.instill.connector.v1alpha.ListDestinationDefinitionRequest\x1a<.instill.connector.v1alpha.ListDestinationDefinitionResponse\"+\x82\xd3\xe4\x93\x02%\x12#/connectors/destination-definitions\x12\xc5\x01\n\x18GetDestinationDefinition\x12:.instill.connector.v1alpha.GetDestinationDefinitionRequest\x1a;.instill.connector.v1alpha.GetDestinationDefinitionResponse\"0\x82\xd3\xe4\x93\x02*\x12(/connectors/destination-definitions/{id}B\x83\x02\n\x1d\x63om.instill.connector.v1alphaB\x0e\x43onnectorProtoP\x01ZLgithub.com/instill-ai/protogen-go/instill/connector/v1alpha;connectorv1alpha\xa2\x02\x03ICX\xaa\x02\x19Instill.Connector.V1alpha\xca\x02\x19Instill\\Connector\\V1alpha\xe2\x02%Instill\\Connector\\V1alpha\\GPBMetadata\xea\x02\x1bInstill::Connector::V1alphab\x06proto3')
 
 
 
@@ -31,6 +31,10 @@ _LISTSOURCEDEFINITIONREQUEST = DESCRIPTOR.message_types_by_name['ListSourceDefin
 _LISTSOURCEDEFINITIONRESPONSE = DESCRIPTOR.message_types_by_name['ListSourceDefinitionResponse']
 _GETSOURCEDEFINITIONREQUEST = DESCRIPTOR.message_types_by_name['GetSourceDefinitionRequest']
 _GETSOURCEDEFINITIONRESPONSE = DESCRIPTOR.message_types_by_name['GetSourceDefinitionResponse']
+_LISTDESTINATIONDEFINITIONREQUEST = DESCRIPTOR.message_types_by_name['ListDestinationDefinitionRequest']
+_LISTDESTINATIONDEFINITIONRESPONSE = DESCRIPTOR.message_types_by_name['ListDestinationDefinitionResponse']
+_GETDESTINATIONDEFINITIONREQUEST = DESCRIPTOR.message_types_by_name['GetDestinationDefinitionRequest']
+_GETDESTINATIONDEFINITIONRESPONSE = DESCRIPTOR.message_types_by_name['GetDestinationDefinitionResponse']
 _HEALTHCHECKRESPONSE_SERVINGSTATUS = _HEALTHCHECKRESPONSE.enum_types_by_name['ServingStatus']
 HealthCheckRequest = _reflection.GeneratedProtocolMessageType('HealthCheckRequest', (_message.Message,), {
   'DESCRIPTOR' : _HEALTHCHECKREQUEST,
@@ -102,6 +106,34 @@ GetSourceDefinitionResponse = _reflection.GeneratedProtocolMessageType('GetSourc
   })
 _sym_db.RegisterMessage(GetSourceDefinitionResponse)
 
+ListDestinationDefinitionRequest = _reflection.GeneratedProtocolMessageType('ListDestinationDefinitionRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTDESTINATIONDEFINITIONREQUEST,
+  '__module__' : 'instill.connector.v1alpha.connector_pb2'
+  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.ListDestinationDefinitionRequest)
+  })
+_sym_db.RegisterMessage(ListDestinationDefinitionRequest)
+
+ListDestinationDefinitionResponse = _reflection.GeneratedProtocolMessageType('ListDestinationDefinitionResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTDESTINATIONDEFINITIONRESPONSE,
+  '__module__' : 'instill.connector.v1alpha.connector_pb2'
+  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.ListDestinationDefinitionResponse)
+  })
+_sym_db.RegisterMessage(ListDestinationDefinitionResponse)
+
+GetDestinationDefinitionRequest = _reflection.GeneratedProtocolMessageType('GetDestinationDefinitionRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETDESTINATIONDEFINITIONREQUEST,
+  '__module__' : 'instill.connector.v1alpha.connector_pb2'
+  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.GetDestinationDefinitionRequest)
+  })
+_sym_db.RegisterMessage(GetDestinationDefinitionRequest)
+
+GetDestinationDefinitionResponse = _reflection.GeneratedProtocolMessageType('GetDestinationDefinitionResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETDESTINATIONDEFINITIONRESPONSE,
+  '__module__' : 'instill.connector.v1alpha.connector_pb2'
+  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.GetDestinationDefinitionResponse)
+  })
+_sym_db.RegisterMessage(GetDestinationDefinitionResponse)
+
 _CONNECTORSERVICE = DESCRIPTOR.services_by_name['ConnectorService']
 if _descriptor._USE_C_DESCRIPTORS == False:
 
@@ -121,18 +153,28 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _READINESSRESPONSE.fields_by_name['health_check_response']._serialized_options = b'\340A\003'
   _LISTSOURCEDEFINITIONREQUEST.fields_by_name['page_size']._options = None
   _LISTSOURCEDEFINITIONREQUEST.fields_by_name['page_size']._serialized_options = b'\340A\001'
-  _LISTSOURCEDEFINITIONREQUEST.fields_by_name['page_token']._options = None
-  _LISTSOURCEDEFINITIONREQUEST.fields_by_name['page_token']._serialized_options = b'\340A\001'
+  _LISTSOURCEDEFINITIONREQUEST.fields_by_name['page_cursor']._options = None
+  _LISTSOURCEDEFINITIONREQUEST.fields_by_name['page_cursor']._serialized_options = b'\340A\001'
   _LISTSOURCEDEFINITIONRESPONSE.fields_by_name['source_definitions']._options = None
   _LISTSOURCEDEFINITIONRESPONSE.fields_by_name['source_definitions']._serialized_options = b'\340A\003'
-  _LISTSOURCEDEFINITIONRESPONSE.fields_by_name['next_page_token']._options = None
-  _LISTSOURCEDEFINITIONRESPONSE.fields_by_name['next_page_token']._serialized_options = b'\340A\003'
+  _LISTSOURCEDEFINITIONRESPONSE.fields_by_name['next_page_cursor']._options = None
+  _LISTSOURCEDEFINITIONRESPONSE.fields_by_name['next_page_cursor']._serialized_options = b'\340A\003'
   _GETSOURCEDEFINITIONREQUEST.fields_by_name['id']._options = None
-  _GETSOURCEDEFINITIONREQUEST.fields_by_name['id']._serialized_options = b'\340A\001'
-  _GETSOURCEDEFINITIONREQUEST.fields_by_name['name']._options = None
-  _GETSOURCEDEFINITIONREQUEST.fields_by_name['name']._serialized_options = b'\340A\001'
-  _GETSOURCEDEFINITIONRESPONSE.fields_by_name['connector_definition']._options = None
-  _GETSOURCEDEFINITIONRESPONSE.fields_by_name['connector_definition']._serialized_options = b'\340A\003'
+  _GETSOURCEDEFINITIONREQUEST.fields_by_name['id']._serialized_options = b'\340A\002'
+  _GETSOURCEDEFINITIONRESPONSE.fields_by_name['source_definition']._options = None
+  _GETSOURCEDEFINITIONRESPONSE.fields_by_name['source_definition']._serialized_options = b'\340A\003'
+  _LISTDESTINATIONDEFINITIONREQUEST.fields_by_name['page_size']._options = None
+  _LISTDESTINATIONDEFINITIONREQUEST.fields_by_name['page_size']._serialized_options = b'\340A\001'
+  _LISTDESTINATIONDEFINITIONREQUEST.fields_by_name['page_cursor']._options = None
+  _LISTDESTINATIONDEFINITIONREQUEST.fields_by_name['page_cursor']._serialized_options = b'\340A\001'
+  _LISTDESTINATIONDEFINITIONRESPONSE.fields_by_name['destination_definitions']._options = None
+  _LISTDESTINATIONDEFINITIONRESPONSE.fields_by_name['destination_definitions']._serialized_options = b'\340A\003'
+  _LISTDESTINATIONDEFINITIONRESPONSE.fields_by_name['next_page_cursor']._options = None
+  _LISTDESTINATIONDEFINITIONRESPONSE.fields_by_name['next_page_cursor']._serialized_options = b'\340A\003'
+  _GETDESTINATIONDEFINITIONREQUEST.fields_by_name['id']._options = None
+  _GETDESTINATIONDEFINITIONREQUEST.fields_by_name['id']._serialized_options = b'\340A\002'
+  _GETDESTINATIONDEFINITIONRESPONSE.fields_by_name['destination_definition']._options = None
+  _GETDESTINATIONDEFINITIONRESPONSE.fields_by_name['destination_definition']._serialized_options = b'\340A\003'
   _CONNECTORSERVICE.methods_by_name['Liveness']._options = None
   _CONNECTORSERVICE.methods_by_name['Liveness']._serialized_options = b'\202\323\344\223\002\"Z\023\022\021/health/connector\022\013/__liveness'
   _CONNECTORSERVICE.methods_by_name['Readiness']._options = None
@@ -140,7 +182,11 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _CONNECTORSERVICE.methods_by_name['ListSourceDefinition']._options = None
   _CONNECTORSERVICE.methods_by_name['ListSourceDefinition']._serialized_options = b'\202\323\344\223\002 \022\036/connectors/source-definitions'
   _CONNECTORSERVICE.methods_by_name['GetSourceDefinition']._options = None
-  _CONNECTORSERVICE.methods_by_name['GetSourceDefinition']._serialized_options = b'\202\323\344\223\002\'\022%/connectors/source-definitions/{name}'
+  _CONNECTORSERVICE.methods_by_name['GetSourceDefinition']._serialized_options = b'\202\323\344\223\002%\022#/connectors/source-definitions/{id}'
+  _CONNECTORSERVICE.methods_by_name['ListDestinationDefinition']._options = None
+  _CONNECTORSERVICE.methods_by_name['ListDestinationDefinition']._serialized_options = b'\202\323\344\223\002%\022#/connectors/destination-definitions'
+  _CONNECTORSERVICE.methods_by_name['GetDestinationDefinition']._options = None
+  _CONNECTORSERVICE.methods_by_name['GetDestinationDefinition']._serialized_options = b'\202\323\344\223\002*\022(/connectors/destination-definitions/{id}'
   _HEALTHCHECKREQUEST._serialized_start=179
   _HEALTHCHECKREQUEST._serialized_end=230
   _HEALTHCHECKRESPONSE._serialized_start=233
@@ -156,13 +202,21 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _READINESSRESPONSE._serialized_start=824
   _READINESSRESPONSE._serialized_end=948
   _LISTSOURCEDEFINITIONREQUEST._serialized_start=950
-  _LISTSOURCEDEFINITIONREQUEST._serialized_end=1049
-  _LISTSOURCEDEFINITIONRESPONSE._serialized_start=1052
-  _LISTSOURCEDEFINITIONRESPONSE._serialized_end=1224
-  _GETSOURCEDEFINITIONREQUEST._serialized_start=1226
-  _GETSOURCEDEFINITIONREQUEST._serialized_end=1300
-  _GETSOURCEDEFINITIONRESPONSE._serialized_start=1303
-  _GETSOURCEDEFINITIONRESPONSE._serialized_end=1433
-  _CONNECTORSERVICE._serialized_start=1436
-  _CONNECTORSERVICE._serialized_end=2084
+  _LISTSOURCEDEFINITIONREQUEST._serialized_end=1051
+  _LISTSOURCEDEFINITIONRESPONSE._serialized_start=1054
+  _LISTSOURCEDEFINITIONRESPONSE._serialized_end=1228
+  _GETSOURCEDEFINITIONREQUEST._serialized_start=1230
+  _GETSOURCEDEFINITIONREQUEST._serialized_end=1279
+  _GETSOURCEDEFINITIONRESPONSE._serialized_start=1281
+  _GETSOURCEDEFINITIONRESPONSE._serialized_end=1405
+  _LISTDESTINATIONDEFINITIONREQUEST._serialized_start=1407
+  _LISTDESTINATIONDEFINITIONREQUEST._serialized_end=1513
+  _LISTDESTINATIONDEFINITIONRESPONSE._serialized_start=1516
+  _LISTDESTINATIONDEFINITIONRESPONSE._serialized_end=1710
+  _GETDESTINATIONDEFINITIONREQUEST._serialized_start=1712
+  _GETDESTINATIONDEFINITIONREQUEST._serialized_end=1766
+  _GETDESTINATIONDEFINITIONRESPONSE._serialized_start=1769
+  _GETDESTINATIONDEFINITIONRESPONSE._serialized_end=1913
+  _CONNECTORSERVICE._serialized_start=1916
+  _CONNECTORSERVICE._serialized_end=2960
 # @@protoc_insertion_point(module_scope)
