@@ -46,6 +46,31 @@ class ConnectorServiceStub(object):
                 request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.GetDestinationDefinitionRequest.SerializeToString,
                 response_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.GetDestinationDefinitionResponse.FromString,
                 )
+        self.CreateConnector = channel.unary_unary(
+                '/instill.connector.v1alpha.ConnectorService/CreateConnector',
+                request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.CreateConnectorRequest.SerializeToString,
+                response_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.CreateConnectorResponse.FromString,
+                )
+        self.ListConnector = channel.unary_unary(
+                '/instill.connector.v1alpha.ConnectorService/ListConnector',
+                request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.ListConnectorRequest.SerializeToString,
+                response_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.ListConnectorResponse.FromString,
+                )
+        self.GetConnector = channel.unary_unary(
+                '/instill.connector.v1alpha.ConnectorService/GetConnector',
+                request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.GetConnectorRequest.SerializeToString,
+                response_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.GetConnectorResponse.FromString,
+                )
+        self.UpdateConnector = channel.unary_unary(
+                '/instill.connector.v1alpha.ConnectorService/UpdateConnector',
+                request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateConnectorRequest.SerializeToString,
+                response_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateConnectorResponse.FromString,
+                )
+        self.DeleteConnector = channel.unary_unary(
+                '/instill.connector.v1alpha.ConnectorService/DeleteConnector',
+                request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteConnectorRequest.SerializeToString,
+                response_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteConnectorResponse.FromString,
+                )
 
 
 class ConnectorServiceServicer(object):
@@ -103,6 +128,46 @@ class ConnectorServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateConnector(self, request, context):
+        """CreateConnector method receives a CreateConnectorRequest message and returns
+        a CreateConnectorResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListConnector(self, request, context):
+        """ListConnector method receives a ListConnectorRequest message and returns
+        a ListConnectorResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetConnector(self, request, context):
+        """GetConnector method receives a GetConnectorRequest message and returns
+        a GetConnectorResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateConnector(self, request, context):
+        """UpdateConnector method receives a UpdateConnectorRequest message and returns
+        a UpdateConnectorResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteConnector(self, request, context):
+        """DeleteConnector method receives a DeleteConnectorRequest message and returns
+        a DeleteConnectorResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ConnectorServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -135,6 +200,31 @@ def add_ConnectorServiceServicer_to_server(servicer, server):
                     servicer.GetDestinationDefinition,
                     request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.GetDestinationDefinitionRequest.FromString,
                     response_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.GetDestinationDefinitionResponse.SerializeToString,
+            ),
+            'CreateConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateConnector,
+                    request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.CreateConnectorRequest.FromString,
+                    response_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.CreateConnectorResponse.SerializeToString,
+            ),
+            'ListConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListConnector,
+                    request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.ListConnectorRequest.FromString,
+                    response_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.ListConnectorResponse.SerializeToString,
+            ),
+            'GetConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetConnector,
+                    request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.GetConnectorRequest.FromString,
+                    response_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.GetConnectorResponse.SerializeToString,
+            ),
+            'UpdateConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateConnector,
+                    request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateConnectorRequest.FromString,
+                    response_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateConnectorResponse.SerializeToString,
+            ),
+            'DeleteConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteConnector,
+                    request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteConnectorRequest.FromString,
+                    response_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteConnectorResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -247,5 +337,90 @@ class ConnectorService(object):
         return grpc.experimental.unary_unary(request, target, '/instill.connector.v1alpha.ConnectorService/GetDestinationDefinition',
             instill_dot_connector_dot_v1alpha_dot_connector__pb2.GetDestinationDefinitionRequest.SerializeToString,
             instill_dot_connector_dot_v1alpha_dot_connector__pb2.GetDestinationDefinitionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/instill.connector.v1alpha.ConnectorService/CreateConnector',
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.CreateConnectorRequest.SerializeToString,
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.CreateConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/instill.connector.v1alpha.ConnectorService/ListConnector',
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.ListConnectorRequest.SerializeToString,
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.ListConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/instill.connector.v1alpha.ConnectorService/GetConnector',
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.GetConnectorRequest.SerializeToString,
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.GetConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/instill.connector.v1alpha.ConnectorService/UpdateConnector',
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateConnectorRequest.SerializeToString,
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/instill.connector.v1alpha.ConnectorService/DeleteConnector',
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteConnectorRequest.SerializeToString,
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteConnectorResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
