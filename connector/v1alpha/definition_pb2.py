@@ -20,22 +20,28 @@ from google.type import date_pb2 as google_dot_type_dot_date__pb2
 from instill.connector.v1alpha import spec_pb2 as instill_dot_connector_dot_v1alpha_dot_spec__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*instill/connector/v1alpha/definition.proto\x12\x19instill.connector.v1alpha\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x16google/type/date.proto\x1a$instill/connector/v1alpha/spec.proto\"s\n\x0f\x44ockerImageSpec\x12&\n\x0c\x64ocker_image\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x0b\x64ockerImage\x12\x38\n\x04spec\x18\x02 \x01(\x0b\x32\x1f.instill.connector.v1alpha.SpecB\x03\xe0\x41\x03R\x04spec\"\x87\x08\n\x10SourceDefinition\x12\x35\n\x14source_definition_id\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x12sourceDefinitionId\x12\x17\n\x04name\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x30\n\x11\x64ocker_repository\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x10\x64ockerRepository\x12-\n\x10\x64ocker_image_tag\x18\x04 \x01(\tB\x03\xe0\x41\x03R\x0e\x64ockerImageTag\x12\x30\n\x11\x64ocumentation_url\x18\x05 \x01(\tB\x03\xe0\x41\x03R\x10\x64ocumentationUrl\x12\x17\n\x04icon\x18\x06 \x01(\tB\x03\xe0\x41\x03R\x04icon\x12\\\n\x0bsource_type\x18\x07 \x01(\x0e\x32\x36.instill.connector.v1alpha.SourceDefinition.SourceTypeB\x03\xe0\x41\x03R\nsourceType\x12\x38\n\x04spec\x18\x08 \x01(\x0b\x32\x1f.instill.connector.v1alpha.SpecB\x03\xe0\x41\x03R\x04spec\x12!\n\ttombstone\x18\t \x01(\x08\x42\x03\xe0\x41\x03R\ttombstone\x12\x1b\n\x06public\x18\n \x01(\x08\x42\x03\xe0\x41\x03R\x06public\x12\x1b\n\x06\x63ustom\x18\x0b \x01(\x08\x42\x03\xe0\x41\x03R\x06\x63ustom\x12Q\n\rrelease_stage\x18\x0c \x01(\x0e\x32\'.instill.connector.v1alpha.ReleaseStageB\x03\xe0\x41\x03R\x0creleaseStage\x12\x39\n\x0crelease_date\x18\r \x01(\x0b\x32\x11.google.type.DateB\x03\xe0\x41\x03R\x0breleaseDate\x12Q\n\x15resource_requirements\x18\x0e \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x03R\x14resourceRequirements\x12>\n\ncreated_at\x18\x0f \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\tcreatedAt\x12<\n\tupdate_at\x18\x10 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\x08updateAt\"\xa2\x01\n\nSourceType\x12\x1b\n\x17SOURCE_TYPE_UNSPECIFIED\x10\x00\x12\x1a\n\x16SOURCE_TYPE_DIRECTNESS\x10\x01\x12\x13\n\x0fSOURCE_TYPE_API\x10\x02\x12\x14\n\x10SOURCE_TYPE_FILE\x10\x03\x12\x18\n\x14SOURCE_TYPE_DATABASE\x10\x04\x12\x16\n\x12SOURCE_TYPE_CUSTOM\x10\x05\"\xcd\x08\n\x15\x44\x65stinationDefinition\x12?\n\x19\x64\x65stination_definition_id\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x17\x64\x65stinationDefinitionId\x12\x17\n\x04name\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x30\n\x11\x64ocker_repository\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x10\x64ockerRepository\x12-\n\x10\x64ocker_image_tag\x18\x04 \x01(\tB\x03\xe0\x41\x03R\x0e\x64ockerImageTag\x12\x30\n\x11\x64ocumentation_url\x18\x05 \x01(\tB\x03\xe0\x41\x03R\x10\x64ocumentationUrl\x12\x17\n\x04icon\x18\x06 \x01(\tB\x03\xe0\x41\x03R\x04icon\x12p\n\x10\x64\x65stination_type\x18\x07 \x01(\x0e\x32@.instill.connector.v1alpha.DestinationDefinition.DestinationTypeB\x03\xe0\x41\x03R\x0f\x64\x65stinationType\x12\x38\n\x04spec\x18\x08 \x01(\x0b\x32\x1f.instill.connector.v1alpha.SpecB\x03\xe0\x41\x03R\x04spec\x12!\n\ttombstone\x18\t \x01(\x08\x42\x03\xe0\x41\x03R\ttombstone\x12\x1b\n\x06public\x18\n \x01(\x08\x42\x03\xe0\x41\x03R\x06public\x12\x1b\n\x06\x63ustom\x18\x0b \x01(\x08\x42\x03\xe0\x41\x03R\x06\x63ustom\x12Q\n\rrelease_stage\x18\x0c \x01(\x0e\x32\'.instill.connector.v1alpha.ReleaseStageB\x03\xe0\x41\x03R\x0creleaseStage\x12\x39\n\x0crelease_date\x18\r \x01(\x0b\x32\x11.google.type.DateB\x03\xe0\x41\x03R\x0breleaseDate\x12Q\n\x15resource_requirements\x18\x0e \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x03R\x14resourceRequirements\x12>\n\ncreated_at\x18\x0f \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\tcreatedAt\x12<\n\tupdate_at\x18\x10 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\x08updateAt\"\xc5\x01\n\x0f\x44\x65stinationType\x12 \n\x1c\x44\x45STINATION_TYPE_UNSPECIFIED\x10\x00\x12\x1f\n\x1b\x44\x45STINATION_TYPE_DIRECTNESS\x10\x01\x12\x18\n\x14\x44\x45STINATION_TYPE_API\x10\x02\x12\x19\n\x15\x44\x45STINATION_TYPE_FILE\x10\x03\x12\x1d\n\x19\x44\x45STINATION_TYPE_DATABASE\x10\x04\x12\x1b\n\x17\x44\x45STINATION_TYPE_CUSTOM\x10\x05*\x9f\x01\n\x0cReleaseStage\x12\x1d\n\x19RELEASE_STAGE_UNSPECIFIED\x10\x00\x12\x17\n\x13RELEASE_STAGE_ALPHA\x10\x01\x12\x16\n\x12RELEASE_STAGE_BETA\x10\x02\x12%\n!RELEASE_STAGE_GENERALLY_AVAILABLE\x10\x03\x12\x18\n\x14RELEASE_STAGE_CUSTOM\x10\x04\x42\x84\x02\n\x1d\x63om.instill.connector.v1alphaB\x0f\x44\x65\x66initionProtoP\x01ZLgithub.com/instill-ai/protogen-go/instill/connector/v1alpha;connectorv1alpha\xa2\x02\x03ICX\xaa\x02\x19Instill.Connector.V1alpha\xca\x02\x19Instill\\Connector\\V1alpha\xe2\x02%Instill\\Connector\\V1alpha\\GPBMetadata\xea\x02\x1bInstill::Connector::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*instill/connector/v1alpha/definition.proto\x12\x19instill.connector.v1alpha\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x16google/type/date.proto\x1a$instill/connector/v1alpha/spec.proto\"s\n\x0f\x44ockerImageSpec\x12&\n\x0c\x64ocker_image\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x0b\x64ockerImage\x12\x38\n\x04spec\x18\x02 \x01(\x0b\x32\x1f.instill.connector.v1alpha.SpecB\x03\xe0\x41\x03R\x04spec\"\xdd\x06\n\x10SourceDefinition\x12\x35\n\x14source_definition_id\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x12sourceDefinitionId\x12\x17\n\x04name\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x30\n\x11\x64ocker_repository\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x10\x64ockerRepository\x12-\n\x10\x64ocker_image_tag\x18\x04 \x01(\tB\x03\xe0\x41\x03R\x0e\x64ockerImageTag\x12\x30\n\x11\x64ocumentation_url\x18\x05 \x01(\tB\x03\xe0\x41\x03R\x10\x64ocumentationUrl\x12\x17\n\x04icon\x18\x06 \x01(\tB\x03\xe0\x41\x03R\x04icon\x12W\n\x0f\x63onnection_type\x18\x07 \x01(\x0e\x32).instill.connector.v1alpha.ConnectionTypeB\x03\xe0\x41\x03R\x0e\x63onnectionType\x12\x38\n\x04spec\x18\x08 \x01(\x0b\x32\x1f.instill.connector.v1alpha.SpecB\x03\xe0\x41\x03R\x04spec\x12!\n\ttombstone\x18\t \x01(\x08\x42\x03\xe0\x41\x03R\ttombstone\x12\x1b\n\x06public\x18\n \x01(\x08\x42\x03\xe0\x41\x03R\x06public\x12\x1b\n\x06\x63ustom\x18\x0b \x01(\x08\x42\x03\xe0\x41\x03R\x06\x63ustom\x12Q\n\rrelease_stage\x18\x0c \x01(\x0e\x32\'.instill.connector.v1alpha.ReleaseStageB\x03\xe0\x41\x03R\x0creleaseStage\x12\x39\n\x0crelease_date\x18\r \x01(\x0b\x32\x11.google.type.DateB\x03\xe0\x41\x03R\x0breleaseDate\x12Q\n\x15resource_requirements\x18\x0e \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x03R\x14resourceRequirements\x12>\n\ncreated_at\x18\x0f \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\tcreatedAt\x12<\n\tupdate_at\x18\x10 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\x08updateAt\"\xec\x06\n\x15\x44\x65stinationDefinition\x12?\n\x19\x64\x65stination_definition_id\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x17\x64\x65stinationDefinitionId\x12\x17\n\x04name\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x30\n\x11\x64ocker_repository\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x10\x64ockerRepository\x12-\n\x10\x64ocker_image_tag\x18\x04 \x01(\tB\x03\xe0\x41\x03R\x0e\x64ockerImageTag\x12\x30\n\x11\x64ocumentation_url\x18\x05 \x01(\tB\x03\xe0\x41\x03R\x10\x64ocumentationUrl\x12\x17\n\x04icon\x18\x06 \x01(\tB\x03\xe0\x41\x03R\x04icon\x12W\n\x0f\x63onnection_type\x18\x07 \x01(\x0e\x32).instill.connector.v1alpha.ConnectionTypeB\x03\xe0\x41\x03R\x0e\x63onnectionType\x12\x38\n\x04spec\x18\x08 \x01(\x0b\x32\x1f.instill.connector.v1alpha.SpecB\x03\xe0\x41\x03R\x04spec\x12!\n\ttombstone\x18\t \x01(\x08\x42\x03\xe0\x41\x03R\ttombstone\x12\x1b\n\x06public\x18\n \x01(\x08\x42\x03\xe0\x41\x03R\x06public\x12\x1b\n\x06\x63ustom\x18\x0b \x01(\x08\x42\x03\xe0\x41\x03R\x06\x63ustom\x12Q\n\rrelease_stage\x18\x0c \x01(\x0e\x32\'.instill.connector.v1alpha.ReleaseStageB\x03\xe0\x41\x03R\x0creleaseStage\x12\x39\n\x0crelease_date\x18\r \x01(\x0b\x32\x11.google.type.DateB\x03\xe0\x41\x03R\x0breleaseDate\x12Q\n\x15resource_requirements\x18\x0e \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x03R\x14resourceRequirements\x12>\n\ncreated_at\x18\x0f \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\tcreatedAt\x12<\n\tupdate_at\x18\x10 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\x08updateAt*\x9f\x01\n\x0cReleaseStage\x12\x1d\n\x19RELEASE_STAGE_UNSPECIFIED\x10\x00\x12\x17\n\x13RELEASE_STAGE_ALPHA\x10\x01\x12\x16\n\x12RELEASE_STAGE_BETA\x10\x02\x12%\n!RELEASE_STAGE_GENERALLY_AVAILABLE\x10\x03\x12\x18\n\x14RELEASE_STAGE_CUSTOM\x10\x04*\xbe\x01\n\x0e\x43onnectionType\x12\x1f\n\x1b\x43ONNECTION_TYPE_UNSPECIFIED\x10\x00\x12\x1e\n\x1a\x43ONNECTION_TYPE_DIRECTNESS\x10\x01\x12\x17\n\x13\x43ONNECTION_TYPE_API\x10\x02\x12\x18\n\x14\x43ONNECTION_TYPE_FILE\x10\x03\x12\x1c\n\x18\x43ONNECTION_TYPE_DATABASE\x10\x04\x12\x1a\n\x16\x43ONNECTION_TYPE_CUSTOM\x10\x05\x42\x84\x02\n\x1d\x63om.instill.connector.v1alphaB\x0f\x44\x65\x66initionProtoP\x01ZLgithub.com/instill-ai/protogen-go/instill/connector/v1alpha;connectorv1alpha\xa2\x02\x03ICX\xaa\x02\x19Instill.Connector.V1alpha\xca\x02\x19Instill\\Connector\\V1alpha\xe2\x02%Instill\\Connector\\V1alpha\\GPBMetadata\xea\x02\x1bInstill::Connector::V1alphab\x06proto3')
 
 _RELEASESTAGE = DESCRIPTOR.enum_types_by_name['ReleaseStage']
 ReleaseStage = enum_type_wrapper.EnumTypeWrapper(_RELEASESTAGE)
+_CONNECTIONTYPE = DESCRIPTOR.enum_types_by_name['ConnectionType']
+ConnectionType = enum_type_wrapper.EnumTypeWrapper(_CONNECTIONTYPE)
 RELEASE_STAGE_UNSPECIFIED = 0
 RELEASE_STAGE_ALPHA = 1
 RELEASE_STAGE_BETA = 2
 RELEASE_STAGE_GENERALLY_AVAILABLE = 3
 RELEASE_STAGE_CUSTOM = 4
+CONNECTION_TYPE_UNSPECIFIED = 0
+CONNECTION_TYPE_DIRECTNESS = 1
+CONNECTION_TYPE_API = 2
+CONNECTION_TYPE_FILE = 3
+CONNECTION_TYPE_DATABASE = 4
+CONNECTION_TYPE_CUSTOM = 5
 
 
 _DOCKERIMAGESPEC = DESCRIPTOR.message_types_by_name['DockerImageSpec']
 _SOURCEDEFINITION = DESCRIPTOR.message_types_by_name['SourceDefinition']
 _DESTINATIONDEFINITION = DESCRIPTOR.message_types_by_name['DestinationDefinition']
-_SOURCEDEFINITION_SOURCETYPE = _SOURCEDEFINITION.enum_types_by_name['SourceType']
-_DESTINATIONDEFINITION_DESTINATIONTYPE = _DESTINATIONDEFINITION.enum_types_by_name['DestinationType']
 DockerImageSpec = _reflection.GeneratedProtocolMessageType('DockerImageSpec', (_message.Message,), {
   'DESCRIPTOR' : _DOCKERIMAGESPEC,
   '__module__' : 'instill.connector.v1alpha.definition_pb2'
@@ -77,8 +83,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _SOURCEDEFINITION.fields_by_name['documentation_url']._serialized_options = b'\340A\003'
   _SOURCEDEFINITION.fields_by_name['icon']._options = None
   _SOURCEDEFINITION.fields_by_name['icon']._serialized_options = b'\340A\003'
-  _SOURCEDEFINITION.fields_by_name['source_type']._options = None
-  _SOURCEDEFINITION.fields_by_name['source_type']._serialized_options = b'\340A\003'
+  _SOURCEDEFINITION.fields_by_name['connection_type']._options = None
+  _SOURCEDEFINITION.fields_by_name['connection_type']._serialized_options = b'\340A\003'
   _SOURCEDEFINITION.fields_by_name['spec']._options = None
   _SOURCEDEFINITION.fields_by_name['spec']._serialized_options = b'\340A\003'
   _SOURCEDEFINITION.fields_by_name['tombstone']._options = None
@@ -109,8 +115,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _DESTINATIONDEFINITION.fields_by_name['documentation_url']._serialized_options = b'\340A\003'
   _DESTINATIONDEFINITION.fields_by_name['icon']._options = None
   _DESTINATIONDEFINITION.fields_by_name['icon']._serialized_options = b'\340A\003'
-  _DESTINATIONDEFINITION.fields_by_name['destination_type']._options = None
-  _DESTINATIONDEFINITION.fields_by_name['destination_type']._serialized_options = b'\340A\003'
+  _DESTINATIONDEFINITION.fields_by_name['connection_type']._options = None
+  _DESTINATIONDEFINITION.fields_by_name['connection_type']._serialized_options = b'\340A\003'
   _DESTINATIONDEFINITION.fields_by_name['spec']._options = None
   _DESTINATIONDEFINITION.fields_by_name['spec']._serialized_options = b'\340A\003'
   _DESTINATIONDEFINITION.fields_by_name['tombstone']._options = None
@@ -129,16 +135,14 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _DESTINATIONDEFINITION.fields_by_name['created_at']._serialized_options = b'\340A\003'
   _DESTINATIONDEFINITION.fields_by_name['update_at']._options = None
   _DESTINATIONDEFINITION.fields_by_name['update_at']._serialized_options = b'\340A\003'
-  _RELEASESTAGE._serialized_start=2487
-  _RELEASESTAGE._serialized_end=2646
+  _RELEASESTAGE._serialized_start=2092
+  _RELEASESTAGE._serialized_end=2251
+  _CONNECTIONTYPE._serialized_start=2254
+  _CONNECTIONTYPE._serialized_end=2444
   _DOCKERIMAGESPEC._serialized_start=231
   _DOCKERIMAGESPEC._serialized_end=346
   _SOURCEDEFINITION._serialized_start=349
-  _SOURCEDEFINITION._serialized_end=1380
-  _SOURCEDEFINITION_SOURCETYPE._serialized_start=1218
-  _SOURCEDEFINITION_SOURCETYPE._serialized_end=1380
-  _DESTINATIONDEFINITION._serialized_start=1383
-  _DESTINATIONDEFINITION._serialized_end=2484
-  _DESTINATIONDEFINITION_DESTINATIONTYPE._serialized_start=2287
-  _DESTINATIONDEFINITION_DESTINATIONTYPE._serialized_end=2484
+  _SOURCEDEFINITION._serialized_end=1210
+  _DESTINATIONDEFINITION._serialized_start=1213
+  _DESTINATIONDEFINITION._serialized_end=2089
 # @@protoc_insertion_point(module_scope)
