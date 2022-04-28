@@ -45,20 +45,20 @@ class ModelServiceStub(object):
                 request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelRequest.SerializeToString,
                 response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelResponse.FromString,
                 )
-        self.UpdateModelVersion = channel.unary_unary(
-                '/instill.model.v1alpha.ModelService/UpdateModelVersion',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelVersionRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelVersionResponse.FromString,
+        self.UpdateModelInstance = channel.unary_unary(
+                '/instill.model.v1alpha.ModelService/UpdateModelInstance',
+                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelInstanceRequest.SerializeToString,
+                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelInstanceResponse.FromString,
                 )
         self.DeleteModel = channel.unary_unary(
                 '/instill.model.v1alpha.ModelService/DeleteModel',
                 request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelRequest.SerializeToString,
                 response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelResponse.FromString,
                 )
-        self.DeleteModelVersion = channel.unary_unary(
-                '/instill.model.v1alpha.ModelService/DeleteModelVersion',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelVersionRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelVersionResponse.FromString,
+        self.DeleteModelInstance = channel.unary_unary(
+                '/instill.model.v1alpha.ModelService/DeleteModelInstance',
+                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelInstanceRequest.SerializeToString,
+                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelInstanceResponse.FromString,
                 )
         self.TriggerModel = channel.unary_unary(
                 '/instill.model.v1alpha.ModelService/TriggerModel',
@@ -128,9 +128,9 @@ class ModelServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UpdateModelVersion(self, request, context):
-        """UpdateModelVersion method receives a UpdateModelVersionRequest message and
-        returns a UpdateModelVersionResponse message.
+    def UpdateModelInstance(self, request, context):
+        """UpdateModelInstance method receives a UpdateModelInstanceRequest message and
+        returns a UpdateModelInstanceResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -144,9 +144,9 @@ class ModelServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def DeleteModelVersion(self, request, context):
-        """DeleteModelVersion method receives a DeleteModelVersionRequest message and
-        returns a DeleteModelVersionResponse message.
+    def DeleteModelInstance(self, request, context):
+        """DeleteModelInstance method receives a DeleteModelInstanceRequest message and
+        returns a DeleteModelInstanceResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -202,20 +202,20 @@ def add_ModelServiceServicer_to_server(servicer, server):
                     request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelRequest.FromString,
                     response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelResponse.SerializeToString,
             ),
-            'UpdateModelVersion': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateModelVersion,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelVersionRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelVersionResponse.SerializeToString,
+            'UpdateModelInstance': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateModelInstance,
+                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelInstanceRequest.FromString,
+                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelInstanceResponse.SerializeToString,
             ),
             'DeleteModel': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteModel,
                     request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelRequest.FromString,
                     response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelResponse.SerializeToString,
             ),
-            'DeleteModelVersion': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteModelVersion,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelVersionRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelVersionResponse.SerializeToString,
+            'DeleteModelInstance': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteModelInstance,
+                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelInstanceRequest.FromString,
+                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelInstanceResponse.SerializeToString,
             ),
             'TriggerModel': grpc.unary_unary_rpc_method_handler(
                     servicer.TriggerModel,
@@ -341,7 +341,7 @@ class ModelService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UpdateModelVersion(request,
+    def UpdateModelInstance(request,
             target,
             options=(),
             channel_credentials=None,
@@ -351,9 +351,9 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/UpdateModelVersion',
-            instill_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelVersionRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelVersionResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/UpdateModelInstance',
+            instill_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelInstanceRequest.SerializeToString,
+            instill_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelInstanceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -375,7 +375,7 @@ class ModelService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def DeleteModelVersion(request,
+    def DeleteModelInstance(request,
             target,
             options=(),
             channel_credentials=None,
@@ -385,9 +385,9 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/DeleteModelVersion',
-            instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelVersionRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelVersionResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/DeleteModelInstance',
+            instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelInstanceRequest.SerializeToString,
+            instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelInstanceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
