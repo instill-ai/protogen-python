@@ -16,7 +16,7 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&instill/model/v1alpha/definition.proto\x12\x15instill.model.v1alpha\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1fgoogle/api/field_behavior.proto\"_\n\rConfiguration\x12\x17\n\x04repo\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04repo\x12\x15\n\x03tag\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03tag\x12\x1e\n\x08html_url\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x07htmlUrl\"V\n\x05Owner\x12\x13\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x02id\x12\x1f\n\x08username\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x08username\x12\x17\n\x04type\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x04type\"\xc1\x06\n\x0fModelDefinition\x12\x35\n\x14source_definition_id\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x12sourceDefinitionId\x12\x17\n\x04name\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x04name\x12 \n\tfull_name\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x08\x66ullName\x12%\n\x0b\x64\x65scription\x18\x04 \x01(\tB\x03\xe0\x41\x03R\x0b\x64\x65scription\x12J\n\x06source\x18\x05 \x01(\x0e\x32-.instill.model.v1alpha.ModelDefinition.SourceB\x03\xe0\x41\x03R\x06source\x12V\n\nvisibility\x18\x06 \x01(\x0e\x32\x31.instill.model.v1alpha.ModelDefinition.VisibilityB\x03\xe0\x41\x03R\nvisibility\x12O\n\rconfiguration\x18\x07 \x01(\x0b\x32$.instill.model.v1alpha.ConfigurationB\x03\xe0\x41\x03R\rconfiguration\x12>\n\ncreated_at\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\tcreatedAt\x12>\n\nupdated_at\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\tupdatedAt\x12G\n\tinstances\x18\n \x03(\x0b\x32$.instill.model.v1alpha.ModelInstanceB\x03\xe0\x41\x03R\tinstances\x12\x37\n\x05owner\x18\x0b \x01(\x0b\x32\x1c.instill.model.v1alpha.OwnerB\x03\xe0\x41\x03R\x05owner\"W\n\nVisibility\x12\x1a\n\x16VISIBILITY_UNSPECIFIED\x10\x00\x12\x15\n\x11VISIBILITY_PUBLIC\x10\x01\x12\x16\n\x12VISIBILITY_PRIVATE\x10\x02\"E\n\x06Source\x12\x16\n\x12SOURCE_UNSPECIFIED\x10\x00\x12\x11\n\rSOURCE_GITHUB\x10\x01\x12\x10\n\x0cSOURCE_LOCAL\x10\x02\"\xd4\x05\n\rModelInstance\x12\"\n\nmodel_name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\tmodelName\x12\x17\n\x04name\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x42\n\x04task\x18\x03 \x01(\x0e\x32).instill.model.v1alpha.ModelInstance.TaskB\x03\xe0\x41\x03R\x04task\x12\x35\n\x14source_definition_id\x18\x04 \x01(\tB\x03\xe0\x41\x03R\x12sourceDefinitionId\x12J\n\x06source\x18\x05 \x01(\x0e\x32-.instill.model.v1alpha.ModelDefinition.SourceB\x03\xe0\x41\x03R\x06source\x12O\n\rconfiguration\x18\x06 \x01(\x0b\x32$.instill.model.v1alpha.ConfigurationB\x03\xe0\x41\x03R\rconfiguration\x12H\n\x06status\x18\x07 \x01(\x0e\x32+.instill.model.v1alpha.ModelInstance.StatusB\x03\xe0\x41\x03R\x06status\x12>\n\ncreated_at\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\tcreatedAt\x12>\n\nupdated_at\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\tupdatedAt\"I\n\x04Task\x12\x14\n\x10TASK_UNSPECIFIED\x10\x00\x12\x17\n\x13TASK_CLASSIFICATION\x10\x01\x12\x12\n\x0eTASK_DETECTION\x10\x02\"Y\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x12\n\x0eSTATUS_OFFLINE\x10\x01\x12\x11\n\rSTATUS_ONLINE\x10\x02\x12\x10\n\x0cSTATUS_ERROR\x10\x03\x42\xe8\x01\n\x19\x63om.instill.model.v1alphaB\x0f\x44\x65\x66initionProtoP\x01ZDgithub.com/instill-ai/protogen-go/instill/model/v1alpha;modelv1alpha\xa2\x02\x03IMX\xaa\x02\x15Instill.Model.V1alpha\xca\x02\x15Instill\\Model\\V1alpha\xe2\x02!Instill\\Model\\V1alpha\\GPBMetadata\xea\x02\x17Instill::Model::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&instill/model/v1alpha/definition.proto\x12\x15instill.model.v1alpha\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1fgoogle/api/field_behavior.proto\"_\n\rConfiguration\x12\x17\n\x04repo\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04repo\x12\x15\n\x03tag\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03tag\x12\x1e\n\x08html_url\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x07htmlUrl\"V\n\x05Owner\x12\x13\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x02id\x12\x1f\n\x08username\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x08username\x12\x17\n\x04type\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x04type\"\x9f\x06\n\x0fModelDefinition\x12\x13\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x02id\x12\x17\n\x04name\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x04name\x12 \n\tfull_name\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x08\x66ullName\x12%\n\x0b\x64\x65scription\x18\x04 \x01(\tB\x03\xe0\x41\x03R\x0b\x64\x65scription\x12J\n\x06source\x18\x05 \x01(\x0e\x32-.instill.model.v1alpha.ModelDefinition.SourceB\x03\xe0\x41\x03R\x06source\x12O\n\rconfiguration\x18\x06 \x01(\x0b\x32$.instill.model.v1alpha.ConfigurationB\x03\xe0\x41\x03R\rconfiguration\x12G\n\tinstances\x18\x07 \x03(\x0b\x32$.instill.model.v1alpha.ModelInstanceB\x03\xe0\x41\x03R\tinstances\x12V\n\nvisibility\x18\x08 \x01(\x0e\x32\x31.instill.model.v1alpha.ModelDefinition.VisibilityB\x03\xe0\x41\x03R\nvisibility\x12\x37\n\x05owner\x18\t \x01(\x0b\x32\x1c.instill.model.v1alpha.OwnerB\x03\xe0\x41\x03R\x05owner\x12>\n\ncreated_at\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\tcreatedAt\x12>\n\nupdated_at\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\tupdatedAt\"W\n\nVisibility\x12\x1a\n\x16VISIBILITY_UNSPECIFIED\x10\x00\x12\x15\n\x11VISIBILITY_PUBLIC\x10\x01\x12\x16\n\x12VISIBILITY_PRIVATE\x10\x02\"E\n\x06Source\x12\x16\n\x12SOURCE_UNSPECIFIED\x10\x00\x12\x11\n\rSOURCE_GITHUB\x10\x01\x12\x10\n\x0cSOURCE_LOCAL\x10\x02\"\x9c\x06\n\rModelInstance\x12\x13\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x02id\x12\x17\n\x04name\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x42\n\x04task\x18\x03 \x01(\x0e\x32).instill.model.v1alpha.ModelInstance.TaskB\x03\xe0\x41\x03R\x04task\x12O\n\rconfiguration\x18\x04 \x01(\x0b\x32$.instill.model.v1alpha.ConfigurationB\x03\xe0\x41\x03R\rconfiguration\x12H\n\x06status\x18\x05 \x01(\x0e\x32+.instill.model.v1alpha.ModelInstance.StatusB\x03\xe0\x41\x03R\x06status\x12\x33\n\x13model_definition_id\x18\x06 \x01(\tB\x03\xe0\x41\x03R\x11modelDefinitionId\x12\x37\n\x15model_definition_name\x18\x07 \x01(\tB\x03\xe0\x41\x03R\x13modelDefinitionName\x12j\n\x17model_definition_source\x18\x08 \x01(\x0e\x32-.instill.model.v1alpha.ModelDefinition.SourceB\x03\xe0\x41\x03R\x15modelDefinitionSource\x12>\n\ncreated_at\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\tcreatedAt\x12>\n\nupdated_at\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\tupdatedAt\"I\n\x04Task\x12\x14\n\x10TASK_UNSPECIFIED\x10\x00\x12\x17\n\x13TASK_CLASSIFICATION\x10\x01\x12\x12\n\x0eTASK_DETECTION\x10\x02\"Y\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x12\n\x0eSTATUS_OFFLINE\x10\x01\x12\x11\n\rSTATUS_ONLINE\x10\x02\x12\x10\n\x0cSTATUS_ERROR\x10\x03\x42\xe8\x01\n\x19\x63om.instill.model.v1alphaB\x0f\x44\x65\x66initionProtoP\x01ZDgithub.com/instill-ai/protogen-go/instill/model/v1alpha;modelv1alpha\xa2\x02\x03IMX\xaa\x02\x15Instill.Model.V1alpha\xca\x02\x15Instill\\Model\\V1alpha\xe2\x02!Instill\\Model\\V1alpha\\GPBMetadata\xea\x02\x17Instill::Model::V1alphab\x06proto3')
 
 
 
@@ -72,8 +72,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _OWNER.fields_by_name['username']._serialized_options = b'\340A\003'
   _OWNER.fields_by_name['type']._options = None
   _OWNER.fields_by_name['type']._serialized_options = b'\340A\003'
-  _MODELDEFINITION.fields_by_name['source_definition_id']._options = None
-  _MODELDEFINITION.fields_by_name['source_definition_id']._serialized_options = b'\340A\003'
+  _MODELDEFINITION.fields_by_name['id']._options = None
+  _MODELDEFINITION.fields_by_name['id']._serialized_options = b'\340A\003'
   _MODELDEFINITION.fields_by_name['name']._options = None
   _MODELDEFINITION.fields_by_name['name']._serialized_options = b'\340A\003'
   _MODELDEFINITION.fields_by_name['full_name']._options = None
@@ -82,32 +82,34 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _MODELDEFINITION.fields_by_name['description']._serialized_options = b'\340A\003'
   _MODELDEFINITION.fields_by_name['source']._options = None
   _MODELDEFINITION.fields_by_name['source']._serialized_options = b'\340A\003'
-  _MODELDEFINITION.fields_by_name['visibility']._options = None
-  _MODELDEFINITION.fields_by_name['visibility']._serialized_options = b'\340A\003'
   _MODELDEFINITION.fields_by_name['configuration']._options = None
   _MODELDEFINITION.fields_by_name['configuration']._serialized_options = b'\340A\003'
+  _MODELDEFINITION.fields_by_name['instances']._options = None
+  _MODELDEFINITION.fields_by_name['instances']._serialized_options = b'\340A\003'
+  _MODELDEFINITION.fields_by_name['visibility']._options = None
+  _MODELDEFINITION.fields_by_name['visibility']._serialized_options = b'\340A\003'
+  _MODELDEFINITION.fields_by_name['owner']._options = None
+  _MODELDEFINITION.fields_by_name['owner']._serialized_options = b'\340A\003'
   _MODELDEFINITION.fields_by_name['created_at']._options = None
   _MODELDEFINITION.fields_by_name['created_at']._serialized_options = b'\340A\003'
   _MODELDEFINITION.fields_by_name['updated_at']._options = None
   _MODELDEFINITION.fields_by_name['updated_at']._serialized_options = b'\340A\003'
-  _MODELDEFINITION.fields_by_name['instances']._options = None
-  _MODELDEFINITION.fields_by_name['instances']._serialized_options = b'\340A\003'
-  _MODELDEFINITION.fields_by_name['owner']._options = None
-  _MODELDEFINITION.fields_by_name['owner']._serialized_options = b'\340A\003'
-  _MODELINSTANCE.fields_by_name['model_name']._options = None
-  _MODELINSTANCE.fields_by_name['model_name']._serialized_options = b'\340A\003'
+  _MODELINSTANCE.fields_by_name['id']._options = None
+  _MODELINSTANCE.fields_by_name['id']._serialized_options = b'\340A\003'
   _MODELINSTANCE.fields_by_name['name']._options = None
   _MODELINSTANCE.fields_by_name['name']._serialized_options = b'\340A\003'
   _MODELINSTANCE.fields_by_name['task']._options = None
   _MODELINSTANCE.fields_by_name['task']._serialized_options = b'\340A\003'
-  _MODELINSTANCE.fields_by_name['source_definition_id']._options = None
-  _MODELINSTANCE.fields_by_name['source_definition_id']._serialized_options = b'\340A\003'
-  _MODELINSTANCE.fields_by_name['source']._options = None
-  _MODELINSTANCE.fields_by_name['source']._serialized_options = b'\340A\003'
   _MODELINSTANCE.fields_by_name['configuration']._options = None
   _MODELINSTANCE.fields_by_name['configuration']._serialized_options = b'\340A\003'
   _MODELINSTANCE.fields_by_name['status']._options = None
   _MODELINSTANCE.fields_by_name['status']._serialized_options = b'\340A\003'
+  _MODELINSTANCE.fields_by_name['model_definition_id']._options = None
+  _MODELINSTANCE.fields_by_name['model_definition_id']._serialized_options = b'\340A\003'
+  _MODELINSTANCE.fields_by_name['model_definition_name']._options = None
+  _MODELINSTANCE.fields_by_name['model_definition_name']._serialized_options = b'\340A\003'
+  _MODELINSTANCE.fields_by_name['model_definition_source']._options = None
+  _MODELINSTANCE.fields_by_name['model_definition_source']._serialized_options = b'\340A\003'
   _MODELINSTANCE.fields_by_name['created_at']._options = None
   _MODELINSTANCE.fields_by_name['created_at']._serialized_options = b'\340A\003'
   _MODELINSTANCE.fields_by_name['updated_at']._options = None
@@ -117,15 +119,15 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _OWNER._serialized_start=228
   _OWNER._serialized_end=314
   _MODELDEFINITION._serialized_start=317
-  _MODELDEFINITION._serialized_end=1150
-  _MODELDEFINITION_VISIBILITY._serialized_start=992
-  _MODELDEFINITION_VISIBILITY._serialized_end=1079
-  _MODELDEFINITION_SOURCE._serialized_start=1081
-  _MODELDEFINITION_SOURCE._serialized_end=1150
-  _MODELINSTANCE._serialized_start=1153
-  _MODELINSTANCE._serialized_end=1877
-  _MODELINSTANCE_TASK._serialized_start=1713
-  _MODELINSTANCE_TASK._serialized_end=1786
-  _MODELINSTANCE_STATUS._serialized_start=1788
-  _MODELINSTANCE_STATUS._serialized_end=1877
+  _MODELDEFINITION._serialized_end=1116
+  _MODELDEFINITION_VISIBILITY._serialized_start=958
+  _MODELDEFINITION_VISIBILITY._serialized_end=1045
+  _MODELDEFINITION_SOURCE._serialized_start=1047
+  _MODELDEFINITION_SOURCE._serialized_end=1116
+  _MODELINSTANCE._serialized_start=1119
+  _MODELINSTANCE._serialized_end=1915
+  _MODELINSTANCE_TASK._serialized_start=1751
+  _MODELINSTANCE_TASK._serialized_end=1824
+  _MODELINSTANCE_STATUS._serialized_start=1826
+  _MODELINSTANCE_STATUS._serialized_end=1915
 # @@protoc_insertion_point(module_scope)
