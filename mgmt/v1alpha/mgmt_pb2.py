@@ -18,7 +18,7 @@ from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1finstill/mgmt/v1alpha/mgmt.proto\x12\x14instill.mgmt.v1alpha\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\".\n\x12HealthCheckRequest\x12\x18\n\x07service\x18\x01 \x01(\tR\x07service\"\xd8\x01\n\x13HealthCheckResponse\x12T\n\x06status\x18\x01 \x01(\x0e\x32\x37.instill.mgmt.v1alpha.HealthCheckResponse.ServingStatusB\x03\xe0\x41\x03R\x06status\"k\n\rServingStatus\x12\x1e\n\x1aSERVING_STATUS_UNSPECIFIED\x10\x00\x12\x1a\n\x16SERVING_STATUS_SERVING\x10\x01\x12\x1e\n\x1aSERVING_STATUS_NOT_SERVING\x10\x02\"r\n\x0fLivenessRequest\x12_\n\x14health_check_request\x18\x01 \x01(\x0b\x32(.instill.mgmt.v1alpha.HealthCheckRequestB\x03\xe0\x41\x01R\x12healthCheckRequest\"v\n\x10LivenessResponse\x12\x62\n\x15health_check_response\x18\x01 \x01(\x0b\x32).instill.mgmt.v1alpha.HealthCheckResponseB\x03\xe0\x41\x03R\x13healthCheckResponse\"s\n\x10ReadinessRequest\x12_\n\x14health_check_request\x18\x01 \x01(\x0b\x32(.instill.mgmt.v1alpha.HealthCheckRequestB\x03\xe0\x41\x01R\x12healthCheckRequest\"w\n\x11ReadinessResponse\x12\x62\n\x15health_check_response\x18\x01 \x01(\x0b\x32).instill.mgmt.v1alpha.HealthCheckResponseB\x03\xe0\x41\x03R\x13healthCheckResponse\"\xd5\x03\n\x04User\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x13\n\x02id\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x02id\x12\x1e\n\x05\x65mail\x18\x03 \x01(\tB\x03\xe0\x41\x01H\x00R\x05\x65mail\x88\x01\x01\x12\x19\n\x05login\x18\x04 \x01(\tB\x03\xe0\x41\x02R\x05login\x12+\n\x0c\x63ompany_name\x18\x05 \x01(\tB\x03\xe0\x41\x01H\x01R\x0b\x63ompanyName\x88\x01\x01\x12\x1c\n\x04role\x18\x06 \x01(\tB\x03\xe0\x41\x01H\x02R\x04role\x88\x01\x01\x12\x37\n\x15usage_data_collection\x18\x07 \x01(\x08\x42\x03\xe0\x41\x02R\x13usageDataCollection\x12<\n\x17newsletter_subscription\x18\x08 \x01(\x08\x42\x03\xe0\x41\x02R\x16newsletterSubscription\x12>\n\ncreated_at\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\tcreatedAt\x12>\n\nupdated_at\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\tupdatedAtB\x08\n\x06_emailB\x0f\n\r_company_nameB\x07\n\x05_role\"Y\n\x0fListUserRequest\x12 \n\tpage_size\x18\x01 \x01(\x05\x42\x03\xe0\x41\x01R\x08pageSize\x12$\n\x0bpage_cursor\x18\x02 \x01(\tB\x03\xe0\x41\x01R\npageCursor\"x\n\x10ListUserResponse\x12\x35\n\x05users\x18\x01 \x03(\x0b\x32\x1a.instill.mgmt.v1alpha.UserB\x03\xe0\x41\x03R\x05users\x12-\n\x10next_page_cursor\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x0enextPageCursor\")\n\x0eGetUserRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\"F\n\x0fGetUserResponse\x12\x33\n\x04user\x18\x01 \x01(\x0b\x32\x1a.instill.mgmt.v1alpha.UserB\x03\xe0\x41\x02R\x04user\"\x83\x01\n\x11UpdateUserRequest\x12\x33\n\x04user\x18\x01 \x01(\x0b\x32\x1a.instill.mgmt.v1alpha.UserB\x03\xe0\x41\x02R\x04user\x12\x39\n\nfield_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\tfieldMask\"I\n\x12UpdateUserResponse\x12\x33\n\x04user\x18\x01 \x01(\x0b\x32\x1a.instill.mgmt.v1alpha.UserB\x03\xe0\x41\x02R\x04user2\xe3\x04\n\x0bUserService\x12~\n\x08Liveness\x12%.instill.mgmt.v1alpha.LivenessRequest\x1a&.instill.mgmt.v1alpha.LivenessResponse\"#\x82\xd3\xe4\x93\x02\x1dZ\x0e\x12\x0c/health/mgmt\x12\x0b/__liveness\x12r\n\tReadiness\x12&.instill.mgmt.v1alpha.ReadinessRequest\x1a\'.instill.mgmt.v1alpha.ReadinessResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/__readiness\x12i\n\x08ListUser\x12%.instill.mgmt.v1alpha.ListUserRequest\x1a&.instill.mgmt.v1alpha.ListUserResponse\"\x0e\x82\xd3\xe4\x93\x02\x08\x12\x06/users\x12o\n\x07GetUser\x12$.instill.mgmt.v1alpha.GetUserRequest\x1a%.instill.mgmt.v1alpha.GetUserResponse\"\x17\x82\xd3\xe4\x93\x02\x11\x12\x0f/{name=users/*}\x12\x83\x01\n\nUpdateUser\x12\'.instill.mgmt.v1alpha.UpdateUserRequest\x1a(.instill.mgmt.v1alpha.UpdateUserResponse\"\"\x82\xd3\xe4\x93\x02\x1c:\x04user2\x14/{user.name=users/*}B\xdb\x01\n\x18\x63om.instill.mgmt.v1alphaB\tMgmtProtoP\x01ZBgithub.com/instill-ai/protogen-go/instill/mgmt/v1alpha;mgmtv1alpha\xa2\x02\x03IMX\xaa\x02\x14Instill.Mgmt.V1alpha\xca\x02\x14Instill\\Mgmt\\V1alpha\xe2\x02 Instill\\Mgmt\\V1alpha\\GPBMetadata\xea\x02\x16Instill::Mgmt::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1finstill/mgmt/v1alpha/mgmt.proto\x12\x14instill.mgmt.v1alpha\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\".\n\x12HealthCheckRequest\x12\x18\n\x07service\x18\x01 \x01(\tR\x07service\"\xd8\x01\n\x13HealthCheckResponse\x12T\n\x06status\x18\x01 \x01(\x0e\x32\x37.instill.mgmt.v1alpha.HealthCheckResponse.ServingStatusB\x03\xe0\x41\x03R\x06status\"k\n\rServingStatus\x12\x1e\n\x1aSERVING_STATUS_UNSPECIFIED\x10\x00\x12\x1a\n\x16SERVING_STATUS_SERVING\x10\x01\x12\x1e\n\x1aSERVING_STATUS_NOT_SERVING\x10\x02\"r\n\x0fLivenessRequest\x12_\n\x14health_check_request\x18\x01 \x01(\x0b\x32(.instill.mgmt.v1alpha.HealthCheckRequestB\x03\xe0\x41\x01R\x12healthCheckRequest\"v\n\x10LivenessResponse\x12\x62\n\x15health_check_response\x18\x01 \x01(\x0b\x32).instill.mgmt.v1alpha.HealthCheckResponseB\x03\xe0\x41\x03R\x13healthCheckResponse\"s\n\x10ReadinessRequest\x12_\n\x14health_check_request\x18\x01 \x01(\x0b\x32(.instill.mgmt.v1alpha.HealthCheckRequestB\x03\xe0\x41\x01R\x12healthCheckRequest\"w\n\x11ReadinessResponse\x12\x62\n\x15health_check_response\x18\x01 \x01(\x0b\x32).instill.mgmt.v1alpha.HealthCheckResponseB\x03\xe0\x41\x03R\x13healthCheckResponse\"\xd5\x03\n\x04User\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x13\n\x02id\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x02id\x12\x1e\n\x05\x65mail\x18\x03 \x01(\tB\x03\xe0\x41\x01H\x00R\x05\x65mail\x88\x01\x01\x12\x19\n\x05login\x18\x04 \x01(\tB\x03\xe0\x41\x02R\x05login\x12+\n\x0c\x63ompany_name\x18\x05 \x01(\tB\x03\xe0\x41\x01H\x01R\x0b\x63ompanyName\x88\x01\x01\x12\x1c\n\x04role\x18\x06 \x01(\tB\x03\xe0\x41\x01H\x02R\x04role\x88\x01\x01\x12\x37\n\x15usage_data_collection\x18\x07 \x01(\x08\x42\x03\xe0\x41\x02R\x13usageDataCollection\x12<\n\x17newsletter_subscription\x18\x08 \x01(\x08\x42\x03\xe0\x41\x02R\x16newsletterSubscription\x12@\n\x0b\x63reate_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12<\n\tupdate_at\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\x08updateAtB\x08\n\x06_emailB\x0f\n\r_company_nameB\x07\n\x05_role\"W\n\x0fListUserRequest\x12 \n\tpage_size\x18\x01 \x01(\x05\x42\x03\xe0\x41\x01R\x08pageSize\x12\"\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01R\tpageToken\"v\n\x10ListUserResponse\x12\x35\n\x05users\x18\x01 \x03(\x0b\x32\x1a.instill.mgmt.v1alpha.UserB\x03\xe0\x41\x03R\x05users\x12+\n\x0fnext_page_token\x18\x02 \x01(\tB\x03\xe0\x41\x03R\rnextPageToken\")\n\x0eGetUserRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\"F\n\x0fGetUserResponse\x12\x33\n\x04user\x18\x01 \x01(\x0b\x32\x1a.instill.mgmt.v1alpha.UserB\x03\xe0\x41\x02R\x04user\"\x83\x01\n\x11UpdateUserRequest\x12\x33\n\x04user\x18\x01 \x01(\x0b\x32\x1a.instill.mgmt.v1alpha.UserB\x03\xe0\x41\x02R\x04user\x12\x39\n\nfield_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\tfieldMask\"I\n\x12UpdateUserResponse\x12\x33\n\x04user\x18\x01 \x01(\x0b\x32\x1a.instill.mgmt.v1alpha.UserB\x03\xe0\x41\x02R\x04user2\xe3\x04\n\x0bUserService\x12~\n\x08Liveness\x12%.instill.mgmt.v1alpha.LivenessRequest\x1a&.instill.mgmt.v1alpha.LivenessResponse\"#\x82\xd3\xe4\x93\x02\x1dZ\x0e\x12\x0c/health/mgmt\x12\x0b/__liveness\x12r\n\tReadiness\x12&.instill.mgmt.v1alpha.ReadinessRequest\x1a\'.instill.mgmt.v1alpha.ReadinessResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/__readiness\x12i\n\x08ListUser\x12%.instill.mgmt.v1alpha.ListUserRequest\x1a&.instill.mgmt.v1alpha.ListUserResponse\"\x0e\x82\xd3\xe4\x93\x02\x08\x12\x06/users\x12o\n\x07GetUser\x12$.instill.mgmt.v1alpha.GetUserRequest\x1a%.instill.mgmt.v1alpha.GetUserResponse\"\x17\x82\xd3\xe4\x93\x02\x11\x12\x0f/{name=users/*}\x12\x83\x01\n\nUpdateUser\x12\'.instill.mgmt.v1alpha.UpdateUserRequest\x1a(.instill.mgmt.v1alpha.UpdateUserResponse\"\"\x82\xd3\xe4\x93\x02\x1c:\x04user2\x14/{user.name=users/*}B\xdb\x01\n\x18\x63om.instill.mgmt.v1alphaB\tMgmtProtoP\x01ZBgithub.com/instill-ai/protogen-go/instill/mgmt/v1alpha;mgmtv1alpha\xa2\x02\x03IMX\xaa\x02\x14Instill.Mgmt.V1alpha\xca\x02\x14Instill\\Mgmt\\V1alpha\xe2\x02 Instill\\Mgmt\\V1alpha\\GPBMetadata\xea\x02\x16Instill::Mgmt::V1alphab\x06proto3')
 
 
 
@@ -158,18 +158,18 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _USER.fields_by_name['usage_data_collection']._serialized_options = b'\340A\002'
   _USER.fields_by_name['newsletter_subscription']._options = None
   _USER.fields_by_name['newsletter_subscription']._serialized_options = b'\340A\002'
-  _USER.fields_by_name['created_at']._options = None
-  _USER.fields_by_name['created_at']._serialized_options = b'\340A\003'
-  _USER.fields_by_name['updated_at']._options = None
-  _USER.fields_by_name['updated_at']._serialized_options = b'\340A\003'
+  _USER.fields_by_name['create_time']._options = None
+  _USER.fields_by_name['create_time']._serialized_options = b'\340A\003'
+  _USER.fields_by_name['update_at']._options = None
+  _USER.fields_by_name['update_at']._serialized_options = b'\340A\003'
   _LISTUSERREQUEST.fields_by_name['page_size']._options = None
   _LISTUSERREQUEST.fields_by_name['page_size']._serialized_options = b'\340A\001'
-  _LISTUSERREQUEST.fields_by_name['page_cursor']._options = None
-  _LISTUSERREQUEST.fields_by_name['page_cursor']._serialized_options = b'\340A\001'
+  _LISTUSERREQUEST.fields_by_name['page_token']._options = None
+  _LISTUSERREQUEST.fields_by_name['page_token']._serialized_options = b'\340A\001'
   _LISTUSERRESPONSE.fields_by_name['users']._options = None
   _LISTUSERRESPONSE.fields_by_name['users']._serialized_options = b'\340A\003'
-  _LISTUSERRESPONSE.fields_by_name['next_page_cursor']._options = None
-  _LISTUSERRESPONSE.fields_by_name['next_page_cursor']._serialized_options = b'\340A\003'
+  _LISTUSERRESPONSE.fields_by_name['next_page_token']._options = None
+  _LISTUSERRESPONSE.fields_by_name['next_page_token']._serialized_options = b'\340A\003'
   _GETUSERREQUEST.fields_by_name['name']._options = None
   _GETUSERREQUEST.fields_by_name['name']._serialized_options = b'\340A\002'
   _GETUSERRESPONSE.fields_by_name['user']._options = None
@@ -205,17 +205,17 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _USER._serialized_start=929
   _USER._serialized_end=1398
   _LISTUSERREQUEST._serialized_start=1400
-  _LISTUSERREQUEST._serialized_end=1489
-  _LISTUSERRESPONSE._serialized_start=1491
-  _LISTUSERRESPONSE._serialized_end=1611
-  _GETUSERREQUEST._serialized_start=1613
-  _GETUSERREQUEST._serialized_end=1654
-  _GETUSERRESPONSE._serialized_start=1656
-  _GETUSERRESPONSE._serialized_end=1726
-  _UPDATEUSERREQUEST._serialized_start=1729
-  _UPDATEUSERREQUEST._serialized_end=1860
-  _UPDATEUSERRESPONSE._serialized_start=1862
-  _UPDATEUSERRESPONSE._serialized_end=1935
-  _USERSERVICE._serialized_start=1938
-  _USERSERVICE._serialized_end=2549
+  _LISTUSERREQUEST._serialized_end=1487
+  _LISTUSERRESPONSE._serialized_start=1489
+  _LISTUSERRESPONSE._serialized_end=1607
+  _GETUSERREQUEST._serialized_start=1609
+  _GETUSERREQUEST._serialized_end=1650
+  _GETUSERRESPONSE._serialized_start=1652
+  _GETUSERRESPONSE._serialized_end=1722
+  _UPDATEUSERREQUEST._serialized_start=1725
+  _UPDATEUSERREQUEST._serialized_end=1856
+  _UPDATEUSERRESPONSE._serialized_start=1858
+  _UPDATEUSERRESPONSE._serialized_end=1931
+  _USERSERVICE._serialized_start=1934
+  _USERSERVICE._serialized_end=2545
 # @@protoc_insertion_point(module_scope)
