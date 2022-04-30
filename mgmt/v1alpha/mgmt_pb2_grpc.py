@@ -30,6 +30,11 @@ class UserServiceStub(object):
                 request_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListUserRequest.SerializeToString,
                 response_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListUserResponse.FromString,
                 )
+        self.CreateUser = channel.unary_unary(
+                '/instill.mgmt.v1alpha.UserService/CreateUser',
+                request_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserRequest.SerializeToString,
+                response_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserResponse.FromString,
+                )
         self.GetUser = channel.unary_unary(
                 '/instill.mgmt.v1alpha.UserService/GetUser',
                 request_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserRequest.SerializeToString,
@@ -39,6 +44,11 @@ class UserServiceStub(object):
                 '/instill.mgmt.v1alpha.UserService/UpdateUser',
                 request_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserRequest.SerializeToString,
                 response_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserResponse.FromString,
+                )
+        self.DeleteUser = channel.unary_unary(
+                '/instill.mgmt.v1alpha.UserService/DeleteUser',
+                request_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserRequest.SerializeToString,
+                response_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserResponse.FromString,
                 )
 
 
@@ -72,6 +82,13 @@ class UserServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateUser(self, request, context):
+        """CreateUser receives a CreateUserRequest message and returns a aGetUserResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetUser(self, request, context):
         """GetUser method receives a GetUserRequest message and returns
         a GetUserResponse message.
@@ -83,6 +100,13 @@ class UserServiceServicer(object):
     def UpdateUser(self, request, context):
         """UpdateUser method receives a UpdateUserRequest message and returns
         a UpdateUserResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteUser(self, request, context):
+        """DeleteUser method receives a DeleteUserRequest message and returns a DeleteUserResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -106,6 +130,11 @@ def add_UserServiceServicer_to_server(servicer, server):
                     request_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListUserRequest.FromString,
                     response_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListUserResponse.SerializeToString,
             ),
+            'CreateUser': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateUser,
+                    request_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserRequest.FromString,
+                    response_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserResponse.SerializeToString,
+            ),
             'GetUser': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUser,
                     request_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserRequest.FromString,
@@ -115,6 +144,11 @@ def add_UserServiceServicer_to_server(servicer, server):
                     servicer.UpdateUser,
                     request_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserRequest.FromString,
                     response_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserResponse.SerializeToString,
+            ),
+            'DeleteUser': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteUser,
+                    request_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserRequest.FromString,
+                    response_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -179,6 +213,23 @@ class UserService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def CreateUser(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/instill.mgmt.v1alpha.UserService/CreateUser',
+            instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserRequest.SerializeToString,
+            instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def GetUser(request,
             target,
             options=(),
@@ -209,5 +260,22 @@ class UserService(object):
         return grpc.experimental.unary_unary(request, target, '/instill.mgmt.v1alpha.UserService/UpdateUser',
             instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserRequest.SerializeToString,
             instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteUser(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/instill.mgmt.v1alpha.UserService/DeleteUser',
+            instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserRequest.SerializeToString,
+            instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
