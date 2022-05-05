@@ -47,6 +47,11 @@ class ModelServiceStub(object):
                 request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelRequest.SerializeToString,
                 response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelResponse.FromString,
                 )
+        self.CreateModelBinaryFileUpload = channel.stream_unary(
+                '/instill.model.v1alpha.ModelService/CreateModelBinaryFileUpload',
+                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadRequest.SerializeToString,
+                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadResponse.FromString,
+                )
         self.GetModel = channel.unary_unary(
                 '/instill.model.v1alpha.ModelService/GetModel',
                 request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelRequest.SerializeToString,
@@ -153,6 +158,15 @@ class ModelServiceServicer(object):
     def CreateModel(self, request, context):
         """CreateModel method receives a CreateModelRequest message and returns a
         CreateModelResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateModelBinaryFileUpload(self, request_iterator, context):
+        """CreateModelBinaryFileUpload method receives a
+        CreateModelBinaryFileUploadRequest message and returns a
+        CreateModelBinaryFileUploadResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -280,6 +294,11 @@ def add_ModelServiceServicer_to_server(servicer, server):
                     servicer.CreateModel,
                     request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelRequest.FromString,
                     response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelResponse.SerializeToString,
+            ),
+            'CreateModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
+                    servicer.CreateModelBinaryFileUpload,
+                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadRequest.FromString,
+                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadResponse.SerializeToString,
             ),
             'GetModel': grpc.unary_unary_rpc_method_handler(
                     servicer.GetModel,
@@ -446,6 +465,23 @@ class ModelService(object):
         return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/CreateModel',
             instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelRequest.SerializeToString,
             instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateModelBinaryFileUpload(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_unary(request_iterator, target, '/instill.model.v1alpha.ModelService/CreateModelBinaryFileUpload',
+            instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadRequest.SerializeToString,
+            instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
