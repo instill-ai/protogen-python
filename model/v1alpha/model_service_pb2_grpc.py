@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from instill.model.v1alpha import definition_pb2 as instill_dot_model_dot_v1alpha_dot_definition__pb2
+from instill.model.v1alpha import model_definition_pb2 as instill_dot_model_dot_v1alpha_dot_model__definition__pb2
 from instill.model.v1alpha import model_pb2 as instill_dot_model_dot_v1alpha_dot_model__pb2
 from instill.model.v1alpha import model_service_pb2 as instill_dot_model_dot_v1alpha_dot_model__service__pb2
 
@@ -29,13 +29,13 @@ class ModelServiceStub(object):
                 )
         self.ListModelDefinition = channel.unary_unary(
                 '/instill.model.v1alpha.ModelService/ListModelDefinition',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_definition__pb2.ListModelDefinitionRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_definition__pb2.ListModelDefinitionResponse.FromString,
+                request_serializer=instill_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionRequest.SerializeToString,
+                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionResponse.FromString,
                 )
         self.GetModelDefinition = channel.unary_unary(
                 '/instill.model.v1alpha.ModelService/GetModelDefinition',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_definition__pb2.GetModelDefinitionRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_definition__pb2.GetModelDefinitionResponse.FromString,
+                request_serializer=instill_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionRequest.SerializeToString,
+                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionResponse.FromString,
                 )
         self.ListModel = channel.unary_unary(
                 '/instill.model.v1alpha.ModelService/ListModel',
@@ -67,6 +67,11 @@ class ModelServiceStub(object):
                 request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelRequest.SerializeToString,
                 response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelResponse.FromString,
                 )
+        self.LookUpModel = channel.unary_unary(
+                '/instill.model.v1alpha.ModelService/LookUpModel',
+                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelRequest.SerializeToString,
+                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelResponse.FromString,
+                )
         self.RenameModel = channel.unary_unary(
                 '/instill.model.v1alpha.ModelService/RenameModel',
                 request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.RenameModelRequest.SerializeToString,
@@ -81,6 +86,11 @@ class ModelServiceStub(object):
                 '/instill.model.v1alpha.ModelService/GetModelInstance',
                 request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceRequest.SerializeToString,
                 response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceResponse.FromString,
+                )
+        self.LookUpModelInstance = channel.unary_unary(
+                '/instill.model.v1alpha.ModelService/LookUpModelInstance',
+                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceRequest.SerializeToString,
+                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceResponse.FromString,
                 )
         self.DeployModelInstance = channel.unary_unary(
                 '/instill.model.v1alpha.ModelService/DeployModelInstance',
@@ -196,6 +206,14 @@ class ModelServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def LookUpModel(self, request, context):
+        """LookUpModel method receives a LookUpModelRequest message and returns a
+        LookUpModelResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def RenameModel(self, request, context):
         """RenameModel method rename a model
         """
@@ -214,6 +232,15 @@ class ModelServiceServicer(object):
     def GetModelInstance(self, request, context):
         """GetModelInstance method receives a GetModelInstanceRequest message and
         returns a GetModelInstanceResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def LookUpModelInstance(self, request, context):
+        """LookUpModelInstance method receives a LookUpModelInstanceRequest message
+        and returns a
+        LookUpModelInstanceResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -246,8 +273,8 @@ class ModelServiceServicer(object):
     def TriggerModelInstance(self, request, context):
         """/////////////////////////////////////////////////////
 
-        TriggerModelInstance method receives a TriggerModelInstanceRequest message and
-        returns a TriggerModelInstanceResponse message.
+        TriggerModelInstance method receives a TriggerModelInstanceRequest message
+        and returns a TriggerModelInstanceResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -277,13 +304,13 @@ def add_ModelServiceServicer_to_server(servicer, server):
             ),
             'ListModelDefinition': grpc.unary_unary_rpc_method_handler(
                     servicer.ListModelDefinition,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_definition__pb2.ListModelDefinitionRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_definition__pb2.ListModelDefinitionResponse.SerializeToString,
+                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionRequest.FromString,
+                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionResponse.SerializeToString,
             ),
             'GetModelDefinition': grpc.unary_unary_rpc_method_handler(
                     servicer.GetModelDefinition,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_definition__pb2.GetModelDefinitionRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_definition__pb2.GetModelDefinitionResponse.SerializeToString,
+                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionRequest.FromString,
+                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionResponse.SerializeToString,
             ),
             'ListModel': grpc.unary_unary_rpc_method_handler(
                     servicer.ListModel,
@@ -315,6 +342,11 @@ def add_ModelServiceServicer_to_server(servicer, server):
                     request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelRequest.FromString,
                     response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelResponse.SerializeToString,
             ),
+            'LookUpModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.LookUpModel,
+                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelRequest.FromString,
+                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelResponse.SerializeToString,
+            ),
             'RenameModel': grpc.unary_unary_rpc_method_handler(
                     servicer.RenameModel,
                     request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.RenameModelRequest.FromString,
@@ -329,6 +361,11 @@ def add_ModelServiceServicer_to_server(servicer, server):
                     servicer.GetModelInstance,
                     request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceRequest.FromString,
                     response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceResponse.SerializeToString,
+            ),
+            'LookUpModelInstance': grpc.unary_unary_rpc_method_handler(
+                    servicer.LookUpModelInstance,
+                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceRequest.FromString,
+                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceResponse.SerializeToString,
             ),
             'DeployModelInstance': grpc.unary_unary_rpc_method_handler(
                     servicer.DeployModelInstance,
@@ -412,8 +449,8 @@ class ModelService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/ListModelDefinition',
-            instill_dot_model_dot_v1alpha_dot_definition__pb2.ListModelDefinitionRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_definition__pb2.ListModelDefinitionResponse.FromString,
+            instill_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionRequest.SerializeToString,
+            instill_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -429,8 +466,8 @@ class ModelService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/GetModelDefinition',
-            instill_dot_model_dot_v1alpha_dot_definition__pb2.GetModelDefinitionRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_definition__pb2.GetModelDefinitionResponse.FromString,
+            instill_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionRequest.SerializeToString,
+            instill_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -537,6 +574,23 @@ class ModelService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def LookUpModel(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/LookUpModel',
+            instill_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelRequest.SerializeToString,
+            instill_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def RenameModel(request,
             target,
             options=(),
@@ -584,6 +638,23 @@ class ModelService(object):
         return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/GetModelInstance',
             instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceRequest.SerializeToString,
             instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def LookUpModelInstance(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/LookUpModelInstance',
+            instill_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceRequest.SerializeToString,
+            instill_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

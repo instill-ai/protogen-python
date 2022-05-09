@@ -50,6 +50,11 @@ class UserServiceStub(object):
                 request_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserRequest.SerializeToString,
                 response_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserResponse.FromString,
                 )
+        self.LookUpUser = channel.unary_unary(
+                '/instill.mgmt.v1alpha.UserService/LookUpUser',
+                request_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserRequest.SerializeToString,
+                response_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserResponse.FromString,
+                )
 
 
 class UserServiceServicer(object):
@@ -114,6 +119,14 @@ class UserServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def LookUpUser(self, request, context):
+        """LookUpUser method receives a LookUpUserRequest message and returns a
+        LookUpUserResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_UserServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -151,6 +164,11 @@ def add_UserServiceServicer_to_server(servicer, server):
                     servicer.DeleteUser,
                     request_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserRequest.FromString,
                     response_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserResponse.SerializeToString,
+            ),
+            'LookUpUser': grpc.unary_unary_rpc_method_handler(
+                    servicer.LookUpUser,
+                    request_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserRequest.FromString,
+                    response_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -279,5 +297,22 @@ class UserService(object):
         return grpc.experimental.unary_unary(request, target, '/instill.mgmt.v1alpha.UserService/DeleteUser',
             instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserRequest.SerializeToString,
             instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def LookUpUser(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/instill.mgmt.v1alpha.UserService/LookUpUser',
+            instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserRequest.SerializeToString,
+            instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

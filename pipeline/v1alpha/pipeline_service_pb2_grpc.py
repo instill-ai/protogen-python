@@ -51,6 +51,11 @@ class PipelineServiceStub(object):
                 request_serializer=instill_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.DeletePipelineRequest.SerializeToString,
                 response_deserializer=instill_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.DeletePipelineResponse.FromString,
                 )
+        self.LookUpPipeline = channel.unary_unary(
+                '/instill.pipeline.v1alpha.PipelineService/LookUpPipeline',
+                request_serializer=instill_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpPipelineRequest.SerializeToString,
+                response_deserializer=instill_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpPipelineResponse.FromString,
+                )
         self.ActivatePipeline = channel.unary_unary(
                 '/instill.pipeline.v1alpha.PipelineService/ActivatePipeline',
                 request_serializer=instill_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ActivatePipelineRequest.SerializeToString,
@@ -140,6 +145,14 @@ class PipelineServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def LookUpPipeline(self, request, context):
+        """LookUpPipeline method receives a LookUpPipelineRequest message and returns
+        a LookUpPipelineResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ActivatePipeline(self, request, context):
         """Activate a pipeline.
         The `state` of the pipeline after activating is `ACTIVE`.
@@ -222,6 +235,11 @@ def add_PipelineServiceServicer_to_server(servicer, server):
                     servicer.DeletePipeline,
                     request_deserializer=instill_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.DeletePipelineRequest.FromString,
                     response_serializer=instill_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.DeletePipelineResponse.SerializeToString,
+            ),
+            'LookUpPipeline': grpc.unary_unary_rpc_method_handler(
+                    servicer.LookUpPipeline,
+                    request_deserializer=instill_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpPipelineRequest.FromString,
+                    response_serializer=instill_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpPipelineResponse.SerializeToString,
             ),
             'ActivatePipeline': grpc.unary_unary_rpc_method_handler(
                     servicer.ActivatePipeline,
@@ -375,6 +393,23 @@ class PipelineService(object):
         return grpc.experimental.unary_unary(request, target, '/instill.pipeline.v1alpha.PipelineService/DeletePipeline',
             instill_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.DeletePipelineRequest.SerializeToString,
             instill_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.DeletePipelineResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def LookUpPipeline(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/instill.pipeline.v1alpha.PipelineService/LookUpPipeline',
+            instill_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpPipelineRequest.SerializeToString,
+            instill_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpPipelineResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
