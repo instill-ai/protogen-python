@@ -246,17 +246,17 @@ class ModelServiceServicer(object):
     def TriggerModelInstance(self, request, context):
         """/////////////////////////////////////////////////////
 
-        TriggerModel method receives a TriggerModelRequest message and
-        returns a TriggerModelResponse message.
+        TriggerModelInstance method receives a TriggerModelInstanceRequest message and
+        returns a TriggerModelInstanceResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def TriggerModelInstanceBinaryFileUpload(self, request_iterator, context):
-        """TriggerModelBinaryFileUpload method receives a
-        TriggerModelBinaryFileUploadRequest message and returns a
-        TriggerModelBinaryFileUploadResponse message.
+        """TriggerModelInstanceBinaryFileUpload method receives a
+        TriggerModelInstanceBinaryFileUploadRequest message and returns a
+        TriggerModelInstanceBinaryFileUploadResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
