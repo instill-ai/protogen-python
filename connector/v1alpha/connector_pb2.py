@@ -12,7 +12,6 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
@@ -20,7 +19,7 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from instill.connector.v1alpha import connector_definition_pb2 as instill_dot_connector_dot_v1alpha_dot_connector__definition__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)instill/connector/v1alpha/connector.proto\x12\x19instill.connector.v1alpha\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a google/protobuf/field_mask.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x34instill/connector/v1alpha/connector_definition.proto\"\xc5\x03\n\tConnector\x12*\n\x0b\x64\x65scription\x18\x01 \x01(\tB\x03\xe0\x41\x01H\x01R\x0b\x64\x65scription\x88\x01\x01\x12\\\n\rconfiguration\x18\x02 \x01(\x0b\x32\x17.google.protobuf.StructB\x1d\xe0\x41\x02\xfa\x41\x17\n\x15\x61pi.instill.tech/SpecR\rconfiguration\x12!\n\ttombstone\x18\x03 \x01(\x08\x42\x03\xe0\x41\x03R\ttombstone\x12\x33\n\x04user\x18\x04 \x01(\tB\x1d\xe0\x41\x03\xfa\x41\x17\n\x15\x61pi.instill.tech/UserH\x00R\x04user\x12\x39\n\x03org\x18\x05 \x01(\tB%\xe0\x41\x03\xfa\x41\x1f\n\x1d\x61pi.instill.tech/OrganizationH\x00R\x03org\x12@\n\x0b\x63reate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTimeB\x07\n\x05ownerB\x0e\n\x0c_description\"\xe0\x02\n\x0fSourceConnector\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x13\n\x02id\x18\x03 \x01(\tB\x03\xe0\x41\x05R\x02id\x12r\n\x1bsource_connector_definition\x18\x04 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*api.instill.tech/SourceConnectorDefinitionR\x19sourceConnectorDefinition\x12G\n\tconnector\x18\x05 \x01(\x0b\x32$.instill.connector.v1alpha.ConnectorB\x03\xe0\x41\x02R\tconnector:K\xea\x41H\n api.instill.tech/SourceConnector\x12$source-connectors/{source-connector}\"\x84\x03\n\x14\x44\x65stinationConnector\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x13\n\x02id\x18\x03 \x01(\tB\x03\xe0\x41\x05R\x02id\x12\x81\x01\n destination_connector_definition\x18\x04 \x01(\tB7\xe0\x41\x02\xfa\x41\x31\n/api.instill.tech/DestinationConnectorDefinitionR\x1e\x64\x65stinationConnectorDefinition\x12G\n\tconnector\x18\x05 \x01(\x0b\x32$.instill.connector.v1alpha.ConnectorB\x03\xe0\x41\x02R\tconnector:Z\xea\x41W\n%api.instill.tech/DestinationConnector\x12.destination-connectors/{destination-connector}\"z\n\x1c\x43reateSourceConnectorRequest\x12Z\n\x10source_connector\x18\x01 \x01(\x0b\x32*.instill.connector.v1alpha.SourceConnectorB\x03\xe0\x41\x02R\x0fsourceConnector\"v\n\x1d\x43reateSourceConnectorResponse\x12U\n\x10source_connector\x18\x01 \x01(\x0b\x32*.instill.connector.v1alpha.SourceConnectorR\x0fsourceConnector\"\xaa\x01\n\x1aListSourceConnectorRequest\x12 \n\tpage_size\x18\x01 \x01(\x03\x42\x03\xe0\x41\x01R\x08pageSize\x12\"\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01R\tpageToken\x12=\n\x04view\x18\x03 \x01(\x0e\x32\x1f.instill.connector.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"\xbd\x01\n\x1bListSourceConnectorResponse\x12W\n\x11source_connectors\x18\x01 \x03(\x0b\x32*.instill.connector.v1alpha.SourceConnectorR\x10sourceConnectors\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSize\"\xa1\x01\n\x19GetSourceConnectorRequest\x12<\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n api.instill.tech/SourceConnectorR\x04name\x12=\n\x04view\x18\x03 \x01(\x0e\x32\x1f.instill.connector.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"s\n\x1aGetSourceConnectorResponse\x12U\n\x10source_connector\x18\x01 \x01(\x0b\x32*.instill.connector.v1alpha.SourceConnectorR\x0fsourceConnector\"\xbc\x01\n\x1cUpdateSourceConnectorRequest\x12Z\n\x10source_connector\x18\x01 \x01(\x0b\x32*.instill.connector.v1alpha.SourceConnectorB\x03\xe0\x41\x02R\x0fsourceConnector\x12@\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\nupdateMask\"v\n\x1dUpdateSourceConnectorResponse\x12U\n\x10source_connector\x18\x01 \x01(\x0b\x32*.instill.connector.v1alpha.SourceConnectorR\x0fsourceConnector\"\\\n\x1c\x44\x65leteSourceConnectorRequest\x12<\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n api.instill.tech/SourceConnectorR\x04name\"\x1f\n\x1d\x44\x65leteSourceConnectorResponse\"\x8e\x01\n!CreateDestinationConnectorRequest\x12i\n\x15\x64\x65stination_connector\x18\x01 \x01(\x0b\x32/.instill.connector.v1alpha.DestinationConnectorB\x03\xe0\x41\x02R\x14\x64\x65stinationConnector\"\x8a\x01\n\"CreateDestinationConnectorResponse\x12\x64\n\x15\x64\x65stination_connector\x18\x01 \x01(\x0b\x32/.instill.connector.v1alpha.DestinationConnectorR\x14\x64\x65stinationConnector\"\xaf\x01\n\x1fListDestinationConnectorRequest\x12 \n\tpage_size\x18\x01 \x01(\x03\x42\x03\xe0\x41\x01R\x08pageSize\x12\"\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01R\tpageToken\x12=\n\x04view\x18\x03 \x01(\x0e\x32\x1f.instill.connector.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"\xd1\x01\n ListDestinationConnectorResponse\x12\x66\n\x16\x64\x65stination_connectors\x18\x01 \x03(\x0b\x32/.instill.connector.v1alpha.DestinationConnectorR\x15\x64\x65stinationConnectors\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSize\"\xab\x01\n\x1eGetDestinationConnectorRequest\x12\x41\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%api.instill.tech/DestinationConnectorR\x04name\x12=\n\x04view\x18\x03 \x01(\x0e\x32\x1f.instill.connector.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"\x87\x01\n\x1fGetDestinationConnectorResponse\x12\x64\n\x15\x64\x65stination_connector\x18\x01 \x01(\x0b\x32/.instill.connector.v1alpha.DestinationConnectorR\x14\x64\x65stinationConnector\"\xd0\x01\n!UpdateDestinationConnectorRequest\x12i\n\x15\x64\x65stination_connector\x18\x01 \x01(\x0b\x32/.instill.connector.v1alpha.DestinationConnectorB\x03\xe0\x41\x02R\x14\x64\x65stinationConnector\x12@\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\nupdateMask\"\x8a\x01\n\"UpdateDestinationConnectorResponse\x12\x64\n\x15\x64\x65stination_connector\x18\x01 \x01(\x0b\x32/.instill.connector.v1alpha.DestinationConnectorR\x14\x64\x65stinationConnector\"f\n!DeleteDestinationConnectorRequest\x12\x41\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%api.instill.tech/DestinationConnectorR\x04name\"$\n\"DeleteDestinationConnectorResponse\"A\n\x1cLookUpSourceConnectorRequest\x12!\n\tpermalink\x18\x01 \x01(\tB\x03\xe0\x41\x02R\tpermalink\"v\n\x1dLookUpSourceConnectorResponse\x12U\n\x10source_connector\x18\x01 \x01(\x0b\x32*.instill.connector.v1alpha.SourceConnectorR\x0fsourceConnector\"F\n!LookUpDestinationConnectorRequest\x12!\n\tpermalink\x18\x01 \x01(\tB\x03\xe0\x41\x02R\tpermalink\"\x8a\x01\n\"LookUpDestinationConnectorResponse\x12\x64\n\x15\x64\x65stination_connector\x18\x01 \x01(\x0b\x32/.instill.connector.v1alpha.DestinationConnectorR\x14\x64\x65stinationConnectorB\x83\x02\n\x1d\x63om.instill.connector.v1alphaB\x0e\x43onnectorProtoP\x01ZLgithub.com/instill-ai/protogen-go/instill/connector/v1alpha;connectorv1alpha\xa2\x02\x03ICX\xaa\x02\x19Instill.Connector.V1alpha\xca\x02\x19Instill\\Connector\\V1alpha\xe2\x02%Instill\\Connector\\V1alpha\\GPBMetadata\xea\x02\x1bInstill::Connector::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)instill/connector/v1alpha/connector.proto\x12\x19instill.connector.v1alpha\x1a\x1fgoogle/protobuf/timestamp.proto\x1a google/protobuf/field_mask.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x34instill/connector/v1alpha/connector_definition.proto\"\x92\x03\n\tConnector\x12*\n\x0b\x64\x65scription\x18\x01 \x01(\tB\x03\xe0\x41\x01H\x01R\x0b\x64\x65scription\x88\x01\x01\x12)\n\rconfiguration\x18\x02 \x01(\tB\x03\xe0\x41\x02R\rconfiguration\x12!\n\ttombstone\x18\x03 \x01(\x08\x42\x03\xe0\x41\x03R\ttombstone\x12\x33\n\x04user\x18\x04 \x01(\tB\x1d\xe0\x41\x03\xfa\x41\x17\n\x15\x61pi.instill.tech/UserH\x00R\x04user\x12\x39\n\x03org\x18\x05 \x01(\tB%\xe0\x41\x03\xfa\x41\x1f\n\x1d\x61pi.instill.tech/OrganizationH\x00R\x03org\x12@\n\x0b\x63reate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTimeB\x07\n\x05ownerB\x0e\n\x0c_description\"\xe0\x02\n\x0fSourceConnector\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x13\n\x02id\x18\x03 \x01(\tB\x03\xe0\x41\x05R\x02id\x12r\n\x1bsource_connector_definition\x18\x04 \x01(\tB2\xe0\x41\x05\xfa\x41,\n*api.instill.tech/SourceConnectorDefinitionR\x19sourceConnectorDefinition\x12G\n\tconnector\x18\x05 \x01(\x0b\x32$.instill.connector.v1alpha.ConnectorB\x03\xe0\x41\x02R\tconnector:K\xea\x41H\n api.instill.tech/SourceConnector\x12$source-connectors/{source-connector}\"\x84\x03\n\x14\x44\x65stinationConnector\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x13\n\x02id\x18\x03 \x01(\tB\x03\xe0\x41\x05R\x02id\x12\x81\x01\n destination_connector_definition\x18\x04 \x01(\tB7\xe0\x41\x05\xfa\x41\x31\n/api.instill.tech/DestinationConnectorDefinitionR\x1e\x64\x65stinationConnectorDefinition\x12G\n\tconnector\x18\x05 \x01(\x0b\x32$.instill.connector.v1alpha.ConnectorB\x03\xe0\x41\x02R\tconnector:Z\xea\x41W\n%api.instill.tech/DestinationConnector\x12.destination-connectors/{destination-connector}\"z\n\x1c\x43reateSourceConnectorRequest\x12Z\n\x10source_connector\x18\x01 \x01(\x0b\x32*.instill.connector.v1alpha.SourceConnectorB\x03\xe0\x41\x02R\x0fsourceConnector\"v\n\x1d\x43reateSourceConnectorResponse\x12U\n\x10source_connector\x18\x01 \x01(\x0b\x32*.instill.connector.v1alpha.SourceConnectorR\x0fsourceConnector\"\xaa\x01\n\x1aListSourceConnectorRequest\x12 \n\tpage_size\x18\x01 \x01(\x03\x42\x03\xe0\x41\x01R\x08pageSize\x12\"\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01R\tpageToken\x12=\n\x04view\x18\x03 \x01(\x0e\x32\x1f.instill.connector.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"\xbd\x01\n\x1bListSourceConnectorResponse\x12W\n\x11source_connectors\x18\x01 \x03(\x0b\x32*.instill.connector.v1alpha.SourceConnectorR\x10sourceConnectors\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSize\"\xa1\x01\n\x19GetSourceConnectorRequest\x12<\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n api.instill.tech/SourceConnectorR\x04name\x12=\n\x04view\x18\x03 \x01(\x0e\x32\x1f.instill.connector.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"s\n\x1aGetSourceConnectorResponse\x12U\n\x10source_connector\x18\x01 \x01(\x0b\x32*.instill.connector.v1alpha.SourceConnectorR\x0fsourceConnector\"\xbc\x01\n\x1cUpdateSourceConnectorRequest\x12Z\n\x10source_connector\x18\x01 \x01(\x0b\x32*.instill.connector.v1alpha.SourceConnectorB\x03\xe0\x41\x02R\x0fsourceConnector\x12@\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\nupdateMask\"v\n\x1dUpdateSourceConnectorResponse\x12U\n\x10source_connector\x18\x01 \x01(\x0b\x32*.instill.connector.v1alpha.SourceConnectorR\x0fsourceConnector\"\\\n\x1c\x44\x65leteSourceConnectorRequest\x12<\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n api.instill.tech/SourceConnectorR\x04name\"\x1f\n\x1d\x44\x65leteSourceConnectorResponse\"\x89\x01\n\x1cLookUpSourceConnectorRequest\x12!\n\tpermalink\x18\x01 \x01(\tB\x03\xe0\x41\x02R\tpermalink\x12=\n\x04view\x18\x02 \x01(\x0e\x32\x1f.instill.connector.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"v\n\x1dLookUpSourceConnectorResponse\x12U\n\x10source_connector\x18\x01 \x01(\x0b\x32*.instill.connector.v1alpha.SourceConnectorR\x0fsourceConnector\"\x98\x01\n\x1cRenameSourceConnectorRequest\x12<\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n api.instill.tech/SourceConnectorR\x04name\x12:\n\x17new_source_connector_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x14newSourceConnectorId\"v\n\x1dRenameSourceConnectorResponse\x12U\n\x10source_connector\x18\x01 \x01(\x0b\x32*.instill.connector.v1alpha.SourceConnectorR\x0fsourceConnector\"\x8e\x01\n!CreateDestinationConnectorRequest\x12i\n\x15\x64\x65stination_connector\x18\x01 \x01(\x0b\x32/.instill.connector.v1alpha.DestinationConnectorB\x03\xe0\x41\x02R\x14\x64\x65stinationConnector\"\x8a\x01\n\"CreateDestinationConnectorResponse\x12\x64\n\x15\x64\x65stination_connector\x18\x01 \x01(\x0b\x32/.instill.connector.v1alpha.DestinationConnectorR\x14\x64\x65stinationConnector\"\xaf\x01\n\x1fListDestinationConnectorRequest\x12 \n\tpage_size\x18\x01 \x01(\x03\x42\x03\xe0\x41\x01R\x08pageSize\x12\"\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01R\tpageToken\x12=\n\x04view\x18\x03 \x01(\x0e\x32\x1f.instill.connector.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"\xd1\x01\n ListDestinationConnectorResponse\x12\x66\n\x16\x64\x65stination_connectors\x18\x01 \x03(\x0b\x32/.instill.connector.v1alpha.DestinationConnectorR\x15\x64\x65stinationConnectors\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSize\"\xab\x01\n\x1eGetDestinationConnectorRequest\x12\x41\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%api.instill.tech/DestinationConnectorR\x04name\x12=\n\x04view\x18\x03 \x01(\x0e\x32\x1f.instill.connector.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"\x87\x01\n\x1fGetDestinationConnectorResponse\x12\x64\n\x15\x64\x65stination_connector\x18\x01 \x01(\x0b\x32/.instill.connector.v1alpha.DestinationConnectorR\x14\x64\x65stinationConnector\"\xd0\x01\n!UpdateDestinationConnectorRequest\x12i\n\x15\x64\x65stination_connector\x18\x01 \x01(\x0b\x32/.instill.connector.v1alpha.DestinationConnectorB\x03\xe0\x41\x02R\x14\x64\x65stinationConnector\x12@\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\nupdateMask\"\x8a\x01\n\"UpdateDestinationConnectorResponse\x12\x64\n\x15\x64\x65stination_connector\x18\x01 \x01(\x0b\x32/.instill.connector.v1alpha.DestinationConnectorR\x14\x64\x65stinationConnector\"f\n!DeleteDestinationConnectorRequest\x12\x41\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%api.instill.tech/DestinationConnectorR\x04name\"$\n\"DeleteDestinationConnectorResponse\"\x8e\x01\n!LookUpDestinationConnectorRequest\x12!\n\tpermalink\x18\x01 \x01(\tB\x03\xe0\x41\x02R\tpermalink\x12=\n\x04view\x18\x03 \x01(\x0e\x32\x1f.instill.connector.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"\x8a\x01\n\"LookUpDestinationConnectorResponse\x12\x64\n\x15\x64\x65stination_connector\x18\x01 \x01(\x0b\x32/.instill.connector.v1alpha.DestinationConnectorR\x14\x64\x65stinationConnector\"\xac\x01\n!RenameDestinationConnectorRequest\x12\x41\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%api.instill.tech/DestinationConnectorR\x04name\x12\x44\n\x1cnew_destination_connector_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x19newDestinationConnectorId\"\x8a\x01\n\"RenameDestinationConnectorResponse\x12\x64\n\x15\x64\x65stination_connector\x18\x01 \x01(\x0b\x32/.instill.connector.v1alpha.DestinationConnectorR\x14\x64\x65stinationConnectorB\x83\x02\n\x1d\x63om.instill.connector.v1alphaB\x0e\x43onnectorProtoP\x01ZLgithub.com/instill-ai/protogen-go/instill/connector/v1alpha;connectorv1alpha\xa2\x02\x03ICX\xaa\x02\x19Instill.Connector.V1alpha\xca\x02\x19Instill\\Connector\\V1alpha\xe2\x02%Instill\\Connector\\V1alpha\\GPBMetadata\xea\x02\x1bInstill::Connector::V1alphab\x06proto3')
 
 
 
@@ -37,6 +36,10 @@ _UPDATESOURCECONNECTORREQUEST = DESCRIPTOR.message_types_by_name['UpdateSourceCo
 _UPDATESOURCECONNECTORRESPONSE = DESCRIPTOR.message_types_by_name['UpdateSourceConnectorResponse']
 _DELETESOURCECONNECTORREQUEST = DESCRIPTOR.message_types_by_name['DeleteSourceConnectorRequest']
 _DELETESOURCECONNECTORRESPONSE = DESCRIPTOR.message_types_by_name['DeleteSourceConnectorResponse']
+_LOOKUPSOURCECONNECTORREQUEST = DESCRIPTOR.message_types_by_name['LookUpSourceConnectorRequest']
+_LOOKUPSOURCECONNECTORRESPONSE = DESCRIPTOR.message_types_by_name['LookUpSourceConnectorResponse']
+_RENAMESOURCECONNECTORREQUEST = DESCRIPTOR.message_types_by_name['RenameSourceConnectorRequest']
+_RENAMESOURCECONNECTORRESPONSE = DESCRIPTOR.message_types_by_name['RenameSourceConnectorResponse']
 _CREATEDESTINATIONCONNECTORREQUEST = DESCRIPTOR.message_types_by_name['CreateDestinationConnectorRequest']
 _CREATEDESTINATIONCONNECTORRESPONSE = DESCRIPTOR.message_types_by_name['CreateDestinationConnectorResponse']
 _LISTDESTINATIONCONNECTORREQUEST = DESCRIPTOR.message_types_by_name['ListDestinationConnectorRequest']
@@ -47,10 +50,10 @@ _UPDATEDESTINATIONCONNECTORREQUEST = DESCRIPTOR.message_types_by_name['UpdateDes
 _UPDATEDESTINATIONCONNECTORRESPONSE = DESCRIPTOR.message_types_by_name['UpdateDestinationConnectorResponse']
 _DELETEDESTINATIONCONNECTORREQUEST = DESCRIPTOR.message_types_by_name['DeleteDestinationConnectorRequest']
 _DELETEDESTINATIONCONNECTORRESPONSE = DESCRIPTOR.message_types_by_name['DeleteDestinationConnectorResponse']
-_LOOKUPSOURCECONNECTORREQUEST = DESCRIPTOR.message_types_by_name['LookUpSourceConnectorRequest']
-_LOOKUPSOURCECONNECTORRESPONSE = DESCRIPTOR.message_types_by_name['LookUpSourceConnectorResponse']
 _LOOKUPDESTINATIONCONNECTORREQUEST = DESCRIPTOR.message_types_by_name['LookUpDestinationConnectorRequest']
 _LOOKUPDESTINATIONCONNECTORRESPONSE = DESCRIPTOR.message_types_by_name['LookUpDestinationConnectorResponse']
+_RENAMEDESTINATIONCONNECTORREQUEST = DESCRIPTOR.message_types_by_name['RenameDestinationConnectorRequest']
+_RENAMEDESTINATIONCONNECTORRESPONSE = DESCRIPTOR.message_types_by_name['RenameDestinationConnectorResponse']
 Connector = _reflection.GeneratedProtocolMessageType('Connector', (_message.Message,), {
   'DESCRIPTOR' : _CONNECTOR,
   '__module__' : 'instill.connector.v1alpha.connector_pb2'
@@ -142,6 +145,34 @@ DeleteSourceConnectorResponse = _reflection.GeneratedProtocolMessageType('Delete
   })
 _sym_db.RegisterMessage(DeleteSourceConnectorResponse)
 
+LookUpSourceConnectorRequest = _reflection.GeneratedProtocolMessageType('LookUpSourceConnectorRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LOOKUPSOURCECONNECTORREQUEST,
+  '__module__' : 'instill.connector.v1alpha.connector_pb2'
+  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.LookUpSourceConnectorRequest)
+  })
+_sym_db.RegisterMessage(LookUpSourceConnectorRequest)
+
+LookUpSourceConnectorResponse = _reflection.GeneratedProtocolMessageType('LookUpSourceConnectorResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LOOKUPSOURCECONNECTORRESPONSE,
+  '__module__' : 'instill.connector.v1alpha.connector_pb2'
+  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.LookUpSourceConnectorResponse)
+  })
+_sym_db.RegisterMessage(LookUpSourceConnectorResponse)
+
+RenameSourceConnectorRequest = _reflection.GeneratedProtocolMessageType('RenameSourceConnectorRequest', (_message.Message,), {
+  'DESCRIPTOR' : _RENAMESOURCECONNECTORREQUEST,
+  '__module__' : 'instill.connector.v1alpha.connector_pb2'
+  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.RenameSourceConnectorRequest)
+  })
+_sym_db.RegisterMessage(RenameSourceConnectorRequest)
+
+RenameSourceConnectorResponse = _reflection.GeneratedProtocolMessageType('RenameSourceConnectorResponse', (_message.Message,), {
+  'DESCRIPTOR' : _RENAMESOURCECONNECTORRESPONSE,
+  '__module__' : 'instill.connector.v1alpha.connector_pb2'
+  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.RenameSourceConnectorResponse)
+  })
+_sym_db.RegisterMessage(RenameSourceConnectorResponse)
+
 CreateDestinationConnectorRequest = _reflection.GeneratedProtocolMessageType('CreateDestinationConnectorRequest', (_message.Message,), {
   'DESCRIPTOR' : _CREATEDESTINATIONCONNECTORREQUEST,
   '__module__' : 'instill.connector.v1alpha.connector_pb2'
@@ -212,20 +243,6 @@ DeleteDestinationConnectorResponse = _reflection.GeneratedProtocolMessageType('D
   })
 _sym_db.RegisterMessage(DeleteDestinationConnectorResponse)
 
-LookUpSourceConnectorRequest = _reflection.GeneratedProtocolMessageType('LookUpSourceConnectorRequest', (_message.Message,), {
-  'DESCRIPTOR' : _LOOKUPSOURCECONNECTORREQUEST,
-  '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.LookUpSourceConnectorRequest)
-  })
-_sym_db.RegisterMessage(LookUpSourceConnectorRequest)
-
-LookUpSourceConnectorResponse = _reflection.GeneratedProtocolMessageType('LookUpSourceConnectorResponse', (_message.Message,), {
-  'DESCRIPTOR' : _LOOKUPSOURCECONNECTORRESPONSE,
-  '__module__' : 'instill.connector.v1alpha.connector_pb2'
-  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.LookUpSourceConnectorResponse)
-  })
-_sym_db.RegisterMessage(LookUpSourceConnectorResponse)
-
 LookUpDestinationConnectorRequest = _reflection.GeneratedProtocolMessageType('LookUpDestinationConnectorRequest', (_message.Message,), {
   'DESCRIPTOR' : _LOOKUPDESTINATIONCONNECTORREQUEST,
   '__module__' : 'instill.connector.v1alpha.connector_pb2'
@@ -240,6 +257,20 @@ LookUpDestinationConnectorResponse = _reflection.GeneratedProtocolMessageType('L
   })
 _sym_db.RegisterMessage(LookUpDestinationConnectorResponse)
 
+RenameDestinationConnectorRequest = _reflection.GeneratedProtocolMessageType('RenameDestinationConnectorRequest', (_message.Message,), {
+  'DESCRIPTOR' : _RENAMEDESTINATIONCONNECTORREQUEST,
+  '__module__' : 'instill.connector.v1alpha.connector_pb2'
+  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.RenameDestinationConnectorRequest)
+  })
+_sym_db.RegisterMessage(RenameDestinationConnectorRequest)
+
+RenameDestinationConnectorResponse = _reflection.GeneratedProtocolMessageType('RenameDestinationConnectorResponse', (_message.Message,), {
+  'DESCRIPTOR' : _RENAMEDESTINATIONCONNECTORRESPONSE,
+  '__module__' : 'instill.connector.v1alpha.connector_pb2'
+  # @@protoc_insertion_point(class_scope:instill.connector.v1alpha.RenameDestinationConnectorResponse)
+  })
+_sym_db.RegisterMessage(RenameDestinationConnectorResponse)
+
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
@@ -247,7 +278,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _CONNECTOR.fields_by_name['description']._options = None
   _CONNECTOR.fields_by_name['description']._serialized_options = b'\340A\001'
   _CONNECTOR.fields_by_name['configuration']._options = None
-  _CONNECTOR.fields_by_name['configuration']._serialized_options = b'\340A\002\372A\027\n\025api.instill.tech/Spec'
+  _CONNECTOR.fields_by_name['configuration']._serialized_options = b'\340A\002'
   _CONNECTOR.fields_by_name['tombstone']._options = None
   _CONNECTOR.fields_by_name['tombstone']._serialized_options = b'\340A\003'
   _CONNECTOR.fields_by_name['user']._options = None
@@ -265,7 +296,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _SOURCECONNECTOR.fields_by_name['id']._options = None
   _SOURCECONNECTOR.fields_by_name['id']._serialized_options = b'\340A\005'
   _SOURCECONNECTOR.fields_by_name['source_connector_definition']._options = None
-  _SOURCECONNECTOR.fields_by_name['source_connector_definition']._serialized_options = b'\340A\002\372A,\n*api.instill.tech/SourceConnectorDefinition'
+  _SOURCECONNECTOR.fields_by_name['source_connector_definition']._serialized_options = b'\340A\005\372A,\n*api.instill.tech/SourceConnectorDefinition'
   _SOURCECONNECTOR.fields_by_name['connector']._options = None
   _SOURCECONNECTOR.fields_by_name['connector']._serialized_options = b'\340A\002'
   _SOURCECONNECTOR._options = None
@@ -277,7 +308,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _DESTINATIONCONNECTOR.fields_by_name['id']._options = None
   _DESTINATIONCONNECTOR.fields_by_name['id']._serialized_options = b'\340A\005'
   _DESTINATIONCONNECTOR.fields_by_name['destination_connector_definition']._options = None
-  _DESTINATIONCONNECTOR.fields_by_name['destination_connector_definition']._serialized_options = b'\340A\002\372A1\n/api.instill.tech/DestinationConnectorDefinition'
+  _DESTINATIONCONNECTOR.fields_by_name['destination_connector_definition']._serialized_options = b'\340A\005\372A1\n/api.instill.tech/DestinationConnectorDefinition'
   _DESTINATIONCONNECTOR.fields_by_name['connector']._options = None
   _DESTINATIONCONNECTOR.fields_by_name['connector']._serialized_options = b'\340A\002'
   _DESTINATIONCONNECTOR._options = None
@@ -300,6 +331,14 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _UPDATESOURCECONNECTORREQUEST.fields_by_name['update_mask']._serialized_options = b'\340A\002'
   _DELETESOURCECONNECTORREQUEST.fields_by_name['name']._options = None
   _DELETESOURCECONNECTORREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A\"\n api.instill.tech/SourceConnector'
+  _LOOKUPSOURCECONNECTORREQUEST.fields_by_name['permalink']._options = None
+  _LOOKUPSOURCECONNECTORREQUEST.fields_by_name['permalink']._serialized_options = b'\340A\002'
+  _LOOKUPSOURCECONNECTORREQUEST.fields_by_name['view']._options = None
+  _LOOKUPSOURCECONNECTORREQUEST.fields_by_name['view']._serialized_options = b'\340A\001'
+  _RENAMESOURCECONNECTORREQUEST.fields_by_name['name']._options = None
+  _RENAMESOURCECONNECTORREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A\"\n api.instill.tech/SourceConnector'
+  _RENAMESOURCECONNECTORREQUEST.fields_by_name['new_source_connector_id']._options = None
+  _RENAMESOURCECONNECTORREQUEST.fields_by_name['new_source_connector_id']._serialized_options = b'\340A\002'
   _CREATEDESTINATIONCONNECTORREQUEST.fields_by_name['destination_connector']._options = None
   _CREATEDESTINATIONCONNECTORREQUEST.fields_by_name['destination_connector']._serialized_options = b'\340A\002'
   _LISTDESTINATIONCONNECTORREQUEST.fields_by_name['page_size']._options = None
@@ -318,62 +357,74 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _UPDATEDESTINATIONCONNECTORREQUEST.fields_by_name['update_mask']._serialized_options = b'\340A\002'
   _DELETEDESTINATIONCONNECTORREQUEST.fields_by_name['name']._options = None
   _DELETEDESTINATIONCONNECTORREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A\'\n%api.instill.tech/DestinationConnector'
-  _LOOKUPSOURCECONNECTORREQUEST.fields_by_name['permalink']._options = None
-  _LOOKUPSOURCECONNECTORREQUEST.fields_by_name['permalink']._serialized_options = b'\340A\002'
   _LOOKUPDESTINATIONCONNECTORREQUEST.fields_by_name['permalink']._options = None
   _LOOKUPDESTINATIONCONNECTORREQUEST.fields_by_name['permalink']._serialized_options = b'\340A\002'
-  _CONNECTOR._serialized_start=284
-  _CONNECTOR._serialized_end=737
-  _SOURCECONNECTOR._serialized_start=740
-  _SOURCECONNECTOR._serialized_end=1092
-  _DESTINATIONCONNECTOR._serialized_start=1095
-  _DESTINATIONCONNECTOR._serialized_end=1483
-  _CREATESOURCECONNECTORREQUEST._serialized_start=1485
-  _CREATESOURCECONNECTORREQUEST._serialized_end=1607
-  _CREATESOURCECONNECTORRESPONSE._serialized_start=1609
-  _CREATESOURCECONNECTORRESPONSE._serialized_end=1727
-  _LISTSOURCECONNECTORREQUEST._serialized_start=1730
-  _LISTSOURCECONNECTORREQUEST._serialized_end=1900
-  _LISTSOURCECONNECTORRESPONSE._serialized_start=1903
-  _LISTSOURCECONNECTORRESPONSE._serialized_end=2092
-  _GETSOURCECONNECTORREQUEST._serialized_start=2095
-  _GETSOURCECONNECTORREQUEST._serialized_end=2256
-  _GETSOURCECONNECTORRESPONSE._serialized_start=2258
-  _GETSOURCECONNECTORRESPONSE._serialized_end=2373
-  _UPDATESOURCECONNECTORREQUEST._serialized_start=2376
-  _UPDATESOURCECONNECTORREQUEST._serialized_end=2564
-  _UPDATESOURCECONNECTORRESPONSE._serialized_start=2566
-  _UPDATESOURCECONNECTORRESPONSE._serialized_end=2684
-  _DELETESOURCECONNECTORREQUEST._serialized_start=2686
-  _DELETESOURCECONNECTORREQUEST._serialized_end=2778
-  _DELETESOURCECONNECTORRESPONSE._serialized_start=2780
-  _DELETESOURCECONNECTORRESPONSE._serialized_end=2811
-  _CREATEDESTINATIONCONNECTORREQUEST._serialized_start=2814
-  _CREATEDESTINATIONCONNECTORREQUEST._serialized_end=2956
-  _CREATEDESTINATIONCONNECTORRESPONSE._serialized_start=2959
-  _CREATEDESTINATIONCONNECTORRESPONSE._serialized_end=3097
-  _LISTDESTINATIONCONNECTORREQUEST._serialized_start=3100
-  _LISTDESTINATIONCONNECTORREQUEST._serialized_end=3275
-  _LISTDESTINATIONCONNECTORRESPONSE._serialized_start=3278
-  _LISTDESTINATIONCONNECTORRESPONSE._serialized_end=3487
-  _GETDESTINATIONCONNECTORREQUEST._serialized_start=3490
-  _GETDESTINATIONCONNECTORREQUEST._serialized_end=3661
-  _GETDESTINATIONCONNECTORRESPONSE._serialized_start=3664
-  _GETDESTINATIONCONNECTORRESPONSE._serialized_end=3799
-  _UPDATEDESTINATIONCONNECTORREQUEST._serialized_start=3802
-  _UPDATEDESTINATIONCONNECTORREQUEST._serialized_end=4010
-  _UPDATEDESTINATIONCONNECTORRESPONSE._serialized_start=4013
-  _UPDATEDESTINATIONCONNECTORRESPONSE._serialized_end=4151
-  _DELETEDESTINATIONCONNECTORREQUEST._serialized_start=4153
-  _DELETEDESTINATIONCONNECTORREQUEST._serialized_end=4255
-  _DELETEDESTINATIONCONNECTORRESPONSE._serialized_start=4257
-  _DELETEDESTINATIONCONNECTORRESPONSE._serialized_end=4293
-  _LOOKUPSOURCECONNECTORREQUEST._serialized_start=4295
-  _LOOKUPSOURCECONNECTORREQUEST._serialized_end=4360
-  _LOOKUPSOURCECONNECTORRESPONSE._serialized_start=4362
-  _LOOKUPSOURCECONNECTORRESPONSE._serialized_end=4480
-  _LOOKUPDESTINATIONCONNECTORREQUEST._serialized_start=4482
-  _LOOKUPDESTINATIONCONNECTORREQUEST._serialized_end=4552
-  _LOOKUPDESTINATIONCONNECTORRESPONSE._serialized_start=4555
-  _LOOKUPDESTINATIONCONNECTORRESPONSE._serialized_end=4693
+  _LOOKUPDESTINATIONCONNECTORREQUEST.fields_by_name['view']._options = None
+  _LOOKUPDESTINATIONCONNECTORREQUEST.fields_by_name['view']._serialized_options = b'\340A\001'
+  _RENAMEDESTINATIONCONNECTORREQUEST.fields_by_name['name']._options = None
+  _RENAMEDESTINATIONCONNECTORREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A\'\n%api.instill.tech/DestinationConnector'
+  _RENAMEDESTINATIONCONNECTORREQUEST.fields_by_name['new_destination_connector_id']._options = None
+  _RENAMEDESTINATIONCONNECTORREQUEST.fields_by_name['new_destination_connector_id']._serialized_options = b'\340A\002'
+  _CONNECTOR._serialized_start=254
+  _CONNECTOR._serialized_end=656
+  _SOURCECONNECTOR._serialized_start=659
+  _SOURCECONNECTOR._serialized_end=1011
+  _DESTINATIONCONNECTOR._serialized_start=1014
+  _DESTINATIONCONNECTOR._serialized_end=1402
+  _CREATESOURCECONNECTORREQUEST._serialized_start=1404
+  _CREATESOURCECONNECTORREQUEST._serialized_end=1526
+  _CREATESOURCECONNECTORRESPONSE._serialized_start=1528
+  _CREATESOURCECONNECTORRESPONSE._serialized_end=1646
+  _LISTSOURCECONNECTORREQUEST._serialized_start=1649
+  _LISTSOURCECONNECTORREQUEST._serialized_end=1819
+  _LISTSOURCECONNECTORRESPONSE._serialized_start=1822
+  _LISTSOURCECONNECTORRESPONSE._serialized_end=2011
+  _GETSOURCECONNECTORREQUEST._serialized_start=2014
+  _GETSOURCECONNECTORREQUEST._serialized_end=2175
+  _GETSOURCECONNECTORRESPONSE._serialized_start=2177
+  _GETSOURCECONNECTORRESPONSE._serialized_end=2292
+  _UPDATESOURCECONNECTORREQUEST._serialized_start=2295
+  _UPDATESOURCECONNECTORREQUEST._serialized_end=2483
+  _UPDATESOURCECONNECTORRESPONSE._serialized_start=2485
+  _UPDATESOURCECONNECTORRESPONSE._serialized_end=2603
+  _DELETESOURCECONNECTORREQUEST._serialized_start=2605
+  _DELETESOURCECONNECTORREQUEST._serialized_end=2697
+  _DELETESOURCECONNECTORRESPONSE._serialized_start=2699
+  _DELETESOURCECONNECTORRESPONSE._serialized_end=2730
+  _LOOKUPSOURCECONNECTORREQUEST._serialized_start=2733
+  _LOOKUPSOURCECONNECTORREQUEST._serialized_end=2870
+  _LOOKUPSOURCECONNECTORRESPONSE._serialized_start=2872
+  _LOOKUPSOURCECONNECTORRESPONSE._serialized_end=2990
+  _RENAMESOURCECONNECTORREQUEST._serialized_start=2993
+  _RENAMESOURCECONNECTORREQUEST._serialized_end=3145
+  _RENAMESOURCECONNECTORRESPONSE._serialized_start=3147
+  _RENAMESOURCECONNECTORRESPONSE._serialized_end=3265
+  _CREATEDESTINATIONCONNECTORREQUEST._serialized_start=3268
+  _CREATEDESTINATIONCONNECTORREQUEST._serialized_end=3410
+  _CREATEDESTINATIONCONNECTORRESPONSE._serialized_start=3413
+  _CREATEDESTINATIONCONNECTORRESPONSE._serialized_end=3551
+  _LISTDESTINATIONCONNECTORREQUEST._serialized_start=3554
+  _LISTDESTINATIONCONNECTORREQUEST._serialized_end=3729
+  _LISTDESTINATIONCONNECTORRESPONSE._serialized_start=3732
+  _LISTDESTINATIONCONNECTORRESPONSE._serialized_end=3941
+  _GETDESTINATIONCONNECTORREQUEST._serialized_start=3944
+  _GETDESTINATIONCONNECTORREQUEST._serialized_end=4115
+  _GETDESTINATIONCONNECTORRESPONSE._serialized_start=4118
+  _GETDESTINATIONCONNECTORRESPONSE._serialized_end=4253
+  _UPDATEDESTINATIONCONNECTORREQUEST._serialized_start=4256
+  _UPDATEDESTINATIONCONNECTORREQUEST._serialized_end=4464
+  _UPDATEDESTINATIONCONNECTORRESPONSE._serialized_start=4467
+  _UPDATEDESTINATIONCONNECTORRESPONSE._serialized_end=4605
+  _DELETEDESTINATIONCONNECTORREQUEST._serialized_start=4607
+  _DELETEDESTINATIONCONNECTORREQUEST._serialized_end=4709
+  _DELETEDESTINATIONCONNECTORRESPONSE._serialized_start=4711
+  _DELETEDESTINATIONCONNECTORRESPONSE._serialized_end=4747
+  _LOOKUPDESTINATIONCONNECTORREQUEST._serialized_start=4750
+  _LOOKUPDESTINATIONCONNECTORREQUEST._serialized_end=4892
+  _LOOKUPDESTINATIONCONNECTORRESPONSE._serialized_start=4895
+  _LOOKUPDESTINATIONCONNECTORRESPONSE._serialized_end=5033
+  _RENAMEDESTINATIONCONNECTORREQUEST._serialized_start=5036
+  _RENAMEDESTINATIONCONNECTORREQUEST._serialized_end=5208
+  _RENAMEDESTINATIONCONNECTORRESPONSE._serialized_start=5211
+  _RENAMEDESTINATIONCONNECTORRESPONSE._serialized_end=5349
 # @@protoc_insertion_point(module_scope)

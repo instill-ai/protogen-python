@@ -73,6 +73,16 @@ class ConnectorServiceStub(object):
                 request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteSourceConnectorRequest.SerializeToString,
                 response_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteSourceConnectorResponse.FromString,
                 )
+        self.LookUpSourceConnector = channel.unary_unary(
+                '/instill.connector.v1alpha.ConnectorService/LookUpSourceConnector',
+                request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpSourceConnectorRequest.SerializeToString,
+                response_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpSourceConnectorResponse.FromString,
+                )
+        self.RenameSourceConnector = channel.unary_unary(
+                '/instill.connector.v1alpha.ConnectorService/RenameSourceConnector',
+                request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.RenameSourceConnectorRequest.SerializeToString,
+                response_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.RenameSourceConnectorResponse.FromString,
+                )
         self.CreateDestinationConnector = channel.unary_unary(
                 '/instill.connector.v1alpha.ConnectorService/CreateDestinationConnector',
                 request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.CreateDestinationConnectorRequest.SerializeToString,
@@ -98,15 +108,15 @@ class ConnectorServiceStub(object):
                 request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteDestinationConnectorRequest.SerializeToString,
                 response_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteDestinationConnectorResponse.FromString,
                 )
-        self.LookUpSourceConnector = channel.unary_unary(
-                '/instill.connector.v1alpha.ConnectorService/LookUpSourceConnector',
-                request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpSourceConnectorRequest.SerializeToString,
-                response_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpSourceConnectorResponse.FromString,
-                )
         self.LookUpDestinationConnector = channel.unary_unary(
                 '/instill.connector.v1alpha.ConnectorService/LookUpDestinationConnector',
                 request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpDestinationConnectorRequest.SerializeToString,
                 response_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpDestinationConnectorResponse.FromString,
+                )
+        self.RenameDestinationConnector = channel.unary_unary(
+                '/instill.connector.v1alpha.ConnectorService/RenameDestinationConnector',
+                request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.RenameDestinationConnectorRequest.SerializeToString,
+                response_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.RenameDestinationConnectorResponse.FromString,
                 )
 
 
@@ -219,6 +229,22 @@ class ConnectorServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def LookUpSourceConnector(self, request, context):
+        """LookUpSourceConnector method receives a LookUpSourceConnectorRequest
+        message and returns a LookUpSourceConnectorResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RenameSourceConnector(self, request, context):
+        """RenameDestinationConnector method receives a RenameSourceConnectorRequest message and returns
+        a RenameSourceConnectorResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CreateDestinationConnector(self, request, context):
         """*DestinationConnector methods
 
@@ -264,18 +290,18 @@ class ConnectorServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def LookUpSourceConnector(self, request, context):
-        """LookUpSourceConnector method receives a LookUpSourceConnectorRequest
-        message and returns a LookUpSourceConnectorResponse
+    def LookUpDestinationConnector(self, request, context):
+        """LookUpDestinationConnector method receives a
+        LookUpDestinationConnectorRequest message and returns a
+        LookUpDestinationConnectorResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def LookUpDestinationConnector(self, request, context):
-        """LookUpDestinationConnector method receives a
-        LookUpDestinationConnectorRequest message and returns a
-        LookUpDestinationConnectorResponse
+    def RenameDestinationConnector(self, request, context):
+        """RenameDestinationConnector method receives a RenameDestinationConnectorRequest message and returns
+        a RenameDestinationConnectorResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -339,6 +365,16 @@ def add_ConnectorServiceServicer_to_server(servicer, server):
                     request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteSourceConnectorRequest.FromString,
                     response_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteSourceConnectorResponse.SerializeToString,
             ),
+            'LookUpSourceConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.LookUpSourceConnector,
+                    request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpSourceConnectorRequest.FromString,
+                    response_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpSourceConnectorResponse.SerializeToString,
+            ),
+            'RenameSourceConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.RenameSourceConnector,
+                    request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.RenameSourceConnectorRequest.FromString,
+                    response_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.RenameSourceConnectorResponse.SerializeToString,
+            ),
             'CreateDestinationConnector': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateDestinationConnector,
                     request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.CreateDestinationConnectorRequest.FromString,
@@ -364,15 +400,15 @@ def add_ConnectorServiceServicer_to_server(servicer, server):
                     request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteDestinationConnectorRequest.FromString,
                     response_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteDestinationConnectorResponse.SerializeToString,
             ),
-            'LookUpSourceConnector': grpc.unary_unary_rpc_method_handler(
-                    servicer.LookUpSourceConnector,
-                    request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpSourceConnectorRequest.FromString,
-                    response_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpSourceConnectorResponse.SerializeToString,
-            ),
             'LookUpDestinationConnector': grpc.unary_unary_rpc_method_handler(
                     servicer.LookUpDestinationConnector,
                     request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpDestinationConnectorRequest.FromString,
                     response_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpDestinationConnectorResponse.SerializeToString,
+            ),
+            'RenameDestinationConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.RenameDestinationConnector,
+                    request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.RenameDestinationConnectorRequest.FromString,
+                    response_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.RenameDestinationConnectorResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -574,6 +610,40 @@ class ConnectorService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def LookUpSourceConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/instill.connector.v1alpha.ConnectorService/LookUpSourceConnector',
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpSourceConnectorRequest.SerializeToString,
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpSourceConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RenameSourceConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/instill.connector.v1alpha.ConnectorService/RenameSourceConnector',
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.RenameSourceConnectorRequest.SerializeToString,
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.RenameSourceConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def CreateDestinationConnector(request,
             target,
             options=(),
@@ -659,23 +729,6 @@ class ConnectorService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def LookUpSourceConnector(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.connector.v1alpha.ConnectorService/LookUpSourceConnector',
-            instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpSourceConnectorRequest.SerializeToString,
-            instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpSourceConnectorResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def LookUpDestinationConnector(request,
             target,
             options=(),
@@ -689,5 +742,22 @@ class ConnectorService(object):
         return grpc.experimental.unary_unary(request, target, '/instill.connector.v1alpha.ConnectorService/LookUpDestinationConnector',
             instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpDestinationConnectorRequest.SerializeToString,
             instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpDestinationConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RenameDestinationConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/instill.connector.v1alpha.ConnectorService/RenameDestinationConnector',
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.RenameDestinationConnectorRequest.SerializeToString,
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.RenameDestinationConnectorResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
