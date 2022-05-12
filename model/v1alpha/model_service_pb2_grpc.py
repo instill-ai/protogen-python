@@ -77,6 +77,16 @@ class ModelServiceStub(object):
                 request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.RenameModelRequest.SerializeToString,
                 response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.RenameModelResponse.FromString,
                 )
+        self.PublishModel = channel.unary_unary(
+                '/instill.model.v1alpha.ModelService/PublishModel',
+                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.PublishModelRequest.SerializeToString,
+                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.PublishModelResponse.FromString,
+                )
+        self.UnpublishModel = channel.unary_unary(
+                '/instill.model.v1alpha.ModelService/UnpublishModel',
+                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelRequest.SerializeToString,
+                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelResponse.FromString,
+                )
         self.ListModelInstance = channel.unary_unary(
                 '/instill.model.v1alpha.ModelService/ListModelInstance',
                 request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstanceRequest.SerializeToString,
@@ -221,6 +231,22 @@ class ModelServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def PublishModel(self, request, context):
+        """PublishModel method receives a PublishModelRequest message and returns a
+        PublishModelResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UnpublishModel(self, request, context):
+        """UnpublishModel method receives a UnpublishModelRequest message and returns a
+        UnpublishModelResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListModelInstance(self, request, context):
         """ListModelInstance method receives a ListModelInstanceRequest message and
         returns a ListModelInstanceResponse
@@ -351,6 +377,16 @@ def add_ModelServiceServicer_to_server(servicer, server):
                     servicer.RenameModel,
                     request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.RenameModelRequest.FromString,
                     response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.RenameModelResponse.SerializeToString,
+            ),
+            'PublishModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.PublishModel,
+                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.PublishModelRequest.FromString,
+                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.PublishModelResponse.SerializeToString,
+            ),
+            'UnpublishModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.UnpublishModel,
+                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelRequest.FromString,
+                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelResponse.SerializeToString,
             ),
             'ListModelInstance': grpc.unary_unary_rpc_method_handler(
                     servicer.ListModelInstance,
@@ -604,6 +640,40 @@ class ModelService(object):
         return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/RenameModel',
             instill_dot_model_dot_v1alpha_dot_model__pb2.RenameModelRequest.SerializeToString,
             instill_dot_model_dot_v1alpha_dot_model__pb2.RenameModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def PublishModel(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/PublishModel',
+            instill_dot_model_dot_v1alpha_dot_model__pb2.PublishModelRequest.SerializeToString,
+            instill_dot_model_dot_v1alpha_dot_model__pb2.PublishModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UnpublishModel(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/UnpublishModel',
+            instill_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelRequest.SerializeToString,
+            instill_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
