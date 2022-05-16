@@ -193,6 +193,8 @@ class PipelineServiceServicer(object):
         """TriggerPipelineBinaryFileUpload method receives a
         TriggerPipelineBinaryFileUploadRequest message and returns a
         TriggerPipelineBinaryFileUploadResponse message.
+
+        Endpoint: "POST /v1alpha/{name=pipelines/*}:trigger-multipart"
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

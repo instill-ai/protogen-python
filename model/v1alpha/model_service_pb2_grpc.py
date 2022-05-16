@@ -187,6 +187,8 @@ class ModelServiceServicer(object):
         """CreateModelBinaryFileUpload method receives a
         CreateModelBinaryFileUploadRequest message and returns a
         CreateModelBinaryFileUploadResponse message.
+
+        Endpoint: "POST /v1alpha/models:multipart"
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -240,8 +242,8 @@ class ModelServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def UnpublishModel(self, request, context):
-        """UnpublishModel method receives a UnpublishModelRequest message and returns a
-        UnpublishModelResponse
+        """UnpublishModel method receives a UnpublishModelRequest message and returns
+        a UnpublishModelResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -310,6 +312,8 @@ class ModelServiceServicer(object):
         """TriggerModelInstanceBinaryFileUpload method receives a
         TriggerModelInstanceBinaryFileUploadRequest message and returns a
         TriggerModelInstanceBinaryFileUploadResponse message.
+
+        Endpoint: "POST/v1alpha/{name=models/*/instances/*}:trigger-multipart"
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
