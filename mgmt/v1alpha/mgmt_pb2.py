@@ -20,7 +20,7 @@ from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1finstill/mgmt/v1alpha/mgmt.proto\x12\x14instill.mgmt.v1alpha\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/api/field_behavior.proto\"D\n\x12HealthCheckRequest\x12\"\n\x07service\x18\x01 \x01(\tB\x03\xe0\x41\x01H\x00R\x07service\x88\x01\x01\x42\n\n\x08_service\"\xd3\x01\n\x13HealthCheckResponse\x12O\n\x06status\x18\x01 \x01(\x0e\x32\x37.instill.mgmt.v1alpha.HealthCheckResponse.ServingStatusR\x06status\"k\n\rServingStatus\x12\x1e\n\x1aSERVING_STATUS_UNSPECIFIED\x10\x00\x12\x1a\n\x16SERVING_STATUS_SERVING\x10\x01\x12\x1e\n\x1aSERVING_STATUS_NOT_SERVING\x10\x02\"r\n\x0fLivenessRequest\x12_\n\x14health_check_request\x18\x01 \x01(\x0b\x32(.instill.mgmt.v1alpha.HealthCheckRequestB\x03\xe0\x41\x01R\x12healthCheckRequest\"q\n\x10LivenessResponse\x12]\n\x15health_check_response\x18\x01 \x01(\x0b\x32).instill.mgmt.v1alpha.HealthCheckResponseR\x13healthCheckResponse\"s\n\x10ReadinessRequest\x12_\n\x14health_check_request\x18\x01 \x01(\x0b\x32(.instill.mgmt.v1alpha.HealthCheckRequestB\x03\xe0\x41\x01R\x12healthCheckRequest\"r\n\x11ReadinessResponse\x12]\n\x15health_check_response\x18\x01 \x01(\x0b\x32).instill.mgmt.v1alpha.HealthCheckResponseR\x13healthCheckResponse\"\xb9\x04\n\x04User\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x1e\n\x05\x65mail\x18\x03 \x01(\tB\x03\xe0\x41\x01H\x00R\x05\x65mail\x88\x01\x01\x12\x13\n\x02id\x18\x04 \x01(\tB\x03\xe0\x41\x05R\x02id\x12+\n\x0c\x63ompany_name\x18\x05 \x01(\tB\x03\xe0\x41\x01H\x01R\x0b\x63ompanyName\x88\x01\x01\x12\x1c\n\x04role\x18\x06 \x01(\tB\x03\xe0\x41\x01H\x02R\x04role\x88\x01\x01\x12\x37\n\x15usage_data_collection\x18\x07 \x01(\x08\x42\x03\xe0\x41\x02R\x13usageDataCollection\x12<\n\x17newsletter_subscription\x18\x08 \x01(\x08\x42\x03\xe0\x41\x02R\x16newsletterSubscription\x12\x38\n\x04type\x18\t \x01(\x0e\x32\x1f.instill.mgmt.v1alpha.OwnerTypeB\x03\xe0\x41\x03R\x04type\x12@\n\x0b\x63reate_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime:(\xea\x41%\n\x15\x61pi.instill.tech/User\x12\x0cusers/{user}B\x08\n\x06_emailB\x0f\n\r_company_nameB\x07\n\x05_role\"W\n\x0fListUserRequest\x12 \n\tpage_size\x18\x01 \x01(\x03\x42\x03\xe0\x41\x01R\x08pageSize\x12\"\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01R\tpageToken\"\x8b\x01\n\x10ListUserResponse\x12\x30\n\x05users\x18\x01 \x03(\x0b\x32\x1a.instill.mgmt.v1alpha.UserR\x05users\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSize\"H\n\x11\x43reateUserRequest\x12\x33\n\x04user\x18\x01 \x01(\x0b\x32\x1a.instill.mgmt.v1alpha.UserB\x03\xe0\x41\x02R\x04user\"D\n\x12\x43reateUserResponse\x12.\n\x04user\x18\x01 \x01(\x0b\x32\x1a.instill.mgmt.v1alpha.UserR\x04user\"U\n\x0eGetUserRequest\x12\x43\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41\x17\n\x15\x61pi.instill.tech/User\x92\x41\x0f\xca>\x0c\xfa\x02\tuser.nameR\x04name\"A\n\x0fGetUserResponse\x12.\n\x04user\x18\x01 \x01(\x0b\x32\x1a.instill.mgmt.v1alpha.UserR\x04user\"\x8a\x01\n\x11UpdateUserRequest\x12\x33\n\x04user\x18\x01 \x01(\x0b\x32\x1a.instill.mgmt.v1alpha.UserB\x03\xe0\x41\x02R\x04user\x12@\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\nupdateMask\"D\n\x12UpdateUserResponse\x12.\n\x04user\x18\x01 \x01(\x0b\x32\x1a.instill.mgmt.v1alpha.UserR\x04user\"X\n\x11\x44\x65leteUserRequest\x12\x43\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41\x17\n\x15\x61pi.instill.tech/User\x92\x41\x0f\xca>\x0c\xfa\x02\tuser.nameR\x04name\"\x14\n\x12\x44\x65leteUserResponse\"6\n\x11LookUpUserRequest\x12!\n\tpermalink\x18\x01 \x01(\tB\x03\xe0\x41\x02R\tpermalink\"D\n\x12LookUpUserResponse\x12.\n\x04user\x18\x01 \x01(\x0b\x32\x1a.instill.mgmt.v1alpha.UserR\x04user*Y\n\tOwnerType\x12\x1a\n\x16OWNER_TYPE_UNSPECIFIED\x10\x00\x12\x13\n\x0fOWNER_TYPE_USER\x10\x01\x12\x1b\n\x17OWNER_TYPE_ORGANIZATION\x10\x02\x42\xdb\x01\n\x18\x63om.instill.mgmt.v1alphaB\tMgmtProtoP\x01ZBgithub.com/instill-ai/protogen-go/instill/mgmt/v1alpha;mgmtv1alpha\xa2\x02\x03IMX\xaa\x02\x14Instill.Mgmt.V1alpha\xca\x02\x14Instill\\Mgmt\\V1alpha\xe2\x02 Instill\\Mgmt\\V1alpha\\GPBMetadata\xea\x02\x16Instill::Mgmt::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1finstill/mgmt/v1alpha/mgmt.proto\x12\x14instill.mgmt.v1alpha\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/api/field_behavior.proto\"D\n\x12HealthCheckRequest\x12\"\n\x07service\x18\x01 \x01(\tB\x03\xe0\x41\x01H\x00R\x07service\x88\x01\x01\x42\n\n\x08_service\"\xd3\x01\n\x13HealthCheckResponse\x12O\n\x06status\x18\x01 \x01(\x0e\x32\x37.instill.mgmt.v1alpha.HealthCheckResponse.ServingStatusR\x06status\"k\n\rServingStatus\x12\x1e\n\x1aSERVING_STATUS_UNSPECIFIED\x10\x00\x12\x1a\n\x16SERVING_STATUS_SERVING\x10\x01\x12\x1e\n\x1aSERVING_STATUS_NOT_SERVING\x10\x02\"r\n\x0fLivenessRequest\x12_\n\x14health_check_request\x18\x01 \x01(\x0b\x32(.instill.mgmt.v1alpha.HealthCheckRequestB\x03\xe0\x41\x01R\x12healthCheckRequest\"q\n\x10LivenessResponse\x12]\n\x15health_check_response\x18\x01 \x01(\x0b\x32).instill.mgmt.v1alpha.HealthCheckResponseR\x13healthCheckResponse\"s\n\x10ReadinessRequest\x12_\n\x14health_check_request\x18\x01 \x01(\x0b\x32(.instill.mgmt.v1alpha.HealthCheckRequestB\x03\xe0\x41\x01R\x12healthCheckRequest\"r\n\x11ReadinessResponse\x12]\n\x15health_check_response\x18\x01 \x01(\x0b\x32).instill.mgmt.v1alpha.HealthCheckResponseR\x13healthCheckResponse\"\xb9\x04\n\x04User\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x1e\n\x05\x65mail\x18\x03 \x01(\tB\x03\xe0\x41\x01H\x00R\x05\x65mail\x88\x01\x01\x12\x13\n\x02id\x18\x04 \x01(\tB\x03\xe0\x41\x05R\x02id\x12+\n\x0c\x63ompany_name\x18\x05 \x01(\tB\x03\xe0\x41\x01H\x01R\x0b\x63ompanyName\x88\x01\x01\x12\x1c\n\x04role\x18\x06 \x01(\tB\x03\xe0\x41\x01H\x02R\x04role\x88\x01\x01\x12\x37\n\x15usage_data_collection\x18\x07 \x01(\x08\x42\x03\xe0\x41\x02R\x13usageDataCollection\x12<\n\x17newsletter_subscription\x18\x08 \x01(\x08\x42\x03\xe0\x41\x02R\x16newsletterSubscription\x12\x38\n\x04type\x18\t \x01(\x0e\x32\x1f.instill.mgmt.v1alpha.OwnerTypeB\x03\xe0\x41\x03R\x04type\x12@\n\x0b\x63reate_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime:(\xea\x41%\n\x15\x61pi.instill.tech/User\x12\x0cusers/{user}B\x08\n\x06_emailB\x0f\n\r_company_nameB\x07\n\x05_role\"~\n\x0fListUserRequest\x12%\n\tpage_size\x18\x01 \x01(\x03\x42\x03\xe0\x41\x01H\x00R\x08pageSize\x88\x01\x01\x12\'\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01H\x01R\tpageToken\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_token\"\x8b\x01\n\x10ListUserResponse\x12\x30\n\x05users\x18\x01 \x03(\x0b\x32\x1a.instill.mgmt.v1alpha.UserR\x05users\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSize\"H\n\x11\x43reateUserRequest\x12\x33\n\x04user\x18\x01 \x01(\x0b\x32\x1a.instill.mgmt.v1alpha.UserB\x03\xe0\x41\x02R\x04user\"D\n\x12\x43reateUserResponse\x12.\n\x04user\x18\x01 \x01(\x0b\x32\x1a.instill.mgmt.v1alpha.UserR\x04user\"U\n\x0eGetUserRequest\x12\x43\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41\x17\n\x15\x61pi.instill.tech/User\x92\x41\x0f\xca>\x0c\xfa\x02\tuser.nameR\x04name\"A\n\x0fGetUserResponse\x12.\n\x04user\x18\x01 \x01(\x0b\x32\x1a.instill.mgmt.v1alpha.UserR\x04user\"\x8a\x01\n\x11UpdateUserRequest\x12\x33\n\x04user\x18\x01 \x01(\x0b\x32\x1a.instill.mgmt.v1alpha.UserB\x03\xe0\x41\x02R\x04user\x12@\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\nupdateMask\"D\n\x12UpdateUserResponse\x12.\n\x04user\x18\x01 \x01(\x0b\x32\x1a.instill.mgmt.v1alpha.UserR\x04user\"X\n\x11\x44\x65leteUserRequest\x12\x43\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41\x17\n\x15\x61pi.instill.tech/User\x92\x41\x0f\xca>\x0c\xfa\x02\tuser.nameR\x04name\"\x14\n\x12\x44\x65leteUserResponse\"6\n\x11LookUpUserRequest\x12!\n\tpermalink\x18\x01 \x01(\tB\x03\xe0\x41\x02R\tpermalink\"D\n\x12LookUpUserResponse\x12.\n\x04user\x18\x01 \x01(\x0b\x32\x1a.instill.mgmt.v1alpha.UserR\x04user*Y\n\tOwnerType\x12\x1a\n\x16OWNER_TYPE_UNSPECIFIED\x10\x00\x12\x13\n\x0fOWNER_TYPE_USER\x10\x01\x12\x1b\n\x17OWNER_TYPE_ORGANIZATION\x10\x02\x42\xdb\x01\n\x18\x63om.instill.mgmt.v1alphaB\tMgmtProtoP\x01ZBgithub.com/instill-ai/protogen-go/instill/mgmt/v1alpha;mgmtv1alpha\xa2\x02\x03IMX\xaa\x02\x14Instill.Mgmt.V1alpha\xca\x02\x14Instill\\Mgmt\\V1alpha\xe2\x02 Instill\\Mgmt\\V1alpha\\GPBMetadata\xea\x02\x16Instill::Mgmt::V1alphab\x06proto3')
 
 _OWNERTYPE = DESCRIPTOR.enum_types_by_name['OwnerType']
 OwnerType = enum_type_wrapper.EnumTypeWrapper(_OWNERTYPE)
@@ -232,8 +232,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _DELETEUSERREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A\027\n\025api.instill.tech/User\222A\017\312>\014\372\002\tuser.name'
   _LOOKUPUSERREQUEST.fields_by_name['permalink']._options = None
   _LOOKUPUSERREQUEST.fields_by_name['permalink']._serialized_options = b'\340A\002'
-  _OWNERTYPE._serialized_start=2530
-  _OWNERTYPE._serialized_end=2619
+  _OWNERTYPE._serialized_start=2569
+  _OWNERTYPE._serialized_end=2658
   _HEALTHCHECKREQUEST._serialized_start=232
   _HEALTHCHECKREQUEST._serialized_end=300
   _HEALTHCHECKRESPONSE._serialized_start=303
@@ -251,27 +251,27 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _USER._serialized_start=981
   _USER._serialized_end=1550
   _LISTUSERREQUEST._serialized_start=1552
-  _LISTUSERREQUEST._serialized_end=1639
-  _LISTUSERRESPONSE._serialized_start=1642
-  _LISTUSERRESPONSE._serialized_end=1781
-  _CREATEUSERREQUEST._serialized_start=1783
-  _CREATEUSERREQUEST._serialized_end=1855
-  _CREATEUSERRESPONSE._serialized_start=1857
-  _CREATEUSERRESPONSE._serialized_end=1925
-  _GETUSERREQUEST._serialized_start=1927
-  _GETUSERREQUEST._serialized_end=2012
-  _GETUSERRESPONSE._serialized_start=2014
-  _GETUSERRESPONSE._serialized_end=2079
-  _UPDATEUSERREQUEST._serialized_start=2082
-  _UPDATEUSERREQUEST._serialized_end=2220
-  _UPDATEUSERRESPONSE._serialized_start=2222
-  _UPDATEUSERRESPONSE._serialized_end=2290
-  _DELETEUSERREQUEST._serialized_start=2292
-  _DELETEUSERREQUEST._serialized_end=2380
-  _DELETEUSERRESPONSE._serialized_start=2382
-  _DELETEUSERRESPONSE._serialized_end=2402
-  _LOOKUPUSERREQUEST._serialized_start=2404
-  _LOOKUPUSERREQUEST._serialized_end=2458
-  _LOOKUPUSERRESPONSE._serialized_start=2460
-  _LOOKUPUSERRESPONSE._serialized_end=2528
+  _LISTUSERREQUEST._serialized_end=1678
+  _LISTUSERRESPONSE._serialized_start=1681
+  _LISTUSERRESPONSE._serialized_end=1820
+  _CREATEUSERREQUEST._serialized_start=1822
+  _CREATEUSERREQUEST._serialized_end=1894
+  _CREATEUSERRESPONSE._serialized_start=1896
+  _CREATEUSERRESPONSE._serialized_end=1964
+  _GETUSERREQUEST._serialized_start=1966
+  _GETUSERREQUEST._serialized_end=2051
+  _GETUSERRESPONSE._serialized_start=2053
+  _GETUSERRESPONSE._serialized_end=2118
+  _UPDATEUSERREQUEST._serialized_start=2121
+  _UPDATEUSERREQUEST._serialized_end=2259
+  _UPDATEUSERRESPONSE._serialized_start=2261
+  _UPDATEUSERRESPONSE._serialized_end=2329
+  _DELETEUSERREQUEST._serialized_start=2331
+  _DELETEUSERREQUEST._serialized_end=2419
+  _DELETEUSERRESPONSE._serialized_start=2421
+  _DELETEUSERRESPONSE._serialized_end=2441
+  _LOOKUPUSERREQUEST._serialized_start=2443
+  _LOOKUPUSERREQUEST._serialized_end=2497
+  _LOOKUPUSERRESPONSE._serialized_start=2499
+  _LOOKUPUSERRESPONSE._serialized_end=2567
 # @@protoc_insertion_point(module_scope)
