@@ -17,7 +17,7 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from instill.connector.v1alpha import auth_pb2 as instill_dot_connector_dot_v1alpha_dot_auth__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$instill/connector/v1alpha/spec.proto\x12\x19instill.connector.v1alpha\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a$instill/connector/v1alpha/auth.proto\"\x9c\x06\n\x04Spec\x12\x30\n\x11\x64ocumentation_url\x18\x04 \x01(\tB\x03\xe0\x41\x03R\x10\x64ocumentationUrl\x12(\n\rchangelog_url\x18\x05 \x01(\tB\x03\xe0\x41\x03R\x0c\x63hangelogUrl\x12W\n\x18\x63onnection_specification\x18\x06 \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x02R\x17\x63onnectionSpecification\x12\x36\n\x14supports_incremental\x18\x07 \x01(\x08\x42\x03\xe0\x41\x03R\x13supportsIncremental\x12:\n\x16supports_normalization\x18\x08 \x01(\x08\x42\x03\xe0\x41\x03R\x15supportsNormalization\x12&\n\x0csupports_dbt\x18\t \x01(\x08\x42\x03\xe0\x41\x03R\x0bsupportsDbt\x12\x8b\x01\n supported_destination_sync_modes\x18\n \x03(\x0e\x32=.instill.connector.v1alpha.Spec.SupportedDestinationSyncModesB\x03\xe0\x41\x03R\x1dsupportedDestinationSyncModes\x12Q\n\radvanced_auth\x18\x0b \x01(\x0b\x32\'.instill.connector.v1alpha.AdvancedAuthB\x03\xe0\x41\x03R\x0c\x61\x64vancedAuth\"\xe1\x01\n\x1dSupportedDestinationSyncModes\x12\x30\n,SUPPORTED_DESTINATION_SYNC_MODES_UNSPECIFIED\x10\x00\x12+\n\'SUPPORTED_DESTINATION_SYNC_MODES_APPEND\x10\x01\x12.\n*SUPPORTED_DESTINATION_SYNC_MODES_OVERWRITE\x10\x02\x12\x31\n-SUPPORTED_DESTINATION_SYNC_MODES_APPEND_DEDUP\x10\x03\x42\xfe\x01\n\x1d\x63om.instill.connector.v1alphaB\tSpecProtoP\x01ZLgithub.com/instill-ai/protogen-go/instill/connector/v1alpha;connectorv1alpha\xa2\x02\x03ICX\xaa\x02\x19Instill.Connector.V1alpha\xca\x02\x19Instill\\Connector\\V1alpha\xe2\x02%Instill\\Connector\\V1alpha\\GPBMetadata\xea\x02\x1bInstill::Connector::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$instill/connector/v1alpha/spec.proto\x12\x19instill.connector.v1alpha\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a$instill/connector/v1alpha/auth.proto\"\xf2\x05\n\x04Spec\x12\x30\n\x11\x64ocumentation_url\x18\x04 \x01(\tB\x03\xe0\x41\x03R\x10\x64ocumentationUrl\x12W\n\x18\x63onnection_specification\x18\x05 \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x02R\x17\x63onnectionSpecification\x12\x36\n\x14supports_incremental\x18\x06 \x01(\x08\x42\x03\xe0\x41\x03R\x13supportsIncremental\x12:\n\x16supports_normalization\x18\x07 \x01(\x08\x42\x03\xe0\x41\x03R\x15supportsNormalization\x12&\n\x0csupports_dbt\x18\x08 \x01(\x08\x42\x03\xe0\x41\x03R\x0bsupportsDbt\x12\x8b\x01\n supported_destination_sync_modes\x18\t \x03(\x0e\x32=.instill.connector.v1alpha.Spec.SupportedDestinationSyncModesB\x03\xe0\x41\x03R\x1dsupportedDestinationSyncModes\x12Q\n\radvanced_auth\x18\n \x01(\x0b\x32\'.instill.connector.v1alpha.AdvancedAuthB\x03\xe0\x41\x03R\x0c\x61\x64vancedAuth\"\xe1\x01\n\x1dSupportedDestinationSyncModes\x12\x30\n,SUPPORTED_DESTINATION_SYNC_MODES_UNSPECIFIED\x10\x00\x12+\n\'SUPPORTED_DESTINATION_SYNC_MODES_APPEND\x10\x01\x12.\n*SUPPORTED_DESTINATION_SYNC_MODES_OVERWRITE\x10\x02\x12\x31\n-SUPPORTED_DESTINATION_SYNC_MODES_APPEND_DEDUP\x10\x03\x42\xfe\x01\n\x1d\x63om.instill.connector.v1alphaB\tSpecProtoP\x01ZLgithub.com/instill-ai/protogen-go/instill/connector/v1alpha;connectorv1alpha\xa2\x02\x03ICX\xaa\x02\x19Instill.Connector.V1alpha\xca\x02\x19Instill\\Connector\\V1alpha\xe2\x02%Instill\\Connector\\V1alpha\\GPBMetadata\xea\x02\x1bInstill::Connector::V1alphab\x06proto3')
 
 
 
@@ -36,8 +36,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._serialized_options = b'\n\035com.instill.connector.v1alphaB\tSpecProtoP\001ZLgithub.com/instill-ai/protogen-go/instill/connector/v1alpha;connectorv1alpha\242\002\003ICX\252\002\031Instill.Connector.V1alpha\312\002\031Instill\\Connector\\V1alpha\342\002%Instill\\Connector\\V1alpha\\GPBMetadata\352\002\033Instill::Connector::V1alpha'
   _SPEC.fields_by_name['documentation_url']._options = None
   _SPEC.fields_by_name['documentation_url']._serialized_options = b'\340A\003'
-  _SPEC.fields_by_name['changelog_url']._options = None
-  _SPEC.fields_by_name['changelog_url']._serialized_options = b'\340A\003'
   _SPEC.fields_by_name['connection_specification']._options = None
   _SPEC.fields_by_name['connection_specification']._serialized_options = b'\340A\002'
   _SPEC.fields_by_name['supports_incremental']._options = None
@@ -51,7 +49,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _SPEC.fields_by_name['advanced_auth']._options = None
   _SPEC.fields_by_name['advanced_auth']._serialized_options = b'\340A\003'
   _SPEC._serialized_start=169
-  _SPEC._serialized_end=965
-  _SPEC_SUPPORTEDDESTINATIONSYNCMODES._serialized_start=740
-  _SPEC_SUPPORTEDDESTINATIONSYNCMODES._serialized_end=965
+  _SPEC._serialized_end=923
+  _SPEC_SUPPORTEDDESTINATIONSYNCMODES._serialized_start=698
+  _SPEC_SUPPORTEDDESTINATIONSYNCMODES._serialized_end=923
 # @@protoc_insertion_point(module_scope)
