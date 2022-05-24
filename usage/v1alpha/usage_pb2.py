@@ -17,7 +17,7 @@ from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n!instill/usage/v1alpha/usage.proto\x12\x15instill.usage.v1alpha\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/api/field_behavior.proto\"D\n\x12HealthCheckRequest\x12\"\n\x07service\x18\x01 \x01(\tB\x03\xe0\x41\x01H\x00R\x07service\x88\x01\x01\x42\n\n\x08_service\"\xd4\x01\n\x13HealthCheckResponse\x12P\n\x06status\x18\x01 \x01(\x0e\x32\x38.instill.usage.v1alpha.HealthCheckResponse.ServingStatusR\x06status\"k\n\rServingStatus\x12\x1e\n\x1aSERVING_STATUS_UNSPECIFIED\x10\x00\x12\x1a\n\x16SERVING_STATUS_SERVING\x10\x01\x12\x1e\n\x1aSERVING_STATUS_NOT_SERVING\x10\x02\"s\n\x0fLivenessRequest\x12`\n\x14health_check_request\x18\x01 \x01(\x0b\x32).instill.usage.v1alpha.HealthCheckRequestB\x03\xe0\x41\x01R\x12healthCheckRequest\"r\n\x10LivenessResponse\x12^\n\x15health_check_response\x18\x01 \x01(\x0b\x32*.instill.usage.v1alpha.HealthCheckResponseR\x13healthCheckResponse\"t\n\x10ReadinessRequest\x12`\n\x14health_check_request\x18\x01 \x01(\x0b\x32).instill.usage.v1alpha.HealthCheckRequestB\x03\xe0\x41\x01R\x12healthCheckRequest\"s\n\x11ReadinessResponse\x12^\n\x15health_check_response\x18\x01 \x01(\x0b\x32*.instill.usage.v1alpha.HealthCheckResponseR\x13healthCheckResponse\"\xd2\x01\n\x07Session\x12!\n\tpermalink\x18\x01 \x01(\tB\x03\xe0\x41\x03R\tpermalink\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\"\n\ncluster_id\x18\x03 \x01(\tB\x03\xe0\x41\x04R\tclusterId\x12 \n\tserver_id\x18\x04 \x01(\tB\x03\xe0\x41\x04R\x08serverId\x12\x14\n\x05token\x18\x05 \x01(\tR\x05token:1\xea\x41.\n\x18\x61pi.instill.tech/Session\x12\x12sessions/{session}\"\xe9\x01\n\tUsageData\x12=\n\x07session\x18\x01 \x01(\x0b\x32\x1e.instill.usage.v1alpha.SessionB\x03\xe0\x41\x02R\x07session\x12\x1d\n\x07version\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x07version\x12\x17\n\x04\x61rch\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x04\x61rch\x12\x13\n\x02os\x18\x04 \x01(\tB\x03\xe0\x41\x02R\x02os\x12\x1b\n\x06uptime\x18\x05 \x01(\x03\x42\x03\xe0\x41\x02R\x06uptime\x12\x33\n\x04time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x02R\x04time\"\x94\x01\n\x06Report\x12!\n\tpermalink\x18\x01 \x01(\tB\x03\xe0\x41\x03R\tpermalink\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x15\n\x03pow\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x03pow\x12\x39\n\x04\x64\x61ta\x18\x04 \x01(\x0b\x32 .instill.usage.v1alpha.UsageDataB\x03\xe0\x41\x02R\x04\x64\x61ta\"U\n\x14\x43reateSessionRequest\x12=\n\x07session\x18\x01 \x01(\x0b\x32\x1e.instill.usage.v1alpha.SessionB\x03\xe0\x41\x02R\x07session\"Q\n\x15\x43reateSessionResponse\x12\x38\n\x07session\x18\x01 \x01(\x0b\x32\x1e.instill.usage.v1alpha.SessionR\x07session\"O\n\x11SendReportRequest\x12:\n\x06report\x18\x01 \x01(\x0b\x32\x1d.instill.usage.v1alpha.ReportB\x03\xe0\x41\x02R\x06report\"\x14\n\x12SendReportResponseB\xe3\x01\n\x19\x63om.instill.usage.v1alphaB\nUsageProtoP\x01ZDgithub.com/instill-ai/protogen-go/instill/usage/v1alpha;usagev1alpha\xa2\x02\x03IUX\xaa\x02\x15Instill.Usage.V1alpha\xca\x02\x15Instill\\Usage\\V1alpha\xe2\x02!Instill\\Usage\\V1alpha\\GPBMetadata\xea\x02\x17Instill::Usage::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n!instill/usage/v1alpha/usage.proto\x12\x15instill.usage.v1alpha\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/api/field_behavior.proto\"D\n\x12HealthCheckRequest\x12\"\n\x07service\x18\x01 \x01(\tB\x03\xe0\x41\x01H\x00R\x07service\x88\x01\x01\x42\n\n\x08_service\"\xd4\x01\n\x13HealthCheckResponse\x12P\n\x06status\x18\x01 \x01(\x0e\x32\x38.instill.usage.v1alpha.HealthCheckResponse.ServingStatusR\x06status\"k\n\rServingStatus\x12\x1e\n\x1aSERVING_STATUS_UNSPECIFIED\x10\x00\x12\x1a\n\x16SERVING_STATUS_SERVING\x10\x01\x12\x1e\n\x1aSERVING_STATUS_NOT_SERVING\x10\x02\"s\n\x0fLivenessRequest\x12`\n\x14health_check_request\x18\x01 \x01(\x0b\x32).instill.usage.v1alpha.HealthCheckRequestB\x03\xe0\x41\x01R\x12healthCheckRequest\"r\n\x10LivenessResponse\x12^\n\x15health_check_response\x18\x01 \x01(\x0b\x32*.instill.usage.v1alpha.HealthCheckResponseR\x13healthCheckResponse\"t\n\x10ReadinessRequest\x12`\n\x14health_check_request\x18\x01 \x01(\x0b\x32).instill.usage.v1alpha.HealthCheckRequestB\x03\xe0\x41\x01R\x12healthCheckRequest\"s\n\x11ReadinessResponse\x12^\n\x15health_check_response\x18\x01 \x01(\x0b\x32*.instill.usage.v1alpha.HealthCheckResponseR\x13healthCheckResponse\"\xd2\x01\n\x07Session\x12!\n\tpermalink\x18\x01 \x01(\tB\x03\xe0\x41\x03R\tpermalink\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\"\n\ncluster_id\x18\x03 \x01(\tB\x03\xe0\x41\x04R\tclusterId\x12 \n\tserver_id\x18\x04 \x01(\tB\x03\xe0\x41\x04R\x08serverId\x12\x14\n\x05token\x18\x05 \x01(\tR\x05token:1\xea\x41.\n\x18\x61pi.instill.tech/Session\x12\x12sessions/{session}\"\xe9\x01\n\tUsageData\x12=\n\x07session\x18\x01 \x01(\x0b\x32\x1e.instill.usage.v1alpha.SessionB\x03\xe0\x41\x02R\x07session\x12\x1d\n\x07version\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x07version\x12\x17\n\x04\x61rch\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x04\x61rch\x12\x13\n\x02os\x18\x04 \x01(\tB\x03\xe0\x41\x02R\x02os\x12\x1b\n\x06uptime\x18\x05 \x01(\x03\x42\x03\xe0\x41\x02R\x06uptime\x12\x33\n\x04time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x02R\x04time\"Z\n\x06Report\x12\x15\n\x03pow\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x03pow\x12\x39\n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32 .instill.usage.v1alpha.UsageDataB\x03\xe0\x41\x02R\x04\x64\x61ta\"U\n\x14\x43reateSessionRequest\x12=\n\x07session\x18\x01 \x01(\x0b\x32\x1e.instill.usage.v1alpha.SessionB\x03\xe0\x41\x02R\x07session\"Q\n\x15\x43reateSessionResponse\x12\x38\n\x07session\x18\x01 \x01(\x0b\x32\x1e.instill.usage.v1alpha.SessionR\x07session\"O\n\x11SendReportRequest\x12:\n\x06report\x18\x01 \x01(\x0b\x32\x1d.instill.usage.v1alpha.ReportB\x03\xe0\x41\x02R\x06report\"\x14\n\x12SendReportResponseB\xe3\x01\n\x19\x63om.instill.usage.v1alphaB\nUsageProtoP\x01ZDgithub.com/instill-ai/protogen-go/instill/usage/v1alpha;usagev1alpha\xa2\x02\x03IUX\xaa\x02\x15Instill.Usage.V1alpha\xca\x02\x15Instill\\Usage\\V1alpha\xe2\x02!Instill\\Usage\\V1alpha\\GPBMetadata\xea\x02\x17Instill::Usage::V1alphab\x06proto3')
 
 
 
@@ -158,10 +158,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _USAGEDATA.fields_by_name['uptime']._serialized_options = b'\340A\002'
   _USAGEDATA.fields_by_name['time']._options = None
   _USAGEDATA.fields_by_name['time']._serialized_options = b'\340A\002'
-  _REPORT.fields_by_name['permalink']._options = None
-  _REPORT.fields_by_name['permalink']._serialized_options = b'\340A\003'
-  _REPORT.fields_by_name['uid']._options = None
-  _REPORT.fields_by_name['uid']._serialized_options = b'\340A\003'
   _REPORT.fields_by_name['pow']._options = None
   _REPORT.fields_by_name['pow']._serialized_options = b'\340A\002'
   _REPORT.fields_by_name['data']._options = None
@@ -188,14 +184,14 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _SESSION._serialized_end=1117
   _USAGEDATA._serialized_start=1120
   _USAGEDATA._serialized_end=1353
-  _REPORT._serialized_start=1356
-  _REPORT._serialized_end=1504
-  _CREATESESSIONREQUEST._serialized_start=1506
-  _CREATESESSIONREQUEST._serialized_end=1591
-  _CREATESESSIONRESPONSE._serialized_start=1593
-  _CREATESESSIONRESPONSE._serialized_end=1674
-  _SENDREPORTREQUEST._serialized_start=1676
-  _SENDREPORTREQUEST._serialized_end=1755
-  _SENDREPORTRESPONSE._serialized_start=1757
-  _SENDREPORTRESPONSE._serialized_end=1777
+  _REPORT._serialized_start=1355
+  _REPORT._serialized_end=1445
+  _CREATESESSIONREQUEST._serialized_start=1447
+  _CREATESESSIONREQUEST._serialized_end=1532
+  _CREATESESSIONRESPONSE._serialized_start=1534
+  _CREATESESSIONRESPONSE._serialized_end=1615
+  _SENDREPORTREQUEST._serialized_start=1617
+  _SENDREPORTREQUEST._serialized_end=1696
+  _SENDREPORTRESPONSE._serialized_start=1698
+  _SENDREPORTRESPONSE._serialized_end=1718
 # @@protoc_insertion_point(module_scope)
