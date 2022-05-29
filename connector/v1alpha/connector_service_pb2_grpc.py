@@ -4,7 +4,7 @@ import grpc
 
 from instill.connector.v1alpha import connector_definition_pb2 as instill_dot_connector_dot_v1alpha_dot_connector__definition__pb2
 from instill.connector.v1alpha import connector_pb2 as instill_dot_connector_dot_v1alpha_dot_connector__pb2
-from instill.connector.v1alpha import connector_service_pb2 as instill_dot_connector_dot_v1alpha_dot_connector__service__pb2
+from instill.connector.v1alpha import healthcheck_pb2 as instill_dot_connector_dot_v1alpha_dot_healthcheck__pb2
 
 
 class ConnectorServiceStub(object):
@@ -20,13 +20,13 @@ class ConnectorServiceStub(object):
         """
         self.Liveness = channel.unary_unary(
                 '/instill.connector.v1alpha.ConnectorService/Liveness',
-                request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__service__pb2.LivenessRequest.SerializeToString,
-                response_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__service__pb2.LivenessResponse.FromString,
+                request_serializer=instill_dot_connector_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.SerializeToString,
+                response_deserializer=instill_dot_connector_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.FromString,
                 )
         self.Readiness = channel.unary_unary(
                 '/instill.connector.v1alpha.ConnectorService/Readiness',
-                request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__service__pb2.ReadinessRequest.SerializeToString,
-                response_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__service__pb2.ReadinessResponse.FromString,
+                request_serializer=instill_dot_connector_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
+                response_deserializer=instill_dot_connector_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
                 )
         self.ListSourceConnectorDefinition = channel.unary_unary(
                 '/instill.connector.v1alpha.ConnectorService/ListSourceConnectorDefinition',
@@ -78,6 +78,16 @@ class ConnectorServiceStub(object):
                 request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpSourceConnectorRequest.SerializeToString,
                 response_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpSourceConnectorResponse.FromString,
                 )
+        self.ConnectSourceConnector = channel.unary_unary(
+                '/instill.connector.v1alpha.ConnectorService/ConnectSourceConnector',
+                request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectSourceConnectorRequest.SerializeToString,
+                response_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectSourceConnectorResponse.FromString,
+                )
+        self.DisconnectSourceConnector = channel.unary_unary(
+                '/instill.connector.v1alpha.ConnectorService/DisconnectSourceConnector',
+                request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectSourceConnectorRequest.SerializeToString,
+                response_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectSourceConnectorResponse.FromString,
+                )
         self.RenameSourceConnector = channel.unary_unary(
                 '/instill.connector.v1alpha.ConnectorService/RenameSourceConnector',
                 request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.RenameSourceConnectorRequest.SerializeToString,
@@ -112,6 +122,16 @@ class ConnectorServiceStub(object):
                 '/instill.connector.v1alpha.ConnectorService/LookUpDestinationConnector',
                 request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpDestinationConnectorRequest.SerializeToString,
                 response_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpDestinationConnectorResponse.FromString,
+                )
+        self.ConnectDestinationConnector = channel.unary_unary(
+                '/instill.connector.v1alpha.ConnectorService/ConnectDestinationConnector',
+                request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectDestinationConnectorRequest.SerializeToString,
+                response_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectDestinationConnectorResponse.FromString,
+                )
+        self.DisconnectDestinationConnector = channel.unary_unary(
+                '/instill.connector.v1alpha.ConnectorService/DisconnectDestinationConnector',
+                request_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectDestinationConnectorRequest.SerializeToString,
+                response_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectDestinationConnectorResponse.FromString,
                 )
         self.RenameDestinationConnector = channel.unary_unary(
                 '/instill.connector.v1alpha.ConnectorService/RenameDestinationConnector',
@@ -237,6 +257,26 @@ class ConnectorServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ConnectSourceConnector(self, request, context):
+        """Connect a source connector.
+        The "state" of the connector after connecting is "CONNECTED".
+        ConnectSourceConnector can be called on SourceConnector in the state `DISCONNECTED`;
+        SourceConnector in a different state (including `CONNECTED`) returns an error.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DisconnectSourceConnector(self, request, context):
+        """Disconnect a source connector.
+        The "state" of the connector after disconnecting is "DISCONNECTED".
+        DisconnectSourceConnector can be called on SourceConnector in the state `CONNECTED`;
+        SourceConnector in a different state (including `DISCONNECTED`) returns an error.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def RenameSourceConnector(self, request, context):
         """RenameDestinationConnector method receives a RenameSourceConnectorRequest message and returns
         a RenameSourceConnectorResponse message.
@@ -299,6 +339,26 @@ class ConnectorServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ConnectDestinationConnector(self, request, context):
+        """Connect a destination connector.
+        The "state" of the connector after connecting is "CONNECTED".
+        ConnectDestinationConnector can be called on DestinationConnector in the state `DISCONNECTED`;
+        DestinationConnector in a different state (including `CONNECTED`) returns an error.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DisconnectDestinationConnector(self, request, context):
+        """Disconnect a destination connector.
+        The "state" of the connector after disconnecting is "DISCONNECTED".
+        DisconnectDestinationConnector can be called on DestinationConnector in the state `CONNECTED`;
+        DestinationConnector in a different state (including `DISCONNECTED`) returns an error.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def RenameDestinationConnector(self, request, context):
         """RenameDestinationConnector method receives a RenameDestinationConnectorRequest message and returns
         a RenameDestinationConnectorResponse message.
@@ -312,13 +372,13 @@ def add_ConnectorServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Liveness': grpc.unary_unary_rpc_method_handler(
                     servicer.Liveness,
-                    request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__service__pb2.LivenessRequest.FromString,
-                    response_serializer=instill_dot_connector_dot_v1alpha_dot_connector__service__pb2.LivenessResponse.SerializeToString,
+                    request_deserializer=instill_dot_connector_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.FromString,
+                    response_serializer=instill_dot_connector_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.SerializeToString,
             ),
             'Readiness': grpc.unary_unary_rpc_method_handler(
                     servicer.Readiness,
-                    request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__service__pb2.ReadinessRequest.FromString,
-                    response_serializer=instill_dot_connector_dot_v1alpha_dot_connector__service__pb2.ReadinessResponse.SerializeToString,
+                    request_deserializer=instill_dot_connector_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.FromString,
+                    response_serializer=instill_dot_connector_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.SerializeToString,
             ),
             'ListSourceConnectorDefinition': grpc.unary_unary_rpc_method_handler(
                     servicer.ListSourceConnectorDefinition,
@@ -370,6 +430,16 @@ def add_ConnectorServiceServicer_to_server(servicer, server):
                     request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpSourceConnectorRequest.FromString,
                     response_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpSourceConnectorResponse.SerializeToString,
             ),
+            'ConnectSourceConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.ConnectSourceConnector,
+                    request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectSourceConnectorRequest.FromString,
+                    response_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectSourceConnectorResponse.SerializeToString,
+            ),
+            'DisconnectSourceConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.DisconnectSourceConnector,
+                    request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectSourceConnectorRequest.FromString,
+                    response_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectSourceConnectorResponse.SerializeToString,
+            ),
             'RenameSourceConnector': grpc.unary_unary_rpc_method_handler(
                     servicer.RenameSourceConnector,
                     request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.RenameSourceConnectorRequest.FromString,
@@ -405,6 +475,16 @@ def add_ConnectorServiceServicer_to_server(servicer, server):
                     request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpDestinationConnectorRequest.FromString,
                     response_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpDestinationConnectorResponse.SerializeToString,
             ),
+            'ConnectDestinationConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.ConnectDestinationConnector,
+                    request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectDestinationConnectorRequest.FromString,
+                    response_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectDestinationConnectorResponse.SerializeToString,
+            ),
+            'DisconnectDestinationConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.DisconnectDestinationConnector,
+                    request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectDestinationConnectorRequest.FromString,
+                    response_serializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectDestinationConnectorResponse.SerializeToString,
+            ),
             'RenameDestinationConnector': grpc.unary_unary_rpc_method_handler(
                     servicer.RenameDestinationConnector,
                     request_deserializer=instill_dot_connector_dot_v1alpha_dot_connector__pb2.RenameDestinationConnectorRequest.FromString,
@@ -434,8 +514,8 @@ class ConnectorService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/instill.connector.v1alpha.ConnectorService/Liveness',
-            instill_dot_connector_dot_v1alpha_dot_connector__service__pb2.LivenessRequest.SerializeToString,
-            instill_dot_connector_dot_v1alpha_dot_connector__service__pb2.LivenessResponse.FromString,
+            instill_dot_connector_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.SerializeToString,
+            instill_dot_connector_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -451,8 +531,8 @@ class ConnectorService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/instill.connector.v1alpha.ConnectorService/Readiness',
-            instill_dot_connector_dot_v1alpha_dot_connector__service__pb2.ReadinessRequest.SerializeToString,
-            instill_dot_connector_dot_v1alpha_dot_connector__service__pb2.ReadinessResponse.FromString,
+            instill_dot_connector_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
+            instill_dot_connector_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -627,6 +707,40 @@ class ConnectorService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ConnectSourceConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/instill.connector.v1alpha.ConnectorService/ConnectSourceConnector',
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectSourceConnectorRequest.SerializeToString,
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectSourceConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DisconnectSourceConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/instill.connector.v1alpha.ConnectorService/DisconnectSourceConnector',
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectSourceConnectorRequest.SerializeToString,
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectSourceConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def RenameSourceConnector(request,
             target,
             options=(),
@@ -742,6 +856,40 @@ class ConnectorService(object):
         return grpc.experimental.unary_unary(request, target, '/instill.connector.v1alpha.ConnectorService/LookUpDestinationConnector',
             instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpDestinationConnectorRequest.SerializeToString,
             instill_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpDestinationConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ConnectDestinationConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/instill.connector.v1alpha.ConnectorService/ConnectDestinationConnector',
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectDestinationConnectorRequest.SerializeToString,
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectDestinationConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DisconnectDestinationConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/instill.connector.v1alpha.ConnectorService/DisconnectDestinationConnector',
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectDestinationConnectorRequest.SerializeToString,
+            instill_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectDestinationConnectorResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

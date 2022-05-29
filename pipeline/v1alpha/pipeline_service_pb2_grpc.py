@@ -2,8 +2,8 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+from instill.pipeline.v1alpha import healthcheck_pb2 as instill_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2
 from instill.pipeline.v1alpha import pipeline_pb2 as instill_dot_pipeline_dot_v1alpha_dot_pipeline__pb2
-from instill.pipeline.v1alpha import pipeline_service_pb2 as instill_dot_pipeline_dot_v1alpha_dot_pipeline__service__pb2
 
 
 class PipelineServiceStub(object):
@@ -18,13 +18,13 @@ class PipelineServiceStub(object):
         """
         self.Liveness = channel.unary_unary(
                 '/instill.pipeline.v1alpha.PipelineService/Liveness',
-                request_serializer=instill_dot_pipeline_dot_v1alpha_dot_pipeline__service__pb2.LivenessRequest.SerializeToString,
-                response_deserializer=instill_dot_pipeline_dot_v1alpha_dot_pipeline__service__pb2.LivenessResponse.FromString,
+                request_serializer=instill_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.SerializeToString,
+                response_deserializer=instill_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.FromString,
                 )
         self.Readiness = channel.unary_unary(
                 '/instill.pipeline.v1alpha.PipelineService/Readiness',
-                request_serializer=instill_dot_pipeline_dot_v1alpha_dot_pipeline__service__pb2.ReadinessRequest.SerializeToString,
-                response_deserializer=instill_dot_pipeline_dot_v1alpha_dot_pipeline__service__pb2.ReadinessResponse.FromString,
+                request_serializer=instill_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
+                response_deserializer=instill_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
                 )
         self.CreatePipeline = channel.unary_unary(
                 '/instill.pipeline.v1alpha.PipelineService/CreatePipeline',
@@ -155,9 +155,9 @@ class PipelineServiceServicer(object):
 
     def ActivatePipeline(self, request, context):
         """Activate a pipeline.
-        The `state` of the pipeline after activating is `ACTIVE`.
-        ActivatePipeline` can be called on Pipelines in the state `INACTIVE`;
-        Pipelines in a different state (including `ACTIVE`) returns an error.
+        The "state" of the pipeline after activating is "ACTIVE".
+        ActivatePipeline can be called on Pipelines in the state "INACTIVE";
+        Pipelines in a different state (including "ACTIVE") returns an error.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -165,9 +165,9 @@ class PipelineServiceServicer(object):
 
     def DeactivatePipeline(self, request, context):
         """Deactivate a pipeline.
-        The `state` of the pipeline after inactivating is `INACTIVE`.
-        DeactivatePipeline` can be called on Pipelines in the state `ACTIVE`;
-        Pipelines in a different state (including `INACTIVE`) returns an error.
+        The "state" of the pipeline after inactivating is "INACTIVE".
+        DeactivatePipeline can be called on Pipelines in the state "ACTIVE";
+        Pipelines in a different state (including "INACTIVE") returns an error.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -205,13 +205,13 @@ def add_PipelineServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Liveness': grpc.unary_unary_rpc_method_handler(
                     servicer.Liveness,
-                    request_deserializer=instill_dot_pipeline_dot_v1alpha_dot_pipeline__service__pb2.LivenessRequest.FromString,
-                    response_serializer=instill_dot_pipeline_dot_v1alpha_dot_pipeline__service__pb2.LivenessResponse.SerializeToString,
+                    request_deserializer=instill_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.FromString,
+                    response_serializer=instill_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.SerializeToString,
             ),
             'Readiness': grpc.unary_unary_rpc_method_handler(
                     servicer.Readiness,
-                    request_deserializer=instill_dot_pipeline_dot_v1alpha_dot_pipeline__service__pb2.ReadinessRequest.FromString,
-                    response_serializer=instill_dot_pipeline_dot_v1alpha_dot_pipeline__service__pb2.ReadinessResponse.SerializeToString,
+                    request_deserializer=instill_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.FromString,
+                    response_serializer=instill_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.SerializeToString,
             ),
             'CreatePipeline': grpc.unary_unary_rpc_method_handler(
                     servicer.CreatePipeline,
@@ -291,8 +291,8 @@ class PipelineService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/instill.pipeline.v1alpha.PipelineService/Liveness',
-            instill_dot_pipeline_dot_v1alpha_dot_pipeline__service__pb2.LivenessRequest.SerializeToString,
-            instill_dot_pipeline_dot_v1alpha_dot_pipeline__service__pb2.LivenessResponse.FromString,
+            instill_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.SerializeToString,
+            instill_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -308,8 +308,8 @@ class PipelineService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/instill.pipeline.v1alpha.PipelineService/Readiness',
-            instill_dot_pipeline_dot_v1alpha_dot_pipeline__service__pb2.ReadinessRequest.SerializeToString,
-            instill_dot_pipeline_dot_v1alpha_dot_pipeline__service__pb2.ReadinessResponse.FromString,
+            instill_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
+            instill_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
