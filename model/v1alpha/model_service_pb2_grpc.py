@@ -2,9 +2,9 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from instill.model.v1alpha import model_definition_pb2 as instill_dot_model_dot_v1alpha_dot_model__definition__pb2
-from instill.model.v1alpha import model_pb2 as instill_dot_model_dot_v1alpha_dot_model__pb2
-from instill.model.v1alpha import model_service_pb2 as instill_dot_model_dot_v1alpha_dot_model__service__pb2
+from model.v1alpha import healthcheck_pb2 as model_dot_v1alpha_dot_healthcheck__pb2
+from model.v1alpha import model_definition_pb2 as model_dot_v1alpha_dot_model__definition__pb2
+from model.v1alpha import model_pb2 as model_dot_v1alpha_dot_model__pb2
 
 
 class ModelServiceStub(object):
@@ -18,114 +18,114 @@ class ModelServiceStub(object):
             channel: A grpc.Channel.
         """
         self.Liveness = channel.unary_unary(
-                '/instill.model.v1alpha.ModelService/Liveness',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_model__service__pb2.LivenessRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__service__pb2.LivenessResponse.FromString,
+                '/model.v1alpha.ModelService/Liveness',
+                request_serializer=model_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.FromString,
                 )
         self.Readiness = channel.unary_unary(
-                '/instill.model.v1alpha.ModelService/Readiness',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_model__service__pb2.ReadinessRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__service__pb2.ReadinessResponse.FromString,
+                '/model.v1alpha.ModelService/Readiness',
+                request_serializer=model_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
                 )
         self.ListModelDefinition = channel.unary_unary(
-                '/instill.model.v1alpha.ModelService/ListModelDefinition',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionResponse.FromString,
+                '/model.v1alpha.ModelService/ListModelDefinition',
+                request_serializer=model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionResponse.FromString,
                 )
         self.GetModelDefinition = channel.unary_unary(
-                '/instill.model.v1alpha.ModelService/GetModelDefinition',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionResponse.FromString,
+                '/model.v1alpha.ModelService/GetModelDefinition',
+                request_serializer=model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionResponse.FromString,
                 )
         self.ListModel = channel.unary_unary(
-                '/instill.model.v1alpha.ModelService/ListModel',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.ListModelRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.ListModelResponse.FromString,
+                '/model.v1alpha.ModelService/ListModel',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.ListModelRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.ListModelResponse.FromString,
                 )
         self.CreateModel = channel.unary_unary(
-                '/instill.model.v1alpha.ModelService/CreateModel',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelResponse.FromString,
+                '/model.v1alpha.ModelService/CreateModel',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.CreateModelRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.CreateModelResponse.FromString,
                 )
         self.CreateModelBinaryFileUpload = channel.stream_unary(
-                '/instill.model.v1alpha.ModelService/CreateModelBinaryFileUpload',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadResponse.FromString,
+                '/model.v1alpha.ModelService/CreateModelBinaryFileUpload',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadResponse.FromString,
                 )
         self.GetModel = channel.unary_unary(
-                '/instill.model.v1alpha.ModelService/GetModel',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelResponse.FromString,
+                '/model.v1alpha.ModelService/GetModel',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.GetModelRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.GetModelResponse.FromString,
                 )
         self.UpdateModel = channel.unary_unary(
-                '/instill.model.v1alpha.ModelService/UpdateModel',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelResponse.FromString,
+                '/model.v1alpha.ModelService/UpdateModel',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.UpdateModelRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.UpdateModelResponse.FromString,
                 )
         self.DeleteModel = channel.unary_unary(
-                '/instill.model.v1alpha.ModelService/DeleteModel',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelResponse.FromString,
+                '/model.v1alpha.ModelService/DeleteModel',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.DeleteModelRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.DeleteModelResponse.FromString,
                 )
         self.LookUpModel = channel.unary_unary(
-                '/instill.model.v1alpha.ModelService/LookUpModel',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelResponse.FromString,
+                '/model.v1alpha.ModelService/LookUpModel',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.LookUpModelRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.LookUpModelResponse.FromString,
                 )
         self.RenameModel = channel.unary_unary(
-                '/instill.model.v1alpha.ModelService/RenameModel',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.RenameModelRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.RenameModelResponse.FromString,
+                '/model.v1alpha.ModelService/RenameModel',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.RenameModelRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.RenameModelResponse.FromString,
                 )
         self.PublishModel = channel.unary_unary(
-                '/instill.model.v1alpha.ModelService/PublishModel',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.PublishModelRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.PublishModelResponse.FromString,
+                '/model.v1alpha.ModelService/PublishModel',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.PublishModelRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.PublishModelResponse.FromString,
                 )
         self.UnpublishModel = channel.unary_unary(
-                '/instill.model.v1alpha.ModelService/UnpublishModel',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelResponse.FromString,
+                '/model.v1alpha.ModelService/UnpublishModel',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.UnpublishModelRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.UnpublishModelResponse.FromString,
                 )
         self.ListModelInstance = channel.unary_unary(
-                '/instill.model.v1alpha.ModelService/ListModelInstance',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstanceRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstanceResponse.FromString,
+                '/model.v1alpha.ModelService/ListModelInstance',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.ListModelInstanceRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.ListModelInstanceResponse.FromString,
                 )
         self.GetModelInstance = channel.unary_unary(
-                '/instill.model.v1alpha.ModelService/GetModelInstance',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceResponse.FromString,
+                '/model.v1alpha.ModelService/GetModelInstance',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.GetModelInstanceRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.GetModelInstanceResponse.FromString,
                 )
         self.LookUpModelInstance = channel.unary_unary(
-                '/instill.model.v1alpha.ModelService/LookUpModelInstance',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceResponse.FromString,
+                '/model.v1alpha.ModelService/LookUpModelInstance',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceResponse.FromString,
                 )
         self.DeployModelInstance = channel.unary_unary(
-                '/instill.model.v1alpha.ModelService/DeployModelInstance',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.DeployModelInstanceRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.DeployModelInstanceResponse.FromString,
+                '/model.v1alpha.ModelService/DeployModelInstance',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.DeployModelInstanceRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.DeployModelInstanceResponse.FromString,
                 )
         self.UndeployModelInstance = channel.unary_unary(
-                '/instill.model.v1alpha.ModelService/UndeployModelInstance',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelInstanceRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelInstanceResponse.FromString,
+                '/model.v1alpha.ModelService/UndeployModelInstance',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.UndeployModelInstanceRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.UndeployModelInstanceResponse.FromString,
                 )
         self.GetModelInstanceCard = channel.unary_unary(
-                '/instill.model.v1alpha.ModelService/GetModelInstanceCard',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardResponse.FromString,
+                '/model.v1alpha.ModelService/GetModelInstanceCard',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardResponse.FromString,
                 )
         self.TriggerModelInstance = channel.unary_unary(
-                '/instill.model.v1alpha.ModelService/TriggerModelInstance',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceResponse.FromString,
+                '/model.v1alpha.ModelService/TriggerModelInstance',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceResponse.FromString,
                 )
         self.TriggerModelInstanceBinaryFileUpload = channel.stream_unary(
-                '/instill.model.v1alpha.ModelService/TriggerModelInstanceBinaryFileUpload',
-                request_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadRequest.SerializeToString,
-                response_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadResponse.FromString,
+                '/model.v1alpha.ModelService/TriggerModelInstanceBinaryFileUpload',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadResponse.FromString,
                 )
 
 
@@ -324,117 +324,117 @@ def add_ModelServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Liveness': grpc.unary_unary_rpc_method_handler(
                     servicer.Liveness,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__service__pb2.LivenessRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__service__pb2.LivenessResponse.SerializeToString,
+                    request_deserializer=model_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.SerializeToString,
             ),
             'Readiness': grpc.unary_unary_rpc_method_handler(
                     servicer.Readiness,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__service__pb2.ReadinessRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__service__pb2.ReadinessResponse.SerializeToString,
+                    request_deserializer=model_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.SerializeToString,
             ),
             'ListModelDefinition': grpc.unary_unary_rpc_method_handler(
                     servicer.ListModelDefinition,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionResponse.SerializeToString,
+                    request_deserializer=model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionResponse.SerializeToString,
             ),
             'GetModelDefinition': grpc.unary_unary_rpc_method_handler(
                     servicer.GetModelDefinition,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionResponse.SerializeToString,
+                    request_deserializer=model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionResponse.SerializeToString,
             ),
             'ListModel': grpc.unary_unary_rpc_method_handler(
                     servicer.ListModel,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.ListModelRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.ListModelResponse.SerializeToString,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.ListModelRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.ListModelResponse.SerializeToString,
             ),
             'CreateModel': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateModel,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelResponse.SerializeToString,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.CreateModelRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.CreateModelResponse.SerializeToString,
             ),
             'CreateModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
                     servicer.CreateModelBinaryFileUpload,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadResponse.SerializeToString,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadResponse.SerializeToString,
             ),
             'GetModel': grpc.unary_unary_rpc_method_handler(
                     servicer.GetModel,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelResponse.SerializeToString,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.GetModelRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.GetModelResponse.SerializeToString,
             ),
             'UpdateModel': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateModel,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelResponse.SerializeToString,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.UpdateModelRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.UpdateModelResponse.SerializeToString,
             ),
             'DeleteModel': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteModel,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelResponse.SerializeToString,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.DeleteModelRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.DeleteModelResponse.SerializeToString,
             ),
             'LookUpModel': grpc.unary_unary_rpc_method_handler(
                     servicer.LookUpModel,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelResponse.SerializeToString,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.LookUpModelRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.LookUpModelResponse.SerializeToString,
             ),
             'RenameModel': grpc.unary_unary_rpc_method_handler(
                     servicer.RenameModel,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.RenameModelRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.RenameModelResponse.SerializeToString,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.RenameModelRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.RenameModelResponse.SerializeToString,
             ),
             'PublishModel': grpc.unary_unary_rpc_method_handler(
                     servicer.PublishModel,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.PublishModelRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.PublishModelResponse.SerializeToString,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.PublishModelRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.PublishModelResponse.SerializeToString,
             ),
             'UnpublishModel': grpc.unary_unary_rpc_method_handler(
                     servicer.UnpublishModel,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelResponse.SerializeToString,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.UnpublishModelRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.UnpublishModelResponse.SerializeToString,
             ),
             'ListModelInstance': grpc.unary_unary_rpc_method_handler(
                     servicer.ListModelInstance,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstanceRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstanceResponse.SerializeToString,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.ListModelInstanceRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.ListModelInstanceResponse.SerializeToString,
             ),
             'GetModelInstance': grpc.unary_unary_rpc_method_handler(
                     servicer.GetModelInstance,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceResponse.SerializeToString,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.GetModelInstanceRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.GetModelInstanceResponse.SerializeToString,
             ),
             'LookUpModelInstance': grpc.unary_unary_rpc_method_handler(
                     servicer.LookUpModelInstance,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceResponse.SerializeToString,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceResponse.SerializeToString,
             ),
             'DeployModelInstance': grpc.unary_unary_rpc_method_handler(
                     servicer.DeployModelInstance,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.DeployModelInstanceRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.DeployModelInstanceResponse.SerializeToString,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.DeployModelInstanceRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.DeployModelInstanceResponse.SerializeToString,
             ),
             'UndeployModelInstance': grpc.unary_unary_rpc_method_handler(
                     servicer.UndeployModelInstance,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelInstanceRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelInstanceResponse.SerializeToString,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.UndeployModelInstanceRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.UndeployModelInstanceResponse.SerializeToString,
             ),
             'GetModelInstanceCard': grpc.unary_unary_rpc_method_handler(
                     servicer.GetModelInstanceCard,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardResponse.SerializeToString,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardResponse.SerializeToString,
             ),
             'TriggerModelInstance': grpc.unary_unary_rpc_method_handler(
                     servicer.TriggerModelInstance,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceResponse.SerializeToString,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceResponse.SerializeToString,
             ),
             'TriggerModelInstanceBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
                     servicer.TriggerModelInstanceBinaryFileUpload,
-                    request_deserializer=instill_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadRequest.FromString,
-                    response_serializer=instill_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadResponse.SerializeToString,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'instill.model.v1alpha.ModelService', rpc_method_handlers)
+            'model.v1alpha.ModelService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -454,9 +454,9 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/Liveness',
-            instill_dot_model_dot_v1alpha_dot_model__service__pb2.LivenessRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_model__service__pb2.LivenessResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.v1alpha.ModelService/Liveness',
+            model_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.SerializeToString,
+            model_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -471,9 +471,9 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/Readiness',
-            instill_dot_model_dot_v1alpha_dot_model__service__pb2.ReadinessRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_model__service__pb2.ReadinessResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.v1alpha.ModelService/Readiness',
+            model_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
+            model_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -488,9 +488,9 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/ListModelDefinition',
-            instill_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.v1alpha.ModelService/ListModelDefinition',
+            model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -505,9 +505,9 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/GetModelDefinition',
-            instill_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.v1alpha.ModelService/GetModelDefinition',
+            model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -522,9 +522,9 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/ListModel',
-            instill_dot_model_dot_v1alpha_dot_model__pb2.ListModelRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_model__pb2.ListModelResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.v1alpha.ModelService/ListModel',
+            model_dot_v1alpha_dot_model__pb2.ListModelRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.ListModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -539,9 +539,9 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/CreateModel',
-            instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.v1alpha.ModelService/CreateModel',
+            model_dot_v1alpha_dot_model__pb2.CreateModelRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.CreateModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -556,9 +556,9 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/instill.model.v1alpha.ModelService/CreateModelBinaryFileUpload',
-            instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadResponse.FromString,
+        return grpc.experimental.stream_unary(request_iterator, target, '/model.v1alpha.ModelService/CreateModelBinaryFileUpload',
+            model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -573,9 +573,9 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/GetModel',
-            instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.v1alpha.ModelService/GetModel',
+            model_dot_v1alpha_dot_model__pb2.GetModelRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.GetModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -590,9 +590,9 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/UpdateModel',
-            instill_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.v1alpha.ModelService/UpdateModel',
+            model_dot_v1alpha_dot_model__pb2.UpdateModelRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.UpdateModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -607,9 +607,9 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/DeleteModel',
-            instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.v1alpha.ModelService/DeleteModel',
+            model_dot_v1alpha_dot_model__pb2.DeleteModelRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.DeleteModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -624,9 +624,9 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/LookUpModel',
-            instill_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.v1alpha.ModelService/LookUpModel',
+            model_dot_v1alpha_dot_model__pb2.LookUpModelRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.LookUpModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -641,9 +641,9 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/RenameModel',
-            instill_dot_model_dot_v1alpha_dot_model__pb2.RenameModelRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_model__pb2.RenameModelResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.v1alpha.ModelService/RenameModel',
+            model_dot_v1alpha_dot_model__pb2.RenameModelRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.RenameModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -658,9 +658,9 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/PublishModel',
-            instill_dot_model_dot_v1alpha_dot_model__pb2.PublishModelRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_model__pb2.PublishModelResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.v1alpha.ModelService/PublishModel',
+            model_dot_v1alpha_dot_model__pb2.PublishModelRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.PublishModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -675,9 +675,9 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/UnpublishModel',
-            instill_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.v1alpha.ModelService/UnpublishModel',
+            model_dot_v1alpha_dot_model__pb2.UnpublishModelRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.UnpublishModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -692,9 +692,9 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/ListModelInstance',
-            instill_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstanceRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstanceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.v1alpha.ModelService/ListModelInstance',
+            model_dot_v1alpha_dot_model__pb2.ListModelInstanceRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.ListModelInstanceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -709,9 +709,9 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/GetModelInstance',
-            instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.v1alpha.ModelService/GetModelInstance',
+            model_dot_v1alpha_dot_model__pb2.GetModelInstanceRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.GetModelInstanceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -726,9 +726,9 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/LookUpModelInstance',
-            instill_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.v1alpha.ModelService/LookUpModelInstance',
+            model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -743,9 +743,9 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/DeployModelInstance',
-            instill_dot_model_dot_v1alpha_dot_model__pb2.DeployModelInstanceRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_model__pb2.DeployModelInstanceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.v1alpha.ModelService/DeployModelInstance',
+            model_dot_v1alpha_dot_model__pb2.DeployModelInstanceRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.DeployModelInstanceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -760,9 +760,9 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/UndeployModelInstance',
-            instill_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelInstanceRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelInstanceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.v1alpha.ModelService/UndeployModelInstance',
+            model_dot_v1alpha_dot_model__pb2.UndeployModelInstanceRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.UndeployModelInstanceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -777,9 +777,9 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/GetModelInstanceCard',
-            instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.v1alpha.ModelService/GetModelInstanceCard',
+            model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -794,9 +794,9 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.model.v1alpha.ModelService/TriggerModelInstance',
-            instill_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.v1alpha.ModelService/TriggerModelInstance',
+            model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -811,8 +811,8 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/instill.model.v1alpha.ModelService/TriggerModelInstanceBinaryFileUpload',
-            instill_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadRequest.SerializeToString,
-            instill_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadResponse.FromString,
+        return grpc.experimental.stream_unary(request_iterator, target, '/model.v1alpha.ModelService/TriggerModelInstanceBinaryFileUpload',
+            model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

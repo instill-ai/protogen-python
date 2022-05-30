@@ -2,7 +2,8 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from instill.mgmt.v1alpha import mgmt_pb2 as instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2
+from mgmt.v1alpha import healthcheck_pb2 as mgmt_dot_v1alpha_dot_healthcheck__pb2
+from mgmt.v1alpha import mgmt_pb2 as mgmt_dot_v1alpha_dot_mgmt__pb2
 
 
 class UserServiceStub(object):
@@ -16,44 +17,44 @@ class UserServiceStub(object):
             channel: A grpc.Channel.
         """
         self.Liveness = channel.unary_unary(
-                '/instill.mgmt.v1alpha.UserService/Liveness',
-                request_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LivenessRequest.SerializeToString,
-                response_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LivenessResponse.FromString,
+                '/mgmt.v1alpha.UserService/Liveness',
+                request_serializer=mgmt_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.SerializeToString,
+                response_deserializer=mgmt_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.FromString,
                 )
         self.Readiness = channel.unary_unary(
-                '/instill.mgmt.v1alpha.UserService/Readiness',
-                request_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ReadinessRequest.SerializeToString,
-                response_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ReadinessResponse.FromString,
+                '/mgmt.v1alpha.UserService/Readiness',
+                request_serializer=mgmt_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
+                response_deserializer=mgmt_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
                 )
         self.ListUser = channel.unary_unary(
-                '/instill.mgmt.v1alpha.UserService/ListUser',
-                request_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListUserRequest.SerializeToString,
-                response_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListUserResponse.FromString,
+                '/mgmt.v1alpha.UserService/ListUser',
+                request_serializer=mgmt_dot_v1alpha_dot_mgmt__pb2.ListUserRequest.SerializeToString,
+                response_deserializer=mgmt_dot_v1alpha_dot_mgmt__pb2.ListUserResponse.FromString,
                 )
         self.CreateUser = channel.unary_unary(
-                '/instill.mgmt.v1alpha.UserService/CreateUser',
-                request_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserRequest.SerializeToString,
-                response_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserResponse.FromString,
+                '/mgmt.v1alpha.UserService/CreateUser',
+                request_serializer=mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserRequest.SerializeToString,
+                response_deserializer=mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserResponse.FromString,
                 )
         self.GetUser = channel.unary_unary(
-                '/instill.mgmt.v1alpha.UserService/GetUser',
-                request_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserRequest.SerializeToString,
-                response_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserResponse.FromString,
+                '/mgmt.v1alpha.UserService/GetUser',
+                request_serializer=mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserRequest.SerializeToString,
+                response_deserializer=mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserResponse.FromString,
                 )
         self.UpdateUser = channel.unary_unary(
-                '/instill.mgmt.v1alpha.UserService/UpdateUser',
-                request_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserRequest.SerializeToString,
-                response_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserResponse.FromString,
+                '/mgmt.v1alpha.UserService/UpdateUser',
+                request_serializer=mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserRequest.SerializeToString,
+                response_deserializer=mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserResponse.FromString,
                 )
         self.DeleteUser = channel.unary_unary(
-                '/instill.mgmt.v1alpha.UserService/DeleteUser',
-                request_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserRequest.SerializeToString,
-                response_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserResponse.FromString,
+                '/mgmt.v1alpha.UserService/DeleteUser',
+                request_serializer=mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserRequest.SerializeToString,
+                response_deserializer=mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserResponse.FromString,
                 )
         self.LookUpUser = channel.unary_unary(
-                '/instill.mgmt.v1alpha.UserService/LookUpUser',
-                request_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserRequest.SerializeToString,
-                response_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserResponse.FromString,
+                '/mgmt.v1alpha.UserService/LookUpUser',
+                request_serializer=mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserRequest.SerializeToString,
+                response_deserializer=mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserResponse.FromString,
                 )
 
 
@@ -132,47 +133,47 @@ def add_UserServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Liveness': grpc.unary_unary_rpc_method_handler(
                     servicer.Liveness,
-                    request_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LivenessRequest.FromString,
-                    response_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LivenessResponse.SerializeToString,
+                    request_deserializer=mgmt_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.FromString,
+                    response_serializer=mgmt_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.SerializeToString,
             ),
             'Readiness': grpc.unary_unary_rpc_method_handler(
                     servicer.Readiness,
-                    request_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ReadinessRequest.FromString,
-                    response_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ReadinessResponse.SerializeToString,
+                    request_deserializer=mgmt_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.FromString,
+                    response_serializer=mgmt_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.SerializeToString,
             ),
             'ListUser': grpc.unary_unary_rpc_method_handler(
                     servicer.ListUser,
-                    request_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListUserRequest.FromString,
-                    response_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListUserResponse.SerializeToString,
+                    request_deserializer=mgmt_dot_v1alpha_dot_mgmt__pb2.ListUserRequest.FromString,
+                    response_serializer=mgmt_dot_v1alpha_dot_mgmt__pb2.ListUserResponse.SerializeToString,
             ),
             'CreateUser': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateUser,
-                    request_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserRequest.FromString,
-                    response_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserResponse.SerializeToString,
+                    request_deserializer=mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserRequest.FromString,
+                    response_serializer=mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserResponse.SerializeToString,
             ),
             'GetUser': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUser,
-                    request_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserRequest.FromString,
-                    response_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserResponse.SerializeToString,
+                    request_deserializer=mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserRequest.FromString,
+                    response_serializer=mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserResponse.SerializeToString,
             ),
             'UpdateUser': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateUser,
-                    request_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserRequest.FromString,
-                    response_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserResponse.SerializeToString,
+                    request_deserializer=mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserRequest.FromString,
+                    response_serializer=mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserResponse.SerializeToString,
             ),
             'DeleteUser': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteUser,
-                    request_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserRequest.FromString,
-                    response_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserResponse.SerializeToString,
+                    request_deserializer=mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserRequest.FromString,
+                    response_serializer=mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserResponse.SerializeToString,
             ),
             'LookUpUser': grpc.unary_unary_rpc_method_handler(
                     servicer.LookUpUser,
-                    request_deserializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserRequest.FromString,
-                    response_serializer=instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserResponse.SerializeToString,
+                    request_deserializer=mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserRequest.FromString,
+                    response_serializer=mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'instill.mgmt.v1alpha.UserService', rpc_method_handlers)
+            'mgmt.v1alpha.UserService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -192,9 +193,9 @@ class UserService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.mgmt.v1alpha.UserService/Liveness',
-            instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LivenessRequest.SerializeToString,
-            instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LivenessResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/mgmt.v1alpha.UserService/Liveness',
+            mgmt_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.SerializeToString,
+            mgmt_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -209,9 +210,9 @@ class UserService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.mgmt.v1alpha.UserService/Readiness',
-            instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ReadinessRequest.SerializeToString,
-            instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ReadinessResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/mgmt.v1alpha.UserService/Readiness',
+            mgmt_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
+            mgmt_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -226,9 +227,9 @@ class UserService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.mgmt.v1alpha.UserService/ListUser',
-            instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListUserRequest.SerializeToString,
-            instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListUserResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/mgmt.v1alpha.UserService/ListUser',
+            mgmt_dot_v1alpha_dot_mgmt__pb2.ListUserRequest.SerializeToString,
+            mgmt_dot_v1alpha_dot_mgmt__pb2.ListUserResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -243,9 +244,9 @@ class UserService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.mgmt.v1alpha.UserService/CreateUser',
-            instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserRequest.SerializeToString,
-            instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/mgmt.v1alpha.UserService/CreateUser',
+            mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserRequest.SerializeToString,
+            mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -260,9 +261,9 @@ class UserService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.mgmt.v1alpha.UserService/GetUser',
-            instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserRequest.SerializeToString,
-            instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/mgmt.v1alpha.UserService/GetUser',
+            mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserRequest.SerializeToString,
+            mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -277,9 +278,9 @@ class UserService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.mgmt.v1alpha.UserService/UpdateUser',
-            instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserRequest.SerializeToString,
-            instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/mgmt.v1alpha.UserService/UpdateUser',
+            mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserRequest.SerializeToString,
+            mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -294,9 +295,9 @@ class UserService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.mgmt.v1alpha.UserService/DeleteUser',
-            instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserRequest.SerializeToString,
-            instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/mgmt.v1alpha.UserService/DeleteUser',
+            mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserRequest.SerializeToString,
+            mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -311,8 +312,8 @@ class UserService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.mgmt.v1alpha.UserService/LookUpUser',
-            instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserRequest.SerializeToString,
-            instill_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/mgmt.v1alpha.UserService/LookUpUser',
+            mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserRequest.SerializeToString,
+            mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

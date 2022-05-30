@@ -2,7 +2,8 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from instill.usage.v1alpha import usage_pb2 as instill_dot_usage_dot_v1alpha_dot_usage__pb2
+from usage.v1alpha import healthcheck_pb2 as usage_dot_v1alpha_dot_healthcheck__pb2
+from usage.v1alpha import usage_pb2 as usage_dot_v1alpha_dot_usage__pb2
 
 
 class UsageServiceStub(object):
@@ -16,24 +17,24 @@ class UsageServiceStub(object):
             channel: A grpc.Channel.
         """
         self.Liveness = channel.unary_unary(
-                '/instill.usage.v1alpha.UsageService/Liveness',
-                request_serializer=instill_dot_usage_dot_v1alpha_dot_usage__pb2.LivenessRequest.SerializeToString,
-                response_deserializer=instill_dot_usage_dot_v1alpha_dot_usage__pb2.LivenessResponse.FromString,
+                '/usage.v1alpha.UsageService/Liveness',
+                request_serializer=usage_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.SerializeToString,
+                response_deserializer=usage_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.FromString,
                 )
         self.Readiness = channel.unary_unary(
-                '/instill.usage.v1alpha.UsageService/Readiness',
-                request_serializer=instill_dot_usage_dot_v1alpha_dot_usage__pb2.ReadinessRequest.SerializeToString,
-                response_deserializer=instill_dot_usage_dot_v1alpha_dot_usage__pb2.ReadinessResponse.FromString,
+                '/usage.v1alpha.UsageService/Readiness',
+                request_serializer=usage_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
+                response_deserializer=usage_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
                 )
         self.CreateSession = channel.unary_unary(
-                '/instill.usage.v1alpha.UsageService/CreateSession',
-                request_serializer=instill_dot_usage_dot_v1alpha_dot_usage__pb2.CreateSessionRequest.SerializeToString,
-                response_deserializer=instill_dot_usage_dot_v1alpha_dot_usage__pb2.CreateSessionResponse.FromString,
+                '/usage.v1alpha.UsageService/CreateSession',
+                request_serializer=usage_dot_v1alpha_dot_usage__pb2.CreateSessionRequest.SerializeToString,
+                response_deserializer=usage_dot_v1alpha_dot_usage__pb2.CreateSessionResponse.FromString,
                 )
         self.SendReport = channel.unary_unary(
-                '/instill.usage.v1alpha.UsageService/SendReport',
-                request_serializer=instill_dot_usage_dot_v1alpha_dot_usage__pb2.SendReportRequest.SerializeToString,
-                response_deserializer=instill_dot_usage_dot_v1alpha_dot_usage__pb2.SendReportResponse.FromString,
+                '/usage.v1alpha.UsageService/SendReport',
+                request_serializer=usage_dot_v1alpha_dot_usage__pb2.SendReportRequest.SerializeToString,
+                response_deserializer=usage_dot_v1alpha_dot_usage__pb2.SendReportResponse.FromString,
                 )
 
 
@@ -80,27 +81,27 @@ def add_UsageServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Liveness': grpc.unary_unary_rpc_method_handler(
                     servicer.Liveness,
-                    request_deserializer=instill_dot_usage_dot_v1alpha_dot_usage__pb2.LivenessRequest.FromString,
-                    response_serializer=instill_dot_usage_dot_v1alpha_dot_usage__pb2.LivenessResponse.SerializeToString,
+                    request_deserializer=usage_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.FromString,
+                    response_serializer=usage_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.SerializeToString,
             ),
             'Readiness': grpc.unary_unary_rpc_method_handler(
                     servicer.Readiness,
-                    request_deserializer=instill_dot_usage_dot_v1alpha_dot_usage__pb2.ReadinessRequest.FromString,
-                    response_serializer=instill_dot_usage_dot_v1alpha_dot_usage__pb2.ReadinessResponse.SerializeToString,
+                    request_deserializer=usage_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.FromString,
+                    response_serializer=usage_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.SerializeToString,
             ),
             'CreateSession': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateSession,
-                    request_deserializer=instill_dot_usage_dot_v1alpha_dot_usage__pb2.CreateSessionRequest.FromString,
-                    response_serializer=instill_dot_usage_dot_v1alpha_dot_usage__pb2.CreateSessionResponse.SerializeToString,
+                    request_deserializer=usage_dot_v1alpha_dot_usage__pb2.CreateSessionRequest.FromString,
+                    response_serializer=usage_dot_v1alpha_dot_usage__pb2.CreateSessionResponse.SerializeToString,
             ),
             'SendReport': grpc.unary_unary_rpc_method_handler(
                     servicer.SendReport,
-                    request_deserializer=instill_dot_usage_dot_v1alpha_dot_usage__pb2.SendReportRequest.FromString,
-                    response_serializer=instill_dot_usage_dot_v1alpha_dot_usage__pb2.SendReportResponse.SerializeToString,
+                    request_deserializer=usage_dot_v1alpha_dot_usage__pb2.SendReportRequest.FromString,
+                    response_serializer=usage_dot_v1alpha_dot_usage__pb2.SendReportResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'instill.usage.v1alpha.UsageService', rpc_method_handlers)
+            'usage.v1alpha.UsageService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -120,9 +121,9 @@ class UsageService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.usage.v1alpha.UsageService/Liveness',
-            instill_dot_usage_dot_v1alpha_dot_usage__pb2.LivenessRequest.SerializeToString,
-            instill_dot_usage_dot_v1alpha_dot_usage__pb2.LivenessResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/usage.v1alpha.UsageService/Liveness',
+            usage_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.SerializeToString,
+            usage_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -137,9 +138,9 @@ class UsageService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.usage.v1alpha.UsageService/Readiness',
-            instill_dot_usage_dot_v1alpha_dot_usage__pb2.ReadinessRequest.SerializeToString,
-            instill_dot_usage_dot_v1alpha_dot_usage__pb2.ReadinessResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/usage.v1alpha.UsageService/Readiness',
+            usage_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
+            usage_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -154,9 +155,9 @@ class UsageService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.usage.v1alpha.UsageService/CreateSession',
-            instill_dot_usage_dot_v1alpha_dot_usage__pb2.CreateSessionRequest.SerializeToString,
-            instill_dot_usage_dot_v1alpha_dot_usage__pb2.CreateSessionResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/usage.v1alpha.UsageService/CreateSession',
+            usage_dot_v1alpha_dot_usage__pb2.CreateSessionRequest.SerializeToString,
+            usage_dot_v1alpha_dot_usage__pb2.CreateSessionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -171,8 +172,8 @@ class UsageService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/instill.usage.v1alpha.UsageService/SendReport',
-            instill_dot_usage_dot_v1alpha_dot_usage__pb2.SendReportRequest.SerializeToString,
-            instill_dot_usage_dot_v1alpha_dot_usage__pb2.SendReportResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/usage.v1alpha.UsageService/SendReport',
+            usage_dot_v1alpha_dot_usage__pb2.SendReportRequest.SerializeToString,
+            usage_dot_v1alpha_dot_usage__pb2.SendReportResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
