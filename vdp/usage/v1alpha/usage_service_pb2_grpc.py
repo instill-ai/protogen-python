@@ -31,10 +31,10 @@ class UsageServiceStub(object):
                 request_serializer=vdp_dot_usage_dot_v1alpha_dot_usage__pb2.CreateSessionRequest.SerializeToString,
                 response_deserializer=vdp_dot_usage_dot_v1alpha_dot_usage__pb2.CreateSessionResponse.FromString,
                 )
-        self.SendReport = channel.unary_unary(
-                '/vdp.usage.v1alpha.UsageService/SendReport',
-                request_serializer=vdp_dot_usage_dot_v1alpha_dot_usage__pb2.SendReportRequest.SerializeToString,
-                response_deserializer=vdp_dot_usage_dot_v1alpha_dot_usage__pb2.SendReportResponse.FromString,
+        self.SendSessionReport = channel.unary_unary(
+                '/vdp.usage.v1alpha.UsageService/SendSessionReport',
+                request_serializer=vdp_dot_usage_dot_v1alpha_dot_usage__pb2.SendSessionReportRequest.SerializeToString,
+                response_deserializer=vdp_dot_usage_dot_v1alpha_dot_usage__pb2.SendSessionReportResponse.FromString,
                 )
 
 
@@ -68,9 +68,9 @@ class UsageServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def SendReport(self, request, context):
-        """SendReport method receives a SendReportRequest message and returns a
-        SendReportResponse message.
+    def SendSessionReport(self, request, context):
+        """SendSessionReport method receives a SendSessionReportRequest message and
+        returns a SendSessionReportResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -94,10 +94,10 @@ def add_UsageServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_usage_dot_v1alpha_dot_usage__pb2.CreateSessionRequest.FromString,
                     response_serializer=vdp_dot_usage_dot_v1alpha_dot_usage__pb2.CreateSessionResponse.SerializeToString,
             ),
-            'SendReport': grpc.unary_unary_rpc_method_handler(
-                    servicer.SendReport,
-                    request_deserializer=vdp_dot_usage_dot_v1alpha_dot_usage__pb2.SendReportRequest.FromString,
-                    response_serializer=vdp_dot_usage_dot_v1alpha_dot_usage__pb2.SendReportResponse.SerializeToString,
+            'SendSessionReport': grpc.unary_unary_rpc_method_handler(
+                    servicer.SendSessionReport,
+                    request_deserializer=vdp_dot_usage_dot_v1alpha_dot_usage__pb2.SendSessionReportRequest.FromString,
+                    response_serializer=vdp_dot_usage_dot_v1alpha_dot_usage__pb2.SendSessionReportResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -162,7 +162,7 @@ class UsageService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def SendReport(request,
+    def SendSessionReport(request,
             target,
             options=(),
             channel_credentials=None,
@@ -172,8 +172,8 @@ class UsageService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.usage.v1alpha.UsageService/SendReport',
-            vdp_dot_usage_dot_v1alpha_dot_usage__pb2.SendReportRequest.SerializeToString,
-            vdp_dot_usage_dot_v1alpha_dot_usage__pb2.SendReportResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.usage.v1alpha.UsageService/SendSessionReport',
+            vdp_dot_usage_dot_v1alpha_dot_usage__pb2.SendSessionReportRequest.SerializeToString,
+            vdp_dot_usage_dot_v1alpha_dot_usage__pb2.SendSessionReportResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

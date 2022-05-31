@@ -18,7 +18,7 @@ from vdp.usage.v1alpha import healthcheck_pb2 as vdp_dot_usage_dot_v1alpha_dot_h
 from vdp.usage.v1alpha import usage_pb2 as vdp_dot_usage_dot_v1alpha_dot_usage__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%vdp/usage/v1alpha/usage_service.proto\x12\x11vdp.usage.v1alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a#vdp/usage/v1alpha/healthcheck.proto\x1a\x1dvdp/usage/v1alpha/usage.proto2\x9f\x04\n\x0cUsageService\x12\x88\x01\n\x08Liveness\x12\".vdp.usage.v1alpha.LivenessRequest\x1a#.vdp.usage.v1alpha.LivenessResponse\"3\x82\xd3\xe4\x93\x02-Z\x16\x12\x14/v1alpha/health/mgmt\x12\x13/v1alpha/__liveness\x12t\n\tReadiness\x12#.vdp.usage.v1alpha.ReadinessRequest\x1a$.vdp.usage.v1alpha.ReadinessResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/v1alpha/__readiness\x12\x90\x01\n\rCreateSession\x12\'.vdp.usage.v1alpha.CreateSessionRequest\x1a(.vdp.usage.v1alpha.CreateSessionResponse\",\xda\x41\x07session\x82\xd3\xe4\x93\x02\x1c:\x07session\"\x11/v1alpha/sessions\x12{\n\nSendReport\x12$.vdp.usage.v1alpha.SendReportRequest\x1a%.vdp.usage.v1alpha.SendReportResponse\" \x82\xd3\xe4\x93\x02\x1a:\x01*\"\x15/v1alpha/reports:sendB\xd2\x01\n\x15\x63om.vdp.usage.v1alphaB\x11UsageServiceProtoP\x01Z@github.com/instill-ai/protogen-go/vdp/usage/v1alpha;usagev1alpha\xa2\x02\x03VUX\xaa\x02\x11Vdp.Usage.V1alpha\xca\x02\x11Vdp\\Usage\\V1alpha\xe2\x02\x1dVdp\\Usage\\V1alpha\\GPBMetadata\xea\x02\x13Vdp::Usage::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%vdp/usage/v1alpha/usage_service.proto\x12\x11vdp.usage.v1alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a#vdp/usage/v1alpha/healthcheck.proto\x1a\x1dvdp/usage/v1alpha/usage.proto2\xdd\x04\n\x0cUsageService\x12\x88\x01\n\x08Liveness\x12\".vdp.usage.v1alpha.LivenessRequest\x1a#.vdp.usage.v1alpha.LivenessResponse\"3\x82\xd3\xe4\x93\x02-Z\x16\x12\x14/v1alpha/health/mgmt\x12\x13/v1alpha/__liveness\x12t\n\tReadiness\x12#.vdp.usage.v1alpha.ReadinessRequest\x1a$.vdp.usage.v1alpha.ReadinessResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/v1alpha/__readiness\x12\x90\x01\n\rCreateSession\x12\'.vdp.usage.v1alpha.CreateSessionRequest\x1a(.vdp.usage.v1alpha.CreateSessionResponse\",\xda\x41\x07session\x82\xd3\xe4\x93\x02\x1c:\x07session\"\x11/v1alpha/sessions\x12\xb8\x01\n\x11SendSessionReport\x12+.vdp.usage.v1alpha.SendSessionReportRequest\x1a,.vdp.usage.v1alpha.SendSessionReportResponse\"H\xda\x41\x06report\x82\xd3\xe4\x93\x02\x39:\x01*\"4/v1alpha/{report.session.name=sessions/*}:sendReportB\xd2\x01\n\x15\x63om.vdp.usage.v1alphaB\x11UsageServiceProtoP\x01Z@github.com/instill-ai/protogen-go/vdp/usage/v1alpha;usagev1alpha\xa2\x02\x03VUX\xaa\x02\x11Vdp.Usage.V1alpha\xca\x02\x11Vdp\\Usage\\V1alpha\xe2\x02\x1dVdp\\Usage\\V1alpha\\GPBMetadata\xea\x02\x13Vdp::Usage::V1alphab\x06proto3')
 
 
 
@@ -33,8 +33,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _USAGESERVICE.methods_by_name['Readiness']._serialized_options = b'\202\323\344\223\002\026\022\024/v1alpha/__readiness'
   _USAGESERVICE.methods_by_name['CreateSession']._options = None
   _USAGESERVICE.methods_by_name['CreateSession']._serialized_options = b'\332A\007session\202\323\344\223\002\034:\007session\"\021/v1alpha/sessions'
-  _USAGESERVICE.methods_by_name['SendReport']._options = None
-  _USAGESERVICE.methods_by_name['SendReport']._serialized_options = b'\202\323\344\223\002\032:\001*\"\025/v1alpha/reports:send'
+  _USAGESERVICE.methods_by_name['SendSessionReport']._options = None
+  _USAGESERVICE.methods_by_name['SendSessionReport']._serialized_options = b'\332A\006report\202\323\344\223\0029:\001*\"4/v1alpha/{report.session.name=sessions/*}:sendReport'
   _USAGESERVICE._serialized_start=184
-  _USAGESERVICE._serialized_end=727
+  _USAGESERVICE._serialized_end=789
 # @@protoc_insertion_point(module_scope)
