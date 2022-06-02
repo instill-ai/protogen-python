@@ -21,7 +21,7 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from vdp.model.v1alpha import model_definition_pb2 as vdp_dot_model_dot_v1alpha_dot_model__definition__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1dvdp/model/v1alpha/model.proto\x12\x11vdp.model.v1alpha\x1a\x1cgoogle/protobuf/struct.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a(vdp/model/v1alpha/model_definition.proto\"\xd5\x05\n\x05Model\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x13\n\x02id\x18\x03 \x01(\tB\x03\xe0\x41\x05R\x02id\x12*\n\x0b\x64\x65scription\x18\x04 \x01(\tB\x03\xe0\x41\x01H\x01R\x0b\x64\x65scription\x88\x01\x01\x12S\n\x10model_definition\x18\x05 \x01(\tB(\xe0\x41\x05\xfa\x41\"\n api.instill.tech/ModelDefinitionR\x0fmodelDefinition\x12)\n\rconfiguration\x18\x06 \x01(\tB\x03\xe0\x41\x05R\rconfiguration\x12H\n\nvisibility\x18\x07 \x01(\x0e\x32#.vdp.model.v1alpha.Model.VisibilityB\x03\xe0\x41\x03R\nvisibility\x12\x33\n\x04user\x18\x08 \x01(\tB\x1d\xe0\x41\x03\xfa\x41\x17\n\x15\x61pi.instill.tech/UserH\x00R\x04user\x12\x39\n\x03org\x18\t \x01(\tB%\xe0\x41\x03\xfa\x41\x1f\n\x1d\x61pi.instill.tech/OrganizationH\x00R\x03org\x12@\n\x0b\x63reate_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\"W\n\nVisibility\x12\x1a\n\x16VISIBILITY_UNSPECIFIED\x10\x00\x12\x16\n\x12VISIBILITY_PRIVATE\x10\x01\x12\x15\n\x11VISIBILITY_PUBLIC\x10\x02:+\xea\x41(\n\x16\x61pi.instill.tech/Model\x12\x0emodels/{model}B\x07\n\x05ownerB\x0e\n\x0c_description\"\xc6\x05\n\rModelInstance\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x13\n\x02id\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x02id\x12\x41\n\x05state\x18\x04 \x01(\x0e\x32&.vdp.model.v1alpha.ModelInstance.StateB\x03\xe0\x41\x03R\x05state\x12>\n\x04task\x18\x05 \x01(\x0e\x32%.vdp.model.v1alpha.ModelInstance.TaskB\x03\xe0\x41\x03R\x04task\x12S\n\x10model_definition\x18\x06 \x01(\tB(\xe0\x41\x03\xfa\x41\"\n api.instill.tech/ModelDefinitionR\x0fmodelDefinition\x12)\n\rconfiguration\x18\x07 \x01(\tB\x03\xe0\x41\x03R\rconfiguration\x12@\n\x0b\x63reate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\"I\n\x04Task\x12\x14\n\x10TASK_UNSPECIFIED\x10\x00\x12\x17\n\x13TASK_CLASSIFICATION\x10\x01\x12\x12\n\x0eTASK_DETECTION\x10\x02\"T\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x11\n\rSTATE_OFFLINE\x10\x01\x12\x10\n\x0cSTATE_ONLINE\x10\x02\x12\x0f\n\x0bSTATE_ERROR\x10\x03:H\xea\x41\x45\n\x1e\x61pi.instill.tech/ModelInstance\x12#models/{model}/instances/{instance}\"\xf5\x01\n\x11ModelInstanceCard\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x17\n\x04size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x03R\x04size\x12\x17\n\x04type\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x04type\x12\x1f\n\x08\x63ontents\x18\x04 \x01(\x0c\x42\x03\xe0\x41\x03R\x08\x63ontents\x12\x1f\n\x08\x65ncoding\x18\x05 \x01(\tB\x03\xe0\x41\x03R\x08\x65ncoding:S\xea\x41P\n\"api.instill.tech/ModelInstanceCard\x12*models/{model}/instances/{instance}/readme\"\xbf\x01\n\x10ListModelRequest\x12%\n\tpage_size\x18\x01 \x01(\x03\x42\x03\xe0\x41\x01H\x00R\x08pageSize\x88\x01\x01\x12\'\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01H\x01R\tpageToken\x88\x01\x01\x12\x35\n\x04view\x18\x03 \x01(\x0e\x32\x17.vdp.model.v1alpha.ViewB\x03\xe0\x41\x01H\x02R\x04view\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\x07\n\x05_view\"\x8c\x01\n\x11ListModelResponse\x12\x30\n\x06models\x18\x01 \x03(\x0b\x32\x18.vdp.model.v1alpha.ModelR\x06models\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSize\"I\n\x12\x43reateModelRequest\x12\x33\n\x05model\x18\x01 \x01(\x0b\x32\x18.vdp.model.v1alpha.ModelB\x03\xe0\x41\x02R\x05model\"E\n\x13\x43reateModelResponse\x12.\n\x05model\x18\x01 \x01(\x0b\x32\x18.vdp.model.v1alpha.ModelR\x05model\"t\n\"CreateModelBinaryFileUploadRequest\x12\x33\n\x05model\x18\x01 \x01(\x0b\x32\x18.vdp.model.v1alpha.ModelB\x03\xe0\x41\x02R\x05model\x12\x19\n\x05\x62ytes\x18\x02 \x01(\x0c\x42\x03\xe0\x41\x02R\x05\x62ytes\"Z\n#CreateModelBinaryFileUploadResponse\x12\x33\n\x05model\x18\x01 \x01(\x0b\x32\x18.vdp.model.v1alpha.ModelB\x03\xe0\x41\x03R\x05model\"\x98\x01\n\x0fGetModelRequest\x12\x45\n\x04name\x18\x01 \x01(\tB1\xe0\x41\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/Model\x92\x41\x10\xca>\r\xfa\x02\nmodel.nameR\x04name\x12\x35\n\x04view\x18\x02 \x01(\x0e\x32\x17.vdp.model.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"B\n\x10GetModelResponse\x12.\n\x05model\x18\x01 \x01(\x0b\x32\x18.vdp.model.v1alpha.ModelR\x05model\"\x8b\x01\n\x12UpdateModelRequest\x12\x33\n\x05model\x18\x01 \x01(\x0b\x32\x18.vdp.model.v1alpha.ModelB\x03\xe0\x41\x02R\x05model\x12@\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\nupdateMask\"E\n\x13UpdateModelResponse\x12.\n\x05model\x18\x01 \x01(\x0b\x32\x18.vdp.model.v1alpha.ModelR\x05model\"[\n\x12\x44\x65leteModelRequest\x12\x45\n\x04name\x18\x01 \x01(\tB1\xe0\x41\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/Model\x92\x41\x10\xca>\r\xfa\x02\nmodel.nameR\x04name\"\x15\n\x13\x44\x65leteModelResponse\"w\n\x12LookUpModelRequest\x12!\n\tpermalink\x18\x01 \x01(\tB\x03\xe0\x41\x02R\tpermalink\x12\x35\n\x04view\x18\x02 \x01(\x0e\x32\x17.vdp.model.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"E\n\x13LookUpModelResponse\x12.\n\x05model\x18\x01 \x01(\x0b\x32\x18.vdp.model.v1alpha.ModelR\x05model\"o\n\x12RenameModelRequest\x12\x32\n\x04name\x18\x01 \x01(\tB\x1e\xe0\x41\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\x12%\n\x0cnew_model_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\nnewModelId\"E\n\x13RenameModelResponse\x12.\n\x05model\x18\x01 \x01(\x0b\x32\x18.vdp.model.v1alpha.ModelR\x05model\"I\n\x13PublishModelRequest\x12\x32\n\x04name\x18\x01 \x01(\tB\x1e\xe0\x41\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\"F\n\x14PublishModelResponse\x12.\n\x05model\x18\x01 \x01(\x0b\x32\x18.vdp.model.v1alpha.ModelR\x05model\"K\n\x15UnpublishModelRequest\x12\x32\n\x04name\x18\x01 \x01(\tB\x1e\xe0\x41\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\"H\n\x16UnpublishModelResponse\x12.\n\x05model\x18\x01 \x01(\x0b\x32\x18.vdp.model.v1alpha.ModelR\x05model\"\xff\x01\n\x18ListModelInstanceRequest\x12\x36\n\x06parent\x18\x01 \x01(\tB\x1e\xe0\x41\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x06parent\x12%\n\tpage_size\x18\x02 \x01(\x03\x42\x03\xe0\x41\x01H\x00R\x08pageSize\x88\x01\x01\x12\'\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01H\x01R\tpageToken\x88\x01\x01\x12\x35\n\x04view\x18\x04 \x01(\x0e\x32\x17.vdp.model.v1alpha.ViewB\x03\xe0\x41\x01H\x02R\x04view\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\x07\n\x05_view\"\xa2\x01\n\x19ListModelInstanceResponse\x12>\n\tinstances\x18\x01 \x03(\x0b\x32 .vdp.model.v1alpha.ModelInstanceR\tinstances\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSize\"\xb1\x01\n\x17GetModelInstanceRequest\x12V\n\x04name\x18\x01 \x01(\tBB\xe0\x41\x02\xfa\x41 \n\x1e\x61pi.instill.tech/ModelInstance\x92\x41\x19\xca>\x16\xfa\x02\x13model_instance.nameR\x04name\x12\x35\n\x04view\x18\x02 \x01(\x0e\x32\x17.vdp.model.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"X\n\x18GetModelInstanceResponse\x12<\n\x08instance\x18\x01 \x01(\x0b\x32 .vdp.model.v1alpha.ModelInstanceR\x08instance\"\x7f\n\x1aLookUpModelInstanceRequest\x12!\n\tpermalink\x18\x01 \x01(\tB\x03\xe0\x41\x02R\tpermalink\x12\x35\n\x04view\x18\x02 \x01(\x0e\x32\x17.vdp.model.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"[\n\x1bLookUpModelInstanceResponse\x12<\n\x08instance\x18\x01 \x01(\x0b\x32 .vdp.model.v1alpha.ModelInstanceR\x08instance\"X\n\x1a\x44\x65ployModelInstanceRequest\x12:\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x61pi.instill.tech/ModelInstanceR\x04name\"[\n\x1b\x44\x65ployModelInstanceResponse\x12<\n\x08instance\x18\x01 \x01(\x0b\x32 .vdp.model.v1alpha.ModelInstanceR\x08instance\"Z\n\x1cUndeployModelInstanceRequest\x12:\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x61pi.instill.tech/ModelInstanceR\x04name\"]\n\x1dUndeployModelInstanceResponse\x12<\n\x08instance\x18\x01 \x01(\x0b\x32 .vdp.model.v1alpha.ModelInstanceR\x08instance\"\x80\x01\n\x1bGetModelInstanceCardRequest\x12\x61\n\x04name\x18\x01 \x01(\tBM\xe0\x41\x02\xfa\x41$\n\"api.instill.tech/ModelInstanceCard\x92\x41 \xca>\x1d\xfa\x02\x1amodel_instance.name/readmeR\x04name\"\\\n\x1cGetModelInstanceCardResponse\x12<\n\x06readme\x18\x01 \x01(\x0b\x32$.vdp.model.v1alpha.ModelInstanceCardR\x06readme\"S\n\x05Input\x12\x1d\n\timage_url\x18\x01 \x01(\tH\x00R\x08imageUrl\x12#\n\x0cimage_base64\x18\x02 \x01(\tH\x00R\x0bimageBase64B\x06\n\x04type\"R\n\x14\x43lassificationOutput\x12\x1f\n\x08\x63\x61tegory\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x08\x63\x61tegory\x12\x19\n\x05score\x18\x02 \x01(\x02\x42\x03\xe0\x41\x03R\x05score\"|\n\x15\x43lassificationOutputs\x12\x63\n\x16\x63lassification_outputs\x18\x01 \x03(\x0b\x32\'.vdp.model.v1alpha.ClassificationOutputB\x03\xe0\x41\x03R\x15\x63lassificationOutputs\"u\n\x0b\x42oundingBox\x12\x15\n\x03top\x18\x01 \x01(\x02\x42\x03\xe0\x41\x03R\x03top\x12\x17\n\x04left\x18\x02 \x01(\x02\x42\x03\xe0\x41\x03R\x04left\x12\x19\n\x05width\x18\x03 \x01(\x02\x42\x03\xe0\x41\x03R\x05width\x12\x1b\n\x06height\x18\x04 \x01(\x02\x42\x03\xe0\x41\x03R\x06height\"\x97\x01\n\x11\x42oundingBoxObject\x12\x1f\n\x08\x63\x61tegory\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x08\x63\x61tegory\x12\x19\n\x05score\x18\x02 \x01(\x02\x42\x03\xe0\x41\x03R\x05score\x12\x46\n\x0c\x62ounding_box\x18\x03 \x01(\x0b\x32\x1e.vdp.model.v1alpha.BoundingBoxB\x03\xe0\x41\x03R\x0b\x62oundingBox\"n\n\x0f\x44\x65tectionOutput\x12[\n\x14\x62ounding_box_objects\x18\x01 \x03(\x0b\x32$.vdp.model.v1alpha.BoundingBoxObjectB\x03\xe0\x41\x03R\x12\x62oundingBoxObjects\"h\n\x10\x44\x65tectionOutputs\x12T\n\x11\x64\x65tection_outputs\x18\x01 \x03(\x0b\x32\".vdp.model.v1alpha.DetectionOutputB\x03\xe0\x41\x03R\x10\x64\x65tectionOutputs\"\x90\x01\n\x1bTriggerModelInstanceRequest\x12:\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x61pi.instill.tech/ModelInstanceR\x04name\x12\x35\n\x06inputs\x18\x02 \x03(\x0b\x32\x18.vdp.model.v1alpha.InputB\x03\xe0\x41\x02R\x06inputs\"O\n\x1cTriggerModelInstanceResponse\x12/\n\x06output\x18\x01 \x01(\x0b\x32\x17.google.protobuf.StructR\x06output\"\xac\x01\n+TriggerModelInstanceBinaryFileUploadRequest\x12:\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x61pi.instill.tech/ModelInstanceR\x04name\x12&\n\x0c\x66ile_lengths\x18\x02 \x03(\x04\x42\x03\xe0\x41\x02R\x0b\x66ileLengths\x12\x19\n\x05\x62ytes\x18\x03 \x01(\x0c\x42\x03\xe0\x41\x02R\x05\x62ytes\"_\n,TriggerModelInstanceBinaryFileUploadResponse\x12/\n\x06output\x18\x01 \x01(\x0b\x32\x17.google.protobuf.StructR\x06outputB\xcb\x01\n\x15\x63om.vdp.model.v1alphaB\nModelProtoP\x01Z@github.com/instill-ai/protogen-go/vdp/model/v1alpha;modelv1alpha\xa2\x02\x03VMX\xaa\x02\x11Vdp.Model.V1alpha\xca\x02\x11Vdp\\Model\\V1alpha\xe2\x02\x1dVdp\\Model\\V1alpha\\GPBMetadata\xea\x02\x13Vdp::Model::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1dvdp/model/v1alpha/model.proto\x12\x11vdp.model.v1alpha\x1a\x1cgoogle/protobuf/struct.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a(vdp/model/v1alpha/model_definition.proto\"\xd5\x05\n\x05Model\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x13\n\x02id\x18\x03 \x01(\tB\x03\xe0\x41\x05R\x02id\x12*\n\x0b\x64\x65scription\x18\x04 \x01(\tB\x03\xe0\x41\x01H\x01R\x0b\x64\x65scription\x88\x01\x01\x12S\n\x10model_definition\x18\x05 \x01(\tB(\xe0\x41\x05\xfa\x41\"\n api.instill.tech/ModelDefinitionR\x0fmodelDefinition\x12)\n\rconfiguration\x18\x06 \x01(\tB\x03\xe0\x41\x05R\rconfiguration\x12H\n\nvisibility\x18\x07 \x01(\x0e\x32#.vdp.model.v1alpha.Model.VisibilityB\x03\xe0\x41\x03R\nvisibility\x12\x33\n\x04user\x18\x08 \x01(\tB\x1d\xe0\x41\x03\xfa\x41\x17\n\x15\x61pi.instill.tech/UserH\x00R\x04user\x12\x39\n\x03org\x18\t \x01(\tB%\xe0\x41\x03\xfa\x41\x1f\n\x1d\x61pi.instill.tech/OrganizationH\x00R\x03org\x12@\n\x0b\x63reate_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\"W\n\nVisibility\x12\x1a\n\x16VISIBILITY_UNSPECIFIED\x10\x00\x12\x16\n\x12VISIBILITY_PRIVATE\x10\x01\x12\x15\n\x11VISIBILITY_PUBLIC\x10\x02:+\xea\x41(\n\x16\x61pi.instill.tech/Model\x12\x0emodels/{model}B\x07\n\x05ownerB\x0e\n\x0c_description\"\xd9\x05\n\rModelInstance\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x13\n\x02id\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x02id\x12\x41\n\x05state\x18\x04 \x01(\x0e\x32&.vdp.model.v1alpha.ModelInstance.StateB\x03\xe0\x41\x03R\x05state\x12>\n\x04task\x18\x05 \x01(\x0e\x32%.vdp.model.v1alpha.ModelInstance.TaskB\x03\xe0\x41\x03R\x04task\x12S\n\x10model_definition\x18\x06 \x01(\tB(\xe0\x41\x03\xfa\x41\"\n api.instill.tech/ModelDefinitionR\x0fmodelDefinition\x12)\n\rconfiguration\x18\x07 \x01(\tB\x03\xe0\x41\x03R\rconfiguration\x12@\n\x0b\x63reate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\"\\\n\x04Task\x12\x14\n\x10TASK_UNSPECIFIED\x10\x00\x12\x17\n\x13TASK_CLASSIFICATION\x10\x01\x12\x12\n\x0eTASK_DETECTION\x10\x02\x12\x11\n\rTASK_KEYPOINT\x10\x03\"T\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x11\n\rSTATE_OFFLINE\x10\x01\x12\x10\n\x0cSTATE_ONLINE\x10\x02\x12\x0f\n\x0bSTATE_ERROR\x10\x03:H\xea\x41\x45\n\x1e\x61pi.instill.tech/ModelInstance\x12#models/{model}/instances/{instance}\"\xf5\x01\n\x11ModelInstanceCard\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x17\n\x04size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x03R\x04size\x12\x17\n\x04type\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x04type\x12\x1f\n\x08\x63ontents\x18\x04 \x01(\x0c\x42\x03\xe0\x41\x03R\x08\x63ontents\x12\x1f\n\x08\x65ncoding\x18\x05 \x01(\tB\x03\xe0\x41\x03R\x08\x65ncoding:S\xea\x41P\n\"api.instill.tech/ModelInstanceCard\x12*models/{model}/instances/{instance}/readme\"\xbf\x01\n\x10ListModelRequest\x12%\n\tpage_size\x18\x01 \x01(\x03\x42\x03\xe0\x41\x01H\x00R\x08pageSize\x88\x01\x01\x12\'\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01H\x01R\tpageToken\x88\x01\x01\x12\x35\n\x04view\x18\x03 \x01(\x0e\x32\x17.vdp.model.v1alpha.ViewB\x03\xe0\x41\x01H\x02R\x04view\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\x07\n\x05_view\"\x8c\x01\n\x11ListModelResponse\x12\x30\n\x06models\x18\x01 \x03(\x0b\x32\x18.vdp.model.v1alpha.ModelR\x06models\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSize\"I\n\x12\x43reateModelRequest\x12\x33\n\x05model\x18\x01 \x01(\x0b\x32\x18.vdp.model.v1alpha.ModelB\x03\xe0\x41\x02R\x05model\"E\n\x13\x43reateModelResponse\x12.\n\x05model\x18\x01 \x01(\x0b\x32\x18.vdp.model.v1alpha.ModelR\x05model\"t\n\"CreateModelBinaryFileUploadRequest\x12\x33\n\x05model\x18\x01 \x01(\x0b\x32\x18.vdp.model.v1alpha.ModelB\x03\xe0\x41\x02R\x05model\x12\x19\n\x05\x62ytes\x18\x02 \x01(\x0c\x42\x03\xe0\x41\x02R\x05\x62ytes\"Z\n#CreateModelBinaryFileUploadResponse\x12\x33\n\x05model\x18\x01 \x01(\x0b\x32\x18.vdp.model.v1alpha.ModelB\x03\xe0\x41\x03R\x05model\"\x98\x01\n\x0fGetModelRequest\x12\x45\n\x04name\x18\x01 \x01(\tB1\xe0\x41\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/Model\x92\x41\x10\xca>\r\xfa\x02\nmodel.nameR\x04name\x12\x35\n\x04view\x18\x02 \x01(\x0e\x32\x17.vdp.model.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"B\n\x10GetModelResponse\x12.\n\x05model\x18\x01 \x01(\x0b\x32\x18.vdp.model.v1alpha.ModelR\x05model\"\x8b\x01\n\x12UpdateModelRequest\x12\x33\n\x05model\x18\x01 \x01(\x0b\x32\x18.vdp.model.v1alpha.ModelB\x03\xe0\x41\x02R\x05model\x12@\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\nupdateMask\"E\n\x13UpdateModelResponse\x12.\n\x05model\x18\x01 \x01(\x0b\x32\x18.vdp.model.v1alpha.ModelR\x05model\"[\n\x12\x44\x65leteModelRequest\x12\x45\n\x04name\x18\x01 \x01(\tB1\xe0\x41\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/Model\x92\x41\x10\xca>\r\xfa\x02\nmodel.nameR\x04name\"\x15\n\x13\x44\x65leteModelResponse\"w\n\x12LookUpModelRequest\x12!\n\tpermalink\x18\x01 \x01(\tB\x03\xe0\x41\x02R\tpermalink\x12\x35\n\x04view\x18\x02 \x01(\x0e\x32\x17.vdp.model.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"E\n\x13LookUpModelResponse\x12.\n\x05model\x18\x01 \x01(\x0b\x32\x18.vdp.model.v1alpha.ModelR\x05model\"o\n\x12RenameModelRequest\x12\x32\n\x04name\x18\x01 \x01(\tB\x1e\xe0\x41\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\x12%\n\x0cnew_model_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\nnewModelId\"E\n\x13RenameModelResponse\x12.\n\x05model\x18\x01 \x01(\x0b\x32\x18.vdp.model.v1alpha.ModelR\x05model\"I\n\x13PublishModelRequest\x12\x32\n\x04name\x18\x01 \x01(\tB\x1e\xe0\x41\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\"F\n\x14PublishModelResponse\x12.\n\x05model\x18\x01 \x01(\x0b\x32\x18.vdp.model.v1alpha.ModelR\x05model\"K\n\x15UnpublishModelRequest\x12\x32\n\x04name\x18\x01 \x01(\tB\x1e\xe0\x41\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\"H\n\x16UnpublishModelResponse\x12.\n\x05model\x18\x01 \x01(\x0b\x32\x18.vdp.model.v1alpha.ModelR\x05model\"\xff\x01\n\x18ListModelInstanceRequest\x12\x36\n\x06parent\x18\x01 \x01(\tB\x1e\xe0\x41\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x06parent\x12%\n\tpage_size\x18\x02 \x01(\x03\x42\x03\xe0\x41\x01H\x00R\x08pageSize\x88\x01\x01\x12\'\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01H\x01R\tpageToken\x88\x01\x01\x12\x35\n\x04view\x18\x04 \x01(\x0e\x32\x17.vdp.model.v1alpha.ViewB\x03\xe0\x41\x01H\x02R\x04view\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\x07\n\x05_view\"\xa2\x01\n\x19ListModelInstanceResponse\x12>\n\tinstances\x18\x01 \x03(\x0b\x32 .vdp.model.v1alpha.ModelInstanceR\tinstances\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSize\"\xb1\x01\n\x17GetModelInstanceRequest\x12V\n\x04name\x18\x01 \x01(\tBB\xe0\x41\x02\xfa\x41 \n\x1e\x61pi.instill.tech/ModelInstance\x92\x41\x19\xca>\x16\xfa\x02\x13model_instance.nameR\x04name\x12\x35\n\x04view\x18\x02 \x01(\x0e\x32\x17.vdp.model.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"X\n\x18GetModelInstanceResponse\x12<\n\x08instance\x18\x01 \x01(\x0b\x32 .vdp.model.v1alpha.ModelInstanceR\x08instance\"\x7f\n\x1aLookUpModelInstanceRequest\x12!\n\tpermalink\x18\x01 \x01(\tB\x03\xe0\x41\x02R\tpermalink\x12\x35\n\x04view\x18\x02 \x01(\x0e\x32\x17.vdp.model.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"[\n\x1bLookUpModelInstanceResponse\x12<\n\x08instance\x18\x01 \x01(\x0b\x32 .vdp.model.v1alpha.ModelInstanceR\x08instance\"X\n\x1a\x44\x65ployModelInstanceRequest\x12:\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x61pi.instill.tech/ModelInstanceR\x04name\"[\n\x1b\x44\x65ployModelInstanceResponse\x12<\n\x08instance\x18\x01 \x01(\x0b\x32 .vdp.model.v1alpha.ModelInstanceR\x08instance\"Z\n\x1cUndeployModelInstanceRequest\x12:\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x61pi.instill.tech/ModelInstanceR\x04name\"]\n\x1dUndeployModelInstanceResponse\x12<\n\x08instance\x18\x01 \x01(\x0b\x32 .vdp.model.v1alpha.ModelInstanceR\x08instance\"\x80\x01\n\x1bGetModelInstanceCardRequest\x12\x61\n\x04name\x18\x01 \x01(\tBM\xe0\x41\x02\xfa\x41$\n\"api.instill.tech/ModelInstanceCard\x92\x41 \xca>\x1d\xfa\x02\x1amodel_instance.name/readmeR\x04name\"\\\n\x1cGetModelInstanceCardResponse\x12<\n\x06readme\x18\x01 \x01(\x0b\x32$.vdp.model.v1alpha.ModelInstanceCardR\x06readme\"S\n\x05Input\x12\x1d\n\timage_url\x18\x01 \x01(\tH\x00R\x08imageUrl\x12#\n\x0cimage_base64\x18\x02 \x01(\tH\x00R\x0bimageBase64B\x06\n\x04type\"R\n\x14\x43lassificationOutput\x12\x1f\n\x08\x63\x61tegory\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x08\x63\x61tegory\x12\x19\n\x05score\x18\x02 \x01(\x02\x42\x03\xe0\x41\x03R\x05score\"|\n\x15\x43lassificationOutputs\x12\x63\n\x16\x63lassification_outputs\x18\x01 \x03(\x0b\x32\'.vdp.model.v1alpha.ClassificationOutputB\x03\xe0\x41\x03R\x15\x63lassificationOutputs\"C\n\x08Keypoint\x12\x11\n\x01x\x18\x01 \x01(\x02\x42\x03\xe0\x41\x03R\x01x\x12\x11\n\x01y\x18\x02 \x01(\x02\x42\x03\xe0\x41\x03R\x01y\x12\x11\n\x01v\x18\x03 \x01(\x02\x42\x03\xe0\x41\x03R\x01v\"k\n\x0eKeypointObject\x12>\n\tkeypoints\x18\x01 \x03(\x0b\x32\x1b.vdp.model.v1alpha.KeypointB\x03\xe0\x41\x03R\tkeypoints\x12\x19\n\x05score\x18\x02 \x01(\x02\x42\x03\xe0\x41\x03R\x05score\"a\n\x0eKeypointOutput\x12O\n\x0fkeypoint_output\x18\x01 \x03(\x0b\x32!.vdp.model.v1alpha.KeypointObjectB\x03\xe0\x41\x03R\x0ekeypointOutput\"u\n\x0b\x42oundingBox\x12\x15\n\x03top\x18\x01 \x01(\x02\x42\x03\xe0\x41\x03R\x03top\x12\x17\n\x04left\x18\x02 \x01(\x02\x42\x03\xe0\x41\x03R\x04left\x12\x19\n\x05width\x18\x03 \x01(\x02\x42\x03\xe0\x41\x03R\x05width\x12\x1b\n\x06height\x18\x04 \x01(\x02\x42\x03\xe0\x41\x03R\x06height\"\x97\x01\n\x11\x42oundingBoxObject\x12\x1f\n\x08\x63\x61tegory\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x08\x63\x61tegory\x12\x19\n\x05score\x18\x02 \x01(\x02\x42\x03\xe0\x41\x03R\x05score\x12\x46\n\x0c\x62ounding_box\x18\x03 \x01(\x0b\x32\x1e.vdp.model.v1alpha.BoundingBoxB\x03\xe0\x41\x03R\x0b\x62oundingBox\"n\n\x0f\x44\x65tectionOutput\x12[\n\x14\x62ounding_box_objects\x18\x01 \x03(\x0b\x32$.vdp.model.v1alpha.BoundingBoxObjectB\x03\xe0\x41\x03R\x12\x62oundingBoxObjects\"h\n\x10\x44\x65tectionOutputs\x12T\n\x11\x64\x65tection_outputs\x18\x01 \x03(\x0b\x32\".vdp.model.v1alpha.DetectionOutputB\x03\xe0\x41\x03R\x10\x64\x65tectionOutputs\"\x90\x01\n\x1bTriggerModelInstanceRequest\x12:\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x61pi.instill.tech/ModelInstanceR\x04name\x12\x35\n\x06inputs\x18\x02 \x03(\x0b\x32\x18.vdp.model.v1alpha.InputB\x03\xe0\x41\x02R\x06inputs\"O\n\x1cTriggerModelInstanceResponse\x12/\n\x06output\x18\x01 \x01(\x0b\x32\x17.google.protobuf.StructR\x06output\"\xac\x01\n+TriggerModelInstanceBinaryFileUploadRequest\x12:\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x61pi.instill.tech/ModelInstanceR\x04name\x12&\n\x0c\x66ile_lengths\x18\x02 \x03(\x04\x42\x03\xe0\x41\x02R\x0b\x66ileLengths\x12\x19\n\x05\x62ytes\x18\x03 \x01(\x0c\x42\x03\xe0\x41\x02R\x05\x62ytes\"_\n,TriggerModelInstanceBinaryFileUploadResponse\x12/\n\x06output\x18\x01 \x01(\x0b\x32\x17.google.protobuf.StructR\x06outputB\xcb\x01\n\x15\x63om.vdp.model.v1alphaB\nModelProtoP\x01Z@github.com/instill-ai/protogen-go/vdp/model/v1alpha;modelv1alpha\xa2\x02\x03VMX\xaa\x02\x11Vdp.Model.V1alpha\xca\x02\x11Vdp\\Model\\V1alpha\xe2\x02\x1dVdp\\Model\\V1alpha\\GPBMetadata\xea\x02\x13Vdp::Model::V1alphab\x06proto3')
 
 
 
@@ -63,6 +63,9 @@ _GETMODELINSTANCECARDRESPONSE = DESCRIPTOR.message_types_by_name['GetModelInstan
 _INPUT = DESCRIPTOR.message_types_by_name['Input']
 _CLASSIFICATIONOUTPUT = DESCRIPTOR.message_types_by_name['ClassificationOutput']
 _CLASSIFICATIONOUTPUTS = DESCRIPTOR.message_types_by_name['ClassificationOutputs']
+_KEYPOINT = DESCRIPTOR.message_types_by_name['Keypoint']
+_KEYPOINTOBJECT = DESCRIPTOR.message_types_by_name['KeypointObject']
+_KEYPOINTOUTPUT = DESCRIPTOR.message_types_by_name['KeypointOutput']
 _BOUNDINGBOX = DESCRIPTOR.message_types_by_name['BoundingBox']
 _BOUNDINGBOXOBJECT = DESCRIPTOR.message_types_by_name['BoundingBoxObject']
 _DETECTIONOUTPUT = DESCRIPTOR.message_types_by_name['DetectionOutput']
@@ -340,6 +343,27 @@ ClassificationOutputs = _reflection.GeneratedProtocolMessageType('Classification
   })
 _sym_db.RegisterMessage(ClassificationOutputs)
 
+Keypoint = _reflection.GeneratedProtocolMessageType('Keypoint', (_message.Message,), {
+  'DESCRIPTOR' : _KEYPOINT,
+  '__module__' : 'vdp.model.v1alpha.model_pb2'
+  # @@protoc_insertion_point(class_scope:vdp.model.v1alpha.Keypoint)
+  })
+_sym_db.RegisterMessage(Keypoint)
+
+KeypointObject = _reflection.GeneratedProtocolMessageType('KeypointObject', (_message.Message,), {
+  'DESCRIPTOR' : _KEYPOINTOBJECT,
+  '__module__' : 'vdp.model.v1alpha.model_pb2'
+  # @@protoc_insertion_point(class_scope:vdp.model.v1alpha.KeypointObject)
+  })
+_sym_db.RegisterMessage(KeypointObject)
+
+KeypointOutput = _reflection.GeneratedProtocolMessageType('KeypointOutput', (_message.Message,), {
+  'DESCRIPTOR' : _KEYPOINTOUTPUT,
+  '__module__' : 'vdp.model.v1alpha.model_pb2'
+  # @@protoc_insertion_point(class_scope:vdp.model.v1alpha.KeypointOutput)
+  })
+_sym_db.RegisterMessage(KeypointOutput)
+
 BoundingBox = _reflection.GeneratedProtocolMessageType('BoundingBox', (_message.Message,), {
   'DESCRIPTOR' : _BOUNDINGBOX,
   '__module__' : 'vdp.model.v1alpha.model_pb2'
@@ -520,6 +544,18 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _CLASSIFICATIONOUTPUT.fields_by_name['score']._serialized_options = b'\340A\003'
   _CLASSIFICATIONOUTPUTS.fields_by_name['classification_outputs']._options = None
   _CLASSIFICATIONOUTPUTS.fields_by_name['classification_outputs']._serialized_options = b'\340A\003'
+  _KEYPOINT.fields_by_name['x']._options = None
+  _KEYPOINT.fields_by_name['x']._serialized_options = b'\340A\003'
+  _KEYPOINT.fields_by_name['y']._options = None
+  _KEYPOINT.fields_by_name['y']._serialized_options = b'\340A\003'
+  _KEYPOINT.fields_by_name['v']._options = None
+  _KEYPOINT.fields_by_name['v']._serialized_options = b'\340A\003'
+  _KEYPOINTOBJECT.fields_by_name['keypoints']._options = None
+  _KEYPOINTOBJECT.fields_by_name['keypoints']._serialized_options = b'\340A\003'
+  _KEYPOINTOBJECT.fields_by_name['score']._options = None
+  _KEYPOINTOBJECT.fields_by_name['score']._serialized_options = b'\340A\003'
+  _KEYPOINTOUTPUT.fields_by_name['keypoint_output']._options = None
+  _KEYPOINTOUTPUT.fields_by_name['keypoint_output']._serialized_options = b'\340A\003'
   _BOUNDINGBOX.fields_by_name['top']._options = None
   _BOUNDINGBOX.fields_by_name['top']._serialized_options = b'\340A\003'
   _BOUNDINGBOX.fields_by_name['left']._options = None
@@ -553,97 +589,103 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _MODEL_VISIBILITY._serialized_start=868
   _MODEL_VISIBILITY._serialized_end=955
   _MODELINSTANCE._serialized_start=1028
-  _MODELINSTANCE._serialized_end=1738
+  _MODELINSTANCE._serialized_end=1757
   _MODELINSTANCE_TASK._serialized_start=1505
-  _MODELINSTANCE_TASK._serialized_end=1578
-  _MODELINSTANCE_STATE._serialized_start=1580
-  _MODELINSTANCE_STATE._serialized_end=1664
-  _MODELINSTANCECARD._serialized_start=1741
-  _MODELINSTANCECARD._serialized_end=1986
-  _LISTMODELREQUEST._serialized_start=1989
-  _LISTMODELREQUEST._serialized_end=2180
-  _LISTMODELRESPONSE._serialized_start=2183
-  _LISTMODELRESPONSE._serialized_end=2323
-  _CREATEMODELREQUEST._serialized_start=2325
-  _CREATEMODELREQUEST._serialized_end=2398
-  _CREATEMODELRESPONSE._serialized_start=2400
-  _CREATEMODELRESPONSE._serialized_end=2469
-  _CREATEMODELBINARYFILEUPLOADREQUEST._serialized_start=2471
-  _CREATEMODELBINARYFILEUPLOADREQUEST._serialized_end=2587
-  _CREATEMODELBINARYFILEUPLOADRESPONSE._serialized_start=2589
-  _CREATEMODELBINARYFILEUPLOADRESPONSE._serialized_end=2679
-  _GETMODELREQUEST._serialized_start=2682
-  _GETMODELREQUEST._serialized_end=2834
-  _GETMODELRESPONSE._serialized_start=2836
-  _GETMODELRESPONSE._serialized_end=2902
-  _UPDATEMODELREQUEST._serialized_start=2905
-  _UPDATEMODELREQUEST._serialized_end=3044
-  _UPDATEMODELRESPONSE._serialized_start=3046
-  _UPDATEMODELRESPONSE._serialized_end=3115
-  _DELETEMODELREQUEST._serialized_start=3117
-  _DELETEMODELREQUEST._serialized_end=3208
-  _DELETEMODELRESPONSE._serialized_start=3210
-  _DELETEMODELRESPONSE._serialized_end=3231
-  _LOOKUPMODELREQUEST._serialized_start=3233
-  _LOOKUPMODELREQUEST._serialized_end=3352
-  _LOOKUPMODELRESPONSE._serialized_start=3354
-  _LOOKUPMODELRESPONSE._serialized_end=3423
-  _RENAMEMODELREQUEST._serialized_start=3425
-  _RENAMEMODELREQUEST._serialized_end=3536
-  _RENAMEMODELRESPONSE._serialized_start=3538
-  _RENAMEMODELRESPONSE._serialized_end=3607
-  _PUBLISHMODELREQUEST._serialized_start=3609
-  _PUBLISHMODELREQUEST._serialized_end=3682
-  _PUBLISHMODELRESPONSE._serialized_start=3684
-  _PUBLISHMODELRESPONSE._serialized_end=3754
-  _UNPUBLISHMODELREQUEST._serialized_start=3756
-  _UNPUBLISHMODELREQUEST._serialized_end=3831
-  _UNPUBLISHMODELRESPONSE._serialized_start=3833
-  _UNPUBLISHMODELRESPONSE._serialized_end=3905
-  _LISTMODELINSTANCEREQUEST._serialized_start=3908
-  _LISTMODELINSTANCEREQUEST._serialized_end=4163
-  _LISTMODELINSTANCERESPONSE._serialized_start=4166
-  _LISTMODELINSTANCERESPONSE._serialized_end=4328
-  _GETMODELINSTANCEREQUEST._serialized_start=4331
-  _GETMODELINSTANCEREQUEST._serialized_end=4508
-  _GETMODELINSTANCERESPONSE._serialized_start=4510
-  _GETMODELINSTANCERESPONSE._serialized_end=4598
-  _LOOKUPMODELINSTANCEREQUEST._serialized_start=4600
-  _LOOKUPMODELINSTANCEREQUEST._serialized_end=4727
-  _LOOKUPMODELINSTANCERESPONSE._serialized_start=4729
-  _LOOKUPMODELINSTANCERESPONSE._serialized_end=4820
-  _DEPLOYMODELINSTANCEREQUEST._serialized_start=4822
-  _DEPLOYMODELINSTANCEREQUEST._serialized_end=4910
-  _DEPLOYMODELINSTANCERESPONSE._serialized_start=4912
-  _DEPLOYMODELINSTANCERESPONSE._serialized_end=5003
-  _UNDEPLOYMODELINSTANCEREQUEST._serialized_start=5005
-  _UNDEPLOYMODELINSTANCEREQUEST._serialized_end=5095
-  _UNDEPLOYMODELINSTANCERESPONSE._serialized_start=5097
-  _UNDEPLOYMODELINSTANCERESPONSE._serialized_end=5190
-  _GETMODELINSTANCECARDREQUEST._serialized_start=5193
-  _GETMODELINSTANCECARDREQUEST._serialized_end=5321
-  _GETMODELINSTANCECARDRESPONSE._serialized_start=5323
-  _GETMODELINSTANCECARDRESPONSE._serialized_end=5415
-  _INPUT._serialized_start=5417
-  _INPUT._serialized_end=5500
-  _CLASSIFICATIONOUTPUT._serialized_start=5502
-  _CLASSIFICATIONOUTPUT._serialized_end=5584
-  _CLASSIFICATIONOUTPUTS._serialized_start=5586
-  _CLASSIFICATIONOUTPUTS._serialized_end=5710
-  _BOUNDINGBOX._serialized_start=5712
-  _BOUNDINGBOX._serialized_end=5829
-  _BOUNDINGBOXOBJECT._serialized_start=5832
-  _BOUNDINGBOXOBJECT._serialized_end=5983
-  _DETECTIONOUTPUT._serialized_start=5985
-  _DETECTIONOUTPUT._serialized_end=6095
-  _DETECTIONOUTPUTS._serialized_start=6097
-  _DETECTIONOUTPUTS._serialized_end=6201
-  _TRIGGERMODELINSTANCEREQUEST._serialized_start=6204
-  _TRIGGERMODELINSTANCEREQUEST._serialized_end=6348
-  _TRIGGERMODELINSTANCERESPONSE._serialized_start=6350
-  _TRIGGERMODELINSTANCERESPONSE._serialized_end=6429
-  _TRIGGERMODELINSTANCEBINARYFILEUPLOADREQUEST._serialized_start=6432
-  _TRIGGERMODELINSTANCEBINARYFILEUPLOADREQUEST._serialized_end=6604
-  _TRIGGERMODELINSTANCEBINARYFILEUPLOADRESPONSE._serialized_start=6606
-  _TRIGGERMODELINSTANCEBINARYFILEUPLOADRESPONSE._serialized_end=6701
+  _MODELINSTANCE_TASK._serialized_end=1597
+  _MODELINSTANCE_STATE._serialized_start=1599
+  _MODELINSTANCE_STATE._serialized_end=1683
+  _MODELINSTANCECARD._serialized_start=1760
+  _MODELINSTANCECARD._serialized_end=2005
+  _LISTMODELREQUEST._serialized_start=2008
+  _LISTMODELREQUEST._serialized_end=2199
+  _LISTMODELRESPONSE._serialized_start=2202
+  _LISTMODELRESPONSE._serialized_end=2342
+  _CREATEMODELREQUEST._serialized_start=2344
+  _CREATEMODELREQUEST._serialized_end=2417
+  _CREATEMODELRESPONSE._serialized_start=2419
+  _CREATEMODELRESPONSE._serialized_end=2488
+  _CREATEMODELBINARYFILEUPLOADREQUEST._serialized_start=2490
+  _CREATEMODELBINARYFILEUPLOADREQUEST._serialized_end=2606
+  _CREATEMODELBINARYFILEUPLOADRESPONSE._serialized_start=2608
+  _CREATEMODELBINARYFILEUPLOADRESPONSE._serialized_end=2698
+  _GETMODELREQUEST._serialized_start=2701
+  _GETMODELREQUEST._serialized_end=2853
+  _GETMODELRESPONSE._serialized_start=2855
+  _GETMODELRESPONSE._serialized_end=2921
+  _UPDATEMODELREQUEST._serialized_start=2924
+  _UPDATEMODELREQUEST._serialized_end=3063
+  _UPDATEMODELRESPONSE._serialized_start=3065
+  _UPDATEMODELRESPONSE._serialized_end=3134
+  _DELETEMODELREQUEST._serialized_start=3136
+  _DELETEMODELREQUEST._serialized_end=3227
+  _DELETEMODELRESPONSE._serialized_start=3229
+  _DELETEMODELRESPONSE._serialized_end=3250
+  _LOOKUPMODELREQUEST._serialized_start=3252
+  _LOOKUPMODELREQUEST._serialized_end=3371
+  _LOOKUPMODELRESPONSE._serialized_start=3373
+  _LOOKUPMODELRESPONSE._serialized_end=3442
+  _RENAMEMODELREQUEST._serialized_start=3444
+  _RENAMEMODELREQUEST._serialized_end=3555
+  _RENAMEMODELRESPONSE._serialized_start=3557
+  _RENAMEMODELRESPONSE._serialized_end=3626
+  _PUBLISHMODELREQUEST._serialized_start=3628
+  _PUBLISHMODELREQUEST._serialized_end=3701
+  _PUBLISHMODELRESPONSE._serialized_start=3703
+  _PUBLISHMODELRESPONSE._serialized_end=3773
+  _UNPUBLISHMODELREQUEST._serialized_start=3775
+  _UNPUBLISHMODELREQUEST._serialized_end=3850
+  _UNPUBLISHMODELRESPONSE._serialized_start=3852
+  _UNPUBLISHMODELRESPONSE._serialized_end=3924
+  _LISTMODELINSTANCEREQUEST._serialized_start=3927
+  _LISTMODELINSTANCEREQUEST._serialized_end=4182
+  _LISTMODELINSTANCERESPONSE._serialized_start=4185
+  _LISTMODELINSTANCERESPONSE._serialized_end=4347
+  _GETMODELINSTANCEREQUEST._serialized_start=4350
+  _GETMODELINSTANCEREQUEST._serialized_end=4527
+  _GETMODELINSTANCERESPONSE._serialized_start=4529
+  _GETMODELINSTANCERESPONSE._serialized_end=4617
+  _LOOKUPMODELINSTANCEREQUEST._serialized_start=4619
+  _LOOKUPMODELINSTANCEREQUEST._serialized_end=4746
+  _LOOKUPMODELINSTANCERESPONSE._serialized_start=4748
+  _LOOKUPMODELINSTANCERESPONSE._serialized_end=4839
+  _DEPLOYMODELINSTANCEREQUEST._serialized_start=4841
+  _DEPLOYMODELINSTANCEREQUEST._serialized_end=4929
+  _DEPLOYMODELINSTANCERESPONSE._serialized_start=4931
+  _DEPLOYMODELINSTANCERESPONSE._serialized_end=5022
+  _UNDEPLOYMODELINSTANCEREQUEST._serialized_start=5024
+  _UNDEPLOYMODELINSTANCEREQUEST._serialized_end=5114
+  _UNDEPLOYMODELINSTANCERESPONSE._serialized_start=5116
+  _UNDEPLOYMODELINSTANCERESPONSE._serialized_end=5209
+  _GETMODELINSTANCECARDREQUEST._serialized_start=5212
+  _GETMODELINSTANCECARDREQUEST._serialized_end=5340
+  _GETMODELINSTANCECARDRESPONSE._serialized_start=5342
+  _GETMODELINSTANCECARDRESPONSE._serialized_end=5434
+  _INPUT._serialized_start=5436
+  _INPUT._serialized_end=5519
+  _CLASSIFICATIONOUTPUT._serialized_start=5521
+  _CLASSIFICATIONOUTPUT._serialized_end=5603
+  _CLASSIFICATIONOUTPUTS._serialized_start=5605
+  _CLASSIFICATIONOUTPUTS._serialized_end=5729
+  _KEYPOINT._serialized_start=5731
+  _KEYPOINT._serialized_end=5798
+  _KEYPOINTOBJECT._serialized_start=5800
+  _KEYPOINTOBJECT._serialized_end=5907
+  _KEYPOINTOUTPUT._serialized_start=5909
+  _KEYPOINTOUTPUT._serialized_end=6006
+  _BOUNDINGBOX._serialized_start=6008
+  _BOUNDINGBOX._serialized_end=6125
+  _BOUNDINGBOXOBJECT._serialized_start=6128
+  _BOUNDINGBOXOBJECT._serialized_end=6279
+  _DETECTIONOUTPUT._serialized_start=6281
+  _DETECTIONOUTPUT._serialized_end=6391
+  _DETECTIONOUTPUTS._serialized_start=6393
+  _DETECTIONOUTPUTS._serialized_end=6497
+  _TRIGGERMODELINSTANCEREQUEST._serialized_start=6500
+  _TRIGGERMODELINSTANCEREQUEST._serialized_end=6644
+  _TRIGGERMODELINSTANCERESPONSE._serialized_start=6646
+  _TRIGGERMODELINSTANCERESPONSE._serialized_end=6725
+  _TRIGGERMODELINSTANCEBINARYFILEUPLOADREQUEST._serialized_start=6728
+  _TRIGGERMODELINSTANCEBINARYFILEUPLOADREQUEST._serialized_end=6900
+  _TRIGGERMODELINSTANCEBINARYFILEUPLOADRESPONSE._serialized_start=6902
+  _TRIGGERMODELINSTANCEBINARYFILEUPLOADRESPONSE._serialized_end=6997
 # @@protoc_insertion_point(module_scope)
