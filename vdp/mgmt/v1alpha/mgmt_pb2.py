@@ -20,7 +20,7 @@ from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1bvdp/mgmt/v1alpha/mgmt.proto\x12\x10vdp.mgmt.v1alpha\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/api/field_behavior.proto\"\xb5\x04\n\x04User\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x1e\n\x05\x65mail\x18\x03 \x01(\tB\x03\xe0\x41\x01H\x00R\x05\x65mail\x88\x01\x01\x12\x13\n\x02id\x18\x04 \x01(\tB\x03\xe0\x41\x05R\x02id\x12+\n\x0c\x63ompany_name\x18\x05 \x01(\tB\x03\xe0\x41\x01H\x01R\x0b\x63ompanyName\x88\x01\x01\x12\x1c\n\x04role\x18\x06 \x01(\tB\x03\xe0\x41\x01H\x02R\x04role\x88\x01\x01\x12\x37\n\x15usage_data_collection\x18\x07 \x01(\x08\x42\x03\xe0\x41\x02R\x13usageDataCollection\x12<\n\x17newsletter_subscription\x18\x08 \x01(\x08\x42\x03\xe0\x41\x02R\x16newsletterSubscription\x12\x34\n\x04type\x18\t \x01(\x0e\x32\x1b.vdp.mgmt.v1alpha.OwnerTypeB\x03\xe0\x41\x03R\x04type\x12@\n\x0b\x63reate_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime:(\xea\x41%\n\x15\x61pi.instill.tech/User\x12\x0cusers/{user}B\x08\n\x06_emailB\x0f\n\r_company_nameB\x07\n\x05_role\"~\n\x0fListUserRequest\x12%\n\tpage_size\x18\x01 \x01(\x03\x42\x03\xe0\x41\x01H\x00R\x08pageSize\x88\x01\x01\x12\'\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01H\x01R\tpageToken\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_token\"\x87\x01\n\x10ListUserResponse\x12,\n\x05users\x18\x01 \x03(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x05users\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSize\"D\n\x11\x43reateUserRequest\x12/\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserB\x03\xe0\x41\x02R\x04user\"@\n\x12\x43reateUserResponse\x12*\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x04user\"U\n\x0eGetUserRequest\x12\x43\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41\x17\n\x15\x61pi.instill.tech/User\x92\x41\x0f\xca>\x0c\xfa\x02\tuser.nameR\x04name\"=\n\x0fGetUserResponse\x12*\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x04user\"\x86\x01\n\x11UpdateUserRequest\x12/\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserB\x03\xe0\x41\x02R\x04user\x12@\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\nupdateMask\"@\n\x12UpdateUserResponse\x12*\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x04user\"X\n\x11\x44\x65leteUserRequest\x12\x43\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41\x17\n\x15\x61pi.instill.tech/User\x92\x41\x0f\xca>\x0c\xfa\x02\tuser.nameR\x04name\"\x14\n\x12\x44\x65leteUserResponse\"6\n\x11LookUpUserRequest\x12!\n\tpermalink\x18\x01 \x01(\tB\x03\xe0\x41\x02R\tpermalink\"@\n\x12LookUpUserResponse\x12*\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x04user*Y\n\tOwnerType\x12\x1a\n\x16OWNER_TYPE_UNSPECIFIED\x10\x00\x12\x13\n\x0fOWNER_TYPE_USER\x10\x01\x12\x1b\n\x17OWNER_TYPE_ORGANIZATION\x10\x02\x42\xc3\x01\n\x14\x63om.vdp.mgmt.v1alphaB\tMgmtProtoP\x01Z>github.com/instill-ai/protogen-go/vdp/mgmt/v1alpha;mgmtv1alpha\xa2\x02\x03VMX\xaa\x02\x10Vdp.Mgmt.V1alpha\xca\x02\x10Vdp\\Mgmt\\V1alpha\xe2\x02\x1cVdp\\Mgmt\\V1alpha\\GPBMetadata\xea\x02\x12Vdp::Mgmt::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1bvdp/mgmt/v1alpha/mgmt.proto\x12\x10vdp.mgmt.v1alpha\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/api/field_behavior.proto\"\xf3\x04\n\x04User\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x1e\n\x05\x65mail\x18\x03 \x01(\tB\x03\xe0\x41\x01H\x00R\x05\x65mail\x88\x01\x01\x12\x13\n\x02id\x18\x04 \x01(\tB\x03\xe0\x41\x05R\x02id\x12+\n\x0c\x63ompany_name\x18\x05 \x01(\tB\x03\xe0\x41\x01H\x01R\x0b\x63ompanyName\x88\x01\x01\x12\x1c\n\x04role\x18\x06 \x01(\tB\x03\xe0\x41\x01H\x02R\x04role\x88\x01\x01\x12\x37\n\x15usage_data_collection\x18\x07 \x01(\x08\x42\x03\xe0\x41\x02R\x13usageDataCollection\x12<\n\x17newsletter_subscription\x18\x08 \x01(\x08\x42\x03\xe0\x41\x02R\x16newsletterSubscription\x12+\n\x0c\x63ookie_token\x18\t \x01(\tB\x03\xe0\x41\x01H\x03R\x0b\x63ookieToken\x88\x01\x01\x12\x34\n\x04type\x18\n \x01(\x0e\x32\x1b.vdp.mgmt.v1alpha.OwnerTypeB\x03\xe0\x41\x03R\x04type\x12@\n\x0b\x63reate_time\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime:(\xea\x41%\n\x15\x61pi.instill.tech/User\x12\x0cusers/{user}B\x08\n\x06_emailB\x0f\n\r_company_nameB\x07\n\x05_roleB\x0f\n\r_cookie_token\"~\n\x0fListUserRequest\x12%\n\tpage_size\x18\x01 \x01(\x03\x42\x03\xe0\x41\x01H\x00R\x08pageSize\x88\x01\x01\x12\'\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01H\x01R\tpageToken\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_token\"\x87\x01\n\x10ListUserResponse\x12,\n\x05users\x18\x01 \x03(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x05users\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSize\"D\n\x11\x43reateUserRequest\x12/\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserB\x03\xe0\x41\x02R\x04user\"@\n\x12\x43reateUserResponse\x12*\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x04user\"U\n\x0eGetUserRequest\x12\x43\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41\x17\n\x15\x61pi.instill.tech/User\x92\x41\x0f\xca>\x0c\xfa\x02\tuser.nameR\x04name\"=\n\x0fGetUserResponse\x12*\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x04user\"\x86\x01\n\x11UpdateUserRequest\x12/\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserB\x03\xe0\x41\x02R\x04user\x12@\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\nupdateMask\"@\n\x12UpdateUserResponse\x12*\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x04user\"X\n\x11\x44\x65leteUserRequest\x12\x43\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41\x17\n\x15\x61pi.instill.tech/User\x92\x41\x0f\xca>\x0c\xfa\x02\tuser.nameR\x04name\"\x14\n\x12\x44\x65leteUserResponse\"6\n\x11LookUpUserRequest\x12!\n\tpermalink\x18\x01 \x01(\tB\x03\xe0\x41\x02R\tpermalink\"@\n\x12LookUpUserResponse\x12*\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x04user*Y\n\tOwnerType\x12\x1a\n\x16OWNER_TYPE_UNSPECIFIED\x10\x00\x12\x13\n\x0fOWNER_TYPE_USER\x10\x01\x12\x1b\n\x17OWNER_TYPE_ORGANIZATION\x10\x02\x42\xc3\x01\n\x14\x63om.vdp.mgmt.v1alphaB\tMgmtProtoP\x01Z>github.com/instill-ai/protogen-go/vdp/mgmt/v1alpha;mgmtv1alpha\xa2\x02\x03VMX\xaa\x02\x10Vdp.Mgmt.V1alpha\xca\x02\x10Vdp\\Mgmt\\V1alpha\xe2\x02\x1cVdp\\Mgmt\\V1alpha\\GPBMetadata\xea\x02\x12Vdp::Mgmt::V1alphab\x06proto3')
 
 _OWNERTYPE = DESCRIPTOR.enum_types_by_name['OwnerType']
 OwnerType = enum_type_wrapper.EnumTypeWrapper(_OWNERTYPE)
@@ -153,6 +153,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _USER.fields_by_name['usage_data_collection']._serialized_options = b'\340A\002'
   _USER.fields_by_name['newsletter_subscription']._options = None
   _USER.fields_by_name['newsletter_subscription']._serialized_options = b'\340A\002'
+  _USER.fields_by_name['cookie_token']._options = None
+  _USER.fields_by_name['cookie_token']._serialized_options = b'\340A\001'
   _USER.fields_by_name['type']._options = None
   _USER.fields_by_name['type']._serialized_options = b'\340A\003'
   _USER.fields_by_name['create_time']._options = None
@@ -177,32 +179,32 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _DELETEUSERREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A\027\n\025api.instill.tech/User\222A\017\312>\014\372\002\tuser.name'
   _LOOKUPUSERREQUEST.fields_by_name['permalink']._options = None
   _LOOKUPUSERREQUEST.fields_by_name['permalink']._serialized_options = b'\340A\002'
-  _OWNERTYPE._serialized_start=1781
-  _OWNERTYPE._serialized_end=1870
+  _OWNERTYPE._serialized_start=1843
+  _OWNERTYPE._serialized_end=1932
   _USER._serialized_start=225
-  _USER._serialized_end=790
-  _LISTUSERREQUEST._serialized_start=792
-  _LISTUSERREQUEST._serialized_end=918
-  _LISTUSERRESPONSE._serialized_start=921
-  _LISTUSERRESPONSE._serialized_end=1056
-  _CREATEUSERREQUEST._serialized_start=1058
-  _CREATEUSERREQUEST._serialized_end=1126
-  _CREATEUSERRESPONSE._serialized_start=1128
-  _CREATEUSERRESPONSE._serialized_end=1192
-  _GETUSERREQUEST._serialized_start=1194
-  _GETUSERREQUEST._serialized_end=1279
-  _GETUSERRESPONSE._serialized_start=1281
-  _GETUSERRESPONSE._serialized_end=1342
-  _UPDATEUSERREQUEST._serialized_start=1345
-  _UPDATEUSERREQUEST._serialized_end=1479
-  _UPDATEUSERRESPONSE._serialized_start=1481
-  _UPDATEUSERRESPONSE._serialized_end=1545
-  _DELETEUSERREQUEST._serialized_start=1547
-  _DELETEUSERREQUEST._serialized_end=1635
-  _DELETEUSERRESPONSE._serialized_start=1637
-  _DELETEUSERRESPONSE._serialized_end=1657
-  _LOOKUPUSERREQUEST._serialized_start=1659
-  _LOOKUPUSERREQUEST._serialized_end=1713
-  _LOOKUPUSERRESPONSE._serialized_start=1715
-  _LOOKUPUSERRESPONSE._serialized_end=1779
+  _USER._serialized_end=852
+  _LISTUSERREQUEST._serialized_start=854
+  _LISTUSERREQUEST._serialized_end=980
+  _LISTUSERRESPONSE._serialized_start=983
+  _LISTUSERRESPONSE._serialized_end=1118
+  _CREATEUSERREQUEST._serialized_start=1120
+  _CREATEUSERREQUEST._serialized_end=1188
+  _CREATEUSERRESPONSE._serialized_start=1190
+  _CREATEUSERRESPONSE._serialized_end=1254
+  _GETUSERREQUEST._serialized_start=1256
+  _GETUSERREQUEST._serialized_end=1341
+  _GETUSERRESPONSE._serialized_start=1343
+  _GETUSERRESPONSE._serialized_end=1404
+  _UPDATEUSERREQUEST._serialized_start=1407
+  _UPDATEUSERREQUEST._serialized_end=1541
+  _UPDATEUSERRESPONSE._serialized_start=1543
+  _UPDATEUSERRESPONSE._serialized_end=1607
+  _DELETEUSERREQUEST._serialized_start=1609
+  _DELETEUSERREQUEST._serialized_end=1697
+  _DELETEUSERRESPONSE._serialized_start=1699
+  _DELETEUSERRESPONSE._serialized_end=1719
+  _LOOKUPUSERREQUEST._serialized_start=1721
+  _LOOKUPUSERREQUEST._serialized_end=1775
+  _LOOKUPUSERRESPONSE._serialized_start=1777
+  _LOOKUPUSERRESPONSE._serialized_end=1841
 # @@protoc_insertion_point(module_scope)
