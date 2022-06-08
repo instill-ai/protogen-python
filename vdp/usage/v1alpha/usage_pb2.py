@@ -16,9 +16,10 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from vdp.mgmt.v1alpha import mgmt_pb2 as vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2
+from vdp.model.v1alpha import model_pb2 as vdp_dot_model_dot_v1alpha_dot_model__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1dvdp/usage/v1alpha/usage.proto\x12\x11vdp.usage.v1alpha\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1bvdp/mgmt/v1alpha/mgmt.proto\"\x8f\x05\n\x07Session\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x41\n\x07service\x18\x03 \x01(\x0e\x32\".vdp.usage.v1alpha.Session.ServiceB\x03\xe0\x41\x02R\x07service\x12\x1d\n\x07\x65\x64ition\x18\x04 \x01(\tB\x03\xe0\x41\x02R\x07\x65\x64ition\x12\x1d\n\x07version\x18\x05 \x01(\tB\x03\xe0\x41\x02R\x07version\x12\x17\n\x04\x61rch\x18\x06 \x01(\tB\x03\xe0\x41\x02R\x04\x61rch\x12\x13\n\x02os\x18\x07 \x01(\tB\x03\xe0\x41\x02R\x02os\x12\x1b\n\x06uptime\x18\x08 \x01(\x03\x42\x03\xe0\x41\x02R\x06uptime\x12@\n\x0breport_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x02R\nreportTime\x12\x19\n\x05token\x18\n \x01(\tB\x03\xe0\x41\x03R\x05token\x12@\n\x0b\x63reate_time\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\"t\n\x07Service\x12\x17\n\x13SERVICE_UNSPECIFIED\x10\x00\x12\x10\n\x0cSERVICE_MGMT\x10\x01\x12\x15\n\x11SERVICE_CONNECTOR\x10\x02\x12\x11\n\rSERVICE_MODEL\x10\x03\x12\x14\n\x10SERVICE_PIPELINE\x10\x04:1\xea\x41.\n\x18\x61pi.instill.tech/Session\x12\x12sessions/{session}\"?\n\rMgmtUsageData\x12.\n\x06usages\x18\x01 \x03(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x06usages\"\xa9\x05\n\x12\x43onnectorUsageData\x12K\n\x06usages\x18\x01 \x03(\x0b\x32\x33.vdp.usage.v1alpha.ConnectorUsageData.UserUsageDataR\x06usages\x1a\xc5\x04\n\rUserUsageData\x12\x1e\n\x08user_uid\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x07userUid\x12S\n$source_connector_connected_state_num\x18\x02 \x01(\x03\x42\x03\xe0\x41\x02R sourceConnectorConnectedStateNum\x12Y\n\'source_connector_disconnected_state_num\x18\x03 \x01(\x03\x42\x03\xe0\x41\x02R#sourceConnectorDisconnectedStateNum\x12J\n\x1fsource_connector_definition_ids\x18\x04 \x03(\tB\x03\xe0\x41\x02R\x1csourceConnectorDefinitionIds\x12]\n)destination_connector_connected_state_num\x18\x05 \x01(\x03\x42\x03\xe0\x41\x02R%destinationConnectorConnectedStateNum\x12\x63\n,destination_connector_disconnected_state_num\x18\x06 \x01(\x03\x42\x03\xe0\x41\x02R(destinationConnectorDisconnectedStateNum\x12T\n$destination_connector_definition_ids\x18\x07 \x03(\tB\x03\xe0\x41\x02R!destinationConnectorDefinitionIds\"\xe5\x03\n\x0eModelUsageData\x12G\n\x06usages\x18\x01 \x03(\x0b\x32/.vdp.usage.v1alpha.ModelUsageData.UserUsageDataR\x06usages\x1a\x89\x03\n\rUserUsageData\x12\x1e\n\x08user_uid\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x07userUid\x12\x38\n\x16model_online_state_num\x18\x02 \x01(\x03\x42\x03\xe0\x41\x02R\x13modelOnlineStateNum\x12:\n\x17model_offline_state_num\x18\x03 \x01(\x03\x42\x03\xe0\x41\x02R\x14modelOfflineStateNum\x12>\n\x19instance_online_state_num\x18\x04 \x01(\x03\x42\x03\xe0\x41\x02R\x16instanceOnlineStateNum\x12@\n\x1ainstance_offline_state_num\x18\x05 \x01(\x03\x42\x03\xe0\x41\x02R\x17instanceOfflineStateNum\x12\x35\n\x14model_definition_ids\x18\x06 \x03(\tB\x03\xe0\x41\x02R\x12modelDefinitionIds\x12)\n\x0etest_image_num\x18\x07 \x01(\x03\x42\x03\xe0\x41\x02R\x0ctestImageNum\"\xbc\x03\n\x11PipelineUsageData\x12J\n\x06usages\x18\x01 \x03(\x0b\x32\x32.vdp.usage.v1alpha.PipelineUsageData.UserUsageDataR\x06usages\x1a\xda\x02\n\rUserUsageData\x12\x1e\n\x08user_uid\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x07userUid\x12>\n\x19pipeline_active_state_num\x18\x02 \x01(\x03\x42\x03\xe0\x41\x02R\x16pipelineActiveStateNum\x12\x42\n\x1bpipeline_inactive_state_num\x18\x03 \x01(\x03\x42\x03\xe0\x41\x02R\x18pipelineInactiveStateNum\x12:\n\x17pipeline_async_mode_num\x18\x04 \x01(\x03\x42\x03\xe0\x41\x02R\x14pipelineAsyncModeNum\x12\x38\n\x16pipeline_sync_mode_num\x18\x05 \x01(\x03\x42\x03\xe0\x41\x02R\x13pipelineSyncModeNum\x12/\n\x11trigger_image_num\x18\x06 \x01(\x03\x42\x03\xe0\x41\x02R\x0ftriggerImageNum\"\xfe\x03\n\rSessionReport\x12$\n\x0bsession_uid\x18\x01 \x01(\tB\x03\xe0\x41\x02R\nsessionUid\x12\x19\n\x05token\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x05token\x12\x15\n\x03pow\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x03pow\x12\x39\n\x07session\x18\x04 \x01(\x0b\x32\x1a.vdp.usage.v1alpha.SessionB\x03\xe0\x41\x02R\x07session\x12J\n\x0fmgmt_usage_data\x18\x05 \x01(\x0b\x32 .vdp.usage.v1alpha.MgmtUsageDataH\x00R\rmgmtUsageData\x12Y\n\x14\x63onnector_usage_data\x18\x06 \x01(\x0b\x32%.vdp.usage.v1alpha.ConnectorUsageDataH\x00R\x12\x63onnectorUsageData\x12M\n\x10model_usage_data\x18\x07 \x01(\x0b\x32!.vdp.usage.v1alpha.ModelUsageDataH\x00R\x0emodelUsageData\x12V\n\x13pipeline_usage_data\x18\x08 \x01(\x0b\x32$.vdp.usage.v1alpha.PipelineUsageDataH\x00R\x11pipelineUsageDataB\x0c\n\nusage_data\"Q\n\x14\x43reateSessionRequest\x12\x39\n\x07session\x18\x01 \x01(\x0b\x32\x1a.vdp.usage.v1alpha.SessionB\x03\xe0\x41\x02R\x07session\"M\n\x15\x43reateSessionResponse\x12\x34\n\x07session\x18\x01 \x01(\x0b\x32\x1a.vdp.usage.v1alpha.SessionR\x07session\"Y\n\x18SendSessionReportRequest\x12=\n\x06report\x18\x01 \x01(\x0b\x32 .vdp.usage.v1alpha.SessionReportB\x03\xe0\x41\x02R\x06report\"\x1b\n\x19SendSessionReportResponseB\xcb\x01\n\x15\x63om.vdp.usage.v1alphaB\nUsageProtoP\x01Z@github.com/instill-ai/protogen-go/vdp/usage/v1alpha;usagev1alpha\xa2\x02\x03VUX\xaa\x02\x11Vdp.Usage.V1alpha\xca\x02\x11Vdp\\Usage\\V1alpha\xe2\x02\x1dVdp\\Usage\\V1alpha\\GPBMetadata\xea\x02\x13Vdp::Usage::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1dvdp/usage/v1alpha/usage.proto\x12\x11vdp.usage.v1alpha\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1bvdp/mgmt/v1alpha/mgmt.proto\x1a\x1dvdp/model/v1alpha/model.proto\"\x8f\x05\n\x07Session\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x41\n\x07service\x18\x03 \x01(\x0e\x32\".vdp.usage.v1alpha.Session.ServiceB\x03\xe0\x41\x02R\x07service\x12\x1d\n\x07\x65\x64ition\x18\x04 \x01(\tB\x03\xe0\x41\x02R\x07\x65\x64ition\x12\x1d\n\x07version\x18\x05 \x01(\tB\x03\xe0\x41\x02R\x07version\x12\x17\n\x04\x61rch\x18\x06 \x01(\tB\x03\xe0\x41\x02R\x04\x61rch\x12\x13\n\x02os\x18\x07 \x01(\tB\x03\xe0\x41\x02R\x02os\x12\x1b\n\x06uptime\x18\x08 \x01(\x03\x42\x03\xe0\x41\x02R\x06uptime\x12@\n\x0breport_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x02R\nreportTime\x12\x19\n\x05token\x18\n \x01(\tB\x03\xe0\x41\x03R\x05token\x12@\n\x0b\x63reate_time\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\"t\n\x07Service\x12\x17\n\x13SERVICE_UNSPECIFIED\x10\x00\x12\x10\n\x0cSERVICE_MGMT\x10\x01\x12\x15\n\x11SERVICE_CONNECTOR\x10\x02\x12\x11\n\rSERVICE_MODEL\x10\x03\x12\x14\n\x10SERVICE_PIPELINE\x10\x04:1\xea\x41.\n\x18\x61pi.instill.tech/Session\x12\x12sessions/{session}\"?\n\rMgmtUsageData\x12.\n\x06usages\x18\x01 \x03(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x06usages\"\xa9\x05\n\x12\x43onnectorUsageData\x12K\n\x06usages\x18\x01 \x03(\x0b\x32\x33.vdp.usage.v1alpha.ConnectorUsageData.UserUsageDataR\x06usages\x1a\xc5\x04\n\rUserUsageData\x12\x1e\n\x08user_uid\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x07userUid\x12S\n$source_connector_connected_state_num\x18\x02 \x01(\x03\x42\x03\xe0\x41\x02R sourceConnectorConnectedStateNum\x12Y\n\'source_connector_disconnected_state_num\x18\x03 \x01(\x03\x42\x03\xe0\x41\x02R#sourceConnectorDisconnectedStateNum\x12J\n\x1fsource_connector_definition_ids\x18\x04 \x03(\tB\x03\xe0\x41\x02R\x1csourceConnectorDefinitionIds\x12]\n)destination_connector_connected_state_num\x18\x05 \x01(\x03\x42\x03\xe0\x41\x02R%destinationConnectorConnectedStateNum\x12\x63\n,destination_connector_disconnected_state_num\x18\x06 \x01(\x03\x42\x03\xe0\x41\x02R(destinationConnectorDisconnectedStateNum\x12T\n$destination_connector_definition_ids\x18\x07 \x03(\tB\x03\xe0\x41\x02R!destinationConnectorDefinitionIds\"\xa7\x04\n\x0eModelUsageData\x12G\n\x06usages\x18\x01 \x03(\x0b\x32/.vdp.usage.v1alpha.ModelUsageData.UserUsageDataR\x06usages\x1a\xcb\x03\n\rUserUsageData\x12\x1e\n\x08user_uid\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x07userUid\x12\x38\n\x16model_online_state_num\x18\x02 \x01(\x03\x42\x03\xe0\x41\x02R\x13modelOnlineStateNum\x12:\n\x17model_offline_state_num\x18\x03 \x01(\x03\x42\x03\xe0\x41\x02R\x14modelOfflineStateNum\x12>\n\x19instance_online_state_num\x18\x04 \x01(\x03\x42\x03\xe0\x41\x02R\x16instanceOnlineStateNum\x12@\n\x1ainstance_offline_state_num\x18\x05 \x01(\x03\x42\x03\xe0\x41\x02R\x17instanceOfflineStateNum\x12\x35\n\x14model_definition_ids\x18\x06 \x03(\tB\x03\xe0\x41\x02R\x12modelDefinitionIds\x12@\n\x05tasks\x18\x07 \x03(\x0e\x32%.vdp.model.v1alpha.ModelInstance.TaskB\x03\xe0\x41\x02R\x05tasks\x12)\n\x0etest_image_num\x18\x08 \x01(\x03\x42\x03\xe0\x41\x02R\x0ctestImageNum\"\xbc\x03\n\x11PipelineUsageData\x12J\n\x06usages\x18\x01 \x03(\x0b\x32\x32.vdp.usage.v1alpha.PipelineUsageData.UserUsageDataR\x06usages\x1a\xda\x02\n\rUserUsageData\x12\x1e\n\x08user_uid\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x07userUid\x12>\n\x19pipeline_active_state_num\x18\x02 \x01(\x03\x42\x03\xe0\x41\x02R\x16pipelineActiveStateNum\x12\x42\n\x1bpipeline_inactive_state_num\x18\x03 \x01(\x03\x42\x03\xe0\x41\x02R\x18pipelineInactiveStateNum\x12:\n\x17pipeline_async_mode_num\x18\x04 \x01(\x03\x42\x03\xe0\x41\x02R\x14pipelineAsyncModeNum\x12\x38\n\x16pipeline_sync_mode_num\x18\x05 \x01(\x03\x42\x03\xe0\x41\x02R\x13pipelineSyncModeNum\x12/\n\x11trigger_image_num\x18\x06 \x01(\x03\x42\x03\xe0\x41\x02R\x0ftriggerImageNum\"\xfe\x03\n\rSessionReport\x12$\n\x0bsession_uid\x18\x01 \x01(\tB\x03\xe0\x41\x02R\nsessionUid\x12\x19\n\x05token\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x05token\x12\x15\n\x03pow\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x03pow\x12\x39\n\x07session\x18\x04 \x01(\x0b\x32\x1a.vdp.usage.v1alpha.SessionB\x03\xe0\x41\x02R\x07session\x12J\n\x0fmgmt_usage_data\x18\x05 \x01(\x0b\x32 .vdp.usage.v1alpha.MgmtUsageDataH\x00R\rmgmtUsageData\x12Y\n\x14\x63onnector_usage_data\x18\x06 \x01(\x0b\x32%.vdp.usage.v1alpha.ConnectorUsageDataH\x00R\x12\x63onnectorUsageData\x12M\n\x10model_usage_data\x18\x07 \x01(\x0b\x32!.vdp.usage.v1alpha.ModelUsageDataH\x00R\x0emodelUsageData\x12V\n\x13pipeline_usage_data\x18\x08 \x01(\x0b\x32$.vdp.usage.v1alpha.PipelineUsageDataH\x00R\x11pipelineUsageDataB\x0c\n\nusage_data\"Q\n\x14\x43reateSessionRequest\x12\x39\n\x07session\x18\x01 \x01(\x0b\x32\x1a.vdp.usage.v1alpha.SessionB\x03\xe0\x41\x02R\x07session\"M\n\x15\x43reateSessionResponse\x12\x34\n\x07session\x18\x01 \x01(\x0b\x32\x1a.vdp.usage.v1alpha.SessionR\x07session\"Y\n\x18SendSessionReportRequest\x12=\n\x06report\x18\x01 \x01(\x0b\x32 .vdp.usage.v1alpha.SessionReportB\x03\xe0\x41\x02R\x06report\"\x1b\n\x19SendSessionReportResponseB\xcb\x01\n\x15\x63om.vdp.usage.v1alphaB\nUsageProtoP\x01Z@github.com/instill-ai/protogen-go/vdp/usage/v1alpha;usagev1alpha\xa2\x02\x03VUX\xaa\x02\x11Vdp.Usage.V1alpha\xca\x02\x11Vdp\\Usage\\V1alpha\xe2\x02\x1dVdp\\Usage\\V1alpha\\GPBMetadata\xea\x02\x13Vdp::Usage::V1alphab\x06proto3')
 
 
 
@@ -186,6 +187,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _MODELUSAGEDATA_USERUSAGEDATA.fields_by_name['instance_offline_state_num']._serialized_options = b'\340A\002'
   _MODELUSAGEDATA_USERUSAGEDATA.fields_by_name['model_definition_ids']._options = None
   _MODELUSAGEDATA_USERUSAGEDATA.fields_by_name['model_definition_ids']._serialized_options = b'\340A\002'
+  _MODELUSAGEDATA_USERUSAGEDATA.fields_by_name['tasks']._options = None
+  _MODELUSAGEDATA_USERUSAGEDATA.fields_by_name['tasks']._serialized_options = b'\340A\002'
   _MODELUSAGEDATA_USERUSAGEDATA.fields_by_name['test_image_num']._options = None
   _MODELUSAGEDATA_USERUSAGEDATA.fields_by_name['test_image_num']._serialized_options = b'\340A\002'
   _PIPELINEUSAGEDATA_USERUSAGEDATA.fields_by_name['user_uid']._options = None
@@ -212,32 +215,32 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _CREATESESSIONREQUEST.fields_by_name['session']._serialized_options = b'\340A\002'
   _SENDSESSIONREPORTREQUEST.fields_by_name['report']._options = None
   _SENDSESSIONREPORTREQUEST.fields_by_name['report']._serialized_options = b'\340A\002'
-  _SESSION._serialized_start=175
-  _SESSION._serialized_end=830
-  _SESSION_SERVICE._serialized_start=663
-  _SESSION_SERVICE._serialized_end=779
-  _MGMTUSAGEDATA._serialized_start=832
-  _MGMTUSAGEDATA._serialized_end=895
-  _CONNECTORUSAGEDATA._serialized_start=898
-  _CONNECTORUSAGEDATA._serialized_end=1579
-  _CONNECTORUSAGEDATA_USERUSAGEDATA._serialized_start=998
-  _CONNECTORUSAGEDATA_USERUSAGEDATA._serialized_end=1579
-  _MODELUSAGEDATA._serialized_start=1582
-  _MODELUSAGEDATA._serialized_end=2067
-  _MODELUSAGEDATA_USERUSAGEDATA._serialized_start=1674
-  _MODELUSAGEDATA_USERUSAGEDATA._serialized_end=2067
-  _PIPELINEUSAGEDATA._serialized_start=2070
-  _PIPELINEUSAGEDATA._serialized_end=2514
-  _PIPELINEUSAGEDATA_USERUSAGEDATA._serialized_start=2168
-  _PIPELINEUSAGEDATA_USERUSAGEDATA._serialized_end=2514
-  _SESSIONREPORT._serialized_start=2517
-  _SESSIONREPORT._serialized_end=3027
-  _CREATESESSIONREQUEST._serialized_start=3029
-  _CREATESESSIONREQUEST._serialized_end=3110
-  _CREATESESSIONRESPONSE._serialized_start=3112
-  _CREATESESSIONRESPONSE._serialized_end=3189
-  _SENDSESSIONREPORTREQUEST._serialized_start=3191
-  _SENDSESSIONREPORTREQUEST._serialized_end=3280
-  _SENDSESSIONREPORTRESPONSE._serialized_start=3282
-  _SENDSESSIONREPORTRESPONSE._serialized_end=3309
+  _SESSION._serialized_start=206
+  _SESSION._serialized_end=861
+  _SESSION_SERVICE._serialized_start=694
+  _SESSION_SERVICE._serialized_end=810
+  _MGMTUSAGEDATA._serialized_start=863
+  _MGMTUSAGEDATA._serialized_end=926
+  _CONNECTORUSAGEDATA._serialized_start=929
+  _CONNECTORUSAGEDATA._serialized_end=1610
+  _CONNECTORUSAGEDATA_USERUSAGEDATA._serialized_start=1029
+  _CONNECTORUSAGEDATA_USERUSAGEDATA._serialized_end=1610
+  _MODELUSAGEDATA._serialized_start=1613
+  _MODELUSAGEDATA._serialized_end=2164
+  _MODELUSAGEDATA_USERUSAGEDATA._serialized_start=1705
+  _MODELUSAGEDATA_USERUSAGEDATA._serialized_end=2164
+  _PIPELINEUSAGEDATA._serialized_start=2167
+  _PIPELINEUSAGEDATA._serialized_end=2611
+  _PIPELINEUSAGEDATA_USERUSAGEDATA._serialized_start=2265
+  _PIPELINEUSAGEDATA_USERUSAGEDATA._serialized_end=2611
+  _SESSIONREPORT._serialized_start=2614
+  _SESSIONREPORT._serialized_end=3124
+  _CREATESESSIONREQUEST._serialized_start=3126
+  _CREATESESSIONREQUEST._serialized_end=3207
+  _CREATESESSIONRESPONSE._serialized_start=3209
+  _CREATESESSIONRESPONSE._serialized_end=3286
+  _SENDSESSIONREPORTREQUEST._serialized_start=3288
+  _SENDSESSIONREPORTREQUEST._serialized_end=3377
+  _SENDSESSIONREPORTRESPONSE._serialized_start=3379
+  _SENDSESSIONREPORTRESPONSE._serialized_end=3406
 # @@protoc_insertion_point(module_scope)
