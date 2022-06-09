@@ -122,10 +122,15 @@ class ModelServiceStub(object):
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceResponse.FromString,
                 )
-        self.TriggerModelInstanceBinaryFileUpload = channel.stream_unary(
-                '/vdp.model.v1alpha.ModelService/TriggerModelInstanceBinaryFileUpload',
-                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadRequest.SerializeToString,
-                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadResponse.FromString,
+        self.TestModelInstance = channel.unary_unary(
+                '/vdp.model.v1alpha.ModelService/TestModelInstance',
+                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceRequest.SerializeToString,
+                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceResponse.FromString,
+                )
+        self.TestModelInstanceBinaryFileUpload = channel.stream_unary(
+                '/vdp.model.v1alpha.ModelService/TestModelInstanceBinaryFileUpload',
+                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceBinaryFileUploadRequest.SerializeToString,
+                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceBinaryFileUploadResponse.FromString,
                 )
 
 
@@ -308,12 +313,20 @@ class ModelServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def TriggerModelInstanceBinaryFileUpload(self, request_iterator, context):
-        """TriggerModelInstanceBinaryFileUpload method receives a
-        TriggerModelInstanceBinaryFileUploadRequest message and returns a
-        TriggerModelInstanceBinaryFileUploadResponse message.
+    def TestModelInstance(self, request, context):
+        """TestModelInstance method receives a TestModelInstanceRequest message
+        and returns a TestModelInstanceResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
-        Endpoint: "POST/v1alpha/{name=models/*/instances/*}:trigger-multipart"
+    def TestModelInstanceBinaryFileUpload(self, request_iterator, context):
+        """TestModelInstanceBinaryFileUpload method receives a
+        TestModelInstanceBinaryFileUploadRequest message and returns a
+        TestModelInstanceBinaryFileUploadResponse message.
+
+        Endpoint: "POST/v1alpha/{name=models/*/instances/*}:test-multipart"
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -427,10 +440,15 @@ def add_ModelServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceRequest.FromString,
                     response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceResponse.SerializeToString,
             ),
-            'TriggerModelInstanceBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
-                    servicer.TriggerModelInstanceBinaryFileUpload,
-                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadRequest.FromString,
-                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadResponse.SerializeToString,
+            'TestModelInstance': grpc.unary_unary_rpc_method_handler(
+                    servicer.TestModelInstance,
+                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceRequest.FromString,
+                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceResponse.SerializeToString,
+            ),
+            'TestModelInstanceBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
+                    servicer.TestModelInstanceBinaryFileUpload,
+                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceBinaryFileUploadRequest.FromString,
+                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceBinaryFileUploadResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -801,7 +819,7 @@ class ModelService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def TriggerModelInstanceBinaryFileUpload(request_iterator,
+    def TestModelInstance(request,
             target,
             options=(),
             channel_credentials=None,
@@ -811,8 +829,25 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/vdp.model.v1alpha.ModelService/TriggerModelInstanceBinaryFileUpload',
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadRequest.SerializeToString,
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/TestModelInstance',
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceRequest.SerializeToString,
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TestModelInstanceBinaryFileUpload(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_unary(request_iterator, target, '/vdp.model.v1alpha.ModelService/TestModelInstanceBinaryFileUpload',
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceBinaryFileUploadRequest.SerializeToString,
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceBinaryFileUploadResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
