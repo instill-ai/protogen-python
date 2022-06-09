@@ -93,6 +93,11 @@ class ConnectorServiceStub(object):
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameSourceConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameSourceConnectorResponse.FromString,
                 )
+        self.ReadSourceConnector = channel.unary_unary(
+                '/vdp.connector.v1alpha.ConnectorService/ReadSourceConnector',
+                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ReadSourceConnectorRequest.SerializeToString,
+                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ReadSourceConnectorResponse.FromString,
+                )
         self.CreateDestinationConnector = channel.unary_unary(
                 '/vdp.connector.v1alpha.ConnectorService/CreateDestinationConnector',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateDestinationConnectorRequest.SerializeToString,
@@ -137,6 +142,11 @@ class ConnectorServiceStub(object):
                 '/vdp.connector.v1alpha.ConnectorService/RenameDestinationConnector',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameDestinationConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameDestinationConnectorResponse.FromString,
+                )
+        self.WriteDestinationConnector = channel.unary_unary(
+                '/vdp.connector.v1alpha.ConnectorService/WriteDestinationConnector',
+                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WriteDestinationConnectorRequest.SerializeToString,
+                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WriteDestinationConnectorResponse.FromString,
                 )
 
 
@@ -280,8 +290,16 @@ class ConnectorServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def RenameSourceConnector(self, request, context):
-        """RenameDestinationConnector method receives a RenameSourceConnectorRequest
+        """RenameSourceConnector method receives a RenameSourceConnectorRequest
         message and returns a RenameSourceConnectorResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ReadSourceConnector(self, request, context):
+        """ReadSourceConnector method receives a ReadSourceConnectorRequest
+        message and returns a ReadSourceConnectorResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -372,6 +390,15 @@ class ConnectorServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def WriteDestinationConnector(self, request, context):
+        """WriteDestinationConnector method receives a
+        WriteDestinationConnectorRequest message and returns a
+        WriteDestinationConnectorResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ConnectorServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -450,6 +477,11 @@ def add_ConnectorServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameSourceConnectorRequest.FromString,
                     response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameSourceConnectorResponse.SerializeToString,
             ),
+            'ReadSourceConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReadSourceConnector,
+                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ReadSourceConnectorRequest.FromString,
+                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ReadSourceConnectorResponse.SerializeToString,
+            ),
             'CreateDestinationConnector': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateDestinationConnector,
                     request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateDestinationConnectorRequest.FromString,
@@ -494,6 +526,11 @@ def add_ConnectorServiceServicer_to_server(servicer, server):
                     servicer.RenameDestinationConnector,
                     request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameDestinationConnectorRequest.FromString,
                     response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameDestinationConnectorResponse.SerializeToString,
+            ),
+            'WriteDestinationConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.WriteDestinationConnector,
+                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WriteDestinationConnectorRequest.FromString,
+                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WriteDestinationConnectorResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -763,6 +800,23 @@ class ConnectorService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ReadSourceConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/ReadSourceConnector',
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ReadSourceConnectorRequest.SerializeToString,
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ReadSourceConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def CreateDestinationConnector(request,
             target,
             options=(),
@@ -912,5 +966,22 @@ class ConnectorService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/RenameDestinationConnector',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameDestinationConnectorRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameDestinationConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def WriteDestinationConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/WriteDestinationConnector',
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WriteDestinationConnectorRequest.SerializeToString,
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WriteDestinationConnectorResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
