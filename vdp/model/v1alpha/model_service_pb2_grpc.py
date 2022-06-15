@@ -122,6 +122,11 @@ class ModelServiceStub(object):
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceResponse.FromString,
                 )
+        self.TriggerModelInstanceBinaryFileUpload = channel.stream_unary(
+                '/vdp.model.v1alpha.ModelService/TriggerModelInstanceBinaryFileUpload',
+                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadRequest.SerializeToString,
+                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadResponse.FromString,
+                )
         self.TestModelInstance = channel.unary_unary(
                 '/vdp.model.v1alpha.ModelService/TestModelInstance',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceRequest.SerializeToString,
@@ -313,6 +318,17 @@ class ModelServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def TriggerModelInstanceBinaryFileUpload(self, request_iterator, context):
+        """TriggerModelInstanceBinaryFileUpload method receives a
+        TriggerModelInstanceBinaryFileUploadRequest message and returns a
+        TriggerModelInstanceBinaryFileUploadResponse message.
+
+        Endpoint: "POST/v1alpha/{name=models/*/instances/*}:trigger-multipart"
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def TestModelInstance(self, request, context):
         """TestModelInstance method receives a TestModelInstanceRequest message
         and returns a TestModelInstanceResponse message.
@@ -439,6 +455,11 @@ def add_ModelServiceServicer_to_server(servicer, server):
                     servicer.TriggerModelInstance,
                     request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceRequest.FromString,
                     response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceResponse.SerializeToString,
+            ),
+            'TriggerModelInstanceBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
+                    servicer.TriggerModelInstanceBinaryFileUpload,
+                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadRequest.FromString,
+                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadResponse.SerializeToString,
             ),
             'TestModelInstance': grpc.unary_unary_rpc_method_handler(
                     servicer.TestModelInstance,
@@ -815,6 +836,23 @@ class ModelService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/TriggerModelInstance',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TriggerModelInstanceBinaryFileUpload(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_unary(request_iterator, target, '/vdp.model.v1alpha.ModelService/TriggerModelInstanceBinaryFileUpload',
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadRequest.SerializeToString,
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
