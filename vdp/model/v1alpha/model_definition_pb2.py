@@ -20,10 +20,17 @@ from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(vdp/model/v1alpha/model_definition.proto\x12\x11vdp.model.v1alpha\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/api/field_behavior.proto\"\x98\x04\n\x0fModelDefinition\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x13\n\x02id\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x02id\x12\x19\n\x05title\x18\x04 \x01(\tB\x03\xe0\x41\x03R\x05title\x12\x30\n\x11\x64ocumentation_url\x18\x05 \x01(\tB\x03\xe0\x41\x03R\x10\x64ocumentationUrl\x12\x17\n\x04icon\x18\x06 \x01(\tB\x03\xe0\x41\x03R\x04icon\x12;\n\nmodel_spec\x18\x07 \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x03R\tmodelSpec\x12L\n\x13model_instance_spec\x18\x08 \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x02R\x11modelInstanceSpec\x12@\n\x0b\x63reate_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime:K\xea\x41H\n api.instill.tech/ModelDefinition\x12$model-definitions/{model-definition}\"\xc9\x01\n\x1aListModelDefinitionRequest\x12%\n\tpage_size\x18\x01 \x01(\x03\x42\x03\xe0\x41\x01H\x00R\x08pageSize\x88\x01\x01\x12\'\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01H\x01R\tpageToken\x88\x01\x01\x12\x35\n\x04view\x18\x03 \x01(\x0e\x32\x17.vdp.model.v1alpha.ViewB\x03\xe0\x41\x01H\x02R\x04view\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\x07\n\x05_view\"\xb5\x01\n\x1bListModelDefinitionResponse\x12O\n\x11model_definitions\x18\x01 \x03(\x0b\x32\".vdp.model.v1alpha.ModelDefinitionR\x10modelDefinitions\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSize\"\xb7\x01\n\x19GetModelDefinitionRequest\x12Z\n\x04name\x18\x01 \x01(\tBF\xe0\x41\x02\xfa\x41\"\n api.instill.tech/ModelDefinition\x92\x41\x1b\xca>\x18\xfa\x02\x15model_definition.nameR\x04name\x12\x35\n\x04view\x18\x02 \x01(\x0e\x32\x17.vdp.model.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"k\n\x1aGetModelDefinitionResponse\x12M\n\x10model_definition\x18\x01 \x01(\x0b\x32\".vdp.model.v1alpha.ModelDefinitionR\x0fmodelDefinition*;\n\x04View\x12\x14\n\x10VIEW_UNSPECIFIED\x10\x00\x12\x0e\n\nVIEW_BASIC\x10\x01\x12\r\n\tVIEW_FULL\x10\x02\x42\xd5\x01\n\x15\x63om.vdp.model.v1alphaB\x14ModelDefinitionProtoP\x01Z@github.com/instill-ai/protogen-go/vdp/model/v1alpha;modelv1alpha\xa2\x02\x03VMX\xaa\x02\x11Vdp.Model.V1alpha\xca\x02\x11Vdp\\Model\\V1alpha\xe2\x02\x1dVdp\\Model\\V1alpha\\GPBMetadata\xea\x02\x13Vdp::Model::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(vdp/model/v1alpha/model_definition.proto\x12\x11vdp.model.v1alpha\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/api/field_behavior.proto\"\xe3\x04\n\x0fModelDefinition\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x13\n\x02id\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x02id\x12\x19\n\x05title\x18\x04 \x01(\tB\x03\xe0\x41\x03R\x05title\x12\x30\n\x11\x64ocumentation_url\x18\x05 \x01(\tB\x03\xe0\x41\x03R\x10\x64ocumentationUrl\x12\x17\n\x04icon\x18\x06 \x01(\tB\x03\xe0\x41\x03R\x04icon\x12I\n\rrelease_stage\x18\x07 \x01(\x0e\x32\x1f.vdp.model.v1alpha.ReleaseStageB\x03\xe0\x41\x03R\x0creleaseStage\x12;\n\nmodel_spec\x18\x08 \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x03R\tmodelSpec\x12L\n\x13model_instance_spec\x18\t \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x02R\x11modelInstanceSpec\x12@\n\x0b\x63reate_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime:K\xea\x41H\n api.instill.tech/ModelDefinition\x12$model-definitions/{model-definition}\"\xc9\x01\n\x1aListModelDefinitionRequest\x12%\n\tpage_size\x18\x01 \x01(\x03\x42\x03\xe0\x41\x01H\x00R\x08pageSize\x88\x01\x01\x12\'\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01H\x01R\tpageToken\x88\x01\x01\x12\x35\n\x04view\x18\x03 \x01(\x0e\x32\x17.vdp.model.v1alpha.ViewB\x03\xe0\x41\x01H\x02R\x04view\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\x07\n\x05_view\"\xb5\x01\n\x1bListModelDefinitionResponse\x12O\n\x11model_definitions\x18\x01 \x03(\x0b\x32\".vdp.model.v1alpha.ModelDefinitionR\x10modelDefinitions\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSize\"\xb7\x01\n\x19GetModelDefinitionRequest\x12Z\n\x04name\x18\x01 \x01(\tBF\xe0\x41\x02\xfa\x41\"\n api.instill.tech/ModelDefinition\x92\x41\x1b\xca>\x18\xfa\x02\x15model_definition.nameR\x04name\x12\x35\n\x04view\x18\x02 \x01(\x0e\x32\x17.vdp.model.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"k\n\x1aGetModelDefinitionResponse\x12M\n\x10model_definition\x18\x01 \x01(\x0b\x32\".vdp.model.v1alpha.ModelDefinitionR\x0fmodelDefinition*\x9f\x01\n\x0cReleaseStage\x12\x1d\n\x19RELEASE_STAGE_UNSPECIFIED\x10\x00\x12\x17\n\x13RELEASE_STAGE_ALPHA\x10\x01\x12\x16\n\x12RELEASE_STAGE_BETA\x10\x02\x12%\n!RELEASE_STAGE_GENERALLY_AVAILABLE\x10\x03\x12\x18\n\x14RELEASE_STAGE_CUSTOM\x10\x04*;\n\x04View\x12\x14\n\x10VIEW_UNSPECIFIED\x10\x00\x12\x0e\n\nVIEW_BASIC\x10\x01\x12\r\n\tVIEW_FULL\x10\x02\x42\xd5\x01\n\x15\x63om.vdp.model.v1alphaB\x14ModelDefinitionProtoP\x01Z@github.com/instill-ai/protogen-go/vdp/model/v1alpha;modelv1alpha\xa2\x02\x03VMX\xaa\x02\x11Vdp.Model.V1alpha\xca\x02\x11Vdp\\Model\\V1alpha\xe2\x02\x1dVdp\\Model\\V1alpha\\GPBMetadata\xea\x02\x13Vdp::Model::V1alphab\x06proto3')
 
+_RELEASESTAGE = DESCRIPTOR.enum_types_by_name['ReleaseStage']
+ReleaseStage = enum_type_wrapper.EnumTypeWrapper(_RELEASESTAGE)
 _VIEW = DESCRIPTOR.enum_types_by_name['View']
 View = enum_type_wrapper.EnumTypeWrapper(_VIEW)
+RELEASE_STAGE_UNSPECIFIED = 0
+RELEASE_STAGE_ALPHA = 1
+RELEASE_STAGE_BETA = 2
+RELEASE_STAGE_GENERALLY_AVAILABLE = 3
+RELEASE_STAGE_CUSTOM = 4
 VIEW_UNSPECIFIED = 0
 VIEW_BASIC = 1
 VIEW_FULL = 2
@@ -85,6 +92,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _MODELDEFINITION.fields_by_name['documentation_url']._serialized_options = b'\340A\003'
   _MODELDEFINITION.fields_by_name['icon']._options = None
   _MODELDEFINITION.fields_by_name['icon']._serialized_options = b'\340A\003'
+  _MODELDEFINITION.fields_by_name['release_stage']._options = None
+  _MODELDEFINITION.fields_by_name['release_stage']._serialized_options = b'\340A\003'
   _MODELDEFINITION.fields_by_name['model_spec']._options = None
   _MODELDEFINITION.fields_by_name['model_spec']._serialized_options = b'\340A\003'
   _MODELDEFINITION.fields_by_name['model_instance_spec']._options = None
@@ -105,16 +114,18 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _GETMODELDEFINITIONREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A\"\n api.instill.tech/ModelDefinition\222A\033\312>\030\372\002\025model_definition.name'
   _GETMODELDEFINITIONREQUEST.fields_by_name['view']._options = None
   _GETMODELDEFINITIONREQUEST.fields_by_name['view']._serialized_options = b'\340A\001'
-  _VIEW._serialized_start=1456
-  _VIEW._serialized_end=1515
+  _RELEASESTAGE._serialized_start=1532
+  _RELEASESTAGE._serialized_end=1691
+  _VIEW._serialized_start=1693
+  _VIEW._serialized_end=1752
   _MODELDEFINITION._serialized_start=235
-  _MODELDEFINITION._serialized_end=771
-  _LISTMODELDEFINITIONREQUEST._serialized_start=774
-  _LISTMODELDEFINITIONREQUEST._serialized_end=975
-  _LISTMODELDEFINITIONRESPONSE._serialized_start=978
-  _LISTMODELDEFINITIONRESPONSE._serialized_end=1159
-  _GETMODELDEFINITIONREQUEST._serialized_start=1162
-  _GETMODELDEFINITIONREQUEST._serialized_end=1345
-  _GETMODELDEFINITIONRESPONSE._serialized_start=1347
-  _GETMODELDEFINITIONRESPONSE._serialized_end=1454
+  _MODELDEFINITION._serialized_end=846
+  _LISTMODELDEFINITIONREQUEST._serialized_start=849
+  _LISTMODELDEFINITIONREQUEST._serialized_end=1050
+  _LISTMODELDEFINITIONRESPONSE._serialized_start=1053
+  _LISTMODELDEFINITIONRESPONSE._serialized_end=1234
+  _GETMODELDEFINITIONREQUEST._serialized_start=1237
+  _GETMODELDEFINITIONREQUEST._serialized_end=1420
+  _GETMODELDEFINITIONRESPONSE._serialized_start=1422
+  _GETMODELDEFINITIONRESPONSE._serialized_end=1529
 # @@protoc_insertion_point(module_scope)
