@@ -14,6 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
+from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from protoc_gen_openapiv2.options import annotations_pb2 as protoc__gen__openapiv2_dot_options_dot_annotations__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
@@ -21,7 +22,7 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from vdp.model.v1alpha import model_pb2 as vdp_dot_model_dot_v1alpha_dot_model__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#vdp/pipeline/v1alpha/pipeline.proto\x12\x14vdp.pipeline.v1alpha\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1dvdp/model/v1alpha/model.proto\"\xdb\x01\n\x06Recipe\x12:\n\x06source\x18\x01 \x01(\tB\"\xe0\x41\x05\xfa\x41\x1c\n\x1a\x61pi.instill.tech/ConnectorR\x06source\x12\x44\n\x0b\x64\x65stination\x18\x02 \x01(\tB\"\xe0\x41\x05\xfa\x41\x1c\n\x1a\x61pi.instill.tech/ConnectorR\x0b\x64\x65stination\x12O\n\x0fmodel_instances\x18\x03 \x03(\tB&\xe0\x41\x05\xfa\x41 \n\x1e\x61pi.instill.tech/ModelInstanceR\x0emodelInstances\"\x8c\x06\n\x08Pipeline\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x13\n\x02id\x18\x03 \x01(\tB\x03\xe0\x41\x05R\x02id\x12*\n\x0b\x64\x65scription\x18\x04 \x01(\tB\x03\xe0\x41\x01H\x01R\x0b\x64\x65scription\x88\x01\x01\x12\x39\n\x06recipe\x18\x05 \x01(\x0b\x32\x1c.vdp.pipeline.v1alpha.RecipeB\x03\xe0\x41\x05R\x06recipe\x12<\n\x04mode\x18\x06 \x01(\x0e\x32#.vdp.pipeline.v1alpha.Pipeline.ModeB\x03\xe0\x41\x03R\x04mode\x12?\n\x05state\x18\x07 \x01(\x0e\x32$.vdp.pipeline.v1alpha.Pipeline.StateB\x03\xe0\x41\x03R\x05state\x12\x33\n\x04user\x18\x08 \x01(\tB\x1d\xe0\x41\x03\xfa\x41\x17\n\x15\x61pi.instill.tech/UserH\x00R\x04user\x12\x39\n\x03org\x18\t \x01(\tB%\xe0\x41\x03\xfa\x41\x1f\n\x1d\x61pi.instill.tech/OrganizationH\x00R\x03org\x12@\n\x0b\x63reate_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\";\n\x04Mode\x12\x14\n\x10MODE_UNSPECIFIED\x10\x00\x12\r\n\tMODE_SYNC\x10\x01\x12\x0e\n\nMODE_ASYNC\x10\x02\"U\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x12\n\x0eSTATE_INACTIVE\x10\x01\x12\x10\n\x0cSTATE_ACTIVE\x10\x02\x12\x0f\n\x0bSTATE_ERROR\x10\x03:4\xea\x41\x31\n\x19\x61pi.instill.tech/Pipeline\x12\x14pipelines/{pipeline}B\x07\n\x05ownerB\x0e\n\x0c_description\"X\n\x15\x43reatePipelineRequest\x12?\n\x08pipeline\x18\x01 \x01(\x0b\x32\x1e.vdp.pipeline.v1alpha.PipelineB\x03\xe0\x41\x02R\x08pipeline\"T\n\x16\x43reatePipelineResponse\x12:\n\x08pipeline\x18\x01 \x01(\x0b\x32\x1e.vdp.pipeline.v1alpha.PipelineR\x08pipeline\"\xf2\x01\n\x13ListPipelineRequest\x12%\n\tpage_size\x18\x01 \x01(\x03\x42\x03\xe0\x41\x01H\x00R\x08pageSize\x88\x01\x01\x12\'\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01H\x01R\tpageToken\x88\x01\x01\x12\x38\n\x04view\x18\x03 \x01(\x0e\x32\x1a.vdp.pipeline.v1alpha.ViewB\x03\xe0\x41\x01H\x02R\x04view\x88\x01\x01\x12 \n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01H\x03R\x06\x66ilter\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\x07\n\x05_viewB\t\n\x07_filter\"\x9b\x01\n\x14ListPipelineResponse\x12<\n\tpipelines\x18\x01 \x03(\x0b\x32\x1e.vdp.pipeline.v1alpha.PipelineR\tpipelines\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSize\"\xa4\x01\n\x12GetPipelineRequest\x12K\n\x04name\x18\x01 \x01(\tB7\xe0\x41\x02\xfa\x41\x1b\n\x19\x61pi.instill.tech/Pipeline\x92\x41\x13\xca>\x10\xfa\x02\rpipeline.nameR\x04name\x12\x38\n\x04view\x18\x02 \x01(\x0e\x32\x1a.vdp.pipeline.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"Q\n\x13GetPipelineResponse\x12:\n\x08pipeline\x18\x01 \x01(\x0b\x32\x1e.vdp.pipeline.v1alpha.PipelineR\x08pipeline\"\x9a\x01\n\x15UpdatePipelineRequest\x12?\n\x08pipeline\x18\x01 \x01(\x0b\x32\x1e.vdp.pipeline.v1alpha.PipelineB\x03\xe0\x41\x02R\x08pipeline\x12@\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\nupdateMask\"T\n\x16UpdatePipelineResponse\x12:\n\x08pipeline\x18\x01 \x01(\x0b\x32\x1e.vdp.pipeline.v1alpha.PipelineR\x08pipeline\"d\n\x15\x44\x65letePipelineRequest\x12K\n\x04name\x18\x01 \x01(\tB7\xe0\x41\x02\xfa\x41\x1b\n\x19\x61pi.instill.tech/Pipeline\x92\x41\x13\xca>\x10\xfa\x02\rpipeline.nameR\x04name\"\x18\n\x16\x44\x65letePipelineResponse\"}\n\x15LookUpPipelineRequest\x12!\n\tpermalink\x18\x01 \x01(\tB\x03\xe0\x41\x02R\tpermalink\x12\x38\n\x04view\x18\x02 \x01(\x0e\x32\x1a.vdp.pipeline.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"T\n\x16LookUpPipelineResponse\x12:\n\x08pipeline\x18\x01 \x01(\x0b\x32\x1e.vdp.pipeline.v1alpha.PipelineR\x08pipeline\"P\n\x17\x41\x63tivatePipelineRequest\x12\x35\n\x04name\x18\x01 \x01(\tB!\xe0\x41\x02\xfa\x41\x1b\n\x19\x61pi.instill.tech/PipelineR\x04name\"V\n\x18\x41\x63tivatePipelineResponse\x12:\n\x08pipeline\x18\x01 \x01(\x0b\x32\x1e.vdp.pipeline.v1alpha.PipelineR\x08pipeline\"R\n\x19\x44\x65\x61\x63tivatePipelineRequest\x12\x35\n\x04name\x18\x01 \x01(\tB!\xe0\x41\x02\xfa\x41\x1b\n\x19\x61pi.instill.tech/PipelineR\x04name\"X\n\x1a\x44\x65\x61\x63tivatePipelineResponse\x12:\n\x08pipeline\x18\x01 \x01(\x0b\x32\x1e.vdp.pipeline.v1alpha.PipelineR\x08pipeline\"{\n\x15RenamePipelineRequest\x12\x35\n\x04name\x18\x01 \x01(\tB!\xe0\x41\x02\xfa\x41\x1b\n\x19\x61pi.instill.tech/PipelineR\x04name\x12+\n\x0fnew_pipeline_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\rnewPipelineId\"T\n\x16RenamePipelineResponse\x12:\n\x08pipeline\x18\x01 \x01(\x0b\x32\x1e.vdp.pipeline.v1alpha.PipelineR\x08pipeline\"\x9d\x01\n\x13ModelInstanceOutput\x12\x39\n\x04task\x18\x01 \x01(\x0e\x32%.vdp.model.v1alpha.ModelInstance.TaskR\x04task\x12K\n\rbatch_outputs\x18\x02 \x03(\x0b\x32&.vdp.model.v1alpha.ModelInstanceOutputR\x0c\x62\x61tchOutputs\"S\n\x05Input\x12\x1d\n\timage_url\x18\x01 \x01(\tH\x00R\x08imageUrl\x12#\n\x0cimage_base64\x18\x02 \x01(\tH\x00R\x0bimageBase64B\x06\n\x04type\"\x89\x01\n\x16TriggerPipelineRequest\x12\x35\n\x04name\x18\x01 \x01(\tB!\xe0\x41\x02\xfa\x41\x1b\n\x19\x61pi.instill.tech/PipelineR\x04name\x12\x38\n\x06inputs\x18\x02 \x03(\x0b\x32\x1b.vdp.pipeline.v1alpha.InputB\x03\xe0\x41\x02R\x06inputs\"z\n\x17TriggerPipelineResponse\x12_\n\x16model_instance_outputs\x18\x01 \x03(\x0b\x32).vdp.pipeline.v1alpha.ModelInstanceOutputR\x14modelInstanceOutputs\"\xca\x01\n&TriggerPipelineBinaryFileUploadRequest\x12\x35\n\x04name\x18\x01 \x01(\tB!\xe0\x41\x02\xfa\x41\x1b\n\x19\x61pi.instill.tech/PipelineR\x04name\x12\"\n\nfile_names\x18\x02 \x03(\tB\x03\xe0\x41\x02R\tfileNames\x12&\n\x0c\x66ile_lengths\x18\x03 \x03(\x04\x42\x03\xe0\x41\x02R\x0b\x66ileLengths\x12\x1d\n\x07\x63ontent\x18\x04 \x01(\x0c\x42\x03\xe0\x41\x02R\x07\x63ontent\"\x8a\x01\n\'TriggerPipelineBinaryFileUploadResponse\x12_\n\x16model_instance_outputs\x18\x01 \x03(\x0b\x32).vdp.pipeline.v1alpha.ModelInstanceOutputR\x14modelInstanceOutputs*;\n\x04View\x12\x14\n\x10VIEW_UNSPECIFIED\x10\x00\x12\x0e\n\nVIEW_BASIC\x10\x01\x12\r\n\tVIEW_FULL\x10\x02\x42\xe3\x01\n\x18\x63om.vdp.pipeline.v1alphaB\rPipelineProtoP\x01ZFgithub.com/instill-ai/protogen-go/vdp/pipeline/v1alpha;pipelinev1alpha\xa2\x02\x03VPX\xaa\x02\x14Vdp.Pipeline.V1alpha\xca\x02\x14Vdp\\Pipeline\\V1alpha\xe2\x02 Vdp\\Pipeline\\V1alpha\\GPBMetadata\xea\x02\x16Vdp::Pipeline::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#vdp/pipeline/v1alpha/pipeline.proto\x12\x14vdp.pipeline.v1alpha\x1a google/protobuf/field_mask.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1dvdp/model/v1alpha/model.proto\"\xdb\x01\n\x06Recipe\x12:\n\x06source\x18\x01 \x01(\tB\"\xe0\x41\x05\xfa\x41\x1c\n\x1a\x61pi.instill.tech/ConnectorR\x06source\x12\x44\n\x0b\x64\x65stination\x18\x02 \x01(\tB\"\xe0\x41\x05\xfa\x41\x1c\n\x1a\x61pi.instill.tech/ConnectorR\x0b\x64\x65stination\x12O\n\x0fmodel_instances\x18\x03 \x03(\tB&\xe0\x41\x05\xfa\x41 \n\x1e\x61pi.instill.tech/ModelInstanceR\x0emodelInstances\"\x8c\x06\n\x08Pipeline\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x13\n\x02id\x18\x03 \x01(\tB\x03\xe0\x41\x05R\x02id\x12*\n\x0b\x64\x65scription\x18\x04 \x01(\tB\x03\xe0\x41\x01H\x01R\x0b\x64\x65scription\x88\x01\x01\x12\x39\n\x06recipe\x18\x05 \x01(\x0b\x32\x1c.vdp.pipeline.v1alpha.RecipeB\x03\xe0\x41\x05R\x06recipe\x12<\n\x04mode\x18\x06 \x01(\x0e\x32#.vdp.pipeline.v1alpha.Pipeline.ModeB\x03\xe0\x41\x03R\x04mode\x12?\n\x05state\x18\x07 \x01(\x0e\x32$.vdp.pipeline.v1alpha.Pipeline.StateB\x03\xe0\x41\x03R\x05state\x12\x33\n\x04user\x18\x08 \x01(\tB\x1d\xe0\x41\x03\xfa\x41\x17\n\x15\x61pi.instill.tech/UserH\x00R\x04user\x12\x39\n\x03org\x18\t \x01(\tB%\xe0\x41\x03\xfa\x41\x1f\n\x1d\x61pi.instill.tech/OrganizationH\x00R\x03org\x12@\n\x0b\x63reate_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\";\n\x04Mode\x12\x14\n\x10MODE_UNSPECIFIED\x10\x00\x12\r\n\tMODE_SYNC\x10\x01\x12\x0e\n\nMODE_ASYNC\x10\x02\"U\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x12\n\x0eSTATE_INACTIVE\x10\x01\x12\x10\n\x0cSTATE_ACTIVE\x10\x02\x12\x0f\n\x0bSTATE_ERROR\x10\x03:4\xea\x41\x31\n\x19\x61pi.instill.tech/Pipeline\x12\x14pipelines/{pipeline}B\x07\n\x05ownerB\x0e\n\x0c_description\"X\n\x15\x43reatePipelineRequest\x12?\n\x08pipeline\x18\x01 \x01(\x0b\x32\x1e.vdp.pipeline.v1alpha.PipelineB\x03\xe0\x41\x02R\x08pipeline\"T\n\x16\x43reatePipelineResponse\x12:\n\x08pipeline\x18\x01 \x01(\x0b\x32\x1e.vdp.pipeline.v1alpha.PipelineR\x08pipeline\"\xf2\x01\n\x13ListPipelineRequest\x12%\n\tpage_size\x18\x01 \x01(\x03\x42\x03\xe0\x41\x01H\x00R\x08pageSize\x88\x01\x01\x12\'\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01H\x01R\tpageToken\x88\x01\x01\x12\x38\n\x04view\x18\x03 \x01(\x0e\x32\x1a.vdp.pipeline.v1alpha.ViewB\x03\xe0\x41\x01H\x02R\x04view\x88\x01\x01\x12 \n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01H\x03R\x06\x66ilter\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\x07\n\x05_viewB\t\n\x07_filter\"\xd6\x01\n\x14ListPipelineResponse\x12<\n\tpipelines\x18\x01 \x03(\x0b\x32\x1e.vdp.pipeline.v1alpha.PipelineR\tpipelines\x12\x44\n\x0fnext_page_token\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\rnextPageToken\x12:\n\ntotal_size\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int64ValueR\ttotalSize\"\xa4\x01\n\x12GetPipelineRequest\x12K\n\x04name\x18\x01 \x01(\tB7\xe0\x41\x02\xfa\x41\x1b\n\x19\x61pi.instill.tech/Pipeline\x92\x41\x13\xca>\x10\xfa\x02\rpipeline.nameR\x04name\x12\x38\n\x04view\x18\x02 \x01(\x0e\x32\x1a.vdp.pipeline.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"Q\n\x13GetPipelineResponse\x12:\n\x08pipeline\x18\x01 \x01(\x0b\x32\x1e.vdp.pipeline.v1alpha.PipelineR\x08pipeline\"\x9a\x01\n\x15UpdatePipelineRequest\x12?\n\x08pipeline\x18\x01 \x01(\x0b\x32\x1e.vdp.pipeline.v1alpha.PipelineB\x03\xe0\x41\x02R\x08pipeline\x12@\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\nupdateMask\"T\n\x16UpdatePipelineResponse\x12:\n\x08pipeline\x18\x01 \x01(\x0b\x32\x1e.vdp.pipeline.v1alpha.PipelineR\x08pipeline\"d\n\x15\x44\x65letePipelineRequest\x12K\n\x04name\x18\x01 \x01(\tB7\xe0\x41\x02\xfa\x41\x1b\n\x19\x61pi.instill.tech/Pipeline\x92\x41\x13\xca>\x10\xfa\x02\rpipeline.nameR\x04name\"\x18\n\x16\x44\x65letePipelineResponse\"}\n\x15LookUpPipelineRequest\x12!\n\tpermalink\x18\x01 \x01(\tB\x03\xe0\x41\x02R\tpermalink\x12\x38\n\x04view\x18\x02 \x01(\x0e\x32\x1a.vdp.pipeline.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"T\n\x16LookUpPipelineResponse\x12:\n\x08pipeline\x18\x01 \x01(\x0b\x32\x1e.vdp.pipeline.v1alpha.PipelineR\x08pipeline\"P\n\x17\x41\x63tivatePipelineRequest\x12\x35\n\x04name\x18\x01 \x01(\tB!\xe0\x41\x02\xfa\x41\x1b\n\x19\x61pi.instill.tech/PipelineR\x04name\"V\n\x18\x41\x63tivatePipelineResponse\x12:\n\x08pipeline\x18\x01 \x01(\x0b\x32\x1e.vdp.pipeline.v1alpha.PipelineR\x08pipeline\"R\n\x19\x44\x65\x61\x63tivatePipelineRequest\x12\x35\n\x04name\x18\x01 \x01(\tB!\xe0\x41\x02\xfa\x41\x1b\n\x19\x61pi.instill.tech/PipelineR\x04name\"X\n\x1a\x44\x65\x61\x63tivatePipelineResponse\x12:\n\x08pipeline\x18\x01 \x01(\x0b\x32\x1e.vdp.pipeline.v1alpha.PipelineR\x08pipeline\"{\n\x15RenamePipelineRequest\x12\x35\n\x04name\x18\x01 \x01(\tB!\xe0\x41\x02\xfa\x41\x1b\n\x19\x61pi.instill.tech/PipelineR\x04name\x12+\n\x0fnew_pipeline_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\rnewPipelineId\"T\n\x16RenamePipelineResponse\x12:\n\x08pipeline\x18\x01 \x01(\x0b\x32\x1e.vdp.pipeline.v1alpha.PipelineR\x08pipeline\"\x9d\x01\n\x13ModelInstanceOutput\x12\x39\n\x04task\x18\x01 \x01(\x0e\x32%.vdp.model.v1alpha.ModelInstance.TaskR\x04task\x12K\n\rbatch_outputs\x18\x02 \x03(\x0b\x32&.vdp.model.v1alpha.ModelInstanceOutputR\x0c\x62\x61tchOutputs\"S\n\x05Input\x12\x1d\n\timage_url\x18\x01 \x01(\tH\x00R\x08imageUrl\x12#\n\x0cimage_base64\x18\x02 \x01(\tH\x00R\x0bimageBase64B\x06\n\x04type\"\x89\x01\n\x16TriggerPipelineRequest\x12\x35\n\x04name\x18\x01 \x01(\tB!\xe0\x41\x02\xfa\x41\x1b\n\x19\x61pi.instill.tech/PipelineR\x04name\x12\x38\n\x06inputs\x18\x02 \x03(\x0b\x32\x1b.vdp.pipeline.v1alpha.InputB\x03\xe0\x41\x02R\x06inputs\"z\n\x17TriggerPipelineResponse\x12_\n\x16model_instance_outputs\x18\x01 \x03(\x0b\x32).vdp.pipeline.v1alpha.ModelInstanceOutputR\x14modelInstanceOutputs\"\xca\x01\n&TriggerPipelineBinaryFileUploadRequest\x12\x35\n\x04name\x18\x01 \x01(\tB!\xe0\x41\x02\xfa\x41\x1b\n\x19\x61pi.instill.tech/PipelineR\x04name\x12\"\n\nfile_names\x18\x02 \x03(\tB\x03\xe0\x41\x02R\tfileNames\x12&\n\x0c\x66ile_lengths\x18\x03 \x03(\x04\x42\x03\xe0\x41\x02R\x0b\x66ileLengths\x12\x1d\n\x07\x63ontent\x18\x04 \x01(\x0c\x42\x03\xe0\x41\x02R\x07\x63ontent\"\x8a\x01\n\'TriggerPipelineBinaryFileUploadResponse\x12_\n\x16model_instance_outputs\x18\x01 \x03(\x0b\x32).vdp.pipeline.v1alpha.ModelInstanceOutputR\x14modelInstanceOutputs*;\n\x04View\x12\x14\n\x10VIEW_UNSPECIFIED\x10\x00\x12\x0e\n\nVIEW_BASIC\x10\x01\x12\r\n\tVIEW_FULL\x10\x02\x42\xe3\x01\n\x18\x63om.vdp.pipeline.v1alphaB\rPipelineProtoP\x01ZFgithub.com/instill-ai/protogen-go/vdp/pipeline/v1alpha;pipelinev1alpha\xa2\x02\x03VPX\xaa\x02\x14Vdp.Pipeline.V1alpha\xca\x02\x14Vdp\\Pipeline\\V1alpha\xe2\x02 Vdp\\Pipeline\\V1alpha\\GPBMetadata\xea\x02\x16Vdp::Pipeline::V1alphab\x06proto3')
 
 _VIEW = DESCRIPTOR.enum_types_by_name['View']
 View = enum_type_wrapper.EnumTypeWrapper(_VIEW)
@@ -318,62 +319,62 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _TRIGGERPIPELINEBINARYFILEUPLOADREQUEST.fields_by_name['file_lengths']._serialized_options = b'\340A\002'
   _TRIGGERPIPELINEBINARYFILEUPLOADREQUEST.fields_by_name['content']._options = None
   _TRIGGERPIPELINEBINARYFILEUPLOADREQUEST.fields_by_name['content']._serialized_options = b'\340A\002'
-  _VIEW._serialized_start=4095
-  _VIEW._serialized_end=4154
-  _RECIPE._serialized_start=268
-  _RECIPE._serialized_end=487
-  _PIPELINE._serialized_start=490
-  _PIPELINE._serialized_end=1270
-  _PIPELINE_MODE._serialized_start=1045
-  _PIPELINE_MODE._serialized_end=1104
-  _PIPELINE_STATE._serialized_start=1106
-  _PIPELINE_STATE._serialized_end=1191
-  _CREATEPIPELINEREQUEST._serialized_start=1272
-  _CREATEPIPELINEREQUEST._serialized_end=1360
-  _CREATEPIPELINERESPONSE._serialized_start=1362
-  _CREATEPIPELINERESPONSE._serialized_end=1446
-  _LISTPIPELINEREQUEST._serialized_start=1449
-  _LISTPIPELINEREQUEST._serialized_end=1691
-  _LISTPIPELINERESPONSE._serialized_start=1694
-  _LISTPIPELINERESPONSE._serialized_end=1849
-  _GETPIPELINEREQUEST._serialized_start=1852
-  _GETPIPELINEREQUEST._serialized_end=2016
-  _GETPIPELINERESPONSE._serialized_start=2018
-  _GETPIPELINERESPONSE._serialized_end=2099
-  _UPDATEPIPELINEREQUEST._serialized_start=2102
-  _UPDATEPIPELINEREQUEST._serialized_end=2256
-  _UPDATEPIPELINERESPONSE._serialized_start=2258
-  _UPDATEPIPELINERESPONSE._serialized_end=2342
-  _DELETEPIPELINEREQUEST._serialized_start=2344
-  _DELETEPIPELINEREQUEST._serialized_end=2444
-  _DELETEPIPELINERESPONSE._serialized_start=2446
-  _DELETEPIPELINERESPONSE._serialized_end=2470
-  _LOOKUPPIPELINEREQUEST._serialized_start=2472
-  _LOOKUPPIPELINEREQUEST._serialized_end=2597
-  _LOOKUPPIPELINERESPONSE._serialized_start=2599
-  _LOOKUPPIPELINERESPONSE._serialized_end=2683
-  _ACTIVATEPIPELINEREQUEST._serialized_start=2685
-  _ACTIVATEPIPELINEREQUEST._serialized_end=2765
-  _ACTIVATEPIPELINERESPONSE._serialized_start=2767
-  _ACTIVATEPIPELINERESPONSE._serialized_end=2853
-  _DEACTIVATEPIPELINEREQUEST._serialized_start=2855
-  _DEACTIVATEPIPELINEREQUEST._serialized_end=2937
-  _DEACTIVATEPIPELINERESPONSE._serialized_start=2939
-  _DEACTIVATEPIPELINERESPONSE._serialized_end=3027
-  _RENAMEPIPELINEREQUEST._serialized_start=3029
-  _RENAMEPIPELINEREQUEST._serialized_end=3152
-  _RENAMEPIPELINERESPONSE._serialized_start=3154
-  _RENAMEPIPELINERESPONSE._serialized_end=3238
-  _MODELINSTANCEOUTPUT._serialized_start=3241
-  _MODELINSTANCEOUTPUT._serialized_end=3398
-  _INPUT._serialized_start=3400
-  _INPUT._serialized_end=3483
-  _TRIGGERPIPELINEREQUEST._serialized_start=3486
-  _TRIGGERPIPELINEREQUEST._serialized_end=3623
-  _TRIGGERPIPELINERESPONSE._serialized_start=3625
-  _TRIGGERPIPELINERESPONSE._serialized_end=3747
-  _TRIGGERPIPELINEBINARYFILEUPLOADREQUEST._serialized_start=3750
-  _TRIGGERPIPELINEBINARYFILEUPLOADREQUEST._serialized_end=3952
-  _TRIGGERPIPELINEBINARYFILEUPLOADRESPONSE._serialized_start=3955
-  _TRIGGERPIPELINEBINARYFILEUPLOADRESPONSE._serialized_end=4093
+  _VIEW._serialized_start=4186
+  _VIEW._serialized_end=4245
+  _RECIPE._serialized_start=300
+  _RECIPE._serialized_end=519
+  _PIPELINE._serialized_start=522
+  _PIPELINE._serialized_end=1302
+  _PIPELINE_MODE._serialized_start=1077
+  _PIPELINE_MODE._serialized_end=1136
+  _PIPELINE_STATE._serialized_start=1138
+  _PIPELINE_STATE._serialized_end=1223
+  _CREATEPIPELINEREQUEST._serialized_start=1304
+  _CREATEPIPELINEREQUEST._serialized_end=1392
+  _CREATEPIPELINERESPONSE._serialized_start=1394
+  _CREATEPIPELINERESPONSE._serialized_end=1478
+  _LISTPIPELINEREQUEST._serialized_start=1481
+  _LISTPIPELINEREQUEST._serialized_end=1723
+  _LISTPIPELINERESPONSE._serialized_start=1726
+  _LISTPIPELINERESPONSE._serialized_end=1940
+  _GETPIPELINEREQUEST._serialized_start=1943
+  _GETPIPELINEREQUEST._serialized_end=2107
+  _GETPIPELINERESPONSE._serialized_start=2109
+  _GETPIPELINERESPONSE._serialized_end=2190
+  _UPDATEPIPELINEREQUEST._serialized_start=2193
+  _UPDATEPIPELINEREQUEST._serialized_end=2347
+  _UPDATEPIPELINERESPONSE._serialized_start=2349
+  _UPDATEPIPELINERESPONSE._serialized_end=2433
+  _DELETEPIPELINEREQUEST._serialized_start=2435
+  _DELETEPIPELINEREQUEST._serialized_end=2535
+  _DELETEPIPELINERESPONSE._serialized_start=2537
+  _DELETEPIPELINERESPONSE._serialized_end=2561
+  _LOOKUPPIPELINEREQUEST._serialized_start=2563
+  _LOOKUPPIPELINEREQUEST._serialized_end=2688
+  _LOOKUPPIPELINERESPONSE._serialized_start=2690
+  _LOOKUPPIPELINERESPONSE._serialized_end=2774
+  _ACTIVATEPIPELINEREQUEST._serialized_start=2776
+  _ACTIVATEPIPELINEREQUEST._serialized_end=2856
+  _ACTIVATEPIPELINERESPONSE._serialized_start=2858
+  _ACTIVATEPIPELINERESPONSE._serialized_end=2944
+  _DEACTIVATEPIPELINEREQUEST._serialized_start=2946
+  _DEACTIVATEPIPELINEREQUEST._serialized_end=3028
+  _DEACTIVATEPIPELINERESPONSE._serialized_start=3030
+  _DEACTIVATEPIPELINERESPONSE._serialized_end=3118
+  _RENAMEPIPELINEREQUEST._serialized_start=3120
+  _RENAMEPIPELINEREQUEST._serialized_end=3243
+  _RENAMEPIPELINERESPONSE._serialized_start=3245
+  _RENAMEPIPELINERESPONSE._serialized_end=3329
+  _MODELINSTANCEOUTPUT._serialized_start=3332
+  _MODELINSTANCEOUTPUT._serialized_end=3489
+  _INPUT._serialized_start=3491
+  _INPUT._serialized_end=3574
+  _TRIGGERPIPELINEREQUEST._serialized_start=3577
+  _TRIGGERPIPELINEREQUEST._serialized_end=3714
+  _TRIGGERPIPELINERESPONSE._serialized_start=3716
+  _TRIGGERPIPELINERESPONSE._serialized_end=3838
+  _TRIGGERPIPELINEBINARYFILEUPLOADREQUEST._serialized_start=3841
+  _TRIGGERPIPELINEBINARYFILEUPLOADREQUEST._serialized_end=4043
+  _TRIGGERPIPELINEBINARYFILEUPLOADRESPONSE._serialized_start=4046
+  _TRIGGERPIPELINEBINARYFILEUPLOADRESPONSE._serialized_end=4184
 # @@protoc_insertion_point(module_scope)
