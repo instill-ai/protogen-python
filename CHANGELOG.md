@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.3.0-alpha](https://github.com/instill-ai/protogen-python/compare/v0.1.5-alpha...v0.3.0-alpha) (2022-08-17)
+
+
+### Miscellaneous Chores
+
+* release 0.2.0-alpha ([e925396](https://github.com/instill-ai/protogen-python/commit/e925396cf409993b2fa40550a924248be0811d88))
+* release 0.2.1-alpha ([03de6f4](https://github.com/instill-ai/protogen-python/commit/03de6f4e989bbd0e136eafa17cdb5dd3089ce4ab))
+* release 0.3.0-alpha ([a4244f1](https://github.com/instill-ai/protogen-python/commit/a4244f1a2ab3aa56d9068b35b54f72e2a8a92bf7))
+
 ### [0.1.5-alpha](https://github.com/instill-ai/protogen-python/compare/v0.1.4-alpha...v0.1.5-alpha) (2022-03-22)
 
 
