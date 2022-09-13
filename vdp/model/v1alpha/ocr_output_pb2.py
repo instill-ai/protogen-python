@@ -16,7 +16,7 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from vdp.model.v1alpha import common_pb2 as vdp_dot_model_dot_v1alpha_dot_common__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"vdp/model/v1alpha/ocr_output.proto\x12\x11vdp.model.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1evdp/model/v1alpha/common.proto\"\x87\x01\n\tOcrObject\x12\x17\n\x04text\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04text\x12\x19\n\x05score\x18\x02 \x01(\x02\x42\x03\xe0\x41\x03R\x05score\x12\x46\n\x0c\x62ounding_box\x18\x03 \x01(\x0b\x32\x1e.vdp.model.v1alpha.BoundingBoxB\x03\xe0\x41\x03R\x0b\x62oundingBox\"O\n\tOcrOutput\x12\x42\n\x0bocr_objects\x18\x01 \x03(\x0b\x32\x1c.vdp.model.v1alpha.OcrObjectB\x03\xe0\x41\x03R\nocrObjectsB\xcf\x01\n\x15\x63om.vdp.model.v1alphaB\x0eOcrOutputProtoP\x01Z@github.com/instill-ai/protogen-go/vdp/model/v1alpha;modelv1alpha\xa2\x02\x03VMX\xaa\x02\x11Vdp.Model.V1alpha\xca\x02\x11Vdp\\Model\\V1alpha\xe2\x02\x1dVdp\\Model\\V1alpha\\GPBMetadata\xea\x02\x13Vdp::Model::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"vdp/model/v1alpha/ocr_output.proto\x12\x11vdp.model.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1evdp/model/v1alpha/common.proto\"\x87\x01\n\tOcrObject\x12\x17\n\x04text\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04text\x12\x19\n\x05score\x18\x02 \x01(\x02\x42\x03\xe0\x41\x03R\x05score\x12\x46\n\x0c\x62ounding_box\x18\x03 \x01(\x0b\x32\x1e.vdp.model.v1alpha.BoundingBoxB\x03\xe0\x41\x03R\x0b\x62oundingBox\"H\n\tOcrOutput\x12;\n\x07objects\x18\x01 \x03(\x0b\x32\x1c.vdp.model.v1alpha.OcrObjectB\x03\xe0\x41\x03R\x07objectsB\xcf\x01\n\x15\x63om.vdp.model.v1alphaB\x0eOcrOutputProtoP\x01Z@github.com/instill-ai/protogen-go/vdp/model/v1alpha;modelv1alpha\xa2\x02\x03VMX\xaa\x02\x11Vdp.Model.V1alpha\xca\x02\x11Vdp\\Model\\V1alpha\xe2\x02\x1dVdp\\Model\\V1alpha\\GPBMetadata\xea\x02\x13Vdp::Model::V1alphab\x06proto3')
 
 
 
@@ -46,10 +46,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _OCROBJECT.fields_by_name['score']._serialized_options = b'\340A\003'
   _OCROBJECT.fields_by_name['bounding_box']._options = None
   _OCROBJECT.fields_by_name['bounding_box']._serialized_options = b'\340A\003'
-  _OCROUTPUT.fields_by_name['ocr_objects']._options = None
-  _OCROUTPUT.fields_by_name['ocr_objects']._serialized_options = b'\340A\003'
+  _OCROUTPUT.fields_by_name['objects']._options = None
+  _OCROUTPUT.fields_by_name['objects']._serialized_options = b'\340A\003'
   _OCROBJECT._serialized_start=123
   _OCROBJECT._serialized_end=258
   _OCROUTPUT._serialized_start=260
-  _OCROUTPUT._serialized_end=339
+  _OCROUTPUT._serialized_end=332
 # @@protoc_insertion_point(module_scope)
