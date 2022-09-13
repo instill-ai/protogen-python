@@ -16,7 +16,7 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from vdp.model.v1alpha import common_pb2 as vdp_dot_model_dot_v1alpha_dot_common__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'vdp/model/v1alpha/keypoint_output.proto\x12\x11vdp.model.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1evdp/model/v1alpha/common.proto\"C\n\x08Keypoint\x12\x11\n\x01x\x18\x01 \x01(\x02\x42\x03\xe0\x41\x03R\x01x\x12\x11\n\x01y\x18\x02 \x01(\x02\x42\x03\xe0\x41\x03R\x01y\x12\x11\n\x01v\x18\x03 \x01(\x02\x42\x03\xe0\x41\x03R\x01v\"\xbc\x01\n\x0eKeypointObject\x12G\n\x0ekeypoint_group\x18\x01 \x03(\x0b\x32\x1b.vdp.model.v1alpha.KeypointB\x03\xe0\x41\x03R\rkeypointGroup\x12\x19\n\x05score\x18\x02 \x01(\x02\x42\x03\xe0\x41\x03R\x05score\x12\x46\n\x0c\x62ounding_box\x18\x03 \x01(\x0b\x32\x1e.vdp.model.v1alpha.BoundingBoxB\x03\xe0\x41\x03R\x0b\x62oundingBox\"c\n\x0eKeypointOutput\x12Q\n\x10keypoint_objects\x18\x01 \x03(\x0b\x32!.vdp.model.v1alpha.KeypointObjectB\x03\xe0\x41\x03R\x0fkeypointObjectsB\xd4\x01\n\x15\x63om.vdp.model.v1alphaB\x13KeypointOutputProtoP\x01Z@github.com/instill-ai/protogen-go/vdp/model/v1alpha;modelv1alpha\xa2\x02\x03VMX\xaa\x02\x11Vdp.Model.V1alpha\xca\x02\x11Vdp\\Model\\V1alpha\xe2\x02\x1dVdp\\Model\\V1alpha\\GPBMetadata\xea\x02\x13Vdp::Model::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'vdp/model/v1alpha/keypoint_output.proto\x12\x11vdp.model.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1evdp/model/v1alpha/common.proto\"C\n\x08Keypoint\x12\x11\n\x01x\x18\x01 \x01(\x02\x42\x03\xe0\x41\x03R\x01x\x12\x11\n\x01y\x18\x02 \x01(\x02\x42\x03\xe0\x41\x03R\x01y\x12\x11\n\x01v\x18\x03 \x01(\x02\x42\x03\xe0\x41\x03R\x01v\"\xb3\x01\n\x0eKeypointObject\x12>\n\tkeypoints\x18\x01 \x03(\x0b\x32\x1b.vdp.model.v1alpha.KeypointB\x03\xe0\x41\x03R\tkeypoints\x12\x19\n\x05score\x18\x02 \x01(\x02\x42\x03\xe0\x41\x03R\x05score\x12\x46\n\x0c\x62ounding_box\x18\x03 \x01(\x0b\x32\x1e.vdp.model.v1alpha.BoundingBoxB\x03\xe0\x41\x03R\x0b\x62oundingBox\"c\n\x0eKeypointOutput\x12Q\n\x10keypoint_objects\x18\x01 \x03(\x0b\x32!.vdp.model.v1alpha.KeypointObjectB\x03\xe0\x41\x03R\x0fkeypointObjectsB\xd4\x01\n\x15\x63om.vdp.model.v1alphaB\x13KeypointOutputProtoP\x01Z@github.com/instill-ai/protogen-go/vdp/model/v1alpha;modelv1alpha\xa2\x02\x03VMX\xaa\x02\x11Vdp.Model.V1alpha\xca\x02\x11Vdp\\Model\\V1alpha\xe2\x02\x1dVdp\\Model\\V1alpha\\GPBMetadata\xea\x02\x13Vdp::Model::V1alphab\x06proto3')
 
 
 
@@ -54,8 +54,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _KEYPOINT.fields_by_name['y']._serialized_options = b'\340A\003'
   _KEYPOINT.fields_by_name['v']._options = None
   _KEYPOINT.fields_by_name['v']._serialized_options = b'\340A\003'
-  _KEYPOINTOBJECT.fields_by_name['keypoint_group']._options = None
-  _KEYPOINTOBJECT.fields_by_name['keypoint_group']._serialized_options = b'\340A\003'
+  _KEYPOINTOBJECT.fields_by_name['keypoints']._options = None
+  _KEYPOINTOBJECT.fields_by_name['keypoints']._serialized_options = b'\340A\003'
   _KEYPOINTOBJECT.fields_by_name['score']._options = None
   _KEYPOINTOBJECT.fields_by_name['score']._serialized_options = b'\340A\003'
   _KEYPOINTOBJECT.fields_by_name['bounding_box']._options = None
@@ -65,7 +65,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _KEYPOINT._serialized_start=127
   _KEYPOINT._serialized_end=194
   _KEYPOINTOBJECT._serialized_start=197
-  _KEYPOINTOBJECT._serialized_end=385
-  _KEYPOINTOUTPUT._serialized_start=387
-  _KEYPOINTOUTPUT._serialized_end=486
+  _KEYPOINTOBJECT._serialized_end=376
+  _KEYPOINTOUTPUT._serialized_start=378
+  _KEYPOINTOUTPUT._serialized_end=477
 # @@protoc_insertion_point(module_scope)
