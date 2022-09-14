@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.3-alpha](https://github.com/instill-ai/protogen-python/compare/v0.3.2-alpha...v0.3.3-alpha) (2022-09-14)
+
+
+### Miscellaneous Chores
+
+* release 0.3.3-alpha ([8f59628](https://github.com/instill-ai/protogen-python/commit/8f5962894723b233d27c08f84aa684a8e67bc3c2))
+
 ## [0.3.2-alpha](https://github.com/instill-ai/protogen-python/compare/v0.3.1-alpha...v0.3.2-alpha) (2022-09-13)
 
 
