@@ -323,7 +323,7 @@ class ModelServiceServicer(object):
         TriggerModelInstanceBinaryFileUploadRequest message and returns a
         TriggerModelInstanceBinaryFileUploadResponse message.
 
-        Endpoint: "POST/v1alpha/{name=models/*/instances/*}:trigger-multipart"
+        Endpoint: "POST/v1alpha/{name=models/*/instances/*}/trigger-multipart"
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -342,7 +342,7 @@ class ModelServiceServicer(object):
         TestModelInstanceBinaryFileUploadRequest message and returns a
         TestModelInstanceBinaryFileUploadResponse message.
 
-        Endpoint: "POST/v1alpha/{name=models/*/instances/*}:test-multipart"
+        Endpoint: "POST/v1alpha/{name=models/*/instances/*}/test-multipart"
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
