@@ -16,7 +16,7 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from vdp.model.v1alpha import common_pb2 as vdp_dot_model_dot_v1alpha_dot_common__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4vdp/model/v1alpha/instance_segmentation_output.proto\x12\x11vdp.model.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1evdp/model/v1alpha/common.proto\"\xb1\x01\n\x1aInstanceSegmentationObject\x12\x15\n\x03rle\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x03rle\x12\x19\n\x05score\x18\x02 \x01(\x02\x42\x03\xe0\x41\x03R\x05score\x12\x46\n\x0c\x62ounding_box\x18\x03 \x01(\x0b\x32\x1e.vdp.model.v1alpha.BoundingBoxB\x03\xe0\x41\x03R\x0b\x62oundingBox\x12\x19\n\x05label\x18\x04 \x01(\tB\x03\xe0\x41\x03R\x05label\"j\n\x1aInstanceSegmentationOutput\x12L\n\x07objects\x18\x01 \x03(\x0b\x32-.vdp.model.v1alpha.InstanceSegmentationObjectB\x03\xe0\x41\x03R\x07objectsB\xe0\x01\n\x15\x63om.vdp.model.v1alphaB\x1fInstanceSegmentationOutputProtoP\x01Z@github.com/instill-ai/protogen-go/vdp/model/v1alpha;modelv1alpha\xa2\x02\x03VMX\xaa\x02\x11Vdp.Model.V1alpha\xca\x02\x11Vdp\\Model\\V1alpha\xe2\x02\x1dVdp\\Model\\V1alpha\\GPBMetadata\xea\x02\x13Vdp::Model::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4vdp/model/v1alpha/instance_segmentation_output.proto\x12\x11vdp.model.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1evdp/model/v1alpha/common.proto\"\xb7\x01\n\x1aInstanceSegmentationObject\x12\x15\n\x03rle\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x03rle\x12\x1f\n\x08\x63\x61tegory\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x08\x63\x61tegory\x12\x19\n\x05score\x18\x03 \x01(\x02\x42\x03\xe0\x41\x03R\x05score\x12\x46\n\x0c\x62ounding_box\x18\x04 \x01(\x0b\x32\x1e.vdp.model.v1alpha.BoundingBoxB\x03\xe0\x41\x03R\x0b\x62oundingBox\"j\n\x1aInstanceSegmentationOutput\x12L\n\x07objects\x18\x01 \x03(\x0b\x32-.vdp.model.v1alpha.InstanceSegmentationObjectB\x03\xe0\x41\x03R\x07objectsB\xe0\x01\n\x15\x63om.vdp.model.v1alphaB\x1fInstanceSegmentationOutputProtoP\x01Z@github.com/instill-ai/protogen-go/vdp/model/v1alpha;modelv1alpha\xa2\x02\x03VMX\xaa\x02\x11Vdp.Model.V1alpha\xca\x02\x11Vdp\\Model\\V1alpha\xe2\x02\x1dVdp\\Model\\V1alpha\\GPBMetadata\xea\x02\x13Vdp::Model::V1alphab\x06proto3')
 
 
 
@@ -42,16 +42,16 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._serialized_options = b'\n\025com.vdp.model.v1alphaB\037InstanceSegmentationOutputProtoP\001Z@github.com/instill-ai/protogen-go/vdp/model/v1alpha;modelv1alpha\242\002\003VMX\252\002\021Vdp.Model.V1alpha\312\002\021Vdp\\Model\\V1alpha\342\002\035Vdp\\Model\\V1alpha\\GPBMetadata\352\002\023Vdp::Model::V1alpha'
   _INSTANCESEGMENTATIONOBJECT.fields_by_name['rle']._options = None
   _INSTANCESEGMENTATIONOBJECT.fields_by_name['rle']._serialized_options = b'\340A\003'
+  _INSTANCESEGMENTATIONOBJECT.fields_by_name['category']._options = None
+  _INSTANCESEGMENTATIONOBJECT.fields_by_name['category']._serialized_options = b'\340A\003'
   _INSTANCESEGMENTATIONOBJECT.fields_by_name['score']._options = None
   _INSTANCESEGMENTATIONOBJECT.fields_by_name['score']._serialized_options = b'\340A\003'
   _INSTANCESEGMENTATIONOBJECT.fields_by_name['bounding_box']._options = None
   _INSTANCESEGMENTATIONOBJECT.fields_by_name['bounding_box']._serialized_options = b'\340A\003'
-  _INSTANCESEGMENTATIONOBJECT.fields_by_name['label']._options = None
-  _INSTANCESEGMENTATIONOBJECT.fields_by_name['label']._serialized_options = b'\340A\003'
   _INSTANCESEGMENTATIONOUTPUT.fields_by_name['objects']._options = None
   _INSTANCESEGMENTATIONOUTPUT.fields_by_name['objects']._serialized_options = b'\340A\003'
   _INSTANCESEGMENTATIONOBJECT._serialized_start=141
-  _INSTANCESEGMENTATIONOBJECT._serialized_end=318
-  _INSTANCESEGMENTATIONOUTPUT._serialized_start=320
-  _INSTANCESEGMENTATIONOUTPUT._serialized_end=426
+  _INSTANCESEGMENTATIONOBJECT._serialized_end=324
+  _INSTANCESEGMENTATIONOUTPUT._serialized_start=326
+  _INSTANCESEGMENTATIONOUTPUT._serialized_end=432
 # @@protoc_insertion_point(module_scope)
