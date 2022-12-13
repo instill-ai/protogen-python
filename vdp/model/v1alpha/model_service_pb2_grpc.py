@@ -137,6 +137,21 @@ class ModelServiceStub(object):
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceBinaryFileUploadRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceBinaryFileUploadResponse.FromString,
                 )
+        self.GetModelOperation = channel.unary_unary(
+                '/vdp.model.v1alpha.ModelService/GetModelOperation',
+                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationRequest.SerializeToString,
+                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationResponse.FromString,
+                )
+        self.ListModelOperation = channel.unary_unary(
+                '/vdp.model.v1alpha.ModelService/ListModelOperation',
+                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationRequest.SerializeToString,
+                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationResponse.FromString,
+                )
+        self.CancelModelOperation = channel.unary_unary(
+                '/vdp.model.v1alpha.ModelService/CancelModelOperation',
+                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.CancelModelOperationRequest.SerializeToString,
+                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.CancelModelOperationResponse.FromString,
+                )
 
 
 class ModelServiceServicer(object):
@@ -286,7 +301,6 @@ class ModelServiceServicer(object):
 
     def DeployModelInstance(self, request, context):
         """DeployModelInstance deploy a model instance to online state
-        TODO: should use [Long-running operations](https://google.aip.dev/151)
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -294,7 +308,6 @@ class ModelServiceServicer(object):
 
     def UndeployModelInstance(self, request, context):
         """UndeployModelInstance undeploy a model instance to offline state
-        TODO: should use [Long-running operations](https://google.aip.dev/151)
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -343,6 +356,31 @@ class ModelServiceServicer(object):
         TestModelInstanceBinaryFileUploadResponse message.
 
         Endpoint: "POST/v1alpha/{name=models/*/instances/*}/test-multipart"
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetModelOperation(self, request, context):
+        """GetModelOperation method receives a
+        GetModelOperationRequest message and returns a
+        GetModelOperationResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListModelOperation(self, request, context):
+        """ListModelOperation method receives a ListModelOperationRequest message
+        and returns a ListModelOperationResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CancelModelOperation(self, request, context):
+        """CancelModelOperation method receives a CancelModelOperationRequest message
+        and returns a CancelModelOperationResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -470,6 +508,21 @@ def add_ModelServiceServicer_to_server(servicer, server):
                     servicer.TestModelInstanceBinaryFileUpload,
                     request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceBinaryFileUploadRequest.FromString,
                     response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceBinaryFileUploadResponse.SerializeToString,
+            ),
+            'GetModelOperation': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetModelOperation,
+                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationRequest.FromString,
+                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationResponse.SerializeToString,
+            ),
+            'ListModelOperation': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListModelOperation,
+                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationRequest.FromString,
+                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationResponse.SerializeToString,
+            ),
+            'CancelModelOperation': grpc.unary_unary_rpc_method_handler(
+                    servicer.CancelModelOperation,
+                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.CancelModelOperationRequest.FromString,
+                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.CancelModelOperationResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -887,5 +940,56 @@ class ModelService(object):
         return grpc.experimental.stream_unary(request_iterator, target, '/vdp.model.v1alpha.ModelService/TestModelInstanceBinaryFileUpload',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceBinaryFileUploadRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceBinaryFileUploadResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetModelOperation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/GetModelOperation',
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationRequest.SerializeToString,
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListModelOperation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/ListModelOperation',
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationRequest.SerializeToString,
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CancelModelOperation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/CancelModelOperation',
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.CancelModelOperationRequest.SerializeToString,
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.CancelModelOperationResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
