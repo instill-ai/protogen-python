@@ -15,7 +15,7 @@ _sym_db = _symbol_database.Default()
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*vdp/model/v1alpha/task_text_to_image.proto\x12\x11vdp.model.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\"+\n\x10TextToImageInput\x12\x17\n\x04text\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04text\"0\n\x11TextToImageOutput\x12\x1b\n\x06images\x18\x01 \x03(\tB\x03\xe0\x41\x03R\x06imagesB\xd5\x01\n\x15\x63om.vdp.model.v1alphaB\x14TaskTextToImageProtoP\x01Z@github.com/instill-ai/protogen-go/vdp/model/v1alpha;modelv1alpha\xa2\x02\x03VMX\xaa\x02\x11Vdp.Model.V1alpha\xca\x02\x11Vdp\\Model\\V1alpha\xe2\x02\x1dVdp\\Model\\V1alpha\\GPBMetadata\xea\x02\x13Vdp::Model::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*vdp/model/v1alpha/task_text_to_image.proto\x12\x11vdp.model.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\"\xb5\x01\n\x10TextToImageInput\x12\x1b\n\x06prompt\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x06prompt\x12\x1e\n\x05steps\x18\x02 \x01(\x03\x42\x03\xe0\x41\x03H\x00R\x05steps\x88\x01\x01\x12%\n\tcfg_scale\x18\x03 \x01(\x03\x42\x03\xe0\x41\x03H\x01R\x08\x63\x66gScale\x88\x01\x01\x12\x1c\n\x04seed\x18\x04 \x01(\x03\x42\x03\xe0\x41\x03H\x02R\x04seed\x88\x01\x01\x42\x08\n\x06_stepsB\x0c\n\n_cfg_scaleB\x07\n\x05_seed\"0\n\x11TextToImageOutput\x12\x1b\n\x06images\x18\x01 \x03(\tB\x03\xe0\x41\x03R\x06imagesB\xd5\x01\n\x15\x63om.vdp.model.v1alphaB\x14TaskTextToImageProtoP\x01Z@github.com/instill-ai/protogen-go/vdp/model/v1alpha;modelv1alpha\xa2\x02\x03VMX\xaa\x02\x11Vdp.Model.V1alpha\xca\x02\x11Vdp\\Model\\V1alpha\xe2\x02\x1dVdp\\Model\\V1alpha\\GPBMetadata\xea\x02\x13Vdp::Model::V1alphab\x06proto3')
 
 
 
@@ -39,12 +39,18 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\025com.vdp.model.v1alphaB\024TaskTextToImageProtoP\001Z@github.com/instill-ai/protogen-go/vdp/model/v1alpha;modelv1alpha\242\002\003VMX\252\002\021Vdp.Model.V1alpha\312\002\021Vdp\\Model\\V1alpha\342\002\035Vdp\\Model\\V1alpha\\GPBMetadata\352\002\023Vdp::Model::V1alpha'
-  _TEXTTOIMAGEINPUT.fields_by_name['text']._options = None
-  _TEXTTOIMAGEINPUT.fields_by_name['text']._serialized_options = b'\340A\003'
+  _TEXTTOIMAGEINPUT.fields_by_name['prompt']._options = None
+  _TEXTTOIMAGEINPUT.fields_by_name['prompt']._serialized_options = b'\340A\003'
+  _TEXTTOIMAGEINPUT.fields_by_name['steps']._options = None
+  _TEXTTOIMAGEINPUT.fields_by_name['steps']._serialized_options = b'\340A\003'
+  _TEXTTOIMAGEINPUT.fields_by_name['cfg_scale']._options = None
+  _TEXTTOIMAGEINPUT.fields_by_name['cfg_scale']._serialized_options = b'\340A\003'
+  _TEXTTOIMAGEINPUT.fields_by_name['seed']._options = None
+  _TEXTTOIMAGEINPUT.fields_by_name['seed']._serialized_options = b'\340A\003'
   _TEXTTOIMAGEOUTPUT.fields_by_name['images']._options = None
   _TEXTTOIMAGEOUTPUT.fields_by_name['images']._serialized_options = b'\340A\003'
-  _TEXTTOIMAGEINPUT._serialized_start=98
-  _TEXTTOIMAGEINPUT._serialized_end=141
-  _TEXTTOIMAGEOUTPUT._serialized_start=143
-  _TEXTTOIMAGEOUTPUT._serialized_end=191
+  _TEXTTOIMAGEINPUT._serialized_start=99
+  _TEXTTOIMAGEINPUT._serialized_end=280
+  _TEXTTOIMAGEOUTPUT._serialized_start=282
+  _TEXTTOIMAGEOUTPUT._serialized_end=330
 # @@protoc_insertion_point(module_scope)
