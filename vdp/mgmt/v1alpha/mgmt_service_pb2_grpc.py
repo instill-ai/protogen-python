@@ -56,6 +56,21 @@ class UserServiceStub(object):
                 request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserRequest.SerializeToString,
                 response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserResponse.FromString,
                 )
+        self.GetAuthenticatedUser = channel.unary_unary(
+                '/vdp.mgmt.v1alpha.UserService/GetAuthenticatedUser',
+                request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetAuthenticatedUserRequest.SerializeToString,
+                response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetAuthenticatedUserResponse.FromString,
+                )
+        self.UpdateAuthenticatedUser = channel.unary_unary(
+                '/vdp.mgmt.v1alpha.UserService/UpdateAuthenticatedUser',
+                request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateAuthenticatedUserRequest.SerializeToString,
+                response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateAuthenticatedUserResponse.FromString,
+                )
+        self.ExistUsername = channel.unary_unary(
+                '/vdp.mgmt.v1alpha.UserService/ExistUsername',
+                request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ExistUsernameRequest.SerializeToString,
+                response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ExistUsernameResponse.FromString,
+                )
 
 
 class UserServiceServicer(object):
@@ -81,7 +96,9 @@ class UserServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListUser(self, request, context):
-        """ListUser method receives a ListUserRequest message and returns a
+        """========== Admin API: create, get, update and delete user accounts
+
+        ListUser method receives a ListUserRequest message and returns a
         ListUserResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -123,6 +140,32 @@ class UserServiceServicer(object):
     def LookUpUser(self, request, context):
         """LookUpUser method receives a LookUpUserRequest message and returns a
         LookUpUserResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAuthenticatedUser(self, request, context):
+        """========== Public API: endpoints exposed to public internet traffic
+
+        GetAuthenticatedUser method receives a GetAuthenticatedUserRequest message and returns
+        a GetAuthenticatedUserResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateAuthenticatedUser(self, request, context):
+        """UpdateAuthenticatedUser method receives a UpdateAuthenticatedUserRequest message and returns 
+        a UpdateAuthenticatedUserResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ExistUsername(self, request, context):
+        """ExistUsername method receives a ExistUsernameRequest message and returns a
+        ExistUsernameResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -170,6 +213,21 @@ def add_UserServiceServicer_to_server(servicer, server):
                     servicer.LookUpUser,
                     request_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserRequest.FromString,
                     response_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserResponse.SerializeToString,
+            ),
+            'GetAuthenticatedUser': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAuthenticatedUser,
+                    request_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetAuthenticatedUserRequest.FromString,
+                    response_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetAuthenticatedUserResponse.SerializeToString,
+            ),
+            'UpdateAuthenticatedUser': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateAuthenticatedUser,
+                    request_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateAuthenticatedUserRequest.FromString,
+                    response_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateAuthenticatedUserResponse.SerializeToString,
+            ),
+            'ExistUsername': grpc.unary_unary_rpc_method_handler(
+                    servicer.ExistUsername,
+                    request_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ExistUsernameRequest.FromString,
+                    response_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ExistUsernameResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -315,5 +373,56 @@ class UserService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.UserService/LookUpUser',
             vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserRequest.SerializeToString,
             vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAuthenticatedUser(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.UserService/GetAuthenticatedUser',
+            vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetAuthenticatedUserRequest.SerializeToString,
+            vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetAuthenticatedUserResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateAuthenticatedUser(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.UserService/UpdateAuthenticatedUser',
+            vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateAuthenticatedUserRequest.SerializeToString,
+            vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateAuthenticatedUserResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ExistUsername(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.UserService/ExistUsername',
+            vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ExistUsernameRequest.SerializeToString,
+            vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ExistUsernameResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
