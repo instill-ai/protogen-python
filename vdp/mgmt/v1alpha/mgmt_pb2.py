@@ -18,7 +18,7 @@ from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1bvdp/mgmt/v1alpha/mgmt.proto\x12\x10vdp.mgmt.v1alpha\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/api/field_behavior.proto\"\xcd\x05\n\x04User\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x03uid\x12\x13\n\x02id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x02id\x12\x34\n\x04type\x18\x04 \x01(\x0e\x32\x1b.vdp.mgmt.v1alpha.OwnerTypeB\x03\xe0\x41\x03R\x04type\x12@\n\x0b\x63reate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\x12\x19\n\x05\x65mail\x18\x07 \x01(\tB\x03\xe0\x41\x02R\x05\x65mail\x12\x36\n\x04plan\x18\x08 \x01(\tB\x1d\xe0\x41\x01\xfa\x41\x17\n\x15\x61pi.instill.tech/PlanH\x00R\x04plan\x88\x01\x01\x12\'\n\nfirst_name\x18\t \x01(\tB\x03\xe0\x41\x01H\x01R\tfirstName\x88\x01\x01\x12%\n\tlast_name\x18\n \x01(\tB\x03\xe0\x41\x01H\x02R\x08lastName\x88\x01\x01\x12#\n\x08org_name\x18\x0b \x01(\tB\x03\xe0\x41\x01H\x03R\x07orgName\x88\x01\x01\x12\x1c\n\x04role\x18\x0c \x01(\tB\x03\xe0\x41\x01H\x04R\x04role\x88\x01\x01\x12<\n\x17newsletter_subscription\x18\r \x01(\x08\x42\x03\xe0\x41\x02R\x16newsletterSubscription\x12+\n\x0c\x63ookie_token\x18\x0e \x01(\tB\x03\xe0\x41\x01H\x05R\x0b\x63ookieToken\x88\x01\x01:(\xea\x41%\n\x15\x61pi.instill.tech/User\x12\x0cusers/{user}B\x07\n\x05_planB\r\n\x0b_first_nameB\x0c\n\n_last_nameB\x0b\n\t_org_nameB\x07\n\x05_roleB\x0f\n\r_cookie_token\"\xea\x01\n\x0fListUserRequest\x12%\n\tpage_size\x18\x01 \x01(\x03\x42\x03\xe0\x41\x01H\x00R\x08pageSize\x88\x01\x01\x12\'\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01H\x01R\tpageToken\x88\x01\x01\x12\x34\n\x04view\x18\x03 \x01(\x0e\x32\x16.vdp.mgmt.v1alpha.ViewB\x03\xe0\x41\x01H\x02R\x04view\x88\x01\x01\x12 \n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01H\x03R\x06\x66ilter\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\x07\n\x05_viewB\t\n\x07_filter\"\x87\x01\n\x10ListUserResponse\x12,\n\x05users\x18\x01 \x03(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x05users\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSize\"D\n\x11\x43reateUserRequest\x12/\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserB\x03\xe0\x41\x02R\x04user\"@\n\x12\x43reateUserResponse\x12*\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x04user\"\x94\x01\n\x0eGetUserRequest\x12\x43\n\x04name\x18\x01 \x01(\tB/\x92\x41\x0f\xca>\x0c\xfa\x02\tuser.name\xe0\x41\x02\xfa\x41\x17\n\x15\x61pi.instill.tech/UserR\x04name\x12\x34\n\x04view\x18\x02 \x01(\x0e\x32\x16.vdp.mgmt.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"=\n\x0fGetUserResponse\x12*\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x04user\"\x86\x01\n\x11UpdateUserRequest\x12/\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserB\x03\xe0\x41\x02R\x04user\x12@\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\nupdateMask\"@\n\x12UpdateUserResponse\x12*\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x04user\"X\n\x11\x44\x65leteUserRequest\x12\x43\n\x04name\x18\x01 \x01(\tB/\x92\x41\x0f\xca>\x0c\xfa\x02\tuser.name\xe0\x41\x02\xfa\x41\x17\n\x15\x61pi.instill.tech/UserR\x04name\"\x14\n\x12\x44\x65leteUserResponse\"u\n\x11LookUpUserRequest\x12!\n\tpermalink\x18\x01 \x01(\tB\x03\xe0\x41\x02R\tpermalink\x12\x34\n\x04view\x18\x02 \x01(\x0e\x32\x16.vdp.mgmt.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"@\n\x12LookUpUserResponse\x12*\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x04user\"\x1d\n\x1bGetAuthenticatedUserRequest\"J\n\x1cGetAuthenticatedUserResponse\x12*\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x04user\"\x93\x01\n\x1eUpdateAuthenticatedUserRequest\x12/\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserB\x03\xe0\x41\x02R\x04user\x12@\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\nupdateMask\"M\n\x1fUpdateAuthenticatedUserResponse\x12*\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x04user\"[\n\x14\x45xistUsernameRequest\x12\x43\n\x04name\x18\x01 \x01(\tB/\x92\x41\x0f\xca>\x0c\xfa\x02\tuser.name\xe0\x41\x02\xfa\x41\x17\n\x15\x61pi.instill.tech/UserR\x04name\"/\n\x15\x45xistUsernameResponse\x12\x16\n\x06\x65xists\x18\x01 \x01(\x08R\x06\x65xists*Y\n\tOwnerType\x12\x1a\n\x16OWNER_TYPE_UNSPECIFIED\x10\x00\x12\x13\n\x0fOWNER_TYPE_USER\x10\x01\x12\x1b\n\x17OWNER_TYPE_ORGANIZATION\x10\x02*;\n\x04View\x12\x14\n\x10VIEW_UNSPECIFIED\x10\x00\x12\x0e\n\nVIEW_BASIC\x10\x01\x12\r\n\tVIEW_FULL\x10\x02\x42\xc3\x01\n\x14\x63om.vdp.mgmt.v1alphaB\tMgmtProtoP\x01Z>github.com/instill-ai/protogen-go/vdp/mgmt/v1alpha;mgmtv1alpha\xa2\x02\x03VMX\xaa\x02\x10Vdp.Mgmt.V1alpha\xca\x02\x10Vdp\\Mgmt\\V1alpha\xe2\x02\x1cVdp\\Mgmt\\V1alpha\\GPBMetadata\xea\x02\x12Vdp::Mgmt::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1bvdp/mgmt/v1alpha/mgmt.proto\x12\x10vdp.mgmt.v1alpha\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/api/field_behavior.proto\"\x85\x06\n\x04User\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x03uid\x12\x13\n\x02id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x02id\x12\x34\n\x04type\x18\x04 \x01(\x0e\x32\x1b.vdp.mgmt.v1alpha.OwnerTypeB\x03\xe0\x41\x03R\x04type\x12@\n\x0b\x63reate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\x12\x19\n\x05\x65mail\x18\x07 \x01(\tB\x03\xe0\x41\x02R\x05\x65mail\x12\x36\n\x04plan\x18\x08 \x01(\tB\x1d\xe0\x41\x01\xfa\x41\x17\n\x15\x61pi.instill.tech/PlanH\x00R\x04plan\x88\x01\x01\x12\'\n\nbilling_id\x18\t \x01(\tB\x03\xe0\x41\x01H\x01R\tbillingId\x88\x01\x01\x12\'\n\nfirst_name\x18\n \x01(\tB\x03\xe0\x41\x01H\x02R\tfirstName\x88\x01\x01\x12%\n\tlast_name\x18\x0b \x01(\tB\x03\xe0\x41\x01H\x03R\x08lastName\x88\x01\x01\x12#\n\x08org_name\x18\x0c \x01(\tB\x03\xe0\x41\x01H\x04R\x07orgName\x88\x01\x01\x12\x1c\n\x04role\x18\r \x01(\tB\x03\xe0\x41\x01H\x05R\x04role\x88\x01\x01\x12<\n\x17newsletter_subscription\x18\x0e \x01(\x08\x42\x03\xe0\x41\x02R\x16newsletterSubscription\x12+\n\x0c\x63ookie_token\x18\x0f \x01(\tB\x03\xe0\x41\x01H\x06R\x0b\x63ookieToken\x88\x01\x01:(\xea\x41%\n\x15\x61pi.instill.tech/User\x12\x0cusers/{user}B\x07\n\x05_planB\r\n\x0b_billing_idB\r\n\x0b_first_nameB\x0c\n\n_last_nameB\x0b\n\t_org_nameB\x07\n\x05_roleB\x0f\n\r_cookie_token\"\xea\x01\n\x0fListUserRequest\x12%\n\tpage_size\x18\x01 \x01(\x03\x42\x03\xe0\x41\x01H\x00R\x08pageSize\x88\x01\x01\x12\'\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01H\x01R\tpageToken\x88\x01\x01\x12\x34\n\x04view\x18\x03 \x01(\x0e\x32\x16.vdp.mgmt.v1alpha.ViewB\x03\xe0\x41\x01H\x02R\x04view\x88\x01\x01\x12 \n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01H\x03R\x06\x66ilter\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\x07\n\x05_viewB\t\n\x07_filter\"\x87\x01\n\x10ListUserResponse\x12,\n\x05users\x18\x01 \x03(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x05users\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSize\"D\n\x11\x43reateUserRequest\x12/\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserB\x03\xe0\x41\x02R\x04user\"@\n\x12\x43reateUserResponse\x12*\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x04user\"\x94\x01\n\x0eGetUserRequest\x12\x43\n\x04name\x18\x01 \x01(\tB/\x92\x41\x0f\xca>\x0c\xfa\x02\tuser.name\xe0\x41\x02\xfa\x41\x17\n\x15\x61pi.instill.tech/UserR\x04name\x12\x34\n\x04view\x18\x02 \x01(\x0e\x32\x16.vdp.mgmt.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"=\n\x0fGetUserResponse\x12*\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x04user\"\x86\x01\n\x11UpdateUserRequest\x12/\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserB\x03\xe0\x41\x02R\x04user\x12@\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\nupdateMask\"@\n\x12UpdateUserResponse\x12*\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x04user\"X\n\x11\x44\x65leteUserRequest\x12\x43\n\x04name\x18\x01 \x01(\tB/\x92\x41\x0f\xca>\x0c\xfa\x02\tuser.name\xe0\x41\x02\xfa\x41\x17\n\x15\x61pi.instill.tech/UserR\x04name\"\x14\n\x12\x44\x65leteUserResponse\"u\n\x11LookUpUserRequest\x12!\n\tpermalink\x18\x01 \x01(\tB\x03\xe0\x41\x02R\tpermalink\x12\x34\n\x04view\x18\x02 \x01(\x0e\x32\x16.vdp.mgmt.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"@\n\x12LookUpUserResponse\x12*\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x04user\"\x1d\n\x1bGetAuthenticatedUserRequest\"J\n\x1cGetAuthenticatedUserResponse\x12*\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x04user\"\x93\x01\n\x1eUpdateAuthenticatedUserRequest\x12/\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserB\x03\xe0\x41\x02R\x04user\x12@\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\nupdateMask\"M\n\x1fUpdateAuthenticatedUserResponse\x12*\n\x04user\x18\x01 \x01(\x0b\x32\x16.vdp.mgmt.v1alpha.UserR\x04user\"[\n\x14\x45xistUsernameRequest\x12\x43\n\x04name\x18\x01 \x01(\tB/\x92\x41\x0f\xca>\x0c\xfa\x02\tuser.name\xe0\x41\x02\xfa\x41\x17\n\x15\x61pi.instill.tech/UserR\x04name\"/\n\x15\x45xistUsernameResponse\x12\x16\n\x06\x65xists\x18\x01 \x01(\x08R\x06\x65xists*Y\n\tOwnerType\x12\x1a\n\x16OWNER_TYPE_UNSPECIFIED\x10\x00\x12\x13\n\x0fOWNER_TYPE_USER\x10\x01\x12\x1b\n\x17OWNER_TYPE_ORGANIZATION\x10\x02*;\n\x04View\x12\x14\n\x10VIEW_UNSPECIFIED\x10\x00\x12\x0e\n\nVIEW_BASIC\x10\x01\x12\r\n\tVIEW_FULL\x10\x02\x42\xc3\x01\n\x14\x63om.vdp.mgmt.v1alphaB\tMgmtProtoP\x01Z>github.com/instill-ai/protogen-go/vdp/mgmt/v1alpha;mgmtv1alpha\xa2\x02\x03VMX\xaa\x02\x10Vdp.Mgmt.V1alpha\xca\x02\x10Vdp\\Mgmt\\V1alpha\xe2\x02\x1cVdp\\Mgmt\\V1alpha\\GPBMetadata\xea\x02\x12Vdp::Mgmt::V1alphab\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'vdp.mgmt.v1alpha.mgmt_pb2', globals())
@@ -42,6 +42,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _USER.fields_by_name['email']._serialized_options = b'\340A\002'
   _USER.fields_by_name['plan']._options = None
   _USER.fields_by_name['plan']._serialized_options = b'\340A\001\372A\027\n\025api.instill.tech/Plan'
+  _USER.fields_by_name['billing_id']._options = None
+  _USER.fields_by_name['billing_id']._serialized_options = b'\340A\001'
   _USER.fields_by_name['first_name']._options = None
   _USER.fields_by_name['first_name']._serialized_options = b'\340A\001'
   _USER.fields_by_name['last_name']._options = None
@@ -86,46 +88,46 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _UPDATEAUTHENTICATEDUSERREQUEST.fields_by_name['update_mask']._serialized_options = b'\340A\002'
   _EXISTUSERNAMEREQUEST.fields_by_name['name']._options = None
   _EXISTUSERNAMEREQUEST.fields_by_name['name']._serialized_options = b'\222A\017\312>\014\372\002\tuser.name\340A\002\372A\027\n\025api.instill.tech/User'
-  _OWNERTYPE._serialized_start=2647
-  _OWNERTYPE._serialized_end=2736
-  _VIEW._serialized_start=2738
-  _VIEW._serialized_end=2797
+  _OWNERTYPE._serialized_start=2703
+  _OWNERTYPE._serialized_end=2792
+  _VIEW._serialized_start=2794
+  _VIEW._serialized_end=2853
   _USER._serialized_start=225
-  _USER._serialized_end=942
-  _LISTUSERREQUEST._serialized_start=945
-  _LISTUSERREQUEST._serialized_end=1179
-  _LISTUSERRESPONSE._serialized_start=1182
-  _LISTUSERRESPONSE._serialized_end=1317
-  _CREATEUSERREQUEST._serialized_start=1319
-  _CREATEUSERREQUEST._serialized_end=1387
-  _CREATEUSERRESPONSE._serialized_start=1389
-  _CREATEUSERRESPONSE._serialized_end=1453
-  _GETUSERREQUEST._serialized_start=1456
-  _GETUSERREQUEST._serialized_end=1604
-  _GETUSERRESPONSE._serialized_start=1606
-  _GETUSERRESPONSE._serialized_end=1667
-  _UPDATEUSERREQUEST._serialized_start=1670
-  _UPDATEUSERREQUEST._serialized_end=1804
-  _UPDATEUSERRESPONSE._serialized_start=1806
-  _UPDATEUSERRESPONSE._serialized_end=1870
-  _DELETEUSERREQUEST._serialized_start=1872
-  _DELETEUSERREQUEST._serialized_end=1960
-  _DELETEUSERRESPONSE._serialized_start=1962
-  _DELETEUSERRESPONSE._serialized_end=1982
-  _LOOKUPUSERREQUEST._serialized_start=1984
-  _LOOKUPUSERREQUEST._serialized_end=2101
-  _LOOKUPUSERRESPONSE._serialized_start=2103
-  _LOOKUPUSERRESPONSE._serialized_end=2167
-  _GETAUTHENTICATEDUSERREQUEST._serialized_start=2169
-  _GETAUTHENTICATEDUSERREQUEST._serialized_end=2198
-  _GETAUTHENTICATEDUSERRESPONSE._serialized_start=2200
-  _GETAUTHENTICATEDUSERRESPONSE._serialized_end=2274
-  _UPDATEAUTHENTICATEDUSERREQUEST._serialized_start=2277
-  _UPDATEAUTHENTICATEDUSERREQUEST._serialized_end=2424
-  _UPDATEAUTHENTICATEDUSERRESPONSE._serialized_start=2426
-  _UPDATEAUTHENTICATEDUSERRESPONSE._serialized_end=2503
-  _EXISTUSERNAMEREQUEST._serialized_start=2505
-  _EXISTUSERNAMEREQUEST._serialized_end=2596
-  _EXISTUSERNAMERESPONSE._serialized_start=2598
-  _EXISTUSERNAMERESPONSE._serialized_end=2645
+  _USER._serialized_end=998
+  _LISTUSERREQUEST._serialized_start=1001
+  _LISTUSERREQUEST._serialized_end=1235
+  _LISTUSERRESPONSE._serialized_start=1238
+  _LISTUSERRESPONSE._serialized_end=1373
+  _CREATEUSERREQUEST._serialized_start=1375
+  _CREATEUSERREQUEST._serialized_end=1443
+  _CREATEUSERRESPONSE._serialized_start=1445
+  _CREATEUSERRESPONSE._serialized_end=1509
+  _GETUSERREQUEST._serialized_start=1512
+  _GETUSERREQUEST._serialized_end=1660
+  _GETUSERRESPONSE._serialized_start=1662
+  _GETUSERRESPONSE._serialized_end=1723
+  _UPDATEUSERREQUEST._serialized_start=1726
+  _UPDATEUSERREQUEST._serialized_end=1860
+  _UPDATEUSERRESPONSE._serialized_start=1862
+  _UPDATEUSERRESPONSE._serialized_end=1926
+  _DELETEUSERREQUEST._serialized_start=1928
+  _DELETEUSERREQUEST._serialized_end=2016
+  _DELETEUSERRESPONSE._serialized_start=2018
+  _DELETEUSERRESPONSE._serialized_end=2038
+  _LOOKUPUSERREQUEST._serialized_start=2040
+  _LOOKUPUSERREQUEST._serialized_end=2157
+  _LOOKUPUSERRESPONSE._serialized_start=2159
+  _LOOKUPUSERRESPONSE._serialized_end=2223
+  _GETAUTHENTICATEDUSERREQUEST._serialized_start=2225
+  _GETAUTHENTICATEDUSERREQUEST._serialized_end=2254
+  _GETAUTHENTICATEDUSERRESPONSE._serialized_start=2256
+  _GETAUTHENTICATEDUSERRESPONSE._serialized_end=2330
+  _UPDATEAUTHENTICATEDUSERREQUEST._serialized_start=2333
+  _UPDATEAUTHENTICATEDUSERREQUEST._serialized_end=2480
+  _UPDATEAUTHENTICATEDUSERRESPONSE._serialized_start=2482
+  _UPDATEAUTHENTICATEDUSERRESPONSE._serialized_end=2559
+  _EXISTUSERNAMEREQUEST._serialized_start=2561
+  _EXISTUSERNAMEREQUEST._serialized_end=2652
+  _EXISTUSERNAMERESPONSE._serialized_start=2654
+  _EXISTUSERNAMERESPONSE._serialized_end=2701
 # @@protoc_insertion_point(module_scope)
