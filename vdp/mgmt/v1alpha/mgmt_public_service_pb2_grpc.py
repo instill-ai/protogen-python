@@ -6,8 +6,8 @@ from vdp.mgmt.v1alpha import healthcheck_pb2 as vdp_dot_mgmt_dot_v1alpha_dot_hea
 from vdp.mgmt.v1alpha import mgmt_pb2 as vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2
 
 
-class UserPublicServiceStub(object):
-    """User service responds to incoming user requests.
+class MgmtPublicServiceStub(object):
+    """Mgmt service responds to incoming requests.
     """
 
     def __init__(self, channel):
@@ -17,34 +17,34 @@ class UserPublicServiceStub(object):
             channel: A grpc.Channel.
         """
         self.Liveness = channel.unary_unary(
-                '/vdp.mgmt.v1alpha.UserPublicService/Liveness',
+                '/vdp.mgmt.v1alpha.MgmtPublicService/Liveness',
                 request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.SerializeToString,
                 response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.FromString,
                 )
         self.Readiness = channel.unary_unary(
-                '/vdp.mgmt.v1alpha.UserPublicService/Readiness',
+                '/vdp.mgmt.v1alpha.MgmtPublicService/Readiness',
                 request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
                 response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
                 )
         self.GetAuthenticatedUser = channel.unary_unary(
-                '/vdp.mgmt.v1alpha.UserPublicService/GetAuthenticatedUser',
+                '/vdp.mgmt.v1alpha.MgmtPublicService/GetAuthenticatedUser',
                 request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetAuthenticatedUserRequest.SerializeToString,
                 response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetAuthenticatedUserResponse.FromString,
                 )
         self.UpdateAuthenticatedUser = channel.unary_unary(
-                '/vdp.mgmt.v1alpha.UserPublicService/UpdateAuthenticatedUser',
+                '/vdp.mgmt.v1alpha.MgmtPublicService/UpdateAuthenticatedUser',
                 request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateAuthenticatedUserRequest.SerializeToString,
                 response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateAuthenticatedUserResponse.FromString,
                 )
         self.ExistUsername = channel.unary_unary(
-                '/vdp.mgmt.v1alpha.UserPublicService/ExistUsername',
+                '/vdp.mgmt.v1alpha.MgmtPublicService/ExistUsername',
                 request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ExistUsernameRequest.SerializeToString,
                 response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ExistUsernameResponse.FromString,
                 )
 
 
-class UserPublicServiceServicer(object):
-    """User service responds to incoming user requests.
+class MgmtPublicServiceServicer(object):
+    """Mgmt service responds to incoming requests.
     """
 
     def Liveness(self, request, context):
@@ -92,7 +92,7 @@ class UserPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_UserPublicServiceServicer_to_server(servicer, server):
+def add_MgmtPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Liveness': grpc.unary_unary_rpc_method_handler(
                     servicer.Liveness,
@@ -121,13 +121,13 @@ def add_UserPublicServiceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'vdp.mgmt.v1alpha.UserPublicService', rpc_method_handlers)
+            'vdp.mgmt.v1alpha.MgmtPublicService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class UserPublicService(object):
-    """User service responds to incoming user requests.
+class MgmtPublicService(object):
+    """Mgmt service responds to incoming requests.
     """
 
     @staticmethod
@@ -141,7 +141,7 @@ class UserPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.UserPublicService/Liveness',
+        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.MgmtPublicService/Liveness',
             vdp_dot_mgmt_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.SerializeToString,
             vdp_dot_mgmt_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.FromString,
             options, channel_credentials,
@@ -158,7 +158,7 @@ class UserPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.UserPublicService/Readiness',
+        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.MgmtPublicService/Readiness',
             vdp_dot_mgmt_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
             vdp_dot_mgmt_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
             options, channel_credentials,
@@ -175,7 +175,7 @@ class UserPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.UserPublicService/GetAuthenticatedUser',
+        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.MgmtPublicService/GetAuthenticatedUser',
             vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetAuthenticatedUserRequest.SerializeToString,
             vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetAuthenticatedUserResponse.FromString,
             options, channel_credentials,
@@ -192,7 +192,7 @@ class UserPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.UserPublicService/UpdateAuthenticatedUser',
+        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.MgmtPublicService/UpdateAuthenticatedUser',
             vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateAuthenticatedUserRequest.SerializeToString,
             vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateAuthenticatedUserResponse.FromString,
             options, channel_credentials,
@@ -209,7 +209,7 @@ class UserPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.UserPublicService/ExistUsername',
+        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.MgmtPublicService/ExistUsername',
             vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ExistUsernameRequest.SerializeToString,
             vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ExistUsernameResponse.FromString,
             options, channel_credentials,

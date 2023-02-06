@@ -16,7 +16,7 @@ from google.api import client_pb2 as google_dot_api_dot_client__pb2
 from vdp.mgmt.v1alpha import mgmt_pb2 as vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)vdp/mgmt/v1alpha/mgmt_admin_service.proto\x12\x10vdp.mgmt.v1alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1bvdp/mgmt/v1alpha/mgmt.proto2\xdb\x06\n\x10UserAdminService\x12o\n\x08ListUser\x12!.vdp.mgmt.v1alpha.ListUserRequest\x1a\".vdp.mgmt.v1alpha.ListUserResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/v1alpha/admin/users\x12\x82\x01\n\nCreateUser\x12#.vdp.mgmt.v1alpha.CreateUserRequest\x1a$.vdp.mgmt.v1alpha.CreateUserResponse\")\xda\x41\x04user\x82\xd3\xe4\x93\x02\x1c:\x04user\"\x14/v1alpha/admin/users\x12|\n\x07GetUser\x12 .vdp.mgmt.v1alpha.GetUserRequest\x1a!.vdp.mgmt.v1alpha.GetUserResponse\",\xda\x41\x04name\x82\xd3\xe4\x93\x02\x1f\x12\x1d/v1alpha/admin/{name=users/*}\x12\x9c\x01\n\nUpdateUser\x12#.vdp.mgmt.v1alpha.UpdateUserRequest\x1a$.vdp.mgmt.v1alpha.UpdateUserResponse\"C\xda\x41\x10user,update_mask\x82\xd3\xe4\x93\x02*:\x04user2\"/v1alpha/admin/{user.name=users/*}\x12\x85\x01\n\nDeleteUser\x12#.vdp.mgmt.v1alpha.DeleteUserRequest\x1a$.vdp.mgmt.v1alpha.DeleteUserResponse\",\xda\x41\x04name\x82\xd3\xe4\x93\x02\x1f*\x1d/v1alpha/admin/{name=users/*}\x12\x96\x01\n\nLookUpUser\x12#.vdp.mgmt.v1alpha.LookUpUserRequest\x1a$.vdp.mgmt.v1alpha.LookUpUserResponse\"=\xda\x41\tpermalink\x82\xd3\xe4\x93\x02+\x12)/v1alpha/admin/{permalink=users/*}/lookUp\x1a\x13\xca\x41\x10\x61pi.instill.techB\xcf\x01\n\x14\x63om.vdp.mgmt.v1alphaB\x15MgmtAdminServiceProtoP\x01Z>github.com/instill-ai/protogen-go/vdp/mgmt/v1alpha;mgmtv1alpha\xa2\x02\x03VMX\xaa\x02\x10Vdp.Mgmt.V1alpha\xca\x02\x10Vdp\\Mgmt\\V1alpha\xe2\x02\x1cVdp\\Mgmt\\V1alpha\\GPBMetadata\xea\x02\x12Vdp::Mgmt::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)vdp/mgmt/v1alpha/mgmt_admin_service.proto\x12\x10vdp.mgmt.v1alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1bvdp/mgmt/v1alpha/mgmt.proto2\xdb\x06\n\x10MgmtAdminService\x12o\n\x08ListUser\x12!.vdp.mgmt.v1alpha.ListUserRequest\x1a\".vdp.mgmt.v1alpha.ListUserResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/v1alpha/admin/users\x12\x82\x01\n\nCreateUser\x12#.vdp.mgmt.v1alpha.CreateUserRequest\x1a$.vdp.mgmt.v1alpha.CreateUserResponse\")\xda\x41\x04user\x82\xd3\xe4\x93\x02\x1c:\x04user\"\x14/v1alpha/admin/users\x12|\n\x07GetUser\x12 .vdp.mgmt.v1alpha.GetUserRequest\x1a!.vdp.mgmt.v1alpha.GetUserResponse\",\xda\x41\x04name\x82\xd3\xe4\x93\x02\x1f\x12\x1d/v1alpha/admin/{name=users/*}\x12\x9c\x01\n\nUpdateUser\x12#.vdp.mgmt.v1alpha.UpdateUserRequest\x1a$.vdp.mgmt.v1alpha.UpdateUserResponse\"C\xda\x41\x10user,update_mask\x82\xd3\xe4\x93\x02*:\x04user2\"/v1alpha/admin/{user.name=users/*}\x12\x85\x01\n\nDeleteUser\x12#.vdp.mgmt.v1alpha.DeleteUserRequest\x1a$.vdp.mgmt.v1alpha.DeleteUserResponse\",\xda\x41\x04name\x82\xd3\xe4\x93\x02\x1f*\x1d/v1alpha/admin/{name=users/*}\x12\x96\x01\n\nLookUpUser\x12#.vdp.mgmt.v1alpha.LookUpUserRequest\x1a$.vdp.mgmt.v1alpha.LookUpUserResponse\"=\xda\x41\tpermalink\x82\xd3\xe4\x93\x02+\x12)/v1alpha/admin/{permalink=users/*}/lookUp\x1a\x13\xca\x41\x10\x61pi.instill.techB\xcf\x01\n\x14\x63om.vdp.mgmt.v1alphaB\x15MgmtAdminServiceProtoP\x01Z>github.com/instill-ai/protogen-go/vdp/mgmt/v1alpha;mgmtv1alpha\xa2\x02\x03VMX\xaa\x02\x10Vdp.Mgmt.V1alpha\xca\x02\x10Vdp\\Mgmt\\V1alpha\xe2\x02\x1cVdp\\Mgmt\\V1alpha\\GPBMetadata\xea\x02\x12Vdp::Mgmt::V1alphab\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'vdp.mgmt.v1alpha.mgmt_admin_service_pb2', globals())
@@ -24,20 +24,20 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\024com.vdp.mgmt.v1alphaB\025MgmtAdminServiceProtoP\001Z>github.com/instill-ai/protogen-go/vdp/mgmt/v1alpha;mgmtv1alpha\242\002\003VMX\252\002\020Vdp.Mgmt.V1alpha\312\002\020Vdp\\Mgmt\\V1alpha\342\002\034Vdp\\Mgmt\\V1alpha\\GPBMetadata\352\002\022Vdp::Mgmt::V1alpha'
-  _USERADMINSERVICE._options = None
-  _USERADMINSERVICE._serialized_options = b'\312A\020api.instill.tech'
-  _USERADMINSERVICE.methods_by_name['ListUser']._options = None
-  _USERADMINSERVICE.methods_by_name['ListUser']._serialized_options = b'\202\323\344\223\002\026\022\024/v1alpha/admin/users'
-  _USERADMINSERVICE.methods_by_name['CreateUser']._options = None
-  _USERADMINSERVICE.methods_by_name['CreateUser']._serialized_options = b'\332A\004user\202\323\344\223\002\034:\004user\"\024/v1alpha/admin/users'
-  _USERADMINSERVICE.methods_by_name['GetUser']._options = None
-  _USERADMINSERVICE.methods_by_name['GetUser']._serialized_options = b'\332A\004name\202\323\344\223\002\037\022\035/v1alpha/admin/{name=users/*}'
-  _USERADMINSERVICE.methods_by_name['UpdateUser']._options = None
-  _USERADMINSERVICE.methods_by_name['UpdateUser']._serialized_options = b'\332A\020user,update_mask\202\323\344\223\002*:\004user2\"/v1alpha/admin/{user.name=users/*}'
-  _USERADMINSERVICE.methods_by_name['DeleteUser']._options = None
-  _USERADMINSERVICE.methods_by_name['DeleteUser']._serialized_options = b'\332A\004name\202\323\344\223\002\037*\035/v1alpha/admin/{name=users/*}'
-  _USERADMINSERVICE.methods_by_name['LookUpUser']._options = None
-  _USERADMINSERVICE.methods_by_name['LookUpUser']._serialized_options = b'\332A\tpermalink\202\323\344\223\002+\022)/v1alpha/admin/{permalink=users/*}/lookUp'
-  _USERADMINSERVICE._serialized_start=148
-  _USERADMINSERVICE._serialized_end=1007
+  _MGMTADMINSERVICE._options = None
+  _MGMTADMINSERVICE._serialized_options = b'\312A\020api.instill.tech'
+  _MGMTADMINSERVICE.methods_by_name['ListUser']._options = None
+  _MGMTADMINSERVICE.methods_by_name['ListUser']._serialized_options = b'\202\323\344\223\002\026\022\024/v1alpha/admin/users'
+  _MGMTADMINSERVICE.methods_by_name['CreateUser']._options = None
+  _MGMTADMINSERVICE.methods_by_name['CreateUser']._serialized_options = b'\332A\004user\202\323\344\223\002\034:\004user\"\024/v1alpha/admin/users'
+  _MGMTADMINSERVICE.methods_by_name['GetUser']._options = None
+  _MGMTADMINSERVICE.methods_by_name['GetUser']._serialized_options = b'\332A\004name\202\323\344\223\002\037\022\035/v1alpha/admin/{name=users/*}'
+  _MGMTADMINSERVICE.methods_by_name['UpdateUser']._options = None
+  _MGMTADMINSERVICE.methods_by_name['UpdateUser']._serialized_options = b'\332A\020user,update_mask\202\323\344\223\002*:\004user2\"/v1alpha/admin/{user.name=users/*}'
+  _MGMTADMINSERVICE.methods_by_name['DeleteUser']._options = None
+  _MGMTADMINSERVICE.methods_by_name['DeleteUser']._serialized_options = b'\332A\004name\202\323\344\223\002\037*\035/v1alpha/admin/{name=users/*}'
+  _MGMTADMINSERVICE.methods_by_name['LookUpUser']._options = None
+  _MGMTADMINSERVICE.methods_by_name['LookUpUser']._serialized_options = b'\332A\tpermalink\202\323\344\223\002+\022)/v1alpha/admin/{permalink=users/*}/lookUp'
+  _MGMTADMINSERVICE._serialized_start=148
+  _MGMTADMINSERVICE._serialized_end=1007
 # @@protoc_insertion_point(module_scope)

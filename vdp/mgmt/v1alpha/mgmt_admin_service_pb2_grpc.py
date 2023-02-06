@@ -5,8 +5,8 @@ import grpc
 from vdp.mgmt.v1alpha import mgmt_pb2 as vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2
 
 
-class UserAdminServiceStub(object):
-    """User service responds to incoming user requests.
+class MgmtAdminServiceStub(object):
+    """Mgmt service responds to incoming requests.
     """
 
     def __init__(self, channel):
@@ -16,39 +16,39 @@ class UserAdminServiceStub(object):
             channel: A grpc.Channel.
         """
         self.ListUser = channel.unary_unary(
-                '/vdp.mgmt.v1alpha.UserAdminService/ListUser',
+                '/vdp.mgmt.v1alpha.MgmtAdminService/ListUser',
                 request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListUserRequest.SerializeToString,
                 response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListUserResponse.FromString,
                 )
         self.CreateUser = channel.unary_unary(
-                '/vdp.mgmt.v1alpha.UserAdminService/CreateUser',
+                '/vdp.mgmt.v1alpha.MgmtAdminService/CreateUser',
                 request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserRequest.SerializeToString,
                 response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserResponse.FromString,
                 )
         self.GetUser = channel.unary_unary(
-                '/vdp.mgmt.v1alpha.UserAdminService/GetUser',
+                '/vdp.mgmt.v1alpha.MgmtAdminService/GetUser',
                 request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserRequest.SerializeToString,
                 response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserResponse.FromString,
                 )
         self.UpdateUser = channel.unary_unary(
-                '/vdp.mgmt.v1alpha.UserAdminService/UpdateUser',
+                '/vdp.mgmt.v1alpha.MgmtAdminService/UpdateUser',
                 request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserRequest.SerializeToString,
                 response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserResponse.FromString,
                 )
         self.DeleteUser = channel.unary_unary(
-                '/vdp.mgmt.v1alpha.UserAdminService/DeleteUser',
+                '/vdp.mgmt.v1alpha.MgmtAdminService/DeleteUser',
                 request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserRequest.SerializeToString,
                 response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserResponse.FromString,
                 )
         self.LookUpUser = channel.unary_unary(
-                '/vdp.mgmt.v1alpha.UserAdminService/LookUpUser',
+                '/vdp.mgmt.v1alpha.MgmtAdminService/LookUpUser',
                 request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserRequest.SerializeToString,
                 response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserResponse.FromString,
                 )
 
 
-class UserAdminServiceServicer(object):
-    """User service responds to incoming user requests.
+class MgmtAdminServiceServicer(object):
+    """Mgmt service responds to incoming requests.
     """
 
     def ListUser(self, request, context):
@@ -102,7 +102,7 @@ class UserAdminServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_UserAdminServiceServicer_to_server(servicer, server):
+def add_MgmtAdminServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'ListUser': grpc.unary_unary_rpc_method_handler(
                     servicer.ListUser,
@@ -136,13 +136,13 @@ def add_UserAdminServiceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'vdp.mgmt.v1alpha.UserAdminService', rpc_method_handlers)
+            'vdp.mgmt.v1alpha.MgmtAdminService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class UserAdminService(object):
-    """User service responds to incoming user requests.
+class MgmtAdminService(object):
+    """Mgmt service responds to incoming requests.
     """
 
     @staticmethod
@@ -156,7 +156,7 @@ class UserAdminService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.UserAdminService/ListUser',
+        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.MgmtAdminService/ListUser',
             vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListUserRequest.SerializeToString,
             vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListUserResponse.FromString,
             options, channel_credentials,
@@ -173,7 +173,7 @@ class UserAdminService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.UserAdminService/CreateUser',
+        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.MgmtAdminService/CreateUser',
             vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserRequest.SerializeToString,
             vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserResponse.FromString,
             options, channel_credentials,
@@ -190,7 +190,7 @@ class UserAdminService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.UserAdminService/GetUser',
+        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.MgmtAdminService/GetUser',
             vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserRequest.SerializeToString,
             vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserResponse.FromString,
             options, channel_credentials,
@@ -207,7 +207,7 @@ class UserAdminService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.UserAdminService/UpdateUser',
+        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.MgmtAdminService/UpdateUser',
             vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserRequest.SerializeToString,
             vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserResponse.FromString,
             options, channel_credentials,
@@ -224,7 +224,7 @@ class UserAdminService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.UserAdminService/DeleteUser',
+        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.MgmtAdminService/DeleteUser',
             vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserRequest.SerializeToString,
             vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserResponse.FromString,
             options, channel_credentials,
@@ -241,7 +241,7 @@ class UserAdminService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.UserAdminService/LookUpUser',
+        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.MgmtAdminService/LookUpUser',
             vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserRequest.SerializeToString,
             vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserResponse.FromString,
             options, channel_credentials,
