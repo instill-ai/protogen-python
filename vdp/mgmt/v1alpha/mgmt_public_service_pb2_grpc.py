@@ -7,7 +7,7 @@ from vdp.mgmt.v1alpha import mgmt_pb2 as vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2
 
 
 class MgmtPublicServiceStub(object):
-    """Mgmt service responds to incoming requests.
+    """Mgmt service responds to external incoming requests.
     """
 
     def __init__(self, channel):
@@ -26,15 +26,15 @@ class MgmtPublicServiceStub(object):
                 request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
                 response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
                 )
-        self.GetAuthenticatedUser = channel.unary_unary(
-                '/vdp.mgmt.v1alpha.MgmtPublicService/GetAuthenticatedUser',
-                request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetAuthenticatedUserRequest.SerializeToString,
-                response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetAuthenticatedUserResponse.FromString,
+        self.QueryAuthenticatedUser = channel.unary_unary(
+                '/vdp.mgmt.v1alpha.MgmtPublicService/QueryAuthenticatedUser',
+                request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.QueryAuthenticatedUserRequest.SerializeToString,
+                response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.QueryAuthenticatedUserResponse.FromString,
                 )
-        self.UpdateAuthenticatedUser = channel.unary_unary(
-                '/vdp.mgmt.v1alpha.MgmtPublicService/UpdateAuthenticatedUser',
-                request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateAuthenticatedUserRequest.SerializeToString,
-                response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateAuthenticatedUserResponse.FromString,
+        self.PatchAuthenticatedUser = channel.unary_unary(
+                '/vdp.mgmt.v1alpha.MgmtPublicService/PatchAuthenticatedUser',
+                request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.PatchAuthenticatedUserRequest.SerializeToString,
+                response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.PatchAuthenticatedUserResponse.FromString,
                 )
         self.ExistUsername = channel.unary_unary(
                 '/vdp.mgmt.v1alpha.MgmtPublicService/ExistUsername',
@@ -44,7 +44,7 @@ class MgmtPublicServiceStub(object):
 
 
 class MgmtPublicServiceServicer(object):
-    """Mgmt service responds to incoming requests.
+    """Mgmt service responds to external incoming requests.
     """
 
     def Liveness(self, request, context):
@@ -65,19 +65,19 @@ class MgmtPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetAuthenticatedUser(self, request, context):
+    def QueryAuthenticatedUser(self, request, context):
         """========== Public API: endpoints exposed to public internet traffic
 
-        GetAuthenticatedUser method receives a GetAuthenticatedUserRequest message and returns
-        a GetAuthenticatedUserResponse message.
+        QueryAuthenticatedUser method receives a QueryAuthenticatedUserRequest message and returns
+        a QueryAuthenticatedUserResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UpdateAuthenticatedUser(self, request, context):
-        """UpdateAuthenticatedUser method receives a UpdateAuthenticatedUserRequest message and returns 
-        a UpdateAuthenticatedUserResponse message.
+    def PatchAuthenticatedUser(self, request, context):
+        """PatchAuthenticatedUser method receives a PatchAuthenticatedUserRequest message and returns 
+        a PatchAuthenticatedUserResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -104,15 +104,15 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.FromString,
                     response_serializer=vdp_dot_mgmt_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.SerializeToString,
             ),
-            'GetAuthenticatedUser': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetAuthenticatedUser,
-                    request_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetAuthenticatedUserRequest.FromString,
-                    response_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetAuthenticatedUserResponse.SerializeToString,
+            'QueryAuthenticatedUser': grpc.unary_unary_rpc_method_handler(
+                    servicer.QueryAuthenticatedUser,
+                    request_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.QueryAuthenticatedUserRequest.FromString,
+                    response_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.QueryAuthenticatedUserResponse.SerializeToString,
             ),
-            'UpdateAuthenticatedUser': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateAuthenticatedUser,
-                    request_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateAuthenticatedUserRequest.FromString,
-                    response_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateAuthenticatedUserResponse.SerializeToString,
+            'PatchAuthenticatedUser': grpc.unary_unary_rpc_method_handler(
+                    servicer.PatchAuthenticatedUser,
+                    request_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.PatchAuthenticatedUserRequest.FromString,
+                    response_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.PatchAuthenticatedUserResponse.SerializeToString,
             ),
             'ExistUsername': grpc.unary_unary_rpc_method_handler(
                     servicer.ExistUsername,
@@ -127,7 +127,7 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class MgmtPublicService(object):
-    """Mgmt service responds to incoming requests.
+    """Mgmt service responds to external incoming requests.
     """
 
     @staticmethod
@@ -165,7 +165,7 @@ class MgmtPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetAuthenticatedUser(request,
+    def QueryAuthenticatedUser(request,
             target,
             options=(),
             channel_credentials=None,
@@ -175,14 +175,14 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.MgmtPublicService/GetAuthenticatedUser',
-            vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetAuthenticatedUserRequest.SerializeToString,
-            vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetAuthenticatedUserResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.MgmtPublicService/QueryAuthenticatedUser',
+            vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.QueryAuthenticatedUserRequest.SerializeToString,
+            vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.QueryAuthenticatedUserResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UpdateAuthenticatedUser(request,
+    def PatchAuthenticatedUser(request,
             target,
             options=(),
             channel_credentials=None,
@@ -192,9 +192,9 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.MgmtPublicService/UpdateAuthenticatedUser',
-            vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateAuthenticatedUserRequest.SerializeToString,
-            vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateAuthenticatedUserResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.MgmtPublicService/PatchAuthenticatedUser',
+            vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.PatchAuthenticatedUserRequest.SerializeToString,
+            vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.PatchAuthenticatedUserResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
