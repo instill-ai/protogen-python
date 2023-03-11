@@ -7,8 +7,8 @@ from vdp.model.v1alpha import model_definition_pb2 as vdp_dot_model_dot_v1alpha_
 from vdp.model.v1alpha import model_pb2 as vdp_dot_model_dot_v1alpha_dot_model__pb2
 
 
-class ModelServiceStub(object):
-    """Model service responds to incoming model requests
+class ModelPublicServiceStub(object):
+    """Model service responds to external incoming model requests
     """
 
     def __init__(self, channel):
@@ -18,144 +18,144 @@ class ModelServiceStub(object):
             channel: A grpc.Channel.
         """
         self.Liveness = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelService/Liveness',
+                '/vdp.model.v1alpha.ModelPublicService/Liveness',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.FromString,
                 )
         self.Readiness = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelService/Readiness',
+                '/vdp.model.v1alpha.ModelPublicService/Readiness',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
                 )
         self.ListModelDefinition = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelService/ListModelDefinition',
+                '/vdp.model.v1alpha.ModelPublicService/ListModelDefinition',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionResponse.FromString,
                 )
         self.GetModelDefinition = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelService/GetModelDefinition',
+                '/vdp.model.v1alpha.ModelPublicService/GetModelDefinition',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionResponse.FromString,
                 )
         self.ListModel = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelService/ListModel',
+                '/vdp.model.v1alpha.ModelPublicService/ListModel',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelResponse.FromString,
                 )
         self.CreateModel = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelService/CreateModel',
+                '/vdp.model.v1alpha.ModelPublicService/CreateModel',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.CreateModelRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.CreateModelResponse.FromString,
                 )
         self.CreateModelBinaryFileUpload = channel.stream_unary(
-                '/vdp.model.v1alpha.ModelService/CreateModelBinaryFileUpload',
+                '/vdp.model.v1alpha.ModelPublicService/CreateModelBinaryFileUpload',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadResponse.FromString,
                 )
         self.GetModel = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelService/GetModel',
+                '/vdp.model.v1alpha.ModelPublicService/GetModel',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelResponse.FromString,
                 )
         self.UpdateModel = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelService/UpdateModel',
+                '/vdp.model.v1alpha.ModelPublicService/UpdateModel',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelResponse.FromString,
                 )
         self.DeleteModel = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelService/DeleteModel',
+                '/vdp.model.v1alpha.ModelPublicService/DeleteModel',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelResponse.FromString,
                 )
         self.LookUpModel = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelService/LookUpModel',
+                '/vdp.model.v1alpha.ModelPublicService/LookUpModel',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelResponse.FromString,
                 )
         self.RenameModel = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelService/RenameModel',
+                '/vdp.model.v1alpha.ModelPublicService/RenameModel',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.RenameModelRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.RenameModelResponse.FromString,
                 )
         self.PublishModel = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelService/PublishModel',
+                '/vdp.model.v1alpha.ModelPublicService/PublishModel',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.PublishModelRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.PublishModelResponse.FromString,
                 )
         self.UnpublishModel = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelService/UnpublishModel',
+                '/vdp.model.v1alpha.ModelPublicService/UnpublishModel',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelResponse.FromString,
                 )
         self.ListModelInstance = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelService/ListModelInstance',
+                '/vdp.model.v1alpha.ModelPublicService/ListModelInstance',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstanceRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstanceResponse.FromString,
                 )
         self.GetModelInstance = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelService/GetModelInstance',
+                '/vdp.model.v1alpha.ModelPublicService/GetModelInstance',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceResponse.FromString,
                 )
         self.LookUpModelInstance = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelService/LookUpModelInstance',
+                '/vdp.model.v1alpha.ModelPublicService/LookUpModelInstance',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceResponse.FromString,
                 )
         self.DeployModelInstance = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelService/DeployModelInstance',
+                '/vdp.model.v1alpha.ModelPublicService/DeployModelInstance',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.DeployModelInstanceRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.DeployModelInstanceResponse.FromString,
                 )
         self.UndeployModelInstance = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelService/UndeployModelInstance',
+                '/vdp.model.v1alpha.ModelPublicService/UndeployModelInstance',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelInstanceRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelInstanceResponse.FromString,
                 )
         self.GetModelInstanceCard = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelService/GetModelInstanceCard',
+                '/vdp.model.v1alpha.ModelPublicService/GetModelInstanceCard',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardResponse.FromString,
                 )
         self.TriggerModelInstance = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelService/TriggerModelInstance',
+                '/vdp.model.v1alpha.ModelPublicService/TriggerModelInstance',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceResponse.FromString,
                 )
         self.TriggerModelInstanceBinaryFileUpload = channel.stream_unary(
-                '/vdp.model.v1alpha.ModelService/TriggerModelInstanceBinaryFileUpload',
+                '/vdp.model.v1alpha.ModelPublicService/TriggerModelInstanceBinaryFileUpload',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadResponse.FromString,
                 )
         self.TestModelInstance = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelService/TestModelInstance',
+                '/vdp.model.v1alpha.ModelPublicService/TestModelInstance',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceResponse.FromString,
                 )
         self.TestModelInstanceBinaryFileUpload = channel.stream_unary(
-                '/vdp.model.v1alpha.ModelService/TestModelInstanceBinaryFileUpload',
+                '/vdp.model.v1alpha.ModelPublicService/TestModelInstanceBinaryFileUpload',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceBinaryFileUploadRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceBinaryFileUploadResponse.FromString,
                 )
         self.GetModelOperation = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelService/GetModelOperation',
+                '/vdp.model.v1alpha.ModelPublicService/GetModelOperation',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationResponse.FromString,
                 )
         self.ListModelOperation = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelService/ListModelOperation',
+                '/vdp.model.v1alpha.ModelPublicService/ListModelOperation',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationResponse.FromString,
                 )
         self.CancelModelOperation = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelService/CancelModelOperation',
+                '/vdp.model.v1alpha.ModelPublicService/CancelModelOperation',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.CancelModelOperationRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.CancelModelOperationResponse.FromString,
                 )
 
 
-class ModelServiceServicer(object):
-    """Model service responds to incoming model requests
+class ModelPublicServiceServicer(object):
+    """Model service responds to external incoming model requests
     """
 
     def Liveness(self, request, context):
@@ -387,7 +387,7 @@ class ModelServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_ModelServiceServicer_to_server(servicer, server):
+def add_ModelPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Liveness': grpc.unary_unary_rpc_method_handler(
                     servicer.Liveness,
@@ -526,13 +526,13 @@ def add_ModelServiceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'vdp.model.v1alpha.ModelService', rpc_method_handlers)
+            'vdp.model.v1alpha.ModelPublicService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class ModelService(object):
-    """Model service responds to incoming model requests
+class ModelPublicService(object):
+    """Model service responds to external incoming model requests
     """
 
     @staticmethod
@@ -546,7 +546,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/Liveness',
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/Liveness',
             vdp_dot_model_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.FromString,
             options, channel_credentials,
@@ -563,7 +563,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/Readiness',
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/Readiness',
             vdp_dot_model_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
             options, channel_credentials,
@@ -580,7 +580,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/ListModelDefinition',
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/ListModelDefinition',
             vdp_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionResponse.FromString,
             options, channel_credentials,
@@ -597,7 +597,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/GetModelDefinition',
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/GetModelDefinition',
             vdp_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionResponse.FromString,
             options, channel_credentials,
@@ -614,7 +614,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/ListModel',
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/ListModel',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelResponse.FromString,
             options, channel_credentials,
@@ -631,7 +631,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/CreateModel',
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/CreateModel',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.CreateModelRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.CreateModelResponse.FromString,
             options, channel_credentials,
@@ -648,7 +648,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/vdp.model.v1alpha.ModelService/CreateModelBinaryFileUpload',
+        return grpc.experimental.stream_unary(request_iterator, target, '/vdp.model.v1alpha.ModelPublicService/CreateModelBinaryFileUpload',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadResponse.FromString,
             options, channel_credentials,
@@ -665,7 +665,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/GetModel',
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/GetModel',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelResponse.FromString,
             options, channel_credentials,
@@ -682,7 +682,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/UpdateModel',
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/UpdateModel',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelResponse.FromString,
             options, channel_credentials,
@@ -699,7 +699,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/DeleteModel',
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/DeleteModel',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelResponse.FromString,
             options, channel_credentials,
@@ -716,7 +716,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/LookUpModel',
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/LookUpModel',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelResponse.FromString,
             options, channel_credentials,
@@ -733,7 +733,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/RenameModel',
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/RenameModel',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.RenameModelRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.RenameModelResponse.FromString,
             options, channel_credentials,
@@ -750,7 +750,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/PublishModel',
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/PublishModel',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.PublishModelRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.PublishModelResponse.FromString,
             options, channel_credentials,
@@ -767,7 +767,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/UnpublishModel',
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/UnpublishModel',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelResponse.FromString,
             options, channel_credentials,
@@ -784,7 +784,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/ListModelInstance',
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/ListModelInstance',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstanceRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstanceResponse.FromString,
             options, channel_credentials,
@@ -801,7 +801,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/GetModelInstance',
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/GetModelInstance',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceResponse.FromString,
             options, channel_credentials,
@@ -818,7 +818,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/LookUpModelInstance',
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/LookUpModelInstance',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceResponse.FromString,
             options, channel_credentials,
@@ -835,7 +835,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/DeployModelInstance',
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/DeployModelInstance',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.DeployModelInstanceRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.DeployModelInstanceResponse.FromString,
             options, channel_credentials,
@@ -852,7 +852,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/UndeployModelInstance',
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/UndeployModelInstance',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelInstanceRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelInstanceResponse.FromString,
             options, channel_credentials,
@@ -869,7 +869,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/GetModelInstanceCard',
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/GetModelInstanceCard',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardResponse.FromString,
             options, channel_credentials,
@@ -886,7 +886,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/TriggerModelInstance',
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/TriggerModelInstance',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceResponse.FromString,
             options, channel_credentials,
@@ -903,7 +903,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/vdp.model.v1alpha.ModelService/TriggerModelInstanceBinaryFileUpload',
+        return grpc.experimental.stream_unary(request_iterator, target, '/vdp.model.v1alpha.ModelPublicService/TriggerModelInstanceBinaryFileUpload',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadResponse.FromString,
             options, channel_credentials,
@@ -920,7 +920,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/TestModelInstance',
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/TestModelInstance',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceResponse.FromString,
             options, channel_credentials,
@@ -937,7 +937,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/vdp.model.v1alpha.ModelService/TestModelInstanceBinaryFileUpload',
+        return grpc.experimental.stream_unary(request_iterator, target, '/vdp.model.v1alpha.ModelPublicService/TestModelInstanceBinaryFileUpload',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceBinaryFileUploadRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceBinaryFileUploadResponse.FromString,
             options, channel_credentials,
@@ -954,7 +954,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/GetModelOperation',
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/GetModelOperation',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationResponse.FromString,
             options, channel_credentials,
@@ -971,7 +971,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/ListModelOperation',
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/ListModelOperation',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationResponse.FromString,
             options, channel_credentials,
@@ -988,7 +988,7 @@ class ModelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelService/CancelModelOperation',
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/CancelModelOperation',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.CancelModelOperationRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.CancelModelOperationResponse.FromString,
             options, channel_credentials,

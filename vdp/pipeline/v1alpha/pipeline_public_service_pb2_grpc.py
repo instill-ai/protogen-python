@@ -6,8 +6,8 @@ from vdp.pipeline.v1alpha import healthcheck_pb2 as vdp_dot_pipeline_dot_v1alpha
 from vdp.pipeline.v1alpha import pipeline_pb2 as vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2
 
 
-class PipelineServiceStub(object):
-    """Pipeline service responds to incoming pipeline requests.
+class PipelinePublicServiceStub(object):
+    """Pipeline service responds to external incoming pipeline requests.
     """
 
     def __init__(self, channel):
@@ -17,74 +17,74 @@ class PipelineServiceStub(object):
             channel: A grpc.Channel.
         """
         self.Liveness = channel.unary_unary(
-                '/vdp.pipeline.v1alpha.PipelineService/Liveness',
+                '/vdp.pipeline.v1alpha.PipelinePublicService/Liveness',
                 request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.FromString,
                 )
         self.Readiness = channel.unary_unary(
-                '/vdp.pipeline.v1alpha.PipelineService/Readiness',
+                '/vdp.pipeline.v1alpha.PipelinePublicService/Readiness',
                 request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
                 )
         self.CreatePipeline = channel.unary_unary(
-                '/vdp.pipeline.v1alpha.PipelineService/CreatePipeline',
+                '/vdp.pipeline.v1alpha.PipelinePublicService/CreatePipeline',
                 request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.CreatePipelineRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.CreatePipelineResponse.FromString,
                 )
-        self.ListPipeline = channel.unary_unary(
-                '/vdp.pipeline.v1alpha.PipelineService/ListPipeline',
-                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelineRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelineResponse.FromString,
+        self.ListPipelines = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/ListPipelines',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelinesRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelinesResponse.FromString,
                 )
         self.GetPipeline = channel.unary_unary(
-                '/vdp.pipeline.v1alpha.PipelineService/GetPipeline',
+                '/vdp.pipeline.v1alpha.PipelinePublicService/GetPipeline',
                 request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.GetPipelineRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.GetPipelineResponse.FromString,
                 )
         self.UpdatePipeline = channel.unary_unary(
-                '/vdp.pipeline.v1alpha.PipelineService/UpdatePipeline',
+                '/vdp.pipeline.v1alpha.PipelinePublicService/UpdatePipeline',
                 request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.UpdatePipelineRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.UpdatePipelineResponse.FromString,
                 )
         self.DeletePipeline = channel.unary_unary(
-                '/vdp.pipeline.v1alpha.PipelineService/DeletePipeline',
+                '/vdp.pipeline.v1alpha.PipelinePublicService/DeletePipeline',
                 request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.DeletePipelineRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.DeletePipelineResponse.FromString,
                 )
         self.LookUpPipeline = channel.unary_unary(
-                '/vdp.pipeline.v1alpha.PipelineService/LookUpPipeline',
+                '/vdp.pipeline.v1alpha.PipelinePublicService/LookUpPipeline',
                 request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpPipelineRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpPipelineResponse.FromString,
                 )
         self.ActivatePipeline = channel.unary_unary(
-                '/vdp.pipeline.v1alpha.PipelineService/ActivatePipeline',
+                '/vdp.pipeline.v1alpha.PipelinePublicService/ActivatePipeline',
                 request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ActivatePipelineRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ActivatePipelineResponse.FromString,
                 )
         self.DeactivatePipeline = channel.unary_unary(
-                '/vdp.pipeline.v1alpha.PipelineService/DeactivatePipeline',
+                '/vdp.pipeline.v1alpha.PipelinePublicService/DeactivatePipeline',
                 request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.DeactivatePipelineRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.DeactivatePipelineResponse.FromString,
                 )
         self.RenamePipeline = channel.unary_unary(
-                '/vdp.pipeline.v1alpha.PipelineService/RenamePipeline',
+                '/vdp.pipeline.v1alpha.PipelinePublicService/RenamePipeline',
                 request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.RenamePipelineRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.RenamePipelineResponse.FromString,
                 )
         self.TriggerPipeline = channel.unary_unary(
-                '/vdp.pipeline.v1alpha.PipelineService/TriggerPipeline',
+                '/vdp.pipeline.v1alpha.PipelinePublicService/TriggerPipeline',
                 request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineResponse.FromString,
                 )
         self.TriggerPipelineBinaryFileUpload = channel.stream_unary(
-                '/vdp.pipeline.v1alpha.PipelineService/TriggerPipelineBinaryFileUpload',
+                '/vdp.pipeline.v1alpha.PipelinePublicService/TriggerPipelineBinaryFileUpload',
                 request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineBinaryFileUploadRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineBinaryFileUploadResponse.FromString,
                 )
 
 
-class PipelineServiceServicer(object):
-    """Pipeline service responds to incoming pipeline requests.
+class PipelinePublicServiceServicer(object):
+    """Pipeline service responds to external incoming pipeline requests.
     """
 
     def Liveness(self, request, context):
@@ -113,9 +113,9 @@ class PipelineServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListPipeline(self, request, context):
-        """ListPipeline method receives a ListPipelineRequest message and returns a
-        ListPipelineResponse message.
+    def ListPipelines(self, request, context):
+        """ListPipelines method receives a ListPipelinesRequest message and returns a
+        ListPipelinesResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -201,7 +201,7 @@ class PipelineServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_PipelineServiceServicer_to_server(servicer, server):
+def add_PipelinePublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Liveness': grpc.unary_unary_rpc_method_handler(
                     servicer.Liveness,
@@ -218,10 +218,10 @@ def add_PipelineServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.CreatePipelineRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.CreatePipelineResponse.SerializeToString,
             ),
-            'ListPipeline': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListPipeline,
-                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelineRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelineResponse.SerializeToString,
+            'ListPipelines': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListPipelines,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelinesRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelinesResponse.SerializeToString,
             ),
             'GetPipeline': grpc.unary_unary_rpc_method_handler(
                     servicer.GetPipeline,
@@ -270,13 +270,13 @@ def add_PipelineServiceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'vdp.pipeline.v1alpha.PipelineService', rpc_method_handlers)
+            'vdp.pipeline.v1alpha.PipelinePublicService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class PipelineService(object):
-    """Pipeline service responds to incoming pipeline requests.
+class PipelinePublicService(object):
+    """Pipeline service responds to external incoming pipeline requests.
     """
 
     @staticmethod
@@ -290,7 +290,7 @@ class PipelineService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelineService/Liveness',
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/Liveness',
             vdp_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.FromString,
             options, channel_credentials,
@@ -307,7 +307,7 @@ class PipelineService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelineService/Readiness',
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/Readiness',
             vdp_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
             options, channel_credentials,
@@ -324,14 +324,14 @@ class PipelineService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelineService/CreatePipeline',
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/CreatePipeline',
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.CreatePipelineRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.CreatePipelineResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ListPipeline(request,
+    def ListPipelines(request,
             target,
             options=(),
             channel_credentials=None,
@@ -341,9 +341,9 @@ class PipelineService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelineService/ListPipeline',
-            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelineRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelineResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/ListPipelines',
+            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelinesRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelinesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -358,7 +358,7 @@ class PipelineService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelineService/GetPipeline',
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/GetPipeline',
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.GetPipelineRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.GetPipelineResponse.FromString,
             options, channel_credentials,
@@ -375,7 +375,7 @@ class PipelineService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelineService/UpdatePipeline',
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/UpdatePipeline',
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.UpdatePipelineRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.UpdatePipelineResponse.FromString,
             options, channel_credentials,
@@ -392,7 +392,7 @@ class PipelineService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelineService/DeletePipeline',
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/DeletePipeline',
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.DeletePipelineRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.DeletePipelineResponse.FromString,
             options, channel_credentials,
@@ -409,7 +409,7 @@ class PipelineService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelineService/LookUpPipeline',
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/LookUpPipeline',
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpPipelineRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpPipelineResponse.FromString,
             options, channel_credentials,
@@ -426,7 +426,7 @@ class PipelineService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelineService/ActivatePipeline',
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/ActivatePipeline',
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ActivatePipelineRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ActivatePipelineResponse.FromString,
             options, channel_credentials,
@@ -443,7 +443,7 @@ class PipelineService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelineService/DeactivatePipeline',
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/DeactivatePipeline',
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.DeactivatePipelineRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.DeactivatePipelineResponse.FromString,
             options, channel_credentials,
@@ -460,7 +460,7 @@ class PipelineService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelineService/RenamePipeline',
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/RenamePipeline',
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.RenamePipelineRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.RenamePipelineResponse.FromString,
             options, channel_credentials,
@@ -477,7 +477,7 @@ class PipelineService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelineService/TriggerPipeline',
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/TriggerPipeline',
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineResponse.FromString,
             options, channel_credentials,
@@ -494,7 +494,7 @@ class PipelineService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/vdp.pipeline.v1alpha.PipelineService/TriggerPipelineBinaryFileUpload',
+        return grpc.experimental.stream_unary(request_iterator, target, '/vdp.pipeline.v1alpha.PipelinePublicService/TriggerPipelineBinaryFileUpload',
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineBinaryFileUploadRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineBinaryFileUploadResponse.FromString,
             options, channel_credentials,

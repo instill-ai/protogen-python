@@ -7,9 +7,9 @@ from vdp.connector.v1alpha import connector_pb2 as vdp_dot_connector_dot_v1alpha
 from vdp.connector.v1alpha import healthcheck_pb2 as vdp_dot_connector_dot_v1alpha_dot_healthcheck__pb2
 
 
-class ConnectorServiceStub(object):
+class ConnectorPublicServiceStub(object):
     """/////////////////////////////////////////////////////////////////////////////
-    Connector service responds to incoming connector requests.
+    Connector service responds to external incoming connector requests.
     """
 
     def __init__(self, channel):
@@ -19,140 +19,140 @@ class ConnectorServiceStub(object):
             channel: A grpc.Channel.
         """
         self.Liveness = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/Liveness',
+                '/vdp.connector.v1alpha.ConnectorPublicService/Liveness',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.FromString,
                 )
         self.Readiness = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/Readiness',
+                '/vdp.connector.v1alpha.ConnectorPublicService/Readiness',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
                 )
         self.ListSourceConnectorDefinition = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/ListSourceConnectorDefinition',
+                '/vdp.connector.v1alpha.ConnectorPublicService/ListSourceConnectorDefinition',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.ListSourceConnectorDefinitionRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.ListSourceConnectorDefinitionResponse.FromString,
                 )
         self.GetSourceConnectorDefinition = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/GetSourceConnectorDefinition',
+                '/vdp.connector.v1alpha.ConnectorPublicService/GetSourceConnectorDefinition',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.GetSourceConnectorDefinitionRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.GetSourceConnectorDefinitionResponse.FromString,
                 )
         self.ListDestinationConnectorDefinition = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/ListDestinationConnectorDefinition',
+                '/vdp.connector.v1alpha.ConnectorPublicService/ListDestinationConnectorDefinition',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.ListDestinationConnectorDefinitionRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.ListDestinationConnectorDefinitionResponse.FromString,
                 )
         self.GetDestinationConnectorDefinition = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/GetDestinationConnectorDefinition',
+                '/vdp.connector.v1alpha.ConnectorPublicService/GetDestinationConnectorDefinition',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.GetDestinationConnectorDefinitionRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.GetDestinationConnectorDefinitionResponse.FromString,
                 )
         self.CreateSourceConnector = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/CreateSourceConnector',
+                '/vdp.connector.v1alpha.ConnectorPublicService/CreateSourceConnector',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateSourceConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateSourceConnectorResponse.FromString,
                 )
         self.ListSourceConnector = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/ListSourceConnector',
+                '/vdp.connector.v1alpha.ConnectorPublicService/ListSourceConnector',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListSourceConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListSourceConnectorResponse.FromString,
                 )
         self.GetSourceConnector = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/GetSourceConnector',
+                '/vdp.connector.v1alpha.ConnectorPublicService/GetSourceConnector',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetSourceConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetSourceConnectorResponse.FromString,
                 )
         self.UpdateSourceConnector = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/UpdateSourceConnector',
+                '/vdp.connector.v1alpha.ConnectorPublicService/UpdateSourceConnector',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateSourceConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateSourceConnectorResponse.FromString,
                 )
         self.DeleteSourceConnector = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/DeleteSourceConnector',
+                '/vdp.connector.v1alpha.ConnectorPublicService/DeleteSourceConnector',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteSourceConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteSourceConnectorResponse.FromString,
                 )
         self.LookUpSourceConnector = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/LookUpSourceConnector',
+                '/vdp.connector.v1alpha.ConnectorPublicService/LookUpSourceConnector',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpSourceConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpSourceConnectorResponse.FromString,
                 )
         self.ConnectSourceConnector = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/ConnectSourceConnector',
+                '/vdp.connector.v1alpha.ConnectorPublicService/ConnectSourceConnector',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectSourceConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectSourceConnectorResponse.FromString,
                 )
         self.DisconnectSourceConnector = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/DisconnectSourceConnector',
+                '/vdp.connector.v1alpha.ConnectorPublicService/DisconnectSourceConnector',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectSourceConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectSourceConnectorResponse.FromString,
                 )
         self.RenameSourceConnector = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/RenameSourceConnector',
+                '/vdp.connector.v1alpha.ConnectorPublicService/RenameSourceConnector',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameSourceConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameSourceConnectorResponse.FromString,
                 )
         self.ReadSourceConnector = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/ReadSourceConnector',
+                '/vdp.connector.v1alpha.ConnectorPublicService/ReadSourceConnector',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ReadSourceConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ReadSourceConnectorResponse.FromString,
                 )
         self.CreateDestinationConnector = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/CreateDestinationConnector',
+                '/vdp.connector.v1alpha.ConnectorPublicService/CreateDestinationConnector',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateDestinationConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateDestinationConnectorResponse.FromString,
                 )
         self.ListDestinationConnector = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/ListDestinationConnector',
+                '/vdp.connector.v1alpha.ConnectorPublicService/ListDestinationConnector',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListDestinationConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListDestinationConnectorResponse.FromString,
                 )
         self.GetDestinationConnector = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/GetDestinationConnector',
+                '/vdp.connector.v1alpha.ConnectorPublicService/GetDestinationConnector',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetDestinationConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetDestinationConnectorResponse.FromString,
                 )
         self.UpdateDestinationConnector = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/UpdateDestinationConnector',
+                '/vdp.connector.v1alpha.ConnectorPublicService/UpdateDestinationConnector',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateDestinationConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateDestinationConnectorResponse.FromString,
                 )
         self.DeleteDestinationConnector = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/DeleteDestinationConnector',
+                '/vdp.connector.v1alpha.ConnectorPublicService/DeleteDestinationConnector',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteDestinationConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteDestinationConnectorResponse.FromString,
                 )
         self.LookUpDestinationConnector = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/LookUpDestinationConnector',
+                '/vdp.connector.v1alpha.ConnectorPublicService/LookUpDestinationConnector',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpDestinationConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpDestinationConnectorResponse.FromString,
                 )
         self.ConnectDestinationConnector = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/ConnectDestinationConnector',
+                '/vdp.connector.v1alpha.ConnectorPublicService/ConnectDestinationConnector',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectDestinationConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectDestinationConnectorResponse.FromString,
                 )
         self.DisconnectDestinationConnector = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/DisconnectDestinationConnector',
+                '/vdp.connector.v1alpha.ConnectorPublicService/DisconnectDestinationConnector',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectDestinationConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectDestinationConnectorResponse.FromString,
                 )
         self.RenameDestinationConnector = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/RenameDestinationConnector',
+                '/vdp.connector.v1alpha.ConnectorPublicService/RenameDestinationConnector',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameDestinationConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameDestinationConnectorResponse.FromString,
                 )
         self.WriteDestinationConnector = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorService/WriteDestinationConnector',
+                '/vdp.connector.v1alpha.ConnectorPublicService/WriteDestinationConnector',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WriteDestinationConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WriteDestinationConnectorResponse.FromString,
                 )
 
 
-class ConnectorServiceServicer(object):
+class ConnectorPublicServiceServicer(object):
     """/////////////////////////////////////////////////////////////////////////////
-    Connector service responds to incoming connector requests.
+    Connector service responds to external incoming connector requests.
     """
 
     def Liveness(self, request, context):
@@ -400,7 +400,7 @@ class ConnectorServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_ConnectorServiceServicer_to_server(servicer, server):
+def add_ConnectorPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Liveness': grpc.unary_unary_rpc_method_handler(
                     servicer.Liveness,
@@ -534,14 +534,14 @@ def add_ConnectorServiceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'vdp.connector.v1alpha.ConnectorService', rpc_method_handlers)
+            'vdp.connector.v1alpha.ConnectorPublicService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class ConnectorService(object):
+class ConnectorPublicService(object):
     """/////////////////////////////////////////////////////////////////////////////
-    Connector service responds to incoming connector requests.
+    Connector service responds to external incoming connector requests.
     """
 
     @staticmethod
@@ -555,7 +555,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/Liveness',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/Liveness',
             vdp_dot_connector_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.FromString,
             options, channel_credentials,
@@ -572,7 +572,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/Readiness',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/Readiness',
             vdp_dot_connector_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
             options, channel_credentials,
@@ -589,7 +589,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/ListSourceConnectorDefinition',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/ListSourceConnectorDefinition',
             vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.ListSourceConnectorDefinitionRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.ListSourceConnectorDefinitionResponse.FromString,
             options, channel_credentials,
@@ -606,7 +606,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/GetSourceConnectorDefinition',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/GetSourceConnectorDefinition',
             vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.GetSourceConnectorDefinitionRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.GetSourceConnectorDefinitionResponse.FromString,
             options, channel_credentials,
@@ -623,7 +623,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/ListDestinationConnectorDefinition',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/ListDestinationConnectorDefinition',
             vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.ListDestinationConnectorDefinitionRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.ListDestinationConnectorDefinitionResponse.FromString,
             options, channel_credentials,
@@ -640,7 +640,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/GetDestinationConnectorDefinition',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/GetDestinationConnectorDefinition',
             vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.GetDestinationConnectorDefinitionRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.GetDestinationConnectorDefinitionResponse.FromString,
             options, channel_credentials,
@@ -657,7 +657,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/CreateSourceConnector',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/CreateSourceConnector',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateSourceConnectorRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateSourceConnectorResponse.FromString,
             options, channel_credentials,
@@ -674,7 +674,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/ListSourceConnector',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/ListSourceConnector',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListSourceConnectorRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListSourceConnectorResponse.FromString,
             options, channel_credentials,
@@ -691,7 +691,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/GetSourceConnector',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/GetSourceConnector',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetSourceConnectorRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetSourceConnectorResponse.FromString,
             options, channel_credentials,
@@ -708,7 +708,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/UpdateSourceConnector',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/UpdateSourceConnector',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateSourceConnectorRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateSourceConnectorResponse.FromString,
             options, channel_credentials,
@@ -725,7 +725,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/DeleteSourceConnector',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/DeleteSourceConnector',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteSourceConnectorRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteSourceConnectorResponse.FromString,
             options, channel_credentials,
@@ -742,7 +742,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/LookUpSourceConnector',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/LookUpSourceConnector',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpSourceConnectorRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpSourceConnectorResponse.FromString,
             options, channel_credentials,
@@ -759,7 +759,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/ConnectSourceConnector',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/ConnectSourceConnector',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectSourceConnectorRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectSourceConnectorResponse.FromString,
             options, channel_credentials,
@@ -776,7 +776,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/DisconnectSourceConnector',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/DisconnectSourceConnector',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectSourceConnectorRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectSourceConnectorResponse.FromString,
             options, channel_credentials,
@@ -793,7 +793,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/RenameSourceConnector',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/RenameSourceConnector',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameSourceConnectorRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameSourceConnectorResponse.FromString,
             options, channel_credentials,
@@ -810,7 +810,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/ReadSourceConnector',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/ReadSourceConnector',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ReadSourceConnectorRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ReadSourceConnectorResponse.FromString,
             options, channel_credentials,
@@ -827,7 +827,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/CreateDestinationConnector',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/CreateDestinationConnector',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateDestinationConnectorRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateDestinationConnectorResponse.FromString,
             options, channel_credentials,
@@ -844,7 +844,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/ListDestinationConnector',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/ListDestinationConnector',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListDestinationConnectorRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListDestinationConnectorResponse.FromString,
             options, channel_credentials,
@@ -861,7 +861,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/GetDestinationConnector',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/GetDestinationConnector',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetDestinationConnectorRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetDestinationConnectorResponse.FromString,
             options, channel_credentials,
@@ -878,7 +878,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/UpdateDestinationConnector',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/UpdateDestinationConnector',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateDestinationConnectorRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateDestinationConnectorResponse.FromString,
             options, channel_credentials,
@@ -895,7 +895,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/DeleteDestinationConnector',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/DeleteDestinationConnector',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteDestinationConnectorRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteDestinationConnectorResponse.FromString,
             options, channel_credentials,
@@ -912,7 +912,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/LookUpDestinationConnector',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/LookUpDestinationConnector',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpDestinationConnectorRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpDestinationConnectorResponse.FromString,
             options, channel_credentials,
@@ -929,7 +929,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/ConnectDestinationConnector',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/ConnectDestinationConnector',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectDestinationConnectorRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectDestinationConnectorResponse.FromString,
             options, channel_credentials,
@@ -946,7 +946,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/DisconnectDestinationConnector',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/DisconnectDestinationConnector',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectDestinationConnectorRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectDestinationConnectorResponse.FromString,
             options, channel_credentials,
@@ -963,7 +963,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/RenameDestinationConnector',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/RenameDestinationConnector',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameDestinationConnectorRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameDestinationConnectorResponse.FromString,
             options, channel_credentials,
@@ -980,7 +980,7 @@ class ConnectorService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorService/WriteDestinationConnector',
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/WriteDestinationConnector',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WriteDestinationConnectorRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WriteDestinationConnectorResponse.FromString,
             options, channel_credentials,
