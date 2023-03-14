@@ -6,7 +6,7 @@ from vdp.model.v1alpha import model_pb2 as vdp_dot_model_dot_v1alpha_dot_model__
 
 
 class ModelPrivateServiceStub(object):
-    """Model service responds to internal incoming model requests
+    """Model service responds to internal access
     """
 
     def __init__(self, channel):
@@ -33,14 +33,12 @@ class ModelPrivateServiceStub(object):
 
 
 class ModelPrivateServiceServicer(object):
-    """Model service responds to internal incoming model requests
+    """Model service responds to internal access
     """
 
     def ListModelAdmin(self, request, context):
-        """========== Admin API ========== 
-
-        ListModelAdmin method receives a ListModelAdminRequest message and returns a
-        ListModelAdminResponse
+        """ListModelAdmin method receives a ListModelAdminRequest message and returns
+        a ListModelAdminResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -55,8 +53,8 @@ class ModelPrivateServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def LookUpModelAdmin(self, request, context):
-        """LookUpModelAdmin method receives a LookUpModelAdminRequest message and returns a
-        LookUpModelAdminResponse
+        """LookUpModelAdmin method receives a LookUpModelAdminRequest message and
+        returns a LookUpModelAdminResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -88,7 +86,7 @@ def add_ModelPrivateServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class ModelPrivateService(object):
-    """Model service responds to internal incoming model requests
+    """Model service responds to internal access
     """
 
     @staticmethod

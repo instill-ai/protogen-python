@@ -8,8 +8,7 @@ from vdp.connector.v1alpha import healthcheck_pb2 as vdp_dot_connector_dot_v1alp
 
 
 class ConnectorPublicServiceStub(object):
-    """/////////////////////////////////////////////////////////////////////////////
-    Connector service responds to external incoming connector requests.
+    """Connector service responds to external access
     """
 
     def __init__(self, channel):
@@ -151,8 +150,7 @@ class ConnectorPublicServiceStub(object):
 
 
 class ConnectorPublicServiceServicer(object):
-    """/////////////////////////////////////////////////////////////////////////////
-    Connector service responds to external incoming connector requests.
+    """Connector service responds to external access
     """
 
     def Liveness(self, request, context):
@@ -540,8 +538,7 @@ def add_ConnectorPublicServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class ConnectorPublicService(object):
-    """/////////////////////////////////////////////////////////////////////////////
-    Connector service responds to external incoming connector requests.
+    """Connector service responds to external access
     """
 
     @staticmethod

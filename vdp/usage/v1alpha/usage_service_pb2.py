@@ -17,7 +17,7 @@ from vdp.usage.v1alpha import healthcheck_pb2 as vdp_dot_usage_dot_v1alpha_dot_h
 from vdp.usage.v1alpha import usage_pb2 as vdp_dot_usage_dot_v1alpha_dot_usage__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%vdp/usage/v1alpha/usage_service.proto\x12\x11vdp.usage.v1alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a#vdp/usage/v1alpha/healthcheck.proto\x1a\x1dvdp/usage/v1alpha/usage.proto2\xbf\x04\n\x0cUsageService\x12\x89\x01\n\x08Liveness\x12\".vdp.usage.v1alpha.LivenessRequest\x1a#.vdp.usage.v1alpha.LivenessResponse\"4\x82\xd3\xe4\x93\x02.Z\x17\x12\x15/v1alpha/health/usage\x12\x13/v1alpha/__liveness\x12t\n\tReadiness\x12#.vdp.usage.v1alpha.ReadinessRequest\x1a$.vdp.usage.v1alpha.ReadinessResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/v1alpha/__readiness\x12\x90\x01\n\rCreateSession\x12\'.vdp.usage.v1alpha.CreateSessionRequest\x1a(.vdp.usage.v1alpha.CreateSessionResponse\",\xda\x41\x07session\x82\xd3\xe4\x93\x02\x1c:\x07session\"\x11/v1alpha/sessions\x12\x99\x01\n\x11SendSessionReport\x12+.vdp.usage.v1alpha.SendSessionReportRequest\x1a,.vdp.usage.v1alpha.SendSessionReportResponse\")\xda\x41\x06report\x82\xd3\xe4\x93\x02\x1a:\x06report\"\x10/v1alpha/reportsB\xd2\x01\n\x15\x63om.vdp.usage.v1alphaB\x11UsageServiceProtoP\x01Z@github.com/instill-ai/protogen-go/vdp/usage/v1alpha;usagev1alpha\xa2\x02\x03VUX\xaa\x02\x11Vdp.Usage.V1alpha\xca\x02\x11Vdp\\Usage\\V1alpha\xe2\x02\x1dVdp\\Usage\\V1alpha\\GPBMetadata\xea\x02\x13Vdp::Usage::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%vdp/usage/v1alpha/usage_service.proto\x12\x11vdp.usage.v1alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a#vdp/usage/v1alpha/healthcheck.proto\x1a\x1dvdp/usage/v1alpha/usage.proto2\xd6\x04\n\x0cUsageService\x12\x89\x01\n\x08Liveness\x12\".vdp.usage.v1alpha.LivenessRequest\x1a#.vdp.usage.v1alpha.LivenessResponse\"4\x82\xd3\xe4\x93\x02.Z\x17\x12\x15/v1alpha/health/usage\x12\x13/v1alpha/__liveness\x12t\n\tReadiness\x12#.vdp.usage.v1alpha.ReadinessRequest\x1a$.vdp.usage.v1alpha.ReadinessResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/v1alpha/__readiness\x12\x90\x01\n\rCreateSession\x12\'.vdp.usage.v1alpha.CreateSessionRequest\x1a(.vdp.usage.v1alpha.CreateSessionResponse\",\xda\x41\x07session\x82\xd3\xe4\x93\x02\x1c:\x07session\"\x11/v1alpha/sessions\x12\x99\x01\n\x11SendSessionReport\x12+.vdp.usage.v1alpha.SendSessionReportRequest\x1a,.vdp.usage.v1alpha.SendSessionReportResponse\")\xda\x41\x06report\x82\xd3\xe4\x93\x02\x1a:\x06report\"\x10/v1alpha/reports\x1a\x15\xca\x41\x12usage.instill.techB\xd2\x01\n\x15\x63om.vdp.usage.v1alphaB\x11UsageServiceProtoP\x01Z@github.com/instill-ai/protogen-go/vdp/usage/v1alpha;usagev1alpha\xa2\x02\x03VUX\xaa\x02\x11Vdp.Usage.V1alpha\xca\x02\x11Vdp\\Usage\\V1alpha\xe2\x02\x1dVdp\\Usage\\V1alpha\\GPBMetadata\xea\x02\x13Vdp::Usage::V1alphab\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'vdp.usage.v1alpha.usage_service_pb2', globals())
@@ -25,6 +25,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\025com.vdp.usage.v1alphaB\021UsageServiceProtoP\001Z@github.com/instill-ai/protogen-go/vdp/usage/v1alpha;usagev1alpha\242\002\003VUX\252\002\021Vdp.Usage.V1alpha\312\002\021Vdp\\Usage\\V1alpha\342\002\035Vdp\\Usage\\V1alpha\\GPBMetadata\352\002\023Vdp::Usage::V1alpha'
+  _USAGESERVICE._options = None
+  _USAGESERVICE._serialized_options = b'\312A\022usage.instill.tech'
   _USAGESERVICE.methods_by_name['Liveness']._options = None
   _USAGESERVICE.methods_by_name['Liveness']._serialized_options = b'\202\323\344\223\002.Z\027\022\025/v1alpha/health/usage\022\023/v1alpha/__liveness'
   _USAGESERVICE.methods_by_name['Readiness']._options = None
@@ -34,5 +36,5 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _USAGESERVICE.methods_by_name['SendSessionReport']._options = None
   _USAGESERVICE.methods_by_name['SendSessionReport']._serialized_options = b'\332A\006report\202\323\344\223\002\032:\006report\"\020/v1alpha/reports'
   _USAGESERVICE._serialized_start=184
-  _USAGESERVICE._serialized_end=759
+  _USAGESERVICE._serialized_end=782
 # @@protoc_insertion_point(module_scope)

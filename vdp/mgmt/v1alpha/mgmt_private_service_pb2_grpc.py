@@ -6,7 +6,7 @@ from vdp.mgmt.v1alpha import mgmt_pb2 as vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2
 
 
 class MgmtPrivateServiceStub(object):
-    """Mgmt service responds to incoming internal requests.
+    """Mgmt service responds to internal access
     """
 
     def __init__(self, channel):
@@ -48,14 +48,12 @@ class MgmtPrivateServiceStub(object):
 
 
 class MgmtPrivateServiceServicer(object):
-    """Mgmt service responds to incoming internal requests.
+    """Mgmt service responds to internal access
     """
 
     def ListUsersAdmin(self, request, context):
-        """========== Admin endpoints ==========
-
-        ListUsersAdmin method receives a ListUsersAdminRequest message and returns a
-        ListUsersAdminResponse message.
+        """ListUsersAdmin method receives a ListUsersAdminRequest message and returns
+        a ListUsersAdminResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -78,24 +76,24 @@ class MgmtPrivateServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def UpdateUserAdmin(self, request, context):
-        """UpdateUserAdmin method receives a UpdateUserAdminRequest message and returns
-        a UpdateUserAdminResponse
+        """UpdateUserAdmin method receives a UpdateUserAdminRequest message and
+        returns a UpdateUserAdminResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteUserAdmin(self, request, context):
-        """DeleteUserAdmin method receives a DeleteUserAdminRequest message and returns a
-        DeleteUserAdminResponse
+        """DeleteUserAdmin method receives a DeleteUserAdminRequest message and
+        returns a DeleteUserAdminResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def LookUpUserAdmin(self, request, context):
-        """LookUpUserAdmin method receives a LookUpUserAdminRequest message and returns a
-        LookUpUserAdminResponse
+        """LookUpUserAdmin method receives a LookUpUserAdminRequest message and
+        returns a LookUpUserAdminResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -142,7 +140,7 @@ def add_MgmtPrivateServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class MgmtPrivateService(object):
-    """Mgmt service responds to incoming internal requests.
+    """Mgmt service responds to internal access
     """
 
     @staticmethod

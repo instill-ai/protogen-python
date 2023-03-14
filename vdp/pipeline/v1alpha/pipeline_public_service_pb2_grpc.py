@@ -7,7 +7,7 @@ from vdp.pipeline.v1alpha import pipeline_pb2 as vdp_dot_pipeline_dot_v1alpha_do
 
 
 class PipelinePublicServiceStub(object):
-    """Pipeline service responds to external incoming pipeline requests.
+    """Pipeline service responds to external access
     """
 
     def __init__(self, channel):
@@ -84,7 +84,7 @@ class PipelinePublicServiceStub(object):
 
 
 class PipelinePublicServiceServicer(object):
-    """Pipeline service responds to external incoming pipeline requests.
+    """Pipeline service responds to external access
     """
 
     def Liveness(self, request, context):
@@ -276,7 +276,7 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class PipelinePublicService(object):
-    """Pipeline service responds to external incoming pipeline requests.
+    """Pipeline service responds to external access
     """
 
     @staticmethod

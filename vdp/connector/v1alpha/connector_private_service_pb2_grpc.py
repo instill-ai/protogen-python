@@ -6,8 +6,7 @@ from vdp.connector.v1alpha import connector_pb2 as vdp_dot_connector_dot_v1alpha
 
 
 class ConnectorPrivateServiceStub(object):
-    """/////////////////////////////////////////////////////////////////////////////
-    Connector service responds to internal incoming connector requests.
+    """Connector service responds to internal access
     """
 
     def __init__(self, channel):
@@ -49,33 +48,31 @@ class ConnectorPrivateServiceStub(object):
 
 
 class ConnectorPrivateServiceServicer(object):
-    """/////////////////////////////////////////////////////////////////////////////
-    Connector service responds to internal incoming connector requests.
+    """Connector service responds to internal access
     """
 
     def ListSourceConnectorAdmin(self, request, context):
-        """========== Admin API ========== 
+        """*SourceConnector methods
 
-        *SourceConnector methods
-
-        ListSourceConnectorAdmin method receives a ListSourceConnectorAdminRequest message
-        and returns a ListSourceConnectorAdminResponse message.
+        ListSourceConnectorAdmin method receives a ListSourceConnectorAdminRequest
+        message and returns a ListSourceConnectorAdminResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetSourceConnectorAdmin(self, request, context):
-        """GetSourceConnectorAdmin method receives a GetSourceConnectorAdminRequest message and
-        returns a GetSourceConnectorAdminResponse message.
+        """GetSourceConnectorAdmin method receives a GetSourceConnectorAdminRequest
+        message and returns a GetSourceConnectorAdminResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def LookUpSourceConnectorAdmin(self, request, context):
-        """LookUpSourceConnectorAdmin method receives a LookUpSourceConnectorAdminRequest
-        message and returns a LookUpSourceConnectorAdminResponse
+        """LookUpSourceConnectorAdmin method receives a
+        LookUpSourceConnectorAdminRequest message and returns a
+        LookUpSourceConnectorAdminResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -84,16 +81,18 @@ class ConnectorPrivateServiceServicer(object):
     def ListDestinationConnectorAdmin(self, request, context):
         """*DestinationConnector methods
 
-        ListDestinationConnectorAdmin method receives a ListDestinationConnectorAdminRequest
-        message and returns a ListDestinationConnectorResponse message.
+        ListDestinationConnectorAdmin method receives a
+        ListDestinationConnectorAdminRequest message and returns a
+        ListDestinationConnectorResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetDestinationConnectorAdmin(self, request, context):
-        """GetDestinationConnectorAdmin method receives a GetDestinationConnectorAdminRequest
-        message and returns a GetDestinationConnectorAdminResponse message.
+        """GetDestinationConnectorAdmin method receives a
+        GetDestinationConnectorAdminRequest message and returns a
+        GetDestinationConnectorAdminResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -149,8 +148,7 @@ def add_ConnectorPrivateServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class ConnectorPrivateService(object):
-    """/////////////////////////////////////////////////////////////////////////////
-    Connector service responds to internal incoming connector requests.
+    """Connector service responds to internal access
     """
 
     @staticmethod

@@ -7,7 +7,7 @@ from vdp.mgmt.v1alpha import mgmt_pb2 as vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2
 
 
 class MgmtPublicServiceStub(object):
-    """Mgmt service responds to external incoming requests.
+    """Mgmt service responds to external access
     """
 
     def __init__(self, channel):
@@ -44,7 +44,7 @@ class MgmtPublicServiceStub(object):
 
 
 class MgmtPublicServiceServicer(object):
-    """Mgmt service responds to external incoming requests.
+    """Mgmt service responds to external access
     """
 
     def Liveness(self, request, context):
@@ -66,18 +66,16 @@ class MgmtPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def QueryAuthenticatedUser(self, request, context):
-        """========== Public API: endpoints exposed to public internet traffic
-
-        QueryAuthenticatedUser method receives a QueryAuthenticatedUserRequest message and returns
-        a QueryAuthenticatedUserResponse message.
+        """QueryAuthenticatedUser method receives a QueryAuthenticatedUserRequest
+        message and returns a QueryAuthenticatedUserResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def PatchAuthenticatedUser(self, request, context):
-        """PatchAuthenticatedUser method receives a PatchAuthenticatedUserRequest message and returns 
-        a PatchAuthenticatedUserResponse message.
+        """PatchAuthenticatedUser method receives a PatchAuthenticatedUserRequest
+        message and returns a PatchAuthenticatedUserResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -127,7 +125,7 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class MgmtPublicService(object):
-    """Mgmt service responds to external incoming requests.
+    """Mgmt service responds to external access
     """
 
     @staticmethod

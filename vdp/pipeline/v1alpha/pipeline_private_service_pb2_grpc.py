@@ -6,7 +6,7 @@ from vdp.pipeline.v1alpha import pipeline_pb2 as vdp_dot_pipeline_dot_v1alpha_do
 
 
 class PipelinePrivateServiceStub(object):
-    """Pipeline service responds to internal incoming pipeline requests.
+    """Pipeline service responds to internal access
     """
 
     def __init__(self, channel):
@@ -33,30 +33,28 @@ class PipelinePrivateServiceStub(object):
 
 
 class PipelinePrivateServiceServicer(object):
-    """Pipeline service responds to internal incoming pipeline requests.
+    """Pipeline service responds to internal access
     """
 
     def ListPipelinesAdmin(self, request, context):
-        """========== Admin API ========== 
-
-        ListPipelinesAdmin method receives a ListPipelinesAdminRequest message and returns a
-        ListPipelinesAdminResponse message.
+        """ListPipelinesAdmin method receives a ListPipelinesAdminRequest message and
+        returns a ListPipelinesAdminResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetPipelineAdmin(self, request, context):
-        """GetPipelineAdmin method receives a GetPipelineAdminRequest message and returns a
-        GetPipelineAdminResponse message.
+        """GetPipelineAdmin method receives a GetPipelineAdminRequest message and
+        returns a GetPipelineAdminResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def LookUpPipelineAdmin(self, request, context):
-        """LookUpPipelineAdmin method receives a LookUpPipelineAdminRequest message and returns
-        a LookUpPipelineAdminResponse
+        """LookUpPipelineAdmin method receives a LookUpPipelineAdminRequest message
+        and returns a LookUpPipelineAdminResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -88,7 +86,7 @@ def add_PipelinePrivateServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class PipelinePrivateService(object):
-    """Pipeline service responds to internal incoming pipeline requests.
+    """Pipeline service responds to internal access
     """
 
     @staticmethod

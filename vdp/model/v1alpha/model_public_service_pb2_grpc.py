@@ -8,7 +8,7 @@ from vdp.model.v1alpha import model_pb2 as vdp_dot_model_dot_v1alpha_dot_model__
 
 
 class ModelPublicServiceStub(object):
-    """Model service responds to external incoming model requests
+    """Model service responds to external access
     """
 
     def __init__(self, channel):
@@ -155,7 +155,7 @@ class ModelPublicServiceStub(object):
 
 
 class ModelPublicServiceServicer(object):
-    """Model service responds to external incoming model requests
+    """Model service responds to external access
     """
 
     def Liveness(self, request, context):
@@ -532,7 +532,7 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class ModelPublicService(object):
-    """Model service responds to external incoming model requests
+    """Model service responds to external access
     """
 
     @staticmethod
