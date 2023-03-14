@@ -15,10 +15,10 @@ class ModelPrivateServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.ListModelAdmin = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelPrivateService/ListModelAdmin',
-                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelAdminRequest.SerializeToString,
-                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelAdminResponse.FromString,
+        self.ListModelsAdmin = channel.unary_unary(
+                '/vdp.model.v1alpha.ModelPrivateService/ListModelsAdmin',
+                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelsAdminRequest.SerializeToString,
+                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelsAdminResponse.FromString,
                 )
         self.GetModelAdmin = channel.unary_unary(
                 '/vdp.model.v1alpha.ModelPrivateService/GetModelAdmin',
@@ -36,9 +36,11 @@ class ModelPrivateServiceServicer(object):
     """Model service responds to internal access
     """
 
-    def ListModelAdmin(self, request, context):
-        """ListModelAdmin method receives a ListModelAdminRequest message and returns
-        a ListModelAdminResponse
+    def ListModelsAdmin(self, request, context):
+        """========== Admin API ========== 
+
+        ListModelsAdmin method receives a ListModelsAdminRequest message and returns a
+        ListModelsAdminResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -63,10 +65,10 @@ class ModelPrivateServiceServicer(object):
 
 def add_ModelPrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'ListModelAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListModelAdmin,
-                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelAdminRequest.FromString,
-                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelAdminResponse.SerializeToString,
+            'ListModelsAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListModelsAdmin,
+                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelsAdminRequest.FromString,
+                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelsAdminResponse.SerializeToString,
             ),
             'GetModelAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.GetModelAdmin,
@@ -90,7 +92,7 @@ class ModelPrivateService(object):
     """
 
     @staticmethod
-    def ListModelAdmin(request,
+    def ListModelsAdmin(request,
             target,
             options=(),
             channel_credentials=None,
@@ -100,9 +102,9 @@ class ModelPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPrivateService/ListModelAdmin',
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelAdminRequest.SerializeToString,
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelAdminResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPrivateService/ListModelsAdmin',
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelsAdminRequest.SerializeToString,
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelsAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

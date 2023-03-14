@@ -27,20 +27,20 @@ class ModelPublicServiceStub(object):
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
                 )
-        self.ListModelDefinition = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelPublicService/ListModelDefinition',
-                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionRequest.SerializeToString,
-                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionResponse.FromString,
+        self.ListModelDefinitions = channel.unary_unary(
+                '/vdp.model.v1alpha.ModelPublicService/ListModelDefinitions',
+                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionsRequest.SerializeToString,
+                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionsResponse.FromString,
                 )
         self.GetModelDefinition = channel.unary_unary(
                 '/vdp.model.v1alpha.ModelPublicService/GetModelDefinition',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionResponse.FromString,
                 )
-        self.ListModel = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelPublicService/ListModel',
-                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelRequest.SerializeToString,
-                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelResponse.FromString,
+        self.ListModels = channel.unary_unary(
+                '/vdp.model.v1alpha.ModelPublicService/ListModels',
+                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelsRequest.SerializeToString,
+                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelsResponse.FromString,
                 )
         self.CreateModel = channel.unary_unary(
                 '/vdp.model.v1alpha.ModelPublicService/CreateModel',
@@ -87,10 +87,10 @@ class ModelPublicServiceStub(object):
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelResponse.FromString,
                 )
-        self.ListModelInstance = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelPublicService/ListModelInstance',
-                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstanceRequest.SerializeToString,
-                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstanceResponse.FromString,
+        self.ListModelInstances = channel.unary_unary(
+                '/vdp.model.v1alpha.ModelPublicService/ListModelInstances',
+                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstancesRequest.SerializeToString,
+                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstancesResponse.FromString,
                 )
         self.GetModelInstance = channel.unary_unary(
                 '/vdp.model.v1alpha.ModelPublicService/GetModelInstance',
@@ -142,10 +142,10 @@ class ModelPublicServiceStub(object):
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationResponse.FromString,
                 )
-        self.ListModelOperation = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelPublicService/ListModelOperation',
-                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationRequest.SerializeToString,
-                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationResponse.FromString,
+        self.ListModelOperations = channel.unary_unary(
+                '/vdp.model.v1alpha.ModelPublicService/ListModelOperations',
+                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationsRequest.SerializeToString,
+                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationsResponse.FromString,
                 )
         self.CancelModelOperation = channel.unary_unary(
                 '/vdp.model.v1alpha.ModelPublicService/CancelModelOperation',
@@ -176,9 +176,9 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListModelDefinition(self, request, context):
-        """ListModelDefinition method receives a ListModelDefinitionRequest message
-        and returns a ListModelDefinitionResponse
+    def ListModelDefinitions(self, request, context):
+        """ListModelDefinitions method receives a ListModelDefinitionsRequest message
+        and returns a ListModelDefinitionsResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -192,9 +192,9 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListModel(self, request, context):
-        """ListModel method receives a ListModelRequest message and returns a
-        ListModelResponse
+    def ListModels(self, request, context):
+        """ListModels method receives a ListModelsRequest message and returns a
+        ListModelsResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -274,9 +274,9 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListModelInstance(self, request, context):
-        """ListModelInstance method receives a ListModelInstanceRequest message and
-        returns a ListModelInstanceResponse
+    def ListModelInstances(self, request, context):
+        """ListModelInstances method receives a ListModelInstancesRequest message and
+        returns a ListModelInstancesResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -370,9 +370,9 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListModelOperation(self, request, context):
-        """ListModelOperation method receives a ListModelOperationRequest message
-        and returns a ListModelOperationResponse
+    def ListModelOperations(self, request, context):
+        """ListModelOperations method receives a ListModelOperationsRequest message
+        and returns a ListModelOperationsResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -399,20 +399,20 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_model_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.FromString,
                     response_serializer=vdp_dot_model_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.SerializeToString,
             ),
-            'ListModelDefinition': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListModelDefinition,
-                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionRequest.FromString,
-                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionResponse.SerializeToString,
+            'ListModelDefinitions': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListModelDefinitions,
+                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionsRequest.FromString,
+                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionsResponse.SerializeToString,
             ),
             'GetModelDefinition': grpc.unary_unary_rpc_method_handler(
                     servicer.GetModelDefinition,
                     request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionRequest.FromString,
                     response_serializer=vdp_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionResponse.SerializeToString,
             ),
-            'ListModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListModel,
-                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelRequest.FromString,
-                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelResponse.SerializeToString,
+            'ListModels': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListModels,
+                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelsRequest.FromString,
+                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelsResponse.SerializeToString,
             ),
             'CreateModel': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateModel,
@@ -459,10 +459,10 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelRequest.FromString,
                     response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelResponse.SerializeToString,
             ),
-            'ListModelInstance': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListModelInstance,
-                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstanceRequest.FromString,
-                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstanceResponse.SerializeToString,
+            'ListModelInstances': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListModelInstances,
+                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstancesRequest.FromString,
+                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstancesResponse.SerializeToString,
             ),
             'GetModelInstance': grpc.unary_unary_rpc_method_handler(
                     servicer.GetModelInstance,
@@ -514,10 +514,10 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationRequest.FromString,
                     response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationResponse.SerializeToString,
             ),
-            'ListModelOperation': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListModelOperation,
-                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationRequest.FromString,
-                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationResponse.SerializeToString,
+            'ListModelOperations': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListModelOperations,
+                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationsRequest.FromString,
+                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationsResponse.SerializeToString,
             ),
             'CancelModelOperation': grpc.unary_unary_rpc_method_handler(
                     servicer.CancelModelOperation,
@@ -570,7 +570,7 @@ class ModelPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ListModelDefinition(request,
+    def ListModelDefinitions(request,
             target,
             options=(),
             channel_credentials=None,
@@ -580,9 +580,9 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/ListModelDefinition',
-            vdp_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionRequest.SerializeToString,
-            vdp_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/ListModelDefinitions',
+            vdp_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionsRequest.SerializeToString,
+            vdp_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -604,7 +604,7 @@ class ModelPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ListModel(request,
+    def ListModels(request,
             target,
             options=(),
             channel_credentials=None,
@@ -614,9 +614,9 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/ListModel',
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelRequest.SerializeToString,
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/ListModels',
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelsRequest.SerializeToString,
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -774,7 +774,7 @@ class ModelPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ListModelInstance(request,
+    def ListModelInstances(request,
             target,
             options=(),
             channel_credentials=None,
@@ -784,9 +784,9 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/ListModelInstance',
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstanceRequest.SerializeToString,
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstanceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/ListModelInstances',
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstancesRequest.SerializeToString,
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstancesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -961,7 +961,7 @@ class ModelPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ListModelOperation(request,
+    def ListModelOperations(request,
             target,
             options=(),
             channel_credentials=None,
@@ -971,9 +971,9 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/ListModelOperation',
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationRequest.SerializeToString,
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/ListModelOperations',
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationsRequest.SerializeToString,
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

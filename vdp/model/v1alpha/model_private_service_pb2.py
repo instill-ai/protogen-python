@@ -16,7 +16,7 @@ from google.api import client_pb2 as google_dot_api_dot_client__pb2
 from vdp.model.v1alpha import model_pb2 as vdp_dot_model_dot_v1alpha_dot_model__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-vdp/model/v1alpha/model_private_service.proto\x12\x11vdp.model.v1alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1dvdp/model/v1alpha/model.proto2\xde\x03\n\x13ModelPrivateService\x12\x84\x01\n\x0eListModelAdmin\x12(.vdp.model.v1alpha.ListModelAdminRequest\x1a).vdp.model.v1alpha.ListModelAdminResponse\"\x1d\x82\xd3\xe4\x93\x02\x17\x12\x15/v1alpha/admin/models\x12\x91\x01\n\rGetModelAdmin\x12\'.vdp.model.v1alpha.GetModelAdminRequest\x1a(.vdp.model.v1alpha.GetModelAdminResponse\"-\xda\x41\x04name\x82\xd3\xe4\x93\x02 \x12\x1e/v1alpha/admin/{name=models/*}\x12\xab\x01\n\x10LookUpModelAdmin\x12*.vdp.model.v1alpha.LookUpModelAdminRequest\x1a+.vdp.model.v1alpha.LookUpModelAdminResponse\">\xda\x41\tpermalink\x82\xd3\xe4\x93\x02,\x12*/v1alpha/admin/{permalink=models/*}/lookUpB\xd9\x01\n\x15\x63om.vdp.model.v1alphaB\x18ModelPrivateServiceProtoP\x01Z@github.com/instill-ai/protogen-go/vdp/model/v1alpha;modelv1alpha\xa2\x02\x03VMX\xaa\x02\x11Vdp.Model.V1alpha\xca\x02\x11Vdp\\Model\\V1alpha\xe2\x02\x1dVdp\\Model\\V1alpha\\GPBMetadata\xea\x02\x13Vdp::Model::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-vdp/model/v1alpha/model_private_service.proto\x12\x11vdp.model.v1alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1dvdp/model/v1alpha/model.proto2\xe1\x03\n\x13ModelPrivateService\x12\x87\x01\n\x0fListModelsAdmin\x12).vdp.model.v1alpha.ListModelsAdminRequest\x1a*.vdp.model.v1alpha.ListModelsAdminResponse\"\x1d\x82\xd3\xe4\x93\x02\x17\x12\x15/v1alpha/admin/models\x12\x91\x01\n\rGetModelAdmin\x12\'.vdp.model.v1alpha.GetModelAdminRequest\x1a(.vdp.model.v1alpha.GetModelAdminResponse\"-\xda\x41\x04name\x82\xd3\xe4\x93\x02 \x12\x1e/v1alpha/admin/{name=models/*}\x12\xab\x01\n\x10LookUpModelAdmin\x12*.vdp.model.v1alpha.LookUpModelAdminRequest\x1a+.vdp.model.v1alpha.LookUpModelAdminResponse\">\xda\x41\tpermalink\x82\xd3\xe4\x93\x02,\x12*/v1alpha/admin/{permalink=models/*}/lookUpB\xd9\x01\n\x15\x63om.vdp.model.v1alphaB\x18ModelPrivateServiceProtoP\x01Z@github.com/instill-ai/protogen-go/vdp/model/v1alpha;modelv1alpha\xa2\x02\x03VMX\xaa\x02\x11Vdp.Model.V1alpha\xca\x02\x11Vdp\\Model\\V1alpha\xe2\x02\x1dVdp\\Model\\V1alpha\\GPBMetadata\xea\x02\x13Vdp::Model::V1alphab\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'vdp.model.v1alpha.model_private_service_pb2', globals())
@@ -24,12 +24,12 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\025com.vdp.model.v1alphaB\030ModelPrivateServiceProtoP\001Z@github.com/instill-ai/protogen-go/vdp/model/v1alpha;modelv1alpha\242\002\003VMX\252\002\021Vdp.Model.V1alpha\312\002\021Vdp\\Model\\V1alpha\342\002\035Vdp\\Model\\V1alpha\\GPBMetadata\352\002\023Vdp::Model::V1alpha'
-  _MODELPRIVATESERVICE.methods_by_name['ListModelAdmin']._options = None
-  _MODELPRIVATESERVICE.methods_by_name['ListModelAdmin']._serialized_options = b'\202\323\344\223\002\027\022\025/v1alpha/admin/models'
+  _MODELPRIVATESERVICE.methods_by_name['ListModelsAdmin']._options = None
+  _MODELPRIVATESERVICE.methods_by_name['ListModelsAdmin']._serialized_options = b'\202\323\344\223\002\027\022\025/v1alpha/admin/models'
   _MODELPRIVATESERVICE.methods_by_name['GetModelAdmin']._options = None
   _MODELPRIVATESERVICE.methods_by_name['GetModelAdmin']._serialized_options = b'\332A\004name\202\323\344\223\002 \022\036/v1alpha/admin/{name=models/*}'
   _MODELPRIVATESERVICE.methods_by_name['LookUpModelAdmin']._options = None
   _MODELPRIVATESERVICE.methods_by_name['LookUpModelAdmin']._serialized_options = b'\332A\tpermalink\202\323\344\223\002,\022*/v1alpha/admin/{permalink=models/*}/lookUp'
   _MODELPRIVATESERVICE._serialized_start=155
-  _MODELPRIVATESERVICE._serialized_end=633
+  _MODELPRIVATESERVICE._serialized_end=636
 # @@protoc_insertion_point(module_scope)

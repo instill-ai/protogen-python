@@ -26,10 +26,10 @@ class PlanServiceStub(object):
                 request_serializer=vdp_dot_billing_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
                 response_deserializer=vdp_dot_billing_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
                 )
-        self.ListPlan = channel.unary_unary(
-                '/vdp.billing.v1alpha.PlanService/ListPlan',
-                request_serializer=vdp_dot_billing_dot_v1alpha_dot_plan__pb2.ListPlanRequest.SerializeToString,
-                response_deserializer=vdp_dot_billing_dot_v1alpha_dot_plan__pb2.ListPlanResponse.FromString,
+        self.ListPlans = channel.unary_unary(
+                '/vdp.billing.v1alpha.PlanService/ListPlans',
+                request_serializer=vdp_dot_billing_dot_v1alpha_dot_plan__pb2.ListPlansRequest.SerializeToString,
+                response_deserializer=vdp_dot_billing_dot_v1alpha_dot_plan__pb2.ListPlansResponse.FromString,
                 )
         self.CreatePlan = channel.unary_unary(
                 '/vdp.billing.v1alpha.PlanService/CreatePlan',
@@ -80,11 +80,11 @@ class PlanServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListPlan(self, request, context):
+    def ListPlans(self, request, context):
         """========== Admin API: create, get, update and delete billing plans
 
-        ListPlan method receives a ListPlanRequest message and returns a
-        ListPlanResponse message.
+        ListPlans method receives a ListPlansRequest message and returns a
+        ListPlansResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -143,10 +143,10 @@ def add_PlanServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_billing_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.FromString,
                     response_serializer=vdp_dot_billing_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.SerializeToString,
             ),
-            'ListPlan': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListPlan,
-                    request_deserializer=vdp_dot_billing_dot_v1alpha_dot_plan__pb2.ListPlanRequest.FromString,
-                    response_serializer=vdp_dot_billing_dot_v1alpha_dot_plan__pb2.ListPlanResponse.SerializeToString,
+            'ListPlans': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListPlans,
+                    request_deserializer=vdp_dot_billing_dot_v1alpha_dot_plan__pb2.ListPlansRequest.FromString,
+                    response_serializer=vdp_dot_billing_dot_v1alpha_dot_plan__pb2.ListPlansResponse.SerializeToString,
             ),
             'CreatePlan': grpc.unary_unary_rpc_method_handler(
                     servicer.CreatePlan,
@@ -219,7 +219,7 @@ class PlanService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ListPlan(request,
+    def ListPlans(request,
             target,
             options=(),
             channel_credentials=None,
@@ -229,9 +229,9 @@ class PlanService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.billing.v1alpha.PlanService/ListPlan',
-            vdp_dot_billing_dot_v1alpha_dot_plan__pb2.ListPlanRequest.SerializeToString,
-            vdp_dot_billing_dot_v1alpha_dot_plan__pb2.ListPlanResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.billing.v1alpha.PlanService/ListPlans',
+            vdp_dot_billing_dot_v1alpha_dot_plan__pb2.ListPlansRequest.SerializeToString,
+            vdp_dot_billing_dot_v1alpha_dot_plan__pb2.ListPlansResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
