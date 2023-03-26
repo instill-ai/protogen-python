@@ -81,7 +81,7 @@ class PlanServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListPlans(self, request, context):
-        """========== Admin API: create, get, update and delete billing plans
+        """========== Private API: create, get, update and delete billing plans
 
         ListPlans method receives a ListPlansRequest message and returns a
         ListPlansResponse message.

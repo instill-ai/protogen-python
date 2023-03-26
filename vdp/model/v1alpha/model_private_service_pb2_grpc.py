@@ -30,6 +30,11 @@ class ModelPrivateServiceStub(object):
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminResponse.FromString,
                 )
+        self.CheckModelInstance = channel.unary_unary(
+                '/vdp.model.v1alpha.ModelPrivateService/CheckModelInstance',
+                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.CheckModelInstanceRequest.SerializeToString,
+                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.CheckModelInstanceResponse.FromString,
+                )
 
 
 class ModelPrivateServiceServicer(object):
@@ -37,7 +42,7 @@ class ModelPrivateServiceServicer(object):
     """
 
     def ListModelsAdmin(self, request, context):
-        """========== Admin API ========== 
+        """========== Private API ==========
 
         ListModelsAdmin method receives a ListModelsAdminRequest message and returns a
         ListModelsAdminResponse
@@ -62,6 +67,14 @@ class ModelPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CheckModelInstance(self, request, context):
+        """CheckModelInstance method receives a CheckModelInstanceRequest message and returns a
+        CheckModelInstanceResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ModelPrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -79,6 +92,11 @@ def add_ModelPrivateServiceServicer_to_server(servicer, server):
                     servicer.LookUpModelAdmin,
                     request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminRequest.FromString,
                     response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminResponse.SerializeToString,
+            ),
+            'CheckModelInstance': grpc.unary_unary_rpc_method_handler(
+                    servicer.CheckModelInstance,
+                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.CheckModelInstanceRequest.FromString,
+                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.CheckModelInstanceResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -139,5 +157,22 @@ class ModelPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPrivateService/LookUpModelAdmin',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CheckModelInstance(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPrivateService/CheckModelInstance',
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.CheckModelInstanceRequest.SerializeToString,
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.CheckModelInstanceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

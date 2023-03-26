@@ -117,6 +117,11 @@ class ModelPublicServiceStub(object):
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardResponse.FromString,
                 )
+        self.WatchModelInstance = channel.unary_unary(
+                '/vdp.model.v1alpha.ModelPublicService/WatchModelInstance',
+                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.WatchModelInstanceRequest.SerializeToString,
+                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.WatchModelInstanceResponse.FromString,
+                )
         self.TriggerModelInstance = channel.unary_unary(
                 '/vdp.model.v1alpha.ModelPublicService/TriggerModelInstance',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceRequest.SerializeToString,
@@ -321,6 +326,14 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def WatchModelInstance(self, request, context):
+        """WatchModelInstance method receives a WatchModelInstanceRequest message
+        and returns a WatchModelInstanceResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def TriggerModelInstance(self, request, context):
         """/////////////////////////////////////////////////////
 
@@ -488,6 +501,11 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     servicer.GetModelInstanceCard,
                     request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardRequest.FromString,
                     response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardResponse.SerializeToString,
+            ),
+            'WatchModelInstance': grpc.unary_unary_rpc_method_handler(
+                    servicer.WatchModelInstance,
+                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.WatchModelInstanceRequest.FromString,
+                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.WatchModelInstanceResponse.SerializeToString,
             ),
             'TriggerModelInstance': grpc.unary_unary_rpc_method_handler(
                     servicer.TriggerModelInstance,
@@ -872,6 +890,23 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/GetModelInstanceCard',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def WatchModelInstance(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/WatchModelInstance',
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.WatchModelInstanceRequest.SerializeToString,
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.WatchModelInstanceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

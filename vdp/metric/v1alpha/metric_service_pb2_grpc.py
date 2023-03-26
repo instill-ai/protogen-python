@@ -88,7 +88,7 @@ class PipelineServiceServicer(object):
     def ReportPipelineTrigger(self, request, context):
         """Services for reporting usages 
 
-        For pipeline-backend clients to report a pipeline trigger record 
+        For pipeline-backend clients to report a pipeline trigger record
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
