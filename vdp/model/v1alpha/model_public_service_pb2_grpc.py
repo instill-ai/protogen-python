@@ -87,60 +87,45 @@ class ModelPublicServiceStub(object):
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelResponse.FromString,
                 )
-        self.ListModelInstances = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelPublicService/ListModelInstances',
-                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstancesRequest.SerializeToString,
-                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstancesResponse.FromString,
+        self.DeployModel = channel.unary_unary(
+                '/vdp.model.v1alpha.ModelPublicService/DeployModel',
+                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.DeployModelRequest.SerializeToString,
+                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.DeployModelResponse.FromString,
                 )
-        self.GetModelInstance = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelPublicService/GetModelInstance',
-                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceRequest.SerializeToString,
-                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceResponse.FromString,
+        self.UndeployModel = channel.unary_unary(
+                '/vdp.model.v1alpha.ModelPublicService/UndeployModel',
+                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelRequest.SerializeToString,
+                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelResponse.FromString,
                 )
-        self.LookUpModelInstance = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelPublicService/LookUpModelInstance',
-                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceRequest.SerializeToString,
-                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceResponse.FromString,
+        self.GetModelCard = channel.unary_unary(
+                '/vdp.model.v1alpha.ModelPublicService/GetModelCard',
+                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelCardRequest.SerializeToString,
+                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelCardResponse.FromString,
                 )
-        self.DeployModelInstance = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelPublicService/DeployModelInstance',
-                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.DeployModelInstanceRequest.SerializeToString,
-                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.DeployModelInstanceResponse.FromString,
+        self.WatchModel = channel.unary_unary(
+                '/vdp.model.v1alpha.ModelPublicService/WatchModel',
+                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.WatchModelRequest.SerializeToString,
+                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.WatchModelResponse.FromString,
                 )
-        self.UndeployModelInstance = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelPublicService/UndeployModelInstance',
-                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelInstanceRequest.SerializeToString,
-                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelInstanceResponse.FromString,
+        self.TriggerModel = channel.unary_unary(
+                '/vdp.model.v1alpha.ModelPublicService/TriggerModel',
+                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelRequest.SerializeToString,
+                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelResponse.FromString,
                 )
-        self.GetModelInstanceCard = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelPublicService/GetModelInstanceCard',
-                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardRequest.SerializeToString,
-                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardResponse.FromString,
+        self.TriggerModelBinaryFileUpload = channel.stream_unary(
+                '/vdp.model.v1alpha.ModelPublicService/TriggerModelBinaryFileUpload',
+                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelBinaryFileUploadRequest.SerializeToString,
+                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelBinaryFileUploadResponse.FromString,
                 )
-        self.WatchModelInstance = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelPublicService/WatchModelInstance',
-                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.WatchModelInstanceRequest.SerializeToString,
-                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.WatchModelInstanceResponse.FromString,
+        self.TestModel = channel.unary_unary(
+                '/vdp.model.v1alpha.ModelPublicService/TestModel',
+                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelRequest.SerializeToString,
+                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelResponse.FromString,
                 )
-        self.TriggerModelInstance = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelPublicService/TriggerModelInstance',
-                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceRequest.SerializeToString,
-                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceResponse.FromString,
-                )
-        self.TriggerModelInstanceBinaryFileUpload = channel.stream_unary(
-                '/vdp.model.v1alpha.ModelPublicService/TriggerModelInstanceBinaryFileUpload',
-                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadRequest.SerializeToString,
-                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadResponse.FromString,
-                )
-        self.TestModelInstance = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelPublicService/TestModelInstance',
-                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceRequest.SerializeToString,
-                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceResponse.FromString,
-                )
-        self.TestModelInstanceBinaryFileUpload = channel.stream_unary(
-                '/vdp.model.v1alpha.ModelPublicService/TestModelInstanceBinaryFileUpload',
-                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceBinaryFileUploadRequest.SerializeToString,
-                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceBinaryFileUploadResponse.FromString,
+        self.TestModelBinaryFileUpload = channel.stream_unary(
+                '/vdp.model.v1alpha.ModelPublicService/TestModelBinaryFileUpload',
+                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelBinaryFileUploadRequest.SerializeToString,
+                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelBinaryFileUploadResponse.FromString,
                 )
         self.GetModelOperation = channel.unary_unary(
                 '/vdp.model.v1alpha.ModelPublicService/GetModelOperation',
@@ -279,96 +264,71 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListModelInstances(self, request, context):
-        """ListModelInstances method receives a ListModelInstancesRequest message and
-        returns a ListModelInstancesResponse
+    def DeployModel(self, request, context):
+        """DeployModel deploy a model to online state
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetModelInstance(self, request, context):
-        """GetModelInstance method receives a GetModelInstanceRequest message and
-        returns a GetModelInstanceResponse
+    def UndeployModel(self, request, context):
+        """UndeployModel undeploy a model to offline state
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def LookUpModelInstance(self, request, context):
-        """LookUpModelInstance method receives a LookUpModelInstanceRequest message
-        and returns a
-        LookUpModelInstanceResponse
+    def GetModelCard(self, request, context):
+        """GetModelCard method receives a GetModelCardRequest message
+        and returns a GetModelCardResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def DeployModelInstance(self, request, context):
-        """DeployModelInstance deploy a model instance to online state
+    def WatchModel(self, request, context):
+        """WatchModel method receives a WatchModelRequest message
+        and returns a WatchModelResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UndeployModelInstance(self, request, context):
-        """UndeployModelInstance undeploy a model instance to offline state
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetModelInstanceCard(self, request, context):
-        """GetModelInstanceCard method receives a GetModelInstanceCardRequest message
-        and returns a GetModelInstanceCardResponse
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def WatchModelInstance(self, request, context):
-        """WatchModelInstance method receives a WatchModelInstanceRequest message
-        and returns a WatchModelInstanceResponse
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def TriggerModelInstance(self, request, context):
+    def TriggerModel(self, request, context):
         """/////////////////////////////////////////////////////
 
-        TriggerModelInstance method receives a TriggerModelInstanceRequest message
-        and returns a TriggerModelInstanceResponse message.
+        TriggerModel method receives a TriggerModelRequest message
+        and returns a TriggerModelResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def TriggerModelInstanceBinaryFileUpload(self, request_iterator, context):
-        """TriggerModelInstanceBinaryFileUpload method receives a
-        TriggerModelInstanceBinaryFileUploadRequest message and returns a
-        TriggerModelInstanceBinaryFileUploadResponse message.
+    def TriggerModelBinaryFileUpload(self, request_iterator, context):
+        """TriggerModelBinaryFileUpload method receives a
+        TriggerModelBinaryFileUploadRequest message and returns a
+        TriggerModelBinaryFileUploadResponse message.
 
-        Endpoint: "POST/v1alpha/{name=models/*/instances/*}/trigger-multipart"
+        Endpoint: "POST/v1alpha/{name=models/*}/trigger-multipart"
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def TestModelInstance(self, request, context):
-        """TestModelInstance method receives a TestModelInstanceRequest message
-        and returns a TestModelInstanceResponse message.
+    def TestModel(self, request, context):
+        """TestModel method receives a TestModelRequest message
+        and returns a TestModelResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def TestModelInstanceBinaryFileUpload(self, request_iterator, context):
-        """TestModelInstanceBinaryFileUpload method receives a
-        TestModelInstanceBinaryFileUploadRequest message and returns a
-        TestModelInstanceBinaryFileUploadResponse message.
+    def TestModelBinaryFileUpload(self, request_iterator, context):
+        """TestModelBinaryFileUpload method receives a
+        TestModelBinaryFileUploadRequest message and returns a
+        TestModelBinaryFileUploadResponse message.
 
-        Endpoint: "POST/v1alpha/{name=models/*/instances/*}/test-multipart"
+        Endpoint: "POST/v1alpha/{name=models/*}/test-multipart"
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -472,60 +432,45 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelRequest.FromString,
                     response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelResponse.SerializeToString,
             ),
-            'ListModelInstances': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListModelInstances,
-                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstancesRequest.FromString,
-                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstancesResponse.SerializeToString,
+            'DeployModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeployModel,
+                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.DeployModelRequest.FromString,
+                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.DeployModelResponse.SerializeToString,
             ),
-            'GetModelInstance': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetModelInstance,
-                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceRequest.FromString,
-                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceResponse.SerializeToString,
+            'UndeployModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.UndeployModel,
+                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelRequest.FromString,
+                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelResponse.SerializeToString,
             ),
-            'LookUpModelInstance': grpc.unary_unary_rpc_method_handler(
-                    servicer.LookUpModelInstance,
-                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceRequest.FromString,
-                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceResponse.SerializeToString,
+            'GetModelCard': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetModelCard,
+                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelCardRequest.FromString,
+                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelCardResponse.SerializeToString,
             ),
-            'DeployModelInstance': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeployModelInstance,
-                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.DeployModelInstanceRequest.FromString,
-                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.DeployModelInstanceResponse.SerializeToString,
+            'WatchModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.WatchModel,
+                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.WatchModelRequest.FromString,
+                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.WatchModelResponse.SerializeToString,
             ),
-            'UndeployModelInstance': grpc.unary_unary_rpc_method_handler(
-                    servicer.UndeployModelInstance,
-                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelInstanceRequest.FromString,
-                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelInstanceResponse.SerializeToString,
+            'TriggerModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.TriggerModel,
+                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelRequest.FromString,
+                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelResponse.SerializeToString,
             ),
-            'GetModelInstanceCard': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetModelInstanceCard,
-                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardRequest.FromString,
-                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardResponse.SerializeToString,
+            'TriggerModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
+                    servicer.TriggerModelBinaryFileUpload,
+                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelBinaryFileUploadRequest.FromString,
+                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelBinaryFileUploadResponse.SerializeToString,
             ),
-            'WatchModelInstance': grpc.unary_unary_rpc_method_handler(
-                    servicer.WatchModelInstance,
-                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.WatchModelInstanceRequest.FromString,
-                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.WatchModelInstanceResponse.SerializeToString,
+            'TestModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.TestModel,
+                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelRequest.FromString,
+                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelResponse.SerializeToString,
             ),
-            'TriggerModelInstance': grpc.unary_unary_rpc_method_handler(
-                    servicer.TriggerModelInstance,
-                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceRequest.FromString,
-                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceResponse.SerializeToString,
-            ),
-            'TriggerModelInstanceBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
-                    servicer.TriggerModelInstanceBinaryFileUpload,
-                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadRequest.FromString,
-                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadResponse.SerializeToString,
-            ),
-            'TestModelInstance': grpc.unary_unary_rpc_method_handler(
-                    servicer.TestModelInstance,
-                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceRequest.FromString,
-                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceResponse.SerializeToString,
-            ),
-            'TestModelInstanceBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
-                    servicer.TestModelInstanceBinaryFileUpload,
-                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceBinaryFileUploadRequest.FromString,
-                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceBinaryFileUploadResponse.SerializeToString,
+            'TestModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
+                    servicer.TestModelBinaryFileUpload,
+                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelBinaryFileUploadRequest.FromString,
+                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelBinaryFileUploadResponse.SerializeToString,
             ),
             'GetModelOperation': grpc.unary_unary_rpc_method_handler(
                     servicer.GetModelOperation,
@@ -792,7 +737,7 @@ class ModelPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ListModelInstances(request,
+    def DeployModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -802,14 +747,14 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/ListModelInstances',
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstancesRequest.SerializeToString,
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelInstancesResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/DeployModel',
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.DeployModelRequest.SerializeToString,
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.DeployModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetModelInstance(request,
+    def UndeployModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -819,14 +764,14 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/GetModelInstance',
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceRequest.SerializeToString,
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/UndeployModel',
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelRequest.SerializeToString,
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def LookUpModelInstance(request,
+    def GetModelCard(request,
             target,
             options=(),
             channel_credentials=None,
@@ -836,14 +781,14 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/LookUpModelInstance',
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceRequest.SerializeToString,
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelInstanceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/GetModelCard',
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelCardRequest.SerializeToString,
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelCardResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def DeployModelInstance(request,
+    def WatchModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -853,14 +798,14 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/DeployModelInstance',
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.DeployModelInstanceRequest.SerializeToString,
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.DeployModelInstanceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/WatchModel',
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.WatchModelRequest.SerializeToString,
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.WatchModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UndeployModelInstance(request,
+    def TriggerModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -870,14 +815,14 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/UndeployModelInstance',
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelInstanceRequest.SerializeToString,
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelInstanceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/TriggerModel',
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelRequest.SerializeToString,
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetModelInstanceCard(request,
+    def TriggerModelBinaryFileUpload(request_iterator,
             target,
             options=(),
             channel_credentials=None,
@@ -887,14 +832,14 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/GetModelInstanceCard',
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardRequest.SerializeToString,
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelInstanceCardResponse.FromString,
+        return grpc.experimental.stream_unary(request_iterator, target, '/vdp.model.v1alpha.ModelPublicService/TriggerModelBinaryFileUpload',
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelBinaryFileUploadRequest.SerializeToString,
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelBinaryFileUploadResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def WatchModelInstance(request,
+    def TestModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -904,14 +849,14 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/WatchModelInstance',
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.WatchModelInstanceRequest.SerializeToString,
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.WatchModelInstanceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/TestModel',
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelRequest.SerializeToString,
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def TriggerModelInstance(request,
+    def TestModelBinaryFileUpload(request_iterator,
             target,
             options=(),
             channel_credentials=None,
@@ -921,60 +866,9 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/TriggerModelInstance',
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceRequest.SerializeToString,
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def TriggerModelInstanceBinaryFileUpload(request_iterator,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/vdp.model.v1alpha.ModelPublicService/TriggerModelInstanceBinaryFileUpload',
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadRequest.SerializeToString,
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelInstanceBinaryFileUploadResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def TestModelInstance(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/TestModelInstance',
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceRequest.SerializeToString,
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def TestModelInstanceBinaryFileUpload(request_iterator,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/vdp.model.v1alpha.ModelPublicService/TestModelInstanceBinaryFileUpload',
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceBinaryFileUploadRequest.SerializeToString,
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelInstanceBinaryFileUploadResponse.FromString,
+        return grpc.experimental.stream_unary(request_iterator, target, '/vdp.model.v1alpha.ModelPublicService/TestModelBinaryFileUpload',
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelBinaryFileUploadRequest.SerializeToString,
+            vdp_dot_model_dot_v1alpha_dot_model__pb2.TestModelBinaryFileUploadResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
