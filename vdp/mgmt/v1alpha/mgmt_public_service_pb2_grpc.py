@@ -41,6 +41,26 @@ class MgmtPublicServiceStub(object):
                 request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ExistUsernameRequest.SerializeToString,
                 response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ExistUsernameResponse.FromString,
                 )
+        self.CreateToken = channel.unary_unary(
+                '/vdp.mgmt.v1alpha.MgmtPublicService/CreateToken',
+                request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateTokenRequest.SerializeToString,
+                response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateTokenResponse.FromString,
+                )
+        self.ListTokens = channel.unary_unary(
+                '/vdp.mgmt.v1alpha.MgmtPublicService/ListTokens',
+                request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListTokensRequest.SerializeToString,
+                response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListTokensResponse.FromString,
+                )
+        self.GetToken = channel.unary_unary(
+                '/vdp.mgmt.v1alpha.MgmtPublicService/GetToken',
+                request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetTokenRequest.SerializeToString,
+                response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetTokenResponse.FromString,
+                )
+        self.DeleteToken = channel.unary_unary(
+                '/vdp.mgmt.v1alpha.MgmtPublicService/DeleteToken',
+                request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteTokenRequest.SerializeToString,
+                response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteTokenResponse.FromString,
+                )
 
 
 class MgmtPublicServiceServicer(object):
@@ -89,6 +109,38 @@ class MgmtPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateToken(self, request, context):
+        """CreateToken method receives a CreateTokenRequest message and returns
+        a CreateTokenResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListTokens(self, request, context):
+        """ListTokens method receives a ListTokensRequest message and returns a
+        ListTokensResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetToken(self, request, context):
+        """GetToken method receives a GetTokenRequest message and returns a
+        GetTokenResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteToken(self, request, context):
+        """DeleteToken method receives a DeleteTokenRequest message and returns
+        a DeleteTokenResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_MgmtPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -116,6 +168,26 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     servicer.ExistUsername,
                     request_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ExistUsernameRequest.FromString,
                     response_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ExistUsernameResponse.SerializeToString,
+            ),
+            'CreateToken': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateToken,
+                    request_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateTokenRequest.FromString,
+                    response_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateTokenResponse.SerializeToString,
+            ),
+            'ListTokens': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListTokens,
+                    request_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListTokensRequest.FromString,
+                    response_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListTokensResponse.SerializeToString,
+            ),
+            'GetToken': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetToken,
+                    request_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetTokenRequest.FromString,
+                    response_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetTokenResponse.SerializeToString,
+            ),
+            'DeleteToken': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteToken,
+                    request_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteTokenRequest.FromString,
+                    response_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteTokenResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -210,5 +282,73 @@ class MgmtPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.MgmtPublicService/ExistUsername',
             vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ExistUsernameRequest.SerializeToString,
             vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ExistUsernameResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateToken(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.MgmtPublicService/CreateToken',
+            vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateTokenRequest.SerializeToString,
+            vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateTokenResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListTokens(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.MgmtPublicService/ListTokens',
+            vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListTokensRequest.SerializeToString,
+            vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListTokensResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetToken(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.MgmtPublicService/GetToken',
+            vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetTokenRequest.SerializeToString,
+            vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetTokenResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteToken(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.MgmtPublicService/DeleteToken',
+            vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteTokenRequest.SerializeToString,
+            vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteTokenResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
