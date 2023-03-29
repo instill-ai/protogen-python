@@ -81,6 +81,11 @@ class PipelinePublicServiceStub(object):
                 request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineBinaryFileUploadRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineBinaryFileUploadResponse.FromString,
                 )
+        self.WatchPipeline = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/WatchPipeline',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.WatchPipelineRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.WatchPipelineResponse.FromString,
+                )
 
 
 class PipelinePublicServiceServicer(object):
@@ -200,6 +205,14 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def WatchPipeline(self, request, context):
+        """WatchPipeline method receives a WatchPipelineRequest message
+        and returns a WatchPipelineResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_PipelinePublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -267,6 +280,11 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     servicer.TriggerPipelineBinaryFileUpload,
                     request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineBinaryFileUploadRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineBinaryFileUploadResponse.SerializeToString,
+            ),
+            'WatchPipeline': grpc.unary_unary_rpc_method_handler(
+                    servicer.WatchPipeline,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.WatchPipelineRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.WatchPipelineResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -497,5 +515,22 @@ class PipelinePublicService(object):
         return grpc.experimental.stream_unary(request_iterator, target, '/vdp.pipeline.v1alpha.PipelinePublicService/TriggerPipelineBinaryFileUpload',
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineBinaryFileUploadRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineBinaryFileUploadResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def WatchPipeline(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/WatchPipeline',
+            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.WatchPipelineRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.WatchPipelineResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
