@@ -17,7 +17,7 @@ from vdp.controller.v1alpha import controller_pb2 as vdp_dot_controller_dot_v1al
 from vdp.controller.v1alpha import healthcheck_pb2 as vdp_dot_controller_dot_v1alpha_dot_healthcheck__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/vdp/controller/v1alpha/controller_service.proto\x12\x16vdp.controller.v1alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\'vdp/controller/v1alpha/controller.proto\x1a(vdp/controller/v1alpha/healthcheck.proto2\xd0\x05\n\x18\x43ontrollerPrivateService\x12]\n\x08Liveness\x12\'.vdp.controller.v1alpha.LivenessRequest\x1a(.vdp.controller.v1alpha.LivenessResponse\x12`\n\tReadiness\x12(.vdp.controller.v1alpha.ReadinessRequest\x1a).vdp.controller.v1alpha.ReadinessResponse\x12\x9a\x01\n\x0bGetResource\x12*.vdp.controller.v1alpha.GetResourceRequest\x1a+.vdp.controller.v1alpha.GetResourceResponse\"2\xda\x41\x04name\x82\xd3\xe4\x93\x02%\x12#/v1alpha/{name=resources/*/types/*}\x12\xaf\x01\n\x0eUpdateResource\x12-.vdp.controller.v1alpha.UpdateResourceRequest\x1a..vdp.controller.v1alpha.UpdateResourceResponse\">\x82\xd3\xe4\x93\x02\x38:\x08resource2,/v1alpha/{resource.name=resources/*/types/*}\x12\xa3\x01\n\x0e\x44\x65leteResource\x12-.vdp.controller.v1alpha.DeleteResourceRequest\x1a..vdp.controller.v1alpha.DeleteResourceResponse\"2\xda\x41\x04name\x82\xd3\xe4\x93\x02%*#/v1alpha/{name=resources/*/types/*}B\xfa\x01\n\x1a\x63om.vdp.controller.v1alphaB\x16\x43ontrollerServiceProtoP\x01ZJgithub.com/instill-ai/protogen-go/vdp/controller/v1alpha;controllerv1alpha\xa2\x02\x03VCX\xaa\x02\x16Vdp.Controller.V1alpha\xca\x02\x16Vdp\\Controller\\V1alpha\xe2\x02\"Vdp\\Controller\\V1alpha\\GPBMetadata\xea\x02\x18Vdp::Controller::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/vdp/controller/v1alpha/controller_service.proto\x12\x16vdp.controller.v1alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\'vdp/controller/v1alpha/controller.proto\x1a(vdp/controller/v1alpha/healthcheck.proto2\xaa\x06\n\x18\x43ontrollerPrivateService\x12\x98\x01\n\x08Liveness\x12\'.vdp.controller.v1alpha.LivenessRequest\x1a(.vdp.controller.v1alpha.LivenessResponse\"9\x82\xd3\xe4\x93\x02\x33Z\x1c\x12\x1a/v1alpha/health/controller\x12\x13/v1alpha/__liveness\x12~\n\tReadiness\x12(.vdp.controller.v1alpha.ReadinessRequest\x1a).vdp.controller.v1alpha.ReadinessResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/v1alpha/__readiness\x12\x9a\x01\n\x0bGetResource\x12*.vdp.controller.v1alpha.GetResourceRequest\x1a+.vdp.controller.v1alpha.GetResourceResponse\"2\xda\x41\x04name\x82\xd3\xe4\x93\x02%\x12#/v1alpha/{name=resources/*/types/*}\x12\xaf\x01\n\x0eUpdateResource\x12-.vdp.controller.v1alpha.UpdateResourceRequest\x1a..vdp.controller.v1alpha.UpdateResourceResponse\">\x82\xd3\xe4\x93\x02\x38:\x08resource2,/v1alpha/{resource.name=resources/*/types/*}\x12\xa3\x01\n\x0e\x44\x65leteResource\x12-.vdp.controller.v1alpha.DeleteResourceRequest\x1a..vdp.controller.v1alpha.DeleteResourceResponse\"2\xda\x41\x04name\x82\xd3\xe4\x93\x02%*#/v1alpha/{name=resources/*/types/*}B\xfa\x01\n\x1a\x63om.vdp.controller.v1alphaB\x16\x43ontrollerServiceProtoP\x01ZJgithub.com/instill-ai/protogen-go/vdp/controller/v1alpha;controllerv1alpha\xa2\x02\x03VCX\xaa\x02\x16Vdp.Controller.V1alpha\xca\x02\x16Vdp\\Controller\\V1alpha\xe2\x02\"Vdp\\Controller\\V1alpha\\GPBMetadata\xea\x02\x18Vdp::Controller::V1alphab\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'vdp.controller.v1alpha.controller_service_pb2', globals())
@@ -25,6 +25,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\032com.vdp.controller.v1alphaB\026ControllerServiceProtoP\001ZJgithub.com/instill-ai/protogen-go/vdp/controller/v1alpha;controllerv1alpha\242\002\003VCX\252\002\026Vdp.Controller.V1alpha\312\002\026Vdp\\Controller\\V1alpha\342\002\"Vdp\\Controller\\V1alpha\\GPBMetadata\352\002\030Vdp::Controller::V1alpha'
+  _CONTROLLERPRIVATESERVICE.methods_by_name['Liveness']._options = None
+  _CONTROLLERPRIVATESERVICE.methods_by_name['Liveness']._serialized_options = b'\202\323\344\223\0023Z\034\022\032/v1alpha/health/controller\022\023/v1alpha/__liveness'
+  _CONTROLLERPRIVATESERVICE.methods_by_name['Readiness']._options = None
+  _CONTROLLERPRIVATESERVICE.methods_by_name['Readiness']._serialized_options = b'\202\323\344\223\002\026\022\024/v1alpha/__readiness'
   _CONTROLLERPRIVATESERVICE.methods_by_name['GetResource']._options = None
   _CONTROLLERPRIVATESERVICE.methods_by_name['GetResource']._serialized_options = b'\332A\004name\202\323\344\223\002%\022#/v1alpha/{name=resources/*/types/*}'
   _CONTROLLERPRIVATESERVICE.methods_by_name['UpdateResource']._options = None
@@ -32,5 +36,5 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _CONTROLLERPRIVATESERVICE.methods_by_name['DeleteResource']._options = None
   _CONTROLLERPRIVATESERVICE.methods_by_name['DeleteResource']._serialized_options = b'\332A\004name\202\323\344\223\002%*#/v1alpha/{name=resources/*/types/*}'
   _CONTROLLERPRIVATESERVICE._serialized_start=214
-  _CONTROLLERPRIVATESERVICE._serialized_end=934
+  _CONTROLLERPRIVATESERVICE._serialized_end=1024
 # @@protoc_insertion_point(module_scope)
