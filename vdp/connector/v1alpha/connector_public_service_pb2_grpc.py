@@ -157,11 +157,6 @@ class ConnectorPublicServiceStub(object):
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchDestinationConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchDestinationConnectorResponse.FromString,
                 )
-        self.GetConnectorOperation = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorPublicService/GetConnectorOperation',
-                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetConnectorOperationRequest.SerializeToString,
-                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetConnectorOperationResponse.FromString,
-                )
 
 
 class ConnectorPublicServiceServicer(object):
@@ -428,17 +423,6 @@ class ConnectorPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetConnectorOperation(self, request, context):
-        """*Longrunning operation methods
-
-        GetConnectorOperation method receives a
-        GetConnectorOperationRequest message and returns a
-        GetConnectorOperationResponse message.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_ConnectorPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -581,11 +565,6 @@ def add_ConnectorPublicServiceServicer_to_server(servicer, server):
                     servicer.WatchDestinationConnector,
                     request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchDestinationConnectorRequest.FromString,
                     response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchDestinationConnectorResponse.SerializeToString,
-            ),
-            'GetConnectorOperation': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetConnectorOperation,
-                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetConnectorOperationRequest.FromString,
-                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetConnectorOperationResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1071,22 +1050,5 @@ class ConnectorPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/WatchDestinationConnector',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchDestinationConnectorRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchDestinationConnectorResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetConnectorOperation(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/GetConnectorOperation',
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetConnectorOperationRequest.SerializeToString,
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetConnectorOperationResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
