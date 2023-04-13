@@ -132,16 +132,6 @@ class ModelPublicServiceStub(object):
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationResponse.FromString,
                 )
-        self.ListModelOperations = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelPublicService/ListModelOperations',
-                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationsRequest.SerializeToString,
-                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationsResponse.FromString,
-                )
-        self.CancelModelOperation = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelPublicService/CancelModelOperation',
-                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.CancelModelOperationRequest.SerializeToString,
-                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.CancelModelOperationResponse.FromString,
-                )
 
 
 class ModelPublicServiceServicer(object):
@@ -343,22 +333,6 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListModelOperations(self, request, context):
-        """ListModelOperations method receives a ListModelOperationsRequest message
-        and returns a ListModelOperationsResponse
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def CancelModelOperation(self, request, context):
-        """CancelModelOperation method receives a CancelModelOperationRequest message
-        and returns a CancelModelOperationResponse
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_ModelPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -476,16 +450,6 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     servicer.GetModelOperation,
                     request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationRequest.FromString,
                     response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationResponse.SerializeToString,
-            ),
-            'ListModelOperations': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListModelOperations,
-                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationsRequest.FromString,
-                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationsResponse.SerializeToString,
-            ),
-            'CancelModelOperation': grpc.unary_unary_rpc_method_handler(
-                    servicer.CancelModelOperation,
-                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.CancelModelOperationRequest.FromString,
-                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.CancelModelOperationResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -886,39 +850,5 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/GetModelOperation',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ListModelOperations(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/ListModelOperations',
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationsRequest.SerializeToString,
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelOperationsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def CancelModelOperation(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPublicService/CancelModelOperation',
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.CancelModelOperationRequest.SerializeToString,
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.CancelModelOperationResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
