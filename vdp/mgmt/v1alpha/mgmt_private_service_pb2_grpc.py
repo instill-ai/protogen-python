@@ -45,11 +45,6 @@ class MgmtPrivateServiceStub(object):
                 request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserAdminRequest.SerializeToString,
                 response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserAdminResponse.FromString,
                 )
-        self.ValidateToken = channel.unary_unary(
-                '/vdp.mgmt.v1alpha.MgmtPrivateService/ValidateToken',
-                request_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ValidateTokenRequest.SerializeToString,
-                response_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ValidateTokenResponse.FromString,
-                )
 
 
 class MgmtPrivateServiceServicer(object):
@@ -104,14 +99,6 @@ class MgmtPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ValidateToken(self, request, context):
-        """ValidateToken method receives a ValidateTokenRequest message and
-        returns a ValidateTokenResponse
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_MgmtPrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -144,11 +131,6 @@ def add_MgmtPrivateServiceServicer_to_server(servicer, server):
                     servicer.LookUpUserAdmin,
                     request_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserAdminRequest.FromString,
                     response_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserAdminResponse.SerializeToString,
-            ),
-            'ValidateToken': grpc.unary_unary_rpc_method_handler(
-                    servicer.ValidateToken,
-                    request_deserializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ValidateTokenRequest.FromString,
-                    response_serializer=vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ValidateTokenResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -260,22 +242,5 @@ class MgmtPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.MgmtPrivateService/LookUpUserAdmin',
             vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserAdminRequest.SerializeToString,
             vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ValidateToken(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.mgmt.v1alpha.MgmtPrivateService/ValidateToken',
-            vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ValidateTokenRequest.SerializeToString,
-            vdp_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ValidateTokenResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
