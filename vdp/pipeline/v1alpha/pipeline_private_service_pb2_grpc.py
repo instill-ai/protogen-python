@@ -20,11 +20,6 @@ class PipelinePrivateServiceStub(object):
                 request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelinesAdminRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelinesAdminResponse.FromString,
                 )
-        self.GetPipelineAdmin = channel.unary_unary(
-                '/vdp.pipeline.v1alpha.PipelinePrivateService/GetPipelineAdmin',
-                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.GetPipelineAdminRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.GetPipelineAdminResponse.FromString,
-                )
         self.LookUpPipelineAdmin = channel.unary_unary(
                 '/vdp.pipeline.v1alpha.PipelinePrivateService/LookUpPipelineAdmin',
                 request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpPipelineAdminRequest.SerializeToString,
@@ -39,14 +34,6 @@ class PipelinePrivateServiceServicer(object):
     def ListPipelinesAdmin(self, request, context):
         """ListPipelinesAdmin method receives a ListPipelinesAdminRequest message and
         returns a ListPipelinesAdminResponse message.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetPipelineAdmin(self, request, context):
-        """GetPipelineAdmin method receives a GetPipelineAdminRequest message and
-        returns a GetPipelineAdminResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -67,11 +54,6 @@ def add_PipelinePrivateServiceServicer_to_server(servicer, server):
                     servicer.ListPipelinesAdmin,
                     request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelinesAdminRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelinesAdminResponse.SerializeToString,
-            ),
-            'GetPipelineAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetPipelineAdmin,
-                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.GetPipelineAdminRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.GetPipelineAdminResponse.SerializeToString,
             ),
             'LookUpPipelineAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.LookUpPipelineAdmin,
@@ -103,23 +85,6 @@ class PipelinePrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePrivateService/ListPipelinesAdmin',
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelinesAdminRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelinesAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetPipelineAdmin(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePrivateService/GetPipelineAdmin',
-            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.GetPipelineAdminRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.GetPipelineAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

@@ -20,7 +20,7 @@ from vdp.connector.v1alpha import connector_pb2 as vdp_dot_connector_dot_v1alpha
 from vdp.healthcheck.v1alpha import healthcheck_pb2 as vdp_dot_healthcheck_dot_v1alpha_dot_healthcheck__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'vdp/controller/v1alpha/controller.proto\x12\x16vdp.controller.v1alpha\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1dvdp/model/v1alpha/model.proto\x1a#vdp/pipeline/v1alpha/pipeline.proto\x1a%vdp/connector/v1alpha/connector.proto\x1a)vdp/healthcheck/v1alpha/healthcheck.proto\"\xea\x03\n\x08Resource\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\x12\x41\n\x0bmodel_state\x18\x02 \x01(\x0e\x32\x1e.vdp.model.v1alpha.Model.StateH\x00R\nmodelState\x12M\n\x0epipeline_state\x18\x03 \x01(\x0e\x32$.vdp.pipeline.v1alpha.Pipeline.StateH\x00R\rpipelineState\x12Q\n\x0f\x63onnector_state\x18\x04 \x01(\x0e\x32&.vdp.connector.v1alpha.Connector.StateH\x00R\x0e\x63onnectorState\x12\x61\n\rbackend_state\x18\x05 \x01(\x0e\x32:.vdp.healthcheck.v1alpha.HealthCheckResponse.ServingStatusH\x00R\x0c\x62\x61\x63kendState\x12$\n\x08progress\x18\x06 \x01(\x05\x42\x03\xe0\x41\x01H\x01R\x08progress\x88\x01\x01:A\xea\x41>\n\x19\x61pi.instill.tech/Resource\x12!resources/{resource}/types/{type}B\x07\n\x05stateB\x0b\n\t_progress\"a\n\x12GetResourceRequest\x12K\n\x04name\x18\x01 \x01(\tB7\x92\x41\x13\xca>\x10\xfa\x02\rresource.name\xe0\x41\x02\xfa\x41\x1b\n\x19\x61pi.instill.tech/ResourceR\x04name\"S\n\x13GetResourceResponse\x12<\n\x08resource\x18\x01 \x01(\x0b\x32 .vdp.controller.v1alpha.ResourceR\x08resource\"\x95\x01\n\x15UpdateResourceRequest\x12\x41\n\x08resource\x18\x01 \x01(\x0b\x32 .vdp.controller.v1alpha.ResourceB\x03\xe0\x41\x02R\x08resource\x12)\n\x0bworkflow_id\x18\x02 \x01(\tB\x03\xe0\x41\x01H\x00R\nworkflowId\x88\x01\x01\x42\x0e\n\x0c_workflow_id\"V\n\x16UpdateResourceResponse\x12<\n\x08resource\x18\x01 \x01(\x0b\x32 .vdp.controller.v1alpha.ResourceR\x08resource\"d\n\x15\x44\x65leteResourceRequest\x12K\n\x04name\x18\x01 \x01(\tB7\x92\x41\x13\xca>\x10\xfa\x02\rresource.name\xe0\x41\x02\xfa\x41\x1b\n\x19\x61pi.instill.tech/ResourceR\x04name\"\x18\n\x16\x44\x65leteResourceResponseB\xf3\x01\n\x1a\x63om.vdp.controller.v1alphaB\x0f\x43ontrollerProtoP\x01ZJgithub.com/instill-ai/protogen-go/vdp/controller/v1alpha;controllerv1alpha\xa2\x02\x03VCX\xaa\x02\x16Vdp.Controller.V1alpha\xca\x02\x16Vdp\\Controller\\V1alpha\xe2\x02\"Vdp\\Controller\\V1alpha\\GPBMetadata\xea\x02\x18Vdp::Controller::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'vdp/controller/v1alpha/controller.proto\x12\x16vdp.controller.v1alpha\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1dvdp/model/v1alpha/model.proto\x1a#vdp/pipeline/v1alpha/pipeline.proto\x1a%vdp/connector/v1alpha/connector.proto\x1a)vdp/healthcheck/v1alpha/healthcheck.proto\"\x8a\x04\n\x08Resource\x12\x32\n\x12resource_permalink\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x11resourcePermalink\x12\x41\n\x0bmodel_state\x18\x02 \x01(\x0e\x32\x1e.vdp.model.v1alpha.Model.StateH\x00R\nmodelState\x12M\n\x0epipeline_state\x18\x03 \x01(\x0e\x32$.vdp.pipeline.v1alpha.Pipeline.StateH\x00R\rpipelineState\x12Q\n\x0f\x63onnector_state\x18\x04 \x01(\x0e\x32&.vdp.connector.v1alpha.Connector.StateH\x00R\x0e\x63onnectorState\x12\x61\n\rbackend_state\x18\x05 \x01(\x0e\x32:.vdp.healthcheck.v1alpha.HealthCheckResponse.ServingStatusH\x00R\x0c\x62\x61\x63kendState\x12$\n\x08progress\x18\x06 \x01(\x05\x42\x03\xe0\x41\x01H\x01R\x08progress\x88\x01\x01:F\xea\x41\x43\n\x19\x61pi.instill.tech/Resource\x12&resources/{resource_uuid}/types/{type}B\x07\n\x05stateB\x0b\n\t_progress\"\x8a\x01\n\x12GetResourceRequest\x12t\n\x12resource_permalink\x18\x01 \x01(\tBE\x92\x41!\xca>\x1e\xfa\x02\x1bresource.resource_permalink\xe0\x41\x02\xfa\x41\x1b\n\x19\x61pi.instill.tech/ResourceR\x11resourcePermalink\"S\n\x13GetResourceResponse\x12<\n\x08resource\x18\x01 \x01(\x0b\x32 .vdp.controller.v1alpha.ResourceR\x08resource\"\x95\x01\n\x15UpdateResourceRequest\x12\x41\n\x08resource\x18\x01 \x01(\x0b\x32 .vdp.controller.v1alpha.ResourceB\x03\xe0\x41\x02R\x08resource\x12)\n\x0bworkflow_id\x18\x02 \x01(\tB\x03\xe0\x41\x01H\x00R\nworkflowId\x88\x01\x01\x42\x0e\n\x0c_workflow_id\"V\n\x16UpdateResourceResponse\x12<\n\x08resource\x18\x01 \x01(\x0b\x32 .vdp.controller.v1alpha.ResourceR\x08resource\"\x8d\x01\n\x15\x44\x65leteResourceRequest\x12t\n\x12resource_permalink\x18\x01 \x01(\tBE\x92\x41!\xca>\x1e\xfa\x02\x1bresource.resource_permalink\xe0\x41\x02\xfa\x41\x1b\n\x19\x61pi.instill.tech/ResourceR\x11resourcePermalink\"\x18\n\x16\x44\x65leteResourceResponseB\xf3\x01\n\x1a\x63om.vdp.controller.v1alphaB\x0f\x43ontrollerProtoP\x01ZJgithub.com/instill-ai/protogen-go/vdp/controller/v1alpha;controllerv1alpha\xa2\x02\x03VCX\xaa\x02\x16Vdp.Controller.V1alpha\xca\x02\x16Vdp\\Controller\\V1alpha\xe2\x02\"Vdp\\Controller\\V1alpha\\GPBMetadata\xea\x02\x18Vdp::Controller::V1alphab\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'vdp.controller.v1alpha.controller_pb2', globals())
@@ -28,32 +28,32 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\032com.vdp.controller.v1alphaB\017ControllerProtoP\001ZJgithub.com/instill-ai/protogen-go/vdp/controller/v1alpha;controllerv1alpha\242\002\003VCX\252\002\026Vdp.Controller.V1alpha\312\002\026Vdp\\Controller\\V1alpha\342\002\"Vdp\\Controller\\V1alpha\\GPBMetadata\352\002\030Vdp::Controller::V1alpha'
-  _RESOURCE.fields_by_name['name']._options = None
-  _RESOURCE.fields_by_name['name']._serialized_options = b'\340A\002'
+  _RESOURCE.fields_by_name['resource_permalink']._options = None
+  _RESOURCE.fields_by_name['resource_permalink']._serialized_options = b'\340A\002'
   _RESOURCE.fields_by_name['progress']._options = None
   _RESOURCE.fields_by_name['progress']._serialized_options = b'\340A\001'
   _RESOURCE._options = None
-  _RESOURCE._serialized_options = b'\352A>\n\031api.instill.tech/Resource\022!resources/{resource}/types/{type}'
-  _GETRESOURCEREQUEST.fields_by_name['name']._options = None
-  _GETRESOURCEREQUEST.fields_by_name['name']._serialized_options = b'\222A\023\312>\020\372\002\rresource.name\340A\002\372A\033\n\031api.instill.tech/Resource'
+  _RESOURCE._serialized_options = b'\352AC\n\031api.instill.tech/Resource\022&resources/{resource_uuid}/types/{type}'
+  _GETRESOURCEREQUEST.fields_by_name['resource_permalink']._options = None
+  _GETRESOURCEREQUEST.fields_by_name['resource_permalink']._serialized_options = b'\222A!\312>\036\372\002\033resource.resource_permalink\340A\002\372A\033\n\031api.instill.tech/Resource'
   _UPDATERESOURCEREQUEST.fields_by_name['resource']._options = None
   _UPDATERESOURCEREQUEST.fields_by_name['resource']._serialized_options = b'\340A\002'
   _UPDATERESOURCEREQUEST.fields_by_name['workflow_id']._options = None
   _UPDATERESOURCEREQUEST.fields_by_name['workflow_id']._serialized_options = b'\340A\001'
-  _DELETERESOURCEREQUEST.fields_by_name['name']._options = None
-  _DELETERESOURCEREQUEST.fields_by_name['name']._serialized_options = b'\222A\023\312>\020\372\002\rresource.name\340A\002\372A\033\n\031api.instill.tech/Resource'
+  _DELETERESOURCEREQUEST.fields_by_name['resource_permalink']._options = None
+  _DELETERESOURCEREQUEST.fields_by_name['resource_permalink']._serialized_options = b'\222A!\312>\036\372\002\033resource.resource_permalink\340A\002\372A\033\n\031api.instill.tech/Resource'
   _RESOURCE._serialized_start=326
-  _RESOURCE._serialized_end=816
-  _GETRESOURCEREQUEST._serialized_start=818
-  _GETRESOURCEREQUEST._serialized_end=915
-  _GETRESOURCERESPONSE._serialized_start=917
-  _GETRESOURCERESPONSE._serialized_end=1000
-  _UPDATERESOURCEREQUEST._serialized_start=1003
-  _UPDATERESOURCEREQUEST._serialized_end=1152
-  _UPDATERESOURCERESPONSE._serialized_start=1154
-  _UPDATERESOURCERESPONSE._serialized_end=1240
-  _DELETERESOURCEREQUEST._serialized_start=1242
-  _DELETERESOURCEREQUEST._serialized_end=1342
-  _DELETERESOURCERESPONSE._serialized_start=1344
-  _DELETERESOURCERESPONSE._serialized_end=1368
+  _RESOURCE._serialized_end=848
+  _GETRESOURCEREQUEST._serialized_start=851
+  _GETRESOURCEREQUEST._serialized_end=989
+  _GETRESOURCERESPONSE._serialized_start=991
+  _GETRESOURCERESPONSE._serialized_end=1074
+  _UPDATERESOURCEREQUEST._serialized_start=1077
+  _UPDATERESOURCEREQUEST._serialized_end=1226
+  _UPDATERESOURCERESPONSE._serialized_start=1228
+  _UPDATERESOURCERESPONSE._serialized_end=1314
+  _DELETERESOURCEREQUEST._serialized_start=1317
+  _DELETERESOURCEREQUEST._serialized_end=1458
+  _DELETERESOURCERESPONSE._serialized_start=1460
+  _DELETERESOURCERESPONSE._serialized_end=1484
 # @@protoc_insertion_point(module_scope)

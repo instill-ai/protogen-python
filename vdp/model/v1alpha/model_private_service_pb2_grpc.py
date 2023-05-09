@@ -20,11 +20,6 @@ class ModelPrivateServiceStub(object):
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelsAdminRequest.SerializeToString,
                 response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelsAdminResponse.FromString,
                 )
-        self.GetModelAdmin = channel.unary_unary(
-                '/vdp.model.v1alpha.ModelPrivateService/GetModelAdmin',
-                request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelAdminRequest.SerializeToString,
-                response_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelAdminResponse.FromString,
-                )
         self.LookUpModelAdmin = channel.unary_unary(
                 '/vdp.model.v1alpha.ModelPrivateService/LookUpModelAdmin',
                 request_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminRequest.SerializeToString,
@@ -46,14 +41,6 @@ class ModelPrivateServiceServicer(object):
 
         ListModelsAdmin method receives a ListModelsAdminRequest message and returns a
         ListModelsAdminResponse
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetModelAdmin(self, request, context):
-        """GetModelAdmin method receives a GetModelAdminRequest message and returns a
-        GetModelAdminResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -82,11 +69,6 @@ def add_ModelPrivateServiceServicer_to_server(servicer, server):
                     servicer.ListModelsAdmin,
                     request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelsAdminRequest.FromString,
                     response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelsAdminResponse.SerializeToString,
-            ),
-            'GetModelAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetModelAdmin,
-                    request_deserializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelAdminRequest.FromString,
-                    response_serializer=vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelAdminResponse.SerializeToString,
             ),
             'LookUpModelAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.LookUpModelAdmin,
@@ -123,23 +105,6 @@ class ModelPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPrivateService/ListModelsAdmin',
             vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelsAdminRequest.SerializeToString,
             vdp_dot_model_dot_v1alpha_dot_model__pb2.ListModelsAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetModelAdmin(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.model.v1alpha.ModelPrivateService/GetModelAdmin',
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelAdminRequest.SerializeToString,
-            vdp_dot_model_dot_v1alpha_dot_model__pb2.GetModelAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

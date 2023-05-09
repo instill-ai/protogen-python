@@ -20,11 +20,6 @@ class ConnectorPrivateServiceStub(object):
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListSourceConnectorsAdminRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListSourceConnectorsAdminResponse.FromString,
                 )
-        self.GetSourceConnectorAdmin = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorPrivateService/GetSourceConnectorAdmin',
-                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetSourceConnectorAdminRequest.SerializeToString,
-                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetSourceConnectorAdminResponse.FromString,
-                )
         self.LookUpSourceConnectorAdmin = channel.unary_unary(
                 '/vdp.connector.v1alpha.ConnectorPrivateService/LookUpSourceConnectorAdmin',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpSourceConnectorAdminRequest.SerializeToString,
@@ -39,11 +34,6 @@ class ConnectorPrivateServiceStub(object):
                 '/vdp.connector.v1alpha.ConnectorPrivateService/ListDestinationConnectorsAdmin',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListDestinationConnectorsAdminRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListDestinationConnectorsAdminResponse.FromString,
-                )
-        self.GetDestinationConnectorAdmin = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorPrivateService/GetDestinationConnectorAdmin',
-                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetDestinationConnectorAdminRequest.SerializeToString,
-                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetDestinationConnectorAdminResponse.FromString,
                 )
         self.LookUpDestinationConnectorAdmin = channel.unary_unary(
                 '/vdp.connector.v1alpha.ConnectorPrivateService/LookUpDestinationConnectorAdmin',
@@ -66,14 +56,6 @@ class ConnectorPrivateServiceServicer(object):
 
         ListSourceConnectorsAdmin method receives a ListSourceConnectorsAdminRequest message
         and returns a ListSourceConnectorsAdminResponse message.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetSourceConnectorAdmin(self, request, context):
-        """GetSourceConnectorAdmin method receives a GetSourceConnectorAdminRequest
-        message and returns a GetSourceConnectorAdminResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -106,15 +88,6 @@ class ConnectorPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetDestinationConnectorAdmin(self, request, context):
-        """GetDestinationConnectorAdmin method receives a
-        GetDestinationConnectorAdminRequest message and returns a
-        GetDestinationConnectorAdminResponse message.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def LookUpDestinationConnectorAdmin(self, request, context):
         """LookUpDestinationConnectorAdmin method receives a
         LookUpDestinationConnectorAdminRequest message and returns a
@@ -140,11 +113,6 @@ def add_ConnectorPrivateServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListSourceConnectorsAdminRequest.FromString,
                     response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListSourceConnectorsAdminResponse.SerializeToString,
             ),
-            'GetSourceConnectorAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetSourceConnectorAdmin,
-                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetSourceConnectorAdminRequest.FromString,
-                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetSourceConnectorAdminResponse.SerializeToString,
-            ),
             'LookUpSourceConnectorAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.LookUpSourceConnectorAdmin,
                     request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpSourceConnectorAdminRequest.FromString,
@@ -159,11 +127,6 @@ def add_ConnectorPrivateServiceServicer_to_server(servicer, server):
                     servicer.ListDestinationConnectorsAdmin,
                     request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListDestinationConnectorsAdminRequest.FromString,
                     response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListDestinationConnectorsAdminResponse.SerializeToString,
-            ),
-            'GetDestinationConnectorAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetDestinationConnectorAdmin,
-                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetDestinationConnectorAdminRequest.FromString,
-                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetDestinationConnectorAdminResponse.SerializeToString,
             ),
             'LookUpDestinationConnectorAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.LookUpDestinationConnectorAdmin,
@@ -200,23 +163,6 @@ class ConnectorPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPrivateService/ListSourceConnectorsAdmin',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListSourceConnectorsAdminRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListSourceConnectorsAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetSourceConnectorAdmin(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPrivateService/GetSourceConnectorAdmin',
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetSourceConnectorAdminRequest.SerializeToString,
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetSourceConnectorAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -268,23 +214,6 @@ class ConnectorPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPrivateService/ListDestinationConnectorsAdmin',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListDestinationConnectorsAdminRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListDestinationConnectorsAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetDestinationConnectorAdmin(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPrivateService/GetDestinationConnectorAdmin',
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetDestinationConnectorAdminRequest.SerializeToString,
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetDestinationConnectorAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
