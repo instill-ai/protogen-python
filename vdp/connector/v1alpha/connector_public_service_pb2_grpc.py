@@ -102,6 +102,11 @@ class ConnectorPublicServiceStub(object):
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchSourceConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchSourceConnectorResponse.FromString,
                 )
+        self.TestSourceConnector = channel.unary_unary(
+                '/vdp.connector.v1alpha.ConnectorPublicService/TestSourceConnector',
+                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.TestSourceConnectorRequest.SerializeToString,
+                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.TestSourceConnectorResponse.FromString,
+                )
         self.CreateDestinationConnector = channel.unary_unary(
                 '/vdp.connector.v1alpha.ConnectorPublicService/CreateDestinationConnector',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateDestinationConnectorRequest.SerializeToString,
@@ -157,10 +162,10 @@ class ConnectorPublicServiceStub(object):
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchDestinationConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchDestinationConnectorResponse.FromString,
                 )
-        self.GetConnectorOperation = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorPublicService/GetConnectorOperation',
-                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetConnectorOperationRequest.SerializeToString,
-                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetConnectorOperationResponse.FromString,
+        self.TestDestinationConnector = channel.unary_unary(
+                '/vdp.connector.v1alpha.ConnectorPublicService/TestDestinationConnector',
+                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.TestDestinationConnectorRequest.SerializeToString,
+                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.TestDestinationConnectorResponse.FromString,
                 )
 
 
@@ -326,6 +331,14 @@ class ConnectorPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def TestSourceConnector(self, request, context):
+        """TestSourceConnector method receives a TestSourceConnectorRequest message
+        and returns a TestSourceConnectorResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CreateDestinationConnector(self, request, context):
         """*DestinationConnector methods
 
@@ -428,12 +441,9 @@ class ConnectorPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetConnectorOperation(self, request, context):
-        """*Longrunning operation methods
-
-        GetConnectorOperation method receives a
-        GetConnectorOperationRequest message and returns a
-        GetConnectorOperationResponse message.
+    def TestDestinationConnector(self, request, context):
+        """TestDestinationConnector method receives a TestDestinationConnectorRequest message
+        and returns a TestDestinationConnectorResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -527,6 +537,11 @@ def add_ConnectorPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchSourceConnectorRequest.FromString,
                     response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchSourceConnectorResponse.SerializeToString,
             ),
+            'TestSourceConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.TestSourceConnector,
+                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.TestSourceConnectorRequest.FromString,
+                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.TestSourceConnectorResponse.SerializeToString,
+            ),
             'CreateDestinationConnector': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateDestinationConnector,
                     request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateDestinationConnectorRequest.FromString,
@@ -582,10 +597,10 @@ def add_ConnectorPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchDestinationConnectorRequest.FromString,
                     response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchDestinationConnectorResponse.SerializeToString,
             ),
-            'GetConnectorOperation': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetConnectorOperation,
-                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetConnectorOperationRequest.FromString,
-                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetConnectorOperationResponse.SerializeToString,
+            'TestDestinationConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.TestDestinationConnector,
+                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.TestDestinationConnectorRequest.FromString,
+                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.TestDestinationConnectorResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -888,6 +903,23 @@ class ConnectorPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def TestSourceConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/TestSourceConnector',
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.TestSourceConnectorRequest.SerializeToString,
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.TestSourceConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def CreateDestinationConnector(request,
             target,
             options=(),
@@ -1075,7 +1107,7 @@ class ConnectorPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetConnectorOperation(request,
+    def TestDestinationConnector(request,
             target,
             options=(),
             channel_credentials=None,
@@ -1085,8 +1117,8 @@ class ConnectorPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/GetConnectorOperation',
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetConnectorOperationRequest.SerializeToString,
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetConnectorOperationResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/TestDestinationConnector',
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.TestDestinationConnectorRequest.SerializeToString,
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.TestDestinationConnectorResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
