@@ -71,20 +71,35 @@ class PipelinePublicServiceStub(object):
                 request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.RenamePipelineRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.RenamePipelineResponse.FromString,
                 )
-        self.TriggerPipeline = channel.unary_unary(
-                '/vdp.pipeline.v1alpha.PipelinePublicService/TriggerPipeline',
-                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineResponse.FromString,
+        self.TriggerSyncPipeline = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/TriggerSyncPipeline',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerSyncPipelineRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerSyncPipelineResponse.FromString,
                 )
-        self.TriggerPipelineBinaryFileUpload = channel.stream_unary(
-                '/vdp.pipeline.v1alpha.PipelinePublicService/TriggerPipelineBinaryFileUpload',
-                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineBinaryFileUploadRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineBinaryFileUploadResponse.FromString,
+        self.TriggerSyncPipelineBinaryFileUpload = channel.stream_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/TriggerSyncPipelineBinaryFileUpload',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerSyncPipelineBinaryFileUploadRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerSyncPipelineBinaryFileUploadResponse.FromString,
+                )
+        self.TriggerAsyncPipeline = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/TriggerAsyncPipeline',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerAsyncPipelineRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerAsyncPipelineResponse.FromString,
+                )
+        self.TriggerAsyncPipelineBinaryFileUpload = channel.stream_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/TriggerAsyncPipelineBinaryFileUpload',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerAsyncPipelineBinaryFileUploadRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerAsyncPipelineBinaryFileUploadResponse.FromString,
                 )
         self.WatchPipeline = channel.unary_unary(
                 '/vdp.pipeline.v1alpha.PipelinePublicService/WatchPipeline',
                 request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.WatchPipelineRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.WatchPipelineResponse.FromString,
+                )
+        self.GetTriggerAsyncOperation = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/GetTriggerAsyncOperation',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.GetTriggerAsyncOperationRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.GetTriggerAsyncOperationResponse.FromString,
                 )
 
 
@@ -186,20 +201,39 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def TriggerPipeline(self, request, context):
-        """TriggerPipeline method receives a TriggerPipelineRequest message and
-        returns a TriggerPipelineResponse.
+    def TriggerSyncPipeline(self, request, context):
+        """TriggerSyncPipeline method receives a TriggerSyncPipelineRequest message and
+        returns a TriggerSyncPipelineResponse.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def TriggerPipelineBinaryFileUpload(self, request_iterator, context):
-        """TriggerPipelineBinaryFileUpload method receives a
-        TriggerPipelineBinaryFileUploadRequest message and returns a
-        TriggerPipelineBinaryFileUploadResponse message.
+    def TriggerSyncPipelineBinaryFileUpload(self, request_iterator, context):
+        """TriggerSyncPipelineBinaryFileUpload method receives a
+        TriggerSyncPipelineBinaryFileUploadRequest message and returns a
+        TriggerSyncPipelineBinaryFileUploadResponse message.
 
-        Endpoint: "POST /v1alpha/{name=pipelines/*}/trigger-multipart"
+        Endpoint: "POST /v1alpha/{name=pipelines/*}/triggerSyncMultipart"
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TriggerAsyncPipeline(self, request, context):
+        """TriggerAsyncPipeline method receives a TriggerPipelineRequest message and
+        returns a TriggerAsyncPipelineResponse.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TriggerAsyncPipelineBinaryFileUpload(self, request_iterator, context):
+        """TriggerAsyncPipelineBinaryFileUpload method receives a
+        TriggerPipelineBinaryFileUploadRequest message and returns a
+        TriggerAsyncPipelineResponse message.
+
+        Endpoint: "POST /v1alpha/{name=pipelines/*}/triggerAsyncMultipart"
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -208,6 +242,17 @@ class PipelinePublicServiceServicer(object):
     def WatchPipeline(self, request, context):
         """WatchPipeline method receives a WatchPipelineRequest message
         and returns a WatchPipelineResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetTriggerAsyncOperation(self, request, context):
+        """*Longrunning operation methods
+
+        GetTriggerAsyncOperation method receives a
+        GetTriggerAsyncOperationRequest message and returns a
+        GetTriggerAsyncOperationResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -271,20 +316,35 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.RenamePipelineRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.RenamePipelineResponse.SerializeToString,
             ),
-            'TriggerPipeline': grpc.unary_unary_rpc_method_handler(
-                    servicer.TriggerPipeline,
-                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineResponse.SerializeToString,
+            'TriggerSyncPipeline': grpc.unary_unary_rpc_method_handler(
+                    servicer.TriggerSyncPipeline,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerSyncPipelineRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerSyncPipelineResponse.SerializeToString,
             ),
-            'TriggerPipelineBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
-                    servicer.TriggerPipelineBinaryFileUpload,
-                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineBinaryFileUploadRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineBinaryFileUploadResponse.SerializeToString,
+            'TriggerSyncPipelineBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
+                    servicer.TriggerSyncPipelineBinaryFileUpload,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerSyncPipelineBinaryFileUploadRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerSyncPipelineBinaryFileUploadResponse.SerializeToString,
+            ),
+            'TriggerAsyncPipeline': grpc.unary_unary_rpc_method_handler(
+                    servicer.TriggerAsyncPipeline,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerAsyncPipelineRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerAsyncPipelineResponse.SerializeToString,
+            ),
+            'TriggerAsyncPipelineBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
+                    servicer.TriggerAsyncPipelineBinaryFileUpload,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerAsyncPipelineBinaryFileUploadRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerAsyncPipelineBinaryFileUploadResponse.SerializeToString,
             ),
             'WatchPipeline': grpc.unary_unary_rpc_method_handler(
                     servicer.WatchPipeline,
                     request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.WatchPipelineRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.WatchPipelineResponse.SerializeToString,
+            ),
+            'GetTriggerAsyncOperation': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetTriggerAsyncOperation,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.GetTriggerAsyncOperationRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.GetTriggerAsyncOperationResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -485,7 +545,7 @@ class PipelinePublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def TriggerPipeline(request,
+    def TriggerSyncPipeline(request,
             target,
             options=(),
             channel_credentials=None,
@@ -495,14 +555,14 @@ class PipelinePublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/TriggerPipeline',
-            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/TriggerSyncPipeline',
+            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerSyncPipelineRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerSyncPipelineResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def TriggerPipelineBinaryFileUpload(request_iterator,
+    def TriggerSyncPipelineBinaryFileUpload(request_iterator,
             target,
             options=(),
             channel_credentials=None,
@@ -512,9 +572,43 @@ class PipelinePublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/vdp.pipeline.v1alpha.PipelinePublicService/TriggerPipelineBinaryFileUpload',
-            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineBinaryFileUploadRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerPipelineBinaryFileUploadResponse.FromString,
+        return grpc.experimental.stream_unary(request_iterator, target, '/vdp.pipeline.v1alpha.PipelinePublicService/TriggerSyncPipelineBinaryFileUpload',
+            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerSyncPipelineBinaryFileUploadRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerSyncPipelineBinaryFileUploadResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TriggerAsyncPipeline(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/TriggerAsyncPipeline',
+            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerAsyncPipelineRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerAsyncPipelineResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TriggerAsyncPipelineBinaryFileUpload(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_unary(request_iterator, target, '/vdp.pipeline.v1alpha.PipelinePublicService/TriggerAsyncPipelineBinaryFileUpload',
+            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerAsyncPipelineBinaryFileUploadRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerAsyncPipelineBinaryFileUploadResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -532,5 +626,22 @@ class PipelinePublicService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/WatchPipeline',
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.WatchPipelineRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.WatchPipelineResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetTriggerAsyncOperation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/GetTriggerAsyncOperation',
+            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.GetTriggerAsyncOperationRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.GetTriggerAsyncOperationResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
