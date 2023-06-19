@@ -12,15 +12,13 @@ _sym_db = _symbol_database.Default()
 
 
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
-from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from protoc_gen_openapiv2.options import annotations_pb2 as protoc__gen__openapiv2_dot_options_dot_annotations__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
-from google.type import date_pb2 as google_dot_type_dot_date__pb2
 from vdp.connector.v1alpha import spec_pb2 as vdp_dot_connector_dot_v1alpha_dot_spec__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0vdp/connector/v1alpha/connector_definition.proto\x12\x15vdp.connector.v1alpha\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x16google/type/date.proto\x1a vdp/connector/v1alpha/spec.proto\"o\n\x0f\x44ockerImageSpec\x12&\n\x0c\x64ocker_image\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x0b\x64ockerImage\x12\x34\n\x04spec\x18\x02 \x01(\x0b\x32\x1b.vdp.connector.v1alpha.SpecB\x03\xe0\x41\x03R\x04spec\"\xd0\x05\n\x13\x43onnectorDefinition\x12\x19\n\x05title\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x05title\x12\x30\n\x11\x64ocker_repository\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x10\x64ockerRepository\x12-\n\x10\x64ocker_image_tag\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x0e\x64ockerImageTag\x12\x30\n\x11\x64ocumentation_url\x18\x04 \x01(\tB\x03\xe0\x41\x03R\x10\x64ocumentationUrl\x12\x17\n\x04icon\x18\x05 \x01(\tB\x03\xe0\x41\x03R\x04icon\x12\x34\n\x04spec\x18\x06 \x01(\x0b\x32\x1b.vdp.connector.v1alpha.SpecB\x03\xe0\x41\x03R\x04spec\x12!\n\ttombstone\x18\x07 \x01(\x08\x42\x03\xe0\x41\x03R\ttombstone\x12\x1b\n\x06public\x18\x08 \x01(\x08\x42\x03\xe0\x41\x03R\x06public\x12\x1b\n\x06\x63ustom\x18\t \x01(\x08\x42\x03\xe0\x41\x03R\x06\x63ustom\x12M\n\rrelease_stage\x18\n \x01(\x0e\x32#.vdp.connector.v1alpha.ReleaseStageB\x03\xe0\x41\x03R\x0creleaseStage\x12\x39\n\x0crelease_date\x18\x0b \x01(\x0b\x32\x11.google.type.DateB\x03\xe0\x41\x03R\x0breleaseDate\x12Q\n\x15resource_requirements\x18\x0c \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x03R\x14resourceRequirements\x12@\n\x0b\x63reate_time\x18\r \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x0e \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\"\xb1\x02\n\x19SourceConnectorDefinition\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x13\n\x02id\x18\x03 \x01(\tB\x03\xe0\x41\x05R\x02id\x12\x62\n\x14\x63onnector_definition\x18\x04 \x01(\x0b\x32*.vdp.connector.v1alpha.ConnectorDefinitionB\x03\xe0\x41\x03R\x13\x63onnectorDefinition:k\xea\x41h\n*api.instill.tech/SourceConnectorDefinition\x12:source-connector-definitions/{source-connector-definition}\"\xc5\x02\n\x1e\x44\x65stinationConnectorDefinition\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x13\n\x02id\x18\x03 \x01(\tB\x03\xe0\x41\x05R\x02id\x12\x62\n\x14\x63onnector_definition\x18\x04 \x01(\x0b\x32*.vdp.connector.v1alpha.ConnectorDefinitionB\x03\xe0\x41\x03R\x13\x63onnectorDefinition:z\xea\x41w\n/api.instill.tech/DestinationConnectorDefinition\x12\x44\x64\x65stination-connector-definitions/{destination-connector-definition}\"\xd8\x01\n%ListSourceConnectorDefinitionsRequest\x12%\n\tpage_size\x18\x01 \x01(\x03\x42\x03\xe0\x41\x01H\x00R\x08pageSize\x88\x01\x01\x12\'\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01H\x01R\tpageToken\x88\x01\x01\x12\x39\n\x04view\x18\x03 \x01(\x0e\x32\x1b.vdp.connector.v1alpha.ViewB\x03\xe0\x41\x01H\x02R\x04view\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\x07\n\x05_view\"\xe3\x01\n&ListSourceConnectorDefinitionsResponse\x12r\n\x1csource_connector_definitions\x18\x01 \x03(\x0b\x32\x30.vdp.connector.v1alpha.SourceConnectorDefinitionR\x1asourceConnectorDefinitions\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSize\"\xda\x01\n#GetSourceConnectorDefinitionRequest\x12o\n\x04name\x18\x01 \x01(\tB[\x92\x41&\xca>#\xfa\x02 source_connector_definition.name\xe0\x41\x02\xfa\x41,\n*api.instill.tech/SourceConnectorDefinitionR\x04name\x12\x39\n\x04view\x18\x02 \x01(\x0e\x32\x1b.vdp.connector.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"\x98\x01\n$GetSourceConnectorDefinitionResponse\x12p\n\x1bsource_connector_definition\x18\x01 \x01(\x0b\x32\x30.vdp.connector.v1alpha.SourceConnectorDefinitionR\x19sourceConnectorDefinition\"\xdd\x01\n*ListDestinationConnectorDefinitionsRequest\x12%\n\tpage_size\x18\x01 \x01(\x03\x42\x03\xe0\x41\x01H\x00R\x08pageSize\x88\x01\x01\x12\'\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01H\x01R\tpageToken\x88\x01\x01\x12\x39\n\x04view\x18\x03 \x01(\x0e\x32\x1b.vdp.connector.v1alpha.ViewB\x03\xe0\x41\x01H\x02R\x04view\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\x07\n\x05_view\"\xf8\x01\n+ListDestinationConnectorDefinitionsResponse\x12\x81\x01\n!destination_connector_definitions\x18\x01 \x03(\x0b\x32\x35.vdp.connector.v1alpha.DestinationConnectorDefinitionR\x1f\x64\x65stinationConnectorDefinitions\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSize\"\xe9\x01\n(GetDestinationConnectorDefinitionRequest\x12y\n\x04name\x18\x01 \x01(\tBe\x92\x41+\xca>(\xfa\x02%destination_connector_definition.name\xe0\x41\x02\xfa\x41\x31\n/api.instill.tech/DestinationConnectorDefinitionR\x04name\x12\x39\n\x04view\x18\x02 \x01(\x0e\x32\x1b.vdp.connector.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"\xac\x01\n)GetDestinationConnectorDefinitionResponse\x12\x7f\n destination_connector_definition\x18\x01 \x01(\x0b\x32\x35.vdp.connector.v1alpha.DestinationConnectorDefinitionR\x1e\x64\x65stinationConnectorDefinition*;\n\x04View\x12\x14\n\x10VIEW_UNSPECIFIED\x10\x00\x12\x0e\n\nVIEW_BASIC\x10\x01\x12\r\n\tVIEW_FULL\x10\x02*j\n\rConnectorType\x12\x1e\n\x1a\x43ONNECTOR_TYPE_UNSPECIFIED\x10\x00\x12\x19\n\x15\x43ONNECTOR_TYPE_SOURCE\x10\x01\x12\x1e\n\x1a\x43ONNECTOR_TYPE_DESTINATION\x10\x02*\x9f\x01\n\x0cReleaseStage\x12\x1d\n\x19RELEASE_STAGE_UNSPECIFIED\x10\x00\x12\x17\n\x13RELEASE_STAGE_ALPHA\x10\x01\x12\x16\n\x12RELEASE_STAGE_BETA\x10\x02\x12%\n!RELEASE_STAGE_GENERALLY_AVAILABLE\x10\x03\x12\x18\n\x14RELEASE_STAGE_CUSTOM\x10\x04\x42\xf5\x01\n\x19\x63om.vdp.connector.v1alphaB\x18\x43onnectorDefinitionProtoP\x01ZHgithub.com/instill-ai/protogen-go/vdp/connector/v1alpha;connectorv1alpha\xa2\x02\x03VCX\xaa\x02\x15Vdp.Connector.V1alpha\xca\x02\x15Vdp\\Connector\\V1alpha\xe2\x02!Vdp\\Connector\\V1alpha\\GPBMetadata\xea\x02\x17Vdp::Connector::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0vdp/connector/v1alpha/connector_definition.proto\x12\x15vdp.connector.v1alpha\x1a\x1cgoogle/protobuf/struct.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a vdp/connector/v1alpha/spec.proto\"\x96\x03\n\x13\x43onnectorDefinition\x12\x19\n\x05title\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x05title\x12\x30\n\x11\x64ocumentation_url\x18\x04 \x01(\tB\x03\xe0\x41\x03R\x10\x64ocumentationUrl\x12\x17\n\x04icon\x18\x05 \x01(\tB\x03\xe0\x41\x03R\x04icon\x12\x34\n\x04spec\x18\x06 \x01(\x0b\x32\x1b.vdp.connector.v1alpha.SpecB\x03\xe0\x41\x03R\x04spec\x12!\n\ttombstone\x18\x07 \x01(\x08\x42\x03\xe0\x41\x03R\ttombstone\x12\x1b\n\x06public\x18\x08 \x01(\x08\x42\x03\xe0\x41\x03R\x06public\x12\x1b\n\x06\x63ustom\x18\t \x01(\x08\x42\x03\xe0\x41\x03R\x06\x63ustom\x12\x1e\n\x08icon_url\x18\x0f \x01(\tB\x03\xe0\x41\x03R\x07iconUrl\x12\x1b\n\x06vendor\x18\x10 \x01(\tB\x03\xe0\x41\x03R\x06vendor\x12I\n\x11vendor_attributes\x18\x11 \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x03R\x10vendorAttributes\"\xb1\x02\n\x19SourceConnectorDefinition\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x13\n\x02id\x18\x03 \x01(\tB\x03\xe0\x41\x05R\x02id\x12\x62\n\x14\x63onnector_definition\x18\x04 \x01(\x0b\x32*.vdp.connector.v1alpha.ConnectorDefinitionB\x03\xe0\x41\x03R\x13\x63onnectorDefinition:k\xea\x41h\n*api.instill.tech/SourceConnectorDefinition\x12:source-connector-definitions/{source-connector-definition}\"\xc5\x02\n\x1e\x44\x65stinationConnectorDefinition\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x13\n\x02id\x18\x03 \x01(\tB\x03\xe0\x41\x05R\x02id\x12\x62\n\x14\x63onnector_definition\x18\x04 \x01(\x0b\x32*.vdp.connector.v1alpha.ConnectorDefinitionB\x03\xe0\x41\x03R\x13\x63onnectorDefinition:z\xea\x41w\n/api.instill.tech/DestinationConnectorDefinition\x12\x44\x64\x65stination-connector-definitions/{destination-connector-definition}\"\xd8\x01\n%ListSourceConnectorDefinitionsRequest\x12%\n\tpage_size\x18\x01 \x01(\x03\x42\x03\xe0\x41\x01H\x00R\x08pageSize\x88\x01\x01\x12\'\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01H\x01R\tpageToken\x88\x01\x01\x12\x39\n\x04view\x18\x03 \x01(\x0e\x32\x1b.vdp.connector.v1alpha.ViewB\x03\xe0\x41\x01H\x02R\x04view\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\x07\n\x05_view\"\xe3\x01\n&ListSourceConnectorDefinitionsResponse\x12r\n\x1csource_connector_definitions\x18\x01 \x03(\x0b\x32\x30.vdp.connector.v1alpha.SourceConnectorDefinitionR\x1asourceConnectorDefinitions\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSize\"\xda\x01\n#GetSourceConnectorDefinitionRequest\x12o\n\x04name\x18\x01 \x01(\tB[\x92\x41&\xca>#\xfa\x02 source_connector_definition.name\xe0\x41\x02\xfa\x41,\n*api.instill.tech/SourceConnectorDefinitionR\x04name\x12\x39\n\x04view\x18\x02 \x01(\x0e\x32\x1b.vdp.connector.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"\x98\x01\n$GetSourceConnectorDefinitionResponse\x12p\n\x1bsource_connector_definition\x18\x01 \x01(\x0b\x32\x30.vdp.connector.v1alpha.SourceConnectorDefinitionR\x19sourceConnectorDefinition\"\xdd\x01\n*ListDestinationConnectorDefinitionsRequest\x12%\n\tpage_size\x18\x01 \x01(\x03\x42\x03\xe0\x41\x01H\x00R\x08pageSize\x88\x01\x01\x12\'\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01H\x01R\tpageToken\x88\x01\x01\x12\x39\n\x04view\x18\x03 \x01(\x0e\x32\x1b.vdp.connector.v1alpha.ViewB\x03\xe0\x41\x01H\x02R\x04view\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\x07\n\x05_view\"\xf8\x01\n+ListDestinationConnectorDefinitionsResponse\x12\x81\x01\n!destination_connector_definitions\x18\x01 \x03(\x0b\x32\x35.vdp.connector.v1alpha.DestinationConnectorDefinitionR\x1f\x64\x65stinationConnectorDefinitions\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSize\"\xe9\x01\n(GetDestinationConnectorDefinitionRequest\x12y\n\x04name\x18\x01 \x01(\tBe\x92\x41+\xca>(\xfa\x02%destination_connector_definition.name\xe0\x41\x02\xfa\x41\x31\n/api.instill.tech/DestinationConnectorDefinitionR\x04name\x12\x39\n\x04view\x18\x02 \x01(\x0e\x32\x1b.vdp.connector.v1alpha.ViewB\x03\xe0\x41\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"\xac\x01\n)GetDestinationConnectorDefinitionResponse\x12\x7f\n destination_connector_definition\x18\x01 \x01(\x0b\x32\x35.vdp.connector.v1alpha.DestinationConnectorDefinitionR\x1e\x64\x65stinationConnectorDefinition*;\n\x04View\x12\x14\n\x10VIEW_UNSPECIFIED\x10\x00\x12\x0e\n\nVIEW_BASIC\x10\x01\x12\r\n\tVIEW_FULL\x10\x02*j\n\rConnectorType\x12\x1e\n\x1a\x43ONNECTOR_TYPE_UNSPECIFIED\x10\x00\x12\x19\n\x15\x43ONNECTOR_TYPE_SOURCE\x10\x01\x12\x1e\n\x1a\x43ONNECTOR_TYPE_DESTINATION\x10\x02\x42\xf5\x01\n\x19\x63om.vdp.connector.v1alphaB\x18\x43onnectorDefinitionProtoP\x01ZHgithub.com/instill-ai/protogen-go/vdp/connector/v1alpha;connectorv1alpha\xa2\x02\x03VCX\xaa\x02\x15Vdp.Connector.V1alpha\xca\x02\x15Vdp\\Connector\\V1alpha\xe2\x02!Vdp\\Connector\\V1alpha\\GPBMetadata\xea\x02\x17Vdp::Connector::V1alphab\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'vdp.connector.v1alpha.connector_definition_pb2', globals())
@@ -28,16 +26,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\031com.vdp.connector.v1alphaB\030ConnectorDefinitionProtoP\001ZHgithub.com/instill-ai/protogen-go/vdp/connector/v1alpha;connectorv1alpha\242\002\003VCX\252\002\025Vdp.Connector.V1alpha\312\002\025Vdp\\Connector\\V1alpha\342\002!Vdp\\Connector\\V1alpha\\GPBMetadata\352\002\027Vdp::Connector::V1alpha'
-  _DOCKERIMAGESPEC.fields_by_name['docker_image']._options = None
-  _DOCKERIMAGESPEC.fields_by_name['docker_image']._serialized_options = b'\340A\003'
-  _DOCKERIMAGESPEC.fields_by_name['spec']._options = None
-  _DOCKERIMAGESPEC.fields_by_name['spec']._serialized_options = b'\340A\003'
   _CONNECTORDEFINITION.fields_by_name['title']._options = None
   _CONNECTORDEFINITION.fields_by_name['title']._serialized_options = b'\340A\003'
-  _CONNECTORDEFINITION.fields_by_name['docker_repository']._options = None
-  _CONNECTORDEFINITION.fields_by_name['docker_repository']._serialized_options = b'\340A\003'
-  _CONNECTORDEFINITION.fields_by_name['docker_image_tag']._options = None
-  _CONNECTORDEFINITION.fields_by_name['docker_image_tag']._serialized_options = b'\340A\003'
   _CONNECTORDEFINITION.fields_by_name['documentation_url']._options = None
   _CONNECTORDEFINITION.fields_by_name['documentation_url']._serialized_options = b'\340A\003'
   _CONNECTORDEFINITION.fields_by_name['icon']._options = None
@@ -50,16 +40,12 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _CONNECTORDEFINITION.fields_by_name['public']._serialized_options = b'\340A\003'
   _CONNECTORDEFINITION.fields_by_name['custom']._options = None
   _CONNECTORDEFINITION.fields_by_name['custom']._serialized_options = b'\340A\003'
-  _CONNECTORDEFINITION.fields_by_name['release_stage']._options = None
-  _CONNECTORDEFINITION.fields_by_name['release_stage']._serialized_options = b'\340A\003'
-  _CONNECTORDEFINITION.fields_by_name['release_date']._options = None
-  _CONNECTORDEFINITION.fields_by_name['release_date']._serialized_options = b'\340A\003'
-  _CONNECTORDEFINITION.fields_by_name['resource_requirements']._options = None
-  _CONNECTORDEFINITION.fields_by_name['resource_requirements']._serialized_options = b'\340A\003'
-  _CONNECTORDEFINITION.fields_by_name['create_time']._options = None
-  _CONNECTORDEFINITION.fields_by_name['create_time']._serialized_options = b'\340A\003'
-  _CONNECTORDEFINITION.fields_by_name['update_time']._options = None
-  _CONNECTORDEFINITION.fields_by_name['update_time']._serialized_options = b'\340A\003'
+  _CONNECTORDEFINITION.fields_by_name['icon_url']._options = None
+  _CONNECTORDEFINITION.fields_by_name['icon_url']._serialized_options = b'\340A\003'
+  _CONNECTORDEFINITION.fields_by_name['vendor']._options = None
+  _CONNECTORDEFINITION.fields_by_name['vendor']._serialized_options = b'\340A\003'
+  _CONNECTORDEFINITION.fields_by_name['vendor_attributes']._options = None
+  _CONNECTORDEFINITION.fields_by_name['vendor_attributes']._serialized_options = b'\340A\003'
   _SOURCECONNECTORDEFINITION.fields_by_name['name']._options = None
   _SOURCECONNECTORDEFINITION.fields_by_name['name']._serialized_options = b'\340A\003'
   _SOURCECONNECTORDEFINITION.fields_by_name['uid']._options = None
@@ -100,34 +86,30 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _GETDESTINATIONCONNECTORDEFINITIONREQUEST.fields_by_name['name']._serialized_options = b'\222A+\312>(\372\002%destination_connector_definition.name\340A\002\372A1\n/api.instill.tech/DestinationConnectorDefinition'
   _GETDESTINATIONCONNECTORDEFINITIONREQUEST.fields_by_name['view']._options = None
   _GETDESTINATIONCONNECTORDEFINITIONREQUEST.fields_by_name['view']._serialized_options = b'\340A\001'
-  _VIEW._serialized_start=3487
-  _VIEW._serialized_end=3546
-  _CONNECTORTYPE._serialized_start=3548
-  _CONNECTORTYPE._serialized_end=3654
-  _RELEASESTAGE._serialized_start=3657
-  _RELEASESTAGE._serialized_end=3816
-  _DOCKERIMAGESPEC._serialized_start=304
-  _DOCKERIMAGESPEC._serialized_end=415
-  _CONNECTORDEFINITION._serialized_start=418
-  _CONNECTORDEFINITION._serialized_end=1138
-  _SOURCECONNECTORDEFINITION._serialized_start=1141
-  _SOURCECONNECTORDEFINITION._serialized_end=1446
-  _DESTINATIONCONNECTORDEFINITION._serialized_start=1449
-  _DESTINATIONCONNECTORDEFINITION._serialized_end=1774
-  _LISTSOURCECONNECTORDEFINITIONSREQUEST._serialized_start=1777
-  _LISTSOURCECONNECTORDEFINITIONSREQUEST._serialized_end=1993
-  _LISTSOURCECONNECTORDEFINITIONSRESPONSE._serialized_start=1996
-  _LISTSOURCECONNECTORDEFINITIONSRESPONSE._serialized_end=2223
-  _GETSOURCECONNECTORDEFINITIONREQUEST._serialized_start=2226
-  _GETSOURCECONNECTORDEFINITIONREQUEST._serialized_end=2444
-  _GETSOURCECONNECTORDEFINITIONRESPONSE._serialized_start=2447
-  _GETSOURCECONNECTORDEFINITIONRESPONSE._serialized_end=2599
-  _LISTDESTINATIONCONNECTORDEFINITIONSREQUEST._serialized_start=2602
-  _LISTDESTINATIONCONNECTORDEFINITIONSREQUEST._serialized_end=2823
-  _LISTDESTINATIONCONNECTORDEFINITIONSRESPONSE._serialized_start=2826
-  _LISTDESTINATIONCONNECTORDEFINITIONSRESPONSE._serialized_end=3074
-  _GETDESTINATIONCONNECTORDEFINITIONREQUEST._serialized_start=3077
-  _GETDESTINATIONCONNECTORDEFINITIONREQUEST._serialized_end=3310
-  _GETDESTINATIONCONNECTORDEFINITIONRESPONSE._serialized_start=3313
-  _GETDESTINATIONCONNECTORDEFINITIONRESPONSE._serialized_end=3485
+  _VIEW._serialized_start=3003
+  _VIEW._serialized_end=3062
+  _CONNECTORTYPE._serialized_start=3064
+  _CONNECTORTYPE._serialized_end=3170
+  _CONNECTORDEFINITION._serialized_start=248
+  _CONNECTORDEFINITION._serialized_end=654
+  _SOURCECONNECTORDEFINITION._serialized_start=657
+  _SOURCECONNECTORDEFINITION._serialized_end=962
+  _DESTINATIONCONNECTORDEFINITION._serialized_start=965
+  _DESTINATIONCONNECTORDEFINITION._serialized_end=1290
+  _LISTSOURCECONNECTORDEFINITIONSREQUEST._serialized_start=1293
+  _LISTSOURCECONNECTORDEFINITIONSREQUEST._serialized_end=1509
+  _LISTSOURCECONNECTORDEFINITIONSRESPONSE._serialized_start=1512
+  _LISTSOURCECONNECTORDEFINITIONSRESPONSE._serialized_end=1739
+  _GETSOURCECONNECTORDEFINITIONREQUEST._serialized_start=1742
+  _GETSOURCECONNECTORDEFINITIONREQUEST._serialized_end=1960
+  _GETSOURCECONNECTORDEFINITIONRESPONSE._serialized_start=1963
+  _GETSOURCECONNECTORDEFINITIONRESPONSE._serialized_end=2115
+  _LISTDESTINATIONCONNECTORDEFINITIONSREQUEST._serialized_start=2118
+  _LISTDESTINATIONCONNECTORDEFINITIONSREQUEST._serialized_end=2339
+  _LISTDESTINATIONCONNECTORDEFINITIONSRESPONSE._serialized_start=2342
+  _LISTDESTINATIONCONNECTORDEFINITIONSRESPONSE._serialized_end=2590
+  _GETDESTINATIONCONNECTORDEFINITIONREQUEST._serialized_start=2593
+  _GETDESTINATIONCONNECTORDEFINITIONREQUEST._serialized_end=2826
+  _GETDESTINATIONCONNECTORDEFINITIONRESPONSE._serialized_start=2829
+  _GETDESTINATIONCONNECTORDEFINITIONRESPONSE._serialized_end=3001
 # @@protoc_insertion_point(module_scope)
