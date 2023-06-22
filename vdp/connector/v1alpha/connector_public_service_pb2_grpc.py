@@ -4,7 +4,6 @@ import grpc
 
 from vdp.connector.v1alpha import connector_definition_pb2 as vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2
 from vdp.connector.v1alpha import connector_pb2 as vdp_dot_connector_dot_v1alpha_dot_connector__pb2
-from vdp.connector.v1alpha import healthcheck_pb2 as vdp_dot_connector_dot_v1alpha_dot_healthcheck__pb2
 
 
 class ConnectorPublicServiceStub(object):
@@ -19,13 +18,13 @@ class ConnectorPublicServiceStub(object):
         """
         self.Liveness = channel.unary_unary(
                 '/vdp.connector.v1alpha.ConnectorPublicService/Liveness',
-                request_serializer=vdp_dot_connector_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.SerializeToString,
-                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.FromString,
+                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LivenessRequest.SerializeToString,
+                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LivenessResponse.FromString,
                 )
         self.Readiness = channel.unary_unary(
                 '/vdp.connector.v1alpha.ConnectorPublicService/Readiness',
-                request_serializer=vdp_dot_connector_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
-                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
+                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ReadinessRequest.SerializeToString,
+                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ReadinessResponse.FromString,
                 )
         self.ListSourceConnectorDefinitions = channel.unary_unary(
                 '/vdp.connector.v1alpha.ConnectorPublicService/ListSourceConnectorDefinitions',
@@ -316,7 +315,7 @@ class ConnectorPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ExecuteSourceConnector(self, request, context):
-        """ExecuteSourceConnector method receives a ExecuteSourceConnectorRequest 
+        """ExecuteSourceConnector method receives a ExecuteSourceConnectorRequest
         message and returns a ExecuteSourceConnectorResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -351,8 +350,9 @@ class ConnectorPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListDestinationConnectors(self, request, context):
-        """ListDestinationConnectors method receives a ListDestinationConnectorsRequest
-        message and returns a ListDestinationConnectorsResponse message.
+        """ListDestinationConnectors method receives a
+        ListDestinationConnectorsRequest message and returns a
+        ListDestinationConnectorsResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -434,16 +434,17 @@ class ConnectorPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def WatchDestinationConnector(self, request, context):
-        """WatchDestinationConnector method receives a WatchDestinationConnectorRequest message
-        and returns a WatchDestinationConnectorResponse
+        """WatchDestinationConnector method receives a
+        WatchDestinationConnectorRequest message and returns a
+        WatchDestinationConnectorResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def TestDestinationConnector(self, request, context):
-        """TestDestinationConnector method receives a TestDestinationConnectorRequest message
-        and returns a TestDestinationConnectorResponse
+        """TestDestinationConnector method receives a TestDestinationConnectorRequest
+        message and returns a TestDestinationConnectorResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -454,13 +455,13 @@ def add_ConnectorPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Liveness': grpc.unary_unary_rpc_method_handler(
                     servicer.Liveness,
-                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.FromString,
-                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.SerializeToString,
+                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LivenessRequest.FromString,
+                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LivenessResponse.SerializeToString,
             ),
             'Readiness': grpc.unary_unary_rpc_method_handler(
                     servicer.Readiness,
-                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.FromString,
-                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.SerializeToString,
+                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ReadinessRequest.FromString,
+                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ReadinessResponse.SerializeToString,
             ),
             'ListSourceConnectorDefinitions': grpc.unary_unary_rpc_method_handler(
                     servicer.ListSourceConnectorDefinitions,
@@ -625,8 +626,8 @@ class ConnectorPublicService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/Liveness',
-            vdp_dot_connector_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.SerializeToString,
-            vdp_dot_connector_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.FromString,
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LivenessRequest.SerializeToString,
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LivenessResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -642,8 +643,8 @@ class ConnectorPublicService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/Readiness',
-            vdp_dot_connector_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
-            vdp_dot_connector_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ReadinessRequest.SerializeToString,
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ReadinessResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

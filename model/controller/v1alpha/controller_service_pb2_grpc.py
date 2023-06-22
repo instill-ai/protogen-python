@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from vdp.controller.v1alpha import controller_pb2 as vdp_dot_controller_dot_v1alpha_dot_controller__pb2
+from model.controller.v1alpha import controller_pb2 as model_dot_controller_dot_v1alpha_dot_controller__pb2
 
 
 class ControllerPrivateServiceStub(object):
@@ -16,29 +16,29 @@ class ControllerPrivateServiceStub(object):
             channel: A grpc.Channel.
         """
         self.Liveness = channel.unary_unary(
-                '/vdp.controller.v1alpha.ControllerPrivateService/Liveness',
-                request_serializer=vdp_dot_controller_dot_v1alpha_dot_controller__pb2.LivenessRequest.SerializeToString,
-                response_deserializer=vdp_dot_controller_dot_v1alpha_dot_controller__pb2.LivenessResponse.FromString,
+                '/model.controller.v1alpha.ControllerPrivateService/Liveness',
+                request_serializer=model_dot_controller_dot_v1alpha_dot_controller__pb2.LivenessRequest.SerializeToString,
+                response_deserializer=model_dot_controller_dot_v1alpha_dot_controller__pb2.LivenessResponse.FromString,
                 )
         self.Readiness = channel.unary_unary(
-                '/vdp.controller.v1alpha.ControllerPrivateService/Readiness',
-                request_serializer=vdp_dot_controller_dot_v1alpha_dot_controller__pb2.ReadinessRequest.SerializeToString,
-                response_deserializer=vdp_dot_controller_dot_v1alpha_dot_controller__pb2.ReadinessResponse.FromString,
+                '/model.controller.v1alpha.ControllerPrivateService/Readiness',
+                request_serializer=model_dot_controller_dot_v1alpha_dot_controller__pb2.ReadinessRequest.SerializeToString,
+                response_deserializer=model_dot_controller_dot_v1alpha_dot_controller__pb2.ReadinessResponse.FromString,
                 )
         self.GetResource = channel.unary_unary(
-                '/vdp.controller.v1alpha.ControllerPrivateService/GetResource',
-                request_serializer=vdp_dot_controller_dot_v1alpha_dot_controller__pb2.GetResourceRequest.SerializeToString,
-                response_deserializer=vdp_dot_controller_dot_v1alpha_dot_controller__pb2.GetResourceResponse.FromString,
+                '/model.controller.v1alpha.ControllerPrivateService/GetResource',
+                request_serializer=model_dot_controller_dot_v1alpha_dot_controller__pb2.GetResourceRequest.SerializeToString,
+                response_deserializer=model_dot_controller_dot_v1alpha_dot_controller__pb2.GetResourceResponse.FromString,
                 )
         self.UpdateResource = channel.unary_unary(
-                '/vdp.controller.v1alpha.ControllerPrivateService/UpdateResource',
-                request_serializer=vdp_dot_controller_dot_v1alpha_dot_controller__pb2.UpdateResourceRequest.SerializeToString,
-                response_deserializer=vdp_dot_controller_dot_v1alpha_dot_controller__pb2.UpdateResourceResponse.FromString,
+                '/model.controller.v1alpha.ControllerPrivateService/UpdateResource',
+                request_serializer=model_dot_controller_dot_v1alpha_dot_controller__pb2.UpdateResourceRequest.SerializeToString,
+                response_deserializer=model_dot_controller_dot_v1alpha_dot_controller__pb2.UpdateResourceResponse.FromString,
                 )
         self.DeleteResource = channel.unary_unary(
-                '/vdp.controller.v1alpha.ControllerPrivateService/DeleteResource',
-                request_serializer=vdp_dot_controller_dot_v1alpha_dot_controller__pb2.DeleteResourceRequest.SerializeToString,
-                response_deserializer=vdp_dot_controller_dot_v1alpha_dot_controller__pb2.DeleteResourceResponse.FromString,
+                '/model.controller.v1alpha.ControllerPrivateService/DeleteResource',
+                request_serializer=model_dot_controller_dot_v1alpha_dot_controller__pb2.DeleteResourceRequest.SerializeToString,
+                response_deserializer=model_dot_controller_dot_v1alpha_dot_controller__pb2.DeleteResourceResponse.FromString,
                 )
 
 
@@ -93,32 +93,32 @@ def add_ControllerPrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Liveness': grpc.unary_unary_rpc_method_handler(
                     servicer.Liveness,
-                    request_deserializer=vdp_dot_controller_dot_v1alpha_dot_controller__pb2.LivenessRequest.FromString,
-                    response_serializer=vdp_dot_controller_dot_v1alpha_dot_controller__pb2.LivenessResponse.SerializeToString,
+                    request_deserializer=model_dot_controller_dot_v1alpha_dot_controller__pb2.LivenessRequest.FromString,
+                    response_serializer=model_dot_controller_dot_v1alpha_dot_controller__pb2.LivenessResponse.SerializeToString,
             ),
             'Readiness': grpc.unary_unary_rpc_method_handler(
                     servicer.Readiness,
-                    request_deserializer=vdp_dot_controller_dot_v1alpha_dot_controller__pb2.ReadinessRequest.FromString,
-                    response_serializer=vdp_dot_controller_dot_v1alpha_dot_controller__pb2.ReadinessResponse.SerializeToString,
+                    request_deserializer=model_dot_controller_dot_v1alpha_dot_controller__pb2.ReadinessRequest.FromString,
+                    response_serializer=model_dot_controller_dot_v1alpha_dot_controller__pb2.ReadinessResponse.SerializeToString,
             ),
             'GetResource': grpc.unary_unary_rpc_method_handler(
                     servicer.GetResource,
-                    request_deserializer=vdp_dot_controller_dot_v1alpha_dot_controller__pb2.GetResourceRequest.FromString,
-                    response_serializer=vdp_dot_controller_dot_v1alpha_dot_controller__pb2.GetResourceResponse.SerializeToString,
+                    request_deserializer=model_dot_controller_dot_v1alpha_dot_controller__pb2.GetResourceRequest.FromString,
+                    response_serializer=model_dot_controller_dot_v1alpha_dot_controller__pb2.GetResourceResponse.SerializeToString,
             ),
             'UpdateResource': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateResource,
-                    request_deserializer=vdp_dot_controller_dot_v1alpha_dot_controller__pb2.UpdateResourceRequest.FromString,
-                    response_serializer=vdp_dot_controller_dot_v1alpha_dot_controller__pb2.UpdateResourceResponse.SerializeToString,
+                    request_deserializer=model_dot_controller_dot_v1alpha_dot_controller__pb2.UpdateResourceRequest.FromString,
+                    response_serializer=model_dot_controller_dot_v1alpha_dot_controller__pb2.UpdateResourceResponse.SerializeToString,
             ),
             'DeleteResource': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteResource,
-                    request_deserializer=vdp_dot_controller_dot_v1alpha_dot_controller__pb2.DeleteResourceRequest.FromString,
-                    response_serializer=vdp_dot_controller_dot_v1alpha_dot_controller__pb2.DeleteResourceResponse.SerializeToString,
+                    request_deserializer=model_dot_controller_dot_v1alpha_dot_controller__pb2.DeleteResourceRequest.FromString,
+                    response_serializer=model_dot_controller_dot_v1alpha_dot_controller__pb2.DeleteResourceResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'vdp.controller.v1alpha.ControllerPrivateService', rpc_method_handlers)
+            'model.controller.v1alpha.ControllerPrivateService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -138,9 +138,9 @@ class ControllerPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.controller.v1alpha.ControllerPrivateService/Liveness',
-            vdp_dot_controller_dot_v1alpha_dot_controller__pb2.LivenessRequest.SerializeToString,
-            vdp_dot_controller_dot_v1alpha_dot_controller__pb2.LivenessResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.controller.v1alpha.ControllerPrivateService/Liveness',
+            model_dot_controller_dot_v1alpha_dot_controller__pb2.LivenessRequest.SerializeToString,
+            model_dot_controller_dot_v1alpha_dot_controller__pb2.LivenessResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -155,9 +155,9 @@ class ControllerPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.controller.v1alpha.ControllerPrivateService/Readiness',
-            vdp_dot_controller_dot_v1alpha_dot_controller__pb2.ReadinessRequest.SerializeToString,
-            vdp_dot_controller_dot_v1alpha_dot_controller__pb2.ReadinessResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.controller.v1alpha.ControllerPrivateService/Readiness',
+            model_dot_controller_dot_v1alpha_dot_controller__pb2.ReadinessRequest.SerializeToString,
+            model_dot_controller_dot_v1alpha_dot_controller__pb2.ReadinessResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -172,9 +172,9 @@ class ControllerPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.controller.v1alpha.ControllerPrivateService/GetResource',
-            vdp_dot_controller_dot_v1alpha_dot_controller__pb2.GetResourceRequest.SerializeToString,
-            vdp_dot_controller_dot_v1alpha_dot_controller__pb2.GetResourceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.controller.v1alpha.ControllerPrivateService/GetResource',
+            model_dot_controller_dot_v1alpha_dot_controller__pb2.GetResourceRequest.SerializeToString,
+            model_dot_controller_dot_v1alpha_dot_controller__pb2.GetResourceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -189,9 +189,9 @@ class ControllerPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.controller.v1alpha.ControllerPrivateService/UpdateResource',
-            vdp_dot_controller_dot_v1alpha_dot_controller__pb2.UpdateResourceRequest.SerializeToString,
-            vdp_dot_controller_dot_v1alpha_dot_controller__pb2.UpdateResourceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.controller.v1alpha.ControllerPrivateService/UpdateResource',
+            model_dot_controller_dot_v1alpha_dot_controller__pb2.UpdateResourceRequest.SerializeToString,
+            model_dot_controller_dot_v1alpha_dot_controller__pb2.UpdateResourceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -206,8 +206,8 @@ class ControllerPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.controller.v1alpha.ControllerPrivateService/DeleteResource',
-            vdp_dot_controller_dot_v1alpha_dot_controller__pb2.DeleteResourceRequest.SerializeToString,
-            vdp_dot_controller_dot_v1alpha_dot_controller__pb2.DeleteResourceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.controller.v1alpha.ControllerPrivateService/DeleteResource',
+            model_dot_controller_dot_v1alpha_dot_controller__pb2.DeleteResourceRequest.SerializeToString,
+            model_dot_controller_dot_v1alpha_dot_controller__pb2.DeleteResourceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

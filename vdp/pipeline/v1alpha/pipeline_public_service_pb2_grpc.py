@@ -2,7 +2,6 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from vdp.pipeline.v1alpha import healthcheck_pb2 as vdp_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2
 from vdp.pipeline.v1alpha import pipeline_pb2 as vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2
 
 
@@ -18,13 +17,13 @@ class PipelinePublicServiceStub(object):
         """
         self.Liveness = channel.unary_unary(
                 '/vdp.pipeline.v1alpha.PipelinePublicService/Liveness',
-                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.FromString,
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LivenessRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LivenessResponse.FromString,
                 )
         self.Readiness = channel.unary_unary(
                 '/vdp.pipeline.v1alpha.PipelinePublicService/Readiness',
-                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ReadinessRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ReadinessResponse.FromString,
                 )
         self.CreatePipeline = channel.unary_unary(
                 '/vdp.pipeline.v1alpha.PipelinePublicService/CreatePipeline',
@@ -202,8 +201,8 @@ class PipelinePublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def TriggerSyncPipeline(self, request, context):
-        """TriggerSyncPipeline method receives a TriggerSyncPipelineRequest message and
-        returns a TriggerSyncPipelineResponse.
+        """TriggerSyncPipeline method receives a TriggerSyncPipelineRequest message
+        and returns a TriggerSyncPipelineResponse.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -263,13 +262,13 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Liveness': grpc.unary_unary_rpc_method_handler(
                     servicer.Liveness,
-                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.SerializeToString,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LivenessRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LivenessResponse.SerializeToString,
             ),
             'Readiness': grpc.unary_unary_rpc_method_handler(
                     servicer.Readiness,
-                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.SerializeToString,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ReadinessRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ReadinessResponse.SerializeToString,
             ),
             'CreatePipeline': grpc.unary_unary_rpc_method_handler(
                     servicer.CreatePipeline,
@@ -369,8 +368,8 @@ class PipelinePublicService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/Liveness',
-            vdp_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.LivenessRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.LivenessResponse.FromString,
+            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LivenessRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LivenessResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -386,8 +385,8 @@ class PipelinePublicService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/Readiness',
-            vdp_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.ReadinessRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1alpha_dot_healthcheck__pb2.ReadinessResponse.FromString,
+            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ReadinessRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ReadinessResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
