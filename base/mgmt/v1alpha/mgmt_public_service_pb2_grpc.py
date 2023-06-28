@@ -2,6 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+from base.mgmt.v1alpha import metric_pb2 as base_dot_mgmt_dot_v1alpha_dot_metric__pb2
 from base.mgmt.v1alpha import mgmt_pb2 as base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2
 
 
@@ -59,6 +60,11 @@ class MgmtPublicServiceStub(object):
                 '/base.mgmt.v1alpha.MgmtPublicService/DeleteToken',
                 request_serializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteTokenRequest.SerializeToString,
                 response_deserializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteTokenResponse.FromString,
+                )
+        self.ListPipelineTriggerRecord = channel.unary_unary(
+                '/base.mgmt.v1alpha.MgmtPublicService/ListPipelineTriggerRecord',
+                request_serializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerRecordRequest.SerializeToString,
+                response_deserializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerRecordResponse.FromString,
                 )
 
 
@@ -140,6 +146,14 @@ class MgmtPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListPipelineTriggerRecord(self, request, context):
+        """ListPipelineTriggerRecord method receives a ListPipelineTriggerRecordRequest message and returns a
+        ListPipelineTriggerRecordResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_MgmtPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -187,6 +201,11 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     servicer.DeleteToken,
                     request_deserializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteTokenRequest.FromString,
                     response_serializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteTokenResponse.SerializeToString,
+            ),
+            'ListPipelineTriggerRecord': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListPipelineTriggerRecord,
+                    request_deserializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerRecordRequest.FromString,
+                    response_serializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerRecordResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -349,5 +368,22 @@ class MgmtPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/base.mgmt.v1alpha.MgmtPublicService/DeleteToken',
             base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteTokenRequest.SerializeToString,
             base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteTokenResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListPipelineTriggerRecord(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/base.mgmt.v1alpha.MgmtPublicService/ListPipelineTriggerRecord',
+            base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerRecordRequest.SerializeToString,
+            base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerRecordResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
