@@ -16,7 +16,7 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from vdp.pipeline.v1alpha import pipeline_pb2 as vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1e\x62\x61se/mgmt/v1alpha/metric.proto\x12\x11\x62\x61se.mgmt.v1alpha\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a#vdp/pipeline/v1alpha/pipeline.proto\"\xfc\x02\n\x15PipelineTriggerRecord\x12=\n\x0ctrigger_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0btriggerTime\x12.\n\x13pipeline_trigger_id\x18\x02 \x01(\tR\x11pipelineTriggerId\x12#\n\rpipeline_name\x18\x03 \x01(\tR\x0cpipelineName\x12-\n\x12pipeline_permalink\x18\x04 \x01(\tR\x11pipelinePermalink\x12H\n\rpipeline_mode\x18\x05 \x01(\x0e\x32#.vdp.pipeline.v1alpha.Pipeline.ModeR\x0cpipelineMode\x12\x38\n\x15\x63ompute_time_duration\x18\x06 \x01(\x02\x42\x04\xe2\x41\x01\x03R\x13\x63omputeTimeDuration\x12\x1c\n\x06status\x18\x07 \x01(\tB\x04\xe2\x41\x01\x03R\x06status\"\xbf\x01\n ListPipelineTriggerRecordRequest\x12&\n\tpage_size\x18\x01 \x01(\x03\x42\x04\xe2\x41\x01\x01H\x00R\x08pageSize\x88\x01\x01\x12(\n\npage_token\x18\x02 \x01(\tB\x04\xe2\x41\x01\x01H\x01R\tpageToken\x88\x01\x01\x12!\n\x06\x66ilter\x18\x03 \x01(\tB\x04\xe2\x41\x01\x01H\x02R\x06\x66ilter\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\t\n\x07_filter\"\xd3\x01\n!ListPipelineTriggerRecordResponse\x12g\n\x1bpipeline_trigger_data_point\x18\x01 \x03(\x0b\x32(.base.mgmt.v1alpha.PipelineTriggerRecordR\x18pipelineTriggerDataPoint\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSizeB\xcb\x01\n\x15\x63om.base.mgmt.v1alphaB\x0bMetricProtoP\x01Z?github.com/instill-ai/protogen-go/base/mgmt/v1alpha;mgmtv1alpha\xa2\x02\x03\x42MX\xaa\x02\x11\x42\x61se.Mgmt.V1alpha\xca\x02\x11\x42\x61se\\Mgmt\\V1alpha\xe2\x02\x1d\x42\x61se\\Mgmt\\V1alpha\\GPBMetadata\xea\x02\x13\x42\x61se::Mgmt::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1e\x62\x61se/mgmt/v1alpha/metric.proto\x12\x11\x62\x61se.mgmt.v1alpha\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a#vdp/pipeline/v1alpha/pipeline.proto\"\xfc\x02\n\x15PipelineTriggerRecord\x12=\n\x0ctrigger_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0btriggerTime\x12.\n\x13pipeline_trigger_id\x18\x02 \x01(\tR\x11pipelineTriggerId\x12#\n\rpipeline_name\x18\x03 \x01(\tR\x0cpipelineName\x12-\n\x12pipeline_permalink\x18\x04 \x01(\tR\x11pipelinePermalink\x12H\n\rpipeline_mode\x18\x05 \x01(\x0e\x32#.vdp.pipeline.v1alpha.Pipeline.ModeR\x0cpipelineMode\x12\x38\n\x15\x63ompute_time_duration\x18\x06 \x01(\x02\x42\x04\xe2\x41\x01\x03R\x13\x63omputeTimeDuration\x12\x1c\n\x06status\x18\x07 \x01(\tB\x04\xe2\x41\x01\x03R\x06status\"\xc0\x01\n!ListPipelineTriggerRecordsRequest\x12&\n\tpage_size\x18\x01 \x01(\x03\x42\x04\xe2\x41\x01\x01H\x00R\x08pageSize\x88\x01\x01\x12(\n\npage_token\x18\x02 \x01(\tB\x04\xe2\x41\x01\x01H\x01R\tpageToken\x88\x01\x01\x12!\n\x06\x66ilter\x18\x03 \x01(\tB\x04\xe2\x41\x01\x01H\x02R\x06\x66ilter\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\t\n\x07_filter\"\xd4\x01\n\"ListPipelineTriggerRecordsResponse\x12g\n\x1bpipeline_trigger_data_point\x18\x01 \x03(\x0b\x32(.base.mgmt.v1alpha.PipelineTriggerRecordR\x18pipelineTriggerDataPoint\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSizeB\xcb\x01\n\x15\x63om.base.mgmt.v1alphaB\x0bMetricProtoP\x01Z?github.com/instill-ai/protogen-go/base/mgmt/v1alpha;mgmtv1alpha\xa2\x02\x03\x42MX\xaa\x02\x11\x42\x61se.Mgmt.V1alpha\xca\x02\x11\x42\x61se\\Mgmt\\V1alpha\xe2\x02\x1d\x42\x61se\\Mgmt\\V1alpha\\GPBMetadata\xea\x02\x13\x42\x61se::Mgmt::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -29,16 +29,16 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _PIPELINETRIGGERRECORD.fields_by_name['compute_time_duration']._serialized_options = b'\342A\001\003'
   _PIPELINETRIGGERRECORD.fields_by_name['status']._options = None
   _PIPELINETRIGGERRECORD.fields_by_name['status']._serialized_options = b'\342A\001\003'
-  _LISTPIPELINETRIGGERRECORDREQUEST.fields_by_name['page_size']._options = None
-  _LISTPIPELINETRIGGERRECORDREQUEST.fields_by_name['page_size']._serialized_options = b'\342A\001\001'
-  _LISTPIPELINETRIGGERRECORDREQUEST.fields_by_name['page_token']._options = None
-  _LISTPIPELINETRIGGERRECORDREQUEST.fields_by_name['page_token']._serialized_options = b'\342A\001\001'
-  _LISTPIPELINETRIGGERRECORDREQUEST.fields_by_name['filter']._options = None
-  _LISTPIPELINETRIGGERRECORDREQUEST.fields_by_name['filter']._serialized_options = b'\342A\001\001'
+  _LISTPIPELINETRIGGERRECORDSREQUEST.fields_by_name['page_size']._options = None
+  _LISTPIPELINETRIGGERRECORDSREQUEST.fields_by_name['page_size']._serialized_options = b'\342A\001\001'
+  _LISTPIPELINETRIGGERRECORDSREQUEST.fields_by_name['page_token']._options = None
+  _LISTPIPELINETRIGGERRECORDSREQUEST.fields_by_name['page_token']._serialized_options = b'\342A\001\001'
+  _LISTPIPELINETRIGGERRECORDSREQUEST.fields_by_name['filter']._options = None
+  _LISTPIPELINETRIGGERRECORDSREQUEST.fields_by_name['filter']._serialized_options = b'\342A\001\001'
   _globals['_PIPELINETRIGGERRECORD']._serialized_start=157
   _globals['_PIPELINETRIGGERRECORD']._serialized_end=537
-  _globals['_LISTPIPELINETRIGGERRECORDREQUEST']._serialized_start=540
-  _globals['_LISTPIPELINETRIGGERRECORDREQUEST']._serialized_end=731
-  _globals['_LISTPIPELINETRIGGERRECORDRESPONSE']._serialized_start=734
-  _globals['_LISTPIPELINETRIGGERRECORDRESPONSE']._serialized_end=945
+  _globals['_LISTPIPELINETRIGGERRECORDSREQUEST']._serialized_start=540
+  _globals['_LISTPIPELINETRIGGERRECORDSREQUEST']._serialized_end=732
+  _globals['_LISTPIPELINETRIGGERRECORDSRESPONSE']._serialized_start=735
+  _globals['_LISTPIPELINETRIGGERRECORDSRESPONSE']._serialized_end=947
 # @@protoc_insertion_point(module_scope)

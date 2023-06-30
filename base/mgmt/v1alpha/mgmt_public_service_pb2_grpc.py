@@ -61,10 +61,10 @@ class MgmtPublicServiceStub(object):
                 request_serializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteTokenRequest.SerializeToString,
                 response_deserializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteTokenResponse.FromString,
                 )
-        self.ListPipelineTriggerRecord = channel.unary_unary(
-                '/base.mgmt.v1alpha.MgmtPublicService/ListPipelineTriggerRecord',
-                request_serializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerRecordRequest.SerializeToString,
-                response_deserializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerRecordResponse.FromString,
+        self.ListPipelineTriggerRecords = channel.unary_unary(
+                '/base.mgmt.v1alpha.MgmtPublicService/ListPipelineTriggerRecords',
+                request_serializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerRecordsRequest.SerializeToString,
+                response_deserializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerRecordsResponse.FromString,
                 )
 
 
@@ -146,9 +146,9 @@ class MgmtPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListPipelineTriggerRecord(self, request, context):
-        """ListPipelineTriggerRecord method receives a ListPipelineTriggerRecordRequest message and returns a
-        ListPipelineTriggerRecordResponse message.
+    def ListPipelineTriggerRecords(self, request, context):
+        """ListPipelineTriggerRecords method receives a ListPipelineTriggerRecordsRequest message and returns a
+        ListPipelineTriggerRecordsResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -202,10 +202,10 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteTokenRequest.FromString,
                     response_serializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteTokenResponse.SerializeToString,
             ),
-            'ListPipelineTriggerRecord': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListPipelineTriggerRecord,
-                    request_deserializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerRecordRequest.FromString,
-                    response_serializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerRecordResponse.SerializeToString,
+            'ListPipelineTriggerRecords': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListPipelineTriggerRecords,
+                    request_deserializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerRecordsRequest.FromString,
+                    response_serializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerRecordsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -372,7 +372,7 @@ class MgmtPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ListPipelineTriggerRecord(request,
+    def ListPipelineTriggerRecords(request,
             target,
             options=(),
             channel_credentials=None,
@@ -382,8 +382,8 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/base.mgmt.v1alpha.MgmtPublicService/ListPipelineTriggerRecord',
-            base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerRecordRequest.SerializeToString,
-            base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerRecordResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/base.mgmt.v1alpha.MgmtPublicService/ListPipelineTriggerRecords',
+            base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerRecordsRequest.SerializeToString,
+            base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerRecordsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
