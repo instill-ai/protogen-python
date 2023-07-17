@@ -15,7 +15,7 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1e\x62\x61se/mgmt/v1alpha/metric.proto\x12\x11\x62\x61se.mgmt.v1alpha\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1fgoogle/api/field_behavior.proto\"\xe0\x02\n\x15PipelineTriggerRecord\x12=\n\x0ctrigger_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0btriggerTime\x12.\n\x13pipeline_trigger_id\x18\x02 \x01(\tR\x11pipelineTriggerId\x12\x1f\n\x0bpipeline_id\x18\x03 \x01(\tR\npipelineId\x12!\n\x0cpipeline_uid\x18\x04 \x01(\tR\x0bpipelineUid\x12<\n\rpipeline_mode\x18\x05 \x01(\x0e\x32\x17.base.mgmt.v1alpha.ModeR\x0cpipelineMode\x12\x38\n\x15\x63ompute_time_duration\x18\x06 \x01(\x02\x42\x04\xe2\x41\x01\x03R\x13\x63omputeTimeDuration\x12\x1c\n\x06status\x18\x07 \x01(\tB\x04\xe2\x41\x01\x03R\x06status\"\xc0\x01\n!ListPipelineTriggerRecordsRequest\x12&\n\tpage_size\x18\x01 \x01(\x03\x42\x04\xe2\x41\x01\x01H\x00R\x08pageSize\x88\x01\x01\x12(\n\npage_token\x18\x02 \x01(\tB\x04\xe2\x41\x01\x01H\x01R\tpageToken\x88\x01\x01\x12!\n\x06\x66ilter\x18\x03 \x01(\tB\x04\xe2\x41\x01\x01H\x02R\x06\x66ilter\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\t\n\x07_filter\"\xcf\x01\n\"ListPipelineTriggerRecordsResponse\x12\x62\n\x18pipeline_trigger_records\x18\x01 \x03(\x0b\x32(.base.mgmt.v1alpha.PipelineTriggerRecordR\x16pipelineTriggerRecords\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSize*;\n\x04Mode\x12\x14\n\x10MODE_UNSPECIFIED\x10\x00\x12\r\n\tMODE_SYNC\x10\x01\x12\x0e\n\nMODE_ASYNC\x10\x02\x42\xcb\x01\n\x15\x63om.base.mgmt.v1alphaB\x0bMetricProtoP\x01Z?github.com/instill-ai/protogen-go/base/mgmt/v1alpha;mgmtv1alpha\xa2\x02\x03\x42MX\xaa\x02\x11\x42\x61se.Mgmt.V1alpha\xca\x02\x11\x42\x61se\\Mgmt\\V1alpha\xe2\x02\x1d\x42\x61se\\Mgmt\\V1alpha\\GPBMetadata\xea\x02\x13\x42\x61se::Mgmt::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1e\x62\x61se/mgmt/v1alpha/metric.proto\x12\x11\x62\x61se.mgmt.v1alpha\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1fgoogle/api/field_behavior.proto\"\xf9\x02\n\x15PipelineTriggerRecord\x12=\n\x0ctrigger_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0btriggerTime\x12.\n\x13pipeline_trigger_id\x18\x02 \x01(\tR\x11pipelineTriggerId\x12\x1f\n\x0bpipeline_id\x18\x03 \x01(\tR\npipelineId\x12!\n\x0cpipeline_uid\x18\x04 \x01(\tR\x0bpipelineUid\x12:\n\x0ctrigger_mode\x18\x05 \x01(\x0e\x32\x17.base.mgmt.v1alpha.ModeR\x0btriggerMode\x12\x38\n\x15\x63ompute_time_duration\x18\x06 \x01(\x02\x42\x04\xe2\x41\x01\x03R\x13\x63omputeTimeDuration\x12\x37\n\x06status\x18\x07 \x01(\x0e\x32\x19.base.mgmt.v1alpha.StatusB\x04\xe2\x41\x01\x03R\x06status\"\x81\x03\n\x1aPipelineTriggerChartRecord\x12\x1f\n\x0bpipeline_id\x18\x01 \x01(\tR\npipelineId\x12!\n\x0cpipeline_uid\x18\x02 \x01(\tR\x0bpipelineUid\x12:\n\x0ctrigger_mode\x18\x03 \x01(\x0e\x32\x17.base.mgmt.v1alpha.ModeR\x0btriggerMode\x12\x37\n\x06status\x18\x04 \x01(\x0e\x32\x19.base.mgmt.v1alpha.StatusB\x04\xe2\x41\x01\x03R\x06status\x12\x43\n\x0ctime_buckets\x18\x05 \x03(\x0b\x32\x1a.google.protobuf.TimestampB\x04\xe2\x41\x01\x03R\x0btimeBuckets\x12+\n\x0etrigger_counts\x18\x06 \x03(\x03\x42\x04\xe2\x41\x01\x03R\rtriggerCounts\x12\x38\n\x15\x63ompute_time_duration\x18\x07 \x03(\x02\x42\x04\xe2\x41\x01\x03R\x13\x63omputeTimeDuration\"\xf2\x03\n\x16\x43onnectorExecuteRecord\x12=\n\x0c\x65xecute_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0b\x65xecuteTime\x12\x30\n\x14\x63onnector_execute_id\x18\x02 \x01(\tR\x12\x63onnectorExecuteId\x12!\n\x0c\x63onnector_id\x18\x03 \x01(\tR\x0b\x63onnectorId\x12#\n\rconnector_uid\x18\x04 \x01(\tR\x0c\x63onnectorUid\x12\x38\n\x18\x63onnector_definition_uid\x18\x05 \x01(\tR\x16\x63onnectorDefinitionUid\x12\x1f\n\x0bpipeline_id\x18\x06 \x01(\tR\npipelineId\x12!\n\x0cpipeline_uid\x18\x07 \x01(\tR\x0bpipelineUid\x12.\n\x13pipeline_trigger_id\x18\x08 \x01(\tR\x11pipelineTriggerId\x12\x38\n\x15\x63ompute_time_duration\x18\t \x01(\x02\x42\x04\xe2\x41\x01\x03R\x13\x63omputeTimeDuration\x12\x37\n\x06status\x18\n \x01(\x0e\x32\x19.base.mgmt.v1alpha.StatusB\x04\xe2\x41\x01\x03R\x06status\"\xca\x02\n\x1b\x43onnectorExecuteChartRecord\x12!\n\x0c\x63onnector_id\x18\x01 \x01(\tR\x0b\x63onnectorId\x12#\n\rconnector_uid\x18\x02 \x01(\tR\x0c\x63onnectorUid\x12\x37\n\x06status\x18\x03 \x01(\x0e\x32\x19.base.mgmt.v1alpha.StatusB\x04\xe2\x41\x01\x03R\x06status\x12\x43\n\x0ctime_buckets\x18\x04 \x03(\x0b\x32\x1a.google.protobuf.TimestampB\x04\xe2\x41\x01\x03R\x0btimeBuckets\x12+\n\x0e\x65xecute_counts\x18\x05 \x03(\x03\x42\x04\xe2\x41\x01\x03R\rexecuteCounts\x12\x38\n\x15\x63ompute_time_duration\x18\x06 \x03(\x02\x42\x04\xe2\x41\x01\x03R\x13\x63omputeTimeDuration\"\xc0\x01\n!ListPipelineTriggerRecordsRequest\x12&\n\tpage_size\x18\x01 \x01(\x03\x42\x04\xe2\x41\x01\x01H\x00R\x08pageSize\x88\x01\x01\x12(\n\npage_token\x18\x02 \x01(\tB\x04\xe2\x41\x01\x01H\x01R\tpageToken\x88\x01\x01\x12!\n\x06\x66ilter\x18\x03 \x01(\tB\x04\xe2\x41\x01\x01H\x02R\x06\x66ilter\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\t\n\x07_filter\"\xcf\x01\n\"ListPipelineTriggerRecordsResponse\x12\x62\n\x18pipeline_trigger_records\x18\x01 \x03(\x0b\x32(.base.mgmt.v1alpha.PipelineTriggerRecordR\x16pipelineTriggerRecords\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSize\"\x85\x01\n&ListPipelineTriggerChartRecordsRequest\x12-\n\x12\x61ggregation_window\x18\x01 \x01(\x03R\x11\x61ggregationWindow\x12!\n\x06\x66ilter\x18\x02 \x01(\tB\x04\xe2\x41\x01\x01H\x00R\x06\x66ilter\x88\x01\x01\x42\t\n\x07_filter\"\x9d\x01\n\'ListPipelineTriggerChartRecordsResponse\x12r\n\x1epipeline_trigger_chart_records\x18\x01 \x03(\x0b\x32-.base.mgmt.v1alpha.PipelineTriggerChartRecordR\x1bpipelineTriggerChartRecords\"\xc1\x01\n\"ListConnectorExecuteRecordsRequest\x12&\n\tpage_size\x18\x01 \x01(\x03\x42\x04\xe2\x41\x01\x01H\x00R\x08pageSize\x88\x01\x01\x12(\n\npage_token\x18\x02 \x01(\tB\x04\xe2\x41\x01\x01H\x01R\tpageToken\x88\x01\x01\x12!\n\x06\x66ilter\x18\x03 \x01(\tB\x04\xe2\x41\x01\x01H\x02R\x06\x66ilter\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\t\n\x07_filter\"\xd3\x01\n#ListConnectorExecuteRecordsResponse\x12\x65\n\x19\x63onnector_execute_records\x18\x01 \x03(\x0b\x32).base.mgmt.v1alpha.ConnectorExecuteRecordR\x17\x63onnectorExecuteRecords\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x03R\ttotalSize\"\x86\x01\n\'ListConnectorExecuteChartRecordsRequest\x12-\n\x12\x61ggregation_window\x18\x01 \x01(\x03R\x11\x61ggregationWindow\x12!\n\x06\x66ilter\x18\x02 \x01(\tB\x04\xe2\x41\x01\x01H\x00R\x06\x66ilter\x88\x01\x01\x42\t\n\x07_filter\"\xa1\x01\n(ListConnectorExecuteChartRecordsResponse\x12u\n\x1f\x63onnector_execute_chart_records\x18\x01 \x03(\x0b\x32..base.mgmt.v1alpha.ConnectorExecuteChartRecordR\x1c\x63onnectorExecuteChartRecords*;\n\x04Mode\x12\x14\n\x10MODE_UNSPECIFIED\x10\x00\x12\r\n\tMODE_SYNC\x10\x01\x12\x0e\n\nMODE_ASYNC\x10\x02*J\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x14\n\x10STATUS_COMPLETED\x10\x01\x12\x12\n\x0eSTATUS_ERRORED\x10\x02\x42\xcb\x01\n\x15\x63om.base.mgmt.v1alphaB\x0bMetricProtoP\x01Z?github.com/instill-ai/protogen-go/base/mgmt/v1alpha;mgmtv1alpha\xa2\x02\x03\x42MX\xaa\x02\x11\x42\x61se.Mgmt.V1alpha\xca\x02\x11\x42\x61se\\Mgmt\\V1alpha\xe2\x02\x1d\x42\x61se\\Mgmt\\V1alpha\\GPBMetadata\xea\x02\x13\x42\x61se::Mgmt::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -28,18 +28,68 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _PIPELINETRIGGERRECORD.fields_by_name['compute_time_duration']._serialized_options = b'\342A\001\003'
   _PIPELINETRIGGERRECORD.fields_by_name['status']._options = None
   _PIPELINETRIGGERRECORD.fields_by_name['status']._serialized_options = b'\342A\001\003'
+  _PIPELINETRIGGERCHARTRECORD.fields_by_name['status']._options = None
+  _PIPELINETRIGGERCHARTRECORD.fields_by_name['status']._serialized_options = b'\342A\001\003'
+  _PIPELINETRIGGERCHARTRECORD.fields_by_name['time_buckets']._options = None
+  _PIPELINETRIGGERCHARTRECORD.fields_by_name['time_buckets']._serialized_options = b'\342A\001\003'
+  _PIPELINETRIGGERCHARTRECORD.fields_by_name['trigger_counts']._options = None
+  _PIPELINETRIGGERCHARTRECORD.fields_by_name['trigger_counts']._serialized_options = b'\342A\001\003'
+  _PIPELINETRIGGERCHARTRECORD.fields_by_name['compute_time_duration']._options = None
+  _PIPELINETRIGGERCHARTRECORD.fields_by_name['compute_time_duration']._serialized_options = b'\342A\001\003'
+  _CONNECTOREXECUTERECORD.fields_by_name['compute_time_duration']._options = None
+  _CONNECTOREXECUTERECORD.fields_by_name['compute_time_duration']._serialized_options = b'\342A\001\003'
+  _CONNECTOREXECUTERECORD.fields_by_name['status']._options = None
+  _CONNECTOREXECUTERECORD.fields_by_name['status']._serialized_options = b'\342A\001\003'
+  _CONNECTOREXECUTECHARTRECORD.fields_by_name['status']._options = None
+  _CONNECTOREXECUTECHARTRECORD.fields_by_name['status']._serialized_options = b'\342A\001\003'
+  _CONNECTOREXECUTECHARTRECORD.fields_by_name['time_buckets']._options = None
+  _CONNECTOREXECUTECHARTRECORD.fields_by_name['time_buckets']._serialized_options = b'\342A\001\003'
+  _CONNECTOREXECUTECHARTRECORD.fields_by_name['execute_counts']._options = None
+  _CONNECTOREXECUTECHARTRECORD.fields_by_name['execute_counts']._serialized_options = b'\342A\001\003'
+  _CONNECTOREXECUTECHARTRECORD.fields_by_name['compute_time_duration']._options = None
+  _CONNECTOREXECUTECHARTRECORD.fields_by_name['compute_time_duration']._serialized_options = b'\342A\001\003'
   _LISTPIPELINETRIGGERRECORDSREQUEST.fields_by_name['page_size']._options = None
   _LISTPIPELINETRIGGERRECORDSREQUEST.fields_by_name['page_size']._serialized_options = b'\342A\001\001'
   _LISTPIPELINETRIGGERRECORDSREQUEST.fields_by_name['page_token']._options = None
   _LISTPIPELINETRIGGERRECORDSREQUEST.fields_by_name['page_token']._serialized_options = b'\342A\001\001'
   _LISTPIPELINETRIGGERRECORDSREQUEST.fields_by_name['filter']._options = None
   _LISTPIPELINETRIGGERRECORDSREQUEST.fields_by_name['filter']._serialized_options = b'\342A\001\001'
-  _globals['_MODE']._serialized_start=879
-  _globals['_MODE']._serialized_end=938
+  _LISTPIPELINETRIGGERCHARTRECORDSREQUEST.fields_by_name['filter']._options = None
+  _LISTPIPELINETRIGGERCHARTRECORDSREQUEST.fields_by_name['filter']._serialized_options = b'\342A\001\001'
+  _LISTCONNECTOREXECUTERECORDSREQUEST.fields_by_name['page_size']._options = None
+  _LISTCONNECTOREXECUTERECORDSREQUEST.fields_by_name['page_size']._serialized_options = b'\342A\001\001'
+  _LISTCONNECTOREXECUTERECORDSREQUEST.fields_by_name['page_token']._options = None
+  _LISTCONNECTOREXECUTERECORDSREQUEST.fields_by_name['page_token']._serialized_options = b'\342A\001\001'
+  _LISTCONNECTOREXECUTERECORDSREQUEST.fields_by_name['filter']._options = None
+  _LISTCONNECTOREXECUTERECORDSREQUEST.fields_by_name['filter']._serialized_options = b'\342A\001\001'
+  _LISTCONNECTOREXECUTECHARTRECORDSREQUEST.fields_by_name['filter']._options = None
+  _LISTCONNECTOREXECUTECHARTRECORDSREQUEST.fields_by_name['filter']._serialized_options = b'\342A\001\001'
+  _globals['_MODE']._serialized_start=3133
+  _globals['_MODE']._serialized_end=3192
+  _globals['_STATUS']._serialized_start=3194
+  _globals['_STATUS']._serialized_end=3268
   _globals['_PIPELINETRIGGERRECORD']._serialized_start=120
-  _globals['_PIPELINETRIGGERRECORD']._serialized_end=472
-  _globals['_LISTPIPELINETRIGGERRECORDSREQUEST']._serialized_start=475
-  _globals['_LISTPIPELINETRIGGERRECORDSREQUEST']._serialized_end=667
-  _globals['_LISTPIPELINETRIGGERRECORDSRESPONSE']._serialized_start=670
-  _globals['_LISTPIPELINETRIGGERRECORDSRESPONSE']._serialized_end=877
+  _globals['_PIPELINETRIGGERRECORD']._serialized_end=497
+  _globals['_PIPELINETRIGGERCHARTRECORD']._serialized_start=500
+  _globals['_PIPELINETRIGGERCHARTRECORD']._serialized_end=885
+  _globals['_CONNECTOREXECUTERECORD']._serialized_start=888
+  _globals['_CONNECTOREXECUTERECORD']._serialized_end=1386
+  _globals['_CONNECTOREXECUTECHARTRECORD']._serialized_start=1389
+  _globals['_CONNECTOREXECUTECHARTRECORD']._serialized_end=1719
+  _globals['_LISTPIPELINETRIGGERRECORDSREQUEST']._serialized_start=1722
+  _globals['_LISTPIPELINETRIGGERRECORDSREQUEST']._serialized_end=1914
+  _globals['_LISTPIPELINETRIGGERRECORDSRESPONSE']._serialized_start=1917
+  _globals['_LISTPIPELINETRIGGERRECORDSRESPONSE']._serialized_end=2124
+  _globals['_LISTPIPELINETRIGGERCHARTRECORDSREQUEST']._serialized_start=2127
+  _globals['_LISTPIPELINETRIGGERCHARTRECORDSREQUEST']._serialized_end=2260
+  _globals['_LISTPIPELINETRIGGERCHARTRECORDSRESPONSE']._serialized_start=2263
+  _globals['_LISTPIPELINETRIGGERCHARTRECORDSRESPONSE']._serialized_end=2420
+  _globals['_LISTCONNECTOREXECUTERECORDSREQUEST']._serialized_start=2423
+  _globals['_LISTCONNECTOREXECUTERECORDSREQUEST']._serialized_end=2616
+  _globals['_LISTCONNECTOREXECUTERECORDSRESPONSE']._serialized_start=2619
+  _globals['_LISTCONNECTOREXECUTERECORDSRESPONSE']._serialized_end=2830
+  _globals['_LISTCONNECTOREXECUTECHARTRECORDSREQUEST']._serialized_start=2833
+  _globals['_LISTCONNECTOREXECUTECHARTRECORDSREQUEST']._serialized_end=2967
+  _globals['_LISTCONNECTOREXECUTECHARTRECORDSRESPONSE']._serialized_start=2970
+  _globals['_LISTCONNECTOREXECUTECHARTRECORDSRESPONSE']._serialized_end=3131
 # @@protoc_insertion_point(module_scope)
