@@ -66,6 +66,11 @@ class MgmtPublicServiceStub(object):
                 request_serializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerRecordsRequest.SerializeToString,
                 response_deserializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerRecordsResponse.FromString,
                 )
+        self.ListPipelineTriggerTableRecords = channel.unary_unary(
+                '/base.mgmt.v1alpha.MgmtPublicService/ListPipelineTriggerTableRecords',
+                request_serializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerTableRecordsRequest.SerializeToString,
+                response_deserializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerTableRecordsResponse.FromString,
+                )
         self.ListPipelineTriggerChartRecords = channel.unary_unary(
                 '/base.mgmt.v1alpha.MgmtPublicService/ListPipelineTriggerChartRecords',
                 request_serializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerChartRecordsRequest.SerializeToString,
@@ -75,6 +80,11 @@ class MgmtPublicServiceStub(object):
                 '/base.mgmt.v1alpha.MgmtPublicService/ListConnectorExecuteRecords',
                 request_serializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListConnectorExecuteRecordsRequest.SerializeToString,
                 response_deserializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListConnectorExecuteRecordsResponse.FromString,
+                )
+        self.ListConnectorExecuteTableRecords = channel.unary_unary(
+                '/base.mgmt.v1alpha.MgmtPublicService/ListConnectorExecuteTableRecords',
+                request_serializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListConnectorExecuteTableRecordsRequest.SerializeToString,
+                response_deserializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListConnectorExecuteTableRecordsResponse.FromString,
                 )
         self.ListConnectorExecuteChartRecords = channel.unary_unary(
                 '/base.mgmt.v1alpha.MgmtPublicService/ListConnectorExecuteChartRecords',
@@ -171,6 +181,14 @@ class MgmtPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListPipelineTriggerTableRecords(self, request, context):
+        """ListPipelineTriggerTableRecords method receives a ListPipelineTriggerTableRecordsRequest message and returns a
+        ListPipelineTriggerTableRecordsResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListPipelineTriggerChartRecords(self, request, context):
         """ListPipelineTriggerChartRecords method receives a ListPipelineTriggerChartRecordsRequest message and returns a
         ListPipelineTriggerChartRecordsResponse message.
@@ -182,6 +200,14 @@ class MgmtPublicServiceServicer(object):
     def ListConnectorExecuteRecords(self, request, context):
         """ListConnectorExecuteRecords method receives a ListConnectorExecuteRecordsRequest message and returns a
         ListConnectorExecuteRecordsResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListConnectorExecuteTableRecords(self, request, context):
+        """ListConnectorExecuteTableRecords method receives a ListConnectorExecuteTableRecordsRequest message and returns a
+        ListConnectorExecuteTableRecordsResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -248,6 +274,11 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerRecordsRequest.FromString,
                     response_serializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerRecordsResponse.SerializeToString,
             ),
+            'ListPipelineTriggerTableRecords': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListPipelineTriggerTableRecords,
+                    request_deserializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerTableRecordsRequest.FromString,
+                    response_serializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerTableRecordsResponse.SerializeToString,
+            ),
             'ListPipelineTriggerChartRecords': grpc.unary_unary_rpc_method_handler(
                     servicer.ListPipelineTriggerChartRecords,
                     request_deserializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerChartRecordsRequest.FromString,
@@ -257,6 +288,11 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     servicer.ListConnectorExecuteRecords,
                     request_deserializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListConnectorExecuteRecordsRequest.FromString,
                     response_serializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListConnectorExecuteRecordsResponse.SerializeToString,
+            ),
+            'ListConnectorExecuteTableRecords': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListConnectorExecuteTableRecords,
+                    request_deserializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListConnectorExecuteTableRecordsRequest.FromString,
+                    response_serializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListConnectorExecuteTableRecordsResponse.SerializeToString,
             ),
             'ListConnectorExecuteChartRecords': grpc.unary_unary_rpc_method_handler(
                     servicer.ListConnectorExecuteChartRecords,
@@ -445,6 +481,23 @@ class MgmtPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ListPipelineTriggerTableRecords(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/base.mgmt.v1alpha.MgmtPublicService/ListPipelineTriggerTableRecords',
+            base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerTableRecordsRequest.SerializeToString,
+            base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListPipelineTriggerTableRecordsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def ListPipelineTriggerChartRecords(request,
             target,
             options=(),
@@ -475,6 +528,23 @@ class MgmtPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/base.mgmt.v1alpha.MgmtPublicService/ListConnectorExecuteRecords',
             base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListConnectorExecuteRecordsRequest.SerializeToString,
             base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListConnectorExecuteRecordsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListConnectorExecuteTableRecords(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/base.mgmt.v1alpha.MgmtPublicService/ListConnectorExecuteTableRecords',
+            base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListConnectorExecuteTableRecordsRequest.SerializeToString,
+            base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListConnectorExecuteTableRecordsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
