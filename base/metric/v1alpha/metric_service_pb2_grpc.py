@@ -7,6 +7,7 @@ from base.metric.v1alpha import metric_pb2 as base_dot_metric_dot_v1alpha_dot_me
 
 class PipelineServiceStub(object):
     """Services related to pipeline trigger records
+    Service for get pipeline information 
     """
 
     def __init__(self, channel):
@@ -74,12 +75,11 @@ class PipelineServiceStub(object):
 
 class PipelineServiceServicer(object):
     """Services related to pipeline trigger records
+    Service for get pipeline information 
     """
 
     def GetPipelines(self, request, context):
-        """Service for get pipeline information 
-
-        Get pipeline info
+        """Get pipeline info
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -228,6 +228,7 @@ def add_PipelineServiceServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class PipelineService(object):
     """Services related to pipeline trigger records
+    Service for get pipeline information 
     """
 
     @staticmethod
@@ -420,6 +421,7 @@ class PipelineService(object):
 
 class ModelServiceStub(object):
     """Services related to model online records
+    Service for get model information 
     """
 
     def __init__(self, channel):
@@ -487,12 +489,11 @@ class ModelServiceStub(object):
 
 class ModelServiceServicer(object):
     """Services related to model online records
+    Service for get model information 
     """
 
     def GetModels(self, request, context):
-        """Service for get model information 
-
-        Get Model info
+        """Get Model info
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -641,6 +642,7 @@ def add_ModelServiceServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class ModelService(object):
     """Services related to model online records
+    Service for get model information 
     """
 
     @staticmethod

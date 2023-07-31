@@ -11,11 +11,11 @@ from google.protobuf.internal import builder as _builder
 _sym_db = _symbol_database.Default()
 
 
-from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
+from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*model/model/v1alpha/task_unspecified.proto\x12\x13model.model.v1alpha\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/api/field_behavior.proto\"J\n\x10UnspecifiedInput\x12\x36\n\nraw_inputs\x18\x01 \x03(\x0b\x32\x17.google.protobuf.StructR\trawInputs\"S\n\x11UnspecifiedOutput\x12>\n\x0braw_outputs\x18\x01 \x03(\x0b\x32\x17.google.protobuf.StructB\x04\xe2\x41\x01\x03R\nrawOutputsB\xe1\x01\n\x17\x63om.model.model.v1alphaB\x14TaskUnspecifiedProtoP\x01ZBgithub.com/instill-ai/protogen-go/model/model/v1alpha;modelv1alpha\xa2\x02\x03MMX\xaa\x02\x13Model.Model.V1alpha\xca\x02\x13Model\\Model\\V1alpha\xe2\x02\x1fModel\\Model\\V1alpha\\GPBMetadata\xea\x02\x15Model::Model::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*model/model/v1alpha/task_unspecified.proto\x12\x13model.model.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1cgoogle/protobuf/struct.proto\"J\n\x10UnspecifiedInput\x12\x36\n\nraw_inputs\x18\x01 \x03(\x0b\x32\x17.google.protobuf.StructR\trawInputs\"S\n\x11UnspecifiedOutput\x12>\n\x0braw_outputs\x18\x01 \x03(\x0b\x32\x17.google.protobuf.StructB\x04\xe2\x41\x01\x03R\nrawOutputsB\xe1\x01\n\x17\x63om.model.model.v1alphaB\x14TaskUnspecifiedProtoP\x01ZBgithub.com/instill-ai/protogen-go/model/model/v1alpha;modelv1alpha\xa2\x02\x03MMX\xaa\x02\x13Model.Model.V1alpha\xca\x02\x13Model\\Model\\V1alpha\xe2\x02\x1fModel\\Model\\V1alpha\\GPBMetadata\xea\x02\x15Model::Model::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)

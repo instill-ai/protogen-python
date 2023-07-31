@@ -7,6 +7,7 @@ from model.model.v1alpha import model_pb2 as model_dot_model_dot_v1alpha_dot_mod
 
 class ModelPrivateServiceStub(object):
     """Model service responds to internal access
+    ========== Private API ==========
     """
 
     def __init__(self, channel):
@@ -44,12 +45,11 @@ class ModelPrivateServiceStub(object):
 
 class ModelPrivateServiceServicer(object):
     """Model service responds to internal access
+    ========== Private API ==========
     """
 
     def ListModelsAdmin(self, request, context):
-        """========== Private API ==========
-
-        ListModelsAdmin method receives a ListModelsAdminRequest message and
+        """ListModelsAdmin method receives a ListModelsAdminRequest message and
         returns a ListModelsAdminResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -123,6 +123,7 @@ def add_ModelPrivateServiceServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class ModelPrivateService(object):
     """Model service responds to internal access
+    ========== Private API ==========
     """
 
     @staticmethod
