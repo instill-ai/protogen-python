@@ -2,6 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+from vdp.pipeline.v1alpha import operator_definition_pb2 as vdp_dot_pipeline_dot_v1alpha_dot_operator__definition__pb2
 from vdp.pipeline.v1alpha import pipeline_pb2 as vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2
 
 
@@ -25,6 +26,11 @@ class PipelinePrivateServiceStub(object):
                 request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpPipelineAdminRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpPipelineAdminResponse.FromString,
                 )
+        self.LookUpOperatorDefinitionAdmin = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePrivateService/LookUpOperatorDefinitionAdmin',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_operator__definition__pb2.LookUpOperatorDefinitionAdminRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_operator__definition__pb2.LookUpOperatorDefinitionAdminResponse.FromString,
+                )
 
 
 class PipelinePrivateServiceServicer(object):
@@ -47,6 +53,15 @@ class PipelinePrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def LookUpOperatorDefinitionAdmin(self, request, context):
+        """LookUpOperatorDefinitionAdmin method receives a
+        LookUpOperatorDefinitionAdminRequest message and returns a
+        LookUpOperatorDefinitionAdminResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_PipelinePrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -59,6 +74,11 @@ def add_PipelinePrivateServiceServicer_to_server(servicer, server):
                     servicer.LookUpPipelineAdmin,
                     request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpPipelineAdminRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpPipelineAdminResponse.SerializeToString,
+            ),
+            'LookUpOperatorDefinitionAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.LookUpOperatorDefinitionAdmin,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_operator__definition__pb2.LookUpOperatorDefinitionAdminRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_operator__definition__pb2.LookUpOperatorDefinitionAdminResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -102,5 +122,22 @@ class PipelinePrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePrivateService/LookUpPipelineAdmin',
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpPipelineAdminRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpPipelineAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def LookUpOperatorDefinitionAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePrivateService/LookUpOperatorDefinitionAdmin',
+            vdp_dot_pipeline_dot_v1alpha_dot_operator__definition__pb2.LookUpOperatorDefinitionAdminRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_operator__definition__pb2.LookUpOperatorDefinitionAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

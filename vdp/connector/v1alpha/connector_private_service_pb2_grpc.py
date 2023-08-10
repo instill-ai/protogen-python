@@ -2,6 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+from vdp.connector.v1alpha import connector_definition_pb2 as vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2
 from vdp.connector.v1alpha import connector_pb2 as vdp_dot_connector_dot_v1alpha_dot_connector__pb2
 
 
@@ -15,6 +16,11 @@ class ConnectorPrivateServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
+        self.LookUpConnectorDefinitionAdmin = channel.unary_unary(
+                '/vdp.connector.v1alpha.ConnectorPrivateService/LookUpConnectorDefinitionAdmin',
+                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.LookUpConnectorDefinitionAdminRequest.SerializeToString,
+                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.LookUpConnectorDefinitionAdminResponse.FromString,
+                )
         self.ListConnectorsAdmin = channel.unary_unary(
                 '/vdp.connector.v1alpha.ConnectorPrivateService/ListConnectorsAdmin',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListConnectorsAdminRequest.SerializeToString,
@@ -35,6 +41,15 @@ class ConnectorPrivateServiceStub(object):
 class ConnectorPrivateServiceServicer(object):
     """Connector service responds to internal access
     """
+
+    def LookUpConnectorDefinitionAdmin(self, request, context):
+        """LookUpConnectorDefinitionAdmin method receives a
+        LookUpConnectorDefinitionAdminRequest message and returns a
+        LookUpConnectorDefinitionAdminResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def ListConnectorsAdmin(self, request, context):
         """ListConnectorsAdmin method receives a ListConnectorsAdminRequest
@@ -64,6 +79,11 @@ class ConnectorPrivateServiceServicer(object):
 
 def add_ConnectorPrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
+            'LookUpConnectorDefinitionAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.LookUpConnectorDefinitionAdmin,
+                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.LookUpConnectorDefinitionAdminRequest.FromString,
+                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.LookUpConnectorDefinitionAdminResponse.SerializeToString,
+            ),
             'ListConnectorsAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.ListConnectorsAdmin,
                     request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListConnectorsAdminRequest.FromString,
@@ -89,6 +109,23 @@ def add_ConnectorPrivateServiceServicer_to_server(servicer, server):
 class ConnectorPrivateService(object):
     """Connector service responds to internal access
     """
+
+    @staticmethod
+    def LookUpConnectorDefinitionAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPrivateService/LookUpConnectorDefinitionAdmin',
+            vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.LookUpConnectorDefinitionAdminRequest.SerializeToString,
+            vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.LookUpConnectorDefinitionAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def ListConnectorsAdmin(request,

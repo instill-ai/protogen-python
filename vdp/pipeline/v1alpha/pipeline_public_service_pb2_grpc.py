@@ -2,6 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+from vdp.pipeline.v1alpha import operator_definition_pb2 as vdp_dot_pipeline_dot_v1alpha_dot_operator__definition__pb2
 from vdp.pipeline.v1alpha import pipeline_pb2 as vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2
 
 
@@ -24,6 +25,16 @@ class PipelinePublicServiceStub(object):
                 '/vdp.pipeline.v1alpha.PipelinePublicService/Readiness',
                 request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ReadinessRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ReadinessResponse.FromString,
+                )
+        self.ListOperatorDefinitions = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/ListOperatorDefinitions',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_operator__definition__pb2.ListOperatorDefinitionsRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_operator__definition__pb2.ListOperatorDefinitionsResponse.FromString,
+                )
+        self.GetOperatorDefinition = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/GetOperatorDefinition',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_operator__definition__pb2.GetOperatorDefinitionRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_operator__definition__pb2.GetOperatorDefinitionResponse.FromString,
                 )
         self.CreatePipeline = channel.unary_unary(
                 '/vdp.pipeline.v1alpha.PipelinePublicService/CreatePipeline',
@@ -109,6 +120,24 @@ class PipelinePublicServiceServicer(object):
         """Readiness method receives a ReadinessRequest message and returns a
         ReadinessResponse message.
         See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListOperatorDefinitions(self, request, context):
+        """ListOperatorDefinitions method receives a
+        ListOperatorDefinitionsRequest message and returns a
+        ListOperatorDefinitionsResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetOperatorDefinition(self, request, context):
+        """GetOperatorDefinition method receives a
+        GetOperatorDefinitionRequest message and returns a
+        GetGetOperatorDefinitionResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -238,6 +267,16 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ReadinessRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ReadinessResponse.SerializeToString,
             ),
+            'ListOperatorDefinitions': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListOperatorDefinitions,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_operator__definition__pb2.ListOperatorDefinitionsRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_operator__definition__pb2.ListOperatorDefinitionsResponse.SerializeToString,
+            ),
+            'GetOperatorDefinition': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOperatorDefinition,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_operator__definition__pb2.GetOperatorDefinitionRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_operator__definition__pb2.GetOperatorDefinitionResponse.SerializeToString,
+            ),
             'CreatePipeline': grpc.unary_unary_rpc_method_handler(
                     servicer.CreatePipeline,
                     request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.CreatePipelineRequest.FromString,
@@ -345,6 +384,40 @@ class PipelinePublicService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/Readiness',
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ReadinessRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ReadinessResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListOperatorDefinitions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/ListOperatorDefinitions',
+            vdp_dot_pipeline_dot_v1alpha_dot_operator__definition__pb2.ListOperatorDefinitionsRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_operator__definition__pb2.ListOperatorDefinitionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetOperatorDefinition(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/GetOperatorDefinition',
+            vdp_dot_pipeline_dot_v1alpha_dot_operator__definition__pb2.GetOperatorDefinitionRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_operator__definition__pb2.GetOperatorDefinitionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

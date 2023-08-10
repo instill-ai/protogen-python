@@ -14,9 +14,10 @@ _sym_db = _symbol_database.Default()
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import client_pb2 as google_dot_api_dot_client__pb2
 from vdp.connector.v1alpha import connector_pb2 as vdp_dot_connector_dot_v1alpha_dot_connector__pb2
+from vdp.connector.v1alpha import connector_definition_pb2 as vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n5vdp/connector/v1alpha/connector_private_service.proto\x12\x15vdp.connector.v1alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a%vdp/connector/v1alpha/connector.proto2\xc8\x04\n\x17\x43onnectorPrivateService\x12\x9f\x01\n\x13ListConnectorsAdmin\x12\x31.vdp.connector.v1alpha.ListConnectorsAdminRequest\x1a\x32.vdp.connector.v1alpha.ListConnectorsAdminResponse\"!\x82\xd3\xe4\x93\x02\x1b\x12\x19/v1alpha/admin/connectors\x12\xc3\x01\n\x14LookUpConnectorAdmin\x12\x32.vdp.connector.v1alpha.LookUpConnectorAdminRequest\x1a\x33.vdp.connector.v1alpha.LookUpConnectorAdminResponse\"B\xda\x41\tpermalink\x82\xd3\xe4\x93\x02\x30\x12./v1alpha/admin/{permalink=connectors/*}/lookUp\x12\xc4\x01\n\x0e\x43heckConnector\x12,.vdp.connector.v1alpha.CheckConnectorRequest\x1a-.vdp.connector.v1alpha.CheckConnectorResponse\"U\xda\x41\x13\x63onnector_permalink\x82\xd3\xe4\x93\x02\x39\x12\x37/v1alpha/admin/{connector_permalink=connectors/*}/checkB\xf9\x01\n\x19\x63om.vdp.connector.v1alphaB\x1c\x43onnectorPrivateServiceProtoP\x01ZHgithub.com/instill-ai/protogen-go/vdp/connector/v1alpha;connectorv1alpha\xa2\x02\x03VCX\xaa\x02\x15Vdp.Connector.V1alpha\xca\x02\x15Vdp\\Connector\\V1alpha\xe2\x02!Vdp\\Connector\\V1alpha\\GPBMetadata\xea\x02\x17Vdp::Connector::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n5vdp/connector/v1alpha/connector_private_service.proto\x12\x15vdp.connector.v1alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a%vdp/connector/v1alpha/connector.proto\x1a\x30vdp/connector/v1alpha/connector_definition.proto2\xb7\x06\n\x17\x43onnectorPrivateService\x12\xec\x01\n\x1eLookUpConnectorDefinitionAdmin\x12<.vdp.connector.v1alpha.LookUpConnectorDefinitionAdminRequest\x1a=.vdp.connector.v1alpha.LookUpConnectorDefinitionAdminResponse\"M\xda\x41\tpermalink\x82\xd3\xe4\x93\x02;\x12\x39/v1alpha/admin/{permalink=connector-definitions/*}/lookUp\x12\x9f\x01\n\x13ListConnectorsAdmin\x12\x31.vdp.connector.v1alpha.ListConnectorsAdminRequest\x1a\x32.vdp.connector.v1alpha.ListConnectorsAdminResponse\"!\x82\xd3\xe4\x93\x02\x1b\x12\x19/v1alpha/admin/connectors\x12\xc3\x01\n\x14LookUpConnectorAdmin\x12\x32.vdp.connector.v1alpha.LookUpConnectorAdminRequest\x1a\x33.vdp.connector.v1alpha.LookUpConnectorAdminResponse\"B\xda\x41\tpermalink\x82\xd3\xe4\x93\x02\x30\x12./v1alpha/admin/{permalink=connectors/*}/lookUp\x12\xc4\x01\n\x0e\x43heckConnector\x12,.vdp.connector.v1alpha.CheckConnectorRequest\x1a-.vdp.connector.v1alpha.CheckConnectorResponse\"U\xda\x41\x13\x63onnector_permalink\x82\xd3\xe4\x93\x02\x39\x12\x37/v1alpha/admin/{connector_permalink=connectors/*}/checkB\xf9\x01\n\x19\x63om.vdp.connector.v1alphaB\x1c\x43onnectorPrivateServiceProtoP\x01ZHgithub.com/instill-ai/protogen-go/vdp/connector/v1alpha;connectorv1alpha\xa2\x02\x03VCX\xaa\x02\x15Vdp.Connector.V1alpha\xca\x02\x15Vdp\\Connector\\V1alpha\xe2\x02!Vdp\\Connector\\V1alpha\\GPBMetadata\xea\x02\x17Vdp::Connector::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -25,12 +26,14 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\031com.vdp.connector.v1alphaB\034ConnectorPrivateServiceProtoP\001ZHgithub.com/instill-ai/protogen-go/vdp/connector/v1alpha;connectorv1alpha\242\002\003VCX\252\002\025Vdp.Connector.V1alpha\312\002\025Vdp\\Connector\\V1alpha\342\002!Vdp\\Connector\\V1alpha\\GPBMetadata\352\002\027Vdp::Connector::V1alpha'
+  _CONNECTORPRIVATESERVICE.methods_by_name['LookUpConnectorDefinitionAdmin']._options = None
+  _CONNECTORPRIVATESERVICE.methods_by_name['LookUpConnectorDefinitionAdmin']._serialized_options = b'\332A\tpermalink\202\323\344\223\002;\0229/v1alpha/admin/{permalink=connector-definitions/*}/lookUp'
   _CONNECTORPRIVATESERVICE.methods_by_name['ListConnectorsAdmin']._options = None
   _CONNECTORPRIVATESERVICE.methods_by_name['ListConnectorsAdmin']._serialized_options = b'\202\323\344\223\002\033\022\031/v1alpha/admin/connectors'
   _CONNECTORPRIVATESERVICE.methods_by_name['LookUpConnectorAdmin']._options = None
   _CONNECTORPRIVATESERVICE.methods_by_name['LookUpConnectorAdmin']._serialized_options = b'\332A\tpermalink\202\323\344\223\0020\022./v1alpha/admin/{permalink=connectors/*}/lookUp'
   _CONNECTORPRIVATESERVICE.methods_by_name['CheckConnector']._options = None
   _CONNECTORPRIVATESERVICE.methods_by_name['CheckConnector']._serialized_options = b'\332A\023connector_permalink\202\323\344\223\0029\0227/v1alpha/admin/{connector_permalink=connectors/*}/check'
-  _globals['_CONNECTORPRIVATESERVICE']._serialized_start=175
-  _globals['_CONNECTORPRIVATESERVICE']._serialized_end=759
+  _globals['_CONNECTORPRIVATESERVICE']._serialized_start=225
+  _globals['_CONNECTORPRIVATESERVICE']._serialized_end=1048
 # @@protoc_insertion_point(module_scope)
