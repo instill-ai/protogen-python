@@ -36,65 +36,70 @@ class ConnectorPublicServiceStub(object):
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.GetConnectorDefinitionRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.GetConnectorDefinitionResponse.FromString,
                 )
-        self.CreateConnectorResource = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorPublicService/CreateConnectorResource',
-                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateConnectorResourceRequest.SerializeToString,
-                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateConnectorResourceResponse.FromString,
-                )
         self.ListConnectorResources = channel.unary_unary(
                 '/vdp.connector.v1alpha.ConnectorPublicService/ListConnectorResources',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListConnectorResourcesRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListConnectorResourcesResponse.FromString,
                 )
-        self.GetConnectorResource = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorPublicService/GetConnectorResource',
-                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetConnectorResourceRequest.SerializeToString,
-                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetConnectorResourceResponse.FromString,
+        self.CreateUserConnectorResource = channel.unary_unary(
+                '/vdp.connector.v1alpha.ConnectorPublicService/CreateUserConnectorResource',
+                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateUserConnectorResourceRequest.SerializeToString,
+                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateUserConnectorResourceResponse.FromString,
                 )
-        self.UpdateConnectorResource = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorPublicService/UpdateConnectorResource',
-                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateConnectorResourceRequest.SerializeToString,
-                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateConnectorResourceResponse.FromString,
+        self.ListUserConnectorResources = channel.unary_unary(
+                '/vdp.connector.v1alpha.ConnectorPublicService/ListUserConnectorResources',
+                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListUserConnectorResourcesRequest.SerializeToString,
+                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListUserConnectorResourcesResponse.FromString,
                 )
-        self.DeleteConnectorResource = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorPublicService/DeleteConnectorResource',
-                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteConnectorResourceRequest.SerializeToString,
-                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteConnectorResourceResponse.FromString,
+        self.GetUserConnectorResource = channel.unary_unary(
+                '/vdp.connector.v1alpha.ConnectorPublicService/GetUserConnectorResource',
+                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetUserConnectorResourceRequest.SerializeToString,
+                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetUserConnectorResourceResponse.FromString,
                 )
-        self.LookUpConnectorResource = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorPublicService/LookUpConnectorResource',
-                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpConnectorResourceRequest.SerializeToString,
-                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpConnectorResourceResponse.FromString,
+        self.UpdateUserConnectorResource = channel.unary_unary(
+                '/vdp.connector.v1alpha.ConnectorPublicService/UpdateUserConnectorResource',
+                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateUserConnectorResourceRequest.SerializeToString,
+                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateUserConnectorResourceResponse.FromString,
                 )
-        self.ConnectConnectorResource = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorPublicService/ConnectConnectorResource',
-                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectConnectorResourceRequest.SerializeToString,
-                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectConnectorResourceResponse.FromString,
+        self.DeleteUserConnectorResource = channel.unary_unary(
+                '/vdp.connector.v1alpha.ConnectorPublicService/DeleteUserConnectorResource',
+                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteUserConnectorResourceRequest.SerializeToString,
+                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteUserConnectorResourceResponse.FromString,
                 )
-        self.DisconnectConnectorResource = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorPublicService/DisconnectConnectorResource',
-                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectConnectorResourceRequest.SerializeToString,
-                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectConnectorResourceResponse.FromString,
+        self.LookUpUserConnectorResource = channel.unary_unary(
+                '/vdp.connector.v1alpha.ConnectorPublicService/LookUpUserConnectorResource',
+                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpUserConnectorResourceRequest.SerializeToString,
+                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpUserConnectorResourceResponse.FromString,
                 )
-        self.RenameConnectorResource = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorPublicService/RenameConnectorResource',
-                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameConnectorResourceRequest.SerializeToString,
-                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameConnectorResourceResponse.FromString,
+        self.ConnectUserConnectorResource = channel.unary_unary(
+                '/vdp.connector.v1alpha.ConnectorPublicService/ConnectUserConnectorResource',
+                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectUserConnectorResourceRequest.SerializeToString,
+                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectUserConnectorResourceResponse.FromString,
                 )
-        self.ExecuteConnectorResource = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorPublicService/ExecuteConnectorResource',
-                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ExecuteConnectorResourceRequest.SerializeToString,
-                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ExecuteConnectorResourceResponse.FromString,
+        self.DisconnectUserConnectorResource = channel.unary_unary(
+                '/vdp.connector.v1alpha.ConnectorPublicService/DisconnectUserConnectorResource',
+                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectUserConnectorResourceRequest.SerializeToString,
+                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectUserConnectorResourceResponse.FromString,
                 )
-        self.WatchConnectorResource = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorPublicService/WatchConnectorResource',
-                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchConnectorResourceRequest.SerializeToString,
-                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchConnectorResourceResponse.FromString,
+        self.RenameUserConnectorResource = channel.unary_unary(
+                '/vdp.connector.v1alpha.ConnectorPublicService/RenameUserConnectorResource',
+                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameUserConnectorResourceRequest.SerializeToString,
+                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameUserConnectorResourceResponse.FromString,
                 )
-        self.TestConnectorResource = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorPublicService/TestConnectorResource',
-                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.TestConnectorResourceRequest.SerializeToString,
-                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.TestConnectorResourceResponse.FromString,
+        self.ExecuteUserConnectorResource = channel.unary_unary(
+                '/vdp.connector.v1alpha.ConnectorPublicService/ExecuteUserConnectorResource',
+                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ExecuteUserConnectorResourceRequest.SerializeToString,
+                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ExecuteUserConnectorResourceResponse.FromString,
+                )
+        self.WatchUserConnectorResource = channel.unary_unary(
+                '/vdp.connector.v1alpha.ConnectorPublicService/WatchUserConnectorResource',
+                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchUserConnectorResourceRequest.SerializeToString,
+                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchUserConnectorResourceResponse.FromString,
+                )
+        self.TestUserConnectorResource = channel.unary_unary(
+                '/vdp.connector.v1alpha.ConnectorPublicService/TestUserConnectorResource',
+                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.TestUserConnectorResourceRequest.SerializeToString,
+                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.TestUserConnectorResourceResponse.FromString,
                 )
 
 
@@ -142,21 +147,12 @@ class ConnectorPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def CreateConnectorResource(self, request, context):
+    def ListConnectorResources(self, request, context):
         """///////////////////////////////
         Connector-Resource methods
         ///////////////////////////////
 
-        CreateConnectorResource method receives a
-        CreateConnectorResourceRequest message and returns a
-        CreateConnectorResourceResponse message.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ListConnectorResources(self, request, context):
-        """ListConnectorResources method receives a
+        ListConnectorResources method receives a
         ListConnectorResourcesRequest message and returns a
         ListConnectorResourcesResponse message.
         """
@@ -164,45 +160,63 @@ class ConnectorPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetConnectorResource(self, request, context):
-        """GetConnectorResource method receives a GetConnectorResourceRequest
-        message and returns a GetConnectorResourceResponse message.
+    def CreateUserConnectorResource(self, request, context):
+        """CreateUserConnectorResource method receives a
+        CreateUserConnectorResourceRequest message and returns a
+        CreateUserConnectorResourceResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UpdateConnectorResource(self, request, context):
-        """UpdateConnectorResource method receives a
-        UpdateConnectorResourceRequest message and returns a
-        UpdateConnectorResourceResponse message.
+    def ListUserConnectorResources(self, request, context):
+        """ListUserConnectorResources method receives a
+        ListUserConnectorResourcesRequest message and returns a
+        ListUserConnectorResourcesResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def DeleteConnectorResource(self, request, context):
-        """DeleteConnectorResource method receives a
-        DeleteConnectorResourceRequest message and returns a
-        DeleteConnectorResourceResponse message.
+    def GetUserConnectorResource(self, request, context):
+        """GetUserConnectorResource method receives a GetUserConnectorResourceRequest
+        message and returns a GetUserConnectorResourceResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def LookUpConnectorResource(self, request, context):
-        """LookUpConnectorResource method receives a
-        LookUpConnectorResourceRequest message and returns a
-        LookUpConnectorResourceResponse
+    def UpdateUserConnectorResource(self, request, context):
+        """UpdateUserConnectorResource method receives a
+        UpdateUserConnectorResourceRequest message and returns a
+        UpdateUserConnectorResourceResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ConnectConnectorResource(self, request, context):
+    def DeleteUserConnectorResource(self, request, context):
+        """DeleteUserConnectorResource method receives a
+        DeleteUserConnectorResourceRequest message and returns a
+        DeleteUserConnectorResourceResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def LookUpUserConnectorResource(self, request, context):
+        """LookUpUserConnectorResource method receives a
+        LookUpUserConnectorResourceRequest message and returns a
+        LookUpUserConnectorResourceResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ConnectUserConnectorResource(self, request, context):
         """Connect a connector resource.
         The "state" of the connector resource after connecting is "CONNECTED".
-        ConnectConnectorResource can be called on ConnectorResource in the
+        ConnectUserConnectorResource can be called on ConnectorResource in the
         state `DISCONNECTED`; ConnectorResource in a different state (including
         `CONNECTED`) returns an error.
         """
@@ -210,10 +224,10 @@ class ConnectorPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def DisconnectConnectorResource(self, request, context):
+    def DisconnectUserConnectorResource(self, request, context):
         """Disconnect a connectorResource.
         The "state" of the connectorResource after disconnecting is "DISCONNECTED".
-        DisconnectConnectorResource can be called on ConnectorResource in the
+        DisconnectUserConnectorResource can be called on ConnectorResource in the
         state `CONNECTED`; ConnectorResource in a different state (including
         `DISCONNECTED`) returns an error.
         """
@@ -221,36 +235,36 @@ class ConnectorPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def RenameConnectorResource(self, request, context):
-        """RenameConnectorResource method receives a
-        RenameConnectorResourceRequest message and returns a
-        RenameConnectorResourceResponse message.
+    def RenameUserConnectorResource(self, request, context):
+        """RenameUserConnectorResource method receives a
+        RenameUserConnectorResourceRequest message and returns a
+        RenameUserConnectorResourceResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ExecuteConnectorResource(self, request, context):
-        """ExecuteConnectorResource method receives a
-        ExecuteConnectorResourceRequest message and returns a
-        ExecuteConnectorResourceResponse message.
+    def ExecuteUserConnectorResource(self, request, context):
+        """ExecuteUserConnectorResource method receives a
+        ExecuteUserConnectorResourceRequest message and returns a
+        ExecuteUserConnectorResourceResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def WatchConnectorResource(self, request, context):
-        """WatchConnectorResource method receives a
-        WatchConnectorResourceRequest message and returns a
-        WatchConnectorResourceResponse
+    def WatchUserConnectorResource(self, request, context):
+        """WatchUserConnectorResource method receives a
+        WatchUserConnectorResourceRequest message and returns a
+        WatchUserConnectorResourceResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def TestConnectorResource(self, request, context):
-        """TestConnectorResource method receives a TestConnectorResourceRequest
-        message and returns a TestConnectorResourceResponse
+    def TestUserConnectorResource(self, request, context):
+        """TestUserConnectorResource method receives a TestUserConnectorResourceRequest
+        message and returns a TestUserConnectorResourceResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -279,65 +293,70 @@ def add_ConnectorPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.GetConnectorDefinitionRequest.FromString,
                     response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__definition__pb2.GetConnectorDefinitionResponse.SerializeToString,
             ),
-            'CreateConnectorResource': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreateConnectorResource,
-                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateConnectorResourceRequest.FromString,
-                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateConnectorResourceResponse.SerializeToString,
-            ),
             'ListConnectorResources': grpc.unary_unary_rpc_method_handler(
                     servicer.ListConnectorResources,
                     request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListConnectorResourcesRequest.FromString,
                     response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListConnectorResourcesResponse.SerializeToString,
             ),
-            'GetConnectorResource': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetConnectorResource,
-                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetConnectorResourceRequest.FromString,
-                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetConnectorResourceResponse.SerializeToString,
+            'CreateUserConnectorResource': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateUserConnectorResource,
+                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateUserConnectorResourceRequest.FromString,
+                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateUserConnectorResourceResponse.SerializeToString,
             ),
-            'UpdateConnectorResource': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateConnectorResource,
-                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateConnectorResourceRequest.FromString,
-                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateConnectorResourceResponse.SerializeToString,
+            'ListUserConnectorResources': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListUserConnectorResources,
+                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListUserConnectorResourcesRequest.FromString,
+                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListUserConnectorResourcesResponse.SerializeToString,
             ),
-            'DeleteConnectorResource': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteConnectorResource,
-                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteConnectorResourceRequest.FromString,
-                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteConnectorResourceResponse.SerializeToString,
+            'GetUserConnectorResource': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetUserConnectorResource,
+                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetUserConnectorResourceRequest.FromString,
+                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetUserConnectorResourceResponse.SerializeToString,
             ),
-            'LookUpConnectorResource': grpc.unary_unary_rpc_method_handler(
-                    servicer.LookUpConnectorResource,
-                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpConnectorResourceRequest.FromString,
-                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpConnectorResourceResponse.SerializeToString,
+            'UpdateUserConnectorResource': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateUserConnectorResource,
+                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateUserConnectorResourceRequest.FromString,
+                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateUserConnectorResourceResponse.SerializeToString,
             ),
-            'ConnectConnectorResource': grpc.unary_unary_rpc_method_handler(
-                    servicer.ConnectConnectorResource,
-                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectConnectorResourceRequest.FromString,
-                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectConnectorResourceResponse.SerializeToString,
+            'DeleteUserConnectorResource': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteUserConnectorResource,
+                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteUserConnectorResourceRequest.FromString,
+                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteUserConnectorResourceResponse.SerializeToString,
             ),
-            'DisconnectConnectorResource': grpc.unary_unary_rpc_method_handler(
-                    servicer.DisconnectConnectorResource,
-                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectConnectorResourceRequest.FromString,
-                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectConnectorResourceResponse.SerializeToString,
+            'LookUpUserConnectorResource': grpc.unary_unary_rpc_method_handler(
+                    servicer.LookUpUserConnectorResource,
+                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpUserConnectorResourceRequest.FromString,
+                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpUserConnectorResourceResponse.SerializeToString,
             ),
-            'RenameConnectorResource': grpc.unary_unary_rpc_method_handler(
-                    servicer.RenameConnectorResource,
-                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameConnectorResourceRequest.FromString,
-                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameConnectorResourceResponse.SerializeToString,
+            'ConnectUserConnectorResource': grpc.unary_unary_rpc_method_handler(
+                    servicer.ConnectUserConnectorResource,
+                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectUserConnectorResourceRequest.FromString,
+                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectUserConnectorResourceResponse.SerializeToString,
             ),
-            'ExecuteConnectorResource': grpc.unary_unary_rpc_method_handler(
-                    servicer.ExecuteConnectorResource,
-                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ExecuteConnectorResourceRequest.FromString,
-                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ExecuteConnectorResourceResponse.SerializeToString,
+            'DisconnectUserConnectorResource': grpc.unary_unary_rpc_method_handler(
+                    servicer.DisconnectUserConnectorResource,
+                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectUserConnectorResourceRequest.FromString,
+                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectUserConnectorResourceResponse.SerializeToString,
             ),
-            'WatchConnectorResource': grpc.unary_unary_rpc_method_handler(
-                    servicer.WatchConnectorResource,
-                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchConnectorResourceRequest.FromString,
-                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchConnectorResourceResponse.SerializeToString,
+            'RenameUserConnectorResource': grpc.unary_unary_rpc_method_handler(
+                    servicer.RenameUserConnectorResource,
+                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameUserConnectorResourceRequest.FromString,
+                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameUserConnectorResourceResponse.SerializeToString,
             ),
-            'TestConnectorResource': grpc.unary_unary_rpc_method_handler(
-                    servicer.TestConnectorResource,
-                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.TestConnectorResourceRequest.FromString,
-                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.TestConnectorResourceResponse.SerializeToString,
+            'ExecuteUserConnectorResource': grpc.unary_unary_rpc_method_handler(
+                    servicer.ExecuteUserConnectorResource,
+                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ExecuteUserConnectorResourceRequest.FromString,
+                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ExecuteUserConnectorResourceResponse.SerializeToString,
+            ),
+            'WatchUserConnectorResource': grpc.unary_unary_rpc_method_handler(
+                    servicer.WatchUserConnectorResource,
+                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchUserConnectorResourceRequest.FromString,
+                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchUserConnectorResourceResponse.SerializeToString,
+            ),
+            'TestUserConnectorResource': grpc.unary_unary_rpc_method_handler(
+                    servicer.TestUserConnectorResource,
+                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.TestUserConnectorResourceRequest.FromString,
+                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.TestUserConnectorResourceResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -419,23 +438,6 @@ class ConnectorPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def CreateConnectorResource(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/CreateConnectorResource',
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateConnectorResourceRequest.SerializeToString,
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateConnectorResourceResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def ListConnectorResources(request,
             target,
             options=(),
@@ -453,7 +455,7 @@ class ConnectorPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetConnectorResource(request,
+    def CreateUserConnectorResource(request,
             target,
             options=(),
             channel_credentials=None,
@@ -463,14 +465,14 @@ class ConnectorPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/GetConnectorResource',
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetConnectorResourceRequest.SerializeToString,
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetConnectorResourceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/CreateUserConnectorResource',
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateUserConnectorResourceRequest.SerializeToString,
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateUserConnectorResourceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UpdateConnectorResource(request,
+    def ListUserConnectorResources(request,
             target,
             options=(),
             channel_credentials=None,
@@ -480,14 +482,14 @@ class ConnectorPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/UpdateConnectorResource',
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateConnectorResourceRequest.SerializeToString,
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateConnectorResourceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/ListUserConnectorResources',
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListUserConnectorResourcesRequest.SerializeToString,
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListUserConnectorResourcesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def DeleteConnectorResource(request,
+    def GetUserConnectorResource(request,
             target,
             options=(),
             channel_credentials=None,
@@ -497,14 +499,14 @@ class ConnectorPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/DeleteConnectorResource',
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteConnectorResourceRequest.SerializeToString,
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteConnectorResourceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/GetUserConnectorResource',
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetUserConnectorResourceRequest.SerializeToString,
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.GetUserConnectorResourceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def LookUpConnectorResource(request,
+    def UpdateUserConnectorResource(request,
             target,
             options=(),
             channel_credentials=None,
@@ -514,14 +516,14 @@ class ConnectorPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/LookUpConnectorResource',
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpConnectorResourceRequest.SerializeToString,
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpConnectorResourceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/UpdateUserConnectorResource',
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateUserConnectorResourceRequest.SerializeToString,
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.UpdateUserConnectorResourceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ConnectConnectorResource(request,
+    def DeleteUserConnectorResource(request,
             target,
             options=(),
             channel_credentials=None,
@@ -531,14 +533,14 @@ class ConnectorPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/ConnectConnectorResource',
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectConnectorResourceRequest.SerializeToString,
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectConnectorResourceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/DeleteUserConnectorResource',
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteUserConnectorResourceRequest.SerializeToString,
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteUserConnectorResourceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def DisconnectConnectorResource(request,
+    def LookUpUserConnectorResource(request,
             target,
             options=(),
             channel_credentials=None,
@@ -548,14 +550,14 @@ class ConnectorPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/DisconnectConnectorResource',
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectConnectorResourceRequest.SerializeToString,
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectConnectorResourceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/LookUpUserConnectorResource',
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpUserConnectorResourceRequest.SerializeToString,
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpUserConnectorResourceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def RenameConnectorResource(request,
+    def ConnectUserConnectorResource(request,
             target,
             options=(),
             channel_credentials=None,
@@ -565,14 +567,14 @@ class ConnectorPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/RenameConnectorResource',
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameConnectorResourceRequest.SerializeToString,
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameConnectorResourceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/ConnectUserConnectorResource',
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectUserConnectorResourceRequest.SerializeToString,
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ConnectUserConnectorResourceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ExecuteConnectorResource(request,
+    def DisconnectUserConnectorResource(request,
             target,
             options=(),
             channel_credentials=None,
@@ -582,14 +584,14 @@ class ConnectorPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/ExecuteConnectorResource',
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ExecuteConnectorResourceRequest.SerializeToString,
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ExecuteConnectorResourceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/DisconnectUserConnectorResource',
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectUserConnectorResourceRequest.SerializeToString,
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DisconnectUserConnectorResourceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def WatchConnectorResource(request,
+    def RenameUserConnectorResource(request,
             target,
             options=(),
             channel_credentials=None,
@@ -599,14 +601,14 @@ class ConnectorPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/WatchConnectorResource',
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchConnectorResourceRequest.SerializeToString,
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchConnectorResourceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/RenameUserConnectorResource',
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameUserConnectorResourceRequest.SerializeToString,
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.RenameUserConnectorResourceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def TestConnectorResource(request,
+    def ExecuteUserConnectorResource(request,
             target,
             options=(),
             channel_credentials=None,
@@ -616,8 +618,42 @@ class ConnectorPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/TestConnectorResource',
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.TestConnectorResourceRequest.SerializeToString,
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.TestConnectorResourceResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/ExecuteUserConnectorResource',
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ExecuteUserConnectorResourceRequest.SerializeToString,
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ExecuteUserConnectorResourceResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def WatchUserConnectorResource(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/WatchUserConnectorResource',
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchUserConnectorResourceRequest.SerializeToString,
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.WatchUserConnectorResourceResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TestUserConnectorResource(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/TestUserConnectorResource',
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.TestUserConnectorResourceRequest.SerializeToString,
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.TestUserConnectorResourceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
