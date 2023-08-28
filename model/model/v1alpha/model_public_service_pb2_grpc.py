@@ -41,90 +41,95 @@ class ModelPublicServiceStub(object):
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelsRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelsResponse.FromString,
                 )
-        self.CreateModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/CreateModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateModelResponse.FromString,
+        self.ListUserModels = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/ListUserModels',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelsRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelsResponse.FromString,
                 )
-        self.CreateModelBinaryFileUpload = channel.stream_unary(
-                '/model.model.v1alpha.ModelPublicService/CreateModelBinaryFileUpload',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadResponse.FromString,
+        self.CreateUserModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/CreateUserModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelResponse.FromString,
                 )
-        self.GetModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/GetModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetModelResponse.FromString,
+        self.CreateUserModelBinaryFileUpload = channel.stream_unary(
+                '/model.model.v1alpha.ModelPublicService/CreateUserModelBinaryFileUpload',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelBinaryFileUploadRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelBinaryFileUploadResponse.FromString,
                 )
-        self.UpdateModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/UpdateModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelResponse.FromString,
+        self.GetUserModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/GetUserModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetUserModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetUserModelResponse.FromString,
                 )
-        self.DeleteModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/DeleteModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelResponse.FromString,
+        self.UpdateUserModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/UpdateUserModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UpdateUserModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UpdateUserModelResponse.FromString,
                 )
-        self.LookUpModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/LookUpModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelResponse.FromString,
+        self.DeleteUserModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/DeleteUserModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelResponse.FromString,
                 )
-        self.RenameModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/RenameModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameModelResponse.FromString,
+        self.LookUpUserModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/LookUpUserModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpUserModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpUserModelResponse.FromString,
                 )
-        self.PublishModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/PublishModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.PublishModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.PublishModelResponse.FromString,
+        self.RenameUserModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/RenameUserModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameUserModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameUserModelResponse.FromString,
                 )
-        self.UnpublishModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/UnpublishModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelResponse.FromString,
+        self.PublishUserModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/PublishUserModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.PublishUserModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.PublishUserModelResponse.FromString,
                 )
-        self.DeployModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/DeployModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployModelResponse.FromString,
+        self.UnpublishUserModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/UnpublishUserModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishUserModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishUserModelResponse.FromString,
                 )
-        self.UndeployModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/UndeployModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelResponse.FromString,
+        self.DeployUserModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/DeployUserModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployUserModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployUserModelResponse.FromString,
                 )
-        self.GetModelCard = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/GetModelCard',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetModelCardRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetModelCardResponse.FromString,
+        self.UndeployUserModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/UndeployUserModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelResponse.FromString,
                 )
-        self.WatchModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/WatchModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchModelResponse.FromString,
+        self.GetUserModelCard = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/GetUserModelCard',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetUserModelCardRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetUserModelCardResponse.FromString,
                 )
-        self.TriggerModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/TriggerModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelResponse.FromString,
+        self.WatchUserModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/WatchUserModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserModelResponse.FromString,
                 )
-        self.TriggerModelBinaryFileUpload = channel.stream_unary(
-                '/model.model.v1alpha.ModelPublicService/TriggerModelBinaryFileUpload',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelBinaryFileUploadRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelBinaryFileUploadResponse.FromString,
+        self.TriggerUserModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/TriggerUserModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelResponse.FromString,
                 )
-        self.TestModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/TestModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TestModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TestModelResponse.FromString,
+        self.TriggerUserModelBinaryFileUpload = channel.stream_unary(
+                '/model.model.v1alpha.ModelPublicService/TriggerUserModelBinaryFileUpload',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelBinaryFileUploadRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelBinaryFileUploadResponse.FromString,
                 )
-        self.TestModelBinaryFileUpload = channel.stream_unary(
-                '/model.model.v1alpha.ModelPublicService/TestModelBinaryFileUpload',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TestModelBinaryFileUploadRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TestModelBinaryFileUploadResponse.FromString,
+        self.TestUserModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/TestUserModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TestUserModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TestUserModelResponse.FromString,
+                )
+        self.TestUserModelBinaryFileUpload = channel.stream_unary(
+                '/model.model.v1alpha.ModelPublicService/TestUserModelBinaryFileUpload',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TestUserModelBinaryFileUploadRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TestUserModelBinaryFileUploadResponse.FromString,
                 )
         self.GetModelOperation = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/GetModelOperation',
@@ -179,124 +184,132 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def CreateModel(self, request, context):
-        """CreateModel method receives a CreateModelRequest message and returns a
-        CreateModelResponse
+    def ListUserModels(self, request, context):
+        """LisUsertModels method receives a ListUserModelsRequest message and returns a
+        ListUserModelsResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def CreateModelBinaryFileUpload(self, request_iterator, context):
-        """CreateModelBinaryFileUpload method receives a
-        CreateModelBinaryFileUploadRequest message and returns a
-        CreateModelBinaryFileUploadResponse message.
-
-        Endpoint: "POST /v1alpha/models:multipart"
+    def CreateUserModel(self, request, context):
+        """CreateUserModel method receives a CreateUserModelRequest message and returns a
+        CreateUserModelResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetModel(self, request, context):
-        """GetModel method receives a GetModelRequest message and returns a
-        GetModelResponse
+    def CreateUserModelBinaryFileUpload(self, request_iterator, context):
+        """CreateUserModelBinaryFileUpload method receives a
+        CreateUserModelBinaryFileUploadRequest message and returns a
+        CreateUserModelBinaryFileUploadResponse message.
+
+        Endpoint: "POST /v1alpha/users/*/models:multipart"
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UpdateModel(self, request, context):
-        """UpdateModel method receives a UpdateModelRequest message and returns a
-        UpdateModelResponse
+    def GetUserModel(self, request, context):
+        """GetUserModel method receives a GetUserModelRequest message and returns a
+        GetUserModelResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def DeleteModel(self, request, context):
-        """DeleteModel method receives a DeleteModelRequest message and returns a
-        DeleteModelResponse
+    def UpdateUserModel(self, request, context):
+        """UpdateUserModel method receives a UpdateUserModelRequest message and returns a
+        UpdateUserModelResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def LookUpModel(self, request, context):
-        """LookUpModel method receives a LookUpModelRequest message and returns a
-        LookUpModelResponse
+    def DeleteUserModel(self, request, context):
+        """DeleteUserModel method receives a DeleteUserModelRequest message and returns a
+        DeleteUserModelResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def RenameModel(self, request, context):
-        """RenameModel method rename a model
+    def LookUpUserModel(self, request, context):
+        """LookUpUserModel method receives a LookUpUserModelRequest message and returns a
+        LookUpUserModelResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def PublishModel(self, request, context):
-        """PublishModel method receives a PublishModelRequest message and returns a
-        PublishModelResponse
+    def RenameUserModel(self, request, context):
+        """RenameUserModel method rename a model
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UnpublishModel(self, request, context):
-        """UnpublishModel method receives a UnpublishModelRequest message and returns
-        a UnpublishModelResponse
+    def PublishUserModel(self, request, context):
+        """PublishUserModel method receives a PublisUserhModelRequest message and returns a
+        PublishUserModelResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def DeployModel(self, request, context):
-        """DeployModel deploy a model to online state
+    def UnpublishUserModel(self, request, context):
+        """UnpublishUserModel method receives a UnpublishUserModelRequest message and returns
+        a UnpublishUserModelResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UndeployModel(self, request, context):
-        """UndeployModel undeploy a model to offline state
+    def DeployUserModel(self, request, context):
+        """DeployUserModel deploy a model to online state
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetModelCard(self, request, context):
-        """GetModelCard method receives a GetModelCardRequest message
-        and returns a GetModelCardResponse
+    def UndeployUserModel(self, request, context):
+        """UndeployUserModel undeploy a model to offline state
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def WatchModel(self, request, context):
-        """WatchModel method receives a WatchModelRequest message
+    def GetUserModelCard(self, request, context):
+        """GetUserModelCard method receives a GetUserModelCardRequest message
+        and returns a GetUserModelCardResponseUser
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def WatchUserModel(self, request, context):
+        """WatchUserModel method receives a WatchUserModelRequest message
         and returns a WatchModelResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def TriggerModel(self, request, context):
+    def TriggerUserModel(self, request, context):
         """/////////////////////////////////////////////////////
 
-        TriggerModel method receives a TriggerModelRequest message
-        and returns a TriggerModelResponse message.
+        TriggerUserModel method receives a TriggerUserModelRequest message
+        and returns a TriggerUserModelResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def TriggerModelBinaryFileUpload(self, request_iterator, context):
-        """TriggerModelBinaryFileUpload method receives a
-        TriggerModelBinaryFileUploadRequest message and returns a
-        TriggerModelBinaryFileUploadResponse message.
+    def TriggerUserModelBinaryFileUpload(self, request_iterator, context):
+        """TriggerUserModelBinaryFileUpload method receives a
+        TriggerUserModelBinaryFileUploadRequest message and returns a
+        TriggerUserModelBinaryFileUploadResponse message.
 
         Endpoint: "POST/v1alpha/{name=models/*}/trigger-multipart"
         """
@@ -304,20 +317,20 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def TestModel(self, request, context):
-        """TestModel method receives a TestModelRequest message
-        and returns a TestModelResponse message.
+    def TestUserModel(self, request, context):
+        """TestUserModel method receives a TestUserModelRequest message
+        and returns a TestUserModelResponse message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def TestModelBinaryFileUpload(self, request_iterator, context):
-        """TestModelBinaryFileUpload method receives a
-        TestModelBinaryFileUploadRequest message and returns a
-        TestModelBinaryFileUploadResponse message.
+    def TestUserModelBinaryFileUpload(self, request_iterator, context):
+        """TestUserModelBinaryFileUpload method receives a
+        TestUserModelBinaryFileUploadRequest message and returns a
+        TestUserModelBinaryFileUploadResponse message.
 
-        Endpoint: "POST/v1alpha/{name=models/*}/test-multipart"
+        Endpoint: "POST/v1alpha/{name=users/*/models/*}/test-multipart"
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -360,90 +373,95 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelsRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelsResponse.SerializeToString,
             ),
-            'CreateModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreateModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateModelResponse.SerializeToString,
+            'ListUserModels': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListUserModels,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelsRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelsResponse.SerializeToString,
             ),
-            'CreateModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
-                    servicer.CreateModelBinaryFileUpload,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadResponse.SerializeToString,
+            'CreateUserModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateUserModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelResponse.SerializeToString,
             ),
-            'GetModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetModelResponse.SerializeToString,
+            'CreateUserModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
+                    servicer.CreateUserModelBinaryFileUpload,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelBinaryFileUploadRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelBinaryFileUploadResponse.SerializeToString,
             ),
-            'UpdateModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelResponse.SerializeToString,
+            'GetUserModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetUserModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetUserModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetUserModelResponse.SerializeToString,
             ),
-            'DeleteModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelResponse.SerializeToString,
+            'UpdateUserModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateUserModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UpdateUserModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UpdateUserModelResponse.SerializeToString,
             ),
-            'LookUpModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.LookUpModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelResponse.SerializeToString,
+            'DeleteUserModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteUserModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelResponse.SerializeToString,
             ),
-            'RenameModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.RenameModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameModelResponse.SerializeToString,
+            'LookUpUserModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.LookUpUserModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpUserModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpUserModelResponse.SerializeToString,
             ),
-            'PublishModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.PublishModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.PublishModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.PublishModelResponse.SerializeToString,
+            'RenameUserModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.RenameUserModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameUserModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameUserModelResponse.SerializeToString,
             ),
-            'UnpublishModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.UnpublishModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelResponse.SerializeToString,
+            'PublishUserModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.PublishUserModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.PublishUserModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.PublishUserModelResponse.SerializeToString,
             ),
-            'DeployModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeployModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployModelResponse.SerializeToString,
+            'UnpublishUserModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.UnpublishUserModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishUserModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishUserModelResponse.SerializeToString,
             ),
-            'UndeployModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.UndeployModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelResponse.SerializeToString,
+            'DeployUserModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeployUserModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployUserModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployUserModelResponse.SerializeToString,
             ),
-            'GetModelCard': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetModelCard,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetModelCardRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetModelCardResponse.SerializeToString,
+            'UndeployUserModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.UndeployUserModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelResponse.SerializeToString,
             ),
-            'WatchModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.WatchModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchModelResponse.SerializeToString,
+            'GetUserModelCard': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetUserModelCard,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetUserModelCardRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetUserModelCardResponse.SerializeToString,
             ),
-            'TriggerModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.TriggerModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelResponse.SerializeToString,
+            'WatchUserModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.WatchUserModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserModelResponse.SerializeToString,
             ),
-            'TriggerModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
-                    servicer.TriggerModelBinaryFileUpload,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelBinaryFileUploadRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelBinaryFileUploadResponse.SerializeToString,
+            'TriggerUserModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.TriggerUserModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelResponse.SerializeToString,
             ),
-            'TestModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.TestModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TestModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TestModelResponse.SerializeToString,
+            'TriggerUserModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
+                    servicer.TriggerUserModelBinaryFileUpload,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelBinaryFileUploadRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelBinaryFileUploadResponse.SerializeToString,
             ),
-            'TestModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
-                    servicer.TestModelBinaryFileUpload,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TestModelBinaryFileUploadRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TestModelBinaryFileUploadResponse.SerializeToString,
+            'TestUserModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.TestUserModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TestUserModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TestUserModelResponse.SerializeToString,
+            ),
+            'TestUserModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
+                    servicer.TestUserModelBinaryFileUpload,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TestUserModelBinaryFileUploadRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TestUserModelBinaryFileUploadResponse.SerializeToString,
             ),
             'GetModelOperation': grpc.unary_unary_rpc_method_handler(
                     servicer.GetModelOperation,
@@ -547,7 +565,7 @@ class ModelPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def CreateModel(request,
+    def ListUserModels(request,
             target,
             options=(),
             channel_credentials=None,
@@ -557,14 +575,14 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/CreateModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.CreateModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.CreateModelResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/ListUserModels',
+            model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelsRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def CreateModelBinaryFileUpload(request_iterator,
+    def CreateUserModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -574,14 +592,14 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/model.model.v1alpha.ModelPublicService/CreateModelBinaryFileUpload',
-            model_dot_model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.CreateModelBinaryFileUploadResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/CreateUserModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetModel(request,
+    def CreateUserModelBinaryFileUpload(request_iterator,
             target,
             options=(),
             channel_credentials=None,
@@ -591,14 +609,14 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/GetModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.GetModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.GetModelResponse.FromString,
+        return grpc.experimental.stream_unary(request_iterator, target, '/model.model.v1alpha.ModelPublicService/CreateUserModelBinaryFileUpload',
+            model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelBinaryFileUploadRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelBinaryFileUploadResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UpdateModel(request,
+    def GetUserModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -608,14 +626,14 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/UpdateModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.UpdateModelResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/GetUserModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.GetUserModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.GetUserModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def DeleteModel(request,
+    def UpdateUserModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -625,14 +643,14 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/DeleteModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.DeleteModelResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/UpdateUserModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.UpdateUserModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.UpdateUserModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def LookUpModel(request,
+    def DeleteUserModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -642,14 +660,14 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/LookUpModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/DeleteUserModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def RenameModel(request,
+    def LookUpUserModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -659,14 +677,14 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/RenameModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.RenameModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.RenameModelResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/LookUpUserModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.LookUpUserModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.LookUpUserModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def PublishModel(request,
+    def RenameUserModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -676,14 +694,14 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/PublishModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.PublishModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.PublishModelResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/RenameUserModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.RenameUserModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.RenameUserModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UnpublishModel(request,
+    def PublishUserModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -693,14 +711,14 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/UnpublishModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishModelResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/PublishUserModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.PublishUserModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.PublishUserModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def DeployModel(request,
+    def UnpublishUserModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -710,14 +728,14 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/DeployModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.DeployModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.DeployModelResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/UnpublishUserModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishUserModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishUserModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UndeployModel(request,
+    def DeployUserModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -727,14 +745,14 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/UndeployModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/DeployUserModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.DeployUserModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.DeployUserModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetModelCard(request,
+    def UndeployUserModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -744,14 +762,14 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/GetModelCard',
-            model_dot_model_dot_v1alpha_dot_model__pb2.GetModelCardRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.GetModelCardResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/UndeployUserModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def WatchModel(request,
+    def GetUserModelCard(request,
             target,
             options=(),
             channel_credentials=None,
@@ -761,14 +779,14 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/WatchModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.WatchModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.WatchModelResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/GetUserModelCard',
+            model_dot_model_dot_v1alpha_dot_model__pb2.GetUserModelCardRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.GetUserModelCardResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def TriggerModel(request,
+    def WatchUserModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -778,14 +796,14 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TriggerModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/WatchUserModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def TriggerModelBinaryFileUpload(request_iterator,
+    def TriggerUserModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -795,14 +813,14 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/model.model.v1alpha.ModelPublicService/TriggerModelBinaryFileUpload',
-            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelBinaryFileUploadRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerModelBinaryFileUploadResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TriggerUserModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def TestModel(request,
+    def TriggerUserModelBinaryFileUpload(request_iterator,
             target,
             options=(),
             channel_credentials=None,
@@ -812,14 +830,14 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TestModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.TestModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.TestModelResponse.FromString,
+        return grpc.experimental.stream_unary(request_iterator, target, '/model.model.v1alpha.ModelPublicService/TriggerUserModelBinaryFileUpload',
+            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelBinaryFileUploadRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelBinaryFileUploadResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def TestModelBinaryFileUpload(request_iterator,
+    def TestUserModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -829,9 +847,26 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/model.model.v1alpha.ModelPublicService/TestModelBinaryFileUpload',
-            model_dot_model_dot_v1alpha_dot_model__pb2.TestModelBinaryFileUploadRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.TestModelBinaryFileUploadResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TestUserModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.TestUserModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.TestUserModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TestUserModelBinaryFileUpload(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_unary(request_iterator, target, '/model.model.v1alpha.ModelPublicService/TestUserModelBinaryFileUpload',
+            model_dot_model_dot_v1alpha_dot_model__pb2.TestUserModelBinaryFileUploadRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.TestUserModelBinaryFileUploadResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
