@@ -41,6 +41,11 @@ class PipelinePublicServiceStub(object):
                 request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelinesRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelinesResponse.FromString,
                 )
+        self.LookUpPipeline = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/LookUpPipeline',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpPipelineRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpPipelineResponse.FromString,
+                )
         self.CreateUserPipeline = channel.unary_unary(
                 '/vdp.pipeline.v1alpha.PipelinePublicService/CreateUserPipeline',
                 request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.CreateUserPipelineRequest.SerializeToString,
@@ -65,11 +70,6 @@ class PipelinePublicServiceStub(object):
                 '/vdp.pipeline.v1alpha.PipelinePublicService/DeleteUserPipeline',
                 request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.DeleteUserPipelineRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.DeleteUserPipelineResponse.FromString,
-                )
-        self.LookUpUserPipeline = channel.unary_unary(
-                '/vdp.pipeline.v1alpha.PipelinePublicService/LookUpUserPipeline',
-                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpUserPipelineRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpUserPipelineResponse.FromString,
                 )
         self.ValidateUserPipeline = channel.unary_unary(
                 '/vdp.pipeline.v1alpha.PipelinePublicService/ValidateUserPipeline',
@@ -201,6 +201,14 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def LookUpPipeline(self, request, context):
+        """LookUpPipeline method receives a LookUpPipelineRequest message and returns
+        a LookUpPipelineResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CreateUserPipeline(self, request, context):
         """CreateUserPipeline method receives a CreateUserPipelineRequest message and returns
         a CreateUserPipelineResponse message.
@@ -236,14 +244,6 @@ class PipelinePublicServiceServicer(object):
     def DeleteUserPipeline(self, request, context):
         """DeleteUserPipeline method receives a DeleteUserPipelineRequest message and returns
         a DeleteUserPipelineResponse message.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def LookUpUserPipeline(self, request, context):
-        """LookUpUserPipeline method receives a LookUpUserPipelineRequest message and returns
-        a LookUpUserPipelineResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -407,6 +407,11 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelinesRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelinesResponse.SerializeToString,
             ),
+            'LookUpPipeline': grpc.unary_unary_rpc_method_handler(
+                    servicer.LookUpPipeline,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpPipelineRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpPipelineResponse.SerializeToString,
+            ),
             'CreateUserPipeline': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateUserPipeline,
                     request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.CreateUserPipelineRequest.FromString,
@@ -431,11 +436,6 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     servicer.DeleteUserPipeline,
                     request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.DeleteUserPipelineRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.DeleteUserPipelineResponse.SerializeToString,
-            ),
-            'LookUpUserPipeline': grpc.unary_unary_rpc_method_handler(
-                    servicer.LookUpUserPipeline,
-                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpUserPipelineRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpUserPipelineResponse.SerializeToString,
             ),
             'ValidateUserPipeline': grpc.unary_unary_rpc_method_handler(
                     servicer.ValidateUserPipeline,
@@ -614,6 +614,23 @@ class PipelinePublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def LookUpPipeline(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/LookUpPipeline',
+            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpPipelineRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpPipelineResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def CreateUserPipeline(request,
             target,
             options=(),
@@ -695,23 +712,6 @@ class PipelinePublicService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/DeleteUserPipeline',
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.DeleteUserPipelineRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.DeleteUserPipelineResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def LookUpUserPipeline(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/LookUpUserPipeline',
-            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpUserPipelineRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.LookUpUserPipelineResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

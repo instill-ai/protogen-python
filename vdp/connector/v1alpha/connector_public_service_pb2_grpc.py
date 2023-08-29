@@ -41,6 +41,11 @@ class ConnectorPublicServiceStub(object):
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListConnectorResourcesRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListConnectorResourcesResponse.FromString,
                 )
+        self.LookUpConnectorResource = channel.unary_unary(
+                '/vdp.connector.v1alpha.ConnectorPublicService/LookUpConnectorResource',
+                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpConnectorResourceRequest.SerializeToString,
+                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpConnectorResourceResponse.FromString,
+                )
         self.CreateUserConnectorResource = channel.unary_unary(
                 '/vdp.connector.v1alpha.ConnectorPublicService/CreateUserConnectorResource',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateUserConnectorResourceRequest.SerializeToString,
@@ -65,11 +70,6 @@ class ConnectorPublicServiceStub(object):
                 '/vdp.connector.v1alpha.ConnectorPublicService/DeleteUserConnectorResource',
                 request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteUserConnectorResourceRequest.SerializeToString,
                 response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteUserConnectorResourceResponse.FromString,
-                )
-        self.LookUpUserConnectorResource = channel.unary_unary(
-                '/vdp.connector.v1alpha.ConnectorPublicService/LookUpUserConnectorResource',
-                request_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpUserConnectorResourceRequest.SerializeToString,
-                response_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpUserConnectorResourceResponse.FromString,
                 )
         self.ConnectUserConnectorResource = channel.unary_unary(
                 '/vdp.connector.v1alpha.ConnectorPublicService/ConnectUserConnectorResource',
@@ -160,6 +160,15 @@ class ConnectorPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def LookUpConnectorResource(self, request, context):
+        """LookUpConnectorResource method receives a
+        LookUpConnectorResourceRequest message and returns a
+        LookUpConnectorResourceResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CreateUserConnectorResource(self, request, context):
         """CreateUserConnectorResource method receives a
         CreateUserConnectorResourceRequest message and returns a
@@ -199,15 +208,6 @@ class ConnectorPublicServiceServicer(object):
         """DeleteUserConnectorResource method receives a
         DeleteUserConnectorResourceRequest message and returns a
         DeleteUserConnectorResourceResponse message.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def LookUpUserConnectorResource(self, request, context):
-        """LookUpUserConnectorResource method receives a
-        LookUpUserConnectorResourceRequest message and returns a
-        LookUpUserConnectorResourceResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -298,6 +298,11 @@ def add_ConnectorPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListConnectorResourcesRequest.FromString,
                     response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.ListConnectorResourcesResponse.SerializeToString,
             ),
+            'LookUpConnectorResource': grpc.unary_unary_rpc_method_handler(
+                    servicer.LookUpConnectorResource,
+                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpConnectorResourceRequest.FromString,
+                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpConnectorResourceResponse.SerializeToString,
+            ),
             'CreateUserConnectorResource': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateUserConnectorResource,
                     request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.CreateUserConnectorResourceRequest.FromString,
@@ -322,11 +327,6 @@ def add_ConnectorPublicServiceServicer_to_server(servicer, server):
                     servicer.DeleteUserConnectorResource,
                     request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteUserConnectorResourceRequest.FromString,
                     response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteUserConnectorResourceResponse.SerializeToString,
-            ),
-            'LookUpUserConnectorResource': grpc.unary_unary_rpc_method_handler(
-                    servicer.LookUpUserConnectorResource,
-                    request_deserializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpUserConnectorResourceRequest.FromString,
-                    response_serializer=vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpUserConnectorResourceResponse.SerializeToString,
             ),
             'ConnectUserConnectorResource': grpc.unary_unary_rpc_method_handler(
                     servicer.ConnectUserConnectorResource,
@@ -455,6 +455,23 @@ class ConnectorPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def LookUpConnectorResource(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/LookUpConnectorResource',
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpConnectorResourceRequest.SerializeToString,
+            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpConnectorResourceResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def CreateUserConnectorResource(request,
             target,
             options=(),
@@ -536,23 +553,6 @@ class ConnectorPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/DeleteUserConnectorResource',
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteUserConnectorResourceRequest.SerializeToString,
             vdp_dot_connector_dot_v1alpha_dot_connector__pb2.DeleteUserConnectorResourceResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def LookUpUserConnectorResource(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.connector.v1alpha.ConnectorPublicService/LookUpUserConnectorResource',
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpUserConnectorResourceRequest.SerializeToString,
-            vdp_dot_connector_dot_v1alpha_dot_connector__pb2.LookUpUserConnectorResourceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
