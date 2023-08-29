@@ -41,6 +41,11 @@ class ModelPublicServiceStub(object):
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelsRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelsResponse.FromString,
                 )
+        self.LookUpModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/LookUpModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelResponse.FromString,
+                )
         self.ListUserModels = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/ListUserModels',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelsRequest.SerializeToString,
@@ -70,11 +75,6 @@ class ModelPublicServiceStub(object):
                 '/model.model.v1alpha.ModelPublicService/DeleteUserModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelResponse.FromString,
-                )
-        self.LookUpUserModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/LookUpUserModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpUserModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpUserModelResponse.FromString,
                 )
         self.RenameUserModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/RenameUserModel',
@@ -184,6 +184,14 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def LookUpModel(self, request, context):
+        """LookUpUodel method receives a LookUpModelRequest message and returns a
+        LookUpModelResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListUserModels(self, request, context):
         """LisUsertModels method receives a ListUserModelsRequest message and returns a
         ListUserModelsResponse
@@ -230,14 +238,6 @@ class ModelPublicServiceServicer(object):
     def DeleteUserModel(self, request, context):
         """DeleteUserModel method receives a DeleteUserModelRequest message and returns a
         DeleteUserModelResponse
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def LookUpUserModel(self, request, context):
-        """LookUpUserModel method receives a LookUpUserModelRequest message and returns a
-        LookUpUserModelResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -373,6 +373,11 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelsRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelsResponse.SerializeToString,
             ),
+            'LookUpModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.LookUpModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelResponse.SerializeToString,
+            ),
             'ListUserModels': grpc.unary_unary_rpc_method_handler(
                     servicer.ListUserModels,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelsRequest.FromString,
@@ -402,11 +407,6 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     servicer.DeleteUserModel,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelResponse.SerializeToString,
-            ),
-            'LookUpUserModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.LookUpUserModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpUserModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpUserModelResponse.SerializeToString,
             ),
             'RenameUserModel': grpc.unary_unary_rpc_method_handler(
                     servicer.RenameUserModel,
@@ -565,6 +565,23 @@ class ModelPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def LookUpModel(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/LookUpModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def ListUserModels(request,
             target,
             options=(),
@@ -663,23 +680,6 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/DeleteUserModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def LookUpUserModel(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/LookUpUserModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.LookUpUserModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.LookUpUserModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
