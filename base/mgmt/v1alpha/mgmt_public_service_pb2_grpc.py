@@ -96,6 +96,31 @@ class MgmtPublicServiceStub(object):
                 request_serializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListConnectorExecuteChartRecordsRequest.SerializeToString,
                 response_deserializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListConnectorExecuteChartRecordsResponse.FromString,
                 )
+        self.AuthTokenIssuer = channel.unary_unary(
+                '/base.mgmt.v1alpha.MgmtPublicService/AuthTokenIssuer',
+                request_serializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthTokenIssuerRequest.SerializeToString,
+                response_deserializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthTokenIssuerResponse.FromString,
+                )
+        self.AuthLogin = channel.unary_unary(
+                '/base.mgmt.v1alpha.MgmtPublicService/AuthLogin',
+                request_serializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthLoginRequest.SerializeToString,
+                response_deserializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthLoginResponse.FromString,
+                )
+        self.AuthLogout = channel.unary_unary(
+                '/base.mgmt.v1alpha.MgmtPublicService/AuthLogout',
+                request_serializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthLogoutRequest.SerializeToString,
+                response_deserializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthLogoutResponse.FromString,
+                )
+        self.AuthChangePassword = channel.unary_unary(
+                '/base.mgmt.v1alpha.MgmtPublicService/AuthChangePassword',
+                request_serializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthChangePasswordRequest.SerializeToString,
+                response_deserializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthChangePasswordResponse.FromString,
+                )
+        self.AuthValidateAccessToken = channel.unary_unary(
+                '/base.mgmt.v1alpha.MgmtPublicService/AuthValidateAccessToken',
+                request_serializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthValidateAccessTokenRequest.SerializeToString,
+                response_deserializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthValidateAccessTokenResponse.FromString,
+                )
 
 
 class MgmtPublicServiceServicer(object):
@@ -234,6 +259,41 @@ class MgmtPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def AuthTokenIssuer(self, request, context):
+        """AuthTokenIssuer endpoint
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AuthLogin(self, request, context):
+        """Auth Login endpoint
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AuthLogout(self, request, context):
+        """Auth Logout endpoint
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AuthChangePassword(self, request, context):
+        """Auth Change password endpoint
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AuthValidateAccessToken(self, request, context):
+        """Auth AccessToken validation endpoint
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_MgmtPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -316,6 +376,31 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     servicer.ListConnectorExecuteChartRecords,
                     request_deserializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListConnectorExecuteChartRecordsRequest.FromString,
                     response_serializer=base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListConnectorExecuteChartRecordsResponse.SerializeToString,
+            ),
+            'AuthTokenIssuer': grpc.unary_unary_rpc_method_handler(
+                    servicer.AuthTokenIssuer,
+                    request_deserializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthTokenIssuerRequest.FromString,
+                    response_serializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthTokenIssuerResponse.SerializeToString,
+            ),
+            'AuthLogin': grpc.unary_unary_rpc_method_handler(
+                    servicer.AuthLogin,
+                    request_deserializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthLoginRequest.FromString,
+                    response_serializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthLoginResponse.SerializeToString,
+            ),
+            'AuthLogout': grpc.unary_unary_rpc_method_handler(
+                    servicer.AuthLogout,
+                    request_deserializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthLogoutRequest.FromString,
+                    response_serializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthLogoutResponse.SerializeToString,
+            ),
+            'AuthChangePassword': grpc.unary_unary_rpc_method_handler(
+                    servicer.AuthChangePassword,
+                    request_deserializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthChangePasswordRequest.FromString,
+                    response_serializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthChangePasswordResponse.SerializeToString,
+            ),
+            'AuthValidateAccessToken': grpc.unary_unary_rpc_method_handler(
+                    servicer.AuthValidateAccessToken,
+                    request_deserializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthValidateAccessTokenRequest.FromString,
+                    response_serializer=base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthValidateAccessTokenResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -597,5 +682,90 @@ class MgmtPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/base.mgmt.v1alpha.MgmtPublicService/ListConnectorExecuteChartRecords',
             base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListConnectorExecuteChartRecordsRequest.SerializeToString,
             base_dot_mgmt_dot_v1alpha_dot_metric__pb2.ListConnectorExecuteChartRecordsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AuthTokenIssuer(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/base.mgmt.v1alpha.MgmtPublicService/AuthTokenIssuer',
+            base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthTokenIssuerRequest.SerializeToString,
+            base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthTokenIssuerResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AuthLogin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/base.mgmt.v1alpha.MgmtPublicService/AuthLogin',
+            base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthLoginRequest.SerializeToString,
+            base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthLoginResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AuthLogout(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/base.mgmt.v1alpha.MgmtPublicService/AuthLogout',
+            base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthLogoutRequest.SerializeToString,
+            base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthLogoutResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AuthChangePassword(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/base.mgmt.v1alpha.MgmtPublicService/AuthChangePassword',
+            base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthChangePasswordRequest.SerializeToString,
+            base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthChangePasswordResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AuthValidateAccessToken(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/base.mgmt.v1alpha.MgmtPublicService/AuthValidateAccessToken',
+            base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthValidateAccessTokenRequest.SerializeToString,
+            base_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.AuthValidateAccessTokenResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

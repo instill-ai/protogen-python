@@ -138,6 +138,31 @@ class MgmtPublicServiceStub:
     """ListConnectorExecuteChartRecords method receives a ListConnectorExecuteChartRecordsRequest message and returns a
     ListConnectorExecuteChartRecordsResponse message.
     """
+    AuthTokenIssuer: grpc.UnaryUnaryMultiCallable[
+        base.mgmt.v1alpha.mgmt_pb2.AuthTokenIssuerRequest,
+        base.mgmt.v1alpha.mgmt_pb2.AuthTokenIssuerResponse,
+    ]
+    """AuthTokenIssuer endpoint"""
+    AuthLogin: grpc.UnaryUnaryMultiCallable[
+        base.mgmt.v1alpha.mgmt_pb2.AuthLoginRequest,
+        base.mgmt.v1alpha.mgmt_pb2.AuthLoginResponse,
+    ]
+    """Auth Login endpoint"""
+    AuthLogout: grpc.UnaryUnaryMultiCallable[
+        base.mgmt.v1alpha.mgmt_pb2.AuthLogoutRequest,
+        base.mgmt.v1alpha.mgmt_pb2.AuthLogoutResponse,
+    ]
+    """Auth Logout endpoint"""
+    AuthChangePassword: grpc.UnaryUnaryMultiCallable[
+        base.mgmt.v1alpha.mgmt_pb2.AuthChangePasswordRequest,
+        base.mgmt.v1alpha.mgmt_pb2.AuthChangePasswordResponse,
+    ]
+    """Auth Change password endpoint"""
+    AuthValidateAccessToken: grpc.UnaryUnaryMultiCallable[
+        base.mgmt.v1alpha.mgmt_pb2.AuthValidateAccessTokenRequest,
+        base.mgmt.v1alpha.mgmt_pb2.AuthValidateAccessTokenResponse,
+    ]
+    """Auth AccessToken validation endpoint"""
 
 class MgmtPublicServiceAsyncStub:
     """Mgmt service responds to external access"""
@@ -258,6 +283,31 @@ class MgmtPublicServiceAsyncStub:
     """ListConnectorExecuteChartRecords method receives a ListConnectorExecuteChartRecordsRequest message and returns a
     ListConnectorExecuteChartRecordsResponse message.
     """
+    AuthTokenIssuer: grpc.aio.UnaryUnaryMultiCallable[
+        base.mgmt.v1alpha.mgmt_pb2.AuthTokenIssuerRequest,
+        base.mgmt.v1alpha.mgmt_pb2.AuthTokenIssuerResponse,
+    ]
+    """AuthTokenIssuer endpoint"""
+    AuthLogin: grpc.aio.UnaryUnaryMultiCallable[
+        base.mgmt.v1alpha.mgmt_pb2.AuthLoginRequest,
+        base.mgmt.v1alpha.mgmt_pb2.AuthLoginResponse,
+    ]
+    """Auth Login endpoint"""
+    AuthLogout: grpc.aio.UnaryUnaryMultiCallable[
+        base.mgmt.v1alpha.mgmt_pb2.AuthLogoutRequest,
+        base.mgmt.v1alpha.mgmt_pb2.AuthLogoutResponse,
+    ]
+    """Auth Logout endpoint"""
+    AuthChangePassword: grpc.aio.UnaryUnaryMultiCallable[
+        base.mgmt.v1alpha.mgmt_pb2.AuthChangePasswordRequest,
+        base.mgmt.v1alpha.mgmt_pb2.AuthChangePasswordResponse,
+    ]
+    """Auth Change password endpoint"""
+    AuthValidateAccessToken: grpc.aio.UnaryUnaryMultiCallable[
+        base.mgmt.v1alpha.mgmt_pb2.AuthValidateAccessTokenRequest,
+        base.mgmt.v1alpha.mgmt_pb2.AuthValidateAccessTokenResponse,
+    ]
+    """Auth AccessToken validation endpoint"""
 
 class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
     """Mgmt service responds to external access"""
@@ -410,5 +460,40 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         """ListConnectorExecuteChartRecords method receives a ListConnectorExecuteChartRecordsRequest message and returns a
         ListConnectorExecuteChartRecordsResponse message.
         """
+    @abc.abstractmethod
+    def AuthTokenIssuer(
+        self,
+        request: base.mgmt.v1alpha.mgmt_pb2.AuthTokenIssuerRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[base.mgmt.v1alpha.mgmt_pb2.AuthTokenIssuerResponse, collections.abc.Awaitable[base.mgmt.v1alpha.mgmt_pb2.AuthTokenIssuerResponse]]:
+        """AuthTokenIssuer endpoint"""
+    @abc.abstractmethod
+    def AuthLogin(
+        self,
+        request: base.mgmt.v1alpha.mgmt_pb2.AuthLoginRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[base.mgmt.v1alpha.mgmt_pb2.AuthLoginResponse, collections.abc.Awaitable[base.mgmt.v1alpha.mgmt_pb2.AuthLoginResponse]]:
+        """Auth Login endpoint"""
+    @abc.abstractmethod
+    def AuthLogout(
+        self,
+        request: base.mgmt.v1alpha.mgmt_pb2.AuthLogoutRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[base.mgmt.v1alpha.mgmt_pb2.AuthLogoutResponse, collections.abc.Awaitable[base.mgmt.v1alpha.mgmt_pb2.AuthLogoutResponse]]:
+        """Auth Logout endpoint"""
+    @abc.abstractmethod
+    def AuthChangePassword(
+        self,
+        request: base.mgmt.v1alpha.mgmt_pb2.AuthChangePasswordRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[base.mgmt.v1alpha.mgmt_pb2.AuthChangePasswordResponse, collections.abc.Awaitable[base.mgmt.v1alpha.mgmt_pb2.AuthChangePasswordResponse]]:
+        """Auth Change password endpoint"""
+    @abc.abstractmethod
+    def AuthValidateAccessToken(
+        self,
+        request: base.mgmt.v1alpha.mgmt_pb2.AuthValidateAccessTokenRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[base.mgmt.v1alpha.mgmt_pb2.AuthValidateAccessTokenResponse, collections.abc.Awaitable[base.mgmt.v1alpha.mgmt_pb2.AuthValidateAccessTokenResponse]]:
+        """Auth AccessToken validation endpoint"""
 
 def add_MgmtPublicServiceServicer_to_server(servicer: MgmtPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

@@ -960,3 +960,199 @@ class ValidateTokenResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["user_uid", b"user_uid"]) -> None: ...
 
 global___ValidateTokenResponse = ValidateTokenResponse
+
+@typing_extensions.final
+class AuthTokenIssuerRequest(google.protobuf.message.Message):
+    """Request for user login"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    USERNAME_FIELD_NUMBER: builtins.int
+    PASSWORD_FIELD_NUMBER: builtins.int
+    username: builtins.str
+    """Username"""
+    password: builtins.str
+    """Password"""
+    def __init__(
+        self,
+        *,
+        username: builtins.str = ...,
+        password: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["password", b"password", "username", b"username"]) -> None: ...
+
+global___AuthTokenIssuerRequest = AuthTokenIssuerRequest
+
+@typing_extensions.final
+class AuthTokenIssuerResponse(google.protobuf.message.Message):
+    """Response for user logout"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    @typing_extensions.final
+    class UnsignedAccessToken(google.protobuf.message.Message):
+        """UnsignedAccessToken"""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        AUD_FIELD_NUMBER: builtins.int
+        ISS_FIELD_NUMBER: builtins.int
+        SUB_FIELD_NUMBER: builtins.int
+        JTI_FIELD_NUMBER: builtins.int
+        EXP_FIELD_NUMBER: builtins.int
+        aud: builtins.str
+        """aud"""
+        iss: builtins.str
+        """iss"""
+        sub: builtins.str
+        """sub"""
+        jti: builtins.str
+        """jti"""
+        exp: builtins.int
+        """exp"""
+        def __init__(
+            self,
+            *,
+            aud: builtins.str = ...,
+            iss: builtins.str = ...,
+            sub: builtins.str = ...,
+            jti: builtins.str = ...,
+            exp: builtins.int = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["aud", b"aud", "exp", b"exp", "iss", b"iss", "jti", b"jti", "sub", b"sub"]) -> None: ...
+
+    ACCESS_TOKEN_FIELD_NUMBER: builtins.int
+    @property
+    def access_token(self) -> global___AuthTokenIssuerResponse.UnsignedAccessToken:
+        """access_token"""
+    def __init__(
+        self,
+        *,
+        access_token: global___AuthTokenIssuerResponse.UnsignedAccessToken | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["access_token", b"access_token"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["access_token", b"access_token"]) -> None: ...
+
+global___AuthTokenIssuerResponse = AuthTokenIssuerResponse
+
+@typing_extensions.final
+class AuthLoginRequest(google.protobuf.message.Message):
+    """Request for user login"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    USERNAME_FIELD_NUMBER: builtins.int
+    PASSWORD_FIELD_NUMBER: builtins.int
+    username: builtins.str
+    """Username"""
+    password: builtins.str
+    """Password"""
+    def __init__(
+        self,
+        *,
+        username: builtins.str = ...,
+        password: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["password", b"password", "username", b"username"]) -> None: ...
+
+global___AuthLoginRequest = AuthLoginRequest
+
+@typing_extensions.final
+class AuthLoginResponse(google.protobuf.message.Message):
+    """Response for user logout"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    ACCESS_TOKEN_FIELD_NUMBER: builtins.int
+    access_token: builtins.str
+    """access token"""
+    def __init__(
+        self,
+        *,
+        access_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["access_token", b"access_token"]) -> None: ...
+
+global___AuthLoginResponse = AuthLoginResponse
+
+@typing_extensions.final
+class AuthLogoutRequest(google.protobuf.message.Message):
+    """Request for user logout"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___AuthLogoutRequest = AuthLogoutRequest
+
+@typing_extensions.final
+class AuthLogoutResponse(google.protobuf.message.Message):
+    """Response for user logout"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___AuthLogoutResponse = AuthLogoutResponse
+
+@typing_extensions.final
+class AuthValidateAccessTokenRequest(google.protobuf.message.Message):
+    """Request for access_token validation"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___AuthValidateAccessTokenRequest = AuthValidateAccessTokenRequest
+
+@typing_extensions.final
+class AuthValidateAccessTokenResponse(google.protobuf.message.Message):
+    """Response for access_token validation"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___AuthValidateAccessTokenResponse = AuthValidateAccessTokenResponse
+
+@typing_extensions.final
+class AuthChangePasswordRequest(google.protobuf.message.Message):
+    """Request for changing password"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OLD_PASSWORD_FIELD_NUMBER: builtins.int
+    NEW_PASSWORD_FIELD_NUMBER: builtins.int
+    old_password: builtins.str
+    """Old password"""
+    new_password: builtins.str
+    """New password"""
+    def __init__(
+        self,
+        *,
+        old_password: builtins.str = ...,
+        new_password: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["new_password", b"new_password", "old_password", b"old_password"]) -> None: ...
+
+global___AuthChangePasswordRequest = AuthChangePasswordRequest
+
+@typing_extensions.final
+class AuthChangePasswordResponse(google.protobuf.message.Message):
+    """Response for changing password"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___AuthChangePasswordResponse = AuthChangePasswordResponse
