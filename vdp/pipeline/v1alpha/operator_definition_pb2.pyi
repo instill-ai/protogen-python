@@ -26,16 +26,21 @@ class Spec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     COMPONENT_SPECIFICATION_FIELD_NUMBER: builtins.int
+    OPENAPI_SPECIFICATIONS_FIELD_NUMBER: builtins.int
     @property
     def component_specification(self) -> google.protobuf.struct_pb2.Struct:
         """Spec operator specification"""
+    @property
+    def openapi_specifications(self) -> google.protobuf.struct_pb2.Struct:
+        """Spec openapi specification"""
     def __init__(
         self,
         *,
         component_specification: google.protobuf.struct_pb2.Struct | None = ...,
+        openapi_specifications: google.protobuf.struct_pb2.Struct | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification", "openapi_specifications", b"openapi_specifications"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification", "openapi_specifications", b"openapi_specifications"]) -> None: ...
 
 global___Spec = Spec
 

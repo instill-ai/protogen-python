@@ -31,7 +31,7 @@ class Spec(google.protobuf.message.Message):
         """Spec resource specification"""
     @property
     def component_specification(self) -> google.protobuf.struct_pb2.Struct:
-        """Spec connector specification"""
+        """Spec component specification"""
     @property
     def openapi_specifications(self) -> google.protobuf.struct_pb2.Struct:
         """Spec openapi specification"""
