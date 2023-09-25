@@ -3,8 +3,11 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
+import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
+import google.protobuf.message
 import sys
 import typing
 
@@ -45,3 +48,114 @@ VIEW_FULL: View.ValueType  # 2
 VIEW_RECIPE: View.ValueType  # 3
 """View: RECIPE: will return recipe"""
 global___View = View
+
+class _Role:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _RoleEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Role.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    ROLE_UNSPECIFIED: _Role.ValueType  # 0
+    """ROLE: UNSPECIFIED"""
+    ROLE_VIEWER: _Role.ValueType  # 1
+    """Role: Viewer"""
+
+class Role(_Role, metaclass=_RoleEnumTypeWrapper):
+    """Role"""
+
+ROLE_UNSPECIFIED: Role.ValueType  # 0
+"""ROLE: UNSPECIFIED"""
+ROLE_VIEWER: Role.ValueType  # 1
+"""Role: Viewer"""
+global___Role = Role
+
+@typing_extensions.final
+class Permission(google.protobuf.message.Message):
+    """Permission"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    @typing_extensions.final
+    class User(google.protobuf.message.Message):
+        """User"""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        ENABLED_FIELD_NUMBER: builtins.int
+        ROLE_FIELD_NUMBER: builtins.int
+        enabled: builtins.bool
+        """enabled"""
+        role: global___Role.ValueType
+        """role"""
+        def __init__(
+            self,
+            *,
+            enabled: builtins.bool = ...,
+            role: global___Role.ValueType = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["enabled", b"enabled", "role", b"role"]) -> None: ...
+
+    @typing_extensions.final
+    class ShareCode(google.protobuf.message.Message):
+        """Share Code"""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        USER_FIELD_NUMBER: builtins.int
+        CODE_FIELD_NUMBER: builtins.int
+        ENABLED_FIELD_NUMBER: builtins.int
+        ROLE_FIELD_NUMBER: builtins.int
+        user: builtins.str
+        """user"""
+        code: builtins.str
+        """user"""
+        enabled: builtins.bool
+        """enabled"""
+        role: global___Role.ValueType
+        """role"""
+        def __init__(
+            self,
+            *,
+            user: builtins.str = ...,
+            code: builtins.str = ...,
+            enabled: builtins.bool = ...,
+            role: global___Role.ValueType = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["code", b"code", "enabled", b"enabled", "role", b"role", "user", b"user"]) -> None: ...
+
+    @typing_extensions.final
+    class UsersEntry(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        KEY_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        key: builtins.str
+        @property
+        def value(self) -> global___Permission.User: ...
+        def __init__(
+            self,
+            *,
+            key: builtins.str = ...,
+            value: global___Permission.User | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["value", b"value"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
+
+    USERS_FIELD_NUMBER: builtins.int
+    SHARE_CODE_FIELD_NUMBER: builtins.int
+    @property
+    def users(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___Permission.User]:
+        """users"""
+    @property
+    def share_code(self) -> global___Permission.ShareCode:
+        """shared code"""
+    def __init__(
+        self,
+        *,
+        users: collections.abc.Mapping[builtins.str, global___Permission.User] | None = ...,
+        share_code: global___Permission.ShareCode | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["share_code", b"share_code"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["share_code", b"share_code", "users", b"users"]) -> None: ...
+
+global___Permission = Permission

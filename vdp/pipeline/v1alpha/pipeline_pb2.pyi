@@ -27,30 +27,6 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
-class _Visibility:
-    ValueType = typing.NewType("ValueType", builtins.int)
-    V: typing_extensions.TypeAlias = ValueType
-
-class _VisibilityEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Visibility.ValueType], builtins.type):
-    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-    VISIBILITY_UNSPECIFIED: _Visibility.ValueType  # 0
-    """Visibility: UNSPECIFIED, equivalent to PRIVATE."""
-    VISIBILITY_PRIVATE: _Visibility.ValueType  # 1
-    """Visibility: PRIVATE"""
-    VISIBILITY_PUBLIC: _Visibility.ValueType  # 2
-    """Visibility: PUBLIC"""
-
-class Visibility(_Visibility, metaclass=_VisibilityEnumTypeWrapper):
-    """ConnectorResource visibility including public or private"""
-
-VISIBILITY_UNSPECIFIED: Visibility.ValueType  # 0
-"""Visibility: UNSPECIFIED, equivalent to PRIVATE."""
-VISIBILITY_PRIVATE: Visibility.ValueType  # 1
-"""Visibility: PRIVATE"""
-VISIBILITY_PUBLIC: Visibility.ValueType  # 2
-"""Visibility: PUBLIC"""
-global___Visibility = Visibility
-
 class _ComponentType:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
@@ -283,9 +259,9 @@ class Pipeline(google.protobuf.message.Message):
     ORG_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
-    VISIBILITY_FIELD_NUMBER: builtins.int
     OPENAPI_SCHEMA_FIELD_NUMBER: builtins.int
     DELETE_TIME_FIELD_NUMBER: builtins.int
+    PERMISSION_FIELD_NUMBER: builtins.int
     name: builtins.str
     """Pipeline resource name. It must have the format of "users/{user}/pipelines/*" """
     uid: builtins.str
@@ -313,14 +289,15 @@ class Pipeline(google.protobuf.message.Message):
     @property
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Pipeline update time"""
-    visibility: global___Visibility.ValueType
-    """Visibility"""
     @property
     def openapi_schema(self) -> google.protobuf.struct_pb2.Struct:
         """OpenAPI schema"""
     @property
     def delete_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Pipeline delete time"""
+    @property
+    def permission(self) -> vdp.pipeline.v1alpha.common_pb2.Permission:
+        """Pipeline permission"""
     def __init__(
         self,
         *,
@@ -333,12 +310,12 @@ class Pipeline(google.protobuf.message.Message):
         org: builtins.str = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        visibility: global___Visibility.ValueType = ...,
         openapi_schema: google.protobuf.struct_pb2.Struct | None = ...,
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        permission: vdp.pipeline.v1alpha.common_pb2.Permission | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "openapi_schema", b"openapi_schema", "org", b"org", "owner", b"owner", "recipe", b"recipe", "update_time", b"update_time", "user", b"user"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "id", b"id", "name", b"name", "openapi_schema", b"openapi_schema", "org", b"org", "owner", b"owner", "recipe", b"recipe", "uid", b"uid", "update_time", b"update_time", "user", b"user", "visibility", b"visibility"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "openapi_schema", b"openapi_schema", "org", b"org", "owner", b"owner", "permission", b"permission", "recipe", b"recipe", "update_time", b"update_time", "user", b"user"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "id", b"id", "name", b"name", "openapi_schema", b"openapi_schema", "org", b"org", "owner", b"owner", "permission", b"permission", "recipe", b"recipe", "uid", b"uid", "update_time", b"update_time", "user", b"user"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_description", b"_description"]) -> typing_extensions.Literal["description"] | None: ...
     @typing.overload
@@ -434,7 +411,6 @@ class PipelineRelease(google.protobuf.message.Message):
     RECIPE_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
-    VISIBILITY_FIELD_NUMBER: builtins.int
     OPENAPI_SCHEMA_FIELD_NUMBER: builtins.int
     DELETE_TIME_FIELD_NUMBER: builtins.int
     name: builtins.str
@@ -456,8 +432,6 @@ class PipelineRelease(google.protobuf.message.Message):
     @property
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Pipeline update time"""
-    visibility: global___Visibility.ValueType
-    """Visibility"""
     @property
     def openapi_schema(self) -> google.protobuf.struct_pb2.Struct:
         """OpenAPI schema"""
@@ -474,12 +448,11 @@ class PipelineRelease(google.protobuf.message.Message):
         recipe: global___Recipe | None = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        visibility: global___Visibility.ValueType = ...,
         openapi_schema: google.protobuf.struct_pb2.Struct | None = ...,
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "openapi_schema", b"openapi_schema", "recipe", b"recipe", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "id", b"id", "name", b"name", "openapi_schema", b"openapi_schema", "recipe", b"recipe", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "id", b"id", "name", b"name", "openapi_schema", b"openapi_schema", "recipe", b"recipe", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_description", b"_description"]) -> typing_extensions.Literal["description"] | None: ...
 
 global___PipelineRelease = PipelineRelease
