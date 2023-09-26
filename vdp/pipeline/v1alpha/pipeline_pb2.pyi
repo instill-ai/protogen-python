@@ -413,6 +413,7 @@ class PipelineRelease(google.protobuf.message.Message):
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     OPENAPI_SCHEMA_FIELD_NUMBER: builtins.int
     DELETE_TIME_FIELD_NUMBER: builtins.int
+    ALIAS_FIELD_NUMBER: builtins.int
     name: builtins.str
     """PipelineRelease resource name. It must have the format of "users/*/pipelines/*/releases/*" """
     uid: builtins.str
@@ -438,6 +439,8 @@ class PipelineRelease(google.protobuf.message.Message):
     @property
     def delete_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Pipeline delete time"""
+    alias: builtins.str
+    """Alias"""
     def __init__(
         self,
         *,
@@ -450,9 +453,10 @@ class PipelineRelease(google.protobuf.message.Message):
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         openapi_schema: google.protobuf.struct_pb2.Struct | None = ...,
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        alias: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "openapi_schema", b"openapi_schema", "recipe", b"recipe", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "id", b"id", "name", b"name", "openapi_schema", b"openapi_schema", "recipe", b"recipe", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "alias", b"alias", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "id", b"id", "name", b"name", "openapi_schema", b"openapi_schema", "recipe", b"recipe", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_description", b"_description"]) -> typing_extensions.Literal["description"] | None: ...
 
 global___PipelineRelease = PipelineRelease
