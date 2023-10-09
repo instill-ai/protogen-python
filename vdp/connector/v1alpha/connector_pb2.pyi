@@ -801,6 +801,7 @@ class ExecuteUserConnectorResourceRequest(google.protobuf.message.Message):
 
     NAME_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
+    TASK_FIELD_NUMBER: builtins.int
     name: builtins.str
     """Name of a connector_resource. For example:
     "connector-resources/{name}"
@@ -808,13 +809,16 @@ class ExecuteUserConnectorResourceRequest(google.protobuf.message.Message):
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
         """Inputs"""
+    task: builtins.str
+    """Task"""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
         inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
+        task: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["inputs", b"inputs", "name", b"name"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["inputs", b"inputs", "name", b"name", "task", b"task"]) -> None: ...
 
 global___ExecuteUserConnectorResourceRequest = ExecuteUserConnectorResourceRequest
 
