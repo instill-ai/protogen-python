@@ -262,6 +262,7 @@ class Pipeline(google.protobuf.message.Message):
     OPENAPI_SCHEMA_FIELD_NUMBER: builtins.int
     DELETE_TIME_FIELD_NUMBER: builtins.int
     PERMISSION_FIELD_NUMBER: builtins.int
+    METADATA_FIELD_NUMBER: builtins.int
     name: builtins.str
     """Pipeline resource name. It must have the format of "users/{user}/pipelines/*" """
     uid: builtins.str
@@ -298,6 +299,9 @@ class Pipeline(google.protobuf.message.Message):
     @property
     def permission(self) -> vdp.pipeline.v1alpha.common_pb2.Permission:
         """Pipeline permission"""
+    @property
+    def metadata(self) -> google.protobuf.struct_pb2.Struct:
+        """Metadata: store Console-related data such as pipeline builder layout"""
     def __init__(
         self,
         *,
@@ -313,9 +317,10 @@ class Pipeline(google.protobuf.message.Message):
         openapi_schema: google.protobuf.struct_pb2.Struct | None = ...,
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         permission: vdp.pipeline.v1alpha.common_pb2.Permission | None = ...,
+        metadata: google.protobuf.struct_pb2.Struct | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "openapi_schema", b"openapi_schema", "org", b"org", "owner", b"owner", "permission", b"permission", "recipe", b"recipe", "update_time", b"update_time", "user", b"user"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "id", b"id", "name", b"name", "openapi_schema", b"openapi_schema", "org", b"org", "owner", b"owner", "permission", b"permission", "recipe", b"recipe", "uid", b"uid", "update_time", b"update_time", "user", b"user"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "metadata", b"metadata", "openapi_schema", b"openapi_schema", "org", b"org", "owner", b"owner", "permission", b"permission", "recipe", b"recipe", "update_time", b"update_time", "user", b"user"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "id", b"id", "metadata", b"metadata", "name", b"name", "openapi_schema", b"openapi_schema", "org", b"org", "owner", b"owner", "permission", b"permission", "recipe", b"recipe", "uid", b"uid", "update_time", b"update_time", "user", b"user"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_description", b"_description"]) -> typing_extensions.Literal["description"] | None: ...
     @typing.overload
@@ -414,6 +419,7 @@ class PipelineRelease(google.protobuf.message.Message):
     OPENAPI_SCHEMA_FIELD_NUMBER: builtins.int
     DELETE_TIME_FIELD_NUMBER: builtins.int
     ALIAS_FIELD_NUMBER: builtins.int
+    METADATA_FIELD_NUMBER: builtins.int
     name: builtins.str
     """PipelineRelease resource name. It must have the format of "users/*/pipelines/*/releases/*" """
     uid: builtins.str
@@ -441,6 +447,9 @@ class PipelineRelease(google.protobuf.message.Message):
         """Pipeline delete time"""
     alias: builtins.str
     """Alias"""
+    @property
+    def metadata(self) -> google.protobuf.struct_pb2.Struct:
+        """Metadata: store Console-related data such as pipeline builder layout"""
     def __init__(
         self,
         *,
@@ -454,9 +463,10 @@ class PipelineRelease(google.protobuf.message.Message):
         openapi_schema: google.protobuf.struct_pb2.Struct | None = ...,
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         alias: builtins.str = ...,
+        metadata: google.protobuf.struct_pb2.Struct | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "openapi_schema", b"openapi_schema", "recipe", b"recipe", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "alias", b"alias", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "id", b"id", "name", b"name", "openapi_schema", b"openapi_schema", "recipe", b"recipe", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "metadata", b"metadata", "openapi_schema", b"openapi_schema", "recipe", b"recipe", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "alias", b"alias", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "id", b"id", "metadata", b"metadata", "name", b"name", "openapi_schema", b"openapi_schema", "recipe", b"recipe", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_description", b"_description"]) -> typing_extensions.Literal["description"] | None: ...
 
 global___PipelineRelease = PipelineRelease
