@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.model/model/v1alpha/task_text_generation.proto\x12\x13model.model.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\"\xc7\x02\n\x13TextGenerationInput\x12\x1c\n\x06prompt\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x06prompt\x12(\n\noutput_len\x18\x02 \x01(\x05\x42\x04\xe2\x41\x01\x01H\x00R\toutputLen\x88\x01\x01\x12/\n\x0e\x62\x61\x64_words_list\x18\x03 \x01(\tB\x04\xe2\x41\x01\x01H\x01R\x0c\x62\x61\x64WordsList\x88\x01\x01\x12\x31\n\x0fstop_words_list\x18\x04 \x01(\tB\x04\xe2\x41\x01\x01H\x02R\rstopWordsList\x88\x01\x01\x12\x1d\n\x04topk\x18\x05 \x01(\x05\x42\x04\xe2\x41\x01\x01H\x03R\x04topk\x88\x01\x01\x12\x1d\n\x04seed\x18\x06 \x01(\x05\x42\x04\xe2\x41\x01\x01H\x04R\x04seed\x88\x01\x01\x42\r\n\x0b_output_lenB\x11\n\x0f_bad_words_listB\x12\n\x10_stop_words_listB\x07\n\x05_topkB\x07\n\x05_seed\"0\n\x14TextGenerationOutput\x12\x18\n\x04text\x18\x01 \x01(\tB\x04\xe2\x41\x01\x03R\x04textB\xe4\x01\n\x17\x63om.model.model.v1alphaB\x17TaskTextGenerationProtoP\x01ZBgithub.com/instill-ai/protogen-go/model/model/v1alpha;modelv1alpha\xa2\x02\x03MMX\xaa\x02\x13Model.Model.V1alpha\xca\x02\x13Model\\Model\\V1alpha\xe2\x02\x1fModel\\Model\\V1alpha\\GPBMetadata\xea\x02\x15Model::Model::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.model/model/v1alpha/task_text_generation.proto\x12\x13model.model.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\"\xf2\x03\n\x13TextGenerationInput\x12\x1c\n\x06prompt\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x06prompt\x12*\n\x10prompt_image_url\x18\x02 \x01(\tH\x00R\x0epromptImageUrl\x12\x30\n\x13prompt_image_base64\x18\x03 \x01(\tH\x00R\x11promptImageBase64\x12/\n\x0emax_new_tokens\x18\x04 \x01(\x05\x42\x04\xe2\x41\x01\x01H\x01R\x0cmaxNewTokens\x88\x01\x01\x12\x31\n\x0fstop_words_list\x18\x05 \x01(\tB\x04\xe2\x41\x01\x01H\x02R\rstopWordsList\x88\x01\x01\x12+\n\x0btemperature\x18\x06 \x01(\x02\x42\x04\xe2\x41\x01\x01H\x03R\x0btemperature\x88\x01\x01\x12\x1e\n\x05top_k\x18\x07 \x01(\x05\x42\x04\xe2\x41\x01\x01H\x04R\x04topK\x88\x01\x01\x12\x1d\n\x04seed\x18\x08 \x01(\x05\x42\x04\xe2\x41\x01\x01H\x05R\x04seed\x88\x01\x01\x12,\n\x0c\x65xtra_params\x18\t \x01(\tB\x04\xe2\x41\x01\x01H\x06R\x0b\x65xtraParams\x88\x01\x01\x42\x06\n\x04typeB\x11\n\x0f_max_new_tokensB\x12\n\x10_stop_words_listB\x0e\n\x0c_temperatureB\x08\n\x06_top_kB\x07\n\x05_seedB\x0f\n\r_extra_params\"0\n\x14TextGenerationOutput\x12\x18\n\x04text\x18\x01 \x01(\tB\x04\xe2\x41\x01\x03R\x04textB\xe4\x01\n\x17\x63om.model.model.v1alphaB\x17TaskTextGenerationProtoP\x01ZBgithub.com/instill-ai/protogen-go/model/model/v1alpha;modelv1alpha\xa2\x02\x03MMX\xaa\x02\x13Model.Model.V1alpha\xca\x02\x13Model\\Model\\V1alpha\xe2\x02\x1fModel\\Model\\V1alpha\\GPBMetadata\xea\x02\x15Model::Model::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -25,20 +25,22 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._serialized_options = b'\n\027com.model.model.v1alphaB\027TaskTextGenerationProtoP\001ZBgithub.com/instill-ai/protogen-go/model/model/v1alpha;modelv1alpha\242\002\003MMX\252\002\023Model.Model.V1alpha\312\002\023Model\\Model\\V1alpha\342\002\037Model\\Model\\V1alpha\\GPBMetadata\352\002\025Model::Model::V1alpha'
   _TEXTGENERATIONINPUT.fields_by_name['prompt']._options = None
   _TEXTGENERATIONINPUT.fields_by_name['prompt']._serialized_options = b'\342A\001\002'
-  _TEXTGENERATIONINPUT.fields_by_name['output_len']._options = None
-  _TEXTGENERATIONINPUT.fields_by_name['output_len']._serialized_options = b'\342A\001\001'
-  _TEXTGENERATIONINPUT.fields_by_name['bad_words_list']._options = None
-  _TEXTGENERATIONINPUT.fields_by_name['bad_words_list']._serialized_options = b'\342A\001\001'
+  _TEXTGENERATIONINPUT.fields_by_name['max_new_tokens']._options = None
+  _TEXTGENERATIONINPUT.fields_by_name['max_new_tokens']._serialized_options = b'\342A\001\001'
   _TEXTGENERATIONINPUT.fields_by_name['stop_words_list']._options = None
   _TEXTGENERATIONINPUT.fields_by_name['stop_words_list']._serialized_options = b'\342A\001\001'
-  _TEXTGENERATIONINPUT.fields_by_name['topk']._options = None
-  _TEXTGENERATIONINPUT.fields_by_name['topk']._serialized_options = b'\342A\001\001'
+  _TEXTGENERATIONINPUT.fields_by_name['temperature']._options = None
+  _TEXTGENERATIONINPUT.fields_by_name['temperature']._serialized_options = b'\342A\001\001'
+  _TEXTGENERATIONINPUT.fields_by_name['top_k']._options = None
+  _TEXTGENERATIONINPUT.fields_by_name['top_k']._serialized_options = b'\342A\001\001'
   _TEXTGENERATIONINPUT.fields_by_name['seed']._options = None
   _TEXTGENERATIONINPUT.fields_by_name['seed']._serialized_options = b'\342A\001\001'
+  _TEXTGENERATIONINPUT.fields_by_name['extra_params']._options = None
+  _TEXTGENERATIONINPUT.fields_by_name['extra_params']._serialized_options = b'\342A\001\001'
   _TEXTGENERATIONOUTPUT.fields_by_name['text']._options = None
   _TEXTGENERATIONOUTPUT.fields_by_name['text']._serialized_options = b'\342A\001\003'
   _globals['_TEXTGENERATIONINPUT']._serialized_start=105
-  _globals['_TEXTGENERATIONINPUT']._serialized_end=432
-  _globals['_TEXTGENERATIONOUTPUT']._serialized_start=434
-  _globals['_TEXTGENERATIONOUTPUT']._serialized_end=482
+  _globals['_TEXTGENERATIONINPUT']._serialized_end=603
+  _globals['_TEXTGENERATIONOUTPUT']._serialized_start=605
+  _globals['_TEXTGENERATIONOUTPUT']._serialized_end=653
 # @@protoc_insertion_point(module_scope)
