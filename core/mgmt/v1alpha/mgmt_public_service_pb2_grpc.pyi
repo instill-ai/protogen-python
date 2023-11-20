@@ -38,12 +38,19 @@ class MgmtPublicServiceStub:
     ReadinessResponse message.
     See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
     """
-    QueryAuthenticatedUser: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1alpha.mgmt_pb2.QueryAuthenticatedUserRequest,
-        core.mgmt.v1alpha.mgmt_pb2.QueryAuthenticatedUserResponse,
+    ListUsers: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.ListUsersRequest,
+        core.mgmt.v1alpha.mgmt_pb2.ListUsersResponse,
     ]
-    """QueryAuthenticatedUser method receives a QueryAuthenticatedUserRequest
-    message and returns a QueryAuthenticatedUserResponse message.
+    """ListUsers method receives a ListUsersRequest message and returns a
+    ListUsersResponse message.
+    """
+    GetUser: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.GetUserRequest,
+        core.mgmt.v1alpha.mgmt_pb2.GetUserResponse,
+    ]
+    """GetUser method receives a GetUser message and returns a
+    GetUser message.
     """
     PatchAuthenticatedUser: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1alpha.mgmt_pb2.PatchAuthenticatedUserRequest,
@@ -58,6 +65,97 @@ class MgmtPublicServiceStub:
     ]
     """ExistUsername method receives a ExistUsernameRequest message and returns a
     ExistUsernameResponse
+    """
+    ListUserMemberships: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.ListUserMembershipsRequest,
+        core.mgmt.v1alpha.mgmt_pb2.ListUserMembershipsResponse,
+    ]
+    """ListUserMemberships method receives a ListUserMembershipsRequest message and returns a
+    ListUserMembershipsResponse message.
+    """
+    GetUserMembership: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.GetUserMembershipRequest,
+        core.mgmt.v1alpha.mgmt_pb2.GetUserMembershipResponse,
+    ]
+    """GetUserMembership method receives a GetUserMembershipRequest message and returns a
+    GetUserMembershipResponse message.
+    """
+    UpdateUserMembership: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.UpdateUserMembershipRequest,
+        core.mgmt.v1alpha.mgmt_pb2.UpdateUserMembershipResponse,
+    ]
+    """UpdateUserMembership method receives a UpdateUserMembershipRequest message and returns
+    a UpdateUserMembershipResponse message.
+    """
+    DeleteUserMembership: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.DeleteUserMembershipRequest,
+        core.mgmt.v1alpha.mgmt_pb2.DeleteUserMembershipResponse,
+    ]
+    """DeleteUserMembership method receives a DeleteUserMembershipRequest message and returns
+    a DeleteUserMembershipResponse message.
+    """
+    ListOrganizations: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.ListOrganizationsRequest,
+        core.mgmt.v1alpha.mgmt_pb2.ListOrganizationsResponse,
+    ]
+    """ListOrganizations method receives a ListOrganizationsRequest message and returns
+    a ListOrganizationsResponse message.
+    """
+    CreateOrganization: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.CreateOrganizationRequest,
+        core.mgmt.v1alpha.mgmt_pb2.CreateOrganizationResponse,
+    ]
+    """CreateOrganization receives a CreateOrganizationRequest message and returns a
+    a GetOrganizationResponse
+    """
+    GetOrganization: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.GetOrganizationRequest,
+        core.mgmt.v1alpha.mgmt_pb2.GetOrganizationResponse,
+    ]
+    """GetOrganization method receives a GetOrganizationRequest message and returns
+    a GetOrganizationResponse message.
+    """
+    UpdateOrganization: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.UpdateOrganizationRequest,
+        core.mgmt.v1alpha.mgmt_pb2.UpdateOrganizationResponse,
+    ]
+    """UpdateOrganization method receives a UpdateOrganizationRequest message and
+    returns a UpdateOrganizationResponse
+    """
+    DeleteOrganization: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.DeleteOrganizationRequest,
+        core.mgmt.v1alpha.mgmt_pb2.DeleteOrganizationResponse,
+    ]
+    """DeleteOrganization method receives a DeleteOrganizationRequest message and
+    returns a DeleteOrganizationResponse
+    """
+    ListOrganizationMemberships: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.ListOrganizationMembershipsRequest,
+        core.mgmt.v1alpha.mgmt_pb2.ListOrganizationMembershipsResponse,
+    ]
+    """ListOrganizationMemberships method receives a ListOrganizationMembershipsRequest message and returns a
+    ListOrganizationMembershipsResponse message.
+    """
+    GetOrganizationMembership: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.GetOrganizationMembershipRequest,
+        core.mgmt.v1alpha.mgmt_pb2.GetOrganizationMembershipResponse,
+    ]
+    """GetOrganizationMembership method receives a GetOrganizationMembershipRequest message and returns a
+    GetOrganizationMembershipResponse message.
+    """
+    UpdateOrganizationMembership: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.UpdateOrganizationMembershipRequest,
+        core.mgmt.v1alpha.mgmt_pb2.UpdateOrganizationMembershipResponse,
+    ]
+    """UpdateOrganizationMembership method receives a UpdateOrganizationMembershipRequest message and returns
+    a UpdateOrganizationMembershipResponse message.
+    """
+    DeleteOrganizationMembership: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.DeleteOrganizationMembershipRequest,
+        core.mgmt.v1alpha.mgmt_pb2.DeleteOrganizationMembershipResponse,
+    ]
+    """DeleteOrganizationMembership method receives a DeleteOrganizationMembershipRequest message and returns
+    a DeleteOrganizationMembershipResponse message.
     """
     CreateToken: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1alpha.mgmt_pb2.CreateTokenRequest,
@@ -189,12 +287,19 @@ class MgmtPublicServiceAsyncStub:
     ReadinessResponse message.
     See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
     """
-    QueryAuthenticatedUser: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1alpha.mgmt_pb2.QueryAuthenticatedUserRequest,
-        core.mgmt.v1alpha.mgmt_pb2.QueryAuthenticatedUserResponse,
+    ListUsers: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.ListUsersRequest,
+        core.mgmt.v1alpha.mgmt_pb2.ListUsersResponse,
     ]
-    """QueryAuthenticatedUser method receives a QueryAuthenticatedUserRequest
-    message and returns a QueryAuthenticatedUserResponse message.
+    """ListUsers method receives a ListUsersRequest message and returns a
+    ListUsersResponse message.
+    """
+    GetUser: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.GetUserRequest,
+        core.mgmt.v1alpha.mgmt_pb2.GetUserResponse,
+    ]
+    """GetUser method receives a GetUser message and returns a
+    GetUser message.
     """
     PatchAuthenticatedUser: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1alpha.mgmt_pb2.PatchAuthenticatedUserRequest,
@@ -209,6 +314,97 @@ class MgmtPublicServiceAsyncStub:
     ]
     """ExistUsername method receives a ExistUsernameRequest message and returns a
     ExistUsernameResponse
+    """
+    ListUserMemberships: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.ListUserMembershipsRequest,
+        core.mgmt.v1alpha.mgmt_pb2.ListUserMembershipsResponse,
+    ]
+    """ListUserMemberships method receives a ListUserMembershipsRequest message and returns a
+    ListUserMembershipsResponse message.
+    """
+    GetUserMembership: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.GetUserMembershipRequest,
+        core.mgmt.v1alpha.mgmt_pb2.GetUserMembershipResponse,
+    ]
+    """GetUserMembership method receives a GetUserMembershipRequest message and returns a
+    GetUserMembershipResponse message.
+    """
+    UpdateUserMembership: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.UpdateUserMembershipRequest,
+        core.mgmt.v1alpha.mgmt_pb2.UpdateUserMembershipResponse,
+    ]
+    """UpdateUserMembership method receives a UpdateUserMembershipRequest message and returns
+    a UpdateUserMembershipResponse message.
+    """
+    DeleteUserMembership: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.DeleteUserMembershipRequest,
+        core.mgmt.v1alpha.mgmt_pb2.DeleteUserMembershipResponse,
+    ]
+    """DeleteUserMembership method receives a DeleteUserMembershipRequest message and returns
+    a DeleteUserMembershipResponse message.
+    """
+    ListOrganizations: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.ListOrganizationsRequest,
+        core.mgmt.v1alpha.mgmt_pb2.ListOrganizationsResponse,
+    ]
+    """ListOrganizations method receives a ListOrganizationsRequest message and returns
+    a ListOrganizationsResponse message.
+    """
+    CreateOrganization: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.CreateOrganizationRequest,
+        core.mgmt.v1alpha.mgmt_pb2.CreateOrganizationResponse,
+    ]
+    """CreateOrganization receives a CreateOrganizationRequest message and returns a
+    a GetOrganizationResponse
+    """
+    GetOrganization: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.GetOrganizationRequest,
+        core.mgmt.v1alpha.mgmt_pb2.GetOrganizationResponse,
+    ]
+    """GetOrganization method receives a GetOrganizationRequest message and returns
+    a GetOrganizationResponse message.
+    """
+    UpdateOrganization: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.UpdateOrganizationRequest,
+        core.mgmt.v1alpha.mgmt_pb2.UpdateOrganizationResponse,
+    ]
+    """UpdateOrganization method receives a UpdateOrganizationRequest message and
+    returns a UpdateOrganizationResponse
+    """
+    DeleteOrganization: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.DeleteOrganizationRequest,
+        core.mgmt.v1alpha.mgmt_pb2.DeleteOrganizationResponse,
+    ]
+    """DeleteOrganization method receives a DeleteOrganizationRequest message and
+    returns a DeleteOrganizationResponse
+    """
+    ListOrganizationMemberships: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.ListOrganizationMembershipsRequest,
+        core.mgmt.v1alpha.mgmt_pb2.ListOrganizationMembershipsResponse,
+    ]
+    """ListOrganizationMemberships method receives a ListOrganizationMembershipsRequest message and returns a
+    ListOrganizationMembershipsResponse message.
+    """
+    GetOrganizationMembership: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.GetOrganizationMembershipRequest,
+        core.mgmt.v1alpha.mgmt_pb2.GetOrganizationMembershipResponse,
+    ]
+    """GetOrganizationMembership method receives a GetOrganizationMembershipRequest message and returns a
+    GetOrganizationMembershipResponse message.
+    """
+    UpdateOrganizationMembership: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.UpdateOrganizationMembershipRequest,
+        core.mgmt.v1alpha.mgmt_pb2.UpdateOrganizationMembershipResponse,
+    ]
+    """UpdateOrganizationMembership method receives a UpdateOrganizationMembershipRequest message and returns
+    a UpdateOrganizationMembershipResponse message.
+    """
+    DeleteOrganizationMembership: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.DeleteOrganizationMembershipRequest,
+        core.mgmt.v1alpha.mgmt_pb2.DeleteOrganizationMembershipResponse,
+    ]
+    """DeleteOrganizationMembership method receives a DeleteOrganizationMembershipRequest message and returns
+    a DeleteOrganizationMembershipResponse message.
     """
     CreateToken: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1alpha.mgmt_pb2.CreateTokenRequest,
@@ -345,13 +541,22 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
         """
     @abc.abstractmethod
-    def QueryAuthenticatedUser(
+    def ListUsers(
         self,
-        request: core.mgmt.v1alpha.mgmt_pb2.QueryAuthenticatedUserRequest,
+        request: core.mgmt.v1alpha.mgmt_pb2.ListUsersRequest,
         context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.QueryAuthenticatedUserResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.QueryAuthenticatedUserResponse]]:
-        """QueryAuthenticatedUser method receives a QueryAuthenticatedUserRequest
-        message and returns a QueryAuthenticatedUserResponse message.
+    ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.ListUsersResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.ListUsersResponse]]:
+        """ListUsers method receives a ListUsersRequest message and returns a
+        ListUsersResponse message.
+        """
+    @abc.abstractmethod
+    def GetUser(
+        self,
+        request: core.mgmt.v1alpha.mgmt_pb2.GetUserRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.GetUserResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.GetUserResponse]]:
+        """GetUser method receives a GetUser message and returns a
+        GetUser message.
         """
     @abc.abstractmethod
     def PatchAuthenticatedUser(
@@ -370,6 +575,123 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.ExistUsernameResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.ExistUsernameResponse]]:
         """ExistUsername method receives a ExistUsernameRequest message and returns a
         ExistUsernameResponse
+        """
+    @abc.abstractmethod
+    def ListUserMemberships(
+        self,
+        request: core.mgmt.v1alpha.mgmt_pb2.ListUserMembershipsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.ListUserMembershipsResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.ListUserMembershipsResponse]]:
+        """ListUserMemberships method receives a ListUserMembershipsRequest message and returns a
+        ListUserMembershipsResponse message.
+        """
+    @abc.abstractmethod
+    def GetUserMembership(
+        self,
+        request: core.mgmt.v1alpha.mgmt_pb2.GetUserMembershipRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.GetUserMembershipResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.GetUserMembershipResponse]]:
+        """GetUserMembership method receives a GetUserMembershipRequest message and returns a
+        GetUserMembershipResponse message.
+        """
+    @abc.abstractmethod
+    def UpdateUserMembership(
+        self,
+        request: core.mgmt.v1alpha.mgmt_pb2.UpdateUserMembershipRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.UpdateUserMembershipResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.UpdateUserMembershipResponse]]:
+        """UpdateUserMembership method receives a UpdateUserMembershipRequest message and returns
+        a UpdateUserMembershipResponse message.
+        """
+    @abc.abstractmethod
+    def DeleteUserMembership(
+        self,
+        request: core.mgmt.v1alpha.mgmt_pb2.DeleteUserMembershipRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.DeleteUserMembershipResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.DeleteUserMembershipResponse]]:
+        """DeleteUserMembership method receives a DeleteUserMembershipRequest message and returns
+        a DeleteUserMembershipResponse message.
+        """
+    @abc.abstractmethod
+    def ListOrganizations(
+        self,
+        request: core.mgmt.v1alpha.mgmt_pb2.ListOrganizationsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.ListOrganizationsResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.ListOrganizationsResponse]]:
+        """ListOrganizations method receives a ListOrganizationsRequest message and returns
+        a ListOrganizationsResponse message.
+        """
+    @abc.abstractmethod
+    def CreateOrganization(
+        self,
+        request: core.mgmt.v1alpha.mgmt_pb2.CreateOrganizationRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.CreateOrganizationResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.CreateOrganizationResponse]]:
+        """CreateOrganization receives a CreateOrganizationRequest message and returns a
+        a GetOrganizationResponse
+        """
+    @abc.abstractmethod
+    def GetOrganization(
+        self,
+        request: core.mgmt.v1alpha.mgmt_pb2.GetOrganizationRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.GetOrganizationResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.GetOrganizationResponse]]:
+        """GetOrganization method receives a GetOrganizationRequest message and returns
+        a GetOrganizationResponse message.
+        """
+    @abc.abstractmethod
+    def UpdateOrganization(
+        self,
+        request: core.mgmt.v1alpha.mgmt_pb2.UpdateOrganizationRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.UpdateOrganizationResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.UpdateOrganizationResponse]]:
+        """UpdateOrganization method receives a UpdateOrganizationRequest message and
+        returns a UpdateOrganizationResponse
+        """
+    @abc.abstractmethod
+    def DeleteOrganization(
+        self,
+        request: core.mgmt.v1alpha.mgmt_pb2.DeleteOrganizationRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.DeleteOrganizationResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.DeleteOrganizationResponse]]:
+        """DeleteOrganization method receives a DeleteOrganizationRequest message and
+        returns a DeleteOrganizationResponse
+        """
+    @abc.abstractmethod
+    def ListOrganizationMemberships(
+        self,
+        request: core.mgmt.v1alpha.mgmt_pb2.ListOrganizationMembershipsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.ListOrganizationMembershipsResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.ListOrganizationMembershipsResponse]]:
+        """ListOrganizationMemberships method receives a ListOrganizationMembershipsRequest message and returns a
+        ListOrganizationMembershipsResponse message.
+        """
+    @abc.abstractmethod
+    def GetOrganizationMembership(
+        self,
+        request: core.mgmt.v1alpha.mgmt_pb2.GetOrganizationMembershipRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.GetOrganizationMembershipResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.GetOrganizationMembershipResponse]]:
+        """GetOrganizationMembership method receives a GetOrganizationMembershipRequest message and returns a
+        GetOrganizationMembershipResponse message.
+        """
+    @abc.abstractmethod
+    def UpdateOrganizationMembership(
+        self,
+        request: core.mgmt.v1alpha.mgmt_pb2.UpdateOrganizationMembershipRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.UpdateOrganizationMembershipResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.UpdateOrganizationMembershipResponse]]:
+        """UpdateOrganizationMembership method receives a UpdateOrganizationMembershipRequest message and returns
+        a UpdateOrganizationMembershipResponse message.
+        """
+    @abc.abstractmethod
+    def DeleteOrganizationMembership(
+        self,
+        request: core.mgmt.v1alpha.mgmt_pb2.DeleteOrganizationMembershipRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.DeleteOrganizationMembershipResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.DeleteOrganizationMembershipResponse]]:
+        """DeleteOrganizationMembership method receives a DeleteOrganizationMembershipRequest message and returns
+        a DeleteOrganizationMembershipResponse message.
         """
     @abc.abstractmethod
     def CreateToken(

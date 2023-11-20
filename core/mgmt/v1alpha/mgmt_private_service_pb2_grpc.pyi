@@ -42,20 +42,6 @@ class MgmtPrivateServiceStub:
     """GetUserAdmin method receives a GetUserAdminRequest message and returns
     a GetUserAdminResponse message.
     """
-    UpdateUserAdmin: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1alpha.mgmt_pb2.UpdateUserAdminRequest,
-        core.mgmt.v1alpha.mgmt_pb2.UpdateUserAdminResponse,
-    ]
-    """UpdateUserAdmin method receives a UpdateUserAdminRequest message and
-    returns a UpdateUserAdminResponse
-    """
-    DeleteUserAdmin: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1alpha.mgmt_pb2.DeleteUserAdminRequest,
-        core.mgmt.v1alpha.mgmt_pb2.DeleteUserAdminResponse,
-    ]
-    """DeleteUserAdmin method receives a DeleteUserAdminRequest message and
-    returns a DeleteUserAdminResponse
-    """
     LookUpUserAdmin: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1alpha.mgmt_pb2.LookUpUserAdminRequest,
         core.mgmt.v1alpha.mgmt_pb2.LookUpUserAdminResponse,
@@ -87,20 +73,6 @@ class MgmtPrivateServiceAsyncStub:
     ]
     """GetUserAdmin method receives a GetUserAdminRequest message and returns
     a GetUserAdminResponse message.
-    """
-    UpdateUserAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1alpha.mgmt_pb2.UpdateUserAdminRequest,
-        core.mgmt.v1alpha.mgmt_pb2.UpdateUserAdminResponse,
-    ]
-    """UpdateUserAdmin method receives a UpdateUserAdminRequest message and
-    returns a UpdateUserAdminResponse
-    """
-    DeleteUserAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1alpha.mgmt_pb2.DeleteUserAdminRequest,
-        core.mgmt.v1alpha.mgmt_pb2.DeleteUserAdminResponse,
-    ]
-    """DeleteUserAdmin method receives a DeleteUserAdminRequest message and
-    returns a DeleteUserAdminResponse
     """
     LookUpUserAdmin: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1alpha.mgmt_pb2.LookUpUserAdminRequest,
@@ -139,24 +111,6 @@ class MgmtPrivateServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.GetUserAdminResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.GetUserAdminResponse]]:
         """GetUserAdmin method receives a GetUserAdminRequest message and returns
         a GetUserAdminResponse message.
-        """
-    @abc.abstractmethod
-    def UpdateUserAdmin(
-        self,
-        request: core.mgmt.v1alpha.mgmt_pb2.UpdateUserAdminRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.UpdateUserAdminResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.UpdateUserAdminResponse]]:
-        """UpdateUserAdmin method receives a UpdateUserAdminRequest message and
-        returns a UpdateUserAdminResponse
-        """
-    @abc.abstractmethod
-    def DeleteUserAdmin(
-        self,
-        request: core.mgmt.v1alpha.mgmt_pb2.DeleteUserAdminRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.DeleteUserAdminResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.DeleteUserAdminResponse]]:
-        """DeleteUserAdmin method receives a DeleteUserAdminRequest message and
-        returns a DeleteUserAdminResponse
         """
     @abc.abstractmethod
     def LookUpUserAdmin(

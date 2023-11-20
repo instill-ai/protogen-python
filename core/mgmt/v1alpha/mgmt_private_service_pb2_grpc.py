@@ -30,16 +30,6 @@ class MgmtPrivateServiceStub(object):
                 request_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserAdminRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserAdminResponse.FromString,
                 )
-        self.UpdateUserAdmin = channel.unary_unary(
-                '/core.mgmt.v1alpha.MgmtPrivateService/UpdateUserAdmin',
-                request_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserAdminRequest.SerializeToString,
-                response_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserAdminResponse.FromString,
-                )
-        self.DeleteUserAdmin = channel.unary_unary(
-                '/core.mgmt.v1alpha.MgmtPrivateService/DeleteUserAdmin',
-                request_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserAdminRequest.SerializeToString,
-                response_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserAdminResponse.FromString,
-                )
         self.LookUpUserAdmin = channel.unary_unary(
                 '/core.mgmt.v1alpha.MgmtPrivateService/LookUpUserAdmin',
                 request_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserAdminRequest.SerializeToString,
@@ -75,22 +65,6 @@ class MgmtPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UpdateUserAdmin(self, request, context):
-        """UpdateUserAdmin method receives a UpdateUserAdminRequest message and
-        returns a UpdateUserAdminResponse
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def DeleteUserAdmin(self, request, context):
-        """DeleteUserAdmin method receives a DeleteUserAdminRequest message and
-        returns a DeleteUserAdminResponse
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def LookUpUserAdmin(self, request, context):
         """LookUpUserAdmin method receives a LookUpUserAdminRequest message and
         returns a LookUpUserAdminResponse
@@ -116,16 +90,6 @@ def add_MgmtPrivateServiceServicer_to_server(servicer, server):
                     servicer.GetUserAdmin,
                     request_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserAdminRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserAdminResponse.SerializeToString,
-            ),
-            'UpdateUserAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateUserAdmin,
-                    request_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserAdminRequest.FromString,
-                    response_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserAdminResponse.SerializeToString,
-            ),
-            'DeleteUserAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteUserAdmin,
-                    request_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserAdminRequest.FromString,
-                    response_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserAdminResponse.SerializeToString,
             ),
             'LookUpUserAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.LookUpUserAdmin,
@@ -191,40 +155,6 @@ class MgmtPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1alpha.MgmtPrivateService/GetUserAdmin',
             core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserAdminRequest.SerializeToString,
             core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def UpdateUserAdmin(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1alpha.MgmtPrivateService/UpdateUserAdmin',
-            core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserAdminRequest.SerializeToString,
-            core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.UpdateUserAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def DeleteUserAdmin(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1alpha.MgmtPrivateService/DeleteUserAdmin',
-            core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserAdminRequest.SerializeToString,
-            core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.DeleteUserAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
