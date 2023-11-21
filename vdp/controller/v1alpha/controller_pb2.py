@@ -15,11 +15,11 @@ from common.healthcheck.v1alpha import healthcheck_pb2 as common_dot_healthcheck
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from protoc_gen_openapiv2.options import annotations_pb2 as protoc__gen__openapiv2_dot_options_dot_annotations__pb2
-from vdp.connector.v1alpha import connector_pb2 as vdp_dot_connector_dot_v1alpha_dot_connector__pb2
+from vdp.pipeline.v1alpha import connector_pb2 as vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2
 from vdp.pipeline.v1alpha import pipeline_pb2 as vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'vdp/controller/v1alpha/controller.proto\x12\x16vdp.controller.v1alpha\x1a,common/healthcheck/v1alpha/healthcheck.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a%vdp/connector/v1alpha/connector.proto\x1a#vdp/pipeline/v1alpha/pipeline.proto\"\x97\x01\n\x0fLivenessRequest\x12k\n\x14health_check_request\x18\x01 \x01(\x0b\x32..common.healthcheck.v1alpha.HealthCheckRequestB\x04\xe2\x41\x01\x01H\x00R\x12healthCheckRequest\x88\x01\x01\x42\x17\n\x15_health_check_request\"w\n\x10LivenessResponse\x12\x63\n\x15health_check_response\x18\x01 \x01(\x0b\x32/.common.healthcheck.v1alpha.HealthCheckResponseR\x13healthCheckResponse\"\x98\x01\n\x10ReadinessRequest\x12k\n\x14health_check_request\x18\x01 \x01(\x0b\x32..common.healthcheck.v1alpha.HealthCheckRequestB\x04\xe2\x41\x01\x01H\x00R\x12healthCheckRequest\x88\x01\x01\x42\x17\n\x15_health_check_request\"x\n\x11ReadinessResponse\x12\x63\n\x15health_check_response\x18\x01 \x01(\x0b\x32/.common.healthcheck.v1alpha.HealthCheckResponseR\x13healthCheckResponse\"\xcb\x03\n\x08Resource\x12\x33\n\x12resource_permalink\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x11resourcePermalink\x12\x44\n\x0epipeline_state\x18\x03 \x01(\x0e\x32\x1b.vdp.pipeline.v1alpha.StateH\x00R\rpipelineState\x12Y\n\x0f\x63onnector_state\x18\x04 \x01(\x0e\x32..vdp.connector.v1alpha.ConnectorResource.StateH\x00R\x0e\x63onnectorState\x12\x64\n\rbackend_state\x18\x05 \x01(\x0e\x32=.common.healthcheck.v1alpha.HealthCheckResponse.ServingStatusH\x00R\x0c\x62\x61\x63kendState\x12%\n\x08progress\x18\x06 \x01(\x05\x42\x04\xe2\x41\x01\x01H\x01R\x08progress\x88\x01\x01:F\xea\x41\x43\n\x19\x61pi.instill.tech/Resource\x12&resources/{resource_uuid}/types/{type}B\x07\n\x05stateB\x0b\n\t_progress\"\x8b\x01\n\x12GetResourceRequest\x12u\n\x12resource_permalink\x18\x01 \x01(\tBF\x92\x41!\xca>\x1e\xfa\x02\x1bresource.resource_permalink\xe2\x41\x01\x02\xfa\x41\x1b\n\x19\x61pi.instill.tech/ResourceR\x11resourcePermalink\"S\n\x13GetResourceResponse\x12<\n\x08resource\x18\x01 \x01(\x0b\x32 .vdp.controller.v1alpha.ResourceR\x08resource\"\x97\x01\n\x15UpdateResourceRequest\x12\x42\n\x08resource\x18\x01 \x01(\x0b\x32 .vdp.controller.v1alpha.ResourceB\x04\xe2\x41\x01\x02R\x08resource\x12*\n\x0bworkflow_id\x18\x02 \x01(\tB\x04\xe2\x41\x01\x01H\x00R\nworkflowId\x88\x01\x01\x42\x0e\n\x0c_workflow_id\"V\n\x16UpdateResourceResponse\x12<\n\x08resource\x18\x01 \x01(\x0b\x32 .vdp.controller.v1alpha.ResourceR\x08resource\"\x8e\x01\n\x15\x44\x65leteResourceRequest\x12u\n\x12resource_permalink\x18\x01 \x01(\tBF\x92\x41!\xca>\x1e\xfa\x02\x1bresource.resource_permalink\xe2\x41\x01\x02\xfa\x41\x1b\n\x19\x61pi.instill.tech/ResourceR\x11resourcePermalink\"\x18\n\x16\x44\x65leteResourceResponseB\xf3\x01\n\x1a\x63om.vdp.controller.v1alphaB\x0f\x43ontrollerProtoP\x01ZJgithub.com/instill-ai/protogen-go/vdp/controller/v1alpha;controllerv1alpha\xa2\x02\x03VCX\xaa\x02\x16Vdp.Controller.V1alpha\xca\x02\x16Vdp\\Controller\\V1alpha\xe2\x02\"Vdp\\Controller\\V1alpha\\GPBMetadata\xea\x02\x18Vdp::Controller::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'vdp/controller/v1alpha/controller.proto\x12\x16vdp.controller.v1alpha\x1a,common/healthcheck/v1alpha/healthcheck.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a$vdp/pipeline/v1alpha/connector.proto\x1a#vdp/pipeline/v1alpha/pipeline.proto\"\x97\x01\n\x0fLivenessRequest\x12k\n\x14health_check_request\x18\x01 \x01(\x0b\x32..common.healthcheck.v1alpha.HealthCheckRequestB\x04\xe2\x41\x01\x01H\x00R\x12healthCheckRequest\x88\x01\x01\x42\x17\n\x15_health_check_request\"w\n\x10LivenessResponse\x12\x63\n\x15health_check_response\x18\x01 \x01(\x0b\x32/.common.healthcheck.v1alpha.HealthCheckResponseR\x13healthCheckResponse\"\x98\x01\n\x10ReadinessRequest\x12k\n\x14health_check_request\x18\x01 \x01(\x0b\x32..common.healthcheck.v1alpha.HealthCheckRequestB\x04\xe2\x41\x01\x01H\x00R\x12healthCheckRequest\x88\x01\x01\x42\x17\n\x15_health_check_request\"x\n\x11ReadinessResponse\x12\x63\n\x15health_check_response\x18\x01 \x01(\x0b\x32/.common.healthcheck.v1alpha.HealthCheckResponseR\x13healthCheckResponse\"\xc2\x03\n\x08Resource\x12\x33\n\x12resource_permalink\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x11resourcePermalink\x12\x44\n\x0epipeline_state\x18\x03 \x01(\x0e\x32\x1b.vdp.pipeline.v1alpha.StateH\x00R\rpipelineState\x12P\n\x0f\x63onnector_state\x18\x04 \x01(\x0e\x32%.vdp.pipeline.v1alpha.Connector.StateH\x00R\x0e\x63onnectorState\x12\x64\n\rbackend_state\x18\x05 \x01(\x0e\x32=.common.healthcheck.v1alpha.HealthCheckResponse.ServingStatusH\x00R\x0c\x62\x61\x63kendState\x12%\n\x08progress\x18\x06 \x01(\x05\x42\x04\xe2\x41\x01\x01H\x01R\x08progress\x88\x01\x01:F\xea\x41\x43\n\x19\x61pi.instill.tech/Resource\x12&resources/{resource_uuid}/types/{type}B\x07\n\x05stateB\x0b\n\t_progress\"\x8b\x01\n\x12GetResourceRequest\x12u\n\x12resource_permalink\x18\x01 \x01(\tBF\x92\x41!\xca>\x1e\xfa\x02\x1bresource.resource_permalink\xe2\x41\x01\x02\xfa\x41\x1b\n\x19\x61pi.instill.tech/ResourceR\x11resourcePermalink\"S\n\x13GetResourceResponse\x12<\n\x08resource\x18\x01 \x01(\x0b\x32 .vdp.controller.v1alpha.ResourceR\x08resource\"\x97\x01\n\x15UpdateResourceRequest\x12\x42\n\x08resource\x18\x01 \x01(\x0b\x32 .vdp.controller.v1alpha.ResourceB\x04\xe2\x41\x01\x02R\x08resource\x12*\n\x0bworkflow_id\x18\x02 \x01(\tB\x04\xe2\x41\x01\x01H\x00R\nworkflowId\x88\x01\x01\x42\x0e\n\x0c_workflow_id\"V\n\x16UpdateResourceResponse\x12<\n\x08resource\x18\x01 \x01(\x0b\x32 .vdp.controller.v1alpha.ResourceR\x08resource\"\x8e\x01\n\x15\x44\x65leteResourceRequest\x12u\n\x12resource_permalink\x18\x01 \x01(\tBF\x92\x41!\xca>\x1e\xfa\x02\x1bresource.resource_permalink\xe2\x41\x01\x02\xfa\x41\x1b\n\x19\x61pi.instill.tech/ResourceR\x11resourcePermalink\"\x18\n\x16\x44\x65leteResourceResponseB\xf3\x01\n\x1a\x63om.vdp.controller.v1alphaB\x0f\x43ontrollerProtoP\x01ZJgithub.com/instill-ai/protogen-go/vdp/controller/v1alpha;controllerv1alpha\xa2\x02\x03VCX\xaa\x02\x16Vdp.Controller.V1alpha\xca\x02\x16Vdp\\Controller\\V1alpha\xe2\x02\"Vdp\\Controller\\V1alpha\\GPBMetadata\xea\x02\x18Vdp::Controller::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -46,26 +46,26 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _UPDATERESOURCEREQUEST.fields_by_name['workflow_id']._serialized_options = b'\342A\001\001'
   _DELETERESOURCEREQUEST.fields_by_name['resource_permalink']._options = None
   _DELETERESOURCEREQUEST.fields_by_name['resource_permalink']._serialized_options = b'\222A!\312>\036\372\002\033resource.resource_permalink\342A\001\002\372A\033\n\031api.instill.tech/Resource'
-  _globals['_LIVENESSREQUEST']._serialized_start=298
-  _globals['_LIVENESSREQUEST']._serialized_end=449
-  _globals['_LIVENESSRESPONSE']._serialized_start=451
-  _globals['_LIVENESSRESPONSE']._serialized_end=570
-  _globals['_READINESSREQUEST']._serialized_start=573
-  _globals['_READINESSREQUEST']._serialized_end=725
-  _globals['_READINESSRESPONSE']._serialized_start=727
-  _globals['_READINESSRESPONSE']._serialized_end=847
-  _globals['_RESOURCE']._serialized_start=850
-  _globals['_RESOURCE']._serialized_end=1309
-  _globals['_GETRESOURCEREQUEST']._serialized_start=1312
-  _globals['_GETRESOURCEREQUEST']._serialized_end=1451
-  _globals['_GETRESOURCERESPONSE']._serialized_start=1453
-  _globals['_GETRESOURCERESPONSE']._serialized_end=1536
-  _globals['_UPDATERESOURCEREQUEST']._serialized_start=1539
-  _globals['_UPDATERESOURCEREQUEST']._serialized_end=1690
-  _globals['_UPDATERESOURCERESPONSE']._serialized_start=1692
-  _globals['_UPDATERESOURCERESPONSE']._serialized_end=1778
-  _globals['_DELETERESOURCEREQUEST']._serialized_start=1781
-  _globals['_DELETERESOURCEREQUEST']._serialized_end=1923
-  _globals['_DELETERESOURCERESPONSE']._serialized_start=1925
-  _globals['_DELETERESOURCERESPONSE']._serialized_end=1949
+  _globals['_LIVENESSREQUEST']._serialized_start=297
+  _globals['_LIVENESSREQUEST']._serialized_end=448
+  _globals['_LIVENESSRESPONSE']._serialized_start=450
+  _globals['_LIVENESSRESPONSE']._serialized_end=569
+  _globals['_READINESSREQUEST']._serialized_start=572
+  _globals['_READINESSREQUEST']._serialized_end=724
+  _globals['_READINESSRESPONSE']._serialized_start=726
+  _globals['_READINESSRESPONSE']._serialized_end=846
+  _globals['_RESOURCE']._serialized_start=849
+  _globals['_RESOURCE']._serialized_end=1299
+  _globals['_GETRESOURCEREQUEST']._serialized_start=1302
+  _globals['_GETRESOURCEREQUEST']._serialized_end=1441
+  _globals['_GETRESOURCERESPONSE']._serialized_start=1443
+  _globals['_GETRESOURCERESPONSE']._serialized_end=1526
+  _globals['_UPDATERESOURCEREQUEST']._serialized_start=1529
+  _globals['_UPDATERESOURCEREQUEST']._serialized_end=1680
+  _globals['_UPDATERESOURCERESPONSE']._serialized_start=1682
+  _globals['_UPDATERESOURCERESPONSE']._serialized_end=1768
+  _globals['_DELETERESOURCEREQUEST']._serialized_start=1771
+  _globals['_DELETERESOURCEREQUEST']._serialized_end=1913
+  _globals['_DELETERESOURCERESPONSE']._serialized_start=1915
+  _globals['_DELETERESOURCERESPONSE']._serialized_end=1939
 # @@protoc_insertion_point(module_scope)

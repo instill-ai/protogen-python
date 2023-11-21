@@ -2,6 +2,8 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+from vdp.pipeline.v1alpha import connector_definition_pb2 as vdp_dot_pipeline_dot_v1alpha_dot_connector__definition__pb2
+from vdp.pipeline.v1alpha import connector_pb2 as vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2
 from vdp.pipeline.v1alpha import operator_definition_pb2 as vdp_dot_pipeline_dot_v1alpha_dot_operator__definition__pb2
 from vdp.pipeline.v1alpha import pipeline_pb2 as vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2
 
@@ -35,6 +37,26 @@ class PipelinePrivateServiceStub(object):
                 '/vdp.pipeline.v1alpha.PipelinePrivateService/ListPipelineReleasesAdmin',
                 request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelineReleasesAdminRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelineReleasesAdminResponse.FromString,
+                )
+        self.LookUpConnectorDefinitionAdmin = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePrivateService/LookUpConnectorDefinitionAdmin',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__definition__pb2.LookUpConnectorDefinitionAdminRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__definition__pb2.LookUpConnectorDefinitionAdminResponse.FromString,
+                )
+        self.ListConnectorsAdmin = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePrivateService/ListConnectorsAdmin',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ListConnectorsAdminRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ListConnectorsAdminResponse.FromString,
+                )
+        self.LookUpConnectorAdmin = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePrivateService/LookUpConnectorAdmin',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.LookUpConnectorAdminRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.LookUpConnectorAdminResponse.FromString,
+                )
+        self.CheckConnector = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePrivateService/CheckConnector',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.CheckConnectorRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.CheckConnectorResponse.FromString,
                 )
 
 
@@ -75,6 +97,40 @@ class PipelinePrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def LookUpConnectorDefinitionAdmin(self, request, context):
+        """LookUpConnectorDefinitionAdmin method receives a
+        LookUpConnectorDefinitionAdminRequest message and returns a
+        LookUpConnectorDefinitionAdminResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListConnectorsAdmin(self, request, context):
+        """ListConnectorsAdmin method receives a ListConnectorsAdminRequest
+        message and returns a ListConnectorsResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def LookUpConnectorAdmin(self, request, context):
+        """LookUpConnectorAdmin method receives a
+        LookUpConnectorAdminRequest message and returns a
+        LookUpConnectorAdminResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CheckConnector(self, request, context):
+        """CheckConnector method receives a CheckConnectorRequest message and returns a
+        CheckConnectorResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_PipelinePrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -97,6 +153,26 @@ def add_PipelinePrivateServiceServicer_to_server(servicer, server):
                     servicer.ListPipelineReleasesAdmin,
                     request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelineReleasesAdminRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelineReleasesAdminResponse.SerializeToString,
+            ),
+            'LookUpConnectorDefinitionAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.LookUpConnectorDefinitionAdmin,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__definition__pb2.LookUpConnectorDefinitionAdminRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__definition__pb2.LookUpConnectorDefinitionAdminResponse.SerializeToString,
+            ),
+            'ListConnectorsAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListConnectorsAdmin,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ListConnectorsAdminRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ListConnectorsAdminResponse.SerializeToString,
+            ),
+            'LookUpConnectorAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.LookUpConnectorAdmin,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.LookUpConnectorAdminRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.LookUpConnectorAdminResponse.SerializeToString,
+            ),
+            'CheckConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.CheckConnector,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.CheckConnectorRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.CheckConnectorResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -174,5 +250,73 @@ class PipelinePrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePrivateService/ListPipelineReleasesAdmin',
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelineReleasesAdminRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.ListPipelineReleasesAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def LookUpConnectorDefinitionAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePrivateService/LookUpConnectorDefinitionAdmin',
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__definition__pb2.LookUpConnectorDefinitionAdminRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__definition__pb2.LookUpConnectorDefinitionAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListConnectorsAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePrivateService/ListConnectorsAdmin',
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ListConnectorsAdminRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ListConnectorsAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def LookUpConnectorAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePrivateService/LookUpConnectorAdmin',
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.LookUpConnectorAdminRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.LookUpConnectorAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CheckConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePrivateService/CheckConnector',
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.CheckConnectorRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.CheckConnectorResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

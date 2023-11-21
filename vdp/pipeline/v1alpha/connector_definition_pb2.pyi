@@ -11,7 +11,6 @@ import google.protobuf.message
 import google.protobuf.struct_pb2
 import sys
 import typing
-import vdp.connector.v1alpha.spec_pb2
 
 if sys.version_info >= (3, 10):
     import typing as typing_extensions
@@ -19,34 +18,6 @@ else:
     import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
-
-class _View:
-    ValueType = typing.NewType("ValueType", builtins.int)
-    V: typing_extensions.TypeAlias = ValueType
-
-class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_View.ValueType], builtins.type):
-    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-    VIEW_UNSPECIFIED: _View.ValueType  # 0
-    """View: UNSPECIFIED"""
-    VIEW_BASIC: _View.ValueType  # 1
-    """View: BASIC"""
-    VIEW_FULL: _View.ValueType  # 2
-    """View: FULL"""
-    VIEW_CONFIGURATION: _View.ValueType  # 3
-    """View: CONFIGURATION"""
-
-class View(_View, metaclass=_ViewEnumTypeWrapper):
-    """View enumerates the definition views"""
-
-VIEW_UNSPECIFIED: View.ValueType  # 0
-"""View: UNSPECIFIED"""
-VIEW_BASIC: View.ValueType  # 1
-"""View: BASIC"""
-VIEW_FULL: View.ValueType  # 2
-"""View: FULL"""
-VIEW_CONFIGURATION: View.ValueType  # 3
-"""View: CONFIGURATION"""
-global___View = View
 
 class _ConnectorType:
     ValueType = typing.NewType("ValueType", builtins.int)
@@ -92,6 +63,38 @@ CONNECTOR_TYPE_OPERATOR: ConnectorType.ValueType  # 6
 global___ConnectorType = ConnectorType
 
 @typing_extensions.final
+class ConnectorSpec(google.protobuf.message.Message):
+    """//////////////////////////////////
+    Spec represents a spec data model
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    RESOURCE_SPECIFICATION_FIELD_NUMBER: builtins.int
+    COMPONENT_SPECIFICATION_FIELD_NUMBER: builtins.int
+    OPENAPI_SPECIFICATIONS_FIELD_NUMBER: builtins.int
+    @property
+    def resource_specification(self) -> google.protobuf.struct_pb2.Struct:
+        """Spec resource specification"""
+    @property
+    def component_specification(self) -> google.protobuf.struct_pb2.Struct:
+        """Spec component specification"""
+    @property
+    def openapi_specifications(self) -> google.protobuf.struct_pb2.Struct:
+        """Spec openapi specification"""
+    def __init__(
+        self,
+        *,
+        resource_specification: google.protobuf.struct_pb2.Struct | None = ...,
+        component_specification: google.protobuf.struct_pb2.Struct | None = ...,
+        openapi_specifications: google.protobuf.struct_pb2.Struct | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification", "openapi_specifications", b"openapi_specifications", "resource_specification", b"resource_specification"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification", "openapi_specifications", b"openapi_specifications", "resource_specification", b"resource_specification"]) -> None: ...
+
+global___ConnectorSpec = ConnectorSpec
+
+@typing_extensions.final
 class ConnectorDefinition(google.protobuf.message.Message):
     """ConnectorDefinition represents the connector definition data model"""
 
@@ -131,7 +134,7 @@ class ConnectorDefinition(google.protobuf.message.Message):
     icon: builtins.str
     """ConnectorDefinition icon"""
     @property
-    def spec(self) -> vdp.connector.v1alpha.spec_pb2.Spec:
+    def spec(self) -> global___ConnectorSpec:
         """ConnectorDefinition spec"""
     type: global___ConnectorType.ValueType
     """Connector Type"""
@@ -164,7 +167,7 @@ class ConnectorDefinition(google.protobuf.message.Message):
         title: builtins.str = ...,
         documentation_url: builtins.str = ...,
         icon: builtins.str = ...,
-        spec: vdp.connector.v1alpha.spec_pb2.Spec | None = ...,
+        spec: global___ConnectorSpec | None = ...,
         type: global___ConnectorType.ValueType = ...,
         tombstone: builtins.bool = ...,
         public: builtins.bool = ...,
@@ -190,6 +193,29 @@ class ListConnectorDefinitionsRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    class _View:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ListConnectorDefinitionsRequest._View.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        VIEW_UNSPECIFIED: ListConnectorDefinitionsRequest._View.ValueType  # 0
+        """View: UNSPECIFIED"""
+        VIEW_BASIC: ListConnectorDefinitionsRequest._View.ValueType  # 1
+        """View: BASIC"""
+        VIEW_FULL: ListConnectorDefinitionsRequest._View.ValueType  # 2
+        """View: FULL"""
+
+    class View(_View, metaclass=_ViewEnumTypeWrapper):
+        """View enumerates the definition views"""
+
+    VIEW_UNSPECIFIED: ListConnectorDefinitionsRequest.View.ValueType  # 0
+    """View: UNSPECIFIED"""
+    VIEW_BASIC: ListConnectorDefinitionsRequest.View.ValueType  # 1
+    """View: BASIC"""
+    VIEW_FULL: ListConnectorDefinitionsRequest.View.ValueType  # 2
+    """View: FULL"""
+
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
@@ -202,7 +228,7 @@ class ListConnectorDefinitionsRequest(google.protobuf.message.Message):
     """
     page_token: builtins.str
     """Page token"""
-    view: global___View.ValueType
+    view: global___ListConnectorDefinitionsRequest.View.ValueType
     """Definition view (default is DEFINITION_VIEW_BASIC)"""
     filter: builtins.str
     """Filter expression to list connector definitions"""
@@ -211,7 +237,7 @@ class ListConnectorDefinitionsRequest(google.protobuf.message.Message):
         *,
         page_size: builtins.int | None = ...,
         page_token: builtins.str | None = ...,
-        view: global___View.ValueType | None = ...,
+        view: global___ListConnectorDefinitionsRequest.View.ValueType | None = ...,
         filter: builtins.str | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_view", b"_view", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "view", b"view"]) -> builtins.bool: ...
@@ -264,13 +290,36 @@ class GetConnectorDefinitionRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    class _View:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[GetConnectorDefinitionRequest._View.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        VIEW_UNSPECIFIED: GetConnectorDefinitionRequest._View.ValueType  # 0
+        """View: UNSPECIFIED"""
+        VIEW_BASIC: GetConnectorDefinitionRequest._View.ValueType  # 1
+        """View: BASIC"""
+        VIEW_FULL: GetConnectorDefinitionRequest._View.ValueType  # 2
+        """View: FULL"""
+
+    class View(_View, metaclass=_ViewEnumTypeWrapper):
+        """View enumerates the definition views"""
+
+    VIEW_UNSPECIFIED: GetConnectorDefinitionRequest.View.ValueType  # 0
+    """View: UNSPECIFIED"""
+    VIEW_BASIC: GetConnectorDefinitionRequest.View.ValueType  # 1
+    """View: BASIC"""
+    VIEW_FULL: GetConnectorDefinitionRequest.View.ValueType  # 2
+    """View: FULL"""
+
     NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     name: builtins.str
     """ConnectorDefinition resource name. It must have the format of
     "connector-definitions/*"
     """
-    view: global___View.ValueType
+    view: global___GetConnectorDefinitionRequest.View.ValueType
     """ConnectorDefinition resource view (default is
     DEFINITION_VIEW_BASIC)
     """
@@ -278,7 +327,7 @@ class GetConnectorDefinitionRequest(google.protobuf.message.Message):
         self,
         *,
         name: builtins.str = ...,
-        view: global___View.ValueType | None = ...,
+        view: global___GetConnectorDefinitionRequest.View.ValueType | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "name", b"name", "view", b"view"]) -> None: ...
@@ -316,19 +365,42 @@ class LookUpConnectorDefinitionAdminRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    class _View:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[LookUpConnectorDefinitionAdminRequest._View.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        VIEW_UNSPECIFIED: LookUpConnectorDefinitionAdminRequest._View.ValueType  # 0
+        """View: UNSPECIFIED"""
+        VIEW_BASIC: LookUpConnectorDefinitionAdminRequest._View.ValueType  # 1
+        """View: BASIC"""
+        VIEW_FULL: LookUpConnectorDefinitionAdminRequest._View.ValueType  # 2
+        """View: FULL"""
+
+    class View(_View, metaclass=_ViewEnumTypeWrapper):
+        """View enumerates the definition views"""
+
+    VIEW_UNSPECIFIED: LookUpConnectorDefinitionAdminRequest.View.ValueType  # 0
+    """View: UNSPECIFIED"""
+    VIEW_BASIC: LookUpConnectorDefinitionAdminRequest.View.ValueType  # 1
+    """View: BASIC"""
+    VIEW_FULL: LookUpConnectorDefinitionAdminRequest.View.ValueType  # 2
+    """View: FULL"""
+
     PERMALINK_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     permalink: builtins.str
     """Permalink of a connector. For example:
     "connector-definitions/{uid}"
     """
-    view: global___View.ValueType
+    view: global___LookUpConnectorDefinitionAdminRequest.View.ValueType
     """Connector view (default is VIEW_BASIC)"""
     def __init__(
         self,
         *,
         permalink: builtins.str = ...,
-        view: global___View.ValueType | None = ...,
+        view: global___LookUpConnectorDefinitionAdminRequest.View.ValueType | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "permalink", b"permalink", "view", b"view"]) -> None: ...

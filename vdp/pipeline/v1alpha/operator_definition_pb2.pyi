@@ -6,13 +6,13 @@ import builtins
 import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
+import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.struct_pb2
 import sys
 import typing
-import vdp.pipeline.v1alpha.common_pb2
 
-if sys.version_info >= (3, 8):
+if sys.version_info >= (3, 10):
     import typing as typing_extensions
 else:
     import typing_extensions
@@ -20,7 +20,7 @@ else:
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 @typing_extensions.final
-class Spec(google.protobuf.message.Message):
+class OperatorSpec(google.protobuf.message.Message):
     """View enumerates the definition views"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -42,7 +42,7 @@ class Spec(google.protobuf.message.Message):
     def HasField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification", "openapi_specifications", b"openapi_specifications"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification", "openapi_specifications", b"openapi_specifications"]) -> None: ...
 
-global___Spec = Spec
+global___OperatorSpec = OperatorSpec
 
 @typing_extensions.final
 class OperatorDefinition(google.protobuf.message.Message):
@@ -84,7 +84,7 @@ class OperatorDefinition(google.protobuf.message.Message):
     icon: builtins.str
     """Operator icon"""
     @property
-    def spec(self) -> global___Spec:
+    def spec(self) -> global___OperatorSpec:
         """Operator spec"""
     tombstone: builtins.bool
     """Operator tombstone, i.e., if not set or false, the
@@ -110,7 +110,7 @@ class OperatorDefinition(google.protobuf.message.Message):
         title: builtins.str = ...,
         documentation_url: builtins.str = ...,
         icon: builtins.str = ...,
-        spec: global___Spec | None = ...,
+        spec: global___OperatorSpec | None = ...,
         tombstone: builtins.bool = ...,
         public: builtins.bool = ...,
         custom: builtins.bool = ...,
@@ -133,6 +133,29 @@ class ListOperatorDefinitionsRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    class _View:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ListOperatorDefinitionsRequest._View.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        VIEW_UNSPECIFIED: ListOperatorDefinitionsRequest._View.ValueType  # 0
+        """View: UNSPECIFIED"""
+        VIEW_BASIC: ListOperatorDefinitionsRequest._View.ValueType  # 1
+        """View: BASIC"""
+        VIEW_FULL: ListOperatorDefinitionsRequest._View.ValueType  # 2
+        """View: FULL"""
+
+    class View(_View, metaclass=_ViewEnumTypeWrapper):
+        """Operator View"""
+
+    VIEW_UNSPECIFIED: ListOperatorDefinitionsRequest.View.ValueType  # 0
+    """View: UNSPECIFIED"""
+    VIEW_BASIC: ListOperatorDefinitionsRequest.View.ValueType  # 1
+    """View: BASIC"""
+    VIEW_FULL: ListOperatorDefinitionsRequest.View.ValueType  # 2
+    """View: FULL"""
+
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
@@ -145,7 +168,7 @@ class ListOperatorDefinitionsRequest(google.protobuf.message.Message):
     """
     page_token: builtins.str
     """Page token"""
-    view: vdp.pipeline.v1alpha.common_pb2.View.ValueType
+    view: global___ListOperatorDefinitionsRequest.View.ValueType
     """Definition view (default is DEFINITION_VIEW_BASIC)"""
     filter: builtins.str
     """Filter expression to list operator definitions"""
@@ -154,7 +177,7 @@ class ListOperatorDefinitionsRequest(google.protobuf.message.Message):
         *,
         page_size: builtins.int | None = ...,
         page_token: builtins.str | None = ...,
-        view: vdp.pipeline.v1alpha.common_pb2.View.ValueType | None = ...,
+        view: global___ListOperatorDefinitionsRequest.View.ValueType | None = ...,
         filter: builtins.str | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_view", b"_view", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "view", b"view"]) -> builtins.bool: ...
@@ -207,13 +230,36 @@ class GetOperatorDefinitionRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    class _View:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[GetOperatorDefinitionRequest._View.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        VIEW_UNSPECIFIED: GetOperatorDefinitionRequest._View.ValueType  # 0
+        """View: UNSPECIFIED"""
+        VIEW_BASIC: GetOperatorDefinitionRequest._View.ValueType  # 1
+        """View: BASIC"""
+        VIEW_FULL: GetOperatorDefinitionRequest._View.ValueType  # 2
+        """View: FULL"""
+
+    class View(_View, metaclass=_ViewEnumTypeWrapper):
+        """Operator View"""
+
+    VIEW_UNSPECIFIED: GetOperatorDefinitionRequest.View.ValueType  # 0
+    """View: UNSPECIFIED"""
+    VIEW_BASIC: GetOperatorDefinitionRequest.View.ValueType  # 1
+    """View: BASIC"""
+    VIEW_FULL: GetOperatorDefinitionRequest.View.ValueType  # 2
+    """View: FULL"""
+
     NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     name: builtins.str
     """Operator resource name. It must have the format of
     "operator-definitions/*"
     """
-    view: vdp.pipeline.v1alpha.common_pb2.View.ValueType
+    view: global___GetOperatorDefinitionRequest.View.ValueType
     """Operator resource view (default is
     DEFINITION_VIEW_BASIC)
     """
@@ -221,7 +267,7 @@ class GetOperatorDefinitionRequest(google.protobuf.message.Message):
         self,
         *,
         name: builtins.str = ...,
-        view: vdp.pipeline.v1alpha.common_pb2.View.ValueType | None = ...,
+        view: global___GetOperatorDefinitionRequest.View.ValueType | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "name", b"name", "view", b"view"]) -> None: ...
@@ -259,19 +305,42 @@ class LookUpOperatorDefinitionAdminRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    class _View:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[LookUpOperatorDefinitionAdminRequest._View.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        VIEW_UNSPECIFIED: LookUpOperatorDefinitionAdminRequest._View.ValueType  # 0
+        """View: UNSPECIFIED"""
+        VIEW_BASIC: LookUpOperatorDefinitionAdminRequest._View.ValueType  # 1
+        """View: BASIC"""
+        VIEW_FULL: LookUpOperatorDefinitionAdminRequest._View.ValueType  # 2
+        """View: FULL"""
+
+    class View(_View, metaclass=_ViewEnumTypeWrapper):
+        """Operator View"""
+
+    VIEW_UNSPECIFIED: LookUpOperatorDefinitionAdminRequest.View.ValueType  # 0
+    """View: UNSPECIFIED"""
+    VIEW_BASIC: LookUpOperatorDefinitionAdminRequest.View.ValueType  # 1
+    """View: BASIC"""
+    VIEW_FULL: LookUpOperatorDefinitionAdminRequest.View.ValueType  # 2
+    """View: FULL"""
+
     PERMALINK_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     permalink: builtins.str
     """Permalink of a operator. For example:
     "operator-definitions/{uid}"
     """
-    view: vdp.pipeline.v1alpha.common_pb2.View.ValueType
+    view: global___LookUpOperatorDefinitionAdminRequest.View.ValueType
     """Operator view (default is VIEW_BASIC)"""
     def __init__(
         self,
         *,
         permalink: builtins.str = ...,
-        view: vdp.pipeline.v1alpha.common_pb2.View.ValueType | None = ...,
+        view: global___LookUpOperatorDefinitionAdminRequest.View.ValueType | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "permalink", b"permalink", "view", b"view"]) -> None: ...

@@ -7,6 +7,8 @@ import collections.abc
 import grpc
 import grpc.aio
 import typing
+import vdp.pipeline.v1alpha.connector_definition_pb2
+import vdp.pipeline.v1alpha.connector_pb2
 import vdp.pipeline.v1alpha.operator_definition_pb2
 import vdp.pipeline.v1alpha.pipeline_pb2
 
@@ -51,6 +53,36 @@ class PipelinePrivateServiceStub:
     """ListPipelineReleasesAdmin method receives a ListPipelineReleasesAdminRequest message and
     returns a ListPipelineReleasesAdminResponse message.
     """
+    LookUpConnectorDefinitionAdmin: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_definition_pb2.LookUpConnectorDefinitionAdminRequest,
+        vdp.pipeline.v1alpha.connector_definition_pb2.LookUpConnectorDefinitionAdminResponse,
+    ]
+    """LookUpConnectorDefinitionAdmin method receives a
+    LookUpConnectorDefinitionAdminRequest message and returns a
+    LookUpConnectorDefinitionAdminResponse
+    """
+    ListConnectorsAdmin: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.ListConnectorsAdminRequest,
+        vdp.pipeline.v1alpha.connector_pb2.ListConnectorsAdminResponse,
+    ]
+    """ListConnectorsAdmin method receives a ListConnectorsAdminRequest
+    message and returns a ListConnectorsResponse message.
+    """
+    LookUpConnectorAdmin: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.LookUpConnectorAdminRequest,
+        vdp.pipeline.v1alpha.connector_pb2.LookUpConnectorAdminResponse,
+    ]
+    """LookUpConnectorAdmin method receives a
+    LookUpConnectorAdminRequest message and returns a
+    LookUpConnectorAdminResponse
+    """
+    CheckConnector: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.CheckConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.CheckConnectorResponse,
+    ]
+    """CheckConnector method receives a CheckConnectorRequest message and returns a
+    CheckConnectorResponse
+    """
 
 class PipelinePrivateServiceAsyncStub:
     """Pipeline service responds to internal access"""
@@ -83,6 +115,36 @@ class PipelinePrivateServiceAsyncStub:
     ]
     """ListPipelineReleasesAdmin method receives a ListPipelineReleasesAdminRequest message and
     returns a ListPipelineReleasesAdminResponse message.
+    """
+    LookUpConnectorDefinitionAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_definition_pb2.LookUpConnectorDefinitionAdminRequest,
+        vdp.pipeline.v1alpha.connector_definition_pb2.LookUpConnectorDefinitionAdminResponse,
+    ]
+    """LookUpConnectorDefinitionAdmin method receives a
+    LookUpConnectorDefinitionAdminRequest message and returns a
+    LookUpConnectorDefinitionAdminResponse
+    """
+    ListConnectorsAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.ListConnectorsAdminRequest,
+        vdp.pipeline.v1alpha.connector_pb2.ListConnectorsAdminResponse,
+    ]
+    """ListConnectorsAdmin method receives a ListConnectorsAdminRequest
+    message and returns a ListConnectorsResponse message.
+    """
+    LookUpConnectorAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.LookUpConnectorAdminRequest,
+        vdp.pipeline.v1alpha.connector_pb2.LookUpConnectorAdminResponse,
+    ]
+    """LookUpConnectorAdmin method receives a
+    LookUpConnectorAdminRequest message and returns a
+    LookUpConnectorAdminResponse
+    """
+    CheckConnector: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.CheckConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.CheckConnectorResponse,
+    ]
+    """CheckConnector method receives a CheckConnectorRequest message and returns a
+    CheckConnectorResponse
     """
 
 class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
@@ -124,6 +186,44 @@ class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[vdp.pipeline.v1alpha.pipeline_pb2.ListPipelineReleasesAdminResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.pipeline_pb2.ListPipelineReleasesAdminResponse]]:
         """ListPipelineReleasesAdmin method receives a ListPipelineReleasesAdminRequest message and
         returns a ListPipelineReleasesAdminResponse message.
+        """
+    @abc.abstractmethod
+    def LookUpConnectorDefinitionAdmin(
+        self,
+        request: vdp.pipeline.v1alpha.connector_definition_pb2.LookUpConnectorDefinitionAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_definition_pb2.LookUpConnectorDefinitionAdminResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_definition_pb2.LookUpConnectorDefinitionAdminResponse]]:
+        """LookUpConnectorDefinitionAdmin method receives a
+        LookUpConnectorDefinitionAdminRequest message and returns a
+        LookUpConnectorDefinitionAdminResponse
+        """
+    @abc.abstractmethod
+    def ListConnectorsAdmin(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.ListConnectorsAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.ListConnectorsAdminResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.ListConnectorsAdminResponse]]:
+        """ListConnectorsAdmin method receives a ListConnectorsAdminRequest
+        message and returns a ListConnectorsResponse message.
+        """
+    @abc.abstractmethod
+    def LookUpConnectorAdmin(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.LookUpConnectorAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.LookUpConnectorAdminResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.LookUpConnectorAdminResponse]]:
+        """LookUpConnectorAdmin method receives a
+        LookUpConnectorAdminRequest message and returns a
+        LookUpConnectorAdminResponse
+        """
+    @abc.abstractmethod
+    def CheckConnector(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.CheckConnectorRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.CheckConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.CheckConnectorResponse]]:
+        """CheckConnector method receives a CheckConnectorRequest message and returns a
+        CheckConnectorResponse
         """
 
 def add_PipelinePrivateServiceServicer_to_server(servicer: PipelinePrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

@@ -15,10 +15,9 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from protoc_gen_openapiv2.options import annotations_pb2 as protoc__gen__openapiv2_dot_options_dot_annotations__pb2
-from vdp.pipeline.v1alpha import common_pb2 as vdp_dot_pipeline_dot_v1alpha_dot_common__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.vdp/pipeline/v1alpha/operator_definition.proto\x12\x14vdp.pipeline.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a!vdp/pipeline/v1alpha/common.proto\"\xb4\x01\n\x04Spec\x12V\n\x17\x63omponent_specification\x18\x01 \x01(\x0b\x32\x17.google.protobuf.StructB\x04\xe2\x41\x01\x02R\x16\x63omponentSpecification\x12T\n\x16openapi_specifications\x18\x02 \x01(\x0b\x32\x17.google.protobuf.StructB\x04\xe2\x41\x01\x02R\x15openapiSpecifications\"\xc8\x03\n\x12OperatorDefinition\x12\x18\n\x04name\x18\x01 \x01(\tB\x04\xe2\x41\x01\x03R\x04name\x12\x16\n\x03uid\x18\x02 \x01(\tB\x04\xe2\x41\x01\x03R\x03uid\x12\x14\n\x02id\x18\x03 \x01(\tB\x04\xe2\x41\x01\x05R\x02id\x12\x1a\n\x05title\x18\x04 \x01(\tB\x04\xe2\x41\x01\x03R\x05title\x12\x31\n\x11\x64ocumentation_url\x18\x05 \x01(\tB\x04\xe2\x41\x01\x03R\x10\x64ocumentationUrl\x12\x18\n\x04icon\x18\x06 \x01(\tB\x04\xe2\x41\x01\x03R\x04icon\x12\x34\n\x04spec\x18\x07 \x01(\x0b\x32\x1a.vdp.pipeline.v1alpha.SpecB\x04\xe2\x41\x01\x03R\x04spec\x12\"\n\ttombstone\x18\x08 \x01(\x08\x42\x04\xe2\x41\x01\x03R\ttombstone\x12\x1c\n\x06public\x18\t \x01(\x08\x42\x04\xe2\x41\x01\x03R\x06public\x12\x1c\n\x06\x63ustom\x18\n \x01(\x08\x42\x04\xe2\x41\x01\x03R\x06\x63ustom\x12\x1f\n\x08icon_url\x18\x0b \x01(\tB\x04\xe2\x41\x01\x03R\x07iconUrl:J\xea\x41G\n\x19\x61pi.instill.tech/Operator\x12*operator-definitions/{operator-definition}\"\x81\x02\n\x1eListOperatorDefinitionsRequest\x12&\n\tpage_size\x18\x01 \x01(\x05\x42\x04\xe2\x41\x01\x01H\x00R\x08pageSize\x88\x01\x01\x12(\n\npage_token\x18\x02 \x01(\tB\x04\xe2\x41\x01\x01H\x01R\tpageToken\x88\x01\x01\x12\x39\n\x04view\x18\x03 \x01(\x0e\x32\x1a.vdp.pipeline.v1alpha.ViewB\x04\xe2\x41\x01\x01H\x02R\x04view\x88\x01\x01\x12!\n\x06\x66ilter\x18\x04 \x01(\tB\x04\xe2\x41\x01\x01H\x03R\x06\x66ilter\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\x07\n\x05_viewB\t\n\x07_filter\"\xc5\x01\n\x1fListOperatorDefinitionsResponse\x12[\n\x14operator_definitions\x18\x01 \x03(\x0b\x32(.vdp.pipeline.v1alpha.OperatorDefinitionR\x13operatorDefinitions\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x05R\ttotalSize\"\xbb\x01\n\x1cGetOperatorDefinitionRequest\x12W\n\x04name\x18\x01 \x01(\tBC\x92\x41\x1e\xca>\x1b\xfa\x02\x18operator_definition.name\xe2\x41\x01\x02\xfa\x41\x1b\n\x19\x61pi.instill.tech/OperatorR\x04name\x12\x39\n\x04view\x18\x02 \x01(\x0e\x32\x1a.vdp.pipeline.v1alpha.ViewB\x04\xe2\x41\x01\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"z\n\x1dGetOperatorDefinitionResponse\x12Y\n\x13operator_definition\x18\x01 \x01(\x0b\x32(.vdp.pipeline.v1alpha.OperatorDefinitionR\x12operatorDefinition\"\x8e\x01\n$LookUpOperatorDefinitionAdminRequest\x12\"\n\tpermalink\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\tpermalink\x12\x39\n\x04view\x18\x02 \x01(\x0e\x32\x1a.vdp.pipeline.v1alpha.ViewB\x04\xe2\x41\x01\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"\x82\x01\n%LookUpOperatorDefinitionAdminResponse\x12Y\n\x13operator_definition\x18\x01 \x01(\x0b\x32(.vdp.pipeline.v1alpha.OperatorDefinitionR\x12operatorDefinitionB\xed\x01\n\x18\x63om.vdp.pipeline.v1alphaB\x17OperatorDefinitionProtoP\x01ZFgithub.com/instill-ai/protogen-go/vdp/pipeline/v1alpha;pipelinev1alpha\xa2\x02\x03VPX\xaa\x02\x14Vdp.Pipeline.V1alpha\xca\x02\x14Vdp\\Pipeline\\V1alpha\xe2\x02 Vdp\\Pipeline\\V1alpha\\GPBMetadata\xea\x02\x16Vdp::Pipeline::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.vdp/pipeline/v1alpha/operator_definition.proto\x12\x14vdp.pipeline.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\"\xbc\x01\n\x0cOperatorSpec\x12V\n\x17\x63omponent_specification\x18\x01 \x01(\x0b\x32\x17.google.protobuf.StructB\x04\xe2\x41\x01\x02R\x16\x63omponentSpecification\x12T\n\x16openapi_specifications\x18\x02 \x01(\x0b\x32\x17.google.protobuf.StructB\x04\xe2\x41\x01\x02R\x15openapiSpecifications\"\xd0\x03\n\x12OperatorDefinition\x12\x18\n\x04name\x18\x01 \x01(\tB\x04\xe2\x41\x01\x03R\x04name\x12\x16\n\x03uid\x18\x02 \x01(\tB\x04\xe2\x41\x01\x03R\x03uid\x12\x14\n\x02id\x18\x03 \x01(\tB\x04\xe2\x41\x01\x05R\x02id\x12\x1a\n\x05title\x18\x04 \x01(\tB\x04\xe2\x41\x01\x03R\x05title\x12\x31\n\x11\x64ocumentation_url\x18\x05 \x01(\tB\x04\xe2\x41\x01\x03R\x10\x64ocumentationUrl\x12\x18\n\x04icon\x18\x06 \x01(\tB\x04\xe2\x41\x01\x03R\x04icon\x12<\n\x04spec\x18\x07 \x01(\x0b\x32\".vdp.pipeline.v1alpha.OperatorSpecB\x04\xe2\x41\x01\x03R\x04spec\x12\"\n\ttombstone\x18\x08 \x01(\x08\x42\x04\xe2\x41\x01\x03R\ttombstone\x12\x1c\n\x06public\x18\t \x01(\x08\x42\x04\xe2\x41\x01\x03R\x06public\x12\x1c\n\x06\x63ustom\x18\n \x01(\x08\x42\x04\xe2\x41\x01\x03R\x06\x63ustom\x12\x1f\n\x08icon_url\x18\x0b \x01(\tB\x04\xe2\x41\x01\x03R\x07iconUrl:J\xea\x41G\n\x19\x61pi.instill.tech/Operator\x12*operator-definitions/{operator-definition}\"\xdd\x02\n\x1eListOperatorDefinitionsRequest\x12&\n\tpage_size\x18\x01 \x01(\x05\x42\x04\xe2\x41\x01\x01H\x00R\x08pageSize\x88\x01\x01\x12(\n\npage_token\x18\x02 \x01(\tB\x04\xe2\x41\x01\x01H\x01R\tpageToken\x88\x01\x01\x12X\n\x04view\x18\x03 \x01(\x0e\x32\x39.vdp.pipeline.v1alpha.ListOperatorDefinitionsRequest.ViewB\x04\xe2\x41\x01\x01H\x02R\x04view\x88\x01\x01\x12!\n\x06\x66ilter\x18\x04 \x01(\tB\x04\xe2\x41\x01\x01H\x03R\x06\x66ilter\x88\x01\x01\";\n\x04View\x12\x14\n\x10VIEW_UNSPECIFIED\x10\x00\x12\x0e\n\nVIEW_BASIC\x10\x01\x12\r\n\tVIEW_FULL\x10\x02\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\x07\n\x05_viewB\t\n\x07_filter\"\xc5\x01\n\x1fListOperatorDefinitionsResponse\x12[\n\x14operator_definitions\x18\x01 \x03(\x0b\x32(.vdp.pipeline.v1alpha.OperatorDefinitionR\x13operatorDefinitions\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x05R\ttotalSize\"\x95\x02\n\x1cGetOperatorDefinitionRequest\x12W\n\x04name\x18\x01 \x01(\tBC\x92\x41\x1e\xca>\x1b\xfa\x02\x18operator_definition.name\xe2\x41\x01\x02\xfa\x41\x1b\n\x19\x61pi.instill.tech/OperatorR\x04name\x12V\n\x04view\x18\x02 \x01(\x0e\x32\x37.vdp.pipeline.v1alpha.GetOperatorDefinitionRequest.ViewB\x04\xe2\x41\x01\x01H\x00R\x04view\x88\x01\x01\";\n\x04View\x12\x14\n\x10VIEW_UNSPECIFIED\x10\x00\x12\x0e\n\nVIEW_BASIC\x10\x01\x12\r\n\tVIEW_FULL\x10\x02\x42\x07\n\x05_view\"z\n\x1dGetOperatorDefinitionResponse\x12Y\n\x13operator_definition\x18\x01 \x01(\x0b\x32(.vdp.pipeline.v1alpha.OperatorDefinitionR\x12operatorDefinition\"\xf0\x01\n$LookUpOperatorDefinitionAdminRequest\x12\"\n\tpermalink\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\tpermalink\x12^\n\x04view\x18\x02 \x01(\x0e\x32?.vdp.pipeline.v1alpha.LookUpOperatorDefinitionAdminRequest.ViewB\x04\xe2\x41\x01\x01H\x00R\x04view\x88\x01\x01\";\n\x04View\x12\x14\n\x10VIEW_UNSPECIFIED\x10\x00\x12\x0e\n\nVIEW_BASIC\x10\x01\x12\r\n\tVIEW_FULL\x10\x02\x42\x07\n\x05_view\"\x82\x01\n%LookUpOperatorDefinitionAdminResponse\x12Y\n\x13operator_definition\x18\x01 \x01(\x0b\x32(.vdp.pipeline.v1alpha.OperatorDefinitionR\x12operatorDefinitionB\xed\x01\n\x18\x63om.vdp.pipeline.v1alphaB\x17OperatorDefinitionProtoP\x01ZFgithub.com/instill-ai/protogen-go/vdp/pipeline/v1alpha;pipelinev1alpha\xa2\x02\x03VPX\xaa\x02\x14Vdp.Pipeline.V1alpha\xca\x02\x14Vdp\\Pipeline\\V1alpha\xe2\x02 Vdp\\Pipeline\\V1alpha\\GPBMetadata\xea\x02\x16Vdp::Pipeline::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -27,10 +26,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\030com.vdp.pipeline.v1alphaB\027OperatorDefinitionProtoP\001ZFgithub.com/instill-ai/protogen-go/vdp/pipeline/v1alpha;pipelinev1alpha\242\002\003VPX\252\002\024Vdp.Pipeline.V1alpha\312\002\024Vdp\\Pipeline\\V1alpha\342\002 Vdp\\Pipeline\\V1alpha\\GPBMetadata\352\002\026Vdp::Pipeline::V1alpha'
-  _SPEC.fields_by_name['component_specification']._options = None
-  _SPEC.fields_by_name['component_specification']._serialized_options = b'\342A\001\002'
-  _SPEC.fields_by_name['openapi_specifications']._options = None
-  _SPEC.fields_by_name['openapi_specifications']._serialized_options = b'\342A\001\002'
+  _OPERATORSPEC.fields_by_name['component_specification']._options = None
+  _OPERATORSPEC.fields_by_name['component_specification']._serialized_options = b'\342A\001\002'
+  _OPERATORSPEC.fields_by_name['openapi_specifications']._options = None
+  _OPERATORSPEC.fields_by_name['openapi_specifications']._serialized_options = b'\342A\001\002'
   _OPERATORDEFINITION.fields_by_name['name']._options = None
   _OPERATORDEFINITION.fields_by_name['name']._serialized_options = b'\342A\001\003'
   _OPERATORDEFINITION.fields_by_name['uid']._options = None
@@ -71,20 +70,26 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _LOOKUPOPERATORDEFINITIONADMINREQUEST.fields_by_name['permalink']._serialized_options = b'\342A\001\002'
   _LOOKUPOPERATORDEFINITIONADMINREQUEST.fields_by_name['view']._options = None
   _LOOKUPOPERATORDEFINITIONADMINREQUEST.fields_by_name['view']._serialized_options = b'\342A\001\001'
-  _globals['_SPEC']._serialized_start=246
-  _globals['_SPEC']._serialized_end=426
-  _globals['_OPERATORDEFINITION']._serialized_start=429
-  _globals['_OPERATORDEFINITION']._serialized_end=885
-  _globals['_LISTOPERATORDEFINITIONSREQUEST']._serialized_start=888
-  _globals['_LISTOPERATORDEFINITIONSREQUEST']._serialized_end=1145
-  _globals['_LISTOPERATORDEFINITIONSRESPONSE']._serialized_start=1148
-  _globals['_LISTOPERATORDEFINITIONSRESPONSE']._serialized_end=1345
-  _globals['_GETOPERATORDEFINITIONREQUEST']._serialized_start=1348
-  _globals['_GETOPERATORDEFINITIONREQUEST']._serialized_end=1535
-  _globals['_GETOPERATORDEFINITIONRESPONSE']._serialized_start=1537
-  _globals['_GETOPERATORDEFINITIONRESPONSE']._serialized_end=1659
-  _globals['_LOOKUPOPERATORDEFINITIONADMINREQUEST']._serialized_start=1662
-  _globals['_LOOKUPOPERATORDEFINITIONADMINREQUEST']._serialized_end=1804
-  _globals['_LOOKUPOPERATORDEFINITIONADMINRESPONSE']._serialized_start=1807
-  _globals['_LOOKUPOPERATORDEFINITIONADMINRESPONSE']._serialized_end=1937
+  _globals['_OPERATORSPEC']._serialized_start=211
+  _globals['_OPERATORSPEC']._serialized_end=399
+  _globals['_OPERATORDEFINITION']._serialized_start=402
+  _globals['_OPERATORDEFINITION']._serialized_end=866
+  _globals['_LISTOPERATORDEFINITIONSREQUEST']._serialized_start=869
+  _globals['_LISTOPERATORDEFINITIONSREQUEST']._serialized_end=1218
+  _globals['_LISTOPERATORDEFINITIONSREQUEST_VIEW']._serialized_start=1110
+  _globals['_LISTOPERATORDEFINITIONSREQUEST_VIEW']._serialized_end=1169
+  _globals['_LISTOPERATORDEFINITIONSRESPONSE']._serialized_start=1221
+  _globals['_LISTOPERATORDEFINITIONSRESPONSE']._serialized_end=1418
+  _globals['_GETOPERATORDEFINITIONREQUEST']._serialized_start=1421
+  _globals['_GETOPERATORDEFINITIONREQUEST']._serialized_end=1698
+  _globals['_GETOPERATORDEFINITIONREQUEST_VIEW']._serialized_start=1110
+  _globals['_GETOPERATORDEFINITIONREQUEST_VIEW']._serialized_end=1169
+  _globals['_GETOPERATORDEFINITIONRESPONSE']._serialized_start=1700
+  _globals['_GETOPERATORDEFINITIONRESPONSE']._serialized_end=1822
+  _globals['_LOOKUPOPERATORDEFINITIONADMINREQUEST']._serialized_start=1825
+  _globals['_LOOKUPOPERATORDEFINITIONADMINREQUEST']._serialized_end=2065
+  _globals['_LOOKUPOPERATORDEFINITIONADMINREQUEST_VIEW']._serialized_start=1110
+  _globals['_LOOKUPOPERATORDEFINITIONADMINREQUEST_VIEW']._serialized_end=1169
+  _globals['_LOOKUPOPERATORDEFINITIONADMINRESPONSE']._serialized_start=2068
+  _globals['_LOOKUPOPERATORDEFINITIONADMINRESPONSE']._serialized_end=2198
 # @@protoc_insertion_point(module_scope)

@@ -2,6 +2,8 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+from vdp.pipeline.v1alpha import connector_definition_pb2 as vdp_dot_pipeline_dot_v1alpha_dot_connector__definition__pb2
+from vdp.pipeline.v1alpha import connector_pb2 as vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2
 from vdp.pipeline.v1alpha import operator_definition_pb2 as vdp_dot_pipeline_dot_v1alpha_dot_operator__definition__pb2
 from vdp.pipeline.v1alpha import pipeline_pb2 as vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2
 
@@ -150,6 +152,81 @@ class PipelinePublicServiceStub(object):
                 '/vdp.pipeline.v1alpha.PipelinePublicService/TriggerAsyncUserPipelineRelease',
                 request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerAsyncUserPipelineReleaseRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerAsyncUserPipelineReleaseResponse.FromString,
+                )
+        self.ListConnectorDefinitions = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/ListConnectorDefinitions',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__definition__pb2.ListConnectorDefinitionsRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__definition__pb2.ListConnectorDefinitionsResponse.FromString,
+                )
+        self.GetConnectorDefinition = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/GetConnectorDefinition',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__definition__pb2.GetConnectorDefinitionRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__definition__pb2.GetConnectorDefinitionResponse.FromString,
+                )
+        self.ListConnectors = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/ListConnectors',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ListConnectorsRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ListConnectorsResponse.FromString,
+                )
+        self.LookUpConnector = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/LookUpConnector',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.LookUpConnectorRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.LookUpConnectorResponse.FromString,
+                )
+        self.CreateUserConnector = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/CreateUserConnector',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.CreateUserConnectorRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.CreateUserConnectorResponse.FromString,
+                )
+        self.ListUserConnectors = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/ListUserConnectors',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ListUserConnectorsRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ListUserConnectorsResponse.FromString,
+                )
+        self.GetUserConnector = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/GetUserConnector',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.GetUserConnectorRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.GetUserConnectorResponse.FromString,
+                )
+        self.UpdateUserConnector = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/UpdateUserConnector',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.UpdateUserConnectorRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.UpdateUserConnectorResponse.FromString,
+                )
+        self.DeleteUserConnector = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/DeleteUserConnector',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.DeleteUserConnectorRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.DeleteUserConnectorResponse.FromString,
+                )
+        self.ConnectUserConnector = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/ConnectUserConnector',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ConnectUserConnectorRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ConnectUserConnectorResponse.FromString,
+                )
+        self.DisconnectUserConnector = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/DisconnectUserConnector',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.DisconnectUserConnectorRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.DisconnectUserConnectorResponse.FromString,
+                )
+        self.RenameUserConnector = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/RenameUserConnector',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.RenameUserConnectorRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.RenameUserConnectorResponse.FromString,
+                )
+        self.ExecuteUserConnector = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/ExecuteUserConnector',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ExecuteUserConnectorRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ExecuteUserConnectorResponse.FromString,
+                )
+        self.WatchUserConnector = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/WatchUserConnector',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.WatchUserConnectorRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.WatchUserConnectorResponse.FromString,
+                )
+        self.TestUserConnector = channel.unary_unary(
+                '/vdp.pipeline.v1alpha.PipelinePublicService/TestUserConnector',
+                request_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.TestUserConnectorRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.TestUserConnectorResponse.FromString,
                 )
 
 
@@ -379,6 +456,147 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListConnectorDefinitions(self, request, context):
+        """ListConnectorDefinitions method receives a
+        ListConnectorDefinitionsRequest message and returns a
+        ListConnectorDefinitionsResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetConnectorDefinition(self, request, context):
+        """GetConnectorDefinition method receives a
+        GetConnectorDefinitionRequest message and returns a
+        GetGetConnectorDefinitionResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListConnectors(self, request, context):
+        """///////////////////////////////
+        Connector methods
+        ///////////////////////////////
+
+        ListConnectors method receives a
+        ListConnectorsRequest message and returns a
+        ListConnectorsResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def LookUpConnector(self, request, context):
+        """LookUpConnector method receives a
+        LookUpConnectorRequest message and returns a
+        LookUpConnectorResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateUserConnector(self, request, context):
+        """CreateUserConnector method receives a
+        CreateUserConnectorRequest message and returns a
+        CreateUserConnectorResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListUserConnectors(self, request, context):
+        """ListUserConnectors method receives a
+        ListUserConnectorsRequest message and returns a
+        ListUserConnectorsResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetUserConnector(self, request, context):
+        """GetUserConnector method receives a GetUserConnectorRequest
+        message and returns a GetUserConnectorResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateUserConnector(self, request, context):
+        """UpdateUserConnector method receives a
+        UpdateUserConnectorRequest message and returns a
+        UpdateUserConnectorResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteUserConnector(self, request, context):
+        """DeleteUserConnector method receives a
+        DeleteUserConnectorRequest message and returns a
+        DeleteUserConnectorResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ConnectUserConnector(self, request, context):
+        """Connect a connector.
+        The "state" of the connector after connecting is "CONNECTED".
+        ConnectUserConnector can be called on Connector in the
+        state `DISCONNECTED`; Connector in a different state (including
+        `CONNECTED`) returns an error.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DisconnectUserConnector(self, request, context):
+        """Disconnect a connector.
+        The "state" of the connector after disconnecting is "DISCONNECTED".
+        DisconnectUserConnector can be called on Connector in the
+        state `CONNECTED`; Connector in a different state (including
+        `DISCONNECTED`) returns an error.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RenameUserConnector(self, request, context):
+        """RenameUserConnector method receives a
+        RenameUserConnectorRequest message and returns a
+        RenameUserConnectorResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ExecuteUserConnector(self, request, context):
+        """ExecuteUserConnector method receives a
+        ExecuteUserConnectorRequest message and returns a
+        ExecuteUserConnectorResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def WatchUserConnector(self, request, context):
+        """WatchUserConnector method receives a
+        WatchUserConnectorRequest message and returns a
+        WatchUserConnectorResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TestUserConnector(self, request, context):
+        """TestUserConnector method receives a TestUserConnectorRequest
+        message and returns a TestUserConnectorResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_PipelinePublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -516,6 +734,81 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     servicer.TriggerAsyncUserPipelineRelease,
                     request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerAsyncUserPipelineReleaseRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerAsyncUserPipelineReleaseResponse.SerializeToString,
+            ),
+            'ListConnectorDefinitions': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListConnectorDefinitions,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__definition__pb2.ListConnectorDefinitionsRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__definition__pb2.ListConnectorDefinitionsResponse.SerializeToString,
+            ),
+            'GetConnectorDefinition': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetConnectorDefinition,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__definition__pb2.GetConnectorDefinitionRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__definition__pb2.GetConnectorDefinitionResponse.SerializeToString,
+            ),
+            'ListConnectors': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListConnectors,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ListConnectorsRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ListConnectorsResponse.SerializeToString,
+            ),
+            'LookUpConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.LookUpConnector,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.LookUpConnectorRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.LookUpConnectorResponse.SerializeToString,
+            ),
+            'CreateUserConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateUserConnector,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.CreateUserConnectorRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.CreateUserConnectorResponse.SerializeToString,
+            ),
+            'ListUserConnectors': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListUserConnectors,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ListUserConnectorsRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ListUserConnectorsResponse.SerializeToString,
+            ),
+            'GetUserConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetUserConnector,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.GetUserConnectorRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.GetUserConnectorResponse.SerializeToString,
+            ),
+            'UpdateUserConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateUserConnector,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.UpdateUserConnectorRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.UpdateUserConnectorResponse.SerializeToString,
+            ),
+            'DeleteUserConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteUserConnector,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.DeleteUserConnectorRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.DeleteUserConnectorResponse.SerializeToString,
+            ),
+            'ConnectUserConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.ConnectUserConnector,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ConnectUserConnectorRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ConnectUserConnectorResponse.SerializeToString,
+            ),
+            'DisconnectUserConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.DisconnectUserConnector,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.DisconnectUserConnectorRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.DisconnectUserConnectorResponse.SerializeToString,
+            ),
+            'RenameUserConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.RenameUserConnector,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.RenameUserConnectorRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.RenameUserConnectorResponse.SerializeToString,
+            ),
+            'ExecuteUserConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.ExecuteUserConnector,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ExecuteUserConnectorRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ExecuteUserConnectorResponse.SerializeToString,
+            ),
+            'WatchUserConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.WatchUserConnector,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.WatchUserConnectorRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.WatchUserConnectorResponse.SerializeToString,
+            ),
+            'TestUserConnector': grpc.unary_unary_rpc_method_handler(
+                    servicer.TestUserConnector,
+                    request_deserializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.TestUserConnectorRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.TestUserConnectorResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -984,5 +1277,260 @@ class PipelinePublicService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/TriggerAsyncUserPipelineRelease',
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerAsyncUserPipelineReleaseRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1alpha_dot_pipeline__pb2.TriggerAsyncUserPipelineReleaseResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListConnectorDefinitions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/ListConnectorDefinitions',
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__definition__pb2.ListConnectorDefinitionsRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__definition__pb2.ListConnectorDefinitionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetConnectorDefinition(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/GetConnectorDefinition',
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__definition__pb2.GetConnectorDefinitionRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__definition__pb2.GetConnectorDefinitionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListConnectors(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/ListConnectors',
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ListConnectorsRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ListConnectorsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def LookUpConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/LookUpConnector',
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.LookUpConnectorRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.LookUpConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateUserConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/CreateUserConnector',
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.CreateUserConnectorRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.CreateUserConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListUserConnectors(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/ListUserConnectors',
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ListUserConnectorsRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ListUserConnectorsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetUserConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/GetUserConnector',
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.GetUserConnectorRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.GetUserConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateUserConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/UpdateUserConnector',
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.UpdateUserConnectorRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.UpdateUserConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteUserConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/DeleteUserConnector',
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.DeleteUserConnectorRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.DeleteUserConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ConnectUserConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/ConnectUserConnector',
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ConnectUserConnectorRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ConnectUserConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DisconnectUserConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/DisconnectUserConnector',
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.DisconnectUserConnectorRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.DisconnectUserConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RenameUserConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/RenameUserConnector',
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.RenameUserConnectorRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.RenameUserConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ExecuteUserConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/ExecuteUserConnector',
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ExecuteUserConnectorRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.ExecuteUserConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def WatchUserConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/WatchUserConnector',
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.WatchUserConnectorRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.WatchUserConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TestUserConnector(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1alpha.PipelinePublicService/TestUserConnector',
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.TestUserConnectorRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1alpha_dot_connector__pb2.TestUserConnectorResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

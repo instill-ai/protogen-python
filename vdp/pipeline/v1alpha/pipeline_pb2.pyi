@@ -15,9 +15,9 @@ import google.protobuf.struct_pb2
 import google.protobuf.timestamp_pb2
 import sys
 import typing
-import vdp.connector.v1alpha.connector_definition_pb2
-import vdp.connector.v1alpha.connector_pb2
 import vdp.pipeline.v1alpha.common_pb2
+import vdp.pipeline.v1alpha.connector_definition_pb2
+import vdp.pipeline.v1alpha.connector_pb2
 import vdp.pipeline.v1alpha.operator_definition_pb2
 
 if sys.version_info >= (3, 10):
@@ -188,7 +188,7 @@ class Component(google.protobuf.message.Message):
     resource_name: builtins.str
     """A pipeline component resource name"""
     @property
-    def resource(self) -> vdp.connector.v1alpha.connector_pb2.ConnectorResource:
+    def resource(self) -> vdp.pipeline.v1alpha.connector_pb2.Connector:
         """A pipeline component resource detail"""
     @property
     def configuration(self) -> google.protobuf.struct_pb2.Struct:
@@ -201,19 +201,19 @@ class Component(google.protobuf.message.Message):
     def operator_definition(self) -> vdp.pipeline.v1alpha.operator_definition_pb2.OperatorDefinition:
         """operator definition detail"""
     @property
-    def connector_definition(self) -> vdp.connector.v1alpha.connector_definition_pb2.ConnectorDefinition:
+    def connector_definition(self) -> vdp.pipeline.v1alpha.connector_definition_pb2.ConnectorDefinition:
         """connector definition detail"""
     def __init__(
         self,
         *,
         id: builtins.str = ...,
         resource_name: builtins.str = ...,
-        resource: vdp.connector.v1alpha.connector_pb2.ConnectorResource | None = ...,
+        resource: vdp.pipeline.v1alpha.connector_pb2.Connector | None = ...,
         configuration: google.protobuf.struct_pb2.Struct | None = ...,
         type: global___ComponentType.ValueType = ...,
         definition_name: builtins.str = ...,
         operator_definition: vdp.pipeline.v1alpha.operator_definition_pb2.OperatorDefinition | None = ...,
-        connector_definition: vdp.connector.v1alpha.connector_definition_pb2.ConnectorDefinition | None = ...,
+        connector_definition: vdp.pipeline.v1alpha.connector_definition_pb2.ConnectorDefinition | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["configuration", b"configuration", "connector_definition", b"connector_definition", "definition", b"definition", "operator_definition", b"operator_definition", "resource", b"resource"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["configuration", b"configuration", "connector_definition", b"connector_definition", "definition", b"definition", "definition_name", b"definition_name", "id", b"id", "operator_definition", b"operator_definition", "resource", b"resource", "resource_name", b"resource_name", "type", b"type"]) -> None: ...
@@ -477,6 +477,33 @@ class ListPipelinesRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    class _View:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ListPipelinesRequest._View.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        VIEW_UNSPECIFIED: ListPipelinesRequest._View.ValueType  # 0
+        """View: UNSPECIFIED"""
+        VIEW_BASIC: ListPipelinesRequest._View.ValueType  # 1
+        """View: BASIC"""
+        VIEW_FULL: ListPipelinesRequest._View.ValueType  # 2
+        """View: FULL"""
+        VIEW_RECIPE: ListPipelinesRequest._View.ValueType  # 3
+        """View: RECIPE: will return recipe"""
+
+    class View(_View, metaclass=_ViewEnumTypeWrapper):
+        """Pipeline View"""
+
+    VIEW_UNSPECIFIED: ListPipelinesRequest.View.ValueType  # 0
+    """View: UNSPECIFIED"""
+    VIEW_BASIC: ListPipelinesRequest.View.ValueType  # 1
+    """View: BASIC"""
+    VIEW_FULL: ListPipelinesRequest.View.ValueType  # 2
+    """View: FULL"""
+    VIEW_RECIPE: ListPipelinesRequest.View.ValueType  # 3
+    """View: RECIPE: will return recipe"""
+
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
@@ -489,7 +516,7 @@ class ListPipelinesRequest(google.protobuf.message.Message):
     """
     page_token: builtins.str
     """Page token"""
-    view: vdp.pipeline.v1alpha.common_pb2.View.ValueType
+    view: global___ListPipelinesRequest.View.ValueType
     """View view (default is VIEW_BASIC)"""
     filter: builtins.str
     """Filter expression to list pipelines"""
@@ -500,7 +527,7 @@ class ListPipelinesRequest(google.protobuf.message.Message):
         *,
         page_size: builtins.int | None = ...,
         page_token: builtins.str | None = ...,
-        view: vdp.pipeline.v1alpha.common_pb2.View.ValueType | None = ...,
+        view: global___ListPipelinesRequest.View.ValueType | None = ...,
         filter: builtins.str | None = ...,
         show_deleted: builtins.bool | None = ...,
     ) -> None: ...
@@ -598,6 +625,33 @@ class ListUserPipelinesRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    class _View:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ListUserPipelinesRequest._View.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        VIEW_UNSPECIFIED: ListUserPipelinesRequest._View.ValueType  # 0
+        """View: UNSPECIFIED"""
+        VIEW_BASIC: ListUserPipelinesRequest._View.ValueType  # 1
+        """View: BASIC"""
+        VIEW_FULL: ListUserPipelinesRequest._View.ValueType  # 2
+        """View: FULL"""
+        VIEW_RECIPE: ListUserPipelinesRequest._View.ValueType  # 3
+        """View: RECIPE: will return recipe"""
+
+    class View(_View, metaclass=_ViewEnumTypeWrapper):
+        """Pipeline View"""
+
+    VIEW_UNSPECIFIED: ListUserPipelinesRequest.View.ValueType  # 0
+    """View: UNSPECIFIED"""
+    VIEW_BASIC: ListUserPipelinesRequest.View.ValueType  # 1
+    """View: BASIC"""
+    VIEW_FULL: ListUserPipelinesRequest.View.ValueType  # 2
+    """View: FULL"""
+    VIEW_RECIPE: ListUserPipelinesRequest.View.ValueType  # 3
+    """View: RECIPE: will return recipe"""
+
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
@@ -611,7 +665,7 @@ class ListUserPipelinesRequest(google.protobuf.message.Message):
     """
     page_token: builtins.str
     """Page token"""
-    view: vdp.pipeline.v1alpha.common_pb2.View.ValueType
+    view: global___ListUserPipelinesRequest.View.ValueType
     """View view (default is VIEW_BASIC)"""
     filter: builtins.str
     """Filter expression to list pipelines"""
@@ -626,7 +680,7 @@ class ListUserPipelinesRequest(google.protobuf.message.Message):
         *,
         page_size: builtins.int | None = ...,
         page_token: builtins.str | None = ...,
-        view: vdp.pipeline.v1alpha.common_pb2.View.ValueType | None = ...,
+        view: global___ListUserPipelinesRequest.View.ValueType | None = ...,
         filter: builtins.str | None = ...,
         parent: builtins.str = ...,
         show_deleted: builtins.bool | None = ...,
@@ -679,19 +733,46 @@ class LookUpPipelineRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    class _View:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[LookUpPipelineRequest._View.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        VIEW_UNSPECIFIED: LookUpPipelineRequest._View.ValueType  # 0
+        """View: UNSPECIFIED"""
+        VIEW_BASIC: LookUpPipelineRequest._View.ValueType  # 1
+        """View: BASIC"""
+        VIEW_FULL: LookUpPipelineRequest._View.ValueType  # 2
+        """View: FULL"""
+        VIEW_RECIPE: LookUpPipelineRequest._View.ValueType  # 3
+        """View: RECIPE: will return recipe"""
+
+    class View(_View, metaclass=_ViewEnumTypeWrapper):
+        """Pipeline View"""
+
+    VIEW_UNSPECIFIED: LookUpPipelineRequest.View.ValueType  # 0
+    """View: UNSPECIFIED"""
+    VIEW_BASIC: LookUpPipelineRequest.View.ValueType  # 1
+    """View: BASIC"""
+    VIEW_FULL: LookUpPipelineRequest.View.ValueType  # 2
+    """View: FULL"""
+    VIEW_RECIPE: LookUpPipelineRequest.View.ValueType  # 3
+    """View: RECIPE: will return recipe"""
+
     PERMALINK_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     permalink: builtins.str
     """Permalink of a pipeline. For example:
     "pipelines/{uid}"
     """
-    view: vdp.pipeline.v1alpha.common_pb2.View.ValueType
+    view: global___LookUpPipelineRequest.View.ValueType
     """View view (default is VIEW_BASIC)"""
     def __init__(
         self,
         *,
         permalink: builtins.str = ...,
-        view: vdp.pipeline.v1alpha.common_pb2.View.ValueType | None = ...,
+        view: global___LookUpPipelineRequest.View.ValueType | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "permalink", b"permalink", "view", b"view"]) -> None: ...
@@ -725,17 +806,44 @@ class GetUserPipelineRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    class _View:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[GetUserPipelineRequest._View.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        VIEW_UNSPECIFIED: GetUserPipelineRequest._View.ValueType  # 0
+        """View: UNSPECIFIED"""
+        VIEW_BASIC: GetUserPipelineRequest._View.ValueType  # 1
+        """View: BASIC"""
+        VIEW_FULL: GetUserPipelineRequest._View.ValueType  # 2
+        """View: FULL"""
+        VIEW_RECIPE: GetUserPipelineRequest._View.ValueType  # 3
+        """View: RECIPE: will return recipe"""
+
+    class View(_View, metaclass=_ViewEnumTypeWrapper):
+        """Pipeline View"""
+
+    VIEW_UNSPECIFIED: GetUserPipelineRequest.View.ValueType  # 0
+    """View: UNSPECIFIED"""
+    VIEW_BASIC: GetUserPipelineRequest.View.ValueType  # 1
+    """View: BASIC"""
+    VIEW_FULL: GetUserPipelineRequest.View.ValueType  # 2
+    """View: FULL"""
+    VIEW_RECIPE: GetUserPipelineRequest.View.ValueType  # 3
+    """View: RECIPE: will return recipe"""
+
     NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     name: builtins.str
     """Pipeline resource name. It must have the format of "users/*/pipelines/*" """
-    view: vdp.pipeline.v1alpha.common_pb2.View.ValueType
+    view: global___GetUserPipelineRequest.View.ValueType
     """Pipeline resource view (default is VIEW_BASIC)"""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
-        view: vdp.pipeline.v1alpha.common_pb2.View.ValueType | None = ...,
+        view: global___GetUserPipelineRequest.View.ValueType | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "name", b"name", "view", b"view"]) -> None: ...
@@ -1111,6 +1219,33 @@ class ListUserPipelineReleasesRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    class _View:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ListUserPipelineReleasesRequest._View.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        VIEW_UNSPECIFIED: ListUserPipelineReleasesRequest._View.ValueType  # 0
+        """View: UNSPECIFIED"""
+        VIEW_BASIC: ListUserPipelineReleasesRequest._View.ValueType  # 1
+        """View: BASIC"""
+        VIEW_FULL: ListUserPipelineReleasesRequest._View.ValueType  # 2
+        """View: FULL"""
+        VIEW_RECIPE: ListUserPipelineReleasesRequest._View.ValueType  # 3
+        """View: RECIPE: will return recipe"""
+
+    class View(_View, metaclass=_ViewEnumTypeWrapper):
+        """Pipeline View"""
+
+    VIEW_UNSPECIFIED: ListUserPipelineReleasesRequest.View.ValueType  # 0
+    """View: UNSPECIFIED"""
+    VIEW_BASIC: ListUserPipelineReleasesRequest.View.ValueType  # 1
+    """View: BASIC"""
+    VIEW_FULL: ListUserPipelineReleasesRequest.View.ValueType  # 2
+    """View: FULL"""
+    VIEW_RECIPE: ListUserPipelineReleasesRequest.View.ValueType  # 3
+    """View: RECIPE: will return recipe"""
+
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
@@ -1124,7 +1259,7 @@ class ListUserPipelineReleasesRequest(google.protobuf.message.Message):
     """
     page_token: builtins.str
     """Page token"""
-    view: vdp.pipeline.v1alpha.common_pb2.View.ValueType
+    view: global___ListUserPipelineReleasesRequest.View.ValueType
     """View view (default is VIEW_BASIC)"""
     filter: builtins.str
     """Filter expression to list pipeline_releases"""
@@ -1139,7 +1274,7 @@ class ListUserPipelineReleasesRequest(google.protobuf.message.Message):
         *,
         page_size: builtins.int | None = ...,
         page_token: builtins.str | None = ...,
-        view: vdp.pipeline.v1alpha.common_pb2.View.ValueType | None = ...,
+        view: global___ListUserPipelineReleasesRequest.View.ValueType | None = ...,
         filter: builtins.str | None = ...,
         parent: builtins.str = ...,
         show_deleted: builtins.bool | None = ...,
@@ -1192,17 +1327,44 @@ class GetUserPipelineReleaseRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    class _View:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[GetUserPipelineReleaseRequest._View.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        VIEW_UNSPECIFIED: GetUserPipelineReleaseRequest._View.ValueType  # 0
+        """View: UNSPECIFIED"""
+        VIEW_BASIC: GetUserPipelineReleaseRequest._View.ValueType  # 1
+        """View: BASIC"""
+        VIEW_FULL: GetUserPipelineReleaseRequest._View.ValueType  # 2
+        """View: FULL"""
+        VIEW_RECIPE: GetUserPipelineReleaseRequest._View.ValueType  # 3
+        """View: RECIPE: will return recipe"""
+
+    class View(_View, metaclass=_ViewEnumTypeWrapper):
+        """Pipeline View"""
+
+    VIEW_UNSPECIFIED: GetUserPipelineReleaseRequest.View.ValueType  # 0
+    """View: UNSPECIFIED"""
+    VIEW_BASIC: GetUserPipelineReleaseRequest.View.ValueType  # 1
+    """View: BASIC"""
+    VIEW_FULL: GetUserPipelineReleaseRequest.View.ValueType  # 2
+    """View: FULL"""
+    VIEW_RECIPE: GetUserPipelineReleaseRequest.View.ValueType  # 3
+    """View: RECIPE: will return recipe"""
+
     NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     name: builtins.str
     """PipelineRelease resource name. It must have the format of "users/*/pipelines/*/releases/*" """
-    view: vdp.pipeline.v1alpha.common_pb2.View.ValueType
+    view: global___GetUserPipelineReleaseRequest.View.ValueType
     """PipelineRelease resource view (default is VIEW_BASIC)"""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
-        view: vdp.pipeline.v1alpha.common_pb2.View.ValueType | None = ...,
+        view: global___GetUserPipelineReleaseRequest.View.ValueType | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "name", b"name", "view", b"view"]) -> None: ...
@@ -1572,6 +1734,33 @@ class ListPipelinesAdminRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    class _View:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ListPipelinesAdminRequest._View.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        VIEW_UNSPECIFIED: ListPipelinesAdminRequest._View.ValueType  # 0
+        """View: UNSPECIFIED"""
+        VIEW_BASIC: ListPipelinesAdminRequest._View.ValueType  # 1
+        """View: BASIC"""
+        VIEW_FULL: ListPipelinesAdminRequest._View.ValueType  # 2
+        """View: FULL"""
+        VIEW_RECIPE: ListPipelinesAdminRequest._View.ValueType  # 3
+        """View: RECIPE: will return recipe"""
+
+    class View(_View, metaclass=_ViewEnumTypeWrapper):
+        """Pipeline View"""
+
+    VIEW_UNSPECIFIED: ListPipelinesAdminRequest.View.ValueType  # 0
+    """View: UNSPECIFIED"""
+    VIEW_BASIC: ListPipelinesAdminRequest.View.ValueType  # 1
+    """View: BASIC"""
+    VIEW_FULL: ListPipelinesAdminRequest.View.ValueType  # 2
+    """View: FULL"""
+    VIEW_RECIPE: ListPipelinesAdminRequest.View.ValueType  # 3
+    """View: RECIPE: will return recipe"""
+
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
@@ -1584,7 +1773,7 @@ class ListPipelinesAdminRequest(google.protobuf.message.Message):
     """
     page_token: builtins.str
     """Page token"""
-    view: vdp.pipeline.v1alpha.common_pb2.View.ValueType
+    view: global___ListPipelinesAdminRequest.View.ValueType
     """View view (default is VIEW_BASIC)"""
     filter: builtins.str
     """Filter expression to list pipelines"""
@@ -1595,7 +1784,7 @@ class ListPipelinesAdminRequest(google.protobuf.message.Message):
         *,
         page_size: builtins.int | None = ...,
         page_token: builtins.str | None = ...,
-        view: vdp.pipeline.v1alpha.common_pb2.View.ValueType | None = ...,
+        view: global___ListPipelinesAdminRequest.View.ValueType | None = ...,
         filter: builtins.str | None = ...,
         show_deleted: builtins.bool | None = ...,
     ) -> None: ...
@@ -1652,6 +1841,33 @@ class ListPipelineReleasesAdminRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    class _View:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ListPipelineReleasesAdminRequest._View.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        VIEW_UNSPECIFIED: ListPipelineReleasesAdminRequest._View.ValueType  # 0
+        """View: UNSPECIFIED"""
+        VIEW_BASIC: ListPipelineReleasesAdminRequest._View.ValueType  # 1
+        """View: BASIC"""
+        VIEW_FULL: ListPipelineReleasesAdminRequest._View.ValueType  # 2
+        """View: FULL"""
+        VIEW_RECIPE: ListPipelineReleasesAdminRequest._View.ValueType  # 3
+        """View: RECIPE: will return recipe"""
+
+    class View(_View, metaclass=_ViewEnumTypeWrapper):
+        """Pipeline View"""
+
+    VIEW_UNSPECIFIED: ListPipelineReleasesAdminRequest.View.ValueType  # 0
+    """View: UNSPECIFIED"""
+    VIEW_BASIC: ListPipelineReleasesAdminRequest.View.ValueType  # 1
+    """View: BASIC"""
+    VIEW_FULL: ListPipelineReleasesAdminRequest.View.ValueType  # 2
+    """View: FULL"""
+    VIEW_RECIPE: ListPipelineReleasesAdminRequest.View.ValueType  # 3
+    """View: RECIPE: will return recipe"""
+
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
@@ -1664,7 +1880,7 @@ class ListPipelineReleasesAdminRequest(google.protobuf.message.Message):
     """
     page_token: builtins.str
     """Page token"""
-    view: vdp.pipeline.v1alpha.common_pb2.View.ValueType
+    view: global___ListPipelineReleasesAdminRequest.View.ValueType
     """View view (default is VIEW_BASIC)"""
     filter: builtins.str
     """Filter expression to list pipelines"""
@@ -1675,7 +1891,7 @@ class ListPipelineReleasesAdminRequest(google.protobuf.message.Message):
         *,
         page_size: builtins.int | None = ...,
         page_token: builtins.str | None = ...,
-        view: vdp.pipeline.v1alpha.common_pb2.View.ValueType | None = ...,
+        view: global___ListPipelineReleasesAdminRequest.View.ValueType | None = ...,
         filter: builtins.str | None = ...,
         show_deleted: builtins.bool | None = ...,
     ) -> None: ...
@@ -1732,19 +1948,46 @@ class LookUpPipelineAdminRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    class _View:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[LookUpPipelineAdminRequest._View.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        VIEW_UNSPECIFIED: LookUpPipelineAdminRequest._View.ValueType  # 0
+        """View: UNSPECIFIED"""
+        VIEW_BASIC: LookUpPipelineAdminRequest._View.ValueType  # 1
+        """View: BASIC"""
+        VIEW_FULL: LookUpPipelineAdminRequest._View.ValueType  # 2
+        """View: FULL"""
+        VIEW_RECIPE: LookUpPipelineAdminRequest._View.ValueType  # 3
+        """View: RECIPE: will return recipe"""
+
+    class View(_View, metaclass=_ViewEnumTypeWrapper):
+        """Pipeline View"""
+
+    VIEW_UNSPECIFIED: LookUpPipelineAdminRequest.View.ValueType  # 0
+    """View: UNSPECIFIED"""
+    VIEW_BASIC: LookUpPipelineAdminRequest.View.ValueType  # 1
+    """View: BASIC"""
+    VIEW_FULL: LookUpPipelineAdminRequest.View.ValueType  # 2
+    """View: FULL"""
+    VIEW_RECIPE: LookUpPipelineAdminRequest.View.ValueType  # 3
+    """View: RECIPE: will return recipe"""
+
     PERMALINK_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     permalink: builtins.str
     """Permalink of a pipeline. For example:
     "pipelines/{uid}"
     """
-    view: vdp.pipeline.v1alpha.common_pb2.View.ValueType
+    view: global___LookUpPipelineAdminRequest.View.ValueType
     """View view (default is VIEW_BASIC)"""
     def __init__(
         self,
         *,
         permalink: builtins.str = ...,
-        view: vdp.pipeline.v1alpha.common_pb2.View.ValueType | None = ...,
+        view: global___LookUpPipelineAdminRequest.View.ValueType | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "permalink", b"permalink", "view", b"view"]) -> None: ...

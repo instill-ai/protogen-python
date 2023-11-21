@@ -8,7 +8,7 @@ import google.protobuf.descriptor
 import google.protobuf.message
 import sys
 import typing
-import vdp.connector.v1alpha.connector_pb2
+import vdp.pipeline.v1alpha.connector_pb2
 import vdp.pipeline.v1alpha.pipeline_pb2
 
 if sys.version_info >= (3, 8):
@@ -117,8 +117,8 @@ class Resource(google.protobuf.message.Message):
     """
     pipeline_state: vdp.pipeline.v1alpha.pipeline_pb2.State.ValueType
     """Pipeline state"""
-    connector_state: vdp.connector.v1alpha.connector_pb2.ConnectorResource.State.ValueType
-    """ConnectorResource state"""
+    connector_state: vdp.pipeline.v1alpha.connector_pb2.Connector.State.ValueType
+    """Connector state"""
     backend_state: common.healthcheck.v1alpha.healthcheck_pb2.HealthCheckResponse.ServingStatus.ValueType
     """Backend service state"""
     progress: builtins.int
@@ -128,7 +128,7 @@ class Resource(google.protobuf.message.Message):
         *,
         resource_permalink: builtins.str = ...,
         pipeline_state: vdp.pipeline.v1alpha.pipeline_pb2.State.ValueType = ...,
-        connector_state: vdp.connector.v1alpha.connector_pb2.ConnectorResource.State.ValueType = ...,
+        connector_state: vdp.pipeline.v1alpha.connector_pb2.Connector.State.ValueType = ...,
         backend_state: common.healthcheck.v1alpha.healthcheck_pb2.HealthCheckResponse.ServingStatus.ValueType = ...,
         progress: builtins.int | None = ...,
     ) -> None: ...

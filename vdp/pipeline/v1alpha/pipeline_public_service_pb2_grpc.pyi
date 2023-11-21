@@ -7,6 +7,8 @@ import collections.abc
 import grpc
 import grpc.aio
 import typing
+import vdp.pipeline.v1alpha.connector_definition_pb2
+import vdp.pipeline.v1alpha.connector_pb2
 import vdp.pipeline.v1alpha.operator_definition_pb2
 import vdp.pipeline.v1alpha.pipeline_pb2
 
@@ -216,6 +218,132 @@ class PipelinePublicServiceStub:
     """TriggerAsyncUserPipelineRelease method receives a TriggerAsyncUserPipelineReleaseRequest message and
     returns a TriggerAsyncUserPipelineReleaseResponse.
     """
+    ListConnectorDefinitions: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_definition_pb2.ListConnectorDefinitionsRequest,
+        vdp.pipeline.v1alpha.connector_definition_pb2.ListConnectorDefinitionsResponse,
+    ]
+    """ListConnectorDefinitions method receives a
+    ListConnectorDefinitionsRequest message and returns a
+    ListConnectorDefinitionsResponse message.
+    """
+    GetConnectorDefinition: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_definition_pb2.GetConnectorDefinitionRequest,
+        vdp.pipeline.v1alpha.connector_definition_pb2.GetConnectorDefinitionResponse,
+    ]
+    """GetConnectorDefinition method receives a
+    GetConnectorDefinitionRequest message and returns a
+    GetGetConnectorDefinitionResponse message.
+    """
+    ListConnectors: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.ListConnectorsRequest,
+        vdp.pipeline.v1alpha.connector_pb2.ListConnectorsResponse,
+    ]
+    """///////////////////////////////
+    Connector methods
+    ///////////////////////////////
+
+    ListConnectors method receives a
+    ListConnectorsRequest message and returns a
+    ListConnectorsResponse message.
+    """
+    LookUpConnector: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.LookUpConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.LookUpConnectorResponse,
+    ]
+    """LookUpConnector method receives a
+    LookUpConnectorRequest message and returns a
+    LookUpConnectorResponse
+    """
+    CreateUserConnector: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.CreateUserConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.CreateUserConnectorResponse,
+    ]
+    """CreateUserConnector method receives a
+    CreateUserConnectorRequest message and returns a
+    CreateUserConnectorResponse message.
+    """
+    ListUserConnectors: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.ListUserConnectorsRequest,
+        vdp.pipeline.v1alpha.connector_pb2.ListUserConnectorsResponse,
+    ]
+    """ListUserConnectors method receives a
+    ListUserConnectorsRequest message and returns a
+    ListUserConnectorsResponse message.
+    """
+    GetUserConnector: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.GetUserConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.GetUserConnectorResponse,
+    ]
+    """GetUserConnector method receives a GetUserConnectorRequest
+    message and returns a GetUserConnectorResponse message.
+    """
+    UpdateUserConnector: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.UpdateUserConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.UpdateUserConnectorResponse,
+    ]
+    """UpdateUserConnector method receives a
+    UpdateUserConnectorRequest message and returns a
+    UpdateUserConnectorResponse message.
+    """
+    DeleteUserConnector: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.DeleteUserConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.DeleteUserConnectorResponse,
+    ]
+    """DeleteUserConnector method receives a
+    DeleteUserConnectorRequest message and returns a
+    DeleteUserConnectorResponse message.
+    """
+    ConnectUserConnector: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.ConnectUserConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.ConnectUserConnectorResponse,
+    ]
+    """Connect a connector.
+    The "state" of the connector after connecting is "CONNECTED".
+    ConnectUserConnector can be called on Connector in the
+    state `DISCONNECTED`; Connector in a different state (including
+    `CONNECTED`) returns an error.
+    """
+    DisconnectUserConnector: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.DisconnectUserConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.DisconnectUserConnectorResponse,
+    ]
+    """Disconnect a connector.
+    The "state" of the connector after disconnecting is "DISCONNECTED".
+    DisconnectUserConnector can be called on Connector in the
+    state `CONNECTED`; Connector in a different state (including
+    `DISCONNECTED`) returns an error.
+    """
+    RenameUserConnector: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.RenameUserConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.RenameUserConnectorResponse,
+    ]
+    """RenameUserConnector method receives a
+    RenameUserConnectorRequest message and returns a
+    RenameUserConnectorResponse message.
+    """
+    ExecuteUserConnector: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.ExecuteUserConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.ExecuteUserConnectorResponse,
+    ]
+    """ExecuteUserConnector method receives a
+    ExecuteUserConnectorRequest message and returns a
+    ExecuteUserConnectorResponse message.
+    """
+    WatchUserConnector: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.WatchUserConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.WatchUserConnectorResponse,
+    ]
+    """WatchUserConnector method receives a
+    WatchUserConnectorRequest message and returns a
+    WatchUserConnectorResponse
+    """
+    TestUserConnector: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.TestUserConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.TestUserConnectorResponse,
+    ]
+    """TestUserConnector method receives a TestUserConnectorRequest
+    message and returns a TestUserConnectorResponse
+    """
 
 class PipelinePublicServiceAsyncStub:
     """Pipeline service responds to external access"""
@@ -413,6 +541,132 @@ class PipelinePublicServiceAsyncStub:
     ]
     """TriggerAsyncUserPipelineRelease method receives a TriggerAsyncUserPipelineReleaseRequest message and
     returns a TriggerAsyncUserPipelineReleaseResponse.
+    """
+    ListConnectorDefinitions: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_definition_pb2.ListConnectorDefinitionsRequest,
+        vdp.pipeline.v1alpha.connector_definition_pb2.ListConnectorDefinitionsResponse,
+    ]
+    """ListConnectorDefinitions method receives a
+    ListConnectorDefinitionsRequest message and returns a
+    ListConnectorDefinitionsResponse message.
+    """
+    GetConnectorDefinition: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_definition_pb2.GetConnectorDefinitionRequest,
+        vdp.pipeline.v1alpha.connector_definition_pb2.GetConnectorDefinitionResponse,
+    ]
+    """GetConnectorDefinition method receives a
+    GetConnectorDefinitionRequest message and returns a
+    GetGetConnectorDefinitionResponse message.
+    """
+    ListConnectors: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.ListConnectorsRequest,
+        vdp.pipeline.v1alpha.connector_pb2.ListConnectorsResponse,
+    ]
+    """///////////////////////////////
+    Connector methods
+    ///////////////////////////////
+
+    ListConnectors method receives a
+    ListConnectorsRequest message and returns a
+    ListConnectorsResponse message.
+    """
+    LookUpConnector: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.LookUpConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.LookUpConnectorResponse,
+    ]
+    """LookUpConnector method receives a
+    LookUpConnectorRequest message and returns a
+    LookUpConnectorResponse
+    """
+    CreateUserConnector: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.CreateUserConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.CreateUserConnectorResponse,
+    ]
+    """CreateUserConnector method receives a
+    CreateUserConnectorRequest message and returns a
+    CreateUserConnectorResponse message.
+    """
+    ListUserConnectors: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.ListUserConnectorsRequest,
+        vdp.pipeline.v1alpha.connector_pb2.ListUserConnectorsResponse,
+    ]
+    """ListUserConnectors method receives a
+    ListUserConnectorsRequest message and returns a
+    ListUserConnectorsResponse message.
+    """
+    GetUserConnector: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.GetUserConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.GetUserConnectorResponse,
+    ]
+    """GetUserConnector method receives a GetUserConnectorRequest
+    message and returns a GetUserConnectorResponse message.
+    """
+    UpdateUserConnector: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.UpdateUserConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.UpdateUserConnectorResponse,
+    ]
+    """UpdateUserConnector method receives a
+    UpdateUserConnectorRequest message and returns a
+    UpdateUserConnectorResponse message.
+    """
+    DeleteUserConnector: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.DeleteUserConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.DeleteUserConnectorResponse,
+    ]
+    """DeleteUserConnector method receives a
+    DeleteUserConnectorRequest message and returns a
+    DeleteUserConnectorResponse message.
+    """
+    ConnectUserConnector: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.ConnectUserConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.ConnectUserConnectorResponse,
+    ]
+    """Connect a connector.
+    The "state" of the connector after connecting is "CONNECTED".
+    ConnectUserConnector can be called on Connector in the
+    state `DISCONNECTED`; Connector in a different state (including
+    `CONNECTED`) returns an error.
+    """
+    DisconnectUserConnector: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.DisconnectUserConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.DisconnectUserConnectorResponse,
+    ]
+    """Disconnect a connector.
+    The "state" of the connector after disconnecting is "DISCONNECTED".
+    DisconnectUserConnector can be called on Connector in the
+    state `CONNECTED`; Connector in a different state (including
+    `DISCONNECTED`) returns an error.
+    """
+    RenameUserConnector: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.RenameUserConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.RenameUserConnectorResponse,
+    ]
+    """RenameUserConnector method receives a
+    RenameUserConnectorRequest message and returns a
+    RenameUserConnectorResponse message.
+    """
+    ExecuteUserConnector: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.ExecuteUserConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.ExecuteUserConnectorResponse,
+    ]
+    """ExecuteUserConnector method receives a
+    ExecuteUserConnectorRequest message and returns a
+    ExecuteUserConnectorResponse message.
+    """
+    WatchUserConnector: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.WatchUserConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.WatchUserConnectorResponse,
+    ]
+    """WatchUserConnector method receives a
+    WatchUserConnectorRequest message and returns a
+    WatchUserConnectorResponse
+    """
+    TestUserConnector: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.TestUserConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.TestUserConnectorResponse,
+    ]
+    """TestUserConnector method receives a TestUserConnectorRequest
+    message and returns a TestUserConnectorResponse
     """
 
 class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
@@ -665,6 +919,162 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[vdp.pipeline.v1alpha.pipeline_pb2.TriggerAsyncUserPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.pipeline_pb2.TriggerAsyncUserPipelineReleaseResponse]]:
         """TriggerAsyncUserPipelineRelease method receives a TriggerAsyncUserPipelineReleaseRequest message and
         returns a TriggerAsyncUserPipelineReleaseResponse.
+        """
+    @abc.abstractmethod
+    def ListConnectorDefinitions(
+        self,
+        request: vdp.pipeline.v1alpha.connector_definition_pb2.ListConnectorDefinitionsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_definition_pb2.ListConnectorDefinitionsResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_definition_pb2.ListConnectorDefinitionsResponse]]:
+        """ListConnectorDefinitions method receives a
+        ListConnectorDefinitionsRequest message and returns a
+        ListConnectorDefinitionsResponse message.
+        """
+    @abc.abstractmethod
+    def GetConnectorDefinition(
+        self,
+        request: vdp.pipeline.v1alpha.connector_definition_pb2.GetConnectorDefinitionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_definition_pb2.GetConnectorDefinitionResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_definition_pb2.GetConnectorDefinitionResponse]]:
+        """GetConnectorDefinition method receives a
+        GetConnectorDefinitionRequest message and returns a
+        GetGetConnectorDefinitionResponse message.
+        """
+    @abc.abstractmethod
+    def ListConnectors(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.ListConnectorsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.ListConnectorsResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.ListConnectorsResponse]]:
+        """///////////////////////////////
+        Connector methods
+        ///////////////////////////////
+
+        ListConnectors method receives a
+        ListConnectorsRequest message and returns a
+        ListConnectorsResponse message.
+        """
+    @abc.abstractmethod
+    def LookUpConnector(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.LookUpConnectorRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.LookUpConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.LookUpConnectorResponse]]:
+        """LookUpConnector method receives a
+        LookUpConnectorRequest message and returns a
+        LookUpConnectorResponse
+        """
+    @abc.abstractmethod
+    def CreateUserConnector(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.CreateUserConnectorRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.CreateUserConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.CreateUserConnectorResponse]]:
+        """CreateUserConnector method receives a
+        CreateUserConnectorRequest message and returns a
+        CreateUserConnectorResponse message.
+        """
+    @abc.abstractmethod
+    def ListUserConnectors(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.ListUserConnectorsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.ListUserConnectorsResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.ListUserConnectorsResponse]]:
+        """ListUserConnectors method receives a
+        ListUserConnectorsRequest message and returns a
+        ListUserConnectorsResponse message.
+        """
+    @abc.abstractmethod
+    def GetUserConnector(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.GetUserConnectorRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.GetUserConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.GetUserConnectorResponse]]:
+        """GetUserConnector method receives a GetUserConnectorRequest
+        message and returns a GetUserConnectorResponse message.
+        """
+    @abc.abstractmethod
+    def UpdateUserConnector(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.UpdateUserConnectorRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.UpdateUserConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.UpdateUserConnectorResponse]]:
+        """UpdateUserConnector method receives a
+        UpdateUserConnectorRequest message and returns a
+        UpdateUserConnectorResponse message.
+        """
+    @abc.abstractmethod
+    def DeleteUserConnector(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.DeleteUserConnectorRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.DeleteUserConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.DeleteUserConnectorResponse]]:
+        """DeleteUserConnector method receives a
+        DeleteUserConnectorRequest message and returns a
+        DeleteUserConnectorResponse message.
+        """
+    @abc.abstractmethod
+    def ConnectUserConnector(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.ConnectUserConnectorRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.ConnectUserConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.ConnectUserConnectorResponse]]:
+        """Connect a connector.
+        The "state" of the connector after connecting is "CONNECTED".
+        ConnectUserConnector can be called on Connector in the
+        state `DISCONNECTED`; Connector in a different state (including
+        `CONNECTED`) returns an error.
+        """
+    @abc.abstractmethod
+    def DisconnectUserConnector(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.DisconnectUserConnectorRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.DisconnectUserConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.DisconnectUserConnectorResponse]]:
+        """Disconnect a connector.
+        The "state" of the connector after disconnecting is "DISCONNECTED".
+        DisconnectUserConnector can be called on Connector in the
+        state `CONNECTED`; Connector in a different state (including
+        `DISCONNECTED`) returns an error.
+        """
+    @abc.abstractmethod
+    def RenameUserConnector(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.RenameUserConnectorRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.RenameUserConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.RenameUserConnectorResponse]]:
+        """RenameUserConnector method receives a
+        RenameUserConnectorRequest message and returns a
+        RenameUserConnectorResponse message.
+        """
+    @abc.abstractmethod
+    def ExecuteUserConnector(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.ExecuteUserConnectorRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.ExecuteUserConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.ExecuteUserConnectorResponse]]:
+        """ExecuteUserConnector method receives a
+        ExecuteUserConnectorRequest message and returns a
+        ExecuteUserConnectorResponse message.
+        """
+    @abc.abstractmethod
+    def WatchUserConnector(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.WatchUserConnectorRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.WatchUserConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.WatchUserConnectorResponse]]:
+        """WatchUserConnector method receives a
+        WatchUserConnectorRequest message and returns a
+        WatchUserConnectorResponse
+        """
+    @abc.abstractmethod
+    def TestUserConnector(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.TestUserConnectorRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.TestUserConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.TestUserConnectorResponse]]:
+        """TestUserConnector method receives a TestUserConnectorRequest
+        message and returns a TestUserConnectorResponse
         """
 
 def add_PipelinePublicServiceServicer_to_server(servicer: PipelinePublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
