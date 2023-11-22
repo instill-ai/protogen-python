@@ -24,12 +24,19 @@ class TextToImageInput(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PROMPT_FIELD_NUMBER: builtins.int
+    PROMPT_IMAGE_URL_FIELD_NUMBER: builtins.int
+    PROMPT_IMAGE_BASE64_FIELD_NUMBER: builtins.int
     STEPS_FIELD_NUMBER: builtins.int
     CFG_SCALE_FIELD_NUMBER: builtins.int
     SEED_FIELD_NUMBER: builtins.int
     SAMPLES_FIELD_NUMBER: builtins.int
+    EXTRA_PARAMS_FIELD_NUMBER: builtins.int
     prompt: builtins.str
     """The prompt text"""
+    prompt_image_url: builtins.str
+    """Image type URL"""
+    prompt_image_base64: builtins.str
+    """Image type base64"""
     steps: builtins.int
     """The steps, default is 5"""
     cfg_scale: builtins.float
@@ -38,25 +45,34 @@ class TextToImageInput(google.protobuf.message.Message):
     """The seed, default is 0"""
     samples: builtins.int
     """The number of generated samples, default is 1"""
+    extra_params: builtins.str
+    """The extra parameters"""
     def __init__(
         self,
         *,
         prompt: builtins.str = ...,
+        prompt_image_url: builtins.str = ...,
+        prompt_image_base64: builtins.str = ...,
         steps: builtins.int | None = ...,
         cfg_scale: builtins.float | None = ...,
         seed: builtins.int | None = ...,
         samples: builtins.int | None = ...,
+        extra_params: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_cfg_scale", b"_cfg_scale", "_samples", b"_samples", "_seed", b"_seed", "_steps", b"_steps", "cfg_scale", b"cfg_scale", "samples", b"samples", "seed", b"seed", "steps", b"steps"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_cfg_scale", b"_cfg_scale", "_samples", b"_samples", "_seed", b"_seed", "_steps", b"_steps", "cfg_scale", b"cfg_scale", "prompt", b"prompt", "samples", b"samples", "seed", b"seed", "steps", b"steps"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_cfg_scale", b"_cfg_scale", "_extra_params", b"_extra_params", "_samples", b"_samples", "_seed", b"_seed", "_steps", b"_steps", "cfg_scale", b"cfg_scale", "extra_params", b"extra_params", "prompt_image_base64", b"prompt_image_base64", "prompt_image_url", b"prompt_image_url", "samples", b"samples", "seed", b"seed", "steps", b"steps", "type", b"type"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_cfg_scale", b"_cfg_scale", "_extra_params", b"_extra_params", "_samples", b"_samples", "_seed", b"_seed", "_steps", b"_steps", "cfg_scale", b"cfg_scale", "extra_params", b"extra_params", "prompt", b"prompt", "prompt_image_base64", b"prompt_image_base64", "prompt_image_url", b"prompt_image_url", "samples", b"samples", "seed", b"seed", "steps", b"steps", "type", b"type"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_cfg_scale", b"_cfg_scale"]) -> typing_extensions.Literal["cfg_scale"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_extra_params", b"_extra_params"]) -> typing_extensions.Literal["extra_params"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_samples", b"_samples"]) -> typing_extensions.Literal["samples"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_seed", b"_seed"]) -> typing_extensions.Literal["seed"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_steps", b"_steps"]) -> typing_extensions.Literal["steps"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["type", b"type"]) -> typing_extensions.Literal["prompt_image_url", "prompt_image_base64"] | None: ...
 
 global___TextToImageInput = TextToImageInput
 
