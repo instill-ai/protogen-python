@@ -10,6 +10,7 @@ import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
+import google.protobuf.struct_pb2
 import google.protobuf.timestamp_pb2
 import sys
 import typing
@@ -203,6 +204,8 @@ class User(google.protobuf.message.Message):
     ROLE_FIELD_NUMBER: builtins.int
     NEWSLETTER_SUBSCRIPTION_FIELD_NUMBER: builtins.int
     COOKIE_TOKEN_FIELD_NUMBER: builtins.int
+    PROFILE_AVATAR_FIELD_NUMBER: builtins.int
+    PROFILE_DATA_FIELD_NUMBER: builtins.int
     name: builtins.str
     """Resource name. It must have the format of "users/*".
     For example: "users/local-user".
@@ -248,6 +251,11 @@ class User(google.protobuf.message.Message):
     """User newsletter subscription"""
     cookie_token: builtins.str
     """User console cookie token"""
+    profile_avatar: builtins.str
+    """Profile Avatar base64"""
+    @property
+    def profile_data(self) -> google.protobuf.struct_pb2.Struct:
+        """Profile Data"""
     def __init__(
         self,
         *,
@@ -264,9 +272,11 @@ class User(google.protobuf.message.Message):
         role: builtins.str | None = ...,
         newsletter_subscription: builtins.bool = ...,
         cookie_token: builtins.str | None = ...,
+        profile_avatar: builtins.str | None = ...,
+        profile_data: google.protobuf.struct_pb2.Struct | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_cookie_token", b"_cookie_token", "_first_name", b"_first_name", "_last_name", b"_last_name", "_org_name", b"_org_name", "_role", b"_role", "_uid", b"_uid", "cookie_token", b"cookie_token", "create_time", b"create_time", "first_name", b"first_name", "last_name", b"last_name", "org_name", b"org_name", "role", b"role", "uid", b"uid", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_cookie_token", b"_cookie_token", "_first_name", b"_first_name", "_last_name", b"_last_name", "_org_name", b"_org_name", "_role", b"_role", "_uid", b"_uid", "cookie_token", b"cookie_token", "create_time", b"create_time", "customer_id", b"customer_id", "email", b"email", "first_name", b"first_name", "id", b"id", "last_name", b"last_name", "name", b"name", "newsletter_subscription", b"newsletter_subscription", "org_name", b"org_name", "role", b"role", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_cookie_token", b"_cookie_token", "_first_name", b"_first_name", "_last_name", b"_last_name", "_org_name", b"_org_name", "_profile_avatar", b"_profile_avatar", "_profile_data", b"_profile_data", "_role", b"_role", "_uid", b"_uid", "cookie_token", b"cookie_token", "create_time", b"create_time", "first_name", b"first_name", "last_name", b"last_name", "org_name", b"org_name", "profile_avatar", b"profile_avatar", "profile_data", b"profile_data", "role", b"role", "uid", b"uid", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_cookie_token", b"_cookie_token", "_first_name", b"_first_name", "_last_name", b"_last_name", "_org_name", b"_org_name", "_profile_avatar", b"_profile_avatar", "_profile_data", b"_profile_data", "_role", b"_role", "_uid", b"_uid", "cookie_token", b"cookie_token", "create_time", b"create_time", "customer_id", b"customer_id", "email", b"email", "first_name", b"first_name", "id", b"id", "last_name", b"last_name", "name", b"name", "newsletter_subscription", b"newsletter_subscription", "org_name", b"org_name", "profile_avatar", b"profile_avatar", "profile_data", b"profile_data", "role", b"role", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_cookie_token", b"_cookie_token"]) -> typing_extensions.Literal["cookie_token"] | None: ...
     @typing.overload
@@ -275,6 +285,10 @@ class User(google.protobuf.message.Message):
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_last_name", b"_last_name"]) -> typing_extensions.Literal["last_name"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_org_name", b"_org_name"]) -> typing_extensions.Literal["org_name"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_profile_avatar", b"_profile_avatar"]) -> typing_extensions.Literal["profile_avatar"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_profile_data", b"_profile_data"]) -> typing_extensions.Literal["profile_data"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_role", b"_role"]) -> typing_extensions.Literal["role"] | None: ...
     @typing.overload
@@ -1318,6 +1332,8 @@ class Organization(google.protobuf.message.Message):
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     ORG_NAME_FIELD_NUMBER: builtins.int
     CUSTOMER_ID_FIELD_NUMBER: builtins.int
+    PROFILE_AVATAR_FIELD_NUMBER: builtins.int
+    PROFILE_DATA_FIELD_NUMBER: builtins.int
     name: builtins.str
     """Resource name. It must have the format of "organizations/*".
     For example: "organizations/local-organization".
@@ -1341,6 +1357,11 @@ class Organization(google.protobuf.message.Message):
     """Organization company or institution name"""
     customer_id: builtins.str
     """Stripe customer ID. This field is used in Instill Cloud."""
+    profile_avatar: builtins.str
+    """Profile Avatar base64"""
+    @property
+    def profile_data(self) -> google.protobuf.struct_pb2.Struct:
+        """Profile Data"""
     def __init__(
         self,
         *,
@@ -1351,10 +1372,17 @@ class Organization(google.protobuf.message.Message):
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         org_name: builtins.str | None = ...,
         customer_id: builtins.str = ...,
+        profile_avatar: builtins.str | None = ...,
+        profile_data: google.protobuf.struct_pb2.Struct | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_org_name", b"_org_name", "create_time", b"create_time", "org_name", b"org_name", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_org_name", b"_org_name", "create_time", b"create_time", "customer_id", b"customer_id", "id", b"id", "name", b"name", "org_name", b"org_name", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_org_name", b"_org_name", "_profile_avatar", b"_profile_avatar", "_profile_data", b"_profile_data", "create_time", b"create_time", "org_name", b"org_name", "profile_avatar", b"profile_avatar", "profile_data", b"profile_data", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_org_name", b"_org_name", "_profile_avatar", b"_profile_avatar", "_profile_data", b"_profile_data", "create_time", b"create_time", "customer_id", b"customer_id", "id", b"id", "name", b"name", "org_name", b"org_name", "profile_avatar", b"profile_avatar", "profile_data", b"profile_data", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_org_name", b"_org_name"]) -> typing_extensions.Literal["org_name"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_profile_avatar", b"_profile_avatar"]) -> typing_extensions.Literal["profile_avatar"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_profile_data", b"_profile_data"]) -> typing_extensions.Literal["profile_data"] | None: ...
 
 global___Organization = Organization
 
