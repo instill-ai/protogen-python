@@ -40,22 +40,6 @@ class PipelinePublicServiceStub:
     ReadinessResponse message.
     See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
     """
-    ListOperatorDefinitions: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1alpha.operator_definition_pb2.ListOperatorDefinitionsRequest,
-        vdp.pipeline.v1alpha.operator_definition_pb2.ListOperatorDefinitionsResponse,
-    ]
-    """ListOperatorDefinitions method receives a
-    ListOperatorDefinitionsRequest message and returns a
-    ListOperatorDefinitionsResponse message.
-    """
-    GetOperatorDefinition: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1alpha.operator_definition_pb2.GetOperatorDefinitionRequest,
-        vdp.pipeline.v1alpha.operator_definition_pb2.GetOperatorDefinitionResponse,
-    ]
-    """GetOperatorDefinition method receives a
-    GetOperatorDefinitionRequest message and returns a
-    GetGetOperatorDefinitionResponse message.
-    """
     ListPipelines: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1alpha.pipeline_pb2.ListPipelinesRequest,
         vdp.pipeline.v1alpha.pipeline_pb2.ListPipelinesResponse,
@@ -131,16 +115,6 @@ class PipelinePublicServiceStub:
     """TriggerAsyncUserPipeline method receives a TriggerAsyncUserPipelineRequest message and
     returns a TriggerAsyncUserPipelineResponse.
     """
-    GetOperation: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1alpha.pipeline_pb2.GetOperationRequest,
-        vdp.pipeline.v1alpha.pipeline_pb2.GetOperationResponse,
-    ]
-    """*Longrunning operation methods
-
-    GetOperation method receives a
-    GetOperationRequest message and returns a
-    GetOperationResponse message.
-    """
     CreateUserPipelineRelease: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1alpha.pipeline_pb2.CreateUserPipelineReleaseRequest,
         vdp.pipeline.v1alpha.pipeline_pb2.CreateUserPipelineReleaseResponse,
@@ -183,13 +157,6 @@ class PipelinePublicServiceStub:
     """RestoreUserPipelineRelease method receives a RestoreUserPipelineReleaseRequest message
     and returns a RestoreUserPipelineReleaseResponse
     """
-    SetDefaultUserPipelineRelease: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1alpha.pipeline_pb2.SetDefaultUserPipelineReleaseRequest,
-        vdp.pipeline.v1alpha.pipeline_pb2.SetDefaultUserPipelineReleaseResponse,
-    ]
-    """SetDefaultUserPipelineRelease method receives a SetDefaultUserPipelineReleaseRequest message
-    and returns a SetDefaultUserPipelineReleaseResponse
-    """
     WatchUserPipelineRelease: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1alpha.pipeline_pb2.WatchUserPipelineReleaseRequest,
         vdp.pipeline.v1alpha.pipeline_pb2.WatchUserPipelineReleaseResponse,
@@ -218,6 +185,147 @@ class PipelinePublicServiceStub:
     """TriggerAsyncUserPipelineRelease method receives a TriggerAsyncUserPipelineReleaseRequest message and
     returns a TriggerAsyncUserPipelineReleaseResponse.
     """
+    CreateOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.CreateOrganizationPipelineRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.CreateOrganizationPipelineResponse,
+    ]
+    """CreateOrganizationPipeline method receives a CreateOrganizationPipelineRequest message and returns
+    a CreateOrganizationPipelineResponse message.
+    """
+    ListOrganizationPipelines: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.ListOrganizationPipelinesRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.ListOrganizationPipelinesResponse,
+    ]
+    """ListOrganizationPipelines method receives a ListOrganizationPipelinesRequest message and returns a
+    ListOrganizationPipelinesResponse message.
+    """
+    GetOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.GetOrganizationPipelineRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.GetOrganizationPipelineResponse,
+    ]
+    """GetOrganizationPipeline method receives a GetOrganizationPipelineRequest message and returns a
+    GetOrganizationPipelineResponse message.
+    """
+    UpdateOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.UpdateOrganizationPipelineRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.UpdateOrganizationPipelineResponse,
+    ]
+    """UpdateOrganizationPipeline method receives a UpdateOrganizationPipelineRequest message and returns
+    a UpdateOrganizationPipelineResponse message.
+    """
+    DeleteOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.DeleteOrganizationPipelineRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.DeleteOrganizationPipelineResponse,
+    ]
+    """DeleteOrganizationPipeline method receives a DeleteOrganizationPipelineRequest message and returns
+    a DeleteOrganizationPipelineResponse message.
+    """
+    ValidateOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.ValidateOrganizationPipelineRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.ValidateOrganizationPipelineResponse,
+    ]
+    """Validate a pipeline."""
+    RenameOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.RenameOrganizationPipelineRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.RenameOrganizationPipelineResponse,
+    ]
+    """RenameOrganizationPipeline method receives a RenameOrganizationPipelineRequest message and returns
+    a RenameOrganizationPipelineResponse message.
+    """
+    TriggerOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.TriggerOrganizationPipelineRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.TriggerOrganizationPipelineResponse,
+    ]
+    """TriggerOrganizationPipeline method receives a TriggerOrganizationPipelineRequest message
+    and returns a TriggerOrganizationPipelineResponse.
+    """
+    TriggerAsyncOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.TriggerAsyncOrganizationPipelineRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.TriggerAsyncOrganizationPipelineResponse,
+    ]
+    """TriggerAsyncOrganizationPipeline method receives a TriggerAsyncOrganizationPipelineRequest message and
+    returns a TriggerAsyncOrganizationPipelineResponse.
+    """
+    CreateOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.CreateOrganizationPipelineReleaseRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.CreateOrganizationPipelineReleaseResponse,
+    ]
+    """CreateOrganizationPipelineRelease method receives a CreateOrganizationPipelineReleaseRequest message and returns
+    a CreateOrganizationPipelineReleaseResponse message.
+    """
+    ListOrganizationPipelineReleases: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.ListOrganizationPipelineReleasesRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.ListOrganizationPipelineReleasesResponse,
+    ]
+    """ListOrganizationPipelineReleases method receives a ListOrganizationPipelineReleasesRequest message and returns a
+    ListOrganizationPipelineReleasesResponse message.
+    """
+    GetOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.GetOrganizationPipelineReleaseRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.GetOrganizationPipelineReleaseResponse,
+    ]
+    """GetOrganizationPipelineRelease method receives a GetOrganizationPipelineReleaseRequest message and returns a
+    GetOrganizationPipelineReleaseResponse message.
+    """
+    UpdateOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.UpdateOrganizationPipelineReleaseRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.UpdateOrganizationPipelineReleaseResponse,
+    ]
+    """UpdateOrganizationPipelineRelease method receives a UpdateOrganizationPipelineReleaseRequest message and returns
+    a UpdateOrganizationPipelineReleaseResponse message.
+    """
+    DeleteOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.DeleteOrganizationPipelineReleaseRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.DeleteOrganizationPipelineReleaseResponse,
+    ]
+    """DeleteOrganizationPipelineRelease method receives a DeleteOrganizationPipelineReleaseRequest message and returns
+    a DeleteOrganizationPipelineReleaseResponse message.
+    """
+    RestoreOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.RestoreOrganizationPipelineReleaseRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.RestoreOrganizationPipelineReleaseResponse,
+    ]
+    """RestoreOrganizationPipelineRelease method receives a RestoreOrganizationPipelineReleaseRequest message
+    and returns a RestoreOrganizationPipelineReleaseResponse
+    """
+    WatchOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.WatchOrganizationPipelineReleaseRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.WatchOrganizationPipelineReleaseResponse,
+    ]
+    """WatchOrganizationPipelineRelease method receives a WatchOrganizationPipelineReleaseRequest message
+    and returns a WatchOrganizationPipelineReleaseResponse
+    """
+    RenameOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.RenameOrganizationPipelineReleaseRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.RenameOrganizationPipelineReleaseResponse,
+    ]
+    """RenameOrganizationPipelineRelease method receives a RenameOrganizationPipelineReleaseRequest message and returns
+    a RenameOrganizationPipelineReleaseResponse message.
+    """
+    TriggerOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.TriggerOrganizationPipelineReleaseRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.TriggerOrganizationPipelineReleaseResponse,
+    ]
+    """TriggerOrganizationPipelineRelease method receives a TriggeOrganizationPipelineReleaseRequest message
+    and returns a TriggerPipelineReleasePipelineResponse.
+    """
+    TriggerAsyncOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.TriggerAsyncOrganizationPipelineReleaseRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.TriggerAsyncOrganizationPipelineReleaseResponse,
+    ]
+    """TriggerAsyncOrganizationPipelineRelease method receives a TriggerAsyncOrganizationPipelineReleaseRequest message and
+    returns a TriggerAsyncOrganizationPipelineReleaseResponse.
+    """
+    GetOperation: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.GetOperationRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.GetOperationResponse,
+    ]
+    """*Longrunning operation methods
+
+    GetOperation method receives a
+    GetOperationRequest message and returns a
+    GetOperationResponse message.
+    """
     ListConnectorDefinitions: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1alpha.connector_definition_pb2.ListConnectorDefinitionsRequest,
         vdp.pipeline.v1alpha.connector_definition_pb2.ListConnectorDefinitionsResponse,
@@ -233,6 +341,22 @@ class PipelinePublicServiceStub:
     """GetConnectorDefinition method receives a
     GetConnectorDefinitionRequest message and returns a
     GetGetConnectorDefinitionResponse message.
+    """
+    ListOperatorDefinitions: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.operator_definition_pb2.ListOperatorDefinitionsRequest,
+        vdp.pipeline.v1alpha.operator_definition_pb2.ListOperatorDefinitionsResponse,
+    ]
+    """ListOperatorDefinitions method receives a
+    ListOperatorDefinitionsRequest message and returns a
+    ListOperatorDefinitionsResponse message.
+    """
+    GetOperatorDefinition: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.operator_definition_pb2.GetOperatorDefinitionRequest,
+        vdp.pipeline.v1alpha.operator_definition_pb2.GetOperatorDefinitionResponse,
+    ]
+    """GetOperatorDefinition method receives a
+    GetOperatorDefinitionRequest message and returns a
+    GetGetOperatorDefinitionResponse message.
     """
     ListConnectors: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1alpha.connector_pb2.ListConnectorsRequest,
@@ -344,6 +468,96 @@ class PipelinePublicServiceStub:
     """TestUserConnector method receives a TestUserConnectorRequest
     message and returns a TestUserConnectorResponse
     """
+    CreateOrganizationConnector: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.CreateOrganizationConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.CreateOrganizationConnectorResponse,
+    ]
+    """CreateOrganizationConnector method receives a
+    CreateOrganizationConnectorRequest message and returns a
+    CreateOrganizationConnectorResponse message.
+    """
+    ListOrganizationConnectors: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.ListOrganizationConnectorsRequest,
+        vdp.pipeline.v1alpha.connector_pb2.ListOrganizationConnectorsResponse,
+    ]
+    """ListOrganizationConnectors method receives a
+    ListOrganizationConnectorsRequest message and returns a
+    ListOrganizationConnectorsResponse message.
+    """
+    GetOrganizationConnector: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.GetOrganizationConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.GetOrganizationConnectorResponse,
+    ]
+    """GetOrganizationConnector method receives a GetOrganizationConnectorRequest
+    message and returns a GetOrganizationConnectorResponse message.
+    """
+    UpdateOrganizationConnector: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.UpdateOrganizationConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.UpdateOrganizationConnectorResponse,
+    ]
+    """UpdateOrganizationConnector method receives a
+    UpdateOrganizationConnectorRequest message and returns a
+    UpdateOrganizationConnectorResponse message.
+    """
+    DeleteOrganizationConnector: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.DeleteOrganizationConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.DeleteOrganizationConnectorResponse,
+    ]
+    """DeleteOrganizationConnector method receives a
+    DeleteOrganizationConnectorRequest message and returns a
+    DeleteOrganizationConnectorResponse message.
+    """
+    ConnectOrganizationConnector: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.ConnectOrganizationConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.ConnectOrganizationConnectorResponse,
+    ]
+    """Connect a connector.
+    The "state" of the connector after connecting is "CONNECTED".
+    ConnectOrganizationConnector can be called on Connector in the
+    state `DISCONNECTED`; Connector in a different state (including
+    `CONNECTED`) returns an error.
+    """
+    DisconnectOrganizationConnector: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.DisconnectOrganizationConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.DisconnectOrganizationConnectorResponse,
+    ]
+    """Disconnect a connector.
+    The "state" of the connector after disconnecting is "DISCONNECTED".
+    DisconnectOrganizationConnector can be called on Connector in the
+    state `CONNECTED`; Connector in a different state (including
+    `DISCONNECTED`) returns an error.
+    """
+    RenameOrganizationConnector: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.RenameOrganizationConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.RenameOrganizationConnectorResponse,
+    ]
+    """RenameOrganizationConnector method receives a
+    RenameOrganizationConnectorRequest message and returns a
+    RenameOrganizationConnectorResponse message.
+    """
+    ExecuteOrganizationConnector: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.ExecuteOrganizationConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.ExecuteOrganizationConnectorResponse,
+    ]
+    """ExecuteOrganizationConnector method receives a
+    ExecuteOrganizationConnectorRequest message and returns a
+    ExecuteOrganizationConnectorResponse message.
+    """
+    WatchOrganizationConnector: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.WatchOrganizationConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.WatchOrganizationConnectorResponse,
+    ]
+    """WatchOrganizationConnector method receives a
+    WatchOrganizationConnectorRequest message and returns a
+    WatchOrganizationConnectorResponse
+    """
+    TestOrganizationConnector: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.TestOrganizationConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.TestOrganizationConnectorResponse,
+    ]
+    """TestOrganizationConnector method receives a TestOrganizationConnectorRequest
+    message and returns a TestOrganizationConnectorResponse
+    """
 
 class PipelinePublicServiceAsyncStub:
     """Pipeline service responds to external access"""
@@ -363,22 +577,6 @@ class PipelinePublicServiceAsyncStub:
     """Readiness method receives a ReadinessRequest message and returns a
     ReadinessResponse message.
     See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
-    """
-    ListOperatorDefinitions: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1alpha.operator_definition_pb2.ListOperatorDefinitionsRequest,
-        vdp.pipeline.v1alpha.operator_definition_pb2.ListOperatorDefinitionsResponse,
-    ]
-    """ListOperatorDefinitions method receives a
-    ListOperatorDefinitionsRequest message and returns a
-    ListOperatorDefinitionsResponse message.
-    """
-    GetOperatorDefinition: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1alpha.operator_definition_pb2.GetOperatorDefinitionRequest,
-        vdp.pipeline.v1alpha.operator_definition_pb2.GetOperatorDefinitionResponse,
-    ]
-    """GetOperatorDefinition method receives a
-    GetOperatorDefinitionRequest message and returns a
-    GetGetOperatorDefinitionResponse message.
     """
     ListPipelines: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1alpha.pipeline_pb2.ListPipelinesRequest,
@@ -455,16 +653,6 @@ class PipelinePublicServiceAsyncStub:
     """TriggerAsyncUserPipeline method receives a TriggerAsyncUserPipelineRequest message and
     returns a TriggerAsyncUserPipelineResponse.
     """
-    GetOperation: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1alpha.pipeline_pb2.GetOperationRequest,
-        vdp.pipeline.v1alpha.pipeline_pb2.GetOperationResponse,
-    ]
-    """*Longrunning operation methods
-
-    GetOperation method receives a
-    GetOperationRequest message and returns a
-    GetOperationResponse message.
-    """
     CreateUserPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1alpha.pipeline_pb2.CreateUserPipelineReleaseRequest,
         vdp.pipeline.v1alpha.pipeline_pb2.CreateUserPipelineReleaseResponse,
@@ -507,13 +695,6 @@ class PipelinePublicServiceAsyncStub:
     """RestoreUserPipelineRelease method receives a RestoreUserPipelineReleaseRequest message
     and returns a RestoreUserPipelineReleaseResponse
     """
-    SetDefaultUserPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1alpha.pipeline_pb2.SetDefaultUserPipelineReleaseRequest,
-        vdp.pipeline.v1alpha.pipeline_pb2.SetDefaultUserPipelineReleaseResponse,
-    ]
-    """SetDefaultUserPipelineRelease method receives a SetDefaultUserPipelineReleaseRequest message
-    and returns a SetDefaultUserPipelineReleaseResponse
-    """
     WatchUserPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1alpha.pipeline_pb2.WatchUserPipelineReleaseRequest,
         vdp.pipeline.v1alpha.pipeline_pb2.WatchUserPipelineReleaseResponse,
@@ -542,6 +723,147 @@ class PipelinePublicServiceAsyncStub:
     """TriggerAsyncUserPipelineRelease method receives a TriggerAsyncUserPipelineReleaseRequest message and
     returns a TriggerAsyncUserPipelineReleaseResponse.
     """
+    CreateOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.CreateOrganizationPipelineRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.CreateOrganizationPipelineResponse,
+    ]
+    """CreateOrganizationPipeline method receives a CreateOrganizationPipelineRequest message and returns
+    a CreateOrganizationPipelineResponse message.
+    """
+    ListOrganizationPipelines: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.ListOrganizationPipelinesRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.ListOrganizationPipelinesResponse,
+    ]
+    """ListOrganizationPipelines method receives a ListOrganizationPipelinesRequest message and returns a
+    ListOrganizationPipelinesResponse message.
+    """
+    GetOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.GetOrganizationPipelineRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.GetOrganizationPipelineResponse,
+    ]
+    """GetOrganizationPipeline method receives a GetOrganizationPipelineRequest message and returns a
+    GetOrganizationPipelineResponse message.
+    """
+    UpdateOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.UpdateOrganizationPipelineRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.UpdateOrganizationPipelineResponse,
+    ]
+    """UpdateOrganizationPipeline method receives a UpdateOrganizationPipelineRequest message and returns
+    a UpdateOrganizationPipelineResponse message.
+    """
+    DeleteOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.DeleteOrganizationPipelineRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.DeleteOrganizationPipelineResponse,
+    ]
+    """DeleteOrganizationPipeline method receives a DeleteOrganizationPipelineRequest message and returns
+    a DeleteOrganizationPipelineResponse message.
+    """
+    ValidateOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.ValidateOrganizationPipelineRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.ValidateOrganizationPipelineResponse,
+    ]
+    """Validate a pipeline."""
+    RenameOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.RenameOrganizationPipelineRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.RenameOrganizationPipelineResponse,
+    ]
+    """RenameOrganizationPipeline method receives a RenameOrganizationPipelineRequest message and returns
+    a RenameOrganizationPipelineResponse message.
+    """
+    TriggerOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.TriggerOrganizationPipelineRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.TriggerOrganizationPipelineResponse,
+    ]
+    """TriggerOrganizationPipeline method receives a TriggerOrganizationPipelineRequest message
+    and returns a TriggerOrganizationPipelineResponse.
+    """
+    TriggerAsyncOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.TriggerAsyncOrganizationPipelineRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.TriggerAsyncOrganizationPipelineResponse,
+    ]
+    """TriggerAsyncOrganizationPipeline method receives a TriggerAsyncOrganizationPipelineRequest message and
+    returns a TriggerAsyncOrganizationPipelineResponse.
+    """
+    CreateOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.CreateOrganizationPipelineReleaseRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.CreateOrganizationPipelineReleaseResponse,
+    ]
+    """CreateOrganizationPipelineRelease method receives a CreateOrganizationPipelineReleaseRequest message and returns
+    a CreateOrganizationPipelineReleaseResponse message.
+    """
+    ListOrganizationPipelineReleases: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.ListOrganizationPipelineReleasesRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.ListOrganizationPipelineReleasesResponse,
+    ]
+    """ListOrganizationPipelineReleases method receives a ListOrganizationPipelineReleasesRequest message and returns a
+    ListOrganizationPipelineReleasesResponse message.
+    """
+    GetOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.GetOrganizationPipelineReleaseRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.GetOrganizationPipelineReleaseResponse,
+    ]
+    """GetOrganizationPipelineRelease method receives a GetOrganizationPipelineReleaseRequest message and returns a
+    GetOrganizationPipelineReleaseResponse message.
+    """
+    UpdateOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.UpdateOrganizationPipelineReleaseRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.UpdateOrganizationPipelineReleaseResponse,
+    ]
+    """UpdateOrganizationPipelineRelease method receives a UpdateOrganizationPipelineReleaseRequest message and returns
+    a UpdateOrganizationPipelineReleaseResponse message.
+    """
+    DeleteOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.DeleteOrganizationPipelineReleaseRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.DeleteOrganizationPipelineReleaseResponse,
+    ]
+    """DeleteOrganizationPipelineRelease method receives a DeleteOrganizationPipelineReleaseRequest message and returns
+    a DeleteOrganizationPipelineReleaseResponse message.
+    """
+    RestoreOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.RestoreOrganizationPipelineReleaseRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.RestoreOrganizationPipelineReleaseResponse,
+    ]
+    """RestoreOrganizationPipelineRelease method receives a RestoreOrganizationPipelineReleaseRequest message
+    and returns a RestoreOrganizationPipelineReleaseResponse
+    """
+    WatchOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.WatchOrganizationPipelineReleaseRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.WatchOrganizationPipelineReleaseResponse,
+    ]
+    """WatchOrganizationPipelineRelease method receives a WatchOrganizationPipelineReleaseRequest message
+    and returns a WatchOrganizationPipelineReleaseResponse
+    """
+    RenameOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.RenameOrganizationPipelineReleaseRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.RenameOrganizationPipelineReleaseResponse,
+    ]
+    """RenameOrganizationPipelineRelease method receives a RenameOrganizationPipelineReleaseRequest message and returns
+    a RenameOrganizationPipelineReleaseResponse message.
+    """
+    TriggerOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.TriggerOrganizationPipelineReleaseRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.TriggerOrganizationPipelineReleaseResponse,
+    ]
+    """TriggerOrganizationPipelineRelease method receives a TriggeOrganizationPipelineReleaseRequest message
+    and returns a TriggerPipelineReleasePipelineResponse.
+    """
+    TriggerAsyncOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.TriggerAsyncOrganizationPipelineReleaseRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.TriggerAsyncOrganizationPipelineReleaseResponse,
+    ]
+    """TriggerAsyncOrganizationPipelineRelease method receives a TriggerAsyncOrganizationPipelineReleaseRequest message and
+    returns a TriggerAsyncOrganizationPipelineReleaseResponse.
+    """
+    GetOperation: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.pipeline_pb2.GetOperationRequest,
+        vdp.pipeline.v1alpha.pipeline_pb2.GetOperationResponse,
+    ]
+    """*Longrunning operation methods
+
+    GetOperation method receives a
+    GetOperationRequest message and returns a
+    GetOperationResponse message.
+    """
     ListConnectorDefinitions: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1alpha.connector_definition_pb2.ListConnectorDefinitionsRequest,
         vdp.pipeline.v1alpha.connector_definition_pb2.ListConnectorDefinitionsResponse,
@@ -557,6 +879,22 @@ class PipelinePublicServiceAsyncStub:
     """GetConnectorDefinition method receives a
     GetConnectorDefinitionRequest message and returns a
     GetGetConnectorDefinitionResponse message.
+    """
+    ListOperatorDefinitions: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.operator_definition_pb2.ListOperatorDefinitionsRequest,
+        vdp.pipeline.v1alpha.operator_definition_pb2.ListOperatorDefinitionsResponse,
+    ]
+    """ListOperatorDefinitions method receives a
+    ListOperatorDefinitionsRequest message and returns a
+    ListOperatorDefinitionsResponse message.
+    """
+    GetOperatorDefinition: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.operator_definition_pb2.GetOperatorDefinitionRequest,
+        vdp.pipeline.v1alpha.operator_definition_pb2.GetOperatorDefinitionResponse,
+    ]
+    """GetOperatorDefinition method receives a
+    GetOperatorDefinitionRequest message and returns a
+    GetGetOperatorDefinitionResponse message.
     """
     ListConnectors: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1alpha.connector_pb2.ListConnectorsRequest,
@@ -668,6 +1006,96 @@ class PipelinePublicServiceAsyncStub:
     """TestUserConnector method receives a TestUserConnectorRequest
     message and returns a TestUserConnectorResponse
     """
+    CreateOrganizationConnector: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.CreateOrganizationConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.CreateOrganizationConnectorResponse,
+    ]
+    """CreateOrganizationConnector method receives a
+    CreateOrganizationConnectorRequest message and returns a
+    CreateOrganizationConnectorResponse message.
+    """
+    ListOrganizationConnectors: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.ListOrganizationConnectorsRequest,
+        vdp.pipeline.v1alpha.connector_pb2.ListOrganizationConnectorsResponse,
+    ]
+    """ListOrganizationConnectors method receives a
+    ListOrganizationConnectorsRequest message and returns a
+    ListOrganizationConnectorsResponse message.
+    """
+    GetOrganizationConnector: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.GetOrganizationConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.GetOrganizationConnectorResponse,
+    ]
+    """GetOrganizationConnector method receives a GetOrganizationConnectorRequest
+    message and returns a GetOrganizationConnectorResponse message.
+    """
+    UpdateOrganizationConnector: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.UpdateOrganizationConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.UpdateOrganizationConnectorResponse,
+    ]
+    """UpdateOrganizationConnector method receives a
+    UpdateOrganizationConnectorRequest message and returns a
+    UpdateOrganizationConnectorResponse message.
+    """
+    DeleteOrganizationConnector: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.DeleteOrganizationConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.DeleteOrganizationConnectorResponse,
+    ]
+    """DeleteOrganizationConnector method receives a
+    DeleteOrganizationConnectorRequest message and returns a
+    DeleteOrganizationConnectorResponse message.
+    """
+    ConnectOrganizationConnector: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.ConnectOrganizationConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.ConnectOrganizationConnectorResponse,
+    ]
+    """Connect a connector.
+    The "state" of the connector after connecting is "CONNECTED".
+    ConnectOrganizationConnector can be called on Connector in the
+    state `DISCONNECTED`; Connector in a different state (including
+    `CONNECTED`) returns an error.
+    """
+    DisconnectOrganizationConnector: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.DisconnectOrganizationConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.DisconnectOrganizationConnectorResponse,
+    ]
+    """Disconnect a connector.
+    The "state" of the connector after disconnecting is "DISCONNECTED".
+    DisconnectOrganizationConnector can be called on Connector in the
+    state `CONNECTED`; Connector in a different state (including
+    `DISCONNECTED`) returns an error.
+    """
+    RenameOrganizationConnector: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.RenameOrganizationConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.RenameOrganizationConnectorResponse,
+    ]
+    """RenameOrganizationConnector method receives a
+    RenameOrganizationConnectorRequest message and returns a
+    RenameOrganizationConnectorResponse message.
+    """
+    ExecuteOrganizationConnector: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.ExecuteOrganizationConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.ExecuteOrganizationConnectorResponse,
+    ]
+    """ExecuteOrganizationConnector method receives a
+    ExecuteOrganizationConnectorRequest message and returns a
+    ExecuteOrganizationConnectorResponse message.
+    """
+    WatchOrganizationConnector: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.WatchOrganizationConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.WatchOrganizationConnectorResponse,
+    ]
+    """WatchOrganizationConnector method receives a
+    WatchOrganizationConnectorRequest message and returns a
+    WatchOrganizationConnectorResponse
+    """
+    TestOrganizationConnector: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1alpha.connector_pb2.TestOrganizationConnectorRequest,
+        vdp.pipeline.v1alpha.connector_pb2.TestOrganizationConnectorResponse,
+    ]
+    """TestOrganizationConnector method receives a TestOrganizationConnectorRequest
+    message and returns a TestOrganizationConnectorResponse
+    """
 
 class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
     """Pipeline service responds to external access"""
@@ -691,26 +1119,6 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         """Readiness method receives a ReadinessRequest message and returns a
         ReadinessResponse message.
         See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
-        """
-    @abc.abstractmethod
-    def ListOperatorDefinitions(
-        self,
-        request: vdp.pipeline.v1alpha.operator_definition_pb2.ListOperatorDefinitionsRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1alpha.operator_definition_pb2.ListOperatorDefinitionsResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.operator_definition_pb2.ListOperatorDefinitionsResponse]]:
-        """ListOperatorDefinitions method receives a
-        ListOperatorDefinitionsRequest message and returns a
-        ListOperatorDefinitionsResponse message.
-        """
-    @abc.abstractmethod
-    def GetOperatorDefinition(
-        self,
-        request: vdp.pipeline.v1alpha.operator_definition_pb2.GetOperatorDefinitionRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1alpha.operator_definition_pb2.GetOperatorDefinitionResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.operator_definition_pb2.GetOperatorDefinitionResponse]]:
-        """GetOperatorDefinition method receives a
-        GetOperatorDefinitionRequest message and returns a
-        GetGetOperatorDefinitionResponse message.
         """
     @abc.abstractmethod
     def ListPipelines(
@@ -810,18 +1218,6 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         returns a TriggerAsyncUserPipelineResponse.
         """
     @abc.abstractmethod
-    def GetOperation(
-        self,
-        request: vdp.pipeline.v1alpha.pipeline_pb2.GetOperationRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1alpha.pipeline_pb2.GetOperationResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.pipeline_pb2.GetOperationResponse]]:
-        """*Longrunning operation methods
-
-        GetOperation method receives a
-        GetOperationRequest message and returns a
-        GetOperationResponse message.
-        """
-    @abc.abstractmethod
     def CreateUserPipelineRelease(
         self,
         request: vdp.pipeline.v1alpha.pipeline_pb2.CreateUserPipelineReleaseRequest,
@@ -876,15 +1272,6 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         and returns a RestoreUserPipelineReleaseResponse
         """
     @abc.abstractmethod
-    def SetDefaultUserPipelineRelease(
-        self,
-        request: vdp.pipeline.v1alpha.pipeline_pb2.SetDefaultUserPipelineReleaseRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1alpha.pipeline_pb2.SetDefaultUserPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.pipeline_pb2.SetDefaultUserPipelineReleaseResponse]]:
-        """SetDefaultUserPipelineRelease method receives a SetDefaultUserPipelineReleaseRequest message
-        and returns a SetDefaultUserPipelineReleaseResponse
-        """
-    @abc.abstractmethod
     def WatchUserPipelineRelease(
         self,
         request: vdp.pipeline.v1alpha.pipeline_pb2.WatchUserPipelineReleaseRequest,
@@ -921,6 +1308,187 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         returns a TriggerAsyncUserPipelineReleaseResponse.
         """
     @abc.abstractmethod
+    def CreateOrganizationPipeline(
+        self,
+        request: vdp.pipeline.v1alpha.pipeline_pb2.CreateOrganizationPipelineRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.pipeline_pb2.CreateOrganizationPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.pipeline_pb2.CreateOrganizationPipelineResponse]]:
+        """CreateOrganizationPipeline method receives a CreateOrganizationPipelineRequest message and returns
+        a CreateOrganizationPipelineResponse message.
+        """
+    @abc.abstractmethod
+    def ListOrganizationPipelines(
+        self,
+        request: vdp.pipeline.v1alpha.pipeline_pb2.ListOrganizationPipelinesRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.pipeline_pb2.ListOrganizationPipelinesResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.pipeline_pb2.ListOrganizationPipelinesResponse]]:
+        """ListOrganizationPipelines method receives a ListOrganizationPipelinesRequest message and returns a
+        ListOrganizationPipelinesResponse message.
+        """
+    @abc.abstractmethod
+    def GetOrganizationPipeline(
+        self,
+        request: vdp.pipeline.v1alpha.pipeline_pb2.GetOrganizationPipelineRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.pipeline_pb2.GetOrganizationPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.pipeline_pb2.GetOrganizationPipelineResponse]]:
+        """GetOrganizationPipeline method receives a GetOrganizationPipelineRequest message and returns a
+        GetOrganizationPipelineResponse message.
+        """
+    @abc.abstractmethod
+    def UpdateOrganizationPipeline(
+        self,
+        request: vdp.pipeline.v1alpha.pipeline_pb2.UpdateOrganizationPipelineRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.pipeline_pb2.UpdateOrganizationPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.pipeline_pb2.UpdateOrganizationPipelineResponse]]:
+        """UpdateOrganizationPipeline method receives a UpdateOrganizationPipelineRequest message and returns
+        a UpdateOrganizationPipelineResponse message.
+        """
+    @abc.abstractmethod
+    def DeleteOrganizationPipeline(
+        self,
+        request: vdp.pipeline.v1alpha.pipeline_pb2.DeleteOrganizationPipelineRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.pipeline_pb2.DeleteOrganizationPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.pipeline_pb2.DeleteOrganizationPipelineResponse]]:
+        """DeleteOrganizationPipeline method receives a DeleteOrganizationPipelineRequest message and returns
+        a DeleteOrganizationPipelineResponse message.
+        """
+    @abc.abstractmethod
+    def ValidateOrganizationPipeline(
+        self,
+        request: vdp.pipeline.v1alpha.pipeline_pb2.ValidateOrganizationPipelineRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.pipeline_pb2.ValidateOrganizationPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.pipeline_pb2.ValidateOrganizationPipelineResponse]]:
+        """Validate a pipeline."""
+    @abc.abstractmethod
+    def RenameOrganizationPipeline(
+        self,
+        request: vdp.pipeline.v1alpha.pipeline_pb2.RenameOrganizationPipelineRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.pipeline_pb2.RenameOrganizationPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.pipeline_pb2.RenameOrganizationPipelineResponse]]:
+        """RenameOrganizationPipeline method receives a RenameOrganizationPipelineRequest message and returns
+        a RenameOrganizationPipelineResponse message.
+        """
+    @abc.abstractmethod
+    def TriggerOrganizationPipeline(
+        self,
+        request: vdp.pipeline.v1alpha.pipeline_pb2.TriggerOrganizationPipelineRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.pipeline_pb2.TriggerOrganizationPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.pipeline_pb2.TriggerOrganizationPipelineResponse]]:
+        """TriggerOrganizationPipeline method receives a TriggerOrganizationPipelineRequest message
+        and returns a TriggerOrganizationPipelineResponse.
+        """
+    @abc.abstractmethod
+    def TriggerAsyncOrganizationPipeline(
+        self,
+        request: vdp.pipeline.v1alpha.pipeline_pb2.TriggerAsyncOrganizationPipelineRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.pipeline_pb2.TriggerAsyncOrganizationPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.pipeline_pb2.TriggerAsyncOrganizationPipelineResponse]]:
+        """TriggerAsyncOrganizationPipeline method receives a TriggerAsyncOrganizationPipelineRequest message and
+        returns a TriggerAsyncOrganizationPipelineResponse.
+        """
+    @abc.abstractmethod
+    def CreateOrganizationPipelineRelease(
+        self,
+        request: vdp.pipeline.v1alpha.pipeline_pb2.CreateOrganizationPipelineReleaseRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.pipeline_pb2.CreateOrganizationPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.pipeline_pb2.CreateOrganizationPipelineReleaseResponse]]:
+        """CreateOrganizationPipelineRelease method receives a CreateOrganizationPipelineReleaseRequest message and returns
+        a CreateOrganizationPipelineReleaseResponse message.
+        """
+    @abc.abstractmethod
+    def ListOrganizationPipelineReleases(
+        self,
+        request: vdp.pipeline.v1alpha.pipeline_pb2.ListOrganizationPipelineReleasesRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.pipeline_pb2.ListOrganizationPipelineReleasesResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.pipeline_pb2.ListOrganizationPipelineReleasesResponse]]:
+        """ListOrganizationPipelineReleases method receives a ListOrganizationPipelineReleasesRequest message and returns a
+        ListOrganizationPipelineReleasesResponse message.
+        """
+    @abc.abstractmethod
+    def GetOrganizationPipelineRelease(
+        self,
+        request: vdp.pipeline.v1alpha.pipeline_pb2.GetOrganizationPipelineReleaseRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.pipeline_pb2.GetOrganizationPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.pipeline_pb2.GetOrganizationPipelineReleaseResponse]]:
+        """GetOrganizationPipelineRelease method receives a GetOrganizationPipelineReleaseRequest message and returns a
+        GetOrganizationPipelineReleaseResponse message.
+        """
+    @abc.abstractmethod
+    def UpdateOrganizationPipelineRelease(
+        self,
+        request: vdp.pipeline.v1alpha.pipeline_pb2.UpdateOrganizationPipelineReleaseRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.pipeline_pb2.UpdateOrganizationPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.pipeline_pb2.UpdateOrganizationPipelineReleaseResponse]]:
+        """UpdateOrganizationPipelineRelease method receives a UpdateOrganizationPipelineReleaseRequest message and returns
+        a UpdateOrganizationPipelineReleaseResponse message.
+        """
+    @abc.abstractmethod
+    def DeleteOrganizationPipelineRelease(
+        self,
+        request: vdp.pipeline.v1alpha.pipeline_pb2.DeleteOrganizationPipelineReleaseRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.pipeline_pb2.DeleteOrganizationPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.pipeline_pb2.DeleteOrganizationPipelineReleaseResponse]]:
+        """DeleteOrganizationPipelineRelease method receives a DeleteOrganizationPipelineReleaseRequest message and returns
+        a DeleteOrganizationPipelineReleaseResponse message.
+        """
+    @abc.abstractmethod
+    def RestoreOrganizationPipelineRelease(
+        self,
+        request: vdp.pipeline.v1alpha.pipeline_pb2.RestoreOrganizationPipelineReleaseRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.pipeline_pb2.RestoreOrganizationPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.pipeline_pb2.RestoreOrganizationPipelineReleaseResponse]]:
+        """RestoreOrganizationPipelineRelease method receives a RestoreOrganizationPipelineReleaseRequest message
+        and returns a RestoreOrganizationPipelineReleaseResponse
+        """
+    @abc.abstractmethod
+    def WatchOrganizationPipelineRelease(
+        self,
+        request: vdp.pipeline.v1alpha.pipeline_pb2.WatchOrganizationPipelineReleaseRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.pipeline_pb2.WatchOrganizationPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.pipeline_pb2.WatchOrganizationPipelineReleaseResponse]]:
+        """WatchOrganizationPipelineRelease method receives a WatchOrganizationPipelineReleaseRequest message
+        and returns a WatchOrganizationPipelineReleaseResponse
+        """
+    @abc.abstractmethod
+    def RenameOrganizationPipelineRelease(
+        self,
+        request: vdp.pipeline.v1alpha.pipeline_pb2.RenameOrganizationPipelineReleaseRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.pipeline_pb2.RenameOrganizationPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.pipeline_pb2.RenameOrganizationPipelineReleaseResponse]]:
+        """RenameOrganizationPipelineRelease method receives a RenameOrganizationPipelineReleaseRequest message and returns
+        a RenameOrganizationPipelineReleaseResponse message.
+        """
+    @abc.abstractmethod
+    def TriggerOrganizationPipelineRelease(
+        self,
+        request: vdp.pipeline.v1alpha.pipeline_pb2.TriggerOrganizationPipelineReleaseRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.pipeline_pb2.TriggerOrganizationPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.pipeline_pb2.TriggerOrganizationPipelineReleaseResponse]]:
+        """TriggerOrganizationPipelineRelease method receives a TriggeOrganizationPipelineReleaseRequest message
+        and returns a TriggerPipelineReleasePipelineResponse.
+        """
+    @abc.abstractmethod
+    def TriggerAsyncOrganizationPipelineRelease(
+        self,
+        request: vdp.pipeline.v1alpha.pipeline_pb2.TriggerAsyncOrganizationPipelineReleaseRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.pipeline_pb2.TriggerAsyncOrganizationPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.pipeline_pb2.TriggerAsyncOrganizationPipelineReleaseResponse]]:
+        """TriggerAsyncOrganizationPipelineRelease method receives a TriggerAsyncOrganizationPipelineReleaseRequest message and
+        returns a TriggerAsyncOrganizationPipelineReleaseResponse.
+        """
+    @abc.abstractmethod
+    def GetOperation(
+        self,
+        request: vdp.pipeline.v1alpha.pipeline_pb2.GetOperationRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.pipeline_pb2.GetOperationResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.pipeline_pb2.GetOperationResponse]]:
+        """*Longrunning operation methods
+
+        GetOperation method receives a
+        GetOperationRequest message and returns a
+        GetOperationResponse message.
+        """
+    @abc.abstractmethod
     def ListConnectorDefinitions(
         self,
         request: vdp.pipeline.v1alpha.connector_definition_pb2.ListConnectorDefinitionsRequest,
@@ -939,6 +1507,26 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         """GetConnectorDefinition method receives a
         GetConnectorDefinitionRequest message and returns a
         GetGetConnectorDefinitionResponse message.
+        """
+    @abc.abstractmethod
+    def ListOperatorDefinitions(
+        self,
+        request: vdp.pipeline.v1alpha.operator_definition_pb2.ListOperatorDefinitionsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.operator_definition_pb2.ListOperatorDefinitionsResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.operator_definition_pb2.ListOperatorDefinitionsResponse]]:
+        """ListOperatorDefinitions method receives a
+        ListOperatorDefinitionsRequest message and returns a
+        ListOperatorDefinitionsResponse message.
+        """
+    @abc.abstractmethod
+    def GetOperatorDefinition(
+        self,
+        request: vdp.pipeline.v1alpha.operator_definition_pb2.GetOperatorDefinitionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.operator_definition_pb2.GetOperatorDefinitionResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.operator_definition_pb2.GetOperatorDefinitionResponse]]:
+        """GetOperatorDefinition method receives a
+        GetOperatorDefinitionRequest message and returns a
+        GetGetOperatorDefinitionResponse message.
         """
     @abc.abstractmethod
     def ListConnectors(
@@ -1075,6 +1663,118 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.TestUserConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.TestUserConnectorResponse]]:
         """TestUserConnector method receives a TestUserConnectorRequest
         message and returns a TestUserConnectorResponse
+        """
+    @abc.abstractmethod
+    def CreateOrganizationConnector(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.CreateOrganizationConnectorRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.CreateOrganizationConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.CreateOrganizationConnectorResponse]]:
+        """CreateOrganizationConnector method receives a
+        CreateOrganizationConnectorRequest message and returns a
+        CreateOrganizationConnectorResponse message.
+        """
+    @abc.abstractmethod
+    def ListOrganizationConnectors(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.ListOrganizationConnectorsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.ListOrganizationConnectorsResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.ListOrganizationConnectorsResponse]]:
+        """ListOrganizationConnectors method receives a
+        ListOrganizationConnectorsRequest message and returns a
+        ListOrganizationConnectorsResponse message.
+        """
+    @abc.abstractmethod
+    def GetOrganizationConnector(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.GetOrganizationConnectorRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.GetOrganizationConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.GetOrganizationConnectorResponse]]:
+        """GetOrganizationConnector method receives a GetOrganizationConnectorRequest
+        message and returns a GetOrganizationConnectorResponse message.
+        """
+    @abc.abstractmethod
+    def UpdateOrganizationConnector(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.UpdateOrganizationConnectorRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.UpdateOrganizationConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.UpdateOrganizationConnectorResponse]]:
+        """UpdateOrganizationConnector method receives a
+        UpdateOrganizationConnectorRequest message and returns a
+        UpdateOrganizationConnectorResponse message.
+        """
+    @abc.abstractmethod
+    def DeleteOrganizationConnector(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.DeleteOrganizationConnectorRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.DeleteOrganizationConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.DeleteOrganizationConnectorResponse]]:
+        """DeleteOrganizationConnector method receives a
+        DeleteOrganizationConnectorRequest message and returns a
+        DeleteOrganizationConnectorResponse message.
+        """
+    @abc.abstractmethod
+    def ConnectOrganizationConnector(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.ConnectOrganizationConnectorRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.ConnectOrganizationConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.ConnectOrganizationConnectorResponse]]:
+        """Connect a connector.
+        The "state" of the connector after connecting is "CONNECTED".
+        ConnectOrganizationConnector can be called on Connector in the
+        state `DISCONNECTED`; Connector in a different state (including
+        `CONNECTED`) returns an error.
+        """
+    @abc.abstractmethod
+    def DisconnectOrganizationConnector(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.DisconnectOrganizationConnectorRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.DisconnectOrganizationConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.DisconnectOrganizationConnectorResponse]]:
+        """Disconnect a connector.
+        The "state" of the connector after disconnecting is "DISCONNECTED".
+        DisconnectOrganizationConnector can be called on Connector in the
+        state `CONNECTED`; Connector in a different state (including
+        `DISCONNECTED`) returns an error.
+        """
+    @abc.abstractmethod
+    def RenameOrganizationConnector(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.RenameOrganizationConnectorRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.RenameOrganizationConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.RenameOrganizationConnectorResponse]]:
+        """RenameOrganizationConnector method receives a
+        RenameOrganizationConnectorRequest message and returns a
+        RenameOrganizationConnectorResponse message.
+        """
+    @abc.abstractmethod
+    def ExecuteOrganizationConnector(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.ExecuteOrganizationConnectorRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.ExecuteOrganizationConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.ExecuteOrganizationConnectorResponse]]:
+        """ExecuteOrganizationConnector method receives a
+        ExecuteOrganizationConnectorRequest message and returns a
+        ExecuteOrganizationConnectorResponse message.
+        """
+    @abc.abstractmethod
+    def WatchOrganizationConnector(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.WatchOrganizationConnectorRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.WatchOrganizationConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.WatchOrganizationConnectorResponse]]:
+        """WatchOrganizationConnector method receives a
+        WatchOrganizationConnectorRequest message and returns a
+        WatchOrganizationConnectorResponse
+        """
+    @abc.abstractmethod
+    def TestOrganizationConnector(
+        self,
+        request: vdp.pipeline.v1alpha.connector_pb2.TestOrganizationConnectorRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1alpha.connector_pb2.TestOrganizationConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1alpha.connector_pb2.TestOrganizationConnectorResponse]]:
+        """TestOrganizationConnector method receives a TestOrganizationConnectorRequest
+        message and returns a TestOrganizationConnectorResponse
         """
 
 def add_PipelinePublicServiceServicer_to_server(servicer: PipelinePublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

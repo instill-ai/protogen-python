@@ -28,6 +28,33 @@ class Connector(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    class _View:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Connector._View.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        VIEW_UNSPECIFIED: Connector._View.ValueType  # 0
+        """View: UNSPECIFIED"""
+        VIEW_BASIC: Connector._View.ValueType  # 1
+        """View: BASIC"""
+        VIEW_FULL: Connector._View.ValueType  # 2
+        """View: FULL"""
+        VIEW_CONFIGURATION: Connector._View.ValueType  # 3
+        """View: CONFIGURATION"""
+
+    class View(_View, metaclass=_ViewEnumTypeWrapper):
+        """View enumerates the definition views"""
+
+    VIEW_UNSPECIFIED: Connector.View.ValueType  # 0
+    """View: UNSPECIFIED"""
+    VIEW_BASIC: Connector.View.ValueType  # 1
+    """View: BASIC"""
+    VIEW_FULL: Connector.View.ValueType  # 2
+    """View: FULL"""
+    VIEW_CONFIGURATION: Connector.View.ValueType  # 3
+    """View: CONFIGURATION"""
+
     class _State:
         ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
@@ -88,7 +115,7 @@ class Connector(google.protobuf.message.Message):
     STATE_FIELD_NUMBER: builtins.int
     TOMBSTONE_FIELD_NUMBER: builtins.int
     USER_FIELD_NUMBER: builtins.int
-    ORG_FIELD_NUMBER: builtins.int
+    ORGANIZATION_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     VISIBILITY_FIELD_NUMBER: builtins.int
@@ -123,7 +150,7 @@ class Connector(google.protobuf.message.Message):
     """The resource name with UUID of a user, e.g.,
     "users/bfb978f8-78d3-4338-aa2b-a6c699cb07c5".
     """
-    org: builtins.str
+    organization: builtins.str
     """The resource name with UUID of an organization"""
     @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
@@ -152,19 +179,19 @@ class Connector(google.protobuf.message.Message):
         state: global___Connector.State.ValueType = ...,
         tombstone: builtins.bool = ...,
         user: builtins.str = ...,
-        org: builtins.str = ...,
+        organization: builtins.str = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         visibility: global___Connector.Visibility.ValueType = ...,
         connector_definition: vdp.pipeline.v1alpha.connector_definition_pb2.ConnectorDefinition | None = ...,
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "configuration", b"configuration", "connector_definition", b"connector_definition", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "org", b"org", "owner", b"owner", "update_time", b"update_time", "user", b"user"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "configuration", b"configuration", "connector_definition", b"connector_definition", "connector_definition_name", b"connector_definition_name", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "id", b"id", "name", b"name", "org", b"org", "owner", b"owner", "state", b"state", "tombstone", b"tombstone", "type", b"type", "uid", b"uid", "update_time", b"update_time", "user", b"user", "visibility", b"visibility"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "configuration", b"configuration", "connector_definition", b"connector_definition", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "organization", b"organization", "owner", b"owner", "update_time", b"update_time", "user", b"user"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "configuration", b"configuration", "connector_definition", b"connector_definition", "connector_definition_name", b"connector_definition_name", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "id", b"id", "name", b"name", "organization", b"organization", "owner", b"owner", "state", b"state", "tombstone", b"tombstone", "type", b"type", "uid", b"uid", "update_time", b"update_time", "user", b"user", "visibility", b"visibility"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_description", b"_description"]) -> typing_extensions.Literal["description"] | None: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["owner", b"owner"]) -> typing_extensions.Literal["user", "org"] | None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["owner", b"owner"]) -> typing_extensions.Literal["user", "organization"] | None: ...
 
 global___Connector = Connector
 
@@ -180,33 +207,6 @@ class ListConnectorsRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    class _View:
-        ValueType = typing.NewType("ValueType", builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-
-    class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ListConnectorsRequest._View.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        VIEW_UNSPECIFIED: ListConnectorsRequest._View.ValueType  # 0
-        """View: UNSPECIFIED"""
-        VIEW_BASIC: ListConnectorsRequest._View.ValueType  # 1
-        """View: BASIC"""
-        VIEW_FULL: ListConnectorsRequest._View.ValueType  # 2
-        """View: FULL"""
-        VIEW_CONFIGURATION: ListConnectorsRequest._View.ValueType  # 3
-        """View: CONFIGURATION"""
-
-    class View(_View, metaclass=_ViewEnumTypeWrapper):
-        """View enumerates the definition views"""
-
-    VIEW_UNSPECIFIED: ListConnectorsRequest.View.ValueType  # 0
-    """View: UNSPECIFIED"""
-    VIEW_BASIC: ListConnectorsRequest.View.ValueType  # 1
-    """View: BASIC"""
-    VIEW_FULL: ListConnectorsRequest.View.ValueType  # 2
-    """View: FULL"""
-    VIEW_CONFIGURATION: ListConnectorsRequest.View.ValueType  # 3
-    """View: CONFIGURATION"""
-
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
@@ -219,7 +219,7 @@ class ListConnectorsRequest(google.protobuf.message.Message):
     """
     page_token: builtins.str
     """Page token"""
-    view: global___ListConnectorsRequest.View.ValueType
+    view: global___Connector.View.ValueType
     """Connector view (default is VIEW_BASIC)"""
     filter: builtins.str
     """Filter expression to list connectors"""
@@ -230,7 +230,7 @@ class ListConnectorsRequest(google.protobuf.message.Message):
         *,
         page_size: builtins.int | None = ...,
         page_token: builtins.str | None = ...,
-        view: global___ListConnectorsRequest.View.ValueType | None = ...,
+        view: global___Connector.View.ValueType | None = ...,
         filter: builtins.str | None = ...,
         show_deleted: builtins.bool | None = ...,
     ) -> None: ...
@@ -286,46 +286,19 @@ class LookUpConnectorRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    class _View:
-        ValueType = typing.NewType("ValueType", builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-
-    class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[LookUpConnectorRequest._View.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        VIEW_UNSPECIFIED: LookUpConnectorRequest._View.ValueType  # 0
-        """View: UNSPECIFIED"""
-        VIEW_BASIC: LookUpConnectorRequest._View.ValueType  # 1
-        """View: BASIC"""
-        VIEW_FULL: LookUpConnectorRequest._View.ValueType  # 2
-        """View: FULL"""
-        VIEW_CONFIGURATION: LookUpConnectorRequest._View.ValueType  # 3
-        """View: CONFIGURATION"""
-
-    class View(_View, metaclass=_ViewEnumTypeWrapper):
-        """View enumerates the definition views"""
-
-    VIEW_UNSPECIFIED: LookUpConnectorRequest.View.ValueType  # 0
-    """View: UNSPECIFIED"""
-    VIEW_BASIC: LookUpConnectorRequest.View.ValueType  # 1
-    """View: BASIC"""
-    VIEW_FULL: LookUpConnectorRequest.View.ValueType  # 2
-    """View: FULL"""
-    VIEW_CONFIGURATION: LookUpConnectorRequest.View.ValueType  # 3
-    """View: CONFIGURATION"""
-
     PERMALINK_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     permalink: builtins.str
     """Permalink of a connector. For example:
     "connectors/{uid}"
     """
-    view: global___LookUpConnectorRequest.View.ValueType
+    view: global___Connector.View.ValueType
     """Connector view (default is VIEW_BASIC)"""
     def __init__(
         self,
         *,
         permalink: builtins.str = ...,
-        view: global___LookUpConnectorRequest.View.ValueType | None = ...,
+        view: global___Connector.View.ValueType | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "permalink", b"permalink", "view", b"view"]) -> None: ...
@@ -413,33 +386,6 @@ class ListUserConnectorsRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    class _View:
-        ValueType = typing.NewType("ValueType", builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-
-    class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ListUserConnectorsRequest._View.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        VIEW_UNSPECIFIED: ListUserConnectorsRequest._View.ValueType  # 0
-        """View: UNSPECIFIED"""
-        VIEW_BASIC: ListUserConnectorsRequest._View.ValueType  # 1
-        """View: BASIC"""
-        VIEW_FULL: ListUserConnectorsRequest._View.ValueType  # 2
-        """View: FULL"""
-        VIEW_CONFIGURATION: ListUserConnectorsRequest._View.ValueType  # 3
-        """View: CONFIGURATION"""
-
-    class View(_View, metaclass=_ViewEnumTypeWrapper):
-        """View enumerates the definition views"""
-
-    VIEW_UNSPECIFIED: ListUserConnectorsRequest.View.ValueType  # 0
-    """View: UNSPECIFIED"""
-    VIEW_BASIC: ListUserConnectorsRequest.View.ValueType  # 1
-    """View: BASIC"""
-    VIEW_FULL: ListUserConnectorsRequest.View.ValueType  # 2
-    """View: FULL"""
-    VIEW_CONFIGURATION: ListUserConnectorsRequest.View.ValueType  # 3
-    """View: CONFIGURATION"""
-
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
@@ -453,7 +399,7 @@ class ListUserConnectorsRequest(google.protobuf.message.Message):
     """
     page_token: builtins.str
     """Page token"""
-    view: global___ListUserConnectorsRequest.View.ValueType
+    view: global___Connector.View.ValueType
     """Connector view (default is VIEW_BASIC)"""
     filter: builtins.str
     """Filter expression to list connectors"""
@@ -468,7 +414,7 @@ class ListUserConnectorsRequest(google.protobuf.message.Message):
         *,
         page_size: builtins.int | None = ...,
         page_token: builtins.str | None = ...,
-        view: global___ListUserConnectorsRequest.View.ValueType | None = ...,
+        view: global___Connector.View.ValueType | None = ...,
         filter: builtins.str | None = ...,
         parent: builtins.str = ...,
         show_deleted: builtins.bool | None = ...,
@@ -525,46 +471,19 @@ class GetUserConnectorRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    class _View:
-        ValueType = typing.NewType("ValueType", builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-
-    class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[GetUserConnectorRequest._View.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        VIEW_UNSPECIFIED: GetUserConnectorRequest._View.ValueType  # 0
-        """View: UNSPECIFIED"""
-        VIEW_BASIC: GetUserConnectorRequest._View.ValueType  # 1
-        """View: BASIC"""
-        VIEW_FULL: GetUserConnectorRequest._View.ValueType  # 2
-        """View: FULL"""
-        VIEW_CONFIGURATION: GetUserConnectorRequest._View.ValueType  # 3
-        """View: CONFIGURATION"""
-
-    class View(_View, metaclass=_ViewEnumTypeWrapper):
-        """View enumerates the definition views"""
-
-    VIEW_UNSPECIFIED: GetUserConnectorRequest.View.ValueType  # 0
-    """View: UNSPECIFIED"""
-    VIEW_BASIC: GetUserConnectorRequest.View.ValueType  # 1
-    """View: BASIC"""
-    VIEW_FULL: GetUserConnectorRequest.View.ValueType  # 2
-    """View: FULL"""
-    VIEW_CONFIGURATION: GetUserConnectorRequest.View.ValueType  # 3
-    """View: CONFIGURATION"""
-
     NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     name: builtins.str
     """Connectorconnector name. It must have the format of
     "connectors/*"
     """
-    view: global___GetUserConnectorRequest.View.ValueType
+    view: global___Connector.View.ValueType
     """Connector view (default is VIEW_BASIC)"""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
-        view: global___GetUserConnectorRequest.View.ValueType | None = ...,
+        view: global___Connector.View.ValueType | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "name", b"name", "view", b"view"]) -> None: ...
@@ -953,6 +872,549 @@ class WatchUserConnectorResponse(google.protobuf.message.Message):
 global___WatchUserConnectorResponse = WatchUserConnectorResponse
 
 @typing_extensions.final
+class CreateOrganizationConnectorRequest(google.protobuf.message.Message):
+    """CreateOrganizationConnectorRequest represents a request to create a
+    connector
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CONNECTOR_FIELD_NUMBER: builtins.int
+    PARENT_FIELD_NUMBER: builtins.int
+    @property
+    def connector(self) -> global___Connector:
+        """connector"""
+    parent: builtins.str
+    """The parent resource where this connector will be created.
+    Format: organizations/{organizations}
+    """
+    def __init__(
+        self,
+        *,
+        connector: global___Connector | None = ...,
+        parent: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connector", b"connector"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["connector", b"connector", "parent", b"parent"]) -> None: ...
+
+global___CreateOrganizationConnectorRequest = CreateOrganizationConnectorRequest
+
+@typing_extensions.final
+class CreateOrganizationConnectorResponse(google.protobuf.message.Message):
+    """CreateOrganizationConnectorResponse represents a response for a
+    connector
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CONNECTOR_FIELD_NUMBER: builtins.int
+    @property
+    def connector(self) -> global___Connector:
+        """connector"""
+    def __init__(
+        self,
+        *,
+        connector: global___Connector | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connector", b"connector"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["connector", b"connector"]) -> None: ...
+
+global___CreateOrganizationConnectorResponse = CreateOrganizationConnectorResponse
+
+@typing_extensions.final
+class ListOrganizationConnectorsRequest(google.protobuf.message.Message):
+    """ListOrganizationConnectorsRequest represents a request to list
+    connectors
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    VIEW_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
+    PARENT_FIELD_NUMBER: builtins.int
+    SHOW_DELETED_FIELD_NUMBER: builtins.int
+    page_size: builtins.int
+    """The maximum number of connectors to return. The service may return fewer
+    than this value. If unspecified, at most 10 connectors will be returned.
+    The maximum value is 100; values above 100 will be coerced to 100.
+    """
+    page_token: builtins.str
+    """Page token"""
+    view: global___Connector.View.ValueType
+    """Connector view (default is VIEW_BASIC)"""
+    filter: builtins.str
+    """Filter expression to list connectors"""
+    parent: builtins.str
+    """The parent resource where this connector will be created.
+    Format: organizations/{organizations}
+    """
+    show_deleted: builtins.bool
+    """Return soft_deleted connectors"""
+    def __init__(
+        self,
+        *,
+        page_size: builtins.int | None = ...,
+        page_token: builtins.str | None = ...,
+        view: global___Connector.View.ValueType | None = ...,
+        filter: builtins.str | None = ...,
+        parent: builtins.str = ...,
+        show_deleted: builtins.bool | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "parent", b"parent", "show_deleted", b"show_deleted", "view", b"view"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_token", b"_page_token"]) -> typing_extensions.Literal["page_token"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_show_deleted", b"_show_deleted"]) -> typing_extensions.Literal["show_deleted"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+
+global___ListOrganizationConnectorsRequest = ListOrganizationConnectorsRequest
+
+@typing_extensions.final
+class ListOrganizationConnectorsResponse(google.protobuf.message.Message):
+    """ListOrganizationConnectorsResponse represents a response for a list of
+    connectors
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CONNECTORS_FIELD_NUMBER: builtins.int
+    NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    @property
+    def connectors(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Connector]:
+        """A list of connectors"""
+    next_page_token: builtins.str
+    """Next page token"""
+    total_size: builtins.int
+    """Total count of connectors"""
+    def __init__(
+        self,
+        *,
+        connectors: collections.abc.Iterable[global___Connector] | None = ...,
+        next_page_token: builtins.str = ...,
+        total_size: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["connectors", b"connectors", "next_page_token", b"next_page_token", "total_size", b"total_size"]) -> None: ...
+
+global___ListOrganizationConnectorsResponse = ListOrganizationConnectorsResponse
+
+@typing_extensions.final
+class GetOrganizationConnectorRequest(google.protobuf.message.Message):
+    """GetOrganizationConnectorRequest represents a request to query a
+    connector
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    VIEW_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """Connectorconnector name. It must have the format of
+    "connectors/*"
+    """
+    view: global___Connector.View.ValueType
+    """Connector view (default is VIEW_BASIC)"""
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        view: global___Connector.View.ValueType | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "name", b"name", "view", b"view"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+
+global___GetOrganizationConnectorRequest = GetOrganizationConnectorRequest
+
+@typing_extensions.final
+class GetOrganizationConnectorResponse(google.protobuf.message.Message):
+    """GetOrganizationConnectorResponse represents a response for a
+    connector
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CONNECTOR_FIELD_NUMBER: builtins.int
+    @property
+    def connector(self) -> global___Connector:
+        """connector"""
+    def __init__(
+        self,
+        *,
+        connector: global___Connector | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connector", b"connector"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["connector", b"connector"]) -> None: ...
+
+global___GetOrganizationConnectorResponse = GetOrganizationConnectorResponse
+
+@typing_extensions.final
+class UpdateOrganizationConnectorRequest(google.protobuf.message.Message):
+    """UpdateOrganizationConnectorRequest represents a request to update a
+    connector
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CONNECTOR_FIELD_NUMBER: builtins.int
+    UPDATE_MASK_FIELD_NUMBER: builtins.int
+    @property
+    def connector(self) -> global___Connector:
+        """connector"""
+    @property
+    def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
+        """Update mask for a connector"""
+    def __init__(
+        self,
+        *,
+        connector: global___Connector | None = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connector", b"connector", "update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["connector", b"connector", "update_mask", b"update_mask"]) -> None: ...
+
+global___UpdateOrganizationConnectorRequest = UpdateOrganizationConnectorRequest
+
+@typing_extensions.final
+class UpdateOrganizationConnectorResponse(google.protobuf.message.Message):
+    """UpdateOrganizationConnectorResponse represents a response for a
+    connector
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CONNECTOR_FIELD_NUMBER: builtins.int
+    @property
+    def connector(self) -> global___Connector:
+        """connector"""
+    def __init__(
+        self,
+        *,
+        connector: global___Connector | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connector", b"connector"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["connector", b"connector"]) -> None: ...
+
+global___UpdateOrganizationConnectorResponse = UpdateOrganizationConnectorResponse
+
+@typing_extensions.final
+class DeleteOrganizationConnectorRequest(google.protobuf.message.Message):
+    """DeleteOrganizationConnectorRequest represents a request to delete a
+    connector
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """connector name. It must have the format of
+    "connectors/*"
+    """
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
+
+global___DeleteOrganizationConnectorRequest = DeleteOrganizationConnectorRequest
+
+@typing_extensions.final
+class DeleteOrganizationConnectorResponse(google.protobuf.message.Message):
+    """DeleteOrganizationConnectorResponse represents an empty response"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___DeleteOrganizationConnectorResponse = DeleteOrganizationConnectorResponse
+
+@typing_extensions.final
+class ConnectOrganizationConnectorRequest(google.protobuf.message.Message):
+    """ConnectOrganizationConnectorRequest represents a request to connect a
+    connector
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """connector name. It must have the format of
+    "connectors/*"
+    """
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
+
+global___ConnectOrganizationConnectorRequest = ConnectOrganizationConnectorRequest
+
+@typing_extensions.final
+class ConnectOrganizationConnectorResponse(google.protobuf.message.Message):
+    """ConnectOrganizationConnectorResponse represents a connected
+    connector
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CONNECTOR_FIELD_NUMBER: builtins.int
+    @property
+    def connector(self) -> global___Connector:
+        """A connector"""
+    def __init__(
+        self,
+        *,
+        connector: global___Connector | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connector", b"connector"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["connector", b"connector"]) -> None: ...
+
+global___ConnectOrganizationConnectorResponse = ConnectOrganizationConnectorResponse
+
+@typing_extensions.final
+class DisconnectOrganizationConnectorRequest(google.protobuf.message.Message):
+    """DisconnectOrganizationConnectorRequest represents a request to disconnect a
+    connector
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """connector name. It must have the format of
+    "connectors/*"
+    """
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
+
+global___DisconnectOrganizationConnectorRequest = DisconnectOrganizationConnectorRequest
+
+@typing_extensions.final
+class DisconnectOrganizationConnectorResponse(google.protobuf.message.Message):
+    """DisconnectOrganizationConnectorResponse represents a disconnected
+    connector
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CONNECTOR_FIELD_NUMBER: builtins.int
+    @property
+    def connector(self) -> global___Connector:
+        """A connector"""
+    def __init__(
+        self,
+        *,
+        connector: global___Connector | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connector", b"connector"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["connector", b"connector"]) -> None: ...
+
+global___DisconnectOrganizationConnectorResponse = DisconnectOrganizationConnectorResponse
+
+@typing_extensions.final
+class RenameOrganizationConnectorRequest(google.protobuf.message.Message):
+    """RenameOrganizationConnectorRequest represents a request to rename the
+    connector name
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    NEW_CONNECTOR_ID_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """connector name. It must have the format of
+    "connectors/*"
+    """
+    new_connector_id: builtins.str
+    """Connector new resource id to replace with the
+    connector name to be
+    "connectors/{new_connector_id}"
+    """
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        new_connector_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "new_connector_id", b"new_connector_id"]) -> None: ...
+
+global___RenameOrganizationConnectorRequest = RenameOrganizationConnectorRequest
+
+@typing_extensions.final
+class RenameOrganizationConnectorResponse(google.protobuf.message.Message):
+    """RenameOrganizationConnectorResponse represents a renamed Connector
+    resource
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CONNECTOR_FIELD_NUMBER: builtins.int
+    @property
+    def connector(self) -> global___Connector:
+        """A connector"""
+    def __init__(
+        self,
+        *,
+        connector: global___Connector | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connector", b"connector"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["connector", b"connector"]) -> None: ...
+
+global___RenameOrganizationConnectorResponse = RenameOrganizationConnectorResponse
+
+@typing_extensions.final
+class ExecuteOrganizationConnectorRequest(google.protobuf.message.Message):
+    """ExecuteOrganizationConnectorRequest represents a private request to execution
+    connector
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    INPUTS_FIELD_NUMBER: builtins.int
+    TASK_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """Name of a connector. For example:
+    "connectors/{name}"
+    """
+    @property
+    def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Inputs"""
+    task: builtins.str
+    """Task"""
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
+        task: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["inputs", b"inputs", "name", b"name", "task", b"task"]) -> None: ...
+
+global___ExecuteOrganizationConnectorRequest = ExecuteOrganizationConnectorRequest
+
+@typing_extensions.final
+class ExecuteOrganizationConnectorResponse(google.protobuf.message.Message):
+    """ExecuteOrganizationConnectorResponse represents a response for execution
+    output
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OUTPUTS_FIELD_NUMBER: builtins.int
+    @property
+    def outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Outputs"""
+    def __init__(
+        self,
+        *,
+        outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["outputs", b"outputs"]) -> None: ...
+
+global___ExecuteOrganizationConnectorResponse = ExecuteOrganizationConnectorResponse
+
+@typing_extensions.final
+class TestOrganizationConnectorRequest(google.protobuf.message.Message):
+    """TestOrganizationConnectorRequest represents a public request to trigger check
+    action on a connector
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """connector name. It must have the format of
+    "connectors/*"
+    """
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
+
+global___TestOrganizationConnectorRequest = TestOrganizationConnectorRequest
+
+@typing_extensions.final
+class TestOrganizationConnectorResponse(google.protobuf.message.Message):
+    """TestOrganizationConnectorResponse represents a response containing a
+    connector's current state
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    STATE_FIELD_NUMBER: builtins.int
+    state: global___Connector.State.ValueType
+    """Retrieved connector state"""
+    def __init__(
+        self,
+        *,
+        state: global___Connector.State.ValueType = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["state", b"state"]) -> None: ...
+
+global___TestOrganizationConnectorResponse = TestOrganizationConnectorResponse
+
+@typing_extensions.final
+class WatchOrganizationConnectorRequest(google.protobuf.message.Message):
+    """WatchOrganizationConnectorRequest represents a public request to query
+    a connector's current state
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """connector name. It must have the format of
+    "connectors/*"
+    """
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
+
+global___WatchOrganizationConnectorRequest = WatchOrganizationConnectorRequest
+
+@typing_extensions.final
+class WatchOrganizationConnectorResponse(google.protobuf.message.Message):
+    """WatchOrganizationConnectorResponse represents a response to fetch a
+    connector's current state
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    STATE_FIELD_NUMBER: builtins.int
+    state: global___Connector.State.ValueType
+    """Retrieved connector state"""
+    def __init__(
+        self,
+        *,
+        state: global___Connector.State.ValueType = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["state", b"state"]) -> None: ...
+
+global___WatchOrganizationConnectorResponse = WatchOrganizationConnectorResponse
+
+@typing_extensions.final
 class ListConnectorsAdminRequest(google.protobuf.message.Message):
     """========== Private endpoints
 
@@ -961,33 +1423,6 @@ class ListConnectorsAdminRequest(google.protobuf.message.Message):
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    class _View:
-        ValueType = typing.NewType("ValueType", builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-
-    class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ListConnectorsAdminRequest._View.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        VIEW_UNSPECIFIED: ListConnectorsAdminRequest._View.ValueType  # 0
-        """View: UNSPECIFIED"""
-        VIEW_BASIC: ListConnectorsAdminRequest._View.ValueType  # 1
-        """View: BASIC"""
-        VIEW_FULL: ListConnectorsAdminRequest._View.ValueType  # 2
-        """View: FULL"""
-        VIEW_CONFIGURATION: ListConnectorsAdminRequest._View.ValueType  # 3
-        """View: CONFIGURATION"""
-
-    class View(_View, metaclass=_ViewEnumTypeWrapper):
-        """View enumerates the definition views"""
-
-    VIEW_UNSPECIFIED: ListConnectorsAdminRequest.View.ValueType  # 0
-    """View: UNSPECIFIED"""
-    VIEW_BASIC: ListConnectorsAdminRequest.View.ValueType  # 1
-    """View: BASIC"""
-    VIEW_FULL: ListConnectorsAdminRequest.View.ValueType  # 2
-    """View: FULL"""
-    VIEW_CONFIGURATION: ListConnectorsAdminRequest.View.ValueType  # 3
-    """View: CONFIGURATION"""
 
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
@@ -1001,7 +1436,7 @@ class ListConnectorsAdminRequest(google.protobuf.message.Message):
     """
     page_token: builtins.str
     """Page token"""
-    view: global___ListConnectorsAdminRequest.View.ValueType
+    view: global___Connector.View.ValueType
     """Connector view (default is VIEW_BASIC)"""
     filter: builtins.str
     """Filter expression to list connectors"""
@@ -1012,7 +1447,7 @@ class ListConnectorsAdminRequest(google.protobuf.message.Message):
         *,
         page_size: builtins.int | None = ...,
         page_token: builtins.str | None = ...,
-        view: global___ListConnectorsAdminRequest.View.ValueType | None = ...,
+        view: global___Connector.View.ValueType | None = ...,
         filter: builtins.str | None = ...,
         show_deleted: builtins.bool | None = ...,
     ) -> None: ...
@@ -1068,46 +1503,19 @@ class LookUpConnectorAdminRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    class _View:
-        ValueType = typing.NewType("ValueType", builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-
-    class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[LookUpConnectorAdminRequest._View.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        VIEW_UNSPECIFIED: LookUpConnectorAdminRequest._View.ValueType  # 0
-        """View: UNSPECIFIED"""
-        VIEW_BASIC: LookUpConnectorAdminRequest._View.ValueType  # 1
-        """View: BASIC"""
-        VIEW_FULL: LookUpConnectorAdminRequest._View.ValueType  # 2
-        """View: FULL"""
-        VIEW_CONFIGURATION: LookUpConnectorAdminRequest._View.ValueType  # 3
-        """View: CONFIGURATION"""
-
-    class View(_View, metaclass=_ViewEnumTypeWrapper):
-        """View enumerates the definition views"""
-
-    VIEW_UNSPECIFIED: LookUpConnectorAdminRequest.View.ValueType  # 0
-    """View: UNSPECIFIED"""
-    VIEW_BASIC: LookUpConnectorAdminRequest.View.ValueType  # 1
-    """View: BASIC"""
-    VIEW_FULL: LookUpConnectorAdminRequest.View.ValueType  # 2
-    """View: FULL"""
-    VIEW_CONFIGURATION: LookUpConnectorAdminRequest.View.ValueType  # 3
-    """View: CONFIGURATION"""
-
     PERMALINK_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     permalink: builtins.str
     """Permalink of a connector. For example:
     "connectors/{uid}"
     """
-    view: global___LookUpConnectorAdminRequest.View.ValueType
+    view: global___Connector.View.ValueType
     """Connector view (default is VIEW_BASIC)"""
     def __init__(
         self,
         *,
         permalink: builtins.str = ...,
-        view: global___LookUpConnectorAdminRequest.View.ValueType | None = ...,
+        view: global___Connector.View.ValueType | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "permalink", b"permalink", "view", b"view"]) -> None: ...

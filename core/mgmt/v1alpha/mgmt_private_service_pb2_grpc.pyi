@@ -28,13 +28,6 @@ class MgmtPrivateServiceStub:
     """ListUsersAdmin method receives a ListUsersAdminRequest message and returns
     a ListUsersAdminResponse message.
     """
-    CreateUserAdmin: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1alpha.mgmt_pb2.CreateUserAdminRequest,
-        core.mgmt.v1alpha.mgmt_pb2.CreateUserAdminResponse,
-    ]
-    """CreateUserAdmin receives a CreateUserAdminRequest message and returns a
-    a GetUserAdminResponse
-    """
     GetUserAdmin: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1alpha.mgmt_pb2.GetUserAdminRequest,
         core.mgmt.v1alpha.mgmt_pb2.GetUserAdminResponse,
@@ -49,6 +42,27 @@ class MgmtPrivateServiceStub:
     """LookUpUserAdmin method receives a LookUpUserAdminRequest message and
     returns a LookUpUserAdminResponse
     """
+    ListOrganizationsAdmin: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.ListOrganizationsAdminRequest,
+        core.mgmt.v1alpha.mgmt_pb2.ListOrganizationsAdminResponse,
+    ]
+    """ListOrganizationsAdmin method receives a ListOrganizationsAdminRequest message and returns
+    a ListOrganizationsAdminResponse message.
+    """
+    GetOrganizationAdmin: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.GetOrganizationAdminRequest,
+        core.mgmt.v1alpha.mgmt_pb2.GetOrganizationAdminResponse,
+    ]
+    """GetOrganizationAdmin method receives a GetOrganizationAdminRequest message and returns
+    a GetOrganizationAdminResponse message.
+    """
+    LookUpOrganizationAdmin: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.LookUpOrganizationAdminRequest,
+        core.mgmt.v1alpha.mgmt_pb2.LookUpOrganizationAdminResponse,
+    ]
+    """LookUpOrganizationAdmin method receives a LookUpOrganizationAdminRequest message and
+    returns a LookUpOrganizationAdminResponse
+    """
 
 class MgmtPrivateServiceAsyncStub:
     """Mgmt service responds to internal access"""
@@ -59,13 +73,6 @@ class MgmtPrivateServiceAsyncStub:
     ]
     """ListUsersAdmin method receives a ListUsersAdminRequest message and returns
     a ListUsersAdminResponse message.
-    """
-    CreateUserAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1alpha.mgmt_pb2.CreateUserAdminRequest,
-        core.mgmt.v1alpha.mgmt_pb2.CreateUserAdminResponse,
-    ]
-    """CreateUserAdmin receives a CreateUserAdminRequest message and returns a
-    a GetUserAdminResponse
     """
     GetUserAdmin: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1alpha.mgmt_pb2.GetUserAdminRequest,
@@ -81,6 +88,27 @@ class MgmtPrivateServiceAsyncStub:
     """LookUpUserAdmin method receives a LookUpUserAdminRequest message and
     returns a LookUpUserAdminResponse
     """
+    ListOrganizationsAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.ListOrganizationsAdminRequest,
+        core.mgmt.v1alpha.mgmt_pb2.ListOrganizationsAdminResponse,
+    ]
+    """ListOrganizationsAdmin method receives a ListOrganizationsAdminRequest message and returns
+    a ListOrganizationsAdminResponse message.
+    """
+    GetOrganizationAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.GetOrganizationAdminRequest,
+        core.mgmt.v1alpha.mgmt_pb2.GetOrganizationAdminResponse,
+    ]
+    """GetOrganizationAdmin method receives a GetOrganizationAdminRequest message and returns
+    a GetOrganizationAdminResponse message.
+    """
+    LookUpOrganizationAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.LookUpOrganizationAdminRequest,
+        core.mgmt.v1alpha.mgmt_pb2.LookUpOrganizationAdminResponse,
+    ]
+    """LookUpOrganizationAdmin method receives a LookUpOrganizationAdminRequest message and
+    returns a LookUpOrganizationAdminResponse
+    """
 
 class MgmtPrivateServiceServicer(metaclass=abc.ABCMeta):
     """Mgmt service responds to internal access"""
@@ -93,15 +121,6 @@ class MgmtPrivateServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.ListUsersAdminResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.ListUsersAdminResponse]]:
         """ListUsersAdmin method receives a ListUsersAdminRequest message and returns
         a ListUsersAdminResponse message.
-        """
-    @abc.abstractmethod
-    def CreateUserAdmin(
-        self,
-        request: core.mgmt.v1alpha.mgmt_pb2.CreateUserAdminRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.CreateUserAdminResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.CreateUserAdminResponse]]:
-        """CreateUserAdmin receives a CreateUserAdminRequest message and returns a
-        a GetUserAdminResponse
         """
     @abc.abstractmethod
     def GetUserAdmin(
@@ -120,6 +139,33 @@ class MgmtPrivateServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.LookUpUserAdminResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.LookUpUserAdminResponse]]:
         """LookUpUserAdmin method receives a LookUpUserAdminRequest message and
         returns a LookUpUserAdminResponse
+        """
+    @abc.abstractmethod
+    def ListOrganizationsAdmin(
+        self,
+        request: core.mgmt.v1alpha.mgmt_pb2.ListOrganizationsAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.ListOrganizationsAdminResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.ListOrganizationsAdminResponse]]:
+        """ListOrganizationsAdmin method receives a ListOrganizationsAdminRequest message and returns
+        a ListOrganizationsAdminResponse message.
+        """
+    @abc.abstractmethod
+    def GetOrganizationAdmin(
+        self,
+        request: core.mgmt.v1alpha.mgmt_pb2.GetOrganizationAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.GetOrganizationAdminResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.GetOrganizationAdminResponse]]:
+        """GetOrganizationAdmin method receives a GetOrganizationAdminRequest message and returns
+        a GetOrganizationAdminResponse message.
+        """
+    @abc.abstractmethod
+    def LookUpOrganizationAdmin(
+        self,
+        request: core.mgmt.v1alpha.mgmt_pb2.LookUpOrganizationAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.LookUpOrganizationAdminResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.LookUpOrganizationAdminResponse]]:
+        """LookUpOrganizationAdmin method receives a LookUpOrganizationAdminRequest message and
+        returns a LookUpOrganizationAdminResponse
         """
 
 def add_MgmtPrivateServiceServicer_to_server(servicer: MgmtPrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

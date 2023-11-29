@@ -353,50 +353,6 @@ class ListUsersAdminResponse(google.protobuf.message.Message):
 global___ListUsersAdminResponse = ListUsersAdminResponse
 
 @typing_extensions.final
-class CreateUserAdminRequest(google.protobuf.message.Message):
-    """CreateUserAdminRequest represents a request to create a user by admin"""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    USER_FIELD_NUMBER: builtins.int
-    @property
-    def user(self) -> global___User:
-        """The user to be created
-
-        The user's `name` field is used to identify the user to create.
-        Format: users/{user}
-        """
-    def __init__(
-        self,
-        *,
-        user: global___User | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["user", b"user"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["user", b"user"]) -> None: ...
-
-global___CreateUserAdminRequest = CreateUserAdminRequest
-
-@typing_extensions.final
-class CreateUserAdminResponse(google.protobuf.message.Message):
-    """CreateUserAdminResponse represents a response for a user response"""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    USER_FIELD_NUMBER: builtins.int
-    @property
-    def user(self) -> global___User:
-        """A user resource"""
-    def __init__(
-        self,
-        *,
-        user: global___User | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["user", b"user"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["user", b"user"]) -> None: ...
-
-global___CreateUserAdminResponse = CreateUserAdminResponse
-
-@typing_extensions.final
 class GetUserAdminRequest(google.protobuf.message.Message):
     """GetUserAdminRequest represents a request to query a user by admin"""
 
@@ -489,6 +445,170 @@ class LookUpUserAdminResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["user", b"user"]) -> None: ...
 
 global___LookUpUserAdminResponse = LookUpUserAdminResponse
+
+@typing_extensions.final
+class ListOrganizationsAdminRequest(google.protobuf.message.Message):
+    """ListOrganizationsAdminRequest represents a request to list all organizations by admin"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    VIEW_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
+    page_size: builtins.int
+    """Page size: the maximum number of resources to return. The service may
+    return fewer than this value. If unspecified, at most 10 organizations will be
+    returned. The maximum value is 100; values above 100 will be coereced to
+    100.
+    """
+    page_token: builtins.str
+    """Page token"""
+    view: global___View.ValueType
+    """View view (default is VIEW_BASIC)"""
+    filter: builtins.str
+    """Filter expression to list organizations"""
+    def __init__(
+        self,
+        *,
+        page_size: builtins.int | None = ...,
+        page_token: builtins.str | None = ...,
+        view: global___View.ValueType | None = ...,
+        filter: builtins.str | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_view", b"_view", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "view", b"view"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_view", b"_view", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "view", b"view"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_token", b"_page_token"]) -> typing_extensions.Literal["page_token"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+
+global___ListOrganizationsAdminRequest = ListOrganizationsAdminRequest
+
+@typing_extensions.final
+class ListOrganizationsAdminResponse(google.protobuf.message.Message):
+    """ListOrganizationsAdminResponse represents a response for a list of organizations"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    ORGANIZATIONS_FIELD_NUMBER: builtins.int
+    NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    @property
+    def organizations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Organization]:
+        """A list of organizations"""
+    next_page_token: builtins.str
+    """Next page token"""
+    total_size: builtins.int
+    """Total count of organizations"""
+    def __init__(
+        self,
+        *,
+        organizations: collections.abc.Iterable[global___Organization] | None = ...,
+        next_page_token: builtins.str = ...,
+        total_size: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "organizations", b"organizations", "total_size", b"total_size"]) -> None: ...
+
+global___ListOrganizationsAdminResponse = ListOrganizationsAdminResponse
+
+@typing_extensions.final
+class GetOrganizationAdminRequest(google.protobuf.message.Message):
+    """GetOrganizationAdminRequest represents a request to query a organization by admin"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    VIEW_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """Resource name of a organization. For example:
+    "organizations/local-organization"
+    """
+    view: global___View.ValueType
+    """View view (default is VIEW_BASIC)"""
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        view: global___View.ValueType | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "name", b"name", "view", b"view"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+
+global___GetOrganizationAdminRequest = GetOrganizationAdminRequest
+
+@typing_extensions.final
+class GetOrganizationAdminResponse(google.protobuf.message.Message):
+    """GetOrganizationAdminResponse represents a response for a organization resource"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    ORGANIZATION_FIELD_NUMBER: builtins.int
+    @property
+    def organization(self) -> global___Organization:
+        """A organization resource"""
+    def __init__(
+        self,
+        *,
+        organization: global___Organization | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["organization", b"organization"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["organization", b"organization"]) -> None: ...
+
+global___GetOrganizationAdminResponse = GetOrganizationAdminResponse
+
+@typing_extensions.final
+class LookUpOrganizationAdminRequest(google.protobuf.message.Message):
+    """LookUpOrganizationAdminRequest represents a request to query a organization via permalink by
+    admin
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PERMALINK_FIELD_NUMBER: builtins.int
+    VIEW_FIELD_NUMBER: builtins.int
+    permalink: builtins.str
+    """Permalink of a organization. For example:
+    "organizations/{uid}"
+    """
+    view: global___View.ValueType
+    """View view (default is VIEW_BASIC)"""
+    def __init__(
+        self,
+        *,
+        permalink: builtins.str = ...,
+        view: global___View.ValueType | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "permalink", b"permalink", "view", b"view"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+
+global___LookUpOrganizationAdminRequest = LookUpOrganizationAdminRequest
+
+@typing_extensions.final
+class LookUpOrganizationAdminResponse(google.protobuf.message.Message):
+    """LookUpOrganizationAdminResponse represents a response for a organization resource by admin"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    ORGANIZATION_FIELD_NUMBER: builtins.int
+    @property
+    def organization(self) -> global___Organization:
+        """A organization resource"""
+    def __init__(
+        self,
+        *,
+        organization: global___Organization | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["organization", b"organization"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["organization", b"organization"]) -> None: ...
+
+global___LookUpOrganizationAdminResponse = LookUpOrganizationAdminResponse
 
 @typing_extensions.final
 class ListUsersRequest(google.protobuf.message.Message):

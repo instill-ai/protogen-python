@@ -20,11 +20,6 @@ class MgmtPrivateServiceStub(object):
                 request_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListUsersAdminRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListUsersAdminResponse.FromString,
                 )
-        self.CreateUserAdmin = channel.unary_unary(
-                '/core.mgmt.v1alpha.MgmtPrivateService/CreateUserAdmin',
-                request_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserAdminRequest.SerializeToString,
-                response_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserAdminResponse.FromString,
-                )
         self.GetUserAdmin = channel.unary_unary(
                 '/core.mgmt.v1alpha.MgmtPrivateService/GetUserAdmin',
                 request_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetUserAdminRequest.SerializeToString,
@@ -35,6 +30,21 @@ class MgmtPrivateServiceStub(object):
                 request_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserAdminRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserAdminResponse.FromString,
                 )
+        self.ListOrganizationsAdmin = channel.unary_unary(
+                '/core.mgmt.v1alpha.MgmtPrivateService/ListOrganizationsAdmin',
+                request_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListOrganizationsAdminRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListOrganizationsAdminResponse.FromString,
+                )
+        self.GetOrganizationAdmin = channel.unary_unary(
+                '/core.mgmt.v1alpha.MgmtPrivateService/GetOrganizationAdmin',
+                request_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetOrganizationAdminRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetOrganizationAdminResponse.FromString,
+                )
+        self.LookUpOrganizationAdmin = channel.unary_unary(
+                '/core.mgmt.v1alpha.MgmtPrivateService/LookUpOrganizationAdmin',
+                request_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpOrganizationAdminRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpOrganizationAdminResponse.FromString,
+                )
 
 
 class MgmtPrivateServiceServicer(object):
@@ -44,14 +54,6 @@ class MgmtPrivateServiceServicer(object):
     def ListUsersAdmin(self, request, context):
         """ListUsersAdmin method receives a ListUsersAdminRequest message and returns
         a ListUsersAdminResponse message.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def CreateUserAdmin(self, request, context):
-        """CreateUserAdmin receives a CreateUserAdminRequest message and returns a
-        a GetUserAdminResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -73,6 +75,30 @@ class MgmtPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListOrganizationsAdmin(self, request, context):
+        """ListOrganizationsAdmin method receives a ListOrganizationsAdminRequest message and returns
+        a ListOrganizationsAdminResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetOrganizationAdmin(self, request, context):
+        """GetOrganizationAdmin method receives a GetOrganizationAdminRequest message and returns
+        a GetOrganizationAdminResponse message.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def LookUpOrganizationAdmin(self, request, context):
+        """LookUpOrganizationAdmin method receives a LookUpOrganizationAdminRequest message and
+        returns a LookUpOrganizationAdminResponse
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_MgmtPrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -80,11 +106,6 @@ def add_MgmtPrivateServiceServicer_to_server(servicer, server):
                     servicer.ListUsersAdmin,
                     request_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListUsersAdminRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListUsersAdminResponse.SerializeToString,
-            ),
-            'CreateUserAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreateUserAdmin,
-                    request_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserAdminRequest.FromString,
-                    response_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserAdminResponse.SerializeToString,
             ),
             'GetUserAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUserAdmin,
@@ -95,6 +116,21 @@ def add_MgmtPrivateServiceServicer_to_server(servicer, server):
                     servicer.LookUpUserAdmin,
                     request_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserAdminRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserAdminResponse.SerializeToString,
+            ),
+            'ListOrganizationsAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListOrganizationsAdmin,
+                    request_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListOrganizationsAdminRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListOrganizationsAdminResponse.SerializeToString,
+            ),
+            'GetOrganizationAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOrganizationAdmin,
+                    request_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetOrganizationAdminRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetOrganizationAdminResponse.SerializeToString,
+            ),
+            'LookUpOrganizationAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.LookUpOrganizationAdmin,
+                    request_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpOrganizationAdminRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpOrganizationAdminResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -121,23 +157,6 @@ class MgmtPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1alpha.MgmtPrivateService/ListUsersAdmin',
             core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListUsersAdminRequest.SerializeToString,
             core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListUsersAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def CreateUserAdmin(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1alpha.MgmtPrivateService/CreateUserAdmin',
-            core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserAdminRequest.SerializeToString,
-            core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CreateUserAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -172,5 +191,56 @@ class MgmtPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1alpha.MgmtPrivateService/LookUpUserAdmin',
             core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserAdminRequest.SerializeToString,
             core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpUserAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListOrganizationsAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1alpha.MgmtPrivateService/ListOrganizationsAdmin',
+            core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListOrganizationsAdminRequest.SerializeToString,
+            core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListOrganizationsAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetOrganizationAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1alpha.MgmtPrivateService/GetOrganizationAdmin',
+            core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetOrganizationAdminRequest.SerializeToString,
+            core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.GetOrganizationAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def LookUpOrganizationAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1alpha.MgmtPrivateService/LookUpOrganizationAdmin',
+            core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpOrganizationAdminRequest.SerializeToString,
+            core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.LookUpOrganizationAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

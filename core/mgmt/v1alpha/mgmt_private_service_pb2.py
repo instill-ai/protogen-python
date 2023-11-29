@@ -16,7 +16,7 @@ from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import client_pb2 as google_dot_api_dot_client__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,core/mgmt/v1alpha/mgmt_private_service.proto\x12\x11\x63ore.mgmt.v1alpha\x1a\x1c\x63ore/mgmt/v1alpha/mgmt.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto2\xea\x04\n\x12MgmtPrivateService\x12\x83\x01\n\x0eListUsersAdmin\x12(.core.mgmt.v1alpha.ListUsersAdminRequest\x1a).core.mgmt.v1alpha.ListUsersAdminResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/v1alpha/admin/users\x12\x93\x01\n\x0f\x43reateUserAdmin\x12).core.mgmt.v1alpha.CreateUserAdminRequest\x1a*.core.mgmt.v1alpha.CreateUserAdminResponse\")\xda\x41\x04user\x82\xd3\xe4\x93\x02\x1c\"\x14/v1alpha/admin/users:\x04user\x12\x8d\x01\n\x0cGetUserAdmin\x12&.core.mgmt.v1alpha.GetUserAdminRequest\x1a\'.core.mgmt.v1alpha.GetUserAdminResponse\",\xda\x41\x04name\x82\xd3\xe4\x93\x02\x1f\x12\x1d/v1alpha/admin/{name=users/*}\x12\xa7\x01\n\x0fLookUpUserAdmin\x12).core.mgmt.v1alpha.LookUpUserAdminRequest\x1a*.core.mgmt.v1alpha.LookUpUserAdminResponse\"=\xda\x41\tpermalink\x82\xd3\xe4\x93\x02+\x12)/v1alpha/admin/{permalink=users/*}/lookUpB\xd7\x01\n\x15\x63om.core.mgmt.v1alphaB\x17MgmtPrivateServiceProtoP\x01Z?github.com/instill-ai/protogen-go/core/mgmt/v1alpha;mgmtv1alpha\xa2\x02\x03\x43MX\xaa\x02\x11\x43ore.Mgmt.V1alpha\xca\x02\x11\x43ore\\Mgmt\\V1alpha\xe2\x02\x1d\x43ore\\Mgmt\\V1alpha\\GPBMetadata\xea\x02\x13\x43ore::Mgmt::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,core/mgmt/v1alpha/mgmt_private_service.proto\x12\x11\x63ore.mgmt.v1alpha\x1a\x1c\x63ore/mgmt/v1alpha/mgmt.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto2\xf4\x07\n\x12MgmtPrivateService\x12\x83\x01\n\x0eListUsersAdmin\x12(.core.mgmt.v1alpha.ListUsersAdminRequest\x1a).core.mgmt.v1alpha.ListUsersAdminResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/v1alpha/admin/users\x12\x8d\x01\n\x0cGetUserAdmin\x12&.core.mgmt.v1alpha.GetUserAdminRequest\x1a\'.core.mgmt.v1alpha.GetUserAdminResponse\",\xda\x41\x04name\x82\xd3\xe4\x93\x02\x1f\x12\x1d/v1alpha/admin/{name=users/*}\x12\xa7\x01\n\x0fLookUpUserAdmin\x12).core.mgmt.v1alpha.LookUpUserAdminRequest\x1a*.core.mgmt.v1alpha.LookUpUserAdminResponse\"=\xda\x41\tpermalink\x82\xd3\xe4\x93\x02+\x12)/v1alpha/admin/{permalink=users/*}/lookUp\x12\xa3\x01\n\x16ListOrganizationsAdmin\x12\x30.core.mgmt.v1alpha.ListOrganizationsAdminRequest\x1a\x31.core.mgmt.v1alpha.ListOrganizationsAdminResponse\"$\x82\xd3\xe4\x93\x02\x1e\x12\x1c/v1alpha/admin/organizations\x12\xad\x01\n\x14GetOrganizationAdmin\x12..core.mgmt.v1alpha.GetOrganizationAdminRequest\x1a/.core.mgmt.v1alpha.GetOrganizationAdminResponse\"4\xda\x41\x04name\x82\xd3\xe4\x93\x02\'\x12%/v1alpha/admin/{name=organizations/*}\x12\xc7\x01\n\x17LookUpOrganizationAdmin\x12\x31.core.mgmt.v1alpha.LookUpOrganizationAdminRequest\x1a\x32.core.mgmt.v1alpha.LookUpOrganizationAdminResponse\"E\xda\x41\tpermalink\x82\xd3\xe4\x93\x02\x33\x12\x31/v1alpha/admin/{permalink=organizations/*}/lookUpB\xd7\x01\n\x15\x63om.core.mgmt.v1alphaB\x17MgmtPrivateServiceProtoP\x01Z?github.com/instill-ai/protogen-go/core/mgmt/v1alpha;mgmtv1alpha\xa2\x02\x03\x43MX\xaa\x02\x11\x43ore.Mgmt.V1alpha\xca\x02\x11\x43ore\\Mgmt\\V1alpha\xe2\x02\x1d\x43ore\\Mgmt\\V1alpha\\GPBMetadata\xea\x02\x13\x43ore::Mgmt::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -27,12 +27,16 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._serialized_options = b'\n\025com.core.mgmt.v1alphaB\027MgmtPrivateServiceProtoP\001Z?github.com/instill-ai/protogen-go/core/mgmt/v1alpha;mgmtv1alpha\242\002\003CMX\252\002\021Core.Mgmt.V1alpha\312\002\021Core\\Mgmt\\V1alpha\342\002\035Core\\Mgmt\\V1alpha\\GPBMetadata\352\002\023Core::Mgmt::V1alpha'
   _MGMTPRIVATESERVICE.methods_by_name['ListUsersAdmin']._options = None
   _MGMTPRIVATESERVICE.methods_by_name['ListUsersAdmin']._serialized_options = b'\202\323\344\223\002\026\022\024/v1alpha/admin/users'
-  _MGMTPRIVATESERVICE.methods_by_name['CreateUserAdmin']._options = None
-  _MGMTPRIVATESERVICE.methods_by_name['CreateUserAdmin']._serialized_options = b'\332A\004user\202\323\344\223\002\034\"\024/v1alpha/admin/users:\004user'
   _MGMTPRIVATESERVICE.methods_by_name['GetUserAdmin']._options = None
   _MGMTPRIVATESERVICE.methods_by_name['GetUserAdmin']._serialized_options = b'\332A\004name\202\323\344\223\002\037\022\035/v1alpha/admin/{name=users/*}'
   _MGMTPRIVATESERVICE.methods_by_name['LookUpUserAdmin']._options = None
   _MGMTPRIVATESERVICE.methods_by_name['LookUpUserAdmin']._serialized_options = b'\332A\tpermalink\202\323\344\223\002+\022)/v1alpha/admin/{permalink=users/*}/lookUp'
+  _MGMTPRIVATESERVICE.methods_by_name['ListOrganizationsAdmin']._options = None
+  _MGMTPRIVATESERVICE.methods_by_name['ListOrganizationsAdmin']._serialized_options = b'\202\323\344\223\002\036\022\034/v1alpha/admin/organizations'
+  _MGMTPRIVATESERVICE.methods_by_name['GetOrganizationAdmin']._options = None
+  _MGMTPRIVATESERVICE.methods_by_name['GetOrganizationAdmin']._serialized_options = b'\332A\004name\202\323\344\223\002\'\022%/v1alpha/admin/{name=organizations/*}'
+  _MGMTPRIVATESERVICE.methods_by_name['LookUpOrganizationAdmin']._options = None
+  _MGMTPRIVATESERVICE.methods_by_name['LookUpOrganizationAdmin']._serialized_options = b'\332A\tpermalink\202\323\344\223\0023\0221/v1alpha/admin/{permalink=organizations/*}/lookUp'
   _globals['_MGMTPRIVATESERVICE']._serialized_start=153
-  _globals['_MGMTPRIVATESERVICE']._serialized_end=771
+  _globals['_MGMTPRIVATESERVICE']._serialized_end=1165
 # @@protoc_insertion_point(module_scope)
