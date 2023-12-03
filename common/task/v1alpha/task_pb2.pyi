@@ -39,11 +39,15 @@ class _TaskEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeW
     """Task: TEXT TO IMAGE"""
     TASK_TEXT_GENERATION: _Task.ValueType  # 8
     """Task: TEXT GENERATION"""
-    TASK_IMAGE_TO_IMAGE: _Task.ValueType  # 9
+    TASK_TEXT_GENERATION_CHAT: _Task.ValueType  # 9
+    """Task: TEXT GENERATION CHAT"""
+    TASK_VISUAL_QUESTION_ANSWERING: _Task.ValueType  # 10
+    """Task: VISUAL QUESTION ANSWERING"""
+    TASK_IMAGE_TO_IMAGE: _Task.ValueType  # 11
     """Task: IMAGE TO IMAGE"""
-    TASK_TEXT_EMBEDDINGS: _Task.ValueType  # 10
+    TASK_TEXT_EMBEDDINGS: _Task.ValueType  # 12
     """Task: TEXT EMBEDDINGS"""
-    TASK_SPEECH_RECOGNITION: _Task.ValueType  # 11
+    TASK_SPEECH_RECOGNITION: _Task.ValueType  # 13
     """Task: SPEECH RECOGNITION"""
 
 class Task(_Task, metaclass=_TaskEnumTypeWrapper):
@@ -67,10 +71,14 @@ TASK_TEXT_TO_IMAGE: Task.ValueType  # 7
 """Task: TEXT TO IMAGE"""
 TASK_TEXT_GENERATION: Task.ValueType  # 8
 """Task: TEXT GENERATION"""
-TASK_IMAGE_TO_IMAGE: Task.ValueType  # 9
+TASK_TEXT_GENERATION_CHAT: Task.ValueType  # 9
+"""Task: TEXT GENERATION CHAT"""
+TASK_VISUAL_QUESTION_ANSWERING: Task.ValueType  # 10
+"""Task: VISUAL QUESTION ANSWERING"""
+TASK_IMAGE_TO_IMAGE: Task.ValueType  # 11
 """Task: IMAGE TO IMAGE"""
-TASK_TEXT_EMBEDDINGS: Task.ValueType  # 10
+TASK_TEXT_EMBEDDINGS: Task.ValueType  # 12
 """Task: TEXT EMBEDDINGS"""
-TASK_SPEECH_RECOGNITION: Task.ValueType  # 11
+TASK_SPEECH_RECOGNITION: Task.ValueType  # 13
 """Task: SPEECH RECOGNITION"""
 global___Task = Task

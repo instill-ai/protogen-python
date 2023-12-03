@@ -19,19 +19,20 @@ else:
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 @typing_extensions.final
-class TextGenerationInput(google.protobuf.message.Message):
-    """TextGenerationInput represents the input of text generation task"""
+class TextGenerationChatInput(google.protobuf.message.Message):
+    """TextGenerationChatInput represents the input of text generation chat task"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    PROMPT_FIELD_NUMBER: builtins.int
+    CONVERSATION_FIELD_NUMBER: builtins.int
     MAX_NEW_TOKENS_FIELD_NUMBER: builtins.int
     TEMPERATURE_FIELD_NUMBER: builtins.int
     TOP_K_FIELD_NUMBER: builtins.int
     SEED_FIELD_NUMBER: builtins.int
     EXTRA_PARAMS_FIELD_NUMBER: builtins.int
-    prompt: builtins.str
-    """The prompt text"""
+    @property
+    def conversation(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[model.model.v1alpha.common_pb2.ConversationObject]:
+        """The prompt text"""
     max_new_tokens: builtins.int
     """The maximum number of tokens for model to generate"""
     temperature: builtins.float
@@ -46,7 +47,7 @@ class TextGenerationInput(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        prompt: builtins.str = ...,
+        conversation: collections.abc.Iterable[model.model.v1alpha.common_pb2.ConversationObject] | None = ...,
         max_new_tokens: builtins.int | None = ...,
         temperature: builtins.float | None = ...,
         top_k: builtins.int | None = ...,
@@ -54,7 +55,7 @@ class TextGenerationInput(google.protobuf.message.Message):
         extra_params: collections.abc.Iterable[model.model.v1alpha.common_pb2.ExtraParamObject] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_max_new_tokens", b"_max_new_tokens", "_seed", b"_seed", "_temperature", b"_temperature", "_top_k", b"_top_k", "max_new_tokens", b"max_new_tokens", "seed", b"seed", "temperature", b"temperature", "top_k", b"top_k"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_max_new_tokens", b"_max_new_tokens", "_seed", b"_seed", "_temperature", b"_temperature", "_top_k", b"_top_k", "extra_params", b"extra_params", "max_new_tokens", b"max_new_tokens", "prompt", b"prompt", "seed", b"seed", "temperature", b"temperature", "top_k", b"top_k"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_max_new_tokens", b"_max_new_tokens", "_seed", b"_seed", "_temperature", b"_temperature", "_top_k", b"_top_k", "conversation", b"conversation", "extra_params", b"extra_params", "max_new_tokens", b"max_new_tokens", "seed", b"seed", "temperature", b"temperature", "top_k", b"top_k"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_max_new_tokens", b"_max_new_tokens"]) -> typing_extensions.Literal["max_new_tokens"] | None: ...
     @typing.overload
@@ -64,11 +65,11 @@ class TextGenerationInput(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_top_k", b"_top_k"]) -> typing_extensions.Literal["top_k"] | None: ...
 
-global___TextGenerationInput = TextGenerationInput
+global___TextGenerationChatInput = TextGenerationChatInput
 
 @typing_extensions.final
-class TextGenerationOutput(google.protobuf.message.Message):
-    """TextGenerationOutput represents the output of text generation task"""
+class TextGenerationChatOutput(google.protobuf.message.Message):
+    """TextGenerationChatOutput represents the output of text generation chat task"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -82,4 +83,4 @@ class TextGenerationOutput(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["text", b"text"]) -> None: ...
 
-global___TextGenerationOutput = TextGenerationOutput
+global___TextGenerationChatOutput = TextGenerationChatOutput

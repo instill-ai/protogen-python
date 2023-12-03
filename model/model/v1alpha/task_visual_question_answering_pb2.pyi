@@ -19,12 +19,14 @@ else:
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 @typing_extensions.final
-class TextGenerationInput(google.protobuf.message.Message):
-    """TextGenerationInput represents the input of text generation task"""
+class VisualQuestionAnsweringInput(google.protobuf.message.Message):
+    """VisualQuestionAnsweringInput represents the input of visaul question answering task"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PROMPT_FIELD_NUMBER: builtins.int
+    PROMPT_IMAGE_URL_FIELD_NUMBER: builtins.int
+    PROMPT_IMAGE_BASE64_FIELD_NUMBER: builtins.int
     MAX_NEW_TOKENS_FIELD_NUMBER: builtins.int
     TEMPERATURE_FIELD_NUMBER: builtins.int
     TOP_K_FIELD_NUMBER: builtins.int
@@ -32,6 +34,10 @@ class TextGenerationInput(google.protobuf.message.Message):
     EXTRA_PARAMS_FIELD_NUMBER: builtins.int
     prompt: builtins.str
     """The prompt text"""
+    prompt_image_url: builtins.str
+    """Image type URL"""
+    prompt_image_base64: builtins.str
+    """Image type base64"""
     max_new_tokens: builtins.int
     """The maximum number of tokens for model to generate"""
     temperature: builtins.float
@@ -47,14 +53,16 @@ class TextGenerationInput(google.protobuf.message.Message):
         self,
         *,
         prompt: builtins.str = ...,
+        prompt_image_url: builtins.str = ...,
+        prompt_image_base64: builtins.str = ...,
         max_new_tokens: builtins.int | None = ...,
         temperature: builtins.float | None = ...,
         top_k: builtins.int | None = ...,
         seed: builtins.int | None = ...,
         extra_params: collections.abc.Iterable[model.model.v1alpha.common_pb2.ExtraParamObject] | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_max_new_tokens", b"_max_new_tokens", "_seed", b"_seed", "_temperature", b"_temperature", "_top_k", b"_top_k", "max_new_tokens", b"max_new_tokens", "seed", b"seed", "temperature", b"temperature", "top_k", b"top_k"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_max_new_tokens", b"_max_new_tokens", "_seed", b"_seed", "_temperature", b"_temperature", "_top_k", b"_top_k", "extra_params", b"extra_params", "max_new_tokens", b"max_new_tokens", "prompt", b"prompt", "seed", b"seed", "temperature", b"temperature", "top_k", b"top_k"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_max_new_tokens", b"_max_new_tokens", "_seed", b"_seed", "_temperature", b"_temperature", "_top_k", b"_top_k", "max_new_tokens", b"max_new_tokens", "prompt_image_base64", b"prompt_image_base64", "prompt_image_url", b"prompt_image_url", "seed", b"seed", "temperature", b"temperature", "top_k", b"top_k", "type", b"type"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_max_new_tokens", b"_max_new_tokens", "_seed", b"_seed", "_temperature", b"_temperature", "_top_k", b"_top_k", "extra_params", b"extra_params", "max_new_tokens", b"max_new_tokens", "prompt", b"prompt", "prompt_image_base64", b"prompt_image_base64", "prompt_image_url", b"prompt_image_url", "seed", b"seed", "temperature", b"temperature", "top_k", b"top_k", "type", b"type"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_max_new_tokens", b"_max_new_tokens"]) -> typing_extensions.Literal["max_new_tokens"] | None: ...
     @typing.overload
@@ -63,12 +71,14 @@ class TextGenerationInput(google.protobuf.message.Message):
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_temperature", b"_temperature"]) -> typing_extensions.Literal["temperature"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_top_k", b"_top_k"]) -> typing_extensions.Literal["top_k"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["type", b"type"]) -> typing_extensions.Literal["prompt_image_url", "prompt_image_base64"] | None: ...
 
-global___TextGenerationInput = TextGenerationInput
+global___VisualQuestionAnsweringInput = VisualQuestionAnsweringInput
 
 @typing_extensions.final
-class TextGenerationOutput(google.protobuf.message.Message):
-    """TextGenerationOutput represents the output of text generation task"""
+class VisualQuestionAnsweringOutput(google.protobuf.message.Message):
+    """VisualQuestionAnsweringOutput represents the output of visaul question answering task"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -82,4 +92,4 @@ class TextGenerationOutput(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["text", b"text"]) -> None: ...
 
-global___TextGenerationOutput = TextGenerationOutput
+global___VisualQuestionAnsweringOutput = VisualQuestionAnsweringOutput

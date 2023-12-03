@@ -17,13 +17,16 @@ import google.protobuf.timestamp_pb2
 import model.model.v1alpha.model_definition_pb2
 import model.model.v1alpha.task_classification_pb2
 import model.model.v1alpha.task_detection_pb2
+import model.model.v1alpha.task_image_to_image_pb2
 import model.model.v1alpha.task_instance_segmentation_pb2
 import model.model.v1alpha.task_keypoint_pb2
 import model.model.v1alpha.task_ocr_pb2
 import model.model.v1alpha.task_semantic_segmentation_pb2
+import model.model.v1alpha.task_text_generation_chat_pb2
 import model.model.v1alpha.task_text_generation_pb2
 import model.model.v1alpha.task_text_to_image_pb2
 import model.model.v1alpha.task_unspecified_pb2
+import model.model.v1alpha.task_visual_question_answering_pb2
 import sys
 import typing
 
@@ -1036,7 +1039,10 @@ class TaskInput(google.protobuf.message.Message):
     INSTANCE_SEGMENTATION_FIELD_NUMBER: builtins.int
     SEMANTIC_SEGMENTATION_FIELD_NUMBER: builtins.int
     TEXT_TO_IMAGE_FIELD_NUMBER: builtins.int
+    IMAGE_TO_IMAGE_FIELD_NUMBER: builtins.int
     TEXT_GENERATION_FIELD_NUMBER: builtins.int
+    TEXT_GENERATION_CHAT_FIELD_NUMBER: builtins.int
+    VISUAL_QUESTION_ANSWERING_FIELD_NUMBER: builtins.int
     UNSPECIFIED_FIELD_NUMBER: builtins.int
     @property
     def classification(self) -> model.model.v1alpha.task_classification_pb2.ClassificationInput:
@@ -1060,8 +1066,17 @@ class TaskInput(google.protobuf.message.Message):
     def text_to_image(self) -> model.model.v1alpha.task_text_to_image_pb2.TextToImageInput:
         """The text to image input"""
     @property
+    def image_to_image(self) -> model.model.v1alpha.task_image_to_image_pb2.ImageToImageInput:
+        """The image to image input"""
+    @property
     def text_generation(self) -> model.model.v1alpha.task_text_generation_pb2.TextGenerationInput:
         """The text generation input"""
+    @property
+    def text_generation_chat(self) -> model.model.v1alpha.task_text_generation_chat_pb2.TextGenerationChatInput:
+        """The text generation chat input"""
+    @property
+    def visual_question_answering(self) -> model.model.v1alpha.task_visual_question_answering_pb2.VisualQuestionAnsweringInput:
+        """The visual question answering input"""
     @property
     def unspecified(self) -> model.model.v1alpha.task_unspecified_pb2.UnspecifiedInput:
         """The unspecified task input"""
@@ -1075,12 +1090,15 @@ class TaskInput(google.protobuf.message.Message):
         instance_segmentation: model.model.v1alpha.task_instance_segmentation_pb2.InstanceSegmentationInput | None = ...,
         semantic_segmentation: model.model.v1alpha.task_semantic_segmentation_pb2.SemanticSegmentationInput | None = ...,
         text_to_image: model.model.v1alpha.task_text_to_image_pb2.TextToImageInput | None = ...,
+        image_to_image: model.model.v1alpha.task_image_to_image_pb2.ImageToImageInput | None = ...,
         text_generation: model.model.v1alpha.task_text_generation_pb2.TextGenerationInput | None = ...,
+        text_generation_chat: model.model.v1alpha.task_text_generation_chat_pb2.TextGenerationChatInput | None = ...,
+        visual_question_answering: model.model.v1alpha.task_visual_question_answering_pb2.VisualQuestionAnsweringInput | None = ...,
         unspecified: model.model.v1alpha.task_unspecified_pb2.UnspecifiedInput | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["classification", b"classification", "detection", b"detection", "input", b"input", "instance_segmentation", b"instance_segmentation", "keypoint", b"keypoint", "ocr", b"ocr", "semantic_segmentation", b"semantic_segmentation", "text_generation", b"text_generation", "text_to_image", b"text_to_image", "unspecified", b"unspecified"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["classification", b"classification", "detection", b"detection", "input", b"input", "instance_segmentation", b"instance_segmentation", "keypoint", b"keypoint", "ocr", b"ocr", "semantic_segmentation", b"semantic_segmentation", "text_generation", b"text_generation", "text_to_image", b"text_to_image", "unspecified", b"unspecified"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["input", b"input"]) -> typing_extensions.Literal["classification", "detection", "keypoint", "ocr", "instance_segmentation", "semantic_segmentation", "text_to_image", "text_generation", "unspecified"] | None: ...
+    def HasField(self, field_name: typing_extensions.Literal["classification", b"classification", "detection", b"detection", "image_to_image", b"image_to_image", "input", b"input", "instance_segmentation", b"instance_segmentation", "keypoint", b"keypoint", "ocr", b"ocr", "semantic_segmentation", b"semantic_segmentation", "text_generation", b"text_generation", "text_generation_chat", b"text_generation_chat", "text_to_image", b"text_to_image", "unspecified", b"unspecified", "visual_question_answering", b"visual_question_answering"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["classification", b"classification", "detection", b"detection", "image_to_image", b"image_to_image", "input", b"input", "instance_segmentation", b"instance_segmentation", "keypoint", b"keypoint", "ocr", b"ocr", "semantic_segmentation", b"semantic_segmentation", "text_generation", b"text_generation", "text_generation_chat", b"text_generation_chat", "text_to_image", b"text_to_image", "unspecified", b"unspecified", "visual_question_answering", b"visual_question_answering"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["input", b"input"]) -> typing_extensions.Literal["classification", "detection", "keypoint", "ocr", "instance_segmentation", "semantic_segmentation", "text_to_image", "image_to_image", "text_generation", "text_generation_chat", "visual_question_answering", "unspecified"] | None: ...
 
 global___TaskInput = TaskInput
 
@@ -1097,7 +1115,10 @@ class TaskInputStream(google.protobuf.message.Message):
     INSTANCE_SEGMENTATION_FIELD_NUMBER: builtins.int
     SEMANTIC_SEGMENTATION_FIELD_NUMBER: builtins.int
     TEXT_TO_IMAGE_FIELD_NUMBER: builtins.int
+    IMAGE_TO_IMAGE_FIELD_NUMBER: builtins.int
     TEXT_GENERATION_FIELD_NUMBER: builtins.int
+    TEXT_GENERATION_CHAT_FIELD_NUMBER: builtins.int
+    VISUAL_QUESTION_ANSWERING_FIELD_NUMBER: builtins.int
     UNSPECIFIED_FIELD_NUMBER: builtins.int
     @property
     def classification(self) -> model.model.v1alpha.task_classification_pb2.ClassificationInputStream:
@@ -1121,8 +1142,17 @@ class TaskInputStream(google.protobuf.message.Message):
     def text_to_image(self) -> model.model.v1alpha.task_text_to_image_pb2.TextToImageInput:
         """The text to image input"""
     @property
+    def image_to_image(self) -> model.model.v1alpha.task_image_to_image_pb2.ImageToImageInput:
+        """The image to image input"""
+    @property
     def text_generation(self) -> model.model.v1alpha.task_text_generation_pb2.TextGenerationInput:
         """The text generation input"""
+    @property
+    def text_generation_chat(self) -> model.model.v1alpha.task_text_generation_chat_pb2.TextGenerationChatInput:
+        """The text generation chat input"""
+    @property
+    def visual_question_answering(self) -> model.model.v1alpha.task_visual_question_answering_pb2.VisualQuestionAnsweringInput:
+        """The visual question answering input"""
     @property
     def unspecified(self) -> model.model.v1alpha.task_unspecified_pb2.UnspecifiedInput:
         """The unspecified task input"""
@@ -1136,12 +1166,15 @@ class TaskInputStream(google.protobuf.message.Message):
         instance_segmentation: model.model.v1alpha.task_instance_segmentation_pb2.InstanceSegmentationInputStream | None = ...,
         semantic_segmentation: model.model.v1alpha.task_semantic_segmentation_pb2.SemanticSegmentationInputStream | None = ...,
         text_to_image: model.model.v1alpha.task_text_to_image_pb2.TextToImageInput | None = ...,
+        image_to_image: model.model.v1alpha.task_image_to_image_pb2.ImageToImageInput | None = ...,
         text_generation: model.model.v1alpha.task_text_generation_pb2.TextGenerationInput | None = ...,
+        text_generation_chat: model.model.v1alpha.task_text_generation_chat_pb2.TextGenerationChatInput | None = ...,
+        visual_question_answering: model.model.v1alpha.task_visual_question_answering_pb2.VisualQuestionAnsweringInput | None = ...,
         unspecified: model.model.v1alpha.task_unspecified_pb2.UnspecifiedInput | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["classification", b"classification", "detection", b"detection", "input", b"input", "instance_segmentation", b"instance_segmentation", "keypoint", b"keypoint", "ocr", b"ocr", "semantic_segmentation", b"semantic_segmentation", "text_generation", b"text_generation", "text_to_image", b"text_to_image", "unspecified", b"unspecified"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["classification", b"classification", "detection", b"detection", "input", b"input", "instance_segmentation", b"instance_segmentation", "keypoint", b"keypoint", "ocr", b"ocr", "semantic_segmentation", b"semantic_segmentation", "text_generation", b"text_generation", "text_to_image", b"text_to_image", "unspecified", b"unspecified"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["input", b"input"]) -> typing_extensions.Literal["classification", "detection", "keypoint", "ocr", "instance_segmentation", "semantic_segmentation", "text_to_image", "text_generation", "unspecified"] | None: ...
+    def HasField(self, field_name: typing_extensions.Literal["classification", b"classification", "detection", b"detection", "image_to_image", b"image_to_image", "input", b"input", "instance_segmentation", b"instance_segmentation", "keypoint", b"keypoint", "ocr", b"ocr", "semantic_segmentation", b"semantic_segmentation", "text_generation", b"text_generation", "text_generation_chat", b"text_generation_chat", "text_to_image", b"text_to_image", "unspecified", b"unspecified", "visual_question_answering", b"visual_question_answering"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["classification", b"classification", "detection", b"detection", "image_to_image", b"image_to_image", "input", b"input", "instance_segmentation", b"instance_segmentation", "keypoint", b"keypoint", "ocr", b"ocr", "semantic_segmentation", b"semantic_segmentation", "text_generation", b"text_generation", "text_generation_chat", b"text_generation_chat", "text_to_image", b"text_to_image", "unspecified", b"unspecified", "visual_question_answering", b"visual_question_answering"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["input", b"input"]) -> typing_extensions.Literal["classification", "detection", "keypoint", "ocr", "instance_segmentation", "semantic_segmentation", "text_to_image", "image_to_image", "text_generation", "text_generation_chat", "visual_question_answering", "unspecified"] | None: ...
 
 global___TaskInputStream = TaskInputStream
 
@@ -1158,7 +1191,10 @@ class TaskOutput(google.protobuf.message.Message):
     INSTANCE_SEGMENTATION_FIELD_NUMBER: builtins.int
     SEMANTIC_SEGMENTATION_FIELD_NUMBER: builtins.int
     TEXT_TO_IMAGE_FIELD_NUMBER: builtins.int
+    IMAGE_TO_IMAGE_FIELD_NUMBER: builtins.int
     TEXT_GENERATION_FIELD_NUMBER: builtins.int
+    TEXT_GENERATION_CHAT_FIELD_NUMBER: builtins.int
+    VISUAL_QUESTION_ANSWERING_FIELD_NUMBER: builtins.int
     UNSPECIFIED_FIELD_NUMBER: builtins.int
     @property
     def classification(self) -> model.model.v1alpha.task_classification_pb2.ClassificationOutput:
@@ -1182,7 +1218,16 @@ class TaskOutput(google.protobuf.message.Message):
     def text_to_image(self) -> model.model.v1alpha.task_text_to_image_pb2.TextToImageOutput:
         """The text to image output"""
     @property
+    def image_to_image(self) -> model.model.v1alpha.task_image_to_image_pb2.ImageToImageOutput:
+        """The image to image output"""
+    @property
     def text_generation(self) -> model.model.v1alpha.task_text_generation_pb2.TextGenerationOutput:
+        """The text generation output"""
+    @property
+    def text_generation_chat(self) -> model.model.v1alpha.task_text_generation_chat_pb2.TextGenerationChatOutput:
+        """The text generation output"""
+    @property
+    def visual_question_answering(self) -> model.model.v1alpha.task_visual_question_answering_pb2.VisualQuestionAnsweringOutput:
         """The text generation output"""
     @property
     def unspecified(self) -> model.model.v1alpha.task_unspecified_pb2.UnspecifiedOutput:
@@ -1197,12 +1242,15 @@ class TaskOutput(google.protobuf.message.Message):
         instance_segmentation: model.model.v1alpha.task_instance_segmentation_pb2.InstanceSegmentationOutput | None = ...,
         semantic_segmentation: model.model.v1alpha.task_semantic_segmentation_pb2.SemanticSegmentationOutput | None = ...,
         text_to_image: model.model.v1alpha.task_text_to_image_pb2.TextToImageOutput | None = ...,
+        image_to_image: model.model.v1alpha.task_image_to_image_pb2.ImageToImageOutput | None = ...,
         text_generation: model.model.v1alpha.task_text_generation_pb2.TextGenerationOutput | None = ...,
+        text_generation_chat: model.model.v1alpha.task_text_generation_chat_pb2.TextGenerationChatOutput | None = ...,
+        visual_question_answering: model.model.v1alpha.task_visual_question_answering_pb2.VisualQuestionAnsweringOutput | None = ...,
         unspecified: model.model.v1alpha.task_unspecified_pb2.UnspecifiedOutput | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["classification", b"classification", "detection", b"detection", "instance_segmentation", b"instance_segmentation", "keypoint", b"keypoint", "ocr", b"ocr", "output", b"output", "semantic_segmentation", b"semantic_segmentation", "text_generation", b"text_generation", "text_to_image", b"text_to_image", "unspecified", b"unspecified"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["classification", b"classification", "detection", b"detection", "instance_segmentation", b"instance_segmentation", "keypoint", b"keypoint", "ocr", b"ocr", "output", b"output", "semantic_segmentation", b"semantic_segmentation", "text_generation", b"text_generation", "text_to_image", b"text_to_image", "unspecified", b"unspecified"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["output", b"output"]) -> typing_extensions.Literal["classification", "detection", "keypoint", "ocr", "instance_segmentation", "semantic_segmentation", "text_to_image", "text_generation", "unspecified"] | None: ...
+    def HasField(self, field_name: typing_extensions.Literal["classification", b"classification", "detection", b"detection", "image_to_image", b"image_to_image", "instance_segmentation", b"instance_segmentation", "keypoint", b"keypoint", "ocr", b"ocr", "output", b"output", "semantic_segmentation", b"semantic_segmentation", "text_generation", b"text_generation", "text_generation_chat", b"text_generation_chat", "text_to_image", b"text_to_image", "unspecified", b"unspecified", "visual_question_answering", b"visual_question_answering"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["classification", b"classification", "detection", b"detection", "image_to_image", b"image_to_image", "instance_segmentation", b"instance_segmentation", "keypoint", b"keypoint", "ocr", b"ocr", "output", b"output", "semantic_segmentation", b"semantic_segmentation", "text_generation", b"text_generation", "text_generation_chat", b"text_generation_chat", "text_to_image", b"text_to_image", "unspecified", b"unspecified", "visual_question_answering", b"visual_question_answering"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["output", b"output"]) -> typing_extensions.Literal["classification", "detection", "keypoint", "ocr", "instance_segmentation", "semantic_segmentation", "text_to_image", "image_to_image", "text_generation", "text_generation_chat", "visual_question_answering", "unspecified"] | None: ...
 
 global___TaskOutput = TaskOutput
 

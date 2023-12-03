@@ -43,3 +43,49 @@ class BoundingBox(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["height", b"height", "left", b"left", "top", b"top", "width", b"width"]) -> None: ...
 
 global___BoundingBox = BoundingBox
+
+@typing_extensions.final
+class ExtraParamObject(google.protobuf.message.Message):
+    """Additional hyperparameters for model inferences
+    or other configuration not listsed in protobuf
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PARAM_NAME_FIELD_NUMBER: builtins.int
+    PARAM_VALUE_FIELD_NUMBER: builtins.int
+    param_name: builtins.str
+    """Name of the hyperparameter"""
+    param_value: builtins.str
+    """Value of the hyperparameter"""
+    def __init__(
+        self,
+        *,
+        param_name: builtins.str = ...,
+        param_value: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["param_name", b"param_name", "param_value", b"param_value"]) -> None: ...
+
+global___ExtraParamObject = ExtraParamObject
+
+@typing_extensions.final
+class ConversationObject(google.protobuf.message.Message):
+    """Conversation based prompt for text generation model"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    ROLE_FIELD_NUMBER: builtins.int
+    CONTENT_FIELD_NUMBER: builtins.int
+    role: builtins.str
+    """Role name of the conversation"""
+    content: builtins.str
+    """Content of the conversation"""
+    def __init__(
+        self,
+        *,
+        role: builtins.str = ...,
+        content: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["content", b"content", "role", b"role"]) -> None: ...
+
+global___ConversationObject = ConversationObject
