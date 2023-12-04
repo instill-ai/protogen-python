@@ -28,6 +28,8 @@ class _RoleEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeW
     """ROLE: UNSPECIFIED"""
     ROLE_VIEWER: _Role.ValueType  # 1
     """Role: Viewer"""
+    ROLE_EXECUTOR: _Role.ValueType  # 2
+    """Role: Executor"""
 
 class Role(_Role, metaclass=_RoleEnumTypeWrapper):
     """Role"""
@@ -36,6 +38,8 @@ ROLE_UNSPECIFIED: Role.ValueType  # 0
 """ROLE: UNSPECIFIED"""
 ROLE_VIEWER: Role.ValueType  # 1
 """Role: Viewer"""
+ROLE_EXECUTOR: Role.ValueType  # 2
+"""Role: Executor"""
 global___Role = Role
 
 @typing_extensions.final

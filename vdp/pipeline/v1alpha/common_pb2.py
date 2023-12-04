@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n!vdp/pipeline/v1alpha/common.proto\x12\x14vdp.pipeline.v1alpha\"\xcc\x03\n\nPermission\x12\x41\n\x05users\x18\x01 \x03(\x0b\x32+.vdp.pipeline.v1alpha.Permission.UsersEntryR\x05users\x12I\n\nshare_code\x18\x02 \x01(\x0b\x32*.vdp.pipeline.v1alpha.Permission.ShareCodeR\tshareCode\x1aP\n\x04User\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12.\n\x04role\x18\x04 \x01(\x0e\x32\x1a.vdp.pipeline.v1alpha.RoleR\x04role\x1a}\n\tShareCode\x12\x12\n\x04user\x18\x01 \x01(\tR\x04user\x12\x12\n\x04\x63ode\x18\x02 \x01(\tR\x04\x63ode\x12\x18\n\x07\x65nabled\x18\x03 \x01(\x08R\x07\x65nabled\x12.\n\x04role\x18\x04 \x01(\x0e\x32\x1a.vdp.pipeline.v1alpha.RoleR\x04role\x1a_\n\nUsersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12;\n\x05value\x18\x02 \x01(\x0b\x32%.vdp.pipeline.v1alpha.Permission.UserR\x05value:\x02\x38\x01*-\n\x04Role\x12\x14\n\x10ROLE_UNSPECIFIED\x10\x00\x12\x0f\n\x0bROLE_VIEWER\x10\x01\x42\xe1\x01\n\x18\x63om.vdp.pipeline.v1alphaB\x0b\x43ommonProtoP\x01ZFgithub.com/instill-ai/protogen-go/vdp/pipeline/v1alpha;pipelinev1alpha\xa2\x02\x03VPX\xaa\x02\x14Vdp.Pipeline.V1alpha\xca\x02\x14Vdp\\Pipeline\\V1alpha\xe2\x02 Vdp\\Pipeline\\V1alpha\\GPBMetadata\xea\x02\x16Vdp::Pipeline::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n!vdp/pipeline/v1alpha/common.proto\x12\x14vdp.pipeline.v1alpha\"\xcc\x03\n\nPermission\x12\x41\n\x05users\x18\x01 \x03(\x0b\x32+.vdp.pipeline.v1alpha.Permission.UsersEntryR\x05users\x12I\n\nshare_code\x18\x02 \x01(\x0b\x32*.vdp.pipeline.v1alpha.Permission.ShareCodeR\tshareCode\x1aP\n\x04User\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12.\n\x04role\x18\x04 \x01(\x0e\x32\x1a.vdp.pipeline.v1alpha.RoleR\x04role\x1a}\n\tShareCode\x12\x12\n\x04user\x18\x01 \x01(\tR\x04user\x12\x12\n\x04\x63ode\x18\x02 \x01(\tR\x04\x63ode\x12\x18\n\x07\x65nabled\x18\x03 \x01(\x08R\x07\x65nabled\x12.\n\x04role\x18\x04 \x01(\x0e\x32\x1a.vdp.pipeline.v1alpha.RoleR\x04role\x1a_\n\nUsersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12;\n\x05value\x18\x02 \x01(\x0b\x32%.vdp.pipeline.v1alpha.Permission.UserR\x05value:\x02\x38\x01*@\n\x04Role\x12\x14\n\x10ROLE_UNSPECIFIED\x10\x00\x12\x0f\n\x0bROLE_VIEWER\x10\x01\x12\x11\n\rROLE_EXECUTOR\x10\x02\x42\xe1\x01\n\x18\x63om.vdp.pipeline.v1alphaB\x0b\x43ommonProtoP\x01ZFgithub.com/instill-ai/protogen-go/vdp/pipeline/v1alpha;pipelinev1alpha\xa2\x02\x03VPX\xaa\x02\x14Vdp.Pipeline.V1alpha\xca\x02\x14Vdp\\Pipeline\\V1alpha\xe2\x02 Vdp\\Pipeline\\V1alpha\\GPBMetadata\xea\x02\x16Vdp::Pipeline::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -25,7 +25,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _PERMISSION_USERSENTRY._options = None
   _PERMISSION_USERSENTRY._serialized_options = b'8\001'
   _globals['_ROLE']._serialized_start=522
-  _globals['_ROLE']._serialized_end=567
+  _globals['_ROLE']._serialized_end=586
   _globals['_PERMISSION']._serialized_start=60
   _globals['_PERMISSION']._serialized_end=520
   _globals['_PERMISSION_USER']._serialized_start=216
