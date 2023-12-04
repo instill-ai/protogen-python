@@ -26,6 +26,11 @@ class MgmtPublicServiceStub(object):
                 request_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ReadinessRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ReadinessResponse.FromString,
                 )
+        self.CheckNamespace = channel.unary_unary(
+                '/core.mgmt.v1alpha.MgmtPublicService/CheckNamespace',
+                request_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CheckNamespaceRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CheckNamespaceResponse.FromString,
+                )
         self.ListUsers = channel.unary_unary(
                 '/core.mgmt.v1alpha.MgmtPublicService/ListUsers',
                 request_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListUsersRequest.SerializeToString,
@@ -40,11 +45,6 @@ class MgmtPublicServiceStub(object):
                 '/core.mgmt.v1alpha.MgmtPublicService/PatchAuthenticatedUser',
                 request_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.PatchAuthenticatedUserRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.PatchAuthenticatedUserResponse.FromString,
-                )
-        self.ExistUsername = channel.unary_unary(
-                '/core.mgmt.v1alpha.MgmtPublicService/ExistUsername',
-                request_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ExistUsernameRequest.SerializeToString,
-                response_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ExistUsernameResponse.FromString,
                 )
         self.ListUserMemberships = channel.unary_unary(
                 '/core.mgmt.v1alpha.MgmtPublicService/ListUserMemberships',
@@ -215,6 +215,13 @@ class MgmtPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CheckNamespace(self, request, context):
+        """Check namespace
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListUsers(self, request, context):
         """ListUsers method receives a ListUsersRequest message and returns a
         ListUsersResponse message.
@@ -234,14 +241,6 @@ class MgmtPublicServiceServicer(object):
     def PatchAuthenticatedUser(self, request, context):
         """PatchAuthenticatedUser method receives a PatchAuthenticatedUserRequest
         message and returns a PatchAuthenticatedUserResponse message.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ExistUsername(self, request, context):
-        """ExistUsername method receives a ExistUsernameRequest message and returns a
-        ExistUsernameResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -495,6 +494,11 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ReadinessRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ReadinessResponse.SerializeToString,
             ),
+            'CheckNamespace': grpc.unary_unary_rpc_method_handler(
+                    servicer.CheckNamespace,
+                    request_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CheckNamespaceRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CheckNamespaceResponse.SerializeToString,
+            ),
             'ListUsers': grpc.unary_unary_rpc_method_handler(
                     servicer.ListUsers,
                     request_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ListUsersRequest.FromString,
@@ -509,11 +513,6 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     servicer.PatchAuthenticatedUser,
                     request_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.PatchAuthenticatedUserRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.PatchAuthenticatedUserResponse.SerializeToString,
-            ),
-            'ExistUsername': grpc.unary_unary_rpc_method_handler(
-                    servicer.ExistUsername,
-                    request_deserializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ExistUsernameRequest.FromString,
-                    response_serializer=core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ExistUsernameResponse.SerializeToString,
             ),
             'ListUserMemberships': grpc.unary_unary_rpc_method_handler(
                     servicer.ListUserMemberships,
@@ -706,6 +705,23 @@ class MgmtPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def CheckNamespace(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1alpha.MgmtPublicService/CheckNamespace',
+            core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CheckNamespaceRequest.SerializeToString,
+            core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.CheckNamespaceResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def ListUsers(request,
             target,
             options=(),
@@ -753,23 +769,6 @@ class MgmtPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1alpha.MgmtPublicService/PatchAuthenticatedUser',
             core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.PatchAuthenticatedUserRequest.SerializeToString,
             core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.PatchAuthenticatedUserResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ExistUsername(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1alpha.MgmtPublicService/ExistUsername',
-            core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ExistUsernameRequest.SerializeToString,
-            core_dot_mgmt_dot_v1alpha_dot_mgmt__pb2.ExistUsernameResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

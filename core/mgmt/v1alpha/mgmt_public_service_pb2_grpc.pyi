@@ -38,6 +38,11 @@ class MgmtPublicServiceStub:
     ReadinessResponse message.
     See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
     """
+    CheckNamespace: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.CheckNamespaceRequest,
+        core.mgmt.v1alpha.mgmt_pb2.CheckNamespaceResponse,
+    ]
+    """Check namespace"""
     ListUsers: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1alpha.mgmt_pb2.ListUsersRequest,
         core.mgmt.v1alpha.mgmt_pb2.ListUsersResponse,
@@ -58,13 +63,6 @@ class MgmtPublicServiceStub:
     ]
     """PatchAuthenticatedUser method receives a PatchAuthenticatedUserRequest
     message and returns a PatchAuthenticatedUserResponse message.
-    """
-    ExistUsername: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1alpha.mgmt_pb2.ExistUsernameRequest,
-        core.mgmt.v1alpha.mgmt_pb2.ExistUsernameResponse,
-    ]
-    """ExistUsername method receives a ExistUsernameRequest message and returns a
-    ExistUsernameResponse
     """
     ListUserMemberships: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1alpha.mgmt_pb2.ListUserMembershipsRequest,
@@ -287,6 +285,11 @@ class MgmtPublicServiceAsyncStub:
     ReadinessResponse message.
     See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
     """
+    CheckNamespace: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1alpha.mgmt_pb2.CheckNamespaceRequest,
+        core.mgmt.v1alpha.mgmt_pb2.CheckNamespaceResponse,
+    ]
+    """Check namespace"""
     ListUsers: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1alpha.mgmt_pb2.ListUsersRequest,
         core.mgmt.v1alpha.mgmt_pb2.ListUsersResponse,
@@ -307,13 +310,6 @@ class MgmtPublicServiceAsyncStub:
     ]
     """PatchAuthenticatedUser method receives a PatchAuthenticatedUserRequest
     message and returns a PatchAuthenticatedUserResponse message.
-    """
-    ExistUsername: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1alpha.mgmt_pb2.ExistUsernameRequest,
-        core.mgmt.v1alpha.mgmt_pb2.ExistUsernameResponse,
-    ]
-    """ExistUsername method receives a ExistUsernameRequest message and returns a
-    ExistUsernameResponse
     """
     ListUserMemberships: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1alpha.mgmt_pb2.ListUserMembershipsRequest,
@@ -541,6 +537,13 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
         """
     @abc.abstractmethod
+    def CheckNamespace(
+        self,
+        request: core.mgmt.v1alpha.mgmt_pb2.CheckNamespaceRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.CheckNamespaceResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.CheckNamespaceResponse]]:
+        """Check namespace"""
+    @abc.abstractmethod
     def ListUsers(
         self,
         request: core.mgmt.v1alpha.mgmt_pb2.ListUsersRequest,
@@ -566,15 +569,6 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.PatchAuthenticatedUserResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.PatchAuthenticatedUserResponse]]:
         """PatchAuthenticatedUser method receives a PatchAuthenticatedUserRequest
         message and returns a PatchAuthenticatedUserResponse message.
-        """
-    @abc.abstractmethod
-    def ExistUsername(
-        self,
-        request: core.mgmt.v1alpha.mgmt_pb2.ExistUsernameRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1alpha.mgmt_pb2.ExistUsernameResponse, collections.abc.Awaitable[core.mgmt.v1alpha.mgmt_pb2.ExistUsernameResponse]]:
-        """ExistUsername method receives a ExistUsernameRequest message and returns a
-        ExistUsernameResponse
         """
     @abc.abstractmethod
     def ListUserMemberships(
