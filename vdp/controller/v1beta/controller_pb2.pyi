@@ -6,9 +6,10 @@ import builtins
 import common.healthcheck.v1beta.healthcheck_pb2
 import google.protobuf.descriptor
 import google.protobuf.message
-import model.model.v1alpha.model_pb2
 import sys
 import typing
+import vdp.pipeline.v1beta.connector_pb2
+import vdp.pipeline.v1beta.pipeline_pb2
 
 if sys.version_info >= (3, 8):
     import typing as typing_extensions
@@ -106,15 +107,18 @@ class Resource(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     RESOURCE_PERMALINK_FIELD_NUMBER: builtins.int
-    MODEL_STATE_FIELD_NUMBER: builtins.int
+    PIPELINE_STATE_FIELD_NUMBER: builtins.int
+    CONNECTOR_STATE_FIELD_NUMBER: builtins.int
     BACKEND_STATE_FIELD_NUMBER: builtins.int
     PROGRESS_FIELD_NUMBER: builtins.int
     resource_permalink: builtins.str
-    """Permalink of a resource. For example:
+    """Permalink of a resouce. For example:
     "resources/{resource_uuid}/types/{type}"
     """
-    model_state: model.model.v1alpha.model_pb2.Model.State.ValueType
-    """Model state"""
+    pipeline_state: vdp.pipeline.v1beta.pipeline_pb2.State.ValueType
+    """Pipeline state"""
+    connector_state: vdp.pipeline.v1beta.connector_pb2.Connector.State.ValueType
+    """Connector state"""
     backend_state: common.healthcheck.v1beta.healthcheck_pb2.HealthCheckResponse.ServingStatus.ValueType
     """Backend service state"""
     progress: builtins.int
@@ -123,16 +127,17 @@ class Resource(google.protobuf.message.Message):
         self,
         *,
         resource_permalink: builtins.str = ...,
-        model_state: model.model.v1alpha.model_pb2.Model.State.ValueType = ...,
+        pipeline_state: vdp.pipeline.v1beta.pipeline_pb2.State.ValueType = ...,
+        connector_state: vdp.pipeline.v1beta.connector_pb2.Connector.State.ValueType = ...,
         backend_state: common.healthcheck.v1beta.healthcheck_pb2.HealthCheckResponse.ServingStatus.ValueType = ...,
         progress: builtins.int | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_progress", b"_progress", "backend_state", b"backend_state", "model_state", b"model_state", "progress", b"progress", "state", b"state"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_progress", b"_progress", "backend_state", b"backend_state", "model_state", b"model_state", "progress", b"progress", "resource_permalink", b"resource_permalink", "state", b"state"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_progress", b"_progress", "backend_state", b"backend_state", "connector_state", b"connector_state", "pipeline_state", b"pipeline_state", "progress", b"progress", "state", b"state"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_progress", b"_progress", "backend_state", b"backend_state", "connector_state", b"connector_state", "pipeline_state", b"pipeline_state", "progress", b"progress", "resource_permalink", b"resource_permalink", "state", b"state"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_progress", b"_progress"]) -> typing_extensions.Literal["progress"] | None: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["state", b"state"]) -> typing_extensions.Literal["model_state", "backend_state"] | None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["state", b"state"]) -> typing_extensions.Literal["pipeline_state", "connector_state", "backend_state"] | None: ...
 
 global___Resource = Resource
 
@@ -144,7 +149,7 @@ class GetResourceRequest(google.protobuf.message.Message):
 
     RESOURCE_PERMALINK_FIELD_NUMBER: builtins.int
     resource_permalink: builtins.str
-    """Permalink of a resource. For example:
+    """Permalink of a resouce. For example:
     "resources/{resource_uuid}/types/{type}"
     """
     def __init__(
@@ -188,7 +193,7 @@ class UpdateResourceRequest(google.protobuf.message.Message):
     def resource(self) -> global___Resource:
         """Resource state"""
     workflow_id: builtins.str
-    """Resource long-running workflow id"""
+    """Resource longrunnning workflow id"""
     def __init__(
         self,
         *,
@@ -229,7 +234,7 @@ class DeleteResourceRequest(google.protobuf.message.Message):
 
     RESOURCE_PERMALINK_FIELD_NUMBER: builtins.int
     resource_permalink: builtins.str
-    """Permalink of a resource. For example:
+    """Permalink of a resouce. For example:
     "resources/{resource_uuid}/types/{type}"
     """
     def __init__(

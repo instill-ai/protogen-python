@@ -4,7 +4,7 @@ isort:skip_file
 """
 import builtins
 import collections.abc
-import common.healthcheck.v1alpha.healthcheck_pb2
+import common.healthcheck.v1beta.healthcheck_pb2
 import common.task.v1alpha.task_pb2
 import google.longrunning.operations_pb2
 import google.protobuf.descriptor
@@ -45,12 +45,12 @@ class LivenessRequest(google.protobuf.message.Message):
 
     HEALTH_CHECK_REQUEST_FIELD_NUMBER: builtins.int
     @property
-    def health_check_request(self) -> common.healthcheck.v1alpha.healthcheck_pb2.HealthCheckRequest:
+    def health_check_request(self) -> common.healthcheck.v1beta.healthcheck_pb2.HealthCheckRequest:
         """HealthCheckRequest message"""
     def __init__(
         self,
         *,
-        health_check_request: common.healthcheck.v1alpha.healthcheck_pb2.HealthCheckRequest | None = ...,
+        health_check_request: common.healthcheck.v1beta.healthcheck_pb2.HealthCheckRequest | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_health_check_request", b"_health_check_request", "health_check_request", b"health_check_request"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_health_check_request", b"_health_check_request", "health_check_request", b"health_check_request"]) -> None: ...
@@ -66,12 +66,12 @@ class LivenessResponse(google.protobuf.message.Message):
 
     HEALTH_CHECK_RESPONSE_FIELD_NUMBER: builtins.int
     @property
-    def health_check_response(self) -> common.healthcheck.v1alpha.healthcheck_pb2.HealthCheckResponse:
+    def health_check_response(self) -> common.healthcheck.v1beta.healthcheck_pb2.HealthCheckResponse:
         """HealthCheckResponse message"""
     def __init__(
         self,
         *,
-        health_check_response: common.healthcheck.v1alpha.healthcheck_pb2.HealthCheckResponse | None = ...,
+        health_check_response: common.healthcheck.v1beta.healthcheck_pb2.HealthCheckResponse | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["health_check_response", b"health_check_response"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["health_check_response", b"health_check_response"]) -> None: ...
@@ -86,12 +86,12 @@ class ReadinessRequest(google.protobuf.message.Message):
 
     HEALTH_CHECK_REQUEST_FIELD_NUMBER: builtins.int
     @property
-    def health_check_request(self) -> common.healthcheck.v1alpha.healthcheck_pb2.HealthCheckRequest:
+    def health_check_request(self) -> common.healthcheck.v1beta.healthcheck_pb2.HealthCheckRequest:
         """HealthCheckRequest message"""
     def __init__(
         self,
         *,
-        health_check_request: common.healthcheck.v1alpha.healthcheck_pb2.HealthCheckRequest | None = ...,
+        health_check_request: common.healthcheck.v1beta.healthcheck_pb2.HealthCheckRequest | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_health_check_request", b"_health_check_request", "health_check_request", b"health_check_request"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_health_check_request", b"_health_check_request", "health_check_request", b"health_check_request"]) -> None: ...
@@ -107,12 +107,12 @@ class ReadinessResponse(google.protobuf.message.Message):
 
     HEALTH_CHECK_RESPONSE_FIELD_NUMBER: builtins.int
     @property
-    def health_check_response(self) -> common.healthcheck.v1alpha.healthcheck_pb2.HealthCheckResponse:
+    def health_check_response(self) -> common.healthcheck.v1beta.healthcheck_pb2.HealthCheckResponse:
         """HealthCheckResponse message"""
     def __init__(
         self,
         *,
-        health_check_response: common.healthcheck.v1alpha.healthcheck_pb2.HealthCheckResponse | None = ...,
+        health_check_response: common.healthcheck.v1beta.healthcheck_pb2.HealthCheckResponse | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["health_check_response", b"health_check_response"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["health_check_response", b"health_check_response"]) -> None: ...
