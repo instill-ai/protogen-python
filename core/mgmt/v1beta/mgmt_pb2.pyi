@@ -792,45 +792,27 @@ global___PatchAuthenticatedUserResponse = PatchAuthenticatedUserResponse
 @typing_extensions.final
 class CheckNamespaceRequest(google.protobuf.message.Message):
     """CheckNamespaceRequest represents a request to verify if
-    a namespace has been occupied and know its type
+    a namespace has been occupied
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    @typing_extensions.final
-    class CheckNamespaceRequestBody(google.protobuf.message.Message):
-        """CheckNamespaceRequestBody"""
-
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        ID_FIELD_NUMBER: builtins.int
-        id: builtins.str
-        """The resource id of to check,"""
-        def __init__(
-            self,
-            *,
-            id: builtins.str = ...,
-        ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["id", b"id"]) -> None: ...
-
-    NAMESPACE_FIELD_NUMBER: builtins.int
-    @property
-    def namespace(self) -> global___CheckNamespaceRequest.CheckNamespaceRequestBody:
-        """body"""
+    ID_FIELD_NUMBER: builtins.int
+    id: builtins.str
+    """Namespace ID to be checked"""
     def __init__(
         self,
         *,
-        namespace: global___CheckNamespaceRequest.CheckNamespaceRequestBody | None = ...,
+        id: builtins.str = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["namespace", b"namespace"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["namespace", b"namespace"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["id", b"id"]) -> None: ...
 
 global___CheckNamespaceRequest = CheckNamespaceRequest
 
 @typing_extensions.final
 class CheckNamespaceResponse(google.protobuf.message.Message):
     """CheckNamespaceResponse represents a response about whether
-    the queried username has been occupied
+    the queried namespace has been occupied and return its type
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -853,7 +835,7 @@ class CheckNamespaceResponse(google.protobuf.message.Message):
         """Reserved"""
 
     class Namespace(_Namespace, metaclass=_NamespaceEnumTypeWrapper):
-        """Namespace type"""
+        """Namespace type enum"""
 
     NAMESPACE_UNSPECIFIED: CheckNamespaceResponse.Namespace.ValueType  # 0
     """UNSPECIFIED"""
@@ -868,7 +850,7 @@ class CheckNamespaceResponse(google.protobuf.message.Message):
 
     TYPE_FIELD_NUMBER: builtins.int
     type: global___CheckNamespaceResponse.Namespace.ValueType
-    """A boolean value indicating whether the username has been occupied"""
+    """Namespace type"""
     def __init__(
         self,
         *,
