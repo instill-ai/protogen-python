@@ -253,10 +253,12 @@ class ConnectorUsageData(google.protobuf.message.Message):
             EXECUTE_TIME_FIELD_NUMBER: builtins.int
             CONNECTOR_DEFINITION_UID_FIELD_NUMBER: builtins.int
             STATUS_FIELD_NUMBER: builtins.int
+            USER_UID_FIELD_NUMBER: builtins.int
+            USER_TYPE_FIELD_NUMBER: builtins.int
             connector_uid: builtins.str
             """UID for the executed connector"""
             execute_uid: builtins.str
-            """UID for the trigger log"""
+            """UID for the execute log"""
             @property
             def execute_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
                 """Timestamp for the execution"""
@@ -264,6 +266,10 @@ class ConnectorUsageData(google.protobuf.message.Message):
             """Definition UID of the connector"""
             status: core.mgmt.v1beta.metric_pb2.Status.ValueType
             """Final status of the execution"""
+            user_uid: builtins.str
+            """UUID of the user who execute the connector"""
+            user_type: core.mgmt.v1beta.mgmt_pb2.OwnerType.ValueType
+            """Type of the user who execute the connector"""
             def __init__(
                 self,
                 *,
@@ -272,24 +278,30 @@ class ConnectorUsageData(google.protobuf.message.Message):
                 execute_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
                 connector_definition_uid: builtins.str = ...,
                 status: core.mgmt.v1beta.metric_pb2.Status.ValueType = ...,
+                user_uid: builtins.str = ...,
+                user_type: core.mgmt.v1beta.mgmt_pb2.OwnerType.ValueType = ...,
             ) -> None: ...
             def HasField(self, field_name: typing_extensions.Literal["execute_time", b"execute_time"]) -> builtins.bool: ...
-            def ClearField(self, field_name: typing_extensions.Literal["connector_definition_uid", b"connector_definition_uid", "connector_uid", b"connector_uid", "execute_time", b"execute_time", "execute_uid", b"execute_uid", "status", b"status"]) -> None: ...
+            def ClearField(self, field_name: typing_extensions.Literal["connector_definition_uid", b"connector_definition_uid", "connector_uid", b"connector_uid", "execute_time", b"execute_time", "execute_uid", b"execute_uid", "status", b"status", "user_type", b"user_type", "user_uid", b"user_uid"]) -> None: ...
 
-        USER_UID_FIELD_NUMBER: builtins.int
+        OWNER_UID_FIELD_NUMBER: builtins.int
         CONNECTOR_EXECUTE_DATA_FIELD_NUMBER: builtins.int
-        user_uid: builtins.str
-        """User UUID"""
+        OWNER_TYPE_FIELD_NUMBER: builtins.int
+        owner_uid: builtins.str
+        """Owner UUID"""
         @property
         def connector_execute_data(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ConnectorUsageData.UserUsageData.ConnectorExecuteData]:
             """Execution data for each user"""
+        owner_type: core.mgmt.v1beta.mgmt_pb2.OwnerType.ValueType
+        """Owner type"""
         def __init__(
             self,
             *,
-            user_uid: builtins.str = ...,
+            owner_uid: builtins.str = ...,
             connector_execute_data: collections.abc.Iterable[global___ConnectorUsageData.UserUsageData.ConnectorExecuteData] | None = ...,
+            owner_type: core.mgmt.v1beta.mgmt_pb2.OwnerType.ValueType = ...,
         ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["connector_execute_data", b"connector_execute_data", "user_uid", b"user_uid"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["connector_execute_data", b"connector_execute_data", "owner_type", b"owner_type", "owner_uid", b"owner_uid"]) -> None: ...
 
     USAGES_FIELD_NUMBER: builtins.int
     @property
@@ -328,6 +340,8 @@ class ModelUsageData(google.protobuf.message.Message):
             MODEL_DEFINITION_UID_FIELD_NUMBER: builtins.int
             MODEL_TASK_FIELD_NUMBER: builtins.int
             STATUS_FIELD_NUMBER: builtins.int
+            USER_UID_FIELD_NUMBER: builtins.int
+            USER_TYPE_FIELD_NUMBER: builtins.int
             model_uid: builtins.str
             """UID for the trigged model"""
             trigger_uid: builtins.str
@@ -341,6 +355,10 @@ class ModelUsageData(google.protobuf.message.Message):
             """Task of the model"""
             status: core.mgmt.v1beta.metric_pb2.Status.ValueType
             """Final status of the execution"""
+            user_uid: builtins.str
+            """UUID of the user who trigger the model"""
+            user_type: core.mgmt.v1beta.mgmt_pb2.OwnerType.ValueType
+            """Type of the user who trigger the model"""
             def __init__(
                 self,
                 *,
@@ -350,24 +368,30 @@ class ModelUsageData(google.protobuf.message.Message):
                 model_definition_uid: builtins.str = ...,
                 model_task: common.task.v1alpha.task_pb2.Task.ValueType = ...,
                 status: core.mgmt.v1beta.metric_pb2.Status.ValueType = ...,
+                user_uid: builtins.str = ...,
+                user_type: core.mgmt.v1beta.mgmt_pb2.OwnerType.ValueType = ...,
             ) -> None: ...
             def HasField(self, field_name: typing_extensions.Literal["trigger_time", b"trigger_time"]) -> builtins.bool: ...
-            def ClearField(self, field_name: typing_extensions.Literal["model_definition_uid", b"model_definition_uid", "model_task", b"model_task", "model_uid", b"model_uid", "status", b"status", "trigger_time", b"trigger_time", "trigger_uid", b"trigger_uid"]) -> None: ...
+            def ClearField(self, field_name: typing_extensions.Literal["model_definition_uid", b"model_definition_uid", "model_task", b"model_task", "model_uid", b"model_uid", "status", b"status", "trigger_time", b"trigger_time", "trigger_uid", b"trigger_uid", "user_type", b"user_type", "user_uid", b"user_uid"]) -> None: ...
 
-        USER_UID_FIELD_NUMBER: builtins.int
+        OWNER_UID_FIELD_NUMBER: builtins.int
         MODEL_TRIGGER_DATA_FIELD_NUMBER: builtins.int
-        user_uid: builtins.str
-        """User UUID"""
+        OWNER_TYPE_FIELD_NUMBER: builtins.int
+        owner_uid: builtins.str
+        """Owner UUID"""
         @property
         def model_trigger_data(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ModelUsageData.UserUsageData.ModelTriggerData]:
             """Trigger data for each user"""
+        owner_type: core.mgmt.v1beta.mgmt_pb2.OwnerType.ValueType
+        """Owner type"""
         def __init__(
             self,
             *,
-            user_uid: builtins.str = ...,
+            owner_uid: builtins.str = ...,
             model_trigger_data: collections.abc.Iterable[global___ModelUsageData.UserUsageData.ModelTriggerData] | None = ...,
+            owner_type: core.mgmt.v1beta.mgmt_pb2.OwnerType.ValueType = ...,
         ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["model_trigger_data", b"model_trigger_data", "user_uid", b"user_uid"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["model_trigger_data", b"model_trigger_data", "owner_type", b"owner_type", "owner_uid", b"owner_uid"]) -> None: ...
 
     USAGES_FIELD_NUMBER: builtins.int
     @property
@@ -407,6 +431,8 @@ class PipelineUsageData(google.protobuf.message.Message):
             STATUS_FIELD_NUMBER: builtins.int
             PIPELINE_RELEASE_ID_FIELD_NUMBER: builtins.int
             PIPELINE_RELEASE_UID_FIELD_NUMBER: builtins.int
+            USER_UID_FIELD_NUMBER: builtins.int
+            USER_TYPE_FIELD_NUMBER: builtins.int
             pipeline_uid: builtins.str
             """UID for the triggered pipeline"""
             trigger_uid: builtins.str
@@ -422,6 +448,10 @@ class PipelineUsageData(google.protobuf.message.Message):
             """Version for the triggered release pipeline, empty string if not release"""
             pipeline_release_uid: builtins.str
             """UID for the triggered release pipeline, empty string if not release"""
+            user_uid: builtins.str
+            """UUID of the user who trigger the pipeline"""
+            user_type: core.mgmt.v1beta.mgmt_pb2.OwnerType.ValueType
+            """Type of the user who trigger the pipeline"""
             def __init__(
                 self,
                 *,
@@ -432,24 +462,30 @@ class PipelineUsageData(google.protobuf.message.Message):
                 status: core.mgmt.v1beta.metric_pb2.Status.ValueType = ...,
                 pipeline_release_id: builtins.str = ...,
                 pipeline_release_uid: builtins.str = ...,
+                user_uid: builtins.str = ...,
+                user_type: core.mgmt.v1beta.mgmt_pb2.OwnerType.ValueType = ...,
             ) -> None: ...
             def HasField(self, field_name: typing_extensions.Literal["trigger_time", b"trigger_time"]) -> builtins.bool: ...
-            def ClearField(self, field_name: typing_extensions.Literal["pipeline_release_id", b"pipeline_release_id", "pipeline_release_uid", b"pipeline_release_uid", "pipeline_uid", b"pipeline_uid", "status", b"status", "trigger_mode", b"trigger_mode", "trigger_time", b"trigger_time", "trigger_uid", b"trigger_uid"]) -> None: ...
+            def ClearField(self, field_name: typing_extensions.Literal["pipeline_release_id", b"pipeline_release_id", "pipeline_release_uid", b"pipeline_release_uid", "pipeline_uid", b"pipeline_uid", "status", b"status", "trigger_mode", b"trigger_mode", "trigger_time", b"trigger_time", "trigger_uid", b"trigger_uid", "user_type", b"user_type", "user_uid", b"user_uid"]) -> None: ...
 
-        USER_UID_FIELD_NUMBER: builtins.int
+        OWNER_UID_FIELD_NUMBER: builtins.int
         PIPELINE_TRIGGER_DATA_FIELD_NUMBER: builtins.int
-        user_uid: builtins.str
-        """User UUID"""
+        OWNER_TYPE_FIELD_NUMBER: builtins.int
+        owner_uid: builtins.str
+        """Owner UUID"""
         @property
         def pipeline_trigger_data(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PipelineUsageData.UserUsageData.PipelineTriggerData]:
             """Trigger data for each user"""
+        owner_type: core.mgmt.v1beta.mgmt_pb2.OwnerType.ValueType
+        """Owner type"""
         def __init__(
             self,
             *,
-            user_uid: builtins.str = ...,
+            owner_uid: builtins.str = ...,
             pipeline_trigger_data: collections.abc.Iterable[global___PipelineUsageData.UserUsageData.PipelineTriggerData] | None = ...,
+            owner_type: core.mgmt.v1beta.mgmt_pb2.OwnerType.ValueType = ...,
         ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["pipeline_trigger_data", b"pipeline_trigger_data", "user_uid", b"user_uid"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["owner_type", b"owner_type", "owner_uid", b"owner_uid", "pipeline_trigger_data", b"pipeline_trigger_data"]) -> None: ...
 
     USAGES_FIELD_NUMBER: builtins.int
     @property
