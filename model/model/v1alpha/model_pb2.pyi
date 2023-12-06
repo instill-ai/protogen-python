@@ -184,11 +184,11 @@ class Model(google.protobuf.message.Message):
     TASK_FIELD_NUMBER: builtins.int
     STATE_FIELD_NUMBER: builtins.int
     VISIBILITY_FIELD_NUMBER: builtins.int
-    USER_FIELD_NUMBER: builtins.int
-    ORG_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     DELETE_TIME_FIELD_NUMBER: builtins.int
+    OWNER_NAME_FIELD_NUMBER: builtins.int
+    OWNER_FIELD_NUMBER: builtins.int
     name: builtins.str
     """Resource name. It must have the format of "users/{user}/models/{model}".
     For example: "users/instill-ai/models/yolov4"
@@ -216,12 +216,6 @@ class Model(google.protobuf.message.Message):
     """Model state"""
     visibility: global___Model.Visibility.ValueType
     """Model visibility including public or private"""
-    user: builtins.str
-    """The resource name with UUID of a user, e.g.,
-    "users/bfb978f8-78d3-4338-aa2b-a6c699cb07c5".
-    """
-    org: builtins.str
-    """The resource name with UUID of an organization"""
     @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Model create time"""
@@ -231,6 +225,11 @@ class Model(google.protobuf.message.Message):
     @property
     def delete_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Model delete time"""
+    owner_name: builtins.str
+    """Owner Name"""
+    @property
+    def owner(self) -> google.protobuf.struct_pb2.Struct:
+        """Owner details"""
     def __init__(
         self,
         *,
@@ -243,18 +242,15 @@ class Model(google.protobuf.message.Message):
         task: common.task.v1alpha.task_pb2.Task.ValueType = ...,
         state: global___Model.State.ValueType = ...,
         visibility: global___Model.Visibility.ValueType = ...,
-        user: builtins.str = ...,
-        org: builtins.str = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        owner_name: builtins.str = ...,
+        owner: google.protobuf.struct_pb2.Struct | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "org", b"org", "owner", b"owner", "update_time", b"update_time", "user", b"user"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "id", b"id", "model_definition", b"model_definition", "name", b"name", "org", b"org", "owner", b"owner", "state", b"state", "task", b"task", "uid", b"uid", "update_time", b"update_time", "user", b"user", "visibility", b"visibility"]) -> None: ...
-    @typing.overload
+    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "owner", b"owner", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "id", b"id", "model_definition", b"model_definition", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "state", b"state", "task", b"task", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_description", b"_description"]) -> typing_extensions.Literal["description"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["owner", b"owner"]) -> typing_extensions.Literal["user", "org"] | None: ...
 
 global___Model = Model
 

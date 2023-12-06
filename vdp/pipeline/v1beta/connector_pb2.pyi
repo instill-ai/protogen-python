@@ -114,13 +114,13 @@ class Connector(google.protobuf.message.Message):
     CONFIGURATION_FIELD_NUMBER: builtins.int
     STATE_FIELD_NUMBER: builtins.int
     TOMBSTONE_FIELD_NUMBER: builtins.int
-    USER_FIELD_NUMBER: builtins.int
-    ORGANIZATION_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     VISIBILITY_FIELD_NUMBER: builtins.int
     CONNECTOR_DEFINITION_FIELD_NUMBER: builtins.int
     DELETE_TIME_FIELD_NUMBER: builtins.int
+    OWNER_NAME_FIELD_NUMBER: builtins.int
+    OWNER_FIELD_NUMBER: builtins.int
     name: builtins.str
     """connector name. It must have the format of
     "connectors/*"
@@ -146,12 +146,6 @@ class Connector(google.protobuf.message.Message):
     """Connector state"""
     tombstone: builtins.bool
     """Connector tombstone"""
-    user: builtins.str
-    """The resource name with UUID of a user, e.g.,
-    "users/bfb978f8-78d3-4338-aa2b-a6c699cb07c5".
-    """
-    organization: builtins.str
-    """The resource name with UUID of an organization"""
     @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Connector creation time"""
@@ -166,6 +160,11 @@ class Connector(google.protobuf.message.Message):
     @property
     def delete_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Connector delete time"""
+    owner_name: builtins.str
+    """Owner Name"""
+    @property
+    def owner(self) -> google.protobuf.struct_pb2.Struct:
+        """Owner details"""
     def __init__(
         self,
         *,
@@ -178,20 +177,17 @@ class Connector(google.protobuf.message.Message):
         configuration: google.protobuf.struct_pb2.Struct | None = ...,
         state: global___Connector.State.ValueType = ...,
         tombstone: builtins.bool = ...,
-        user: builtins.str = ...,
-        organization: builtins.str = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         visibility: global___Connector.Visibility.ValueType = ...,
         connector_definition: vdp.pipeline.v1beta.connector_definition_pb2.ConnectorDefinition | None = ...,
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        owner_name: builtins.str = ...,
+        owner: google.protobuf.struct_pb2.Struct | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "configuration", b"configuration", "connector_definition", b"connector_definition", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "organization", b"organization", "owner", b"owner", "update_time", b"update_time", "user", b"user"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "configuration", b"configuration", "connector_definition", b"connector_definition", "connector_definition_name", b"connector_definition_name", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "id", b"id", "name", b"name", "organization", b"organization", "owner", b"owner", "state", b"state", "tombstone", b"tombstone", "type", b"type", "uid", b"uid", "update_time", b"update_time", "user", b"user", "visibility", b"visibility"]) -> None: ...
-    @typing.overload
+    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "configuration", b"configuration", "connector_definition", b"connector_definition", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "owner", b"owner", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "configuration", b"configuration", "connector_definition", b"connector_definition", "connector_definition_name", b"connector_definition_name", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "id", b"id", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "state", b"state", "tombstone", b"tombstone", "type", b"type", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_description", b"_description"]) -> typing_extensions.Literal["description"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["owner", b"owner"]) -> typing_extensions.Literal["user", "organization"] | None: ...
 
 global___Connector = Connector
 
