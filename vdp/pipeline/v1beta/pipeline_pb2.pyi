@@ -399,13 +399,41 @@ class Trace(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    SUCCESS_FIELD_NUMBER: builtins.int
+    class _Status:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Trace._Status.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        STATUS_UNSPECIFIED: Trace._Status.ValueType  # 0
+        """UNSPECIFIED"""
+        STATUS_COMPLETED: Trace._Status.ValueType  # 1
+        """COMPLETED"""
+        STATUS_SKIPPED: Trace._Status.ValueType  # 2
+        """SKIPPED"""
+        STATUS_ERROR: Trace._Status.ValueType  # 3
+        """ERROR"""
+
+    class Status(_Status, metaclass=_StatusEnumTypeWrapper):
+        """Status"""
+
+    STATUS_UNSPECIFIED: Trace.Status.ValueType  # 0
+    """UNSPECIFIED"""
+    STATUS_COMPLETED: Trace.Status.ValueType  # 1
+    """COMPLETED"""
+    STATUS_SKIPPED: Trace.Status.ValueType  # 2
+    """SKIPPED"""
+    STATUS_ERROR: Trace.Status.ValueType  # 3
+    """ERROR"""
+
+    STATUSES_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
     OUTPUTS_FIELD_NUMBER: builtins.int
     ERROR_FIELD_NUMBER: builtins.int
     COMPUTE_TIME_IN_SECONDS_FIELD_NUMBER: builtins.int
-    success: builtins.bool
-    """Success or not"""
+    @property
+    def statuses(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[global___Trace.Status.ValueType]:
+        """status"""
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
         """Inputs of the component"""
@@ -420,14 +448,14 @@ class Trace(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        success: builtins.bool = ...,
+        statuses: collections.abc.Iterable[global___Trace.Status.ValueType] | None = ...,
         inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
         outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
         error: google.protobuf.struct_pb2.Struct | None = ...,
         compute_time_in_seconds: builtins.float = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["error", b"error"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["compute_time_in_seconds", b"compute_time_in_seconds", "error", b"error", "inputs", b"inputs", "outputs", b"outputs", "success", b"success"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["compute_time_in_seconds", b"compute_time_in_seconds", "error", b"error", "inputs", b"inputs", "outputs", b"outputs", "statuses", b"statuses"]) -> None: ...
 
 global___Trace = Trace
 
