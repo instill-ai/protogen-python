@@ -1363,6 +1363,7 @@ class Organization(google.protobuf.message.Message):
     CUSTOMER_ID_FIELD_NUMBER: builtins.int
     PROFILE_AVATAR_FIELD_NUMBER: builtins.int
     PROFILE_DATA_FIELD_NUMBER: builtins.int
+    OWNER_FIELD_NUMBER: builtins.int
     name: builtins.str
     """Resource name. It must have the format of "organizations/*".
     For example: "organizations/local-organization".
@@ -1391,6 +1392,9 @@ class Organization(google.protobuf.message.Message):
     @property
     def profile_data(self) -> google.protobuf.struct_pb2.Struct:
         """Profile Data"""
+    @property
+    def owner(self) -> global___User:
+        """Owner"""
     def __init__(
         self,
         *,
@@ -1403,9 +1407,10 @@ class Organization(google.protobuf.message.Message):
         customer_id: builtins.str = ...,
         profile_avatar: builtins.str | None = ...,
         profile_data: google.protobuf.struct_pb2.Struct | None = ...,
+        owner: global___User | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_org_name", b"_org_name", "_profile_avatar", b"_profile_avatar", "_profile_data", b"_profile_data", "create_time", b"create_time", "org_name", b"org_name", "profile_avatar", b"profile_avatar", "profile_data", b"profile_data", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_org_name", b"_org_name", "_profile_avatar", b"_profile_avatar", "_profile_data", b"_profile_data", "create_time", b"create_time", "customer_id", b"customer_id", "id", b"id", "name", b"name", "org_name", b"org_name", "profile_avatar", b"profile_avatar", "profile_data", b"profile_data", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_org_name", b"_org_name", "_profile_avatar", b"_profile_avatar", "_profile_data", b"_profile_data", "create_time", b"create_time", "org_name", b"org_name", "owner", b"owner", "profile_avatar", b"profile_avatar", "profile_data", b"profile_data", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_org_name", b"_org_name", "_profile_avatar", b"_profile_avatar", "_profile_data", b"_profile_data", "create_time", b"create_time", "customer_id", b"customer_id", "id", b"id", "name", b"name", "org_name", b"org_name", "owner", b"owner", "profile_avatar", b"profile_avatar", "profile_data", b"profile_data", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_org_name", b"_org_name"]) -> typing_extensions.Literal["org_name"] | None: ...
     @typing.overload
