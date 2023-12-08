@@ -2087,3 +2087,221 @@ class DeleteOrganizationMembershipResponse(google.protobuf.message.Message):
     ) -> None: ...
 
 global___DeleteOrganizationMembershipResponse = DeleteOrganizationMembershipResponse
+
+@typing_extensions.final
+class Subscription(google.protobuf.message.Message):
+    """Subscription"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    @typing_extensions.final
+    class Quota(google.protobuf.message.Message):
+        """Quota"""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        @typing_extensions.final
+        class PipelineTrigger(google.protobuf.message.Message):
+            """PipelineTrigger"""
+
+            DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+            QUOTA_FIELD_NUMBER: builtins.int
+            USED_FIELD_NUMBER: builtins.int
+            REMAIN_FIELD_NUMBER: builtins.int
+            quota: builtins.int
+            """quota"""
+            used: builtins.int
+            """used"""
+            remain: builtins.int
+            """remain"""
+            def __init__(
+                self,
+                *,
+                quota: builtins.int = ...,
+                used: builtins.int = ...,
+                remain: builtins.int = ...,
+            ) -> None: ...
+            def ClearField(self, field_name: typing_extensions.Literal["quota", b"quota", "remain", b"remain", "used", b"used"]) -> None: ...
+
+        PIPELINE_TRIGGER_FIELD_NUMBER: builtins.int
+        @property
+        def pipeline_trigger(self) -> global___Subscription.Quota.PipelineTrigger:
+            """pipeline"""
+        def __init__(
+            self,
+            *,
+            pipeline_trigger: global___Subscription.Quota.PipelineTrigger | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["pipeline_trigger", b"pipeline_trigger"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["pipeline_trigger", b"pipeline_trigger"]) -> None: ...
+
+    PLAN_FIELD_NUMBER: builtins.int
+    QUOTA_FIELD_NUMBER: builtins.int
+    plan: builtins.str
+    """plan"""
+    @property
+    def quota(self) -> global___Subscription.Quota:
+        """plan"""
+    def __init__(
+        self,
+        *,
+        plan: builtins.str = ...,
+        quota: global___Subscription.Quota | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["quota", b"quota"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["plan", b"plan", "quota", b"quota"]) -> None: ...
+
+global___Subscription = Subscription
+
+@typing_extensions.final
+class GetUserSubscriptionRequest(google.protobuf.message.Message):
+    """GetUserSubscriptionRequest"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PARENT_FIELD_NUMBER: builtins.int
+    parent: builtins.str
+    """parent"""
+    def __init__(
+        self,
+        *,
+        parent: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["parent", b"parent"]) -> None: ...
+
+global___GetUserSubscriptionRequest = GetUserSubscriptionRequest
+
+@typing_extensions.final
+class GetUserSubscriptionResponse(google.protobuf.message.Message):
+    """GetUserSubscriptionResponse"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    SUBSCRIPTION_FIELD_NUMBER: builtins.int
+    @property
+    def subscription(self) -> global___Subscription:
+        """Subscription"""
+    def __init__(
+        self,
+        *,
+        subscription: global___Subscription | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["subscription", b"subscription"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["subscription", b"subscription"]) -> None: ...
+
+global___GetUserSubscriptionResponse = GetUserSubscriptionResponse
+
+@typing_extensions.final
+class GetOrganizationSubscriptionRequest(google.protobuf.message.Message):
+    """GetOrganizationSubscriptionRequest"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PARENT_FIELD_NUMBER: builtins.int
+    parent: builtins.str
+    """parent"""
+    def __init__(
+        self,
+        *,
+        parent: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["parent", b"parent"]) -> None: ...
+
+global___GetOrganizationSubscriptionRequest = GetOrganizationSubscriptionRequest
+
+@typing_extensions.final
+class GetOrganizationSubscriptionResponse(google.protobuf.message.Message):
+    """GetOrganizationSubscriptionResponse"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    SUBSCRIPTION_FIELD_NUMBER: builtins.int
+    @property
+    def subscription(self) -> global___Subscription:
+        """Subscription"""
+    def __init__(
+        self,
+        *,
+        subscription: global___Subscription | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["subscription", b"subscription"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["subscription", b"subscription"]) -> None: ...
+
+global___GetOrganizationSubscriptionResponse = GetOrganizationSubscriptionResponse
+
+@typing_extensions.final
+class GetUserSubscriptionAdminRequest(google.protobuf.message.Message):
+    """GetUserSubscriptionAdminRequest"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PARENT_FIELD_NUMBER: builtins.int
+    parent: builtins.str
+    """parent"""
+    def __init__(
+        self,
+        *,
+        parent: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["parent", b"parent"]) -> None: ...
+
+global___GetUserSubscriptionAdminRequest = GetUserSubscriptionAdminRequest
+
+@typing_extensions.final
+class GetUserSubscriptionAdminResponse(google.protobuf.message.Message):
+    """GetUserSubscriptionAdminResponse"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    SUBSCRIPTION_FIELD_NUMBER: builtins.int
+    @property
+    def subscription(self) -> global___Subscription:
+        """Subscription"""
+    def __init__(
+        self,
+        *,
+        subscription: global___Subscription | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["subscription", b"subscription"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["subscription", b"subscription"]) -> None: ...
+
+global___GetUserSubscriptionAdminResponse = GetUserSubscriptionAdminResponse
+
+@typing_extensions.final
+class GetOrganizationSubscriptionAdminRequest(google.protobuf.message.Message):
+    """GetOrganizationSubscriptionAdminRequest"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PARENT_FIELD_NUMBER: builtins.int
+    parent: builtins.str
+    """parent"""
+    def __init__(
+        self,
+        *,
+        parent: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["parent", b"parent"]) -> None: ...
+
+global___GetOrganizationSubscriptionAdminRequest = GetOrganizationSubscriptionAdminRequest
+
+@typing_extensions.final
+class GetOrganizationSubscriptionAdminResponse(google.protobuf.message.Message):
+    """GetOrganizationSubscriptionAdminResponse"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    SUBSCRIPTION_FIELD_NUMBER: builtins.int
+    @property
+    def subscription(self) -> global___Subscription:
+        """Subscription"""
+    def __init__(
+        self,
+        *,
+        subscription: global___Subscription | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["subscription", b"subscription"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["subscription", b"subscription"]) -> None: ...
+
+global___GetOrganizationSubscriptionAdminResponse = GetOrganizationSubscriptionAdminResponse

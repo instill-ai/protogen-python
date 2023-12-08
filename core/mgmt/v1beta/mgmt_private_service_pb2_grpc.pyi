@@ -63,6 +63,16 @@ class MgmtPrivateServiceStub:
     """LookUpOrganizationAdmin method receives a LookUpOrganizationAdminRequest message and
     returns a LookUpOrganizationAdminResponse
     """
+    GetUserSubscriptionAdmin: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionAdminRequest,
+        core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionAdminResponse,
+    ]
+    """GetUserSubscriptionAdmin"""
+    GetOrganizationSubscriptionAdmin: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminRequest,
+        core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminResponse,
+    ]
+    """GetOrganizationSubscriptionAdmin"""
 
 class MgmtPrivateServiceAsyncStub:
     """Mgmt service responds to internal access"""
@@ -109,6 +119,16 @@ class MgmtPrivateServiceAsyncStub:
     """LookUpOrganizationAdmin method receives a LookUpOrganizationAdminRequest message and
     returns a LookUpOrganizationAdminResponse
     """
+    GetUserSubscriptionAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionAdminRequest,
+        core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionAdminResponse,
+    ]
+    """GetUserSubscriptionAdmin"""
+    GetOrganizationSubscriptionAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminRequest,
+        core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminResponse,
+    ]
+    """GetOrganizationSubscriptionAdmin"""
 
 class MgmtPrivateServiceServicer(metaclass=abc.ABCMeta):
     """Mgmt service responds to internal access"""
@@ -167,5 +187,19 @@ class MgmtPrivateServiceServicer(metaclass=abc.ABCMeta):
         """LookUpOrganizationAdmin method receives a LookUpOrganizationAdminRequest message and
         returns a LookUpOrganizationAdminResponse
         """
+    @abc.abstractmethod
+    def GetUserSubscriptionAdmin(
+        self,
+        request: core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionAdminResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionAdminResponse]]:
+        """GetUserSubscriptionAdmin"""
+    @abc.abstractmethod
+    def GetOrganizationSubscriptionAdmin(
+        self,
+        request: core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminResponse]]:
+        """GetOrganizationSubscriptionAdmin"""
 
 def add_MgmtPrivateServiceServicer_to_server(servicer: MgmtPrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

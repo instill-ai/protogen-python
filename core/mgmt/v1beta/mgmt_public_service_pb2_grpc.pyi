@@ -155,6 +155,16 @@ class MgmtPublicServiceStub:
     """DeleteOrganizationMembership method receives a DeleteOrganizationMembershipRequest message and returns
     a DeleteOrganizationMembershipResponse message.
     """
+    GetUserSubscription: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionRequest,
+        core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionResponse,
+    ]
+    """GetUserSubscription"""
+    GetOrganizationSubscription: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionRequest,
+        core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionResponse,
+    ]
+    """GetOrganizationSubscription"""
     CreateToken: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.CreateTokenRequest,
         core.mgmt.v1beta.mgmt_pb2.CreateTokenResponse,
@@ -402,6 +412,16 @@ class MgmtPublicServiceAsyncStub:
     """DeleteOrganizationMembership method receives a DeleteOrganizationMembershipRequest message and returns
     a DeleteOrganizationMembershipResponse message.
     """
+    GetUserSubscription: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionRequest,
+        core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionResponse,
+    ]
+    """GetUserSubscription"""
+    GetOrganizationSubscription: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionRequest,
+        core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionResponse,
+    ]
+    """GetOrganizationSubscription"""
     CreateToken: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.CreateTokenRequest,
         core.mgmt.v1beta.mgmt_pb2.CreateTokenResponse,
@@ -687,6 +707,20 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         """DeleteOrganizationMembership method receives a DeleteOrganizationMembershipRequest message and returns
         a DeleteOrganizationMembershipResponse message.
         """
+    @abc.abstractmethod
+    def GetUserSubscription(
+        self,
+        request: core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionResponse]]:
+        """GetUserSubscription"""
+    @abc.abstractmethod
+    def GetOrganizationSubscription(
+        self,
+        request: core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionResponse]]:
+        """GetOrganizationSubscription"""
     @abc.abstractmethod
     def CreateToken(
         self,

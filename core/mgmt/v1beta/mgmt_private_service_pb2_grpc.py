@@ -45,6 +45,16 @@ class MgmtPrivateServiceStub(object):
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LookUpOrganizationAdminRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LookUpOrganizationAdminResponse.FromString,
                 )
+        self.GetUserSubscriptionAdmin = channel.unary_unary(
+                '/core.mgmt.v1beta.MgmtPrivateService/GetUserSubscriptionAdmin',
+                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserSubscriptionAdminRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserSubscriptionAdminResponse.FromString,
+                )
+        self.GetOrganizationSubscriptionAdmin = channel.unary_unary(
+                '/core.mgmt.v1beta.MgmtPrivateService/GetOrganizationSubscriptionAdmin',
+                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionAdminRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionAdminResponse.FromString,
+                )
 
 
 class MgmtPrivateServiceServicer(object):
@@ -99,6 +109,20 @@ class MgmtPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetUserSubscriptionAdmin(self, request, context):
+        """GetUserSubscriptionAdmin
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetOrganizationSubscriptionAdmin(self, request, context):
+        """GetOrganizationSubscriptionAdmin
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_MgmtPrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -131,6 +155,16 @@ def add_MgmtPrivateServiceServicer_to_server(servicer, server):
                     servicer.LookUpOrganizationAdmin,
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LookUpOrganizationAdminRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LookUpOrganizationAdminResponse.SerializeToString,
+            ),
+            'GetUserSubscriptionAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetUserSubscriptionAdmin,
+                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserSubscriptionAdminRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserSubscriptionAdminResponse.SerializeToString,
+            ),
+            'GetOrganizationSubscriptionAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOrganizationSubscriptionAdmin,
+                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionAdminRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionAdminResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -242,5 +276,39 @@ class MgmtPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPrivateService/LookUpOrganizationAdmin',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LookUpOrganizationAdminRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LookUpOrganizationAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetUserSubscriptionAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPrivateService/GetUserSubscriptionAdmin',
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserSubscriptionAdminRequest.SerializeToString,
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserSubscriptionAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetOrganizationSubscriptionAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPrivateService/GetOrganizationSubscriptionAdmin',
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionAdminRequest.SerializeToString,
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

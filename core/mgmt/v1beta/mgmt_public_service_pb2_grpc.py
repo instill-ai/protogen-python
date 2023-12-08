@@ -111,6 +111,16 @@ class MgmtPublicServiceStub(object):
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.DeleteOrganizationMembershipRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.DeleteOrganizationMembershipResponse.FromString,
                 )
+        self.GetUserSubscription = channel.unary_unary(
+                '/core.mgmt.v1beta.MgmtPublicService/GetUserSubscription',
+                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserSubscriptionRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserSubscriptionResponse.FromString,
+                )
+        self.GetOrganizationSubscription = channel.unary_unary(
+                '/core.mgmt.v1beta.MgmtPublicService/GetOrganizationSubscription',
+                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionResponse.FromString,
+                )
         self.CreateToken = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/CreateToken',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CreateTokenRequest.SerializeToString,
@@ -350,6 +360,20 @@ class MgmtPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetUserSubscription(self, request, context):
+        """GetUserSubscription
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetOrganizationSubscription(self, request, context):
+        """GetOrganizationSubscription
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CreateToken(self, request, context):
         """CreateToken method receives a CreateTokenRequest message and returns
         a CreateTokenResponse message.
@@ -578,6 +602,16 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     servicer.DeleteOrganizationMembership,
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.DeleteOrganizationMembershipRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.DeleteOrganizationMembershipResponse.SerializeToString,
+            ),
+            'GetUserSubscription': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetUserSubscription,
+                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserSubscriptionRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserSubscriptionResponse.SerializeToString,
+            ),
+            'GetOrganizationSubscription': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOrganizationSubscription,
+                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionResponse.SerializeToString,
             ),
             'CreateToken': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateToken,
@@ -990,6 +1024,40 @@ class MgmtPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/DeleteOrganizationMembership',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.DeleteOrganizationMembershipRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.DeleteOrganizationMembershipResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetUserSubscription(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/GetUserSubscription',
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserSubscriptionRequest.SerializeToString,
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserSubscriptionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetOrganizationSubscription(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/GetOrganizationSubscription',
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionRequest.SerializeToString,
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
