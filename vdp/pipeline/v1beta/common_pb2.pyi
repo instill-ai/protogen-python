@@ -43,8 +43,8 @@ ROLE_EXECUTOR: Role.ValueType  # 2
 global___Role = Role
 
 @typing_extensions.final
-class Permission(google.protobuf.message.Message):
-    """Permission"""
+class Sharing(google.protobuf.message.Message):
+    """Sharing"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -104,12 +104,12 @@ class Permission(google.protobuf.message.Message):
         VALUE_FIELD_NUMBER: builtins.int
         key: builtins.str
         @property
-        def value(self) -> global___Permission.User: ...
+        def value(self) -> global___Sharing.User: ...
         def __init__(
             self,
             *,
             key: builtins.str = ...,
-            value: global___Permission.User | None = ...,
+            value: global___Sharing.User | None = ...,
         ) -> None: ...
         def HasField(self, field_name: typing_extensions.Literal["value", b"value"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
@@ -117,18 +117,40 @@ class Permission(google.protobuf.message.Message):
     USERS_FIELD_NUMBER: builtins.int
     SHARE_CODE_FIELD_NUMBER: builtins.int
     @property
-    def users(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___Permission.User]:
+    def users(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___Sharing.User]:
         """users"""
     @property
-    def share_code(self) -> global___Permission.ShareCode:
+    def share_code(self) -> global___Sharing.ShareCode:
         """shared code"""
     def __init__(
         self,
         *,
-        users: collections.abc.Mapping[builtins.str, global___Permission.User] | None = ...,
-        share_code: global___Permission.ShareCode | None = ...,
+        users: collections.abc.Mapping[builtins.str, global___Sharing.User] | None = ...,
+        share_code: global___Sharing.ShareCode | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["share_code", b"share_code"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["share_code", b"share_code", "users", b"users"]) -> None: ...
+
+global___Sharing = Sharing
+
+@typing_extensions.final
+class Permission(google.protobuf.message.Message):
+    """Permission"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CAN_EDIT_FIELD_NUMBER: builtins.int
+    CAN_TRIGGER_FIELD_NUMBER: builtins.int
+    can_edit: builtins.bool
+    """can_edit"""
+    can_trigger: builtins.bool
+    """can_trigger"""
+    def __init__(
+        self,
+        *,
+        can_edit: builtins.bool = ...,
+        can_trigger: builtins.bool = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["can_edit", b"can_edit", "can_trigger", b"can_trigger"]) -> None: ...
 
 global___Permission = Permission
