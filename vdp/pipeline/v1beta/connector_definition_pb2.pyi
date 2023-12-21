@@ -26,40 +26,40 @@ class _ConnectorType:
 class _ConnectorTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ConnectorType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     CONNECTOR_TYPE_UNSPECIFIED: _ConnectorType.ValueType  # 0
-    """ConnectorType: UNSPECIFIED"""
+    """Unspecified."""
     CONNECTOR_TYPE_SOURCE: _ConnectorType.ValueType  # 1
-    """ConnectorType: SOURCE"""
+    """Source connector."""
     CONNECTOR_TYPE_DESTINATION: _ConnectorType.ValueType  # 2
-    """ConnectorType: DESTINATION"""
+    """Destination connector."""
     CONNECTOR_TYPE_AI: _ConnectorType.ValueType  # 3
-    """ConnectorType: AI"""
+    """AI connector."""
     CONNECTOR_TYPE_BLOCKCHAIN: _ConnectorType.ValueType  # 4
-    """ConnectorType: Blockchain"""
+    """Blockchain connector."""
     CONNECTOR_TYPE_DATA: _ConnectorType.ValueType  # 5
-    """ConnectorType: DATA"""
+    """Data connector."""
     CONNECTOR_TYPE_OPERATOR: _ConnectorType.ValueType  # 6
-    """ConnectorType: OPERATOR"""
+    """Operator connector."""
 
 class ConnectorType(_ConnectorType, metaclass=_ConnectorTypeEnumTypeWrapper):
     """////////////////////////////////////////////////////////////////////////
 
-    ConnectorType enumerates connector types
+    ConnectorType holds the different connector types based on their tasks.
     """
 
 CONNECTOR_TYPE_UNSPECIFIED: ConnectorType.ValueType  # 0
-"""ConnectorType: UNSPECIFIED"""
+"""Unspecified."""
 CONNECTOR_TYPE_SOURCE: ConnectorType.ValueType  # 1
-"""ConnectorType: SOURCE"""
+"""Source connector."""
 CONNECTOR_TYPE_DESTINATION: ConnectorType.ValueType  # 2
-"""ConnectorType: DESTINATION"""
+"""Destination connector."""
 CONNECTOR_TYPE_AI: ConnectorType.ValueType  # 3
-"""ConnectorType: AI"""
+"""AI connector."""
 CONNECTOR_TYPE_BLOCKCHAIN: ConnectorType.ValueType  # 4
-"""ConnectorType: Blockchain"""
+"""Blockchain connector."""
 CONNECTOR_TYPE_DATA: ConnectorType.ValueType  # 5
-"""ConnectorType: DATA"""
+"""Data connector."""
 CONNECTOR_TYPE_OPERATOR: ConnectorType.ValueType  # 6
-"""ConnectorType: OPERATOR"""
+"""Operator connector."""
 global___ConnectorType = ConnectorType
 
 @typing_extensions.final
@@ -96,7 +96,15 @@ global___ConnectorSpec = ConnectorSpec
 
 @typing_extensions.final
 class ConnectorDefinition(google.protobuf.message.Message):
-    """ConnectorDefinition represents the connector definition data model"""
+    """A Connector is a type of pipeline component that queries, processes or sends
+    the ingested unstructured data to a service or app. Users need to configure
+    their connectors (e.g. by providing an API token to a remote service). A
+    ConnectorDefinition describes a certain type of Connector.
+
+    For more information, see
+    [Component](https://www.instill.tech/docs/latest/core/concepts/pipeline#pipeline-component)
+    in the official documentation.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -107,21 +115,21 @@ class ConnectorDefinition(google.protobuf.message.Message):
     class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ConnectorDefinition._View.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         VIEW_UNSPECIFIED: ConnectorDefinition._View.ValueType  # 0
-        """View: UNSPECIFIED"""
+        """Unspecified, equivalent to BASIC."""
         VIEW_BASIC: ConnectorDefinition._View.ValueType  # 1
-        """View: BASIC"""
+        """Default view, only includes basic information."""
         VIEW_FULL: ConnectorDefinition._View.ValueType  # 2
-        """View: FULL"""
+        """Full representation."""
 
     class View(_View, metaclass=_ViewEnumTypeWrapper):
-        """View enumerates the definition views"""
+        """View defines how a connector definition is presented."""
 
     VIEW_UNSPECIFIED: ConnectorDefinition.View.ValueType  # 0
-    """View: UNSPECIFIED"""
+    """Unspecified, equivalent to BASIC."""
     VIEW_BASIC: ConnectorDefinition.View.ValueType  # 1
-    """View: BASIC"""
+    """Default view, only includes basic information."""
     VIEW_FULL: ConnectorDefinition.View.ValueType  # 2
-    """View: FULL"""
+    """Full representation."""
 
     NAME_FIELD_NUMBER: builtins.int
     UID_FIELD_NUMBER: builtins.int
@@ -138,49 +146,47 @@ class ConnectorDefinition(google.protobuf.message.Message):
     VENDOR_FIELD_NUMBER: builtins.int
     VENDOR_ATTRIBUTES_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """ConnectorDefinition resource name. It must have the format of
-    "connector-definitions/*"
+    """The name of the connector definition.
+    - Format: `connector-definitions/*`.
     """
     uid: builtins.str
-    """ConnectorDefinition UUID"""
+    """Connector definition UUID."""
     id: builtins.str
-    """ConnectorDefinition resource ID (the last segment of the
-    resource name) used to construct the resource name. This conforms to
-    RFC-1034, which restricts to letters, numbers, and hyphen, with the first
-    character a letter, the last a letter or a number, and a 63 character
-    maximum.
+    """Connector definition resource ID (used in the name as the last segment). This
+    conforms to RFC-1034, which restricts to letters, numbers, and hyphen,
+    with the first character a letter, the last a letter or a number, and a 63
+    character maximum.
     """
     title: builtins.str
-    """ConnectorDefinition title"""
+    """Connector definition title."""
     documentation_url: builtins.str
-    """ConnectorDefinition documentation URL"""
+    """Connector definition documentation URL."""
     icon: builtins.str
-    """ConnectorDefinition icon"""
+    """Connector definition icon."""
     @property
     def spec(self) -> global___ConnectorSpec:
-        """ConnectorDefinition spec"""
+        """Connector definition specification."""
     type: global___ConnectorType.ValueType
-    """Connector Type"""
+    """Connector definition type."""
     tombstone: builtins.bool
-    """ConnectorDefinition tombstone, i.e., if not set or false, the
-    configuration is active, or otherwise, if true, this configuration is
-    permanently off
+    """Connector definition tombstone. If true, this configuration is permanently
+    off. Otherwise, the configuration is active.
     """
     public: builtins.bool
-    """ConnectorDefinition public flag, i.e., true if this connector
-    definition is available to all workspaces
+    """The public flag determines whether this connector definition is available
+    to all workspaces.
     """
     custom: builtins.bool
-    """ConnectorDefinition custom flag, i.e., whether this is a custom
-    connector definition
+    """Connector definition custom flag, i.e., whether this is a custom
+    connector definition.
     """
     icon_url: builtins.str
-    """ConnectorDefinition iconUrl"""
+    """Connector definition icon URL."""
     vendor: builtins.str
-    """ConnectorDefinition vendor name"""
+    """Connector definition vendor name."""
     @property
     def vendor_attributes(self) -> google.protobuf.struct_pb2.Struct:
-        """ConnectorDefinition vendorAttributes, i.e. the vendor-specific attributes"""
+        """Vendor-specific attributes."""
     def __init__(
         self,
         *,
@@ -336,8 +342,8 @@ global___GetConnectorDefinitionResponse = GetConnectorDefinitionResponse
 
 @typing_extensions.final
 class LookUpConnectorDefinitionAdminRequest(google.protobuf.message.Message):
-    """LookUpConnectorDefinitionAdminRequest represents a request to query a
-    connectorDefinition via permalink by admin
+    """LookUpConnectorDefinitionAdminRequest represents a request by an admin to
+    query a connector definition by its UID.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -345,11 +351,13 @@ class LookUpConnectorDefinitionAdminRequest(google.protobuf.message.Message):
     PERMALINK_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     permalink: builtins.str
-    """Permalink of a connector. For example:
-    "connector-definitions/{uid}"
+    """The permalink of the connector definition, which allows its access by UID.
+    - Format: `connector-definitions/{uid}`
     """
     view: global___ConnectorDefinition.View.ValueType
-    """Connector view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired connector definition view in
+    the response.
+    """
     def __init__(
         self,
         *,
@@ -365,7 +373,7 @@ global___LookUpConnectorDefinitionAdminRequest = LookUpConnectorDefinitionAdminR
 @typing_extensions.final
 class LookUpConnectorDefinitionAdminResponse(google.protobuf.message.Message):
     """LookUpConnectorDefinitionAdminResponse represents a response for a
-    connector definition
+    connector definition.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -373,7 +381,7 @@ class LookUpConnectorDefinitionAdminResponse(google.protobuf.message.Message):
     CONNECTOR_DEFINITION_FIELD_NUMBER: builtins.int
     @property
     def connector_definition(self) -> global___ConnectorDefinition:
-        """Connector resource"""
+        """The requested connector."""
     def __init__(
         self,
         *,

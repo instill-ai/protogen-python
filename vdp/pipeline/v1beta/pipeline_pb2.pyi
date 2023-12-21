@@ -246,7 +246,13 @@ global___Recipe = Recipe
 
 @typing_extensions.final
 class Pipeline(google.protobuf.message.Message):
-    """Pipeline represents the content of a pipeline"""
+    """A Pipeline is an end-to-end workflow that automates a sequence of components
+    to process data.
+
+    For more information, see
+    [Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline) in
+    the official documentation.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -257,25 +263,25 @@ class Pipeline(google.protobuf.message.Message):
     class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Pipeline._View.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         VIEW_UNSPECIFIED: Pipeline._View.ValueType  # 0
-        """View: UNSPECIFIED"""
+        """Unspecified, equivalent to BASIC."""
         VIEW_BASIC: Pipeline._View.ValueType  # 1
-        """View: BASIC"""
+        """Default view, only includes basic information."""
         VIEW_FULL: Pipeline._View.ValueType  # 2
-        """View: FULL"""
+        """Full representation."""
         VIEW_RECIPE: Pipeline._View.ValueType  # 3
-        """View: RECIPE: will return recipe"""
+        """Contains the recipe of the resource."""
 
     class View(_View, metaclass=_ViewEnumTypeWrapper):
-        """Pipeline View"""
+        """View defines how a Pipeline is presented."""
 
     VIEW_UNSPECIFIED: Pipeline.View.ValueType  # 0
-    """View: UNSPECIFIED"""
+    """Unspecified, equivalent to BASIC."""
     VIEW_BASIC: Pipeline.View.ValueType  # 1
-    """View: BASIC"""
+    """Default view, only includes basic information."""
     VIEW_FULL: Pipeline.View.ValueType  # 2
-    """View: FULL"""
+    """Full representation."""
     VIEW_RECIPE: Pipeline.View.ValueType  # 3
-    """View: RECIPE: will return recipe"""
+    """Contains the recipe of the resource."""
 
     NAME_FIELD_NUMBER: builtins.int
     UID_FIELD_NUMBER: builtins.int
@@ -294,51 +300,53 @@ class Pipeline(google.protobuf.message.Message):
     README_FIELD_NUMBER: builtins.int
     PERMISSION_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Pipeline resource name. It must have the format of "users/{user}/pipelines/*" """
+    """The name of the pipeline, defined by its owner and ID.
+    - Format: `users/{user}/pipelines/{id}`.
+    """
     uid: builtins.str
-    """Pipeline UUID"""
+    """Pipeline UUID."""
     id: builtins.str
-    """Pipeline resource ID (the last segment of the resource name) used to
-    construct the resource name. This conforms to RFC-1034, which restricts to
-    letters, numbers, and hyphen, with the first character a letter, the last a
-    letter or a number, and a 63 character maximum.
+    """Pipeline resource ID (used in the name as the last segment). This conforms
+    to RFC-1034, which restricts to letters, numbers, and hyphen, with the
+    first character a letter, the last a letter or a number, and a 63
+    character maximum.
     """
     description: builtins.str
-    """Pipeline description"""
+    """Pipeline description."""
     @property
     def recipe(self) -> global___Recipe:
-        """Pipeline recipe"""
+        """Recipe describes the components of a Pipeline and how they are connected."""
     @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Pipeline creation time"""
+        """Pipeline creation time."""
     @property
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Pipeline update time"""
+        """Pipeline update time."""
     @property
     def openapi_schema(self) -> google.protobuf.struct_pb2.Struct:
-        """OpenAPI schema"""
+        """OpenAPI schema."""
     @property
     def delete_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Pipeline delete time"""
+        """Pipeline delete time."""
     @property
     def sharing(self) -> vdp.pipeline.v1beta.common_pb2.Sharing:
-        """Pipeline sharing"""
+        """Pipeline sharing."""
     @property
     def metadata(self) -> google.protobuf.struct_pb2.Struct:
-        """Metadata: store Console-related data such as pipeline builder layout"""
+        """Metadata: store Console-related data such as pipeline builder layout."""
     owner_name: builtins.str
-    """Owner Name"""
+    """Owner Name."""
     @property
     def owner(self) -> google.protobuf.struct_pb2.Struct:
-        """Owner details"""
+        """Owner details."""
     @property
     def releases(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PipelineRelease]:
-        """Releases"""
+        """Releases."""
     readme: builtins.str
-    """readme"""
+    """README."""
     @property
     def permission(self) -> vdp.pipeline.v1beta.common_pb2.Permission:
-        """Permission"""
+        """Permission."""
     def __init__(
         self,
         *,
@@ -470,7 +478,9 @@ global___Trace = Trace
 
 @typing_extensions.final
 class PipelineRelease(google.protobuf.message.Message):
-    """PipelineRelease represents the content of a pipeline release"""
+    """Pipeline releases contain the version control information of a pipeline.
+    This allows users to track changes in the pipeline over time.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -487,37 +497,41 @@ class PipelineRelease(google.protobuf.message.Message):
     METADATA_FIELD_NUMBER: builtins.int
     README_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """PipelineRelease resource name. It must have the format of "users/*/pipelines/*/releases/*" """
+    """The name of the release, defined by its owner and ID.
+    - Format: `users/{user}/pipelines/{pipeline_id}/releases/{release_id}
+    """
     uid: builtins.str
-    """PipelineRelease UUID"""
+    """Release UUID."""
     id: builtins.str
-    """PipelineRelease resource ID (the last segment of the resource name) used to
-    construct the resource name. Must be a sematic version vX.Y.Z
+    """Release resource ID (used in the name as the last segment). It must be a
+    sematic version vX.Y.Z.
     """
     description: builtins.str
-    """PipelineRelease description"""
+    """Release description."""
     @property
     def recipe(self) -> global___Recipe:
-        """Pipeline recipe snapshot"""
+        """Recipe of the versioned pipeline."""
     @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Pipeline creation time"""
+        """Pipeline creation time."""
     @property
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Pipeline update time"""
+        """Pipeline update time."""
     @property
     def openapi_schema(self) -> google.protobuf.struct_pb2.Struct:
-        """OpenAPI schema"""
+        """OpenAPI schema."""
     @property
     def delete_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Pipeline delete time"""
+        """Pipeline deletion time."""
     alias: builtins.str
-    """Alias"""
+    """Alias."""
     @property
     def metadata(self) -> google.protobuf.struct_pb2.Struct:
-        """Metadata: store Console-related data such as pipeline builder layout"""
+        """Key-value object with console-related data such as the pipeline builder
+        layout.
+        """
     readme: builtins.str
-    """readme"""
+    """README."""
     def __init__(
         self,
         *,
@@ -2527,8 +2541,8 @@ global___GetOperationResponse = GetOperationResponse
 class ListPipelinesAdminRequest(google.protobuf.message.Message):
     """========== Private endpoints
 
-    ListPipelinesAdminRequest represents a request to list all pipelines from all
-    users by admin
+    ListPipelinesAdminRequest represents a request by an admin to list all the
+    pipelines. Admin users have access to pipelines from any user.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -2539,18 +2553,22 @@ class ListPipelinesAdminRequest(google.protobuf.message.Message):
     FILTER_FIELD_NUMBER: builtins.int
     SHOW_DELETED_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """The maximum number of pipelines to return. The service may return fewer
-    than this value. If unspecified, at most 10 pipelines will be returned. The
-    maximum value is 100; values above 100 will be coerced to 100.
+    """The maximum number of pipelines to return. If this parameter is
+    unspecified, at most 10 pipelines will be returned. The cap value for this
+    parameter is 100 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     view: global___Pipeline.View.ValueType
-    """View view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired pipeline view in the response."""
     filter: builtins.str
-    """Filter expression to list pipelines"""
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    - Example: `recipe.components.definition_name:"operator-definitions/2ac8be70-0f7a-4b61-a33d-098b8acfa6f3"`.
+    """
     show_deleted: builtins.bool
-    """Return soft_deleted pipelines"""
+    """Include soft-deleted pipelines in the result."""
     def __init__(
         self,
         *,
@@ -2577,9 +2595,10 @@ global___ListPipelinesAdminRequest = ListPipelinesAdminRequest
 
 @typing_extensions.final
 class ListPipelinesAdminResponse(google.protobuf.message.Message):
-    """ListPipelinesAdminResponse represents a response for a list of pipelines
-    The recipe returned will be permaLinks instead of resourceName temporary,
-    this will be refactored soon
+    """ListPipelinesAdminResponse contains a list of pipelines requested by an
+    admin user.
+    For the moment, the pipeline recipes will be UID-based (permalink) instead
+    of name-based. This is a temporary solution.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -2589,11 +2608,11 @@ class ListPipelinesAdminResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def pipelines(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Pipeline]:
-        """A list of pipeline resources"""
+        """A list of pipeline resources."""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
-    """Total count of pipeline resources"""
+    """Total number of pipelines."""
     def __init__(
         self,
         *,
@@ -2607,8 +2626,8 @@ global___ListPipelinesAdminResponse = ListPipelinesAdminResponse
 
 @typing_extensions.final
 class ListPipelineReleasesAdminRequest(google.protobuf.message.Message):
-    """ListPipelinesReleaseAdminRequest represents a request to list all pipeline_releases from all
-    users by admin
+    """ListPipelinesReleaseAdminRequest represents a request by an admin to list
+    all pipeline releases. Admin users have access to pipelines from any user.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -2619,18 +2638,21 @@ class ListPipelineReleasesAdminRequest(google.protobuf.message.Message):
     FILTER_FIELD_NUMBER: builtins.int
     SHOW_DELETED_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """The maximum number of pipelines to return. The service may return fewer
-    than this value. If unspecified, at most 10 pipelines will be returned. The
-    maximum value is 100; values above 100 will be coerced to 100.
+    """The maximum number of releases to return. If this parameter is
+    unspecified, at most 10 releases will be returned. The cap value for this
+    parameter is 100 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     view: global___Pipeline.View.ValueType
-    """View view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired pipeline view in the response."""
     filter: builtins.str
-    """Filter expression to list pipelines"""
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
     show_deleted: builtins.bool
-    """Return soft_deleted pipelines"""
+    """Include soft-deleted pipelines in the result."""
     def __init__(
         self,
         *,
@@ -2657,9 +2679,10 @@ global___ListPipelineReleasesAdminRequest = ListPipelineReleasesAdminRequest
 
 @typing_extensions.final
 class ListPipelineReleasesAdminResponse(google.protobuf.message.Message):
-    """ListPipelineReleasesAdminResponse represents a response for a list of pipeline_releases
-    The recipe returned will be permaLinks instead of resourceName temporary,
-    this will be refactored soon
+    """ListPipelineReleasesAdminResponse contains a list of pipeline releases
+    requested by an admin user.
+    For the moment, the pipeline recipes will be UID-based (permalink) instead
+    of name-based. This is a temporary solution.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -2669,11 +2692,11 @@ class ListPipelineReleasesAdminResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def releases(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PipelineRelease]:
-        """A list of pipeline resources"""
+        """A list of pipeline releases."""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
-    """Total count of pipeline resources"""
+    """Total number of pipeline releases."""
     def __init__(
         self,
         *,
@@ -2687,8 +2710,8 @@ global___ListPipelineReleasesAdminResponse = ListPipelineReleasesAdminResponse
 
 @typing_extensions.final
 class LookUpPipelineAdminRequest(google.protobuf.message.Message):
-    """LookUpPipelineAdminRequest represents a request to query a user's pipeline
-    via permalink by admin
+    """LookUpPipelineAdminRequest represents a request by an admin to query a
+    user pipeline by its UID.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -2696,11 +2719,11 @@ class LookUpPipelineAdminRequest(google.protobuf.message.Message):
     PERMALINK_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     permalink: builtins.str
-    """Permalink of a pipeline. For example:
-    "pipelines/{uid}"
+    """The permalink of the pipeline, which allows its access by UID.
+    - Format: `pipelines/{uid}`.
     """
     view: global___Pipeline.View.ValueType
-    """View view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired pipeline view in the response."""
     def __init__(
         self,
         *,
@@ -2715,14 +2738,14 @@ global___LookUpPipelineAdminRequest = LookUpPipelineAdminRequest
 
 @typing_extensions.final
 class LookUpPipelineAdminResponse(google.protobuf.message.Message):
-    """LookUpPipelineAdminResponse represents a response for a pipeline resource"""
+    """LookUpPipelineAdminResponse represents a response for a pipeline resource."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PIPELINE_FIELD_NUMBER: builtins.int
     @property
     def pipeline(self) -> global___Pipeline:
-        """A pipeline resource"""
+        """The requested pipeline."""
     def __init__(
         self,
         *,

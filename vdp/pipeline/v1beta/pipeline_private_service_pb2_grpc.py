@@ -9,7 +9,8 @@ from vdp.pipeline.v1beta import pipeline_pb2 as vdp_dot_pipeline_dot_v1beta_dot_
 
 
 class PipelinePrivateServiceStub(object):
-    """Pipeline service responds to internal access
+    """PipelinePrivateService defines private methods to interact with Pipeline
+    resources.
     """
 
     def __init__(self, channel):
@@ -61,71 +62,84 @@ class PipelinePrivateServiceStub(object):
 
 
 class PipelinePrivateServiceServicer(object):
-    """Pipeline service responds to internal access
+    """PipelinePrivateService defines private methods to interact with Pipeline
+    resources.
     """
 
     def ListPipelinesAdmin(self, request, context):
-        """ListPipelinesAdmin method receives a ListPipelinesAdminRequest message and
-        returns a ListPipelinesAdminResponse message.
+        """List pipelines (admin only).
+
+        This is a *private* method that allows admin users and internal clients to
+        list *all* pipeline resources.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def LookUpPipelineAdmin(self, request, context):
-        """LookUpPipelineAdmin method receives a LookUpPipelineAdminRequest message
-        and returns a LookUpPipelineAdminResponse
+        """Get a pipeline by UID (admin only).
+
+        This is a *private* method that allows admin users to access any pipeline
+        resource by its UID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def LookUpOperatorDefinitionAdmin(self, request, context):
-        """LookUpOperatorDefinitionAdmin method receives a
-        LookUpOperatorDefinitionAdminRequest message and returns a
-        LookUpOperatorDefinitionAdminResponse
+        """Get an operator definition by UID (admin only).
+
+        This is a *private* method that allows admin users to access an operator
+        definition by its UID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListPipelineReleasesAdmin(self, request, context):
-        """ListPipelineReleasesAdmin method receives a ListPipelineReleasesAdminRequest message and
-        returns a ListPipelineReleasesAdminResponse message.
+        """List pipeline releases (admin only).
+
+        This is a *private* method that allows admin users to list *all* pipeline
+        releases.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def LookUpConnectorDefinitionAdmin(self, request, context):
-        """LookUpConnectorDefinitionAdmin method receives a
-        LookUpConnectorDefinitionAdminRequest message and returns a
-        LookUpConnectorDefinitionAdminResponse
+        """Get a connector definition by UID (admin only).
+
+        This is a *private* method that allows admin users to access a connector
+        definition by its UID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListConnectorsAdmin(self, request, context):
-        """ListConnectorsAdmin method receives a ListConnectorsAdminRequest
-        message and returns a ListConnectorsResponse message.
+        """List connectors (admin only).
+
+        This is a *private* method that allows admin users to list *all* connectors.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def LookUpConnectorAdmin(self, request, context):
-        """LookUpConnectorAdmin method receives a
-        LookUpConnectorAdminRequest message and returns a
-        LookUpConnectorAdminResponse
+        """Get a connector by UID (admin only).
+
+        This is a *private* method that allows admin users to access a connector
+        by its UID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def CheckConnector(self, request, context):
-        """CheckConnector method receives a CheckConnectorRequest message and returns a
-        CheckConnectorResponse
+        """Get a connector current state (admin only).
+
+        This is a *private* method that allows admin users to access the state of
+        a connector by its UID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -182,7 +196,8 @@ def add_PipelinePrivateServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class PipelinePrivateService(object):
-    """Pipeline service responds to internal access
+    """PipelinePrivateService defines private methods to interact with Pipeline
+    resources.
     """
 
     @staticmethod

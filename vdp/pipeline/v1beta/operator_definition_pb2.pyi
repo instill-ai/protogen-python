@@ -48,7 +48,12 @@ global___OperatorSpec = OperatorSpec
 class OperatorDefinition(google.protobuf.message.Message):
     """////////////////////////////////////////////////////////////////////////
 
-    Operator represents the operator definition data model
+    An Operator is a type of pipeline component that performs data injection and
+    manipulation. OperatorDefinition describes a certain type of operator.
+
+    For more information, see
+    [Component](https://www.instill.tech/docs/latest/core/concepts/pipeline#pipeline-component)
+    in the official documentation.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -60,21 +65,21 @@ class OperatorDefinition(google.protobuf.message.Message):
     class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[OperatorDefinition._View.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         VIEW_UNSPECIFIED: OperatorDefinition._View.ValueType  # 0
-        """View: UNSPECIFIED"""
+        """Unspecified, equivalent to BASIC."""
         VIEW_BASIC: OperatorDefinition._View.ValueType  # 1
-        """View: BASIC"""
+        """Default view, only includes basic information."""
         VIEW_FULL: OperatorDefinition._View.ValueType  # 2
-        """View: FULL"""
+        """Full representation."""
 
     class View(_View, metaclass=_ViewEnumTypeWrapper):
-        """Operator View"""
+        """View defines how an operator definition is presented."""
 
     VIEW_UNSPECIFIED: OperatorDefinition.View.ValueType  # 0
-    """View: UNSPECIFIED"""
+    """Unspecified, equivalent to BASIC."""
     VIEW_BASIC: OperatorDefinition.View.ValueType  # 1
-    """View: BASIC"""
+    """Default view, only includes basic information."""
     VIEW_FULL: OperatorDefinition.View.ValueType  # 2
-    """View: FULL"""
+    """Full representation."""
 
     NAME_FIELD_NUMBER: builtins.int
     UID_FIELD_NUMBER: builtins.int
@@ -88,42 +93,38 @@ class OperatorDefinition(google.protobuf.message.Message):
     CUSTOM_FIELD_NUMBER: builtins.int
     ICON_URL_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Operator resource name. It must have the format of
-    "operator-definitions/*"
+    """The name of the operator definition.
+    - Format: `operator-definitions/*`
     """
     uid: builtins.str
-    """Operator UUID"""
+    """Operator definition UUID."""
     id: builtins.str
-    """Operator resource ID (the last segment of the
-    resource name) used to construct the resource name. This conforms to
-    RFC-1034, which restricts to letters, numbers, and hyphen, with the first
-    character a letter, the last a letter or a number, and a 63 character
-    maximum.
+    """Operator definition resource ID (used in the name as the last segment).
+    This conforms to RFC-1034, which restricts to letters, numbers, and
+    hyphen, with the first character a letter, the last a letter or a number,
+    and a 63 character maximum.
     """
     title: builtins.str
-    """Operator title"""
+    """Operator definition title."""
     documentation_url: builtins.str
-    """Operator documentation URL"""
+    """Operator definition documentation URL."""
     icon: builtins.str
-    """Operator icon"""
+    """Operator definition icon."""
     @property
     def spec(self) -> global___OperatorSpec:
-        """Operator spec"""
+        """Operator definition specification."""
     tombstone: builtins.bool
-    """Operator tombstone, i.e., if not set or false, the
-    configuration is active, or otherwise, if true, this configuration is
-    permanently off
+    """Operator definition tombstone. If true, this configuration is permanently
+    off. Otherwise, the configuration is active.
     """
     public: builtins.bool
-    """Operator public flag, i.e., true if this operator
-    definition is available to all workspaces
+    """The public flag determines whether this operator definition is available
+    to all workspaces.
     """
     custom: builtins.bool
-    """Operator custom flag, i.e., whether this is a custom
-    operator definition
-    """
+    """The custom flag determines whether this is a custom operator definition."""
     icon_url: builtins.str
-    """Operator iconUrl"""
+    """Operator definition icon URL."""
     def __init__(
         self,
         *,
@@ -276,8 +277,8 @@ global___GetOperatorDefinitionResponse = GetOperatorDefinitionResponse
 
 @typing_extensions.final
 class LookUpOperatorDefinitionAdminRequest(google.protobuf.message.Message):
-    """LookUpOperatorDefinitionAdminRequest represents a request to query a
-    operatorDefinition via permalink by admin
+    """LookUpOperatorDefinitionAdminRequest represents a request by an admin to
+    query an operator definition by its UID.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -285,11 +286,13 @@ class LookUpOperatorDefinitionAdminRequest(google.protobuf.message.Message):
     PERMALINK_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     permalink: builtins.str
-    """Permalink of a operator. For example:
-    "operator-definitions/{uid}"
+    """The permalink of the operator definition, which allows its access by UID.
+    - Format: `operator-definitions/{uid}`.
     """
     view: global___OperatorDefinition.View.ValueType
-    """Operator view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired operator definition view in the
+    response.
+    """
     def __init__(
         self,
         *,
@@ -304,8 +307,8 @@ global___LookUpOperatorDefinitionAdminRequest = LookUpOperatorDefinitionAdminReq
 
 @typing_extensions.final
 class LookUpOperatorDefinitionAdminResponse(google.protobuf.message.Message):
-    """LookUpOperatorAdminResponse represents a response for a
-    operator
+    """LookUpOperatorDefinitionAdminResponse represents a response for an operator
+    definition.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -313,7 +316,7 @@ class LookUpOperatorDefinitionAdminResponse(google.protobuf.message.Message):
     OPERATOR_DEFINITION_FIELD_NUMBER: builtins.int
     @property
     def operator_definition(self) -> global___OperatorDefinition:
-        """operator resource"""
+        """The requested operator definition."""
     def __init__(
         self,
         *,

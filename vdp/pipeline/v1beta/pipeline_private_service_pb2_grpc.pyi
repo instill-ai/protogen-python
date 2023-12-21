@@ -21,134 +21,164 @@ class _ServicerContext(grpc.ServicerContext, grpc.aio.ServicerContext):  # type:
     ...
 
 class PipelinePrivateServiceStub:
-    """Pipeline service responds to internal access"""
+    """PipelinePrivateService defines private methods to interact with Pipeline
+    resources.
+    """
 
     def __init__(self, channel: typing.Union[grpc.Channel, grpc.aio.Channel]) -> None: ...
     ListPipelinesAdmin: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesAdminRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesAdminResponse,
     ]
-    """ListPipelinesAdmin method receives a ListPipelinesAdminRequest message and
-    returns a ListPipelinesAdminResponse message.
+    """List pipelines (admin only).
+
+    This is a *private* method that allows admin users and internal clients to
+    list *all* pipeline resources.
     """
     LookUpPipelineAdmin: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineAdminRequest,
         vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineAdminResponse,
     ]
-    """LookUpPipelineAdmin method receives a LookUpPipelineAdminRequest message
-    and returns a LookUpPipelineAdminResponse
+    """Get a pipeline by UID (admin only).
+
+    This is a *private* method that allows admin users to access any pipeline
+    resource by its UID.
     """
     LookUpOperatorDefinitionAdmin: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.operator_definition_pb2.LookUpOperatorDefinitionAdminRequest,
         vdp.pipeline.v1beta.operator_definition_pb2.LookUpOperatorDefinitionAdminResponse,
     ]
-    """LookUpOperatorDefinitionAdmin method receives a
-    LookUpOperatorDefinitionAdminRequest message and returns a
-    LookUpOperatorDefinitionAdminResponse
+    """Get an operator definition by UID (admin only).
+
+    This is a *private* method that allows admin users to access an operator
+    definition by its UID.
     """
     ListPipelineReleasesAdmin: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelineReleasesAdminRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelineReleasesAdminResponse,
     ]
-    """ListPipelineReleasesAdmin method receives a ListPipelineReleasesAdminRequest message and
-    returns a ListPipelineReleasesAdminResponse message.
+    """List pipeline releases (admin only).
+
+    This is a *private* method that allows admin users to list *all* pipeline
+    releases.
     """
     LookUpConnectorDefinitionAdmin: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_definition_pb2.LookUpConnectorDefinitionAdminRequest,
         vdp.pipeline.v1beta.connector_definition_pb2.LookUpConnectorDefinitionAdminResponse,
     ]
-    """LookUpConnectorDefinitionAdmin method receives a
-    LookUpConnectorDefinitionAdminRequest message and returns a
-    LookUpConnectorDefinitionAdminResponse
+    """Get a connector definition by UID (admin only).
+
+    This is a *private* method that allows admin users to access a connector
+    definition by its UID.
     """
     ListConnectorsAdmin: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.ListConnectorsAdminRequest,
         vdp.pipeline.v1beta.connector_pb2.ListConnectorsAdminResponse,
     ]
-    """ListConnectorsAdmin method receives a ListConnectorsAdminRequest
-    message and returns a ListConnectorsResponse message.
+    """List connectors (admin only).
+
+    This is a *private* method that allows admin users to list *all* connectors.
     """
     LookUpConnectorAdmin: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.LookUpConnectorAdminRequest,
         vdp.pipeline.v1beta.connector_pb2.LookUpConnectorAdminResponse,
     ]
-    """LookUpConnectorAdmin method receives a
-    LookUpConnectorAdminRequest message and returns a
-    LookUpConnectorAdminResponse
+    """Get a connector by UID (admin only).
+
+    This is a *private* method that allows admin users to access a connector
+    by its UID.
     """
     CheckConnector: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.CheckConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.CheckConnectorResponse,
     ]
-    """CheckConnector method receives a CheckConnectorRequest message and returns a
-    CheckConnectorResponse
+    """Get a connector current state (admin only).
+
+    This is a *private* method that allows admin users to access the state of
+    a connector by its UID.
     """
 
 class PipelinePrivateServiceAsyncStub:
-    """Pipeline service responds to internal access"""
+    """PipelinePrivateService defines private methods to interact with Pipeline
+    resources.
+    """
 
     ListPipelinesAdmin: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesAdminRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesAdminResponse,
     ]
-    """ListPipelinesAdmin method receives a ListPipelinesAdminRequest message and
-    returns a ListPipelinesAdminResponse message.
+    """List pipelines (admin only).
+
+    This is a *private* method that allows admin users and internal clients to
+    list *all* pipeline resources.
     """
     LookUpPipelineAdmin: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineAdminRequest,
         vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineAdminResponse,
     ]
-    """LookUpPipelineAdmin method receives a LookUpPipelineAdminRequest message
-    and returns a LookUpPipelineAdminResponse
+    """Get a pipeline by UID (admin only).
+
+    This is a *private* method that allows admin users to access any pipeline
+    resource by its UID.
     """
     LookUpOperatorDefinitionAdmin: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.operator_definition_pb2.LookUpOperatorDefinitionAdminRequest,
         vdp.pipeline.v1beta.operator_definition_pb2.LookUpOperatorDefinitionAdminResponse,
     ]
-    """LookUpOperatorDefinitionAdmin method receives a
-    LookUpOperatorDefinitionAdminRequest message and returns a
-    LookUpOperatorDefinitionAdminResponse
+    """Get an operator definition by UID (admin only).
+
+    This is a *private* method that allows admin users to access an operator
+    definition by its UID.
     """
     ListPipelineReleasesAdmin: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelineReleasesAdminRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelineReleasesAdminResponse,
     ]
-    """ListPipelineReleasesAdmin method receives a ListPipelineReleasesAdminRequest message and
-    returns a ListPipelineReleasesAdminResponse message.
+    """List pipeline releases (admin only).
+
+    This is a *private* method that allows admin users to list *all* pipeline
+    releases.
     """
     LookUpConnectorDefinitionAdmin: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_definition_pb2.LookUpConnectorDefinitionAdminRequest,
         vdp.pipeline.v1beta.connector_definition_pb2.LookUpConnectorDefinitionAdminResponse,
     ]
-    """LookUpConnectorDefinitionAdmin method receives a
-    LookUpConnectorDefinitionAdminRequest message and returns a
-    LookUpConnectorDefinitionAdminResponse
+    """Get a connector definition by UID (admin only).
+
+    This is a *private* method that allows admin users to access a connector
+    definition by its UID.
     """
     ListConnectorsAdmin: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.ListConnectorsAdminRequest,
         vdp.pipeline.v1beta.connector_pb2.ListConnectorsAdminResponse,
     ]
-    """ListConnectorsAdmin method receives a ListConnectorsAdminRequest
-    message and returns a ListConnectorsResponse message.
+    """List connectors (admin only).
+
+    This is a *private* method that allows admin users to list *all* connectors.
     """
     LookUpConnectorAdmin: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.LookUpConnectorAdminRequest,
         vdp.pipeline.v1beta.connector_pb2.LookUpConnectorAdminResponse,
     ]
-    """LookUpConnectorAdmin method receives a
-    LookUpConnectorAdminRequest message and returns a
-    LookUpConnectorAdminResponse
+    """Get a connector by UID (admin only).
+
+    This is a *private* method that allows admin users to access a connector
+    by its UID.
     """
     CheckConnector: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.CheckConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.CheckConnectorResponse,
     ]
-    """CheckConnector method receives a CheckConnectorRequest message and returns a
-    CheckConnectorResponse
+    """Get a connector current state (admin only).
+
+    This is a *private* method that allows admin users to access the state of
+    a connector by its UID.
     """
 
 class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
-    """Pipeline service responds to internal access"""
+    """PipelinePrivateService defines private methods to interact with Pipeline
+    resources.
+    """
 
     @abc.abstractmethod
     def ListPipelinesAdmin(
@@ -156,8 +186,10 @@ class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesAdminRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesAdminResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesAdminResponse]]:
-        """ListPipelinesAdmin method receives a ListPipelinesAdminRequest message and
-        returns a ListPipelinesAdminResponse message.
+        """List pipelines (admin only).
+
+        This is a *private* method that allows admin users and internal clients to
+        list *all* pipeline resources.
         """
     @abc.abstractmethod
     def LookUpPipelineAdmin(
@@ -165,8 +197,10 @@ class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineAdminRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineAdminResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineAdminResponse]]:
-        """LookUpPipelineAdmin method receives a LookUpPipelineAdminRequest message
-        and returns a LookUpPipelineAdminResponse
+        """Get a pipeline by UID (admin only).
+
+        This is a *private* method that allows admin users to access any pipeline
+        resource by its UID.
         """
     @abc.abstractmethod
     def LookUpOperatorDefinitionAdmin(
@@ -174,9 +208,10 @@ class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.operator_definition_pb2.LookUpOperatorDefinitionAdminRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.operator_definition_pb2.LookUpOperatorDefinitionAdminResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.operator_definition_pb2.LookUpOperatorDefinitionAdminResponse]]:
-        """LookUpOperatorDefinitionAdmin method receives a
-        LookUpOperatorDefinitionAdminRequest message and returns a
-        LookUpOperatorDefinitionAdminResponse
+        """Get an operator definition by UID (admin only).
+
+        This is a *private* method that allows admin users to access an operator
+        definition by its UID.
         """
     @abc.abstractmethod
     def ListPipelineReleasesAdmin(
@@ -184,8 +219,10 @@ class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.ListPipelineReleasesAdminRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.ListPipelineReleasesAdminResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.ListPipelineReleasesAdminResponse]]:
-        """ListPipelineReleasesAdmin method receives a ListPipelineReleasesAdminRequest message and
-        returns a ListPipelineReleasesAdminResponse message.
+        """List pipeline releases (admin only).
+
+        This is a *private* method that allows admin users to list *all* pipeline
+        releases.
         """
     @abc.abstractmethod
     def LookUpConnectorDefinitionAdmin(
@@ -193,9 +230,10 @@ class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_definition_pb2.LookUpConnectorDefinitionAdminRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_definition_pb2.LookUpConnectorDefinitionAdminResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_definition_pb2.LookUpConnectorDefinitionAdminResponse]]:
-        """LookUpConnectorDefinitionAdmin method receives a
-        LookUpConnectorDefinitionAdminRequest message and returns a
-        LookUpConnectorDefinitionAdminResponse
+        """Get a connector definition by UID (admin only).
+
+        This is a *private* method that allows admin users to access a connector
+        definition by its UID.
         """
     @abc.abstractmethod
     def ListConnectorsAdmin(
@@ -203,8 +241,9 @@ class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.ListConnectorsAdminRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.ListConnectorsAdminResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.ListConnectorsAdminResponse]]:
-        """ListConnectorsAdmin method receives a ListConnectorsAdminRequest
-        message and returns a ListConnectorsResponse message.
+        """List connectors (admin only).
+
+        This is a *private* method that allows admin users to list *all* connectors.
         """
     @abc.abstractmethod
     def LookUpConnectorAdmin(
@@ -212,9 +251,10 @@ class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.LookUpConnectorAdminRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.LookUpConnectorAdminResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.LookUpConnectorAdminResponse]]:
-        """LookUpConnectorAdmin method receives a
-        LookUpConnectorAdminRequest message and returns a
-        LookUpConnectorAdminResponse
+        """Get a connector by UID (admin only).
+
+        This is a *private* method that allows admin users to access a connector
+        by its UID.
         """
     @abc.abstractmethod
     def CheckConnector(
@@ -222,8 +262,10 @@ class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.CheckConnectorRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.CheckConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.CheckConnectorResponse]]:
-        """CheckConnector method receives a CheckConnectorRequest message and returns a
-        CheckConnectorResponse
+        """Get a connector current state (admin only).
+
+        This is a *private* method that allows admin users to access the state of
+        a connector by its UID.
         """
 
 def add_PipelinePrivateServiceServicer_to_server(servicer: PipelinePrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

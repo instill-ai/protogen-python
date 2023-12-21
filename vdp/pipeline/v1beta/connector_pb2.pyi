@@ -24,7 +24,14 @@ DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 @typing_extensions.final
 class Connector(google.protobuf.message.Message):
-    """Connector represents a connector data model"""
+    """A Connector is a type of pipeline component that queries, processes or sends
+    the ingested unstructured data to a service or app. Users need to configure
+    their connectors (e.g. by providing an API token to a remote service).
+
+    For more information, see
+    [Component](https://www.instill.tech/docs/latest/core/concepts/pipeline#pipeline-component)
+    in the official documentation.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -35,25 +42,25 @@ class Connector(google.protobuf.message.Message):
     class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Connector._View.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         VIEW_UNSPECIFIED: Connector._View.ValueType  # 0
-        """View: UNSPECIFIED"""
+        """Unspecified, equivalent to BASIC."""
         VIEW_BASIC: Connector._View.ValueType  # 1
-        """View: BASIC"""
+        """Default view, only includes basic information."""
         VIEW_FULL: Connector._View.ValueType  # 2
-        """View: FULL"""
+        """Full representation."""
         VIEW_CONFIGURATION: Connector._View.ValueType  # 3
-        """View: CONFIGURATION"""
+        """Contains the connector configuration."""
 
     class View(_View, metaclass=_ViewEnumTypeWrapper):
-        """View enumerates the definition views"""
+        """View defines how a connector is presented."""
 
     VIEW_UNSPECIFIED: Connector.View.ValueType  # 0
-    """View: UNSPECIFIED"""
+    """Unspecified, equivalent to BASIC."""
     VIEW_BASIC: Connector.View.ValueType  # 1
-    """View: BASIC"""
+    """Default view, only includes basic information."""
     VIEW_FULL: Connector.View.ValueType  # 2
-    """View: FULL"""
+    """Full representation."""
     VIEW_CONFIGURATION: Connector.View.ValueType  # 3
-    """View: CONFIGURATION"""
+    """Contains the connector configuration."""
 
     class _State:
         ValueType = typing.NewType("ValueType", builtins.int)
@@ -62,25 +69,25 @@ class Connector(google.protobuf.message.Message):
     class _StateEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Connector._State.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATE_UNSPECIFIED: Connector._State.ValueType  # 0
-        """State: UNSPECIFIED"""
+        """Unspecified."""
         STATE_DISCONNECTED: Connector._State.ValueType  # 1
-        """State: DISCONNECTED"""
+        """Disconnected."""
         STATE_CONNECTED: Connector._State.ValueType  # 2
-        """State: CONNECTED"""
+        """Connected."""
         STATE_ERROR: Connector._State.ValueType  # 3
-        """State: ERROR"""
+        """The connector suffered an error."""
 
     class State(_State, metaclass=_StateEnumTypeWrapper):
-        """State enumerates the connector state"""
+        """State describes the state of the connector."""
 
     STATE_UNSPECIFIED: Connector.State.ValueType  # 0
-    """State: UNSPECIFIED"""
+    """Unspecified."""
     STATE_DISCONNECTED: Connector.State.ValueType  # 1
-    """State: DISCONNECTED"""
+    """Disconnected."""
     STATE_CONNECTED: Connector.State.ValueType  # 2
-    """State: CONNECTED"""
+    """Connected."""
     STATE_ERROR: Connector.State.ValueType  # 3
-    """State: ERROR"""
+    """The connector suffered an error."""
 
     class _Visibility:
         ValueType = typing.NewType("ValueType", builtins.int)
@@ -89,21 +96,21 @@ class Connector(google.protobuf.message.Message):
     class _VisibilityEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Connector._Visibility.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         VISIBILITY_UNSPECIFIED: Connector._Visibility.ValueType  # 0
-        """Visibility: UNSPECIFIED, equivalent to PRIVATE."""
+        """Unspecified, equivalent to PRIVATE."""
         VISIBILITY_PRIVATE: Connector._Visibility.ValueType  # 1
-        """Visibility: PRIVATE"""
+        """Only the user can see the connector."""
         VISIBILITY_PUBLIC: Connector._Visibility.ValueType  # 2
-        """Visibility: PUBLIC"""
+        """Other users can see the connector."""
 
     class Visibility(_Visibility, metaclass=_VisibilityEnumTypeWrapper):
-        """Connector visibility including public or private"""
+        """Visibility defines who can access the connector."""
 
     VISIBILITY_UNSPECIFIED: Connector.Visibility.ValueType  # 0
-    """Visibility: UNSPECIFIED, equivalent to PRIVATE."""
+    """Unspecified, equivalent to PRIVATE."""
     VISIBILITY_PRIVATE: Connector.Visibility.ValueType  # 1
-    """Visibility: PRIVATE"""
+    """Only the user can see the connector."""
     VISIBILITY_PUBLIC: Connector.Visibility.ValueType  # 2
-    """Visibility: PUBLIC"""
+    """Other users can see the connector."""
 
     NAME_FIELD_NUMBER: builtins.int
     UID_FIELD_NUMBER: builtins.int
@@ -122,49 +129,51 @@ class Connector(google.protobuf.message.Message):
     OWNER_NAME_FIELD_NUMBER: builtins.int
     OWNER_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """connector name. It must have the format of
-    "connectors/*"
+    """The name of the connector, defined by its ID.
+    - Format: `connectors/{id}`.
     """
     uid: builtins.str
-    """Connector UUID"""
+    """Connector UUID."""
     id: builtins.str
-    """connector ID (the last segment of the resource name)
-    used to construct the resource name. This conforms to RFC-1034, which
-    restricts to letters, numbers, and hyphen, with the first character a
-    letter, the last a letter or a number, and a 63 character maximum.
+    """Connector resource ID (used in the name as the last segment). This conforms
+    to RFC-1034, which restricts to letters, numbers, and hyphen, with the
+    first character a letter, the last a letter or a number, and a 63
+    character maximum.
     """
     connector_definition_name: builtins.str
-    """ConnectorDefinition resource"""
+    """ConnectorDefinition that describes the connector configuration."""
     type: vdp.pipeline.v1beta.connector_definition_pb2.ConnectorType.ValueType
-    """Connector Type"""
+    """Connector type."""
     description: builtins.str
-    """Connector description"""
+    """Connector description."""
     @property
     def configuration(self) -> google.protobuf.struct_pb2.Struct:
-        """Connector configuration in JSON format"""
+        """Connector configuration in JSON format."""
     state: global___Connector.State.ValueType
-    """Connector state"""
+    """Connector state."""
     tombstone: builtins.bool
-    """Connector tombstone"""
+    """Connector tombstone. If true, this configuration is permanently off.
+    Otherwise, the configuration is active.
+    """
     @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Connector creation time"""
+        """Connector creation time."""
     @property
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Connector update time"""
+        """Connector update time."""
     visibility: global___Connector.Visibility.ValueType
-    """Connector visibility including public or private"""
+    """Connector visibility."""
     @property
     def connector_definition(self) -> vdp.pipeline.v1beta.connector_definition_pb2.ConnectorDefinition:
-        """Embed the content of the connector_definition"""
+        """Embed content of the ConnectorDefinition."""
     @property
     def delete_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Connector delete time"""
+        """Connector deletion time."""
     owner_name: builtins.str
-    """Owner Name"""
+    """Owner name."""
     @property
     def owner(self) -> google.protobuf.struct_pb2.Struct:
-        """Owner details"""
+        """Owner details."""
     def __init__(
         self,
         *,
@@ -276,8 +285,8 @@ global___ListConnectorsResponse = ListConnectorsResponse
 
 @typing_extensions.final
 class LookUpConnectorRequest(google.protobuf.message.Message):
-    """LookUpConnectorRequest represents a request to query a
-    connector via permalink
+    """LookUpConnectorRequest represents a request by an admin to query a connector
+    by its UID.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -285,11 +294,11 @@ class LookUpConnectorRequest(google.protobuf.message.Message):
     PERMALINK_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     permalink: builtins.str
-    """Permalink of a connector. For example:
-    "connectors/{uid}"
+    """The permalink of the connector, which allows its access by UID.
+    - Format: `connectors/{uid}`.
     """
     view: global___Connector.View.ValueType
-    """Connector view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired connector view in the response."""
     def __init__(
         self,
         *,
@@ -304,16 +313,14 @@ global___LookUpConnectorRequest = LookUpConnectorRequest
 
 @typing_extensions.final
 class LookUpConnectorResponse(google.protobuf.message.Message):
-    """LookUpConnectorResponse represents a response for a
-    connector
-    """
+    """LookUpConnectorResponse represents a response for a connector."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     CONNECTOR_FIELD_NUMBER: builtins.int
     @property
     def connector(self) -> global___Connector:
-        """connector"""
+        """The requested connector."""
     def __init__(
         self,
         *,
@@ -1414,8 +1421,8 @@ global___WatchOrganizationConnectorResponse = WatchOrganizationConnectorResponse
 class ListConnectorsAdminRequest(google.protobuf.message.Message):
     """========== Private endpoints
 
-    ListConnectorsAdminRequest represents a request to list
-    connectors from all users by admin
+    ListConnectorsAdminRequest represents a request by an admin to list all
+    connectors. Admin users have access to connectors from any user.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1426,18 +1433,21 @@ class ListConnectorsAdminRequest(google.protobuf.message.Message):
     FILTER_FIELD_NUMBER: builtins.int
     SHOW_DELETED_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """The maximum number of connectors to return. The service may return fewer
-    than this value. If unspecified, at most 10 connectors will be returned.
-    The maximum value is 100; values above 100 will be coerced to 100.
+    """The maximum number of connectors to return. If this parameter is
+    unspecified, at most 10 pipelines will be returned. The cap value for this
+    parameter is 100 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     view: global___Connector.View.ValueType
-    """Connector view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired connector view in the response."""
     filter: builtins.str
-    """Filter expression to list connectors"""
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
     show_deleted: builtins.bool
-    """Return soft_deleted connectors"""
+    """Include soft-deleted pipelines in the result."""
     def __init__(
         self,
         *,
@@ -1464,8 +1474,8 @@ global___ListConnectorsAdminRequest = ListConnectorsAdminRequest
 
 @typing_extensions.final
 class ListConnectorsAdminResponse(google.protobuf.message.Message):
-    """ListConnectorsAdminResponse represents a response for a list of
-    connectors
+    """ListConnectorsAdminResponse contains a list of connectors requested by an
+    admin.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1475,11 +1485,11 @@ class ListConnectorsAdminResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def connectors(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Connector]:
-        """A list of connectors"""
+        """A list of connectors."""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
-    """Total count of connectors"""
+    """Total number of connectors."""
     def __init__(
         self,
         *,
@@ -1543,16 +1553,16 @@ global___LookUpConnectorAdminResponse = LookUpConnectorAdminResponse
 
 @typing_extensions.final
 class CheckConnectorRequest(google.protobuf.message.Message):
-    """CheckConnectorRequest represents a private request to query
-    a connector's current state
+    """CheckConnectorRequest represents a request to check the current state of a
+    connector.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PERMALINK_FIELD_NUMBER: builtins.int
     permalink: builtins.str
-    """Permalink of a connector. For example:
-    "connectors/{uid}"
+    """The permalink of the connector, which allows its access by UID.
+    - Format: `connectors/{uid}`.
     """
     def __init__(
         self,
@@ -1565,15 +1575,13 @@ global___CheckConnectorRequest = CheckConnectorRequest
 
 @typing_extensions.final
 class CheckConnectorResponse(google.protobuf.message.Message):
-    """CheckConnectorResponse represents a response to fetch a
-    connector's current state
-    """
+    """CheckConnectorResponse contains the connector's current state."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     STATE_FIELD_NUMBER: builtins.int
     state: global___Connector.State.ValueType
-    """Retrieved connector state"""
+    """Connector state."""
     def __init__(
         self,
         *,
