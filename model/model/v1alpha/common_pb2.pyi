@@ -69,23 +69,53 @@ class ExtraParamObject(google.protobuf.message.Message):
 global___ExtraParamObject = ExtraParamObject
 
 @typing_extensions.final
-class ConversationObject(google.protobuf.message.Message):
-    """Conversation based prompt for text generation model"""
+class PromptImage(google.protobuf.message.Message):
+    """Prompt Image for text generation model"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    ROLE_FIELD_NUMBER: builtins.int
-    CONTENT_FIELD_NUMBER: builtins.int
-    role: builtins.str
-    """Role name of the conversation"""
-    content: builtins.str
-    """Content of the conversation"""
+    PROMPT_IMAGE_URL_FIELD_NUMBER: builtins.int
+    PROMPT_IMAGE_BASE64_FIELD_NUMBER: builtins.int
+    prompt_image_url: builtins.str
+    """Image URL"""
+    prompt_image_base64: builtins.str
+    """Base64 encoded Image"""
     def __init__(
         self,
         *,
-        role: builtins.str = ...,
-        content: builtins.str = ...,
+        prompt_image_url: builtins.str = ...,
+        prompt_image_base64: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["content", b"content", "role", b"role"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["prompt_image_base64", b"prompt_image_base64", "prompt_image_url", b"prompt_image_url", "type", b"type"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["prompt_image_base64", b"prompt_image_base64", "prompt_image_url", b"prompt_image_url", "type", b"type"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["type", b"type"]) -> typing_extensions.Literal["prompt_image_url", "prompt_image_base64"] | None: ...
 
-global___ConversationObject = ConversationObject
+global___PromptImage = PromptImage
+
+@typing_extensions.final
+class Content(google.protobuf.message.Message):
+    """Content used for chat history in text generation model"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TYPE_FIELD_NUMBER: builtins.int
+    CONTENT_FIELD_NUMBER: builtins.int
+    PROMPT_IMAGE_FIELD_NUMBER: builtins.int
+    type: builtins.str
+    """Type of Content"""
+    content: builtins.str
+    """Content of Text Message"""
+    @property
+    def prompt_image(self) -> global___PromptImage:
+        """Content of Image"""
+    def __init__(
+        self,
+        *,
+        type: builtins.str = ...,
+        content: builtins.str = ...,
+        prompt_image: global___PromptImage | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["prompt_image", b"prompt_image"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["content", b"content", "prompt_image", b"prompt_image", "type", b"type"]) -> None: ...
+
+global___Content = Content

@@ -7,6 +7,7 @@ import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
+import google.protobuf.struct_pb2
 import model.model.v1alpha.common_pb2
 import sys
 import typing
@@ -24,15 +25,25 @@ class TextGenerationChatInput(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    CONVERSATION_FIELD_NUMBER: builtins.int
+    PROMPT_FIELD_NUMBER: builtins.int
+    PROMPT_IMAGES_FIELD_NUMBER: builtins.int
+    CHAT_HISTORY_FIELD_NUMBER: builtins.int
+    SYSTEM_MESSAGE_FIELD_NUMBER: builtins.int
     MAX_NEW_TOKENS_FIELD_NUMBER: builtins.int
     TEMPERATURE_FIELD_NUMBER: builtins.int
     TOP_K_FIELD_NUMBER: builtins.int
     SEED_FIELD_NUMBER: builtins.int
     EXTRA_PARAMS_FIELD_NUMBER: builtins.int
+    prompt: builtins.str
+    """The prompt text"""
     @property
-    def conversation(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[model.model.v1alpha.common_pb2.ConversationObject]:
-        """The prompt text"""
+    def prompt_images(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[model.model.v1alpha.common_pb2.PromptImage]:
+        """The prompt images"""
+    @property
+    def chat_history(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[model.model.v1alpha.common_pb2.Content]:
+        """The chat history"""
+    system_message: builtins.str
+    """The system message"""
     max_new_tokens: builtins.int
     """The maximum number of tokens for model to generate"""
     temperature: builtins.float
@@ -42,24 +53,29 @@ class TextGenerationChatInput(google.protobuf.message.Message):
     seed: builtins.int
     """The seed"""
     @property
-    def extra_params(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[model.model.v1alpha.common_pb2.ExtraParamObject]:
+    def extra_params(self) -> google.protobuf.struct_pb2.Struct:
         """The extra parameters"""
     def __init__(
         self,
         *,
-        conversation: collections.abc.Iterable[model.model.v1alpha.common_pb2.ConversationObject] | None = ...,
+        prompt: builtins.str = ...,
+        prompt_images: collections.abc.Iterable[model.model.v1alpha.common_pb2.PromptImage] | None = ...,
+        chat_history: collections.abc.Iterable[model.model.v1alpha.common_pb2.Content] | None = ...,
+        system_message: builtins.str | None = ...,
         max_new_tokens: builtins.int | None = ...,
         temperature: builtins.float | None = ...,
         top_k: builtins.int | None = ...,
         seed: builtins.int | None = ...,
-        extra_params: collections.abc.Iterable[model.model.v1alpha.common_pb2.ExtraParamObject] | None = ...,
+        extra_params: google.protobuf.struct_pb2.Struct | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_max_new_tokens", b"_max_new_tokens", "_seed", b"_seed", "_temperature", b"_temperature", "_top_k", b"_top_k", "max_new_tokens", b"max_new_tokens", "seed", b"seed", "temperature", b"temperature", "top_k", b"top_k"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_max_new_tokens", b"_max_new_tokens", "_seed", b"_seed", "_temperature", b"_temperature", "_top_k", b"_top_k", "conversation", b"conversation", "extra_params", b"extra_params", "max_new_tokens", b"max_new_tokens", "seed", b"seed", "temperature", b"temperature", "top_k", b"top_k"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_max_new_tokens", b"_max_new_tokens", "_seed", b"_seed", "_system_message", b"_system_message", "_temperature", b"_temperature", "_top_k", b"_top_k", "extra_params", b"extra_params", "max_new_tokens", b"max_new_tokens", "seed", b"seed", "system_message", b"system_message", "temperature", b"temperature", "top_k", b"top_k"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_max_new_tokens", b"_max_new_tokens", "_seed", b"_seed", "_system_message", b"_system_message", "_temperature", b"_temperature", "_top_k", b"_top_k", "chat_history", b"chat_history", "extra_params", b"extra_params", "max_new_tokens", b"max_new_tokens", "prompt", b"prompt", "prompt_images", b"prompt_images", "seed", b"seed", "system_message", b"system_message", "temperature", b"temperature", "top_k", b"top_k"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_max_new_tokens", b"_max_new_tokens"]) -> typing_extensions.Literal["max_new_tokens"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_seed", b"_seed"]) -> typing_extensions.Literal["seed"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_system_message", b"_system_message"]) -> typing_extensions.Literal["system_message"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_temperature", b"_temperature"]) -> typing_extensions.Literal["temperature"] | None: ...
     @typing.overload
