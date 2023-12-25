@@ -2099,68 +2099,15 @@ class Subscription(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    @typing_extensions.final
-    class Quota(google.protobuf.message.Message):
-        """Quota"""
-
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        @typing_extensions.final
-        class QuotaDetail(google.protobuf.message.Message):
-            """QuotaDetail"""
-
-            DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-            QUOTA_FIELD_NUMBER: builtins.int
-            USED_FIELD_NUMBER: builtins.int
-            REMAIN_FIELD_NUMBER: builtins.int
-            quota: builtins.int
-            """quota"""
-            used: builtins.int
-            """used"""
-            remain: builtins.int
-            """remain"""
-            def __init__(
-                self,
-                *,
-                quota: builtins.int = ...,
-                used: builtins.int = ...,
-                remain: builtins.int = ...,
-            ) -> None: ...
-            def ClearField(self, field_name: typing_extensions.Literal["quota", b"quota", "remain", b"remain", "used", b"used"]) -> None: ...
-
-        PRIVATE_PIPELINE_TRIGGER_FIELD_NUMBER: builtins.int
-        PRIVATE_PIPELINE_FIELD_NUMBER: builtins.int
-        @property
-        def private_pipeline_trigger(self) -> global___Subscription.Quota.QuotaDetail:
-            """pipeline trigger"""
-        @property
-        def private_pipeline(self) -> global___Subscription.Quota.QuotaDetail:
-            """private pipeline"""
-        def __init__(
-            self,
-            *,
-            private_pipeline_trigger: global___Subscription.Quota.QuotaDetail | None = ...,
-            private_pipeline: global___Subscription.Quota.QuotaDetail | None = ...,
-        ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["private_pipeline", b"private_pipeline", "private_pipeline_trigger", b"private_pipeline_trigger"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["private_pipeline", b"private_pipeline", "private_pipeline_trigger", b"private_pipeline_trigger"]) -> None: ...
-
     PLAN_FIELD_NUMBER: builtins.int
-    QUOTA_FIELD_NUMBER: builtins.int
     plan: builtins.str
     """plan"""
-    @property
-    def quota(self) -> global___Subscription.Quota:
-        """plan"""
     def __init__(
         self,
         *,
         plan: builtins.str = ...,
-        quota: global___Subscription.Quota | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["quota", b"quota"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["plan", b"plan", "quota", b"quota"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["plan", b"plan"]) -> None: ...
 
 global___Subscription = Subscription
 
