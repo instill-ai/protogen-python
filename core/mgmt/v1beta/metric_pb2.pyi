@@ -26,21 +26,21 @@ class _Mode:
 class _ModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Mode.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     MODE_UNSPECIFIED: _Mode.ValueType  # 0
-    """Mode: UNSPECIFIED"""
+    """Unspecified."""
     MODE_SYNC: _Mode.ValueType  # 1
-    """Mode: SYNC"""
+    """Synchronous (result is returned in the response)."""
     MODE_ASYNC: _Mode.ValueType  # 2
-    """Mode: ASYNC"""
+    """Asynchronous (response only contains acknowledgement)."""
 
 class Mode(_Mode, metaclass=_ModeEnumTypeWrapper):
-    """Mode enumerates the pipeline modes"""
+    """Mode describes the execution mode of the pipeline (sync or async)."""
 
 MODE_UNSPECIFIED: Mode.ValueType  # 0
-"""Mode: UNSPECIFIED"""
+"""Unspecified."""
 MODE_SYNC: Mode.ValueType  # 1
-"""Mode: SYNC"""
+"""Synchronous (result is returned in the response)."""
 MODE_ASYNC: Mode.ValueType  # 2
-"""Mode: ASYNC"""
+"""Asynchronous (response only contains acknowledgement)."""
 global___Mode = Mode
 
 class _Status:
@@ -50,28 +50,28 @@ class _Status:
 class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Status.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     STATUS_UNSPECIFIED: _Status.ValueType  # 0
-    """Status: UNSPECIFIED"""
+    """Unspecified."""
     STATUS_COMPLETED: _Status.ValueType  # 1
-    """Status: COMPLETED"""
+    """Successfully completed."""
     STATUS_ERRORED: _Status.ValueType  # 2
-    """Status: ERRORED"""
+    """Finished with error."""
 
 class Status(_Status, metaclass=_StatusEnumTypeWrapper):
-    """Status enumerates the final status of a pipeline trigger"""
+    """Status describes the output of an execution."""
 
 STATUS_UNSPECIFIED: Status.ValueType  # 0
-"""Status: UNSPECIFIED"""
+"""Unspecified."""
 STATUS_COMPLETED: Status.ValueType  # 1
-"""Status: COMPLETED"""
+"""Successfully completed."""
 STATUS_ERRORED: Status.ValueType  # 2
-"""Status: ERRORED"""
+"""Finished with error."""
 global___Status = Status
 
 @typing_extensions.final
 class PipelineTriggerRecord(google.protobuf.message.Message):
     """========== Pipeline endpoints
 
-    PipelineTriggerRecord represents a record for pipeline trigger
+    PipelineTriggerRecord represents a pipeline execution event.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -87,23 +87,23 @@ class PipelineTriggerRecord(google.protobuf.message.Message):
     PIPELINE_RELEASE_UID_FIELD_NUMBER: builtins.int
     @property
     def trigger_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Timestamp for the pipeline trigger time"""
+        """The moment when the pipeline was triggered."""
     pipeline_trigger_id: builtins.str
-    """UID for each pipeline trigger"""
+    """UUID of the trigger."""
     pipeline_id: builtins.str
-    """ID for the triggered pipeline"""
+    """Pipeline ID."""
     pipeline_uid: builtins.str
-    """UID for the triggered pipeline"""
+    """Pipeline UUID."""
     trigger_mode: global___Mode.ValueType
-    """Trigger mode"""
+    """Trigger mode."""
     compute_time_duration: builtins.float
-    """Total compute time duration for this pipeline trigger"""
+    """Total execution duration."""
     status: global___Status.ValueType
-    """Final status for pipeline trigger"""
+    """Final status."""
     pipeline_release_id: builtins.str
-    """Version for the triggered pipeline if it is a release pipeline, else emtpy"""
+    """If a release of the pipeline was triggered, pipeline version."""
     pipeline_release_uid: builtins.str
-    """UID for the triggered pipeline if it is a release pipeline, else emtpy"""
+    """If a release of the pipeline was triggered, release UUID."""
     def __init__(
         self,
         *,
@@ -124,8 +124,8 @@ global___PipelineTriggerRecord = PipelineTriggerRecord
 
 @typing_extensions.final
 class PipelineTriggerTableRecord(google.protobuf.message.Message):
-    """PipelineTriggerTableRecord represents a aggregated table record for pipeline
-    trigger
+    """PipelineTriggerTableRecord contains pipeline trigger metrics, aggregated by
+    pipeline ID.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -137,17 +137,17 @@ class PipelineTriggerTableRecord(google.protobuf.message.Message):
     PIPELINE_RELEASE_ID_FIELD_NUMBER: builtins.int
     PIPELINE_RELEASE_UID_FIELD_NUMBER: builtins.int
     pipeline_id: builtins.str
-    """ID for the triggered pipeline"""
+    """Pipeline ID."""
     pipeline_uid: builtins.str
-    """UID for the triggered pipeline"""
+    """Pipeline UUID."""
     trigger_count_completed: builtins.int
-    """Trigger count with STATUS_COMPLETED"""
+    """Number of triggers with `STATUS_COMPLETED`."""
     trigger_count_errored: builtins.int
-    """Trigger count with STATUS_ERRORED"""
+    """Number of triggers with `STATUS_ERRORED`."""
     pipeline_release_id: builtins.str
-    """Version for the triggered pipeline if it is a release pipeline, else emtpy"""
+    """Version for the triggered pipeline if it is a release pipeline."""
     pipeline_release_uid: builtins.str
-    """UID for the triggered pipeline if it is a release pipeline, else emtpy"""
+    """Release UUID for the triggered pipeline if it is a release pipeline."""
     def __init__(
         self,
         *,
@@ -164,8 +164,8 @@ global___PipelineTriggerTableRecord = PipelineTriggerTableRecord
 
 @typing_extensions.final
 class PipelineTriggerChartRecord(google.protobuf.message.Message):
-    """PipelineTriggerChartRecord represents a aggregated chart record for pipeline
-    trigger
+    """PipelineTriggerChartRecord contains pipeline trigger metrics, aggregated by
+    pipeline ID and time frame.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -180,26 +180,26 @@ class PipelineTriggerChartRecord(google.protobuf.message.Message):
     PIPELINE_RELEASE_ID_FIELD_NUMBER: builtins.int
     PIPELINE_RELEASE_UID_FIELD_NUMBER: builtins.int
     pipeline_id: builtins.str
-    """ID for the triggered pipeline"""
+    """Pipeline ID."""
     pipeline_uid: builtins.str
-    """UID for the triggered pipeline"""
+    """Pipeline UUID."""
     trigger_mode: global___Mode.ValueType
-    """Trigger mode"""
+    """Trigger mode."""
     status: global___Status.ValueType
-    """Status of pipeline trigger"""
+    """Final status."""
     @property
     def time_buckets(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.timestamp_pb2.Timestamp]:
-        """Time buckets"""
+        """Time buckets."""
     @property
     def trigger_counts(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.int]:
-        """Aggregated trigger count in each time bucket"""
+        """Aggregated trigger count in each time bucket."""
     @property
     def compute_time_duration(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.float]:
-        """Total compute time duration in each time bucket"""
+        """Total computation time duration in each time bucket."""
     pipeline_release_id: builtins.str
-    """Version for the triggered pipeline if it is a release pipeline, else emtpy"""
+    """Version for the triggered pipeline if it is a release pipeline."""
     pipeline_release_uid: builtins.str
-    """UID for the triggered pipeline if it is a release pipeline, else emtpy"""
+    """Release UUID for the triggered pipeline if it is a release pipeline."""
     def __init__(
         self,
         *,
@@ -219,8 +219,8 @@ global___PipelineTriggerChartRecord = PipelineTriggerChartRecord
 
 @typing_extensions.final
 class ListPipelineTriggerRecordsRequest(google.protobuf.message.Message):
-    """ListPipelineTriggerRecordsRequest represents a request to list
-    pipeline trigger record
+    """ListPipelineTriggerRecordsRequest represents a request to list the triggers
+    of a pipeline.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -229,15 +229,17 @@ class ListPipelineTriggerRecordsRequest(google.protobuf.message.Message):
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """The maximum number of pipeline trigger record to return. The service may
-    return fewer than this value. If unspecified, at most 100 record will be
-    returned. The maximum value is 1000; values above 1000 will be coerced to
-    1000.
+    """The maximum number of triggers to return. If this parameter is unspecified,
+    at most 100 pipelines will be returned. The cap value for this parameter is
+    1000 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     filter: builtins.str
-    """Filter expression to list record"""
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
     def __init__(
         self,
         *,
@@ -258,9 +260,7 @@ global___ListPipelineTriggerRecordsRequest = ListPipelineTriggerRecordsRequest
 
 @typing_extensions.final
 class ListPipelineTriggerRecordsResponse(google.protobuf.message.Message):
-    """ListPipelineTriggerRecordsResponse represents a response for a list
-    of pipeline trigger record
-    """
+    """ListPipelineTriggerRecordsResponse contains a list of pipeline triggers."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -269,11 +269,11 @@ class ListPipelineTriggerRecordsResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def pipeline_trigger_records(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PipelineTriggerRecord]:
-        """A list of pipeline trigger records"""
+        """A list of pipeline triggers."""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
-    """Total count of pipeline trigger records"""
+    """Total number of pipeline triggers."""
     def __init__(
         self,
         *,
@@ -287,8 +287,8 @@ global___ListPipelineTriggerRecordsResponse = ListPipelineTriggerRecordsResponse
 
 @typing_extensions.final
 class ListPipelineTriggerTableRecordsRequest(google.protobuf.message.Message):
-    """ListPipelineTriggerTableRecordsRequest represents a request to list
-    pipeline trigger table record
+    """ListPipelineTriggerTableRecordsRequest represents a request to list the
+    pipeline triggers metrics, aggregated by pipeline ID.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -297,15 +297,17 @@ class ListPipelineTriggerTableRecordsRequest(google.protobuf.message.Message):
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """The maximum number of pipeline trigger record to return. The service may
-    return fewer than this value. If unspecified, at most 100 record will be
-    returned. The maximum value is 1000; values above 1000 will be coerced to
-    1000.
+    """The maximum number of results to return. If this parameter is unspecified,
+    at most 100 pipelines will be returned. The cap value for this parameter
+    is 1000 (i.e. any value above that will be coerced to 1000).
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     filter: builtins.str
-    """Filter expression to list record"""
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
     def __init__(
         self,
         *,
@@ -326,9 +328,7 @@ global___ListPipelineTriggerTableRecordsRequest = ListPipelineTriggerTableRecord
 
 @typing_extensions.final
 class ListPipelineTriggerTableRecordsResponse(google.protobuf.message.Message):
-    """ListPipelineTriggerTableRecordsResponse represents a response for a list
-    of pipeline trigger table record
-    """
+    """ListPipelineTriggerTableRecordsResponse contains the pipeline metrics."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -337,11 +337,11 @@ class ListPipelineTriggerTableRecordsResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def pipeline_trigger_table_records(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PipelineTriggerTableRecord]:
-        """A list of pipeline trigger table records"""
+        """A list of pipeline trigger tables."""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
-    """Total count of pipeline trigger records"""
+    """Total number of pipeline trigger records"""
     def __init__(
         self,
         *,
@@ -355,8 +355,8 @@ global___ListPipelineTriggerTableRecordsResponse = ListPipelineTriggerTableRecor
 
 @typing_extensions.final
 class ListPipelineTriggerChartRecordsRequest(google.protobuf.message.Message):
-    """ListPipelineTriggerChartRecordsRequest represents a request to list
-    pipeline trigger chart record
+    """ListPipelineTriggerChartRecordsRequest represents a request to list pipeline
+    trigger metrics, aggregated by pipeline ID and time frame.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -364,9 +364,12 @@ class ListPipelineTriggerChartRecordsRequest(google.protobuf.message.Message):
     AGGREGATION_WINDOW_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     aggregation_window: builtins.int
-    """Aggregation window in nanoseconds"""
+    """Aggregation window in nanoseconds."""
     filter: builtins.str
-    """Filter expression to list chart record"""
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
     def __init__(
         self,
         *,
@@ -381,8 +384,8 @@ global___ListPipelineTriggerChartRecordsRequest = ListPipelineTriggerChartRecord
 
 @typing_extensions.final
 class ListPipelineTriggerChartRecordsResponse(google.protobuf.message.Message):
-    """ListPipelineTriggerChartRecordsResponse represents a response for a list
-    of pipeline trigger chart record
+    """ListPipelineTriggerChartRecordsResponse contains a list of pipeline trigger
+    chart records.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -390,7 +393,7 @@ class ListPipelineTriggerChartRecordsResponse(google.protobuf.message.Message):
     PIPELINE_TRIGGER_CHART_RECORDS_FIELD_NUMBER: builtins.int
     @property
     def pipeline_trigger_chart_records(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PipelineTriggerChartRecord]:
-        """A list of pipeline trigger records"""
+        """A list of pipeline trigger records."""
     def __init__(
         self,
         *,
@@ -404,7 +407,7 @@ global___ListPipelineTriggerChartRecordsResponse = ListPipelineTriggerChartRecor
 class ConnectorExecuteRecord(google.protobuf.message.Message):
     """========== Connector endpoints
 
-    ConnectorExecuteRecord represents a record for connector execution
+    ConnectorExecuteRecord represents a connector execution event.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -421,25 +424,25 @@ class ConnectorExecuteRecord(google.protobuf.message.Message):
     STATUS_FIELD_NUMBER: builtins.int
     @property
     def execute_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Timestamp for the connector execution time"""
+        """The moment when the connector was executed."""
     connector_execute_id: builtins.str
-    """UID for connector execution"""
+    """UUID of the execution."""
     connector_id: builtins.str
-    """ID for the executed connector"""
+    """Connector ID."""
     connector_uid: builtins.str
-    """UID for the executed connector"""
+    """Connector UUID."""
     connector_definition_uid: builtins.str
-    """UID for the executed connector definition"""
+    """Connector definition UUID."""
     pipeline_id: builtins.str
-    """ID for the pipeline this connector belong to"""
+    """Pipeline ID."""
     pipeline_uid: builtins.str
-    """UID for the pipeline this connector belong to"""
+    """Pipeline UUID."""
     pipeline_trigger_id: builtins.str
-    """UID for the trigger id of the pipeline this connector belong to"""
+    """UUID of the pipeline trigger."""
     compute_time_duration: builtins.float
-    """Total compute time duration for this execution"""
+    """Total execution time."""
     status: global___Status.ValueType
-    """Final status for the connector execution"""
+    """Final status for the connector execution."""
     def __init__(
         self,
         *,
@@ -461,9 +464,7 @@ global___ConnectorExecuteRecord = ConnectorExecuteRecord
 
 @typing_extensions.final
 class ConnectorExecuteTableRecord(google.protobuf.message.Message):
-    """ConnectorExecuteTableRecord represents a aggregated table record for
-    connector execute
-    """
+    """ConnectorExecuteTableRecord contains connector execution metrics, a aggregated by connector ID."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -472,13 +473,13 @@ class ConnectorExecuteTableRecord(google.protobuf.message.Message):
     EXECUTE_COUNT_COMPLETED_FIELD_NUMBER: builtins.int
     EXECUTE_COUNT_ERRORED_FIELD_NUMBER: builtins.int
     connector_id: builtins.str
-    """ID for the executed connector"""
+    """Connector ID."""
     connector_uid: builtins.str
-    """UID for the executed connector"""
+    """Connector UUID."""
     execute_count_completed: builtins.int
-    """Execute count with STATUS_COMPLETED"""
+    """Number of executions with `STATUS_COMPLETED`."""
     execute_count_errored: builtins.int
-    """Execute count with STATUS_ERRORED"""
+    """Number of executions with `STATUS_ERRORED`."""
     def __init__(
         self,
         *,
@@ -493,8 +494,8 @@ global___ConnectorExecuteTableRecord = ConnectorExecuteTableRecord
 
 @typing_extensions.final
 class ConnectorExecuteChartRecord(google.protobuf.message.Message):
-    """ConnectorExecuteChartRecord represents a aggregated chart record for
-    connector execute
+    """ConnectorExecuteChartRecord contains connector execution metrics,
+    agggregated by connector ID and time frame.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -506,20 +507,20 @@ class ConnectorExecuteChartRecord(google.protobuf.message.Message):
     EXECUTE_COUNTS_FIELD_NUMBER: builtins.int
     COMPUTE_TIME_DURATION_FIELD_NUMBER: builtins.int
     connector_id: builtins.str
-    """ID for the executed connector"""
+    """Connector ID."""
     connector_uid: builtins.str
-    """UID for the executed connector"""
+    """Connector UUID."""
     status: global___Status.ValueType
-    """Status of connector execution"""
+    """Final status."""
     @property
     def time_buckets(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.timestamp_pb2.Timestamp]:
-        """Time buckets"""
+        """Time buckets."""
     @property
     def execute_counts(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.int]:
-        """Aggregated execute count in each time bucket"""
+        """Aggregated execution count in each time bucket."""
     @property
     def compute_time_duration(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.float]:
-        """Total compute time duration in each time bucket"""
+        """Total computation time duration in each time bucket."""
     def __init__(
         self,
         *,
@@ -536,8 +537,8 @@ global___ConnectorExecuteChartRecord = ConnectorExecuteChartRecord
 
 @typing_extensions.final
 class ListConnectorExecuteRecordsRequest(google.protobuf.message.Message):
-    """ListConnectorExecuteRecordsRequest represents a request to list
-    connector execute record
+    """ListConnectorExecuteRecordsRequest represents a request to list connector
+    executions.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -546,15 +547,18 @@ class ListConnectorExecuteRecordsRequest(google.protobuf.message.Message):
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """The maximum number of connector execution record to return. The service may
-    return fewer than this value. If unspecified, at most 100 record will be
-    returned. The maximum value is 1000; values above 1000 will be coerced to
-    1000.
+    """The maximum number of executions to return. If this parameter is
+    unspecified, at most 100 pipelines will be returned. The cap value for
+    this parameter is 1000 (i.e. any value above that will be coerced to
+    1000).
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     filter: builtins.str
-    """Filter expression to list record"""
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
     def __init__(
         self,
         *,
@@ -588,7 +592,7 @@ class ListConnectorExecuteRecordsResponse(google.protobuf.message.Message):
     def connector_execute_records(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ConnectorExecuteRecord]:
         """A list of connector execute records"""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
     """Total count of connector execute records"""
     def __init__(
@@ -604,8 +608,8 @@ global___ListConnectorExecuteRecordsResponse = ListConnectorExecuteRecordsRespon
 
 @typing_extensions.final
 class ListConnectorExecuteTableRecordsRequest(google.protobuf.message.Message):
-    """ListConnectorExecuteTableRecordsRequest represents a request to list
-    connector execute table record
+    """ListConnectorExecuteTableRecordsRequest represents a request to list the
+    connector execution metrics, aggregated by connector.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -614,15 +618,17 @@ class ListConnectorExecuteTableRecordsRequest(google.protobuf.message.Message):
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """The maximum number of connector execution table record to return. The
-    service may return fewer than this value. If unspecified, at most 100
-    record will be returned. The maximum value is 1000; values above 1000 will
-    be coerced to 1000.
+    """The maximum number of results to return. If this parameter is unspecified,
+    at most 100 pipelines will be returned. The cap value for this parameter
+    is 1000 (i.e. any value above that will be coerced to 1000).
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     filter: builtins.str
-    """Filter expression to list record"""
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
     def __init__(
         self,
         *,
@@ -643,9 +649,7 @@ global___ListConnectorExecuteTableRecordsRequest = ListConnectorExecuteTableReco
 
 @typing_extensions.final
 class ListConnectorExecuteTableRecordsResponse(google.protobuf.message.Message):
-    """ListConnectorExecuteTableRecordsResponse represents a response for a list
-    of connector execute table record
-    """
+    """ListConnectorExecuteTableRecordsResponse contains the connector metrics."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -654,11 +658,11 @@ class ListConnectorExecuteTableRecordsResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def connector_execute_table_records(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ConnectorExecuteTableRecord]:
-        """A list of connector execute records"""
+        """A list of connector execution records."""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
-    """Total count of connector execute records"""
+    """Total number of connector execution records."""
     def __init__(
         self,
         *,
@@ -673,7 +677,7 @@ global___ListConnectorExecuteTableRecordsResponse = ListConnectorExecuteTableRec
 @typing_extensions.final
 class ListConnectorExecuteChartRecordsRequest(google.protobuf.message.Message):
     """ListConnectorExecuteChartRecordsRequest represents a request to list
-    connector execute chart record
+    connector execution metrics, aggregated by connector and time frame.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -681,9 +685,12 @@ class ListConnectorExecuteChartRecordsRequest(google.protobuf.message.Message):
     AGGREGATION_WINDOW_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     aggregation_window: builtins.int
-    """Aggregation window in nanoseconds"""
+    """Aggregation window in nanoseconds."""
     filter: builtins.str
-    """Filter expression to list chart record"""
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
     def __init__(
         self,
         *,
@@ -698,8 +705,8 @@ global___ListConnectorExecuteChartRecordsRequest = ListConnectorExecuteChartReco
 
 @typing_extensions.final
 class ListConnectorExecuteChartRecordsResponse(google.protobuf.message.Message):
-    """ListConnectorExecuteChartRecordsResponse represents a response for a list
-    of connector execute chart record
+    """ListConnectorExecuteChartRecordsResponse contains a list of connector
+    execution chart records.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -707,7 +714,7 @@ class ListConnectorExecuteChartRecordsResponse(google.protobuf.message.Message):
     CONNECTOR_EXECUTE_CHART_RECORDS_FIELD_NUMBER: builtins.int
     @property
     def connector_execute_chart_records(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ConnectorExecuteChartRecord]:
-        """A list of connector execute records"""
+        """A list of connector execution records."""
     def __init__(
         self,
         *,

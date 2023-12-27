@@ -9,7 +9,10 @@ from vdp.pipeline.v1beta import pipeline_pb2 as vdp_dot_pipeline_dot_v1beta_dot_
 
 
 class PipelinePublicServiceStub(object):
-    """Pipeline service responds to external access
+    """VDP
+
+    PipelinePublicService exposes the public VDP endpoints that allow clients to
+    manage pipelines.
     """
 
     def __init__(self, channel):
@@ -376,21 +379,24 @@ class PipelinePublicServiceStub(object):
 
 
 class PipelinePublicServiceServicer(object):
-    """Pipeline service responds to external access
+    """VDP
+
+    PipelinePublicService exposes the public VDP endpoints that allow clients to
+    manage pipelines.
     """
 
     def Liveness(self, request, context):
-        """Liveness method receives a LivenessRequest message and returns a
-        LivenessResponse message.
-        See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+        """Check if the pipeline server is alive
+
+        See https://github.com/grpc/grpc/blob/master/doc/health-checking.md.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def Readiness(self, request, context):
-        """Readiness method receives a ReadinessRequest message and returns a
-        ReadinessResponse message.
+        """Check if the pipeline server is ready
+
         See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -398,365 +404,549 @@ class PipelinePublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListPipelines(self, request, context):
-        """ListPipelines method receives a ListPipelinesRequest message and returns a
-        ListPipelinesResponse message.
+        """List accessible pipelines
+
+        Returns a paginated list of pipelines that are visible to the requester.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def LookUpPipeline(self, request, context):
-        """LookUpPipeline method receives a LookUpPipelineRequest message and returns
-        a LookUpPipelineResponse
+        """Get a pipeline by UID
+
+        Returns the details of a pipeline by a permalink defined by the resource
+        UID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def CreateUserPipeline(self, request, context):
-        """CreateUserPipeline method receives a CreateUserPipelineRequest message and returns
-        a CreateUserPipelineResponse message.
+        """Create a new user pipeline
+
+        Creates a new pipeline under the parenthood of a user. Users can only
+        create a pipeline as the parent of that resource (i.e. the authenticated
+        user must match the `parent` path parameter).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListUserPipelines(self, request, context):
-        """ListUserPipelines method receives a ListUserPipelinesRequest message and returns a
-        ListUserPipelinesResponse message.
+        """List user pipelines
+
+        Returns a paginated list of pipelines that belong to the specified user.
+        The parent user may be different from the authenticated user, in which
+        case the results will contain the pipelines that are visible to the
+        latter.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetUserPipeline(self, request, context):
-        """GetUserPipeline method receives a GetUserPipelineRequest message and returns a
-        GetUserPipelineResponse message.
+        """Get a pipeline owned by a user
+
+        Returns the details of a user-owned pipeline by its resource name, which is defined
+        by the parent user and the ID of the pipeline.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpdateUserPipeline(self, request, context):
-        """UpdateUserPipeline method receives a UpdateUserPipelineRequest message and returns
-        a UpdateUserPipelineResponse message.
+        """Update a pipeline owned by a user
+
+        Udpates a pipeline, accessing it by its resource name, which is defined by
+        the parent user and the ID of the pipeline. The authenticated user must be
+        the parent of the pipeline in order to modify it.
+
+        In REST requests, only the supplied pipeline fields will be taken into
+        account when updating the resource.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteUserPipeline(self, request, context):
-        """DeleteUserPipeline method receives a DeleteUserPipelineRequest message and returns
-        a DeleteUserPipelineResponse message.
+        """Delete a pipeline owned by a user
+
+        Deletes a pipeline, accesing it by its resource name, which is defined by
+        the parent user and the ID of the pipeline. The authenticated user must be
+        the parent of the pipeline in order to delete it.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ValidateUserPipeline(self, request, context):
-        """Validate a pipeline.
+        """Validate a pipeline a pipeline owned by a user
+
+        Validates a pipeline by its resource name, which is defined by the parent
+        user and the ID of the pipeline.
+
+        Validation checks the recipe of the pipeline and the status of its components.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def RenameUserPipeline(self, request, context):
-        """RenameUserPipeline method receives a RenameUserPipelineRequest message and returns
-        a RenameUserPipelineResponse message.
+        """Rename a pipeline owned by a user
+
+        Updates the ID of a pipeline. Since this is an output-only field, a custom
+        method is required to modify it.
+
+        The pipeline name will be updated accordingly, as it is  composed by the
+        parent user and ID of the pipeline (e.g.
+        `users/luigi/pipelines/pizza-recipe-generator`).
+
+        The authenticated user must be the parent of the pipeline in order to
+        perform this action.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def TriggerUserPipeline(self, request, context):
-        """TriggerUserPipeline method receives a TriggerUserPipelineRequest message
-        and returns a TriggerUserPipelineResponse.
+        """Trigger a pipeline owned by a user
+
+        Triggers the execution of a pipeline synchronously, i.e., the result is
+        sent back to the user right after the data is processed. This method is
+        intended for real-time inference when low latency is of concern.
+
+        The pipeline is identified by its resource name, formed by the parent user
+        and ID of the pipeline.
+
+        For more information, see [Trigger
+        Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def TriggerAsyncUserPipeline(self, request, context):
-        """TriggerAsyncUserPipeline method receives a TriggerAsyncUserPipelineRequest message and
-        returns a TriggerAsyncUserPipelineResponse.
+        """Trigger a pipeline owned by a user asynchronously
+
+        Triggers the execution of a pipeline asynchronously, i.e., the result
+        contains the necessary information to access the result and status of the
+        operation. This method is intended for cases that require long-running
+        workloads.
+
+        The pipeline is identified by its resource name, formed by the parent user
+        and ID of the pipeline.
+
+        For more information, see [Trigger
+        Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def CreateUserPipelineRelease(self, request, context):
-        """CreateUserPipelineRelease method receives a CreateUserPipelineReleaseRequest message and returns
-        a CreateUserPipelineReleaseResponse message.
+        """Release a version of a pipeline owned by a user
+
+        Commits the version of a pipeline, identified by its resource name, which
+        is formed by the parent user and ID of the pipeline.
+
+        The authenticated user must be the parent of the pipeline in order to
+        perform this action.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListUserPipelineReleases(self, request, context):
-        """ListUserPipelineReleases method receives a ListUserPipelineReleasesRequest message and returns a
-        ListUserPipelineReleasesResponse message.
+        """List the releases in a pipeline owned by a user
+
+        Lists the commited versions of a pipeline, identified by its resource
+        name, which is formed by the parent user and ID of the pipeline.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetUserPipelineRelease(self, request, context):
-        """GetUserPipelineRelease method receives a GetUserPipelineReleaseRequest message and returns a
-        GetUserPipelineReleaseResponse message.
+        """Get a release in a pipeline owned by a user
+
+        Gets the details of a pipeline release, where the pipeline is identified
+        by its resource name, formed by its parent user and ID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpdateUserPipelineRelease(self, request, context):
-        """UpdateUserPipelineRelease method receives a UpdateUserPipelineReleaseRequest message and returns
-        a UpdateUserPipelineReleaseResponse message.
+        """Update a release in a pipeline owned by a user
+
+        Updates the details of a pipeline release, where the pipeline is
+        identified by its resource name, formed by its parent user and ID.
+
+        The authenticated user must be the parent of the pipeline in order to
+        perform this action.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteUserPipelineRelease(self, request, context):
-        """DeleteUserPipelineRelease method receives a DeleteUserPipelineReleaseRequest message and returns
-        a DeleteUserPipelineReleaseResponse message.
+        """Delete a release in a pipeline owned by a user
+
+        Deletes a pipeline release, where the pipeline is identified by its
+        resource name, formed by its parent user and ID.
+
+        The authenticated user must be the parent of the pipeline in order to
+        perform this action.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def RestoreUserPipelineRelease(self, request, context):
-        """RestoreUserPipelineRelease method receives a RestoreUserPipelineReleaseRequest message
-        and returns a RestoreUserPipelineReleaseResponse
+        """Set the version of a pipeline owned by a user to a pinned release
+
+        Sets the pipeline configuration to a pinned version defined by a release.
+
+        The pipeline is identified by its resource name, formed by its parent user
+        and ID.
+
+        The authenticated user must be the parent of the pipeline in order to
+        perform this action.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def WatchUserPipelineRelease(self, request, context):
-        """WatchUserPipelineRelease method receives a WatchUserPipelineReleaseRequest message
-        and returns a WatchUserPipelineReleaseResponse
+        """Get the state of a release in a pipeline owned by a user
+
+        Gets the state of a pipeline release, where the pipeline is identified by
+        its resource name, formed by the parent user and ID of the pipeline.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def RenameUserPipelineRelease(self, request, context):
-        """RenameUserPipelineRelease method receives a RenameUserPipelineReleaseRequest message and returns
-        a RenameUserPipelineReleaseResponse message.
+        """Rename a release in a pipeline owned by a user
+
+        Updates the ID of a pipeline release, where the pipeline is identified by
+        its resource name, formed by the parent user and ID. Since this is an
+        output-only field, a custom method is required to modify it.
+
+        The pipeline release name will be updated accordingly, as it is  composed
+        by the pipeline name and the ID of the release (e.g.
+        `users/luigi/pipelines/pizza-recipe-generator/releases/v0.2.1`).
+
+        The authenticated user must be the parent of the pipeline in order to
+        perform this action.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def TriggerUserPipelineRelease(self, request, context):
-        """TriggerUserPipelineRelease method receives a TriggeUserPipelineReleaseRequest message
-        and returns a TriggerPipelineReleasePipelineResponse.
+        """Trigger a version of a pipeline owned by a user
+
+        Triggers the synchronous execution of of a pipeline. While the trigger
+        endpoint (where the release version isn't specified) triggers the pipeline
+        at its latest release, this method allows the client to specified any
+        committed release.
+
+        The pipeline is identified by its resource name, formed by its parent user
+        and ID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def TriggerAsyncUserPipelineRelease(self, request, context):
-        """TriggerAsyncUserPipelineRelease method receives a TriggerAsyncUserPipelineReleaseRequest message and
-        returns a TriggerAsyncUserPipelineReleaseResponse.
+        """Trigger a version of a pipeline owned by a user asynchronously
+
+        Triggers the asynchronous execution of of a pipeline. While the trigger
+        endpoint (where the release version isn't specified) triggers the pipeline
+        at its latest release, this method allows the client to specified any
+        committed release.
+
+        The pipeline is identified by its resource name, formed by its parent user
+        and ID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def CreateOrganizationPipeline(self, request, context):
-        """CreateOrganizationPipeline method receives a CreateOrganizationPipelineRequest message and returns
-        a CreateOrganizationPipelineResponse message.
+        """Create a new organization pipeline
+
+        Creates a new pipeline under the parenthood of an organization.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListOrganizationPipelines(self, request, context):
-        """ListOrganizationPipelines method receives a ListOrganizationPipelinesRequest message and returns a
-        ListOrganizationPipelinesResponse message.
+        """List organization pipelines
+
+        Returns a paginated list of pipelines that belong to the specified
+        organization.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetOrganizationPipeline(self, request, context):
-        """GetOrganizationPipeline method receives a GetOrganizationPipelineRequest message and returns a
-        GetOrganizationPipelineResponse message.
+        """Get a pipeline owned by an organization
+
+        Returns the details of an organization-owned pipeline by its resource name,
+        which is defined by the parent organization and the ID of the pipeline.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpdateOrganizationPipeline(self, request, context):
-        """UpdateOrganizationPipeline method receives a UpdateOrganizationPipelineRequest message and returns
-        a UpdateOrganizationPipelineResponse message.
+        """Update a pipeline owned by an organization
+
+        Udpates a pipeline, accessing it by its resource name, which is defined by
+
+        In REST requests, only the supplied pipeline fields will be taken into
+        account when updating the resource.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteOrganizationPipeline(self, request, context):
-        """DeleteOrganizationPipeline method receives a DeleteOrganizationPipelineRequest message and returns
-        a DeleteOrganizationPipelineResponse message.
+        """Delete a pipeline owned by an organization
+
+        Deletes a pipeline, accesing it by its resource name, which is defined by
+        the parent organization and the ID of the pipeline.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ValidateOrganizationPipeline(self, request, context):
-        """Validate a pipeline.
+        """Validate a pipeline a pipeline owned by an organization
+
+        Validates a pipeline by its resource name, which is defined by the parent
+        organization and the ID of the pipeline.
+
+        Validation checks the recipe of the pipeline and the status of its
+        components.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def RenameOrganizationPipeline(self, request, context):
-        """RenameOrganizationPipeline method receives a RenameOrganizationPipelineRequest message and returns
-        a RenameOrganizationPipelineResponse message.
+        """Rename a pipeline owned by an organization
+
+        Updates the ID of a pipeline. Since this is an output-only field, a custom
+        method is required to modify it.
+
+        The pipeline name will be updated accordingly, as it is  composed by the
+        parent organization and ID of the pipeline (e.g.
+        `organizations/luigi/pipelines/pizza-recipe-generator`).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def TriggerOrganizationPipeline(self, request, context):
-        """TriggerOrganizationPipeline method receives a TriggerOrganizationPipelineRequest message
-        and returns a TriggerOrganizationPipelineResponse.
+        """Trigger a pipeline owned by an organization
+
+        Triggers the execution of a pipeline synchronously, i.e., the result is sent
+        back to the organization right after the data is processed. This method is
+        intended for real-time inference when low latency is of concern.
+
+        The pipeline is identified by its resource name, formed by the parent
+        organization and ID of the pipeline.
+
+        For more information, see [Trigger
+        Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def TriggerAsyncOrganizationPipeline(self, request, context):
-        """TriggerAsyncOrganizationPipeline method receives a TriggerAsyncOrganizationPipelineRequest message and
-        returns a TriggerAsyncOrganizationPipelineResponse.
+        """Trigger a pipeline owned by an organization asynchronously
+
+        Triggers the execution of a pipeline asynchronously, i.e., the result
+        contains the necessary information to access the result and status of the
+        operation. This method is intended for cases that require long-running
+        workloads.
+
+        The pipeline is identified by its resource name, formed by the parent
+        organization and ID of the pipeline.
+
+        For more information, see [Trigger
+        Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def CreateOrganizationPipelineRelease(self, request, context):
-        """CreateOrganizationPipelineRelease method receives a CreateOrganizationPipelineReleaseRequest message and returns
-        a CreateOrganizationPipelineReleaseResponse message.
+        """Release a version of a pipeline owned by an organization
+
+        Commits the version of a pipeline, identified by its resource name, which is
+        formed by the parent organization and ID of the pipeline.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListOrganizationPipelineReleases(self, request, context):
-        """ListOrganizationPipelineReleases method receives a ListOrganizationPipelineReleasesRequest message and returns a
-        ListOrganizationPipelineReleasesResponse message.
+        """List the releases in a pipeline owned by an organization
+
+        Lists the commited versions of a pipeline, identified by its resource name,
+        which is formed by the parent organization and ID of the pipeline.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetOrganizationPipelineRelease(self, request, context):
-        """GetOrganizationPipelineRelease method receives a GetOrganizationPipelineReleaseRequest message and returns a
-        GetOrganizationPipelineReleaseResponse message.
+        """Get a release in a pipeline owned by an organization
+
+        Gets the details of a pipeline release, where the pipeline is identified by
+        its resource name, formed by its parent organization and ID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpdateOrganizationPipelineRelease(self, request, context):
-        """UpdateOrganizationPipelineRelease method receives a UpdateOrganizationPipelineReleaseRequest message and returns
-        a UpdateOrganizationPipelineReleaseResponse message.
+        """Update a release in a pipeline owned by an organization
+
+        Updates the details of a pipeline release, where the pipeline is identified
+        by its resource name, formed by its parent organization and ID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteOrganizationPipelineRelease(self, request, context):
-        """DeleteOrganizationPipelineRelease method receives a DeleteOrganizationPipelineReleaseRequest message and returns
-        a DeleteOrganizationPipelineReleaseResponse message.
+        """Delete a release in a pipeline owned by an organization
+
+        Deletes a pipeline release, where the pipeline is identified by its resource
+        name, formed by its parent organization and ID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def RestoreOrganizationPipelineRelease(self, request, context):
-        """RestoreOrganizationPipelineRelease method receives a RestoreOrganizationPipelineReleaseRequest message
-        and returns a RestoreOrganizationPipelineReleaseResponse
+        """Set the version of a pipeline owned by an organization to a pinned release
+
+        Sets the pipeline configuration to a pinned version defined by a release.
+
+        The pipeline is identified by its resource name, formed by its parent
+        organization and ID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def WatchOrganizationPipelineRelease(self, request, context):
-        """WatchOrganizationPipelineRelease method receives a WatchOrganizationPipelineReleaseRequest message
-        and returns a WatchOrganizationPipelineReleaseResponse
+        """Get the state of a release in a pipeline owned by an organization
+
+        Gets the state of a pipeline release, where the pipeline is identified by
+        its resource name, formed by the parent organization and ID of the pipeline.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def RenameOrganizationPipelineRelease(self, request, context):
-        """RenameOrganizationPipelineRelease method receives a RenameOrganizationPipelineReleaseRequest message and returns
-        a RenameOrganizationPipelineReleaseResponse message.
+        """Rename a release in a pipeline owned by an organization
+
+        Updates the ID of a pipeline release, where the pipeline is identified by
+        its resource name, formed by the parent organization and ID. Since this is
+        an output-only field, a custom method is required to modify it.
+
+        The pipeline release name will be updated accordingly, as it is  composed by
+        the pipeline name and the ID of the release (e.g.
+        `organizations/luigi/pipelines/pizza-recipe-generator/releases/v0.2.1`).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def TriggerOrganizationPipelineRelease(self, request, context):
-        """TriggerOrganizationPipelineRelease method receives a TriggeOrganizationPipelineReleaseRequest message
-        and returns a TriggerPipelineReleasePipelineResponse.
+        """Trigger a version of a pipeline owned by an organization
+
+        Triggers the synchronous execution of of a pipeline. While the trigger
+        endpoint (where the release version isn't specified) triggers the pipeline
+        at its latest release, this method allows the client to specified any
+        committed release.
+
+        The pipeline is identified by its resource name, formed by its parent
+        organization and ID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def TriggerAsyncOrganizationPipelineRelease(self, request, context):
-        """TriggerAsyncOrganizationPipelineRelease method receives a TriggerAsyncOrganizationPipelineReleaseRequest message and
-        returns a TriggerAsyncOrganizationPipelineReleaseResponse.
+        """Trigger a version of a pipeline owned by an organization asynchronously
+
+        Triggers the asynchronous execution of of a pipeline. While the trigger
+        endpoint (where the release version isn't specified) triggers the pipeline
+        at its latest release, this method allows the client to specified any
+        committed release.
+
+        The pipeline is identified by its resource name, formed by its parent
+        organization and ID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetOperation(self, request, context):
-        """*Longrunning operation methods
+        """Get the details of a long-running operation
 
-        GetOperation method receives a
-        GetOperationRequest message and returns a
-        GetOperationResponse message.
+        This method allows requesters to request the status and outcome of
+        long-running operations such as asynchronous pipeline triggers.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListConnectorDefinitions(self, request, context):
-        """ListConnectorDefinitions method receives a
-        ListConnectorDefinitionsRequest message and returns a
-        ListConnectorDefinitionsResponse message.
+        """List connector definitions
+
+        Returns a paginated list of connector definitions.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetConnectorDefinition(self, request, context):
-        """GetConnectorDefinition method receives a
-        GetConnectorDefinitionRequest message and returns a
-        GetGetConnectorDefinitionResponse message.
+        """Get connector definition
+
+        Returns the details of a connector definition.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListOperatorDefinitions(self, request, context):
-        """ListOperatorDefinitions method receives a
-        ListOperatorDefinitionsRequest message and returns a
-        ListOperatorDefinitionsResponse message.
+        """List operator definitions
+
+        Returns a paginated list of operator definitions.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetOperatorDefinition(self, request, context):
-        """GetOperatorDefinition method receives a
-        GetOperatorDefinitionRequest message and returns a
-        GetGetOperatorDefinitionResponse message.
+        """Get operator definition
+
+        Returns the details of an operator definition.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -767,220 +957,248 @@ class PipelinePublicServiceServicer(object):
         Connector methods
         ///////////////////////////////
 
-        ListConnectors method receives a
-        ListConnectorsRequest message and returns a
-        ListConnectorsResponse message.
+        List connectors
+
+        Returns all the connectors that are visible to the authenticated user.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def LookUpConnector(self, request, context):
-        """LookUpConnector method receives a
-        LookUpConnectorRequest message and returns a
-        LookUpConnectorResponse
+        """Get a connector by UID
+
+        Returns the details of a connector by UID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def CreateUserConnector(self, request, context):
-        """CreateUserConnector method receives a
-        CreateUserConnectorRequest message and returns a
-        CreateUserConnectorResponse message.
+        """Create a new user connector
+
+        Creates a new connector under the parenthood of a user. Users can only
+        create a connector parents of that resource (i.e. the authenticated user
+        must match the `parent` path parameter).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListUserConnectors(self, request, context):
-        """ListUserConnectors method receives a
-        ListUserConnectorsRequest message and returns a
-        ListUserConnectorsResponse message.
+        """List user connectors
+
+        Returns a paginated list of connectors that belong to the specified user.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetUserConnector(self, request, context):
-        """GetUserConnector method receives a GetUserConnectorRequest
-        message and returns a GetUserConnectorResponse message.
+        """Get a connector owned by a user.
+
+        Returns the details of a user-owned connector.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpdateUserConnector(self, request, context):
-        """UpdateUserConnector method receives a
-        UpdateUserConnectorRequest message and returns a
-        UpdateUserConnectorResponse message.
+        """Update a connector owned by a user.
+
+        Updates a user-owned connector. The authebnticated user must be the parent
+        of the connector.
+
+        In REST requests, only the supplied connector fields will be taken into
+        account when updating the resource.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteUserConnector(self, request, context):
-        """DeleteUserConnector method receives a
-        DeleteUserConnectorRequest message and returns a
-        DeleteUserConnectorResponse message.
+        """Delete a connector owned by a user
+
+        Deletes a connector. The authenticated user must be the parent of the
+        connector in order to delete it.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ConnectUserConnector(self, request, context):
-        """Connect a connector.
-        The "state" of the connector after connecting is "CONNECTED".
-        ConnectUserConnector can be called on Connector in the
-        state `DISCONNECTED`; Connector in a different state (including
-        `CONNECTED`) returns an error.
+        """Connect a connector owned by a user
+
+        Transitions the state of a connector from `DISCONNECTED` to `CONNECTED`. If
+        the state of the connector is different when the request is made, an error
+        is returned.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DisconnectUserConnector(self, request, context):
-        """Disconnect a connector.
-        The "state" of the connector after disconnecting is "DISCONNECTED".
-        DisconnectUserConnector can be called on Connector in the
-        state `CONNECTED`; Connector in a different state (including
-        `DISCONNECTED`) returns an error.
+        """Disconnect a connector owned by a user
+
+        Transitions the state of a connector from `CONNECTED` to `DISCONNECTED`. If
+        the state of the connector is different when the request is made, an error
+        is returned.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def RenameUserConnector(self, request, context):
-        """RenameUserConnector method receives a
-        RenameUserConnectorRequest message and returns a
-        RenameUserConnectorResponse message.
+        """Rename a connector owned by a user
+
+        Updates the ID of a connector. Since this is an output-only field, a custom
+        method is required to modify it.
+
+        The connector name will be updated accordingly, as it is  composed by the
+        parent user and ID of the connector (e.g.
+        `users/indiana-jones/connector/whip`).
+
+        The authenticated user must be the parent of the connector in order to
+        perform this action.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ExecuteUserConnector(self, request, context):
-        """ExecuteUserConnector method receives a
-        ExecuteUserConnectorRequest message and returns a
-        ExecuteUserConnectorResponse message.
+        """Execute a connector owned by a user
+
+        Executes a task in a user-owned connector.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def WatchUserConnector(self, request, context):
-        """WatchUserConnector method receives a
-        WatchUserConnectorRequest message and returns a
-        WatchUserConnectorResponse
+        """Get the state of a connector owned by a user
+
+        Gets the state of a user-owned connector.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def TestUserConnector(self, request, context):
-        """TestUserConnector method receives a TestUserConnectorRequest
-        message and returns a TestUserConnectorResponse
+        """Test a connector owned by a user
+
+        Tests the connection on a user-owned connector.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def CreateOrganizationConnector(self, request, context):
-        """CreateOrganizationConnector method receives a
-        CreateOrganizationConnectorRequest message and returns a
-        CreateOrganizationConnectorResponse message.
+        """Create a new organization connector
+
+        Creates a new connector under the parenthood of an organization.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListOrganizationConnectors(self, request, context):
-        """ListOrganizationConnectors method receives a
-        ListOrganizationConnectorsRequest message and returns a
-        ListOrganizationConnectorsResponse message.
+        """List organization connectors
+
+        Returns a paginated list of connectors that belong to the specified
+        organization.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetOrganizationConnector(self, request, context):
-        """GetOrganizationConnector method receives a GetOrganizationConnectorRequest
-        message and returns a GetOrganizationConnectorResponse message.
+        """Get a connector owned by an organization.
+
+        Returns the details of an organization-owned connector.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpdateOrganizationConnector(self, request, context):
-        """UpdateOrganizationConnector method receives a
-        UpdateOrganizationConnectorRequest message and returns a
-        UpdateOrganizationConnectorResponse message.
+        """Update a connector owned by an organization.
+
+        Updates an organization-owned connector.
+
+        In REST requests, only the supplied connector fields will be taken into
+        account when updating the resource.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteOrganizationConnector(self, request, context):
-        """DeleteOrganizationConnector method receives a
-        DeleteOrganizationConnectorRequest message and returns a
-        DeleteOrganizationConnectorResponse message.
+        """Delete a connector owned by an organization
+
+        Deletes a connector.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ConnectOrganizationConnector(self, request, context):
-        """Connect a connector.
-        The "state" of the connector after connecting is "CONNECTED".
-        ConnectOrganizationConnector can be called on Connector in the
-        state `DISCONNECTED`; Connector in a different state (including
-        `CONNECTED`) returns an error.
+        """Connect a connector owned by an organization
+
+        Transitions the state of a connector from `DISCONNECTED` to `CONNECTED`. If
+        the state of the connector is different when the request is made, an error
+        is returned.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DisconnectOrganizationConnector(self, request, context):
-        """Disconnect a connector.
-        The "state" of the connector after disconnecting is "DISCONNECTED".
-        DisconnectOrganizationConnector can be called on Connector in the
-        state `CONNECTED`; Connector in a different state (including
-        `DISCONNECTED`) returns an error.
+        """Disconnect a connector owned by an organization
+
+        Transitions the state of a connector from `CONNECTED` to `DISCONNECTED`. If
+        the state of the connector is different when the request is made, an error
+        is returned.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def RenameOrganizationConnector(self, request, context):
-        """RenameOrganizationConnector method receives a
-        RenameOrganizationConnectorRequest message and returns a
-        RenameOrganizationConnectorResponse message.
+        """Rename a connector owned by an organization
+
+        Updates the ID of a connector. Since this is an output-only field, a custom
+        method is required to modify it.
+
+        The connector name will be updated accordingly, as it is  composed by the
+        parent organization and ID of the connector (e.g.
+        `organizations/indiana-jones/connector/whip`).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ExecuteOrganizationConnector(self, request, context):
-        """ExecuteOrganizationConnector method receives a
-        ExecuteOrganizationConnectorRequest message and returns a
-        ExecuteOrganizationConnectorResponse message.
+        """Execute a connector owned by an organization
+
+        Executes a task in an organization-owned connector.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def WatchOrganizationConnector(self, request, context):
-        """WatchOrganizationConnector method receives a
-        WatchOrganizationConnectorRequest message and returns a
-        WatchOrganizationConnectorResponse
+        """Get the state of a connector owned by an organization
+
+        Gets the state of an organization-owned connector.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def TestOrganizationConnector(self, request, context):
-        """TestOrganizationConnector method receives a TestOrganizationConnectorRequest
-        message and returns a TestOrganizationConnectorResponse
+        """Test a connector owned by an organization
+
+        Tests the connection on an organization-owned connector.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1352,7 +1570,10 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class PipelinePublicService(object):
-    """Pipeline service responds to external access
+    """VDP
+
+    PipelinePublicService exposes the public VDP endpoints that allow clients to
+    manage pipelines.
     """
 
     @staticmethod

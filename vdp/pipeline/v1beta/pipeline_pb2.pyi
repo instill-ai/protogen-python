@@ -34,29 +34,29 @@ class _ComponentType:
 class _ComponentTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ComponentType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     COMPONENT_TYPE_UNSPECIFIED: _ComponentType.ValueType  # 0
-    """TYPE_UNSPECIFIED"""
+    """Unspecified."""
     COMPONENT_TYPE_CONNECTOR_AI: _ComponentType.ValueType  # 1
-    """CONNECTOR_AI"""
+    """Connect with an AI model."""
     COMPONENT_TYPE_CONNECTOR_DATA: _ComponentType.ValueType  # 2
-    """CONNECTOR_DATA"""
+    """Connect with a remote data source."""
     COMPONENT_TYPE_CONNECTOR_BLOCKCHAIN: _ComponentType.ValueType  # 3
-    """CONNECTOR_BLOCKCHAIN"""
+    """Connect with a blockchain service."""
     COMPONENT_TYPE_OPERATOR: _ComponentType.ValueType  # 4
-    """CONNECTOR_OPERATOR"""
+    """Manipulate data."""
 
 class ComponentType(_ComponentType, metaclass=_ComponentTypeEnumTypeWrapper):
-    """ComponentType"""
+    """ComponentType defines the component type based on its task features."""
 
 COMPONENT_TYPE_UNSPECIFIED: ComponentType.ValueType  # 0
-"""TYPE_UNSPECIFIED"""
+"""Unspecified."""
 COMPONENT_TYPE_CONNECTOR_AI: ComponentType.ValueType  # 1
-"""CONNECTOR_AI"""
+"""Connect with an AI model."""
 COMPONENT_TYPE_CONNECTOR_DATA: ComponentType.ValueType  # 2
-"""CONNECTOR_DATA"""
+"""Connect with a remote data source."""
 COMPONENT_TYPE_CONNECTOR_BLOCKCHAIN: ComponentType.ValueType  # 3
-"""CONNECTOR_BLOCKCHAIN"""
+"""Connect with a blockchain service."""
 COMPONENT_TYPE_OPERATOR: ComponentType.ValueType  # 4
-"""CONNECTOR_OPERATOR"""
+"""Manipulate data."""
 global___ComponentType = ComponentType
 
 class _State:
@@ -66,25 +66,25 @@ class _State:
 class _StateEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_State.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     STATE_UNSPECIFIED: _State.ValueType  # 0
-    """State: UNSPECIFIED"""
+    """Unspecified."""
     STATE_INACTIVE: _State.ValueType  # 1
-    """State INACTIVE indicates the pipeline is inactive"""
+    """Inactive."""
     STATE_ACTIVE: _State.ValueType  # 2
-    """State ACTIVE indicates the pipeline is active"""
+    """Active."""
     STATE_ERROR: _State.ValueType  # 3
-    """State ERROR indicates the pipeline has error"""
+    """The pipeline has an error."""
 
 class State(_State, metaclass=_StateEnumTypeWrapper):
-    """State enumerates the state of a pipeline"""
+    """State describes the state of a pipeline."""
 
 STATE_UNSPECIFIED: State.ValueType  # 0
-"""State: UNSPECIFIED"""
+"""Unspecified."""
 STATE_INACTIVE: State.ValueType  # 1
-"""State INACTIVE indicates the pipeline is inactive"""
+"""Inactive."""
 STATE_ACTIVE: State.ValueType  # 2
-"""State ACTIVE indicates the pipeline is active"""
+"""Active."""
 STATE_ERROR: State.ValueType  # 3
-"""State ERROR indicates the pipeline has error"""
+"""The pipeline has an error."""
 global___State = State
 
 @typing_extensions.final
@@ -171,7 +171,11 @@ global___ReadinessResponse = ReadinessResponse
 
 @typing_extensions.final
 class Component(google.protobuf.message.Message):
-    """Represents a pipeline component"""
+    """Component is the fundamental building block in pipelines.
+
+    For more information, see [Pipeline
+    Component](https://www.instill.tech/docs/latest/core/concepts/pipeline#pipeline-component)
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -184,19 +188,23 @@ class Component(google.protobuf.message.Message):
     OPERATOR_DEFINITION_FIELD_NUMBER: builtins.int
     CONNECTOR_DEFINITION_FIELD_NUMBER: builtins.int
     id: builtins.str
-    """Component id that is given by the users"""
+    """Component ID, provided by the user on creation."""
     resource_name: builtins.str
-    """A pipeline component resource name"""
+    """Resource name."""
     @property
     def resource(self) -> vdp.pipeline.v1beta.connector_pb2.Connector:
-        """A pipeline component resource detail"""
+        """If the component is a connector, describes the connector details (e.g. the
+        configuration to connect with an AI model).
+        """
     @property
     def configuration(self) -> google.protobuf.struct_pb2.Struct:
-        """Configuration for the pipeline component"""
+        """Describes the component configuration."""
     type: global___ComponentType.ValueType
-    """Resource Type"""
+    """Defines the type of task the component will perform."""
     definition_name: builtins.str
-    """A pipeline component definition name"""
+    """The name of the component definition. It references the connector or
+    operator definition on top of which a connector is built.
+    """
     @property
     def operator_definition(self) -> vdp.pipeline.v1beta.operator_definition_pb2.OperatorDefinition:
         """operator definition detail"""
@@ -223,17 +231,17 @@ global___Component = Component
 
 @typing_extensions.final
 class Recipe(google.protobuf.message.Message):
-    """Pipeline represents a pipeline recipe"""
+    """Recipe describes the components of a Pipeline and how they are connected."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VERSION_FIELD_NUMBER: builtins.int
     COMPONENTS_FIELD_NUMBER: builtins.int
     version: builtins.str
-    """Recipe schema version"""
+    """Recipe schema version."""
     @property
     def components(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Component]:
-        """List of pipeline components"""
+        """List of pipeline components."""
     def __init__(
         self,
         *,
@@ -301,12 +309,12 @@ class Pipeline(google.protobuf.message.Message):
     PERMISSION_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The name of the pipeline, defined by its owner and ID.
-    - Format: `users/{user}/pipelines/{id}`.
+    - Format: `users/{user.id}/pipelines/{pipeline.id}`.
     """
     uid: builtins.str
     """Pipeline UUID."""
     id: builtins.str
-    """Pipeline resource ID (used in the name as the last segment). This conforms
+    """Pipeline resource ID (used in `name` as the last segment). This conforms
     to RFC-1034, which restricts to letters, numbers, and hyphen, with the
     first character a letter, the last a letter or a number, and a 63
     character maximum.
@@ -330,10 +338,10 @@ class Pipeline(google.protobuf.message.Message):
         """Pipeline delete time."""
     @property
     def sharing(self) -> vdp.pipeline.v1beta.common_pb2.Sharing:
-        """Pipeline sharing."""
+        """Pipeline sharing information."""
     @property
     def metadata(self) -> google.protobuf.struct_pb2.Struct:
-        """Metadata: store Console-related data such as pipeline builder layout."""
+        """Metadata holds console-related data such as the pipeline builder layout."""
     owner_name: builtins.str
     """Owner Name."""
     @property
@@ -341,12 +349,12 @@ class Pipeline(google.protobuf.message.Message):
         """Owner details."""
     @property
     def releases(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PipelineRelease]:
-        """Releases."""
+        """Releases holds the history of pipeline versions."""
     readme: builtins.str
-    """README."""
+    """README holds the pipeline documentation."""
     @property
     def permission(self) -> vdp.pipeline.v1beta.common_pb2.Permission:
-        """Permission."""
+        """Permission defines how a pipeline can be used."""
     def __init__(
         self,
         *,
@@ -375,7 +383,7 @@ global___Pipeline = Pipeline
 
 @typing_extensions.final
 class TriggerMetadata(google.protobuf.message.Message):
-    """The metadata"""
+    """TriggerMetadata contains the traces of the pipeline inference."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -400,7 +408,9 @@ class TriggerMetadata(google.protobuf.message.Message):
     TRACES_FIELD_NUMBER: builtins.int
     @property
     def traces(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___Trace]:
-        """The traces of the pipeline inference, {component_id: Trace}"""
+        """Each key in the `traces` object is a component ID. The value is a Trace
+        object containing the execution details.
+        """
     def __init__(
         self,
         *,
@@ -412,7 +422,7 @@ global___TriggerMetadata = TriggerMetadata
 
 @typing_extensions.final
 class Trace(google.protobuf.message.Message):
-    """Trace for the intermediate component"""
+    """Trace contains the execution details of a component."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -423,25 +433,25 @@ class Trace(google.protobuf.message.Message):
     class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Trace._Status.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATUS_UNSPECIFIED: Trace._Status.ValueType  # 0
-        """UNSPECIFIED"""
+        """Unspecified."""
         STATUS_COMPLETED: Trace._Status.ValueType  # 1
-        """COMPLETED"""
+        """Successfully completed."""
         STATUS_SKIPPED: Trace._Status.ValueType  # 2
-        """SKIPPED"""
+        """Skipped."""
         STATUS_ERROR: Trace._Status.ValueType  # 3
-        """ERROR"""
+        """Aborted with error."""
 
     class Status(_Status, metaclass=_StatusEnumTypeWrapper):
-        """Status"""
+        """Status holds the the component execution outcome."""
 
     STATUS_UNSPECIFIED: Trace.Status.ValueType  # 0
-    """UNSPECIFIED"""
+    """Unspecified."""
     STATUS_COMPLETED: Trace.Status.ValueType  # 1
-    """COMPLETED"""
+    """Successfully completed."""
     STATUS_SKIPPED: Trace.Status.ValueType  # 2
-    """SKIPPED"""
+    """Skipped."""
     STATUS_ERROR: Trace.Status.ValueType  # 3
-    """ERROR"""
+    """Aborted with error."""
 
     STATUSES_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
@@ -450,18 +460,18 @@ class Trace(google.protobuf.message.Message):
     COMPUTE_TIME_IN_SECONDS_FIELD_NUMBER: builtins.int
     @property
     def statuses(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[global___Trace.Status.ValueType]:
-        """status"""
+        """Statuses contains an execution status per input."""
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """Inputs of the component"""
+        """Component inputs."""
     @property
     def outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """Outputs of the component"""
+        """Component outputs."""
     @property
     def error(self) -> google.protobuf.struct_pb2.Struct:
-        """Error of the component"""
+        """Error details."""
     compute_time_in_seconds: builtins.float
-    """Compute Time"""
+    """Computation time in seconds."""
     def __init__(
         self,
         *,
@@ -498,12 +508,12 @@ class PipelineRelease(google.protobuf.message.Message):
     README_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The name of the release, defined by its owner and ID.
-    - Format: `users/{user}/pipelines/{pipeline_id}/releases/{release_id}
+    - Format: `users/{user.id}/pipelines/{pipeline.id}/releases/{release.id}
     """
     uid: builtins.str
     """Release UUID."""
     id: builtins.str
-    """Release resource ID (used in the name as the last segment). It must be a
+    """Release resource ID (used in `name` as the last segment). It must be a
     sematic version vX.Y.Z.
     """
     description: builtins.str
@@ -556,7 +566,7 @@ global___PipelineRelease = PipelineRelease
 
 @typing_extensions.final
 class ListPipelinesRequest(google.protobuf.message.Message):
-    """ListPipelinesRequest represents a request to list pipelines"""
+    """ListPipelinesRequest represents a request to list pipelines."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -566,18 +576,23 @@ class ListPipelinesRequest(google.protobuf.message.Message):
     FILTER_FIELD_NUMBER: builtins.int
     SHOW_DELETED_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """The maximum number of pipelines to return. The service may return fewer
-    than this value. If unspecified, at most 10 pipelines will be returned. The
-    maximum value is 100; values above 100 will be coerced to 100.
+    """The maximum number of pipelines to return. If this parameter is
+    unspecified, at most 10 pipelines will be returned. The cap value for this
+    parameter is 100 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     view: global___Pipeline.View.ValueType
-    """View view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired pipeline view in the response."""
     filter: builtins.str
-    """Filter expression to list pipelines"""
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    - Example:
+    `recipe.components.definition_name:"operator-definitions/2ac8be70-0f7a-4b61-a33d-098b8acfa6f3"`.
+    """
     show_deleted: builtins.bool
-    """Return soft_deleted pipelines"""
+    """Include soft-deleted pipelines in the result."""
     def __init__(
         self,
         *,
@@ -604,7 +619,7 @@ global___ListPipelinesRequest = ListPipelinesRequest
 
 @typing_extensions.final
 class ListPipelinesResponse(google.protobuf.message.Message):
-    """ListPipelinesResponse represents a response for a list of pipelines"""
+    """ListPipelinesResponse contains a list of pipelines."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -613,11 +628,11 @@ class ListPipelinesResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def pipelines(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Pipeline]:
-        """A list of pipeline resources"""
+        """A list of pipeline resources."""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
-    """Total count of pipeline resources"""
+    """Total number of pipelines."""
     def __init__(
         self,
         *,
@@ -631,18 +646,18 @@ global___ListPipelinesResponse = ListPipelinesResponse
 
 @typing_extensions.final
 class LookUpPipelineRequest(google.protobuf.message.Message):
-    """LookUpPipelineRequest represents a request to query a pipeline via permalink"""
+    """LookUpPipelineRequest represents a request to query a pipeline by its UID."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PERMALINK_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     permalink: builtins.str
-    """Permalink of a pipeline. For example:
-    "pipelines/{uid}"
+    """The permalink of the pipeline, which allows its access by UID.
+    - Format: `pipelines/{pipeline.uid}`.
     """
     view: global___Pipeline.View.ValueType
-    """View view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired pipeline view in the response."""
     def __init__(
         self,
         *,
@@ -657,14 +672,14 @@ global___LookUpPipelineRequest = LookUpPipelineRequest
 
 @typing_extensions.final
 class LookUpPipelineResponse(google.protobuf.message.Message):
-    """LookUpPipelineResponse represents a response for a pipeline resource"""
+    """LookUpPipelineResponse contains the requested pipeline."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PIPELINE_FIELD_NUMBER: builtins.int
     @property
     def pipeline(self) -> global___Pipeline:
-        """A pipeline resource"""
+        """The requested pipeline."""
     def __init__(
         self,
         *,
@@ -677,7 +692,9 @@ global___LookUpPipelineResponse = LookUpPipelineResponse
 
 @typing_extensions.final
 class CreateUserPipelineRequest(google.protobuf.message.Message):
-    """CreateUserPipelineRequest represents a request to create a pipeline"""
+    """CreateUserPipelineRequest represents a request from a user to create a
+    pipeline.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -685,10 +702,10 @@ class CreateUserPipelineRequest(google.protobuf.message.Message):
     PARENT_FIELD_NUMBER: builtins.int
     @property
     def pipeline(self) -> global___Pipeline:
-        """A pipeline resource to create"""
+        """The properties of the pipeline to be created."""
     parent: builtins.str
-    """The parent resource where this connector resource will be created.
-    Format: users/{users}
+    """The parent resource, i.e., the user that creates the pipeline.
+    - Format: `users/{user.id}`.
     """
     def __init__(
         self,
@@ -703,14 +720,14 @@ global___CreateUserPipelineRequest = CreateUserPipelineRequest
 
 @typing_extensions.final
 class CreateUserPipelineResponse(google.protobuf.message.Message):
-    """CreateUserPipelineResponse represents a response for a pipeline resource"""
+    """CreateUserPipelineResponse contains the created pipeline."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PIPELINE_FIELD_NUMBER: builtins.int
     @property
     def pipeline(self) -> global___Pipeline:
-        """The created pipeline resource"""
+        """The created pipeline resource."""
     def __init__(
         self,
         *,
@@ -723,7 +740,9 @@ global___CreateUserPipelineResponse = CreateUserPipelineResponse
 
 @typing_extensions.final
 class ListUserPipelinesRequest(google.protobuf.message.Message):
-    """ListUserPipelinesRequest represents a request to list pipelines"""
+    """ListUserPipelinesRequest represents a request to list the pipelines of a
+    user.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -734,22 +753,27 @@ class ListUserPipelinesRequest(google.protobuf.message.Message):
     PARENT_FIELD_NUMBER: builtins.int
     SHOW_DELETED_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """The maximum number of pipelines to return. The service may return fewer
-    than this value. If unspecified, at most 10 pipelines will be returned. The
-    maximum value is 100; values above 100 will be coerced to 100.
+    """The maximum number of pipelines to return. If this parameter is
+    unspecified, at most 10 pipelines will be returned. The cap value for this
+    parameter is 100 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     view: global___Pipeline.View.ValueType
-    """View view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired pipeline view in the response."""
     filter: builtins.str
-    """Filter expression to list pipelines"""
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    - Example:
+    `recipe.components.definition_name:"operator-definitions/2ac8be70-0f7a-4b61-a33d-098b8acfa6f3"`.
+    """
     parent: builtins.str
-    """The parent resource where this connector resource will be created.
-    Format: users/{users}
+    """The parent resource, i.e., the user that created the pipelines.
+    - Format: `users/{user.id}`.
     """
     show_deleted: builtins.bool
-    """Return soft_deleted pipeline releases"""
+    """Include soft-deleted pipelines in the result."""
     def __init__(
         self,
         *,
@@ -777,7 +801,7 @@ global___ListUserPipelinesRequest = ListUserPipelinesRequest
 
 @typing_extensions.final
 class ListUserPipelinesResponse(google.protobuf.message.Message):
-    """ListUserPipelinesResponse represents a response for a list of pipelines"""
+    """ListUserPipelinesResponse contains a list of pipelines."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -786,11 +810,11 @@ class ListUserPipelinesResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def pipelines(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Pipeline]:
-        """A list of pipeline resources"""
+        """A list of pipeline resources."""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
-    """Total count of pipeline resources"""
+    """Total number of pipelines."""
     def __init__(
         self,
         *,
@@ -804,16 +828,21 @@ global___ListUserPipelinesResponse = ListUserPipelinesResponse
 
 @typing_extensions.final
 class GetUserPipelineRequest(google.protobuf.message.Message):
-    """GetUserPipelineRequest represents a request to query a pipeline"""
+    """GetUserPipelineRequest represents a request to fetch the details of a
+    pipeline owned by a user.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Pipeline resource name. It must have the format of "users/*/pipelines/*" """
+    """The resource name of the pipeline, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/pipelines/{pipeline.id}`.
+    """
     view: global___Pipeline.View.ValueType
-    """Pipeline resource view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired pipeline view in the response."""
     def __init__(
         self,
         *,
@@ -828,14 +857,14 @@ global___GetUserPipelineRequest = GetUserPipelineRequest
 
 @typing_extensions.final
 class GetUserPipelineResponse(google.protobuf.message.Message):
-    """GetUserPipelineResponse represents a response for a pipeline resource"""
+    """GetUserPipelineResponse contains the requested pipeline."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PIPELINE_FIELD_NUMBER: builtins.int
     @property
     def pipeline(self) -> global___Pipeline:
-        """A pipeline resource"""
+        """The pipeline resource."""
     def __init__(
         self,
         *,
@@ -848,7 +877,9 @@ global___GetUserPipelineResponse = GetUserPipelineResponse
 
 @typing_extensions.final
 class UpdateUserPipelineRequest(google.protobuf.message.Message):
-    """UpdateUserPipelineRequest represents a request to update a pipeline"""
+    """UpdateUserPipelineRequest represents a request to update a pipeline owned by
+    a user.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -856,10 +887,14 @@ class UpdateUserPipelineRequest(google.protobuf.message.Message):
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     @property
     def pipeline(self) -> global___Pipeline:
-        """A pipeline resource to update"""
+        """The pipeline fields that will replace the existing ones."""
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
-        """Update mask for a pipeline resource"""
+        """The update mask specifies the subset of fields that should be modified.
+
+        For more information about this field, see
+        https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#field-mask.
+        """
     def __init__(
         self,
         *,
@@ -873,14 +908,14 @@ global___UpdateUserPipelineRequest = UpdateUserPipelineRequest
 
 @typing_extensions.final
 class UpdateUserPipelineResponse(google.protobuf.message.Message):
-    """UpdateUserPipelineResponse represents a response for a pipeline resource"""
+    """UpdateUserPipelineResponse contains the updated pipeline."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PIPELINE_FIELD_NUMBER: builtins.int
     @property
     def pipeline(self) -> global___Pipeline:
-        """An updated pipeline resource"""
+        """The updated pipeline resource."""
     def __init__(
         self,
         *,
@@ -893,13 +928,18 @@ global___UpdateUserPipelineResponse = UpdateUserPipelineResponse
 
 @typing_extensions.final
 class DeleteUserPipelineRequest(google.protobuf.message.Message):
-    """DeleteUserPipelineRequest represents a request to delete a pipeline resource"""
+    """DeleteUserPipelineRequest represents a request to delete a pipeline owned by
+    a user.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Pipeline resource name. It must have the format of "users/*/pipelines/*" """
+    """The resource name of the pipeline, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/pipelines/{pipeline.id}`.
+    """
     def __init__(
         self,
         *,
@@ -911,7 +951,7 @@ global___DeleteUserPipelineRequest = DeleteUserPipelineRequest
 
 @typing_extensions.final
 class DeleteUserPipelineResponse(google.protobuf.message.Message):
-    """DeleteUserPipelineResponse represents an empty response"""
+    """DeleteUserPipelineResponse is an empty response."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -923,13 +963,18 @@ global___DeleteUserPipelineResponse = DeleteUserPipelineResponse
 
 @typing_extensions.final
 class ValidateUserPipelineRequest(google.protobuf.message.Message):
-    """ValidatePUseripelineRequest represents a request to validate a pipeline"""
+    """ValidateUserPipelineRequest represents a request to validate a pipeline
+    owned by a user.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Pipeline resource name. It must have the format of "users/*/pipelines/*" """
+    """The resource name of the pipeline, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/pipelines/{pipeline.id}`.
+    """
     def __init__(
         self,
         *,
@@ -941,14 +986,14 @@ global___ValidateUserPipelineRequest = ValidateUserPipelineRequest
 
 @typing_extensions.final
 class ValidateUserPipelineResponse(google.protobuf.message.Message):
-    """ValidateUserPipelineResponse represents an response of validated pipeline"""
+    """ValidateUserPipelineResponse contains a validated pipeline."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PIPELINE_FIELD_NUMBER: builtins.int
     @property
     def pipeline(self) -> global___Pipeline:
-        """A pipeline resource"""
+        """The validated pipeline resource."""
     def __init__(
         self,
         *,
@@ -961,8 +1006,8 @@ global___ValidateUserPipelineResponse = ValidateUserPipelineResponse
 
 @typing_extensions.final
 class RenameUserPipelineRequest(google.protobuf.message.Message):
-    """RenameUserPipelineRequest represents a request to rename the pipeline resource
-    name
+    """RenameUserPipelineRequest represents a request to rename the name of a
+    pipeline owned by a user.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -970,10 +1015,13 @@ class RenameUserPipelineRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     NEW_PIPELINE_ID_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Pipeline resource name. It must have the format of "users/*/pipelines/*" """
+    """The resource name of the pipeline, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/pipelines/{pipeline.id}`.
+    """
     new_pipeline_id: builtins.str
-    """Pipeline new resource id to replace with the pipeline resource name to be
-    "users/*/pipelines/{new_pipeline_id}"
+    """The new resource ID. This will transform the resource name into
+    `users/{user.id}/pipelines/{new_pipeline_id}`.
     """
     def __init__(
         self,
@@ -987,14 +1035,14 @@ global___RenameUserPipelineRequest = RenameUserPipelineRequest
 
 @typing_extensions.final
 class RenameUserPipelineResponse(google.protobuf.message.Message):
-    """RenameUserPipelineResponse represents a renamed pipeline resource"""
+    """RenameUserPipelineResponse contains a renamed pipeline."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PIPELINE_FIELD_NUMBER: builtins.int
     @property
     def pipeline(self) -> global___Pipeline:
-        """A pipeline resource"""
+        """The renamed pipeline resource."""
     def __init__(
         self,
         *,
@@ -1007,17 +1055,22 @@ global___RenameUserPipelineResponse = RenameUserPipelineResponse
 
 @typing_extensions.final
 class TriggerUserPipelineRequest(google.protobuf.message.Message):
-    """TriggerUserPipelineRequest represents a request to trigger a pipeline"""
+    """TriggerUserPipelineRequest represents a request to trigger a user-owned
+    pipeline synchronously.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Pipeline resource name. It must have the format of "users/*/pipelines/*" """
+    """The resource name of the pipeline, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/pipelines/{pipeline.id}`.
+    """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """Input to the pipeline"""
+        """Pipeline input parameters."""
     def __init__(
         self,
         *,
@@ -1030,8 +1083,8 @@ global___TriggerUserPipelineRequest = TriggerUserPipelineRequest
 
 @typing_extensions.final
 class TriggerUserPipelineResponse(google.protobuf.message.Message):
-    """TriggerUserPipelineResponse represents a response for the output
-    of a pipeline, i.e., the multiple model inference outputs
+    """TriggerUserPipelineResponse contains the pipeline execution results, i.e.,
+    the multiple model inference outputs.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1040,10 +1093,10 @@ class TriggerUserPipelineResponse(google.protobuf.message.Message):
     METADATA_FIELD_NUMBER: builtins.int
     @property
     def outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """The multiple model inference outputs"""
+        """Model inference outputs."""
     @property
     def metadata(self) -> global___TriggerMetadata:
-        """The traces of the pipeline inference, {component_id: Trace}"""
+        """Traces of the pipeline inference."""
     def __init__(
         self,
         *,
@@ -1057,17 +1110,22 @@ global___TriggerUserPipelineResponse = TriggerUserPipelineResponse
 
 @typing_extensions.final
 class TriggerAsyncUserPipelineRequest(google.protobuf.message.Message):
-    """TriggerAsyncUserPipelineRequest represents a request to trigger a async pipeline"""
+    """TriggerUserPipelineRequest represents a request to trigger a user-owned
+    pipeline synchronously.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Pipeline resource name. It must have the format of "users/*/pipelines/*" """
+    """The resource name of the pipeline, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/pipelines/{pipeline.id}`.
+    """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """Input to the pipeline"""
+        """Pipeline input parameters."""
     def __init__(
         self,
         *,
@@ -1080,8 +1138,8 @@ global___TriggerAsyncUserPipelineRequest = TriggerAsyncUserPipelineRequest
 
 @typing_extensions.final
 class TriggerAsyncUserPipelineResponse(google.protobuf.message.Message):
-    """TriggerAsyncUserPipelineResponse represents a response for the longrunning
-    operation of a pipeline
+    """TriggerAsyncUserPipelineResponse contains the information to access the
+    status of an asynchronous pipeline execution.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1089,7 +1147,7 @@ class TriggerAsyncUserPipelineResponse(google.protobuf.message.Message):
     OPERATION_FIELD_NUMBER: builtins.int
     @property
     def operation(self) -> google.longrunning.operations_pb2.Operation:
-        """Trigger async pipeline operation message"""
+        """Long-running operation information."""
     def __init__(
         self,
         *,
@@ -1102,7 +1160,9 @@ global___TriggerAsyncUserPipelineResponse = TriggerAsyncUserPipelineResponse
 
 @typing_extensions.final
 class CreateUserPipelineReleaseRequest(google.protobuf.message.Message):
-    """CreateUserPipelineReleaseRequest represents a request to create a pipeline_release"""
+    """CreateUserPipelineReleaseRequest represents a request to release a version
+    in a user-owned pipeline.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1110,10 +1170,10 @@ class CreateUserPipelineReleaseRequest(google.protobuf.message.Message):
     PARENT_FIELD_NUMBER: builtins.int
     @property
     def release(self) -> global___PipelineRelease:
-        """A pipeline_release resource to create"""
+        """The release information."""
     parent: builtins.str
-    """The parent resource where this pipeline_release will be created.
-    Format: users/{user}/pipelines/{pipeline}
+    """Name of the pipeline for which the release will be created.
+    Format: `users/{user.id}/pipelines/{pipeline.id}`
     """
     def __init__(
         self,
@@ -1128,14 +1188,14 @@ global___CreateUserPipelineReleaseRequest = CreateUserPipelineReleaseRequest
 
 @typing_extensions.final
 class CreateUserPipelineReleaseResponse(google.protobuf.message.Message):
-    """CreateUserPipelineReleaseResponse represents a response for a pipeline_release resource"""
+    """CreateUserPipelineReleaseResponse contains the created release."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     RELEASE_FIELD_NUMBER: builtins.int
     @property
     def release(self) -> global___PipelineRelease:
-        """The created pipeline_release resource"""
+        """The created pipeline release object."""
     def __init__(
         self,
         *,
@@ -1148,7 +1208,9 @@ global___CreateUserPipelineReleaseResponse = CreateUserPipelineReleaseResponse
 
 @typing_extensions.final
 class ListUserPipelineReleasesRequest(google.protobuf.message.Message):
-    """ListUserPipelineReleasesRequest represents a request to list pipeline_releases"""
+    """ListUserPipelineReleasesRequest represents a request to list the releases in
+    a user-owned pipeline.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1159,22 +1221,25 @@ class ListUserPipelineReleasesRequest(google.protobuf.message.Message):
     PARENT_FIELD_NUMBER: builtins.int
     SHOW_DELETED_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """The maximum number of pipeline_releases to return. The service may return fewer
-    than this value. If unspecified, at most 10 pipeline_release will be returned. The
-    maximum value is 100; values above 100 will be coerced to 100.
+    """The maximum number of releases to return. If this parameter is
+    unspecified, at most 10 pipelines will be returned. The cap value for this
+    parameter is 100 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     view: global___Pipeline.View.ValueType
-    """View view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired pipeline view in the response."""
     filter: builtins.str
-    """Filter expression to list pipeline_releases"""
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
     parent: builtins.str
-    """The parent resource where this pipeline_release will be created.
-    Format: users/{user}/pipelines/{pipeline}
+    """The parent resource where this pipeline release will be created.
+    Format: `users/{user.id}/pipelines/{pipeline.id}`.
     """
     show_deleted: builtins.bool
-    """Return soft_deleted pipelines"""
+    """Include soft-deleted pipelines in the result."""
     def __init__(
         self,
         *,
@@ -1202,7 +1267,7 @@ global___ListUserPipelineReleasesRequest = ListUserPipelineReleasesRequest
 
 @typing_extensions.final
 class ListUserPipelineReleasesResponse(google.protobuf.message.Message):
-    """ListUserPipelineReleasesResponse represents a response for a list of pipeline_releases"""
+    """ListUserPipelineReleasesResponse contains a list of pipeline releases."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1211,11 +1276,11 @@ class ListUserPipelineReleasesResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def releases(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PipelineRelease]:
-        """A list of pipeline_release resources"""
+        """A list of pipeline release resources."""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
-    """Total count of pipeline_release resources"""
+    """Total number of pipeline releases."""
     def __init__(
         self,
         *,
@@ -1229,8 +1294,8 @@ global___ListUserPipelineReleasesResponse = ListUserPipelineReleasesResponse
 
 @typing_extensions.final
 class GetUserPipelineReleaseRequest(google.protobuf.message.Message):
-    """GetUserPipelineReleaseRequest represents a request to query a pipeline_release
-    Pipeline View
+    """GetUserPipelineReleaseRequest represents a request to fetchthe details of a
+    release in a user-owned pipeline.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1238,9 +1303,12 @@ class GetUserPipelineReleaseRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """PipelineRelease resource name. It must have the format of "users/*/pipelines/*/releases/*" """
+    """The resource name of the pipeline release, which allows its access by
+    parent pipeline and ID.
+    - Format: `users/{user.id}/pipelines/{pipeline.id}/releases/{release.id}`.
+    """
     view: global___Pipeline.View.ValueType
-    """PipelineRelease resource view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired pipeline view in the response."""
     def __init__(
         self,
         *,
@@ -1255,14 +1323,14 @@ global___GetUserPipelineReleaseRequest = GetUserPipelineReleaseRequest
 
 @typing_extensions.final
 class GetUserPipelineReleaseResponse(google.protobuf.message.Message):
-    """GetUserPipelineReleaseResponse represents a response for a pipeline_release resource"""
+    """GetUserPipelineReleaseResponse contains the requested pipeline release."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     RELEASE_FIELD_NUMBER: builtins.int
     @property
     def release(self) -> global___PipelineRelease:
-        """A pipeline_release resource"""
+        """The pipeline release resource."""
     def __init__(
         self,
         *,
@@ -1275,7 +1343,9 @@ global___GetUserPipelineReleaseResponse = GetUserPipelineReleaseResponse
 
 @typing_extensions.final
 class UpdateUserPipelineReleaseRequest(google.protobuf.message.Message):
-    """UpdateUserPipelineReleaseRequest represents a request to update a pipeline release"""
+    """UpdateUserPipelineReleaseRequest represents a request to update a user-owned
+    pipeline release.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1283,10 +1353,16 @@ class UpdateUserPipelineReleaseRequest(google.protobuf.message.Message):
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     @property
     def release(self) -> global___PipelineRelease:
-        """A pipeline release resource to update"""
+        """The pipeline release fields that will replace the existing ones.
+        A pipeline release resource to update
+        """
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
-        """Update mask for a pipeline resource"""
+        """The update mask specifies the subset of fields that should be modified.
+
+        For more information about this field, see
+        https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#field-mask.
+        """
     def __init__(
         self,
         *,
@@ -1300,14 +1376,14 @@ global___UpdateUserPipelineReleaseRequest = UpdateUserPipelineReleaseRequest
 
 @typing_extensions.final
 class UpdateUserPipelineReleaseResponse(google.protobuf.message.Message):
-    """UpdateUserPipelineReleaseResponse represents a response for a pipeline resource"""
+    """UpdateUserPipelineReleaseResponse contains the updated pipeline release."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     RELEASE_FIELD_NUMBER: builtins.int
     @property
     def release(self) -> global___PipelineRelease:
-        """An updated pipeline resource"""
+        """The updated pipeline release resource."""
     def __init__(
         self,
         *,
@@ -1320,13 +1396,18 @@ global___UpdateUserPipelineReleaseResponse = UpdateUserPipelineReleaseResponse
 
 @typing_extensions.final
 class DeleteUserPipelineReleaseRequest(google.protobuf.message.Message):
-    """DeleteUserPipelineReleaseRequest represents a request to delete a pipeline_release resource"""
+    """DeleteUserPipelineReleaseRequest represents a request to delete a release in
+    a user-owned pipeline.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """PipelineRelease resource name. It must have the format of "users/*/pipelines/*/releases/*" """
+    """The resource name of the pipeline release, which allows its access by
+    parent pipeline and ID.
+    - Format: `users/{user.id}/pipelines/{pipeline.id}/releases/{release.id}`.
+    """
     def __init__(
         self,
         *,
@@ -1338,7 +1419,7 @@ global___DeleteUserPipelineReleaseRequest = DeleteUserPipelineReleaseRequest
 
 @typing_extensions.final
 class DeleteUserPipelineReleaseResponse(google.protobuf.message.Message):
-    """DeleteUserPipelineReleaseResponse represents an empty response"""
+    """DeleteUserPipelineReleaseResponse is an empty response."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1350,13 +1431,18 @@ global___DeleteUserPipelineReleaseResponse = DeleteUserPipelineReleaseResponse
 
 @typing_extensions.final
 class RestoreUserPipelineReleaseRequest(google.protobuf.message.Message):
-    """RestoreUserPipelineReleaseRequest"""
+    """RestoreUserPipelineReleaseRequest represents a request to set the version of
+    a user-owned pipeline to a pinned release.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Pipeline resource name. It must have the format of "users/*/pipelines/*/releases/*" """
+    """The resource name of the pipeline release, which allows its access by
+    parent pipeline and ID.
+    - Format: `users/{user.id}/pipelines/{pipeline.id}/releases/{release.id}`.
+    """
     def __init__(
         self,
         *,
@@ -1368,14 +1454,14 @@ global___RestoreUserPipelineReleaseRequest = RestoreUserPipelineReleaseRequest
 
 @typing_extensions.final
 class RestoreUserPipelineReleaseResponse(google.protobuf.message.Message):
-    """RestoreUserPipelineReleaseResponse"""
+    """RestoreUserPipelineReleaseResponse contains the requested pipeline release."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     RELEASE_FIELD_NUMBER: builtins.int
     @property
     def release(self) -> global___PipelineRelease:
-        """A pipeline resource"""
+        """The pipeline release resource."""
     def __init__(
         self,
         *,
@@ -1388,8 +1474,8 @@ global___RestoreUserPipelineReleaseResponse = RestoreUserPipelineReleaseResponse
 
 @typing_extensions.final
 class RenameUserPipelineReleaseRequest(google.protobuf.message.Message):
-    """RenameUserPipelineReleaseRequest represents a request to rename the pipeline release resource
-    name
+    """RenameUserPipelineReleaseRequest represents a request to rename a release in
+    a user-owned pipeline.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1397,10 +1483,13 @@ class RenameUserPipelineReleaseRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     NEW_PIPELINE_RELEASE_ID_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Pipeline release resource name. It must have the format of "users/*/pipelines/*/releases/*" """
+    """The resource name of the pipeline release, which allows its access by
+    parent pipeline and ID.
+    - Format: `users/{user.id}/pipelines/{pipeline.id}/releases/{release.id}`.
+    """
     new_pipeline_release_id: builtins.str
-    """Pipeline new resource id to replace with the pipeline resource name to be
-    "users/*/pipelines/*/releases/{new_pipeline_id}"
+    """The new resource ID. This will transform the resource name into
+    `users/{user.id}/pipelines/{pipeline.id}/releases{new_release_id}`.
     """
     def __init__(
         self,
@@ -1414,14 +1503,14 @@ global___RenameUserPipelineReleaseRequest = RenameUserPipelineReleaseRequest
 
 @typing_extensions.final
 class RenameUserPipelineReleaseResponse(google.protobuf.message.Message):
-    """RenameUserPipelineReleaseResponse represents a renamed pipeline release resource"""
+    """RenameUserPipelineReleaseResponse contains a renamed pipeline release."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     RELEASE_FIELD_NUMBER: builtins.int
     @property
     def release(self) -> global___PipelineRelease:
-        """A pipeline resource"""
+        """The renamed pipeline release."""
     def __init__(
         self,
         *,
@@ -1434,15 +1523,18 @@ global___RenameUserPipelineReleaseResponse = RenameUserPipelineReleaseResponse
 
 @typing_extensions.final
 class WatchUserPipelineReleaseRequest(google.protobuf.message.Message):
-    """WatchUserPipelineReleaseRequest represents a public request to query
-    a pipeline's current state
+    """WatchUserPipelineReleaseRequest represents a request to query the state of a
+    user-owned pipeline release.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Pipeline resource name. It must have the format of "users/*/pipelines/*/releases/*" """
+    """The resource name of the pipeline release, which allows its access by
+    parent pipeline and ID.
+    - Format: `users/{user.id}/pipelines/{pipeline.id}/releases/{release.id}`.
+    """
     def __init__(
         self,
         *,
@@ -1454,15 +1546,15 @@ global___WatchUserPipelineReleaseRequest = WatchUserPipelineReleaseRequest
 
 @typing_extensions.final
 class WatchUserPipelineReleaseResponse(google.protobuf.message.Message):
-    """WatchUserPipelineReleaseResponse represents a response to fetch a pipeline's
-    current state
+    """WatchUserPipelineReleaseResponse contains the pipeline release current
+    state.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     STATE_FIELD_NUMBER: builtins.int
     state: global___State.ValueType
-    """Retrieved pipeline state"""
+    """The pipeline release state."""
     def __init__(
         self,
         *,
@@ -1474,17 +1566,22 @@ global___WatchUserPipelineReleaseResponse = WatchUserPipelineReleaseResponse
 
 @typing_extensions.final
 class TriggerUserPipelineReleaseRequest(google.protobuf.message.Message):
-    """TriggerUserPipelineReleaseRequest represents a request to trigger a pipeline_released pipeline"""
+    """TriggerUserPipelineReleaseRequest represents a request to trigger a pinned
+    release of a user-owned pipeline.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Resource name."""
+    """The resource name of the pipeline release, which allows its access by
+    parent pipeline and ID.
+    - Format: `users/{user.id}/pipelines/{pipeline.id}/releases/{release.id}`.
+    """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """Input to the pipeline"""
+        """Pipeline input parameters."""
     def __init__(
         self,
         *,
@@ -1497,8 +1594,8 @@ global___TriggerUserPipelineReleaseRequest = TriggerUserPipelineReleaseRequest
 
 @typing_extensions.final
 class TriggerUserPipelineReleaseResponse(google.protobuf.message.Message):
-    """TriggerUserPipelineReleaseResponse represents a response for the output
-    of a pipeline, i.e., the multiple model inference outputs
+    """TriggerUserPipelineReleaseResponse contains the pipeline execution results,
+    i.e., the multiple model inference outputs.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1507,10 +1604,10 @@ class TriggerUserPipelineReleaseResponse(google.protobuf.message.Message):
     METADATA_FIELD_NUMBER: builtins.int
     @property
     def outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """The multiple model inference outputs"""
+        """Model inference outputs."""
     @property
     def metadata(self) -> global___TriggerMetadata:
-        """The traces of the pipeline inference, {component_id: Trace}"""
+        """Traces of the pipeline inference."""
     def __init__(
         self,
         *,
@@ -1524,17 +1621,22 @@ global___TriggerUserPipelineReleaseResponse = TriggerUserPipelineReleaseResponse
 
 @typing_extensions.final
 class TriggerAsyncUserPipelineReleaseRequest(google.protobuf.message.Message):
-    """TriggerAsyncUserPipelineReleaseRequest represents a request to trigger a pipeline_released pipeline"""
+    """TriggerUserPipelineReleaseRequest represents a request to trigger a pinned
+    release of a user-owned pipeline asynchronously.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Resource name."""
+    """The resource name of the pipeline release, which allows its access by
+    parent pipeline and ID.
+    - Format: `users/{user.id}/pipelines/{pipeline.id}/releases/{release.id}`.
+    """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """Input to the pipeline"""
+        """Pipeline input parameters."""
     def __init__(
         self,
         *,
@@ -1547,8 +1649,8 @@ global___TriggerAsyncUserPipelineReleaseRequest = TriggerAsyncUserPipelineReleas
 
 @typing_extensions.final
 class TriggerAsyncUserPipelineReleaseResponse(google.protobuf.message.Message):
-    """TriggerAsyncUserPipelineReleaseResponse represents a response for the longrunning
-    operation of a pipeline
+    """TriggerAsyncUserPipelineReleaseResponse contains the information to access
+    the status of an asynchronous pipeline execution.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1556,7 +1658,7 @@ class TriggerAsyncUserPipelineReleaseResponse(google.protobuf.message.Message):
     OPERATION_FIELD_NUMBER: builtins.int
     @property
     def operation(self) -> google.longrunning.operations_pb2.Operation:
-        """Trigger async pipeline operation message"""
+        """Long-running operation information."""
     def __init__(
         self,
         *,
@@ -1569,7 +1671,9 @@ global___TriggerAsyncUserPipelineReleaseResponse = TriggerAsyncUserPipelineRelea
 
 @typing_extensions.final
 class CreateOrganizationPipelineRequest(google.protobuf.message.Message):
-    """CreateOrganizationPipelineRequest represents a request to create a pipeline"""
+    """CreateOrganizationPipelineRequest represents a request from an organization
+    to create a pipeline.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1577,10 +1681,10 @@ class CreateOrganizationPipelineRequest(google.protobuf.message.Message):
     PARENT_FIELD_NUMBER: builtins.int
     @property
     def pipeline(self) -> global___Pipeline:
-        """A pipeline resource to create"""
+        """The properties of the pipeline to be created."""
     parent: builtins.str
-    """The parent resource where this connector resource will be created.
-    Format: organizations/{organizations}
+    """The parent resource, i.e., the organization that creates the pipeline.
+    - Format: `organizations/{organization.id}`.
     """
     def __init__(
         self,
@@ -1595,14 +1699,14 @@ global___CreateOrganizationPipelineRequest = CreateOrganizationPipelineRequest
 
 @typing_extensions.final
 class CreateOrganizationPipelineResponse(google.protobuf.message.Message):
-    """CreateOrganizationPipelineResponse represents a response for a pipeline resource"""
+    """CreateOrganizationPipelineResponse contains the created pipeline."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PIPELINE_FIELD_NUMBER: builtins.int
     @property
     def pipeline(self) -> global___Pipeline:
-        """The created pipeline resource"""
+        """The created pipeline resource."""
     def __init__(
         self,
         *,
@@ -1615,7 +1719,9 @@ global___CreateOrganizationPipelineResponse = CreateOrganizationPipelineResponse
 
 @typing_extensions.final
 class ListOrganizationPipelinesRequest(google.protobuf.message.Message):
-    """ListOrganizationPipelinesRequest represents a request to list pipelines"""
+    """ListOrganizationPipelinesRequest represents a request to list the pipelines
+    of a organization.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1626,22 +1732,27 @@ class ListOrganizationPipelinesRequest(google.protobuf.message.Message):
     PARENT_FIELD_NUMBER: builtins.int
     SHOW_DELETED_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """The maximum number of pipelines to return. The service may return fewer
-    than this value. If unspecified, at most 10 pipelines will be returned. The
-    maximum value is 100; values above 100 will be coerced to 100.
+    """The maximum number of pipelines to return. If this parameter is
+    unspecified, at most 10 pipelines will be returned. The cap value for this
+    parameter is 100 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     view: global___Pipeline.View.ValueType
-    """View view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired pipeline view in the response."""
     filter: builtins.str
-    """Filter expression to list pipelines"""
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    - Example:
+    `recipe.components.definition_name:"operator-definitions/2ac8be70-0f7a-4b61-a33d-098b8acfa6f3"`.
+    """
     parent: builtins.str
-    """The parent resource where this connector resource will be created.
-    Format: organizations/{organizations}
+    """The parent resource, i.e., the organization that created the pipelines.
+    - Format: `organizations/{organization.id}`.
     """
     show_deleted: builtins.bool
-    """Return soft_deleted pipeline releases"""
+    """Include soft-deleted pipelines in the result."""
     def __init__(
         self,
         *,
@@ -1669,7 +1780,7 @@ global___ListOrganizationPipelinesRequest = ListOrganizationPipelinesRequest
 
 @typing_extensions.final
 class ListOrganizationPipelinesResponse(google.protobuf.message.Message):
-    """ListOrganizationPipelinesResponse represents a response for a list of pipelines"""
+    """ListOrganizationPipelinesResponse contains a list of pipelines."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1678,11 +1789,11 @@ class ListOrganizationPipelinesResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def pipelines(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Pipeline]:
-        """A list of pipeline resources"""
+        """A list of pipeline resources."""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
-    """Total count of pipeline resources"""
+    """Total number of pipelines."""
     def __init__(
         self,
         *,
@@ -1696,16 +1807,21 @@ global___ListOrganizationPipelinesResponse = ListOrganizationPipelinesResponse
 
 @typing_extensions.final
 class GetOrganizationPipelineRequest(google.protobuf.message.Message):
-    """GetOrganizationPipelineRequest represents a request to query a pipeline"""
+    """GetOrganizationPipelineRequest represents a request to fetch the details of
+    a pipeline owned by an organization.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Pipeline resource name. It must have the format of "organizations/*/pipelines/*" """
+    """The resource name of the pipeline, which allows its access by parent
+    organization and ID.
+    - Format: `organizations/{organization.id}/pipelines/{pipeline.id}`.
+    """
     view: global___Pipeline.View.ValueType
-    """Pipeline resource view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired pipeline view in the response."""
     def __init__(
         self,
         *,
@@ -1720,14 +1836,14 @@ global___GetOrganizationPipelineRequest = GetOrganizationPipelineRequest
 
 @typing_extensions.final
 class GetOrganizationPipelineResponse(google.protobuf.message.Message):
-    """GetOrganizationPipelineResponse represents a response for a pipeline resource"""
+    """GetOrganizationPipelineResponse contains the requested pipeline."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PIPELINE_FIELD_NUMBER: builtins.int
     @property
     def pipeline(self) -> global___Pipeline:
-        """A pipeline resource"""
+        """The pipeline resource."""
     def __init__(
         self,
         *,
@@ -1740,7 +1856,9 @@ global___GetOrganizationPipelineResponse = GetOrganizationPipelineResponse
 
 @typing_extensions.final
 class UpdateOrganizationPipelineRequest(google.protobuf.message.Message):
-    """UpdateOrganizationPipelineRequest represents a request to update a pipeline"""
+    """UpdateOrganizationPipelineRequest represents a request to update a pipeline
+    owned by an organization.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1748,10 +1866,14 @@ class UpdateOrganizationPipelineRequest(google.protobuf.message.Message):
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     @property
     def pipeline(self) -> global___Pipeline:
-        """A pipeline resource to update"""
+        """The pipeline fields that will replace the existing ones."""
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
-        """Update mask for a pipeline resource"""
+        """The update mask specifies the subset of fields that should be modified.
+
+        For more information about this field, see
+        https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#field-mask.
+        """
     def __init__(
         self,
         *,
@@ -1765,14 +1887,14 @@ global___UpdateOrganizationPipelineRequest = UpdateOrganizationPipelineRequest
 
 @typing_extensions.final
 class UpdateOrganizationPipelineResponse(google.protobuf.message.Message):
-    """UpdateOrganizationPipelineResponse represents a response for a pipeline resource"""
+    """UpdateOrganizationPipelineResponse contains the updated pipeline."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PIPELINE_FIELD_NUMBER: builtins.int
     @property
     def pipeline(self) -> global___Pipeline:
-        """An updated pipeline resource"""
+        """The updated pipeline resource."""
     def __init__(
         self,
         *,
@@ -1785,13 +1907,18 @@ global___UpdateOrganizationPipelineResponse = UpdateOrganizationPipelineResponse
 
 @typing_extensions.final
 class DeleteOrganizationPipelineRequest(google.protobuf.message.Message):
-    """DeleteOrganizationPipelineRequest represents a request to delete a pipeline resource"""
+    """DeleteOrganizationPipelineRequest represents a request to delete a pipeline
+    owned by an organization.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Pipeline resource name. It must have the format of "organizations/*/pipelines/*" """
+    """The resource name of the pipeline, which allows its access by parent
+    organization and ID.
+    - Format: `organizations/{organization.id}/pipelines/{pipeline.id}`.
+    """
     def __init__(
         self,
         *,
@@ -1803,7 +1930,7 @@ global___DeleteOrganizationPipelineRequest = DeleteOrganizationPipelineRequest
 
 @typing_extensions.final
 class DeleteOrganizationPipelineResponse(google.protobuf.message.Message):
-    """DeleteOrganizationPipelineResponse represents an empty response"""
+    """DeleteOrganizationPipelineResponse is an empty response."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1815,13 +1942,18 @@ global___DeleteOrganizationPipelineResponse = DeleteOrganizationPipelineResponse
 
 @typing_extensions.final
 class ValidateOrganizationPipelineRequest(google.protobuf.message.Message):
-    """ValidatePOrganizationipelineRequest represents a request to validate a pipeline"""
+    """ValidateOrganizationPipelineRequest represents a request to validate a
+    pipeline owned by an organization.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Pipeline resource name. It must have the format of "organizations/*/pipelines/*" """
+    """The resource name of the pipeline, which allows its access by parent
+    organization and ID.
+    - Format: `organizations/{organization.id}/pipelines/{pipeline.id}`.
+    """
     def __init__(
         self,
         *,
@@ -1833,14 +1965,14 @@ global___ValidateOrganizationPipelineRequest = ValidateOrganizationPipelineReque
 
 @typing_extensions.final
 class ValidateOrganizationPipelineResponse(google.protobuf.message.Message):
-    """ValidateOrganizationPipelineResponse represents an response of validated pipeline"""
+    """ValidateOrganizationPipelineResponse contains a validated pipeline."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PIPELINE_FIELD_NUMBER: builtins.int
     @property
     def pipeline(self) -> global___Pipeline:
-        """A pipeline resource"""
+        """The validated pipeline resource."""
     def __init__(
         self,
         *,
@@ -1853,8 +1985,8 @@ global___ValidateOrganizationPipelineResponse = ValidateOrganizationPipelineResp
 
 @typing_extensions.final
 class RenameOrganizationPipelineRequest(google.protobuf.message.Message):
-    """RenameOrganizationPipelineRequest represents a request to rename the pipeline resource
-    name
+    """RenameOrganizationPipelineRequest represents a request to rename the name of
+    a pipeline owned by an organization.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1862,10 +1994,13 @@ class RenameOrganizationPipelineRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     NEW_PIPELINE_ID_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Pipeline resource name. It must have the format of "organizations/*/pipelines/*" """
+    """The resource name of the pipeline, which allows its access by parent
+    organization and ID.
+    - Format: `organizations/{organization.id}/pipelines/{pipeline.id}`.
+    """
     new_pipeline_id: builtins.str
-    """Pipeline new resource id to replace with the pipeline resource name to be
-    "organizations/*/pipelines/{new_pipeline_id}"
+    """The new resource ID. This will transform the resource name into
+    `organizations/{organization.id}/pipelines/{new_pipeline_id}`.
     """
     def __init__(
         self,
@@ -1879,14 +2014,14 @@ global___RenameOrganizationPipelineRequest = RenameOrganizationPipelineRequest
 
 @typing_extensions.final
 class RenameOrganizationPipelineResponse(google.protobuf.message.Message):
-    """RenameOrganizationPipelineResponse represents a renamed pipeline resource"""
+    """RenameOrganizationPipelineResponse contains a renamed pipeline."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PIPELINE_FIELD_NUMBER: builtins.int
     @property
     def pipeline(self) -> global___Pipeline:
-        """A pipeline resource"""
+        """The renamed pipeline resource."""
     def __init__(
         self,
         *,
@@ -1899,17 +2034,22 @@ global___RenameOrganizationPipelineResponse = RenameOrganizationPipelineResponse
 
 @typing_extensions.final
 class TriggerOrganizationPipelineRequest(google.protobuf.message.Message):
-    """TriggerOrganizationPipelineRequest represents a request to trigger a pipeline"""
+    """TriggerOrganizationPipelineRequest represents a request to trigger an
+    organization-owned pipeline synchronously.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Pipeline resource name. It must have the format of "organizations/*/pipelines/*" """
+    """The resource name of the pipeline, which allows its access by parent
+    organization and ID.
+    - Format: `organizations/{organization.id}/pipelines/{pipeline.id}`.
+    """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """Input to the pipeline"""
+        """Pipeline input parameters."""
     def __init__(
         self,
         *,
@@ -1922,8 +2062,8 @@ global___TriggerOrganizationPipelineRequest = TriggerOrganizationPipelineRequest
 
 @typing_extensions.final
 class TriggerOrganizationPipelineResponse(google.protobuf.message.Message):
-    """TriggerOrganizationPipelineResponse represents a response for the output
-    of a pipeline, i.e., the multiple model inference outputs
+    """TriggerOrganizationPipelineResponse contains the pipeline execution results,
+    i.e., the multiple model inference outputs.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1932,10 +2072,10 @@ class TriggerOrganizationPipelineResponse(google.protobuf.message.Message):
     METADATA_FIELD_NUMBER: builtins.int
     @property
     def outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """The multiple model inference outputs"""
+        """Model inference outputs."""
     @property
     def metadata(self) -> global___TriggerMetadata:
-        """The traces of the pipeline inference, {component_id: Trace}"""
+        """Traces of the pipeline inference."""
     def __init__(
         self,
         *,
@@ -1949,17 +2089,22 @@ global___TriggerOrganizationPipelineResponse = TriggerOrganizationPipelineRespon
 
 @typing_extensions.final
 class TriggerAsyncOrganizationPipelineRequest(google.protobuf.message.Message):
-    """TriggerAsyncOrganizationPipelineRequest represents a request to trigger a async pipeline"""
+    """TriggerOrganizationPipelineRequest represents a request to trigger an
+    organization-owned pipeline synchronously.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Pipeline resource name. It must have the format of "organizations/*/pipelines/*" """
+    """The resource name of the pipeline, which allows its access by parent
+    organization and ID.
+    - Format: `organizations/{organization.id}/pipelines/{pipeline.id}`.
+    """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """Input to the pipeline"""
+        """Pipeline input parameters."""
     def __init__(
         self,
         *,
@@ -1972,8 +2117,8 @@ global___TriggerAsyncOrganizationPipelineRequest = TriggerAsyncOrganizationPipel
 
 @typing_extensions.final
 class TriggerAsyncOrganizationPipelineResponse(google.protobuf.message.Message):
-    """TriggerAsyncOrganizationPipelineResponse represents a response for the longrunning
-    operation of a pipeline
+    """TriggerAsyncOrganizationPipelineResponse contains the information to access
+    the status of an asynchronous pipeline execution.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1981,7 +2126,7 @@ class TriggerAsyncOrganizationPipelineResponse(google.protobuf.message.Message):
     OPERATION_FIELD_NUMBER: builtins.int
     @property
     def operation(self) -> google.longrunning.operations_pb2.Operation:
-        """Trigger async pipeline operation message"""
+        """Long-running operation information."""
     def __init__(
         self,
         *,
@@ -1994,7 +2139,9 @@ global___TriggerAsyncOrganizationPipelineResponse = TriggerAsyncOrganizationPipe
 
 @typing_extensions.final
 class CreateOrganizationPipelineReleaseRequest(google.protobuf.message.Message):
-    """CreateOrganizationPipelineReleaseRequest represents a request to create a pipeline_release"""
+    """CreateOrganizationPipelineReleaseRequest represents a request to release a
+    version in an organization-owned pipeline.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2002,10 +2149,10 @@ class CreateOrganizationPipelineReleaseRequest(google.protobuf.message.Message):
     PARENT_FIELD_NUMBER: builtins.int
     @property
     def release(self) -> global___PipelineRelease:
-        """A pipeline_release resource to create"""
+        """The release information."""
     parent: builtins.str
-    """The parent resource where this pipeline_release will be created.
-    Format: organizations/{organization}/pipelines/{pipeline}
+    """Name of the pipeline for which the release will be created.
+    Format: `organizations/{organization.id}/pipelines/{pipeline.id}`
     """
     def __init__(
         self,
@@ -2020,14 +2167,14 @@ global___CreateOrganizationPipelineReleaseRequest = CreateOrganizationPipelineRe
 
 @typing_extensions.final
 class CreateOrganizationPipelineReleaseResponse(google.protobuf.message.Message):
-    """CreateOrganizationPipelineReleaseResponse represents a response for a pipeline_release resource"""
+    """CreateOrganizationPipelineReleaseResponse contains the created release."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     RELEASE_FIELD_NUMBER: builtins.int
     @property
     def release(self) -> global___PipelineRelease:
-        """The created pipeline_release resource"""
+        """The created pipeline release object."""
     def __init__(
         self,
         *,
@@ -2040,7 +2187,9 @@ global___CreateOrganizationPipelineReleaseResponse = CreateOrganizationPipelineR
 
 @typing_extensions.final
 class ListOrganizationPipelineReleasesRequest(google.protobuf.message.Message):
-    """ListOrganizationPipelineReleasesRequest represents a request to list pipeline_releases"""
+    """ListOrganizationPipelineReleasesRequest represents a request to list the
+    releases in an organization-owned pipeline.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2051,22 +2200,25 @@ class ListOrganizationPipelineReleasesRequest(google.protobuf.message.Message):
     PARENT_FIELD_NUMBER: builtins.int
     SHOW_DELETED_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """The maximum number of pipeline_releases to return. The service may return fewer
-    than this value. If unspecified, at most 10 pipeline_release will be returned. The
-    maximum value is 100; values above 100 will be coerced to 100.
+    """The maximum number of releases to return. If this parameter is
+    unspecified, at most 10 pipelines will be returned. The cap value for this
+    parameter is 100 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     view: global___Pipeline.View.ValueType
-    """View view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired pipeline view in the response."""
     filter: builtins.str
-    """Filter expression to list pipeline_releases"""
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
     parent: builtins.str
-    """The parent resource where this pipeline_release will be created.
-    Format: organizations/{organization}/pipelines/{pipeline}
+    """The parent resource where this pipeline release will be created.
+    Format: `organizations/{organization.id}/pipelines/{pipeline.id}`
     """
     show_deleted: builtins.bool
-    """Return soft_deleted pipelines"""
+    """Include soft-deleted pipelines in the result."""
     def __init__(
         self,
         *,
@@ -2094,7 +2246,7 @@ global___ListOrganizationPipelineReleasesRequest = ListOrganizationPipelineRelea
 
 @typing_extensions.final
 class ListOrganizationPipelineReleasesResponse(google.protobuf.message.Message):
-    """ListOrganizationPipelineReleasesResponse represents a response for a list of pipeline_releases"""
+    """ListOrganizationPipelineReleasesResponse contains a list of pipeline releases."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2103,11 +2255,11 @@ class ListOrganizationPipelineReleasesResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def releases(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PipelineRelease]:
-        """A list of pipeline_release resources"""
+        """A list of pipeline release resources."""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
-    """Total count of pipeline_release resources"""
+    """Total number of pipeline releases."""
     def __init__(
         self,
         *,
@@ -2121,16 +2273,22 @@ global___ListOrganizationPipelineReleasesResponse = ListOrganizationPipelineRele
 
 @typing_extensions.final
 class GetOrganizationPipelineReleaseRequest(google.protobuf.message.Message):
-    """GetOrganizationPipelineReleaseRequest represents a request to query a pipeline_release"""
+    """GetOrganizationPipelineReleaseRequest represents a request to fetchthe
+    details of a release in an organization-owned pipeline.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """PipelineRelease resource name. It must have the format of "organizations/*/pipelines/*/releases/*" """
+    """The resource name of the pipeline release, which allows its access by
+    parent pipeline and ID.
+    - Format:
+    `organizations/{organization.id}/pipelines/{pipeline.id}/releases/{release.id}`.
+    """
     view: global___Pipeline.View.ValueType
-    """PipelineRelease resource view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired pipeline view in the response."""
     def __init__(
         self,
         *,
@@ -2145,14 +2303,14 @@ global___GetOrganizationPipelineReleaseRequest = GetOrganizationPipelineReleaseR
 
 @typing_extensions.final
 class GetOrganizationPipelineReleaseResponse(google.protobuf.message.Message):
-    """GetOrganizationPipelineReleaseResponse represents a response for a pipeline_release resource"""
+    """GetOrganizationPipelineReleaseResponse contains the requested pipeline release."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     RELEASE_FIELD_NUMBER: builtins.int
     @property
     def release(self) -> global___PipelineRelease:
-        """A pipeline_release resource"""
+        """The pipeline release resource."""
     def __init__(
         self,
         *,
@@ -2165,7 +2323,9 @@ global___GetOrganizationPipelineReleaseResponse = GetOrganizationPipelineRelease
 
 @typing_extensions.final
 class UpdateOrganizationPipelineReleaseRequest(google.protobuf.message.Message):
-    """UpdateOrganizationPipelineReleaseRequest represents a request to update a pipeline release"""
+    """UpdateOrganizationPipelineReleaseRequest represents a request to update an
+    organization-owned pipeline release.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2173,10 +2333,16 @@ class UpdateOrganizationPipelineReleaseRequest(google.protobuf.message.Message):
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     @property
     def release(self) -> global___PipelineRelease:
-        """A pipeline release resource to update"""
+        """The pipeline release fields that will replace the existing ones.
+        A pipeline release resource to update
+        """
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
-        """Update mask for a pipeline resource"""
+        """The update mask specifies the subset of fields that should be modified.
+
+        For more information about this field, see
+        https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#field-mask.
+        """
     def __init__(
         self,
         *,
@@ -2190,14 +2356,16 @@ global___UpdateOrganizationPipelineReleaseRequest = UpdateOrganizationPipelineRe
 
 @typing_extensions.final
 class UpdateOrganizationPipelineReleaseResponse(google.protobuf.message.Message):
-    """UpdateOrganizationPipelineReleaseResponse represents a response for a pipeline resource"""
+    """UpdateOrganizationPipelineReleaseResponse contains the updated pipeline
+    release.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     RELEASE_FIELD_NUMBER: builtins.int
     @property
     def release(self) -> global___PipelineRelease:
-        """An updated pipeline resource"""
+        """The updated pipeline release resource."""
     def __init__(
         self,
         *,
@@ -2210,13 +2378,19 @@ global___UpdateOrganizationPipelineReleaseResponse = UpdateOrganizationPipelineR
 
 @typing_extensions.final
 class DeleteOrganizationPipelineReleaseRequest(google.protobuf.message.Message):
-    """DeleteOrganizationPipelineReleaseRequest represents a request to delete a pipeline_release resource"""
+    """DeleteOrganizationPipelineReleaseRequest represents a request to delete a
+    release in an organization-owned pipeline.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """PipelineRelease resource name. It must have the format of "organizations/*/pipelines/*/releases/*" """
+    """The resource name of the pipeline release, which allows its access by
+    parent pipeline and ID.
+    - Format:
+    `organizations/{organization.id}/pipelines/{pipeline.id}/releases/{release.id}`.
+    """
     def __init__(
         self,
         *,
@@ -2228,7 +2402,7 @@ global___DeleteOrganizationPipelineReleaseRequest = DeleteOrganizationPipelineRe
 
 @typing_extensions.final
 class DeleteOrganizationPipelineReleaseResponse(google.protobuf.message.Message):
-    """DeleteOrganizationPipelineReleaseResponse represents an empty response"""
+    """DeleteOrganizationPipelineReleaseResponse is an empty response."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2239,52 +2413,20 @@ class DeleteOrganizationPipelineReleaseResponse(google.protobuf.message.Message)
 global___DeleteOrganizationPipelineReleaseResponse = DeleteOrganizationPipelineReleaseResponse
 
 @typing_extensions.final
-class SetDefaultOrganizationPipelineReleaseRequest(google.protobuf.message.Message):
-    """SetDefaultOrganizationPipelineReleaseRequest"""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAME_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """Pipeline resource name. It must have the format of "organizations/*/pipelines/*/releases/*" """
-    def __init__(
-        self,
-        *,
-        name: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
-
-global___SetDefaultOrganizationPipelineReleaseRequest = SetDefaultOrganizationPipelineReleaseRequest
-
-@typing_extensions.final
-class SetDefaultOrganizationPipelineReleaseResponse(google.protobuf.message.Message):
-    """SetDefaultOrganizationPipelineReleaseResponse"""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    RELEASE_FIELD_NUMBER: builtins.int
-    @property
-    def release(self) -> global___PipelineRelease:
-        """A pipeline resource"""
-    def __init__(
-        self,
-        *,
-        release: global___PipelineRelease | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["release", b"release"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["release", b"release"]) -> None: ...
-
-global___SetDefaultOrganizationPipelineReleaseResponse = SetDefaultOrganizationPipelineReleaseResponse
-
-@typing_extensions.final
 class RestoreOrganizationPipelineReleaseRequest(google.protobuf.message.Message):
-    """RestoreOrganizationPipelineReleaseRequest"""
+    """RestoreOrganizationPipelineReleaseRequest represents a request to set the
+    version of an organization-owned pipeline to a pinned release.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Pipeline resource name. It must have the format of "organizations/*/pipelines/*/releases/*" """
+    """The resource name of the pipeline release, which allows its access by
+    parent pipeline and ID.
+    - Format:
+    `organizations/{organization.id}/pipelines/{pipeline.id}/releases/{release.id}`.
+    """
     def __init__(
         self,
         *,
@@ -2296,14 +2438,16 @@ global___RestoreOrganizationPipelineReleaseRequest = RestoreOrganizationPipeline
 
 @typing_extensions.final
 class RestoreOrganizationPipelineReleaseResponse(google.protobuf.message.Message):
-    """RestoreOrganizationPipelineReleaseResponse"""
+    """RestoreOrganizationPipelineReleaseResponse contains the requested pipeline
+    release.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     RELEASE_FIELD_NUMBER: builtins.int
     @property
     def release(self) -> global___PipelineRelease:
-        """A pipeline resource"""
+        """The pipeline release resource."""
     def __init__(
         self,
         *,
@@ -2316,8 +2460,8 @@ global___RestoreOrganizationPipelineReleaseResponse = RestoreOrganizationPipelin
 
 @typing_extensions.final
 class RenameOrganizationPipelineReleaseRequest(google.protobuf.message.Message):
-    """RenameOrganizationPipelineReleaseRequest represents a request to rename the pipeline release resource
-    name
+    """RenameOrganizationPipelineReleaseRequest represents a request to rename a
+    release in an organization-owned pipeline.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -2325,10 +2469,14 @@ class RenameOrganizationPipelineReleaseRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     NEW_PIPELINE_RELEASE_ID_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Pipeline release resource name. It must have the format of "organizations/*/pipelines/*/releases/*" """
+    """The resource name of the pipeline release, which allows its access by
+    parent pipeline and ID.
+    - Format:
+    `organizations/{organization.id}/pipelines/{pipeline.id}/releases/{release.id}`.
+    """
     new_pipeline_release_id: builtins.str
-    """Pipeline new resource id to replace with the pipeline resource name to be
-    "organizations/*/pipelines/*/releases/{new_pipeline_id}"
+    """The new resource ID. This will transform the resource name into
+    `organizations/{organization.id}/pipelines/{pipeline.id}/releases{new_release_id}`.
     """
     def __init__(
         self,
@@ -2342,14 +2490,14 @@ global___RenameOrganizationPipelineReleaseRequest = RenameOrganizationPipelineRe
 
 @typing_extensions.final
 class RenameOrganizationPipelineReleaseResponse(google.protobuf.message.Message):
-    """RenameOrganizationPipelineReleaseResponse represents a renamed pipeline release resource"""
+    """RenameOrganizationPipelineReleaseResponse contains a renamed pipeline release."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     RELEASE_FIELD_NUMBER: builtins.int
     @property
     def release(self) -> global___PipelineRelease:
-        """A pipeline resource"""
+        """The renamed pipeline release."""
     def __init__(
         self,
         *,
@@ -2362,15 +2510,19 @@ global___RenameOrganizationPipelineReleaseResponse = RenameOrganizationPipelineR
 
 @typing_extensions.final
 class WatchOrganizationPipelineReleaseRequest(google.protobuf.message.Message):
-    """WatchOrganizationPipelineReleaseRequest represents a public request to query
-    a pipeline's current state
+    """WatchOrganizationPipelineReleaseRequest represents a request to query the
+    state of a organization-owned pipeline release.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Pipeline resource name. It must have the format of "organizations/*/pipelines/*/releases/*" """
+    """The resource name of the pipeline release, which allows its access by
+    parent pipeline and ID.
+    - Format:
+    `organizations/{organization.id}/pipelines/{pipeline.id}/releases/{release.id}`.
+    """
     def __init__(
         self,
         *,
@@ -2382,15 +2534,15 @@ global___WatchOrganizationPipelineReleaseRequest = WatchOrganizationPipelineRele
 
 @typing_extensions.final
 class WatchOrganizationPipelineReleaseResponse(google.protobuf.message.Message):
-    """WatchOrganizationPipelineReleaseResponse represents a response to fetch a pipeline's
-    current state
+    """WatchOrganizationPipelineReleaseResponse contains the pipeline release
+    current state.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     STATE_FIELD_NUMBER: builtins.int
     state: global___State.ValueType
-    """Retrieved pipeline state"""
+    """The pipeline release state."""
     def __init__(
         self,
         *,
@@ -2402,17 +2554,23 @@ global___WatchOrganizationPipelineReleaseResponse = WatchOrganizationPipelineRel
 
 @typing_extensions.final
 class TriggerOrganizationPipelineReleaseRequest(google.protobuf.message.Message):
-    """TriggerOrganizationPipelineReleaseRequest represents a request to trigger a pipeline_released pipeline"""
+    """TriggerOrganizationPipelineReleaseRequest represents a request to trigger a
+    pinned release of an organization-owned pipeline.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Resource name."""
+    """The resource name of the pipeline release, which allows its access by
+    parent pipeline and ID.
+    - Format:
+    `organizations/{organization.id}/pipelines/{pipeline.id}/releases/{release.id}`.
+    """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """Input to the pipeline"""
+        """Pipeline input parameters."""
     def __init__(
         self,
         *,
@@ -2425,8 +2583,8 @@ global___TriggerOrganizationPipelineReleaseRequest = TriggerOrganizationPipeline
 
 @typing_extensions.final
 class TriggerOrganizationPipelineReleaseResponse(google.protobuf.message.Message):
-    """TriggerOrganizationPipelineReleaseResponse represents a response for the output
-    of a pipeline, i.e., the multiple model inference outputs
+    """TriggerOrganizationPipelineReleaseResponse contains the pipeline execution
+    results, i.e., the multiple model inference outputs.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -2435,10 +2593,10 @@ class TriggerOrganizationPipelineReleaseResponse(google.protobuf.message.Message
     METADATA_FIELD_NUMBER: builtins.int
     @property
     def outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """The multiple model inference outputs"""
+        """Model inference outputs."""
     @property
     def metadata(self) -> global___TriggerMetadata:
-        """The traces of the pipeline inference, {component_id: Trace}"""
+        """Traces of the pipeline inference."""
     def __init__(
         self,
         *,
@@ -2452,17 +2610,23 @@ global___TriggerOrganizationPipelineReleaseResponse = TriggerOrganizationPipelin
 
 @typing_extensions.final
 class TriggerAsyncOrganizationPipelineReleaseRequest(google.protobuf.message.Message):
-    """TriggerAsyncOrganizationPipelineReleaseRequest represents a request to trigger a pipeline_released pipeline"""
+    """TriggerOrganizationPipelineReleaseRequest represents a request to trigger a
+    pinned release of an organization-owned pipeline asynchronously.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Resource name."""
+    """The resource name of the pipeline release, which allows its access by
+    parent pipeline and ID.
+    - Format:
+    `organizations/{organization.id}/pipelines/{pipeline.id}/releases/{release.id}`.
+    """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """Input to the pipeline"""
+        """Pipeline input parameters."""
     def __init__(
         self,
         *,
@@ -2475,8 +2639,8 @@ global___TriggerAsyncOrganizationPipelineReleaseRequest = TriggerAsyncOrganizati
 
 @typing_extensions.final
 class TriggerAsyncOrganizationPipelineReleaseResponse(google.protobuf.message.Message):
-    """TriggerAsyncOrganizationPipelineReleaseResponse represents a response for the longrunning
-    operation of a pipeline
+    """TriggerAsyncOrganizationPipelineReleaseResponse contains the information to
+    access the status of an asynchronous pipeline execution.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -2484,7 +2648,7 @@ class TriggerAsyncOrganizationPipelineReleaseResponse(google.protobuf.message.Me
     OPERATION_FIELD_NUMBER: builtins.int
     @property
     def operation(self) -> google.longrunning.operations_pb2.Operation:
-        """Trigger async pipeline operation message"""
+        """Long-running operation information."""
     def __init__(
         self,
         *,
@@ -2497,15 +2661,15 @@ global___TriggerAsyncOrganizationPipelineReleaseResponse = TriggerAsyncOrganizat
 
 @typing_extensions.final
 class GetOperationRequest(google.protobuf.message.Message):
-    """GetOperationRequest represents a request to query a longrunning
-    operation
-    """
+    """GetOperationRequest represents a request to query a long-running operation."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """The name of the operation resource."""
+    """The name of the operation resource. Asynchronous methods will contain this
+    information in their response.
+    """
     def __init__(
         self,
         *,
@@ -2517,16 +2681,14 @@ global___GetOperationRequest = GetOperationRequest
 
 @typing_extensions.final
 class GetOperationResponse(google.protobuf.message.Message):
-    """GetOperationResponse represents a response for a longrunning
-    operation
-    """
+    """GetOperationResponse contains the long-running operation details."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     OPERATION_FIELD_NUMBER: builtins.int
     @property
     def operation(self) -> google.longrunning.operations_pb2.Operation:
-        """The retrieved longrunning operation"""
+        """The long-running operation."""
     def __init__(
         self,
         *,
@@ -2565,7 +2727,8 @@ class ListPipelinesAdminRequest(google.protobuf.message.Message):
     """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
     expression.
     - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
-    - Example: `recipe.components.definition_name:"operator-definitions/2ac8be70-0f7a-4b61-a33d-098b8acfa6f3"`.
+    - Example:
+    `recipe.components.definition_name:"operator-definitions/2ac8be70-0f7a-4b61-a33d-098b8acfa6f3"`.
     """
     show_deleted: builtins.bool
     """Include soft-deleted pipelines in the result."""
@@ -2711,7 +2874,7 @@ global___ListPipelineReleasesAdminResponse = ListPipelineReleasesAdminResponse
 @typing_extensions.final
 class LookUpPipelineAdminRequest(google.protobuf.message.Message):
     """LookUpPipelineAdminRequest represents a request by an admin to query a
-    user pipeline by its UID.
+    pipeline by its UID.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -2720,7 +2883,7 @@ class LookUpPipelineAdminRequest(google.protobuf.message.Message):
     VIEW_FIELD_NUMBER: builtins.int
     permalink: builtins.str
     """The permalink of the pipeline, which allows its access by UID.
-    - Format: `pipelines/{uid}`.
+    - Format: `pipelines/{pipeline.uid}`.
     """
     view: global___Pipeline.View.ValueType
     """View allows clients to specify the desired pipeline view in the response."""
@@ -2738,7 +2901,7 @@ global___LookUpPipelineAdminRequest = LookUpPipelineAdminRequest
 
 @typing_extensions.final
 class LookUpPipelineAdminResponse(google.protobuf.message.Message):
-    """LookUpPipelineAdminResponse represents a response for a pipeline resource."""
+    """LookUpPipelineAdminResponse contains the requested pipeline."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

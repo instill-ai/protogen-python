@@ -135,13 +135,13 @@ class Connector(google.protobuf.message.Message):
     uid: builtins.str
     """Connector UUID."""
     id: builtins.str
-    """Connector resource ID (used in the name as the last segment). This conforms
+    """Connector resource ID (used in `name` as the last segment). This conforms
     to RFC-1034, which restricts to letters, numbers, and hyphen, with the
     first character a letter, the last a letter or a number, and a 63
     character maximum.
     """
     connector_definition_name: builtins.str
-    """ConnectorDefinition that describes the connector configuration."""
+    """Connector definition that describes the connector configuration."""
     type: vdp.pipeline.v1beta.connector_definition_pb2.ConnectorType.ValueType
     """Connector type."""
     description: builtins.str
@@ -223,13 +223,16 @@ class ListConnectorsRequest(google.protobuf.message.Message):
     The maximum value is 100; values above 100 will be coerced to 100.
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     view: global___Connector.View.ValueType
-    """Connector view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired resource view in the response."""
     filter: builtins.str
-    """Filter expression to list connectors"""
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
     show_deleted: builtins.bool
-    """Return soft_deleted connectors"""
+    """Include soft-deleted connectors in the result."""
     def __init__(
         self,
         *,
@@ -267,11 +270,11 @@ class ListConnectorsResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def connectors(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Connector]:
-        """A list of connectors"""
+        """A list of connector resources."""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
-    """Total count of connectors"""
+    """Total number of connectors."""
     def __init__(
         self,
         *,
@@ -333,8 +336,8 @@ global___LookUpConnectorResponse = LookUpConnectorResponse
 
 @typing_extensions.final
 class CreateUserConnectorRequest(google.protobuf.message.Message):
-    """CreateUserConnectorRequest represents a request to create a
-    connector
+    """CreateUserConnectorRequest represents a request from a user to create a
+    connector.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -343,10 +346,10 @@ class CreateUserConnectorRequest(google.protobuf.message.Message):
     PARENT_FIELD_NUMBER: builtins.int
     @property
     def connector(self) -> global___Connector:
-        """connector"""
+        """The properties of the connector to be created."""
     parent: builtins.str
-    """The parent resource where this connector will be created.
-    Format: users/{users}
+    """The parent resource, i.e., the user that creates the connector.
+    - Format: `users/{user.id}`.
     """
     def __init__(
         self,
@@ -361,16 +364,14 @@ global___CreateUserConnectorRequest = CreateUserConnectorRequest
 
 @typing_extensions.final
 class CreateUserConnectorResponse(google.protobuf.message.Message):
-    """CreateUserConnectorResponse represents a response for a
-    connector
-    """
+    """CreateUserConnectorResponse contains the created connector."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     CONNECTOR_FIELD_NUMBER: builtins.int
     @property
     def connector(self) -> global___Connector:
-        """connector"""
+        """The created connector resource."""
     def __init__(
         self,
         *,
@@ -383,8 +384,8 @@ global___CreateUserConnectorResponse = CreateUserConnectorResponse
 
 @typing_extensions.final
 class ListUserConnectorsRequest(google.protobuf.message.Message):
-    """ListUserConnectorsRequest represents a request to list
-    connectors
+    """ListUserConnectorsRequest represents a request to list the connectors of a
+    user.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -396,22 +397,22 @@ class ListUserConnectorsRequest(google.protobuf.message.Message):
     PARENT_FIELD_NUMBER: builtins.int
     SHOW_DELETED_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """The maximum number of connectors to return. The service may return fewer
-    than this value. If unspecified, at most 10 connectors will be returned.
-    The maximum value is 100; values above 100 will be coerced to 100.
+    """The maximum number of connectors to return. If this parameter is
+    unspecified, at most 10 connectors will be returned. The cap value for this
+    parameter is 100 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     view: global___Connector.View.ValueType
-    """Connector view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired resource view in the response."""
     filter: builtins.str
     """Filter expression to list connectors"""
     parent: builtins.str
-    """The parent resource where this connector will be created.
-    Format: users/{users}
+    """The parent resource, i.e., the user that created the connectors.
+    - Format: `users/{user.id}`.
     """
     show_deleted: builtins.bool
-    """Return soft_deleted connectors"""
+    """Include soft-deleted connectors in the result."""
     def __init__(
         self,
         *,
@@ -439,9 +440,7 @@ global___ListUserConnectorsRequest = ListUserConnectorsRequest
 
 @typing_extensions.final
 class ListUserConnectorsResponse(google.protobuf.message.Message):
-    """ListUserConnectorsResponse represents a response for a list of
-    connectors
-    """
+    """ListUserConnectorsResponse contains a list of connectors."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -450,9 +449,9 @@ class ListUserConnectorsResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def connectors(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Connector]:
-        """A list of connectors"""
+        """A list of connector resources."""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
     """Total count of connectors"""
     def __init__(
@@ -468,8 +467,8 @@ global___ListUserConnectorsResponse = ListUserConnectorsResponse
 
 @typing_extensions.final
 class GetUserConnectorRequest(google.protobuf.message.Message):
-    """GetUserConnectorRequest represents a request to query a
-    connector
+    """GetUserConnectorRequest represents a request to fetch the details of a
+    connector owned by a user.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -477,11 +476,12 @@ class GetUserConnectorRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Connectorconnector name. It must have the format of
-    "connectors/*"
+    """The resource name of the connector, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/connectors/{connector.id}`.
     """
     view: global___Connector.View.ValueType
-    """Connector view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired resource view in the response."""
     def __init__(
         self,
         *,
@@ -496,16 +496,14 @@ global___GetUserConnectorRequest = GetUserConnectorRequest
 
 @typing_extensions.final
 class GetUserConnectorResponse(google.protobuf.message.Message):
-    """GetUserConnectorResponse represents a response for a
-    connector
-    """
+    """GetUserConnectorResponse contains the requested connector."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     CONNECTOR_FIELD_NUMBER: builtins.int
     @property
     def connector(self) -> global___Connector:
-        """connector"""
+        """The connector resource."""
     def __init__(
         self,
         *,
@@ -518,8 +516,8 @@ global___GetUserConnectorResponse = GetUserConnectorResponse
 
 @typing_extensions.final
 class UpdateUserConnectorRequest(google.protobuf.message.Message):
-    """UpdateUserConnectorRequest represents a request to update a
-    connector
+    """UpdateUserConnectorRequest represents a request to update a connector owned
+    by a user.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -528,10 +526,14 @@ class UpdateUserConnectorRequest(google.protobuf.message.Message):
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     @property
     def connector(self) -> global___Connector:
-        """connector"""
+        """The connector fields that will replace the existing ones."""
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
-        """Update mask for a connector"""
+        """The update mask specifies the subset of fields that should be modified.
+
+        For more information about this field, see
+        https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#field-mask.
+        """
     def __init__(
         self,
         *,
@@ -545,16 +547,14 @@ global___UpdateUserConnectorRequest = UpdateUserConnectorRequest
 
 @typing_extensions.final
 class UpdateUserConnectorResponse(google.protobuf.message.Message):
-    """UpdateUserConnectorResponse represents a response for a
-    connector
-    """
+    """UpdateUserConnectorResponse contains the updated connector."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     CONNECTOR_FIELD_NUMBER: builtins.int
     @property
     def connector(self) -> global___Connector:
-        """connector"""
+        """The updated connector resource."""
     def __init__(
         self,
         *,
@@ -567,16 +567,17 @@ global___UpdateUserConnectorResponse = UpdateUserConnectorResponse
 
 @typing_extensions.final
 class DeleteUserConnectorRequest(google.protobuf.message.Message):
-    """DeleteUserConnectorRequest represents a request to delete a
-    connector
+    """DeleteUserConnectorRequest represents a request to delete a connector owned
+    by a user.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """connector name. It must have the format of
-    "connectors/*"
+    """The resource name of the connector, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/connectors/{connector.id}`.
     """
     def __init__(
         self,
@@ -589,7 +590,7 @@ global___DeleteUserConnectorRequest = DeleteUserConnectorRequest
 
 @typing_extensions.final
 class DeleteUserConnectorResponse(google.protobuf.message.Message):
-    """DeleteUserConnectorResponse represents an empty response"""
+    """DeleteUserConnectorResponse is an empty response."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -601,16 +602,17 @@ global___DeleteUserConnectorResponse = DeleteUserConnectorResponse
 
 @typing_extensions.final
 class ConnectUserConnectorRequest(google.protobuf.message.Message):
-    """ConnectUserConnectorRequest represents a request to connect a
-    connector
+    """ConnectUserConnectorRequest represents a request to connect a connector
+    owned by a user.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """connector name. It must have the format of
-    "connectors/*"
+    """The resource name of the connector, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/connectors/{connector.id}`.
     """
     def __init__(
         self,
@@ -623,16 +625,14 @@ global___ConnectUserConnectorRequest = ConnectUserConnectorRequest
 
 @typing_extensions.final
 class ConnectUserConnectorResponse(google.protobuf.message.Message):
-    """ConnectUserConnectorResponse represents a connected
-    connector
-    """
+    """ConnectUserConnectorResponse contains the connector details."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     CONNECTOR_FIELD_NUMBER: builtins.int
     @property
     def connector(self) -> global___Connector:
-        """A connector"""
+        """The connector resource."""
     def __init__(
         self,
         *,
@@ -646,15 +646,16 @@ global___ConnectUserConnectorResponse = ConnectUserConnectorResponse
 @typing_extensions.final
 class DisconnectUserConnectorRequest(google.protobuf.message.Message):
     """DisconnectUserConnectorRequest represents a request to disconnect a
-    connector
+    connector owned by a user.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """connector name. It must have the format of
-    "connectors/*"
+    """The resource name of the connector, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/connectors/{connector.id}`.
     """
     def __init__(
         self,
@@ -667,9 +668,7 @@ global___DisconnectUserConnectorRequest = DisconnectUserConnectorRequest
 
 @typing_extensions.final
 class DisconnectUserConnectorResponse(google.protobuf.message.Message):
-    """DisconnectUserConnectorResponse represents a disconnected
-    connector
-    """
+    """DisconnectUserConnectorResponse contains the connector details."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -689,8 +688,8 @@ global___DisconnectUserConnectorResponse = DisconnectUserConnectorResponse
 
 @typing_extensions.final
 class RenameUserConnectorRequest(google.protobuf.message.Message):
-    """RenameUserConnectorRequest represents a request to rename the
-    connector name
+    """RenameUserConnectorRequest represents a request to rename the name of a
+    connector owned by a user.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -698,13 +697,13 @@ class RenameUserConnectorRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     NEW_CONNECTOR_ID_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """connector name. It must have the format of
-    "connectors/*"
+    """The resource name of the connector, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/connectors/{connector.id}`.
     """
     new_connector_id: builtins.str
-    """Connector new resource id to replace with the
-    connector name to be
-    "connectors/{new_connector_id}"
+    """The new resource ID. This will transform the resource name into
+    `users/{user.id}/connectors/{new_connector_id}`.
     """
     def __init__(
         self,
@@ -718,16 +717,14 @@ global___RenameUserConnectorRequest = RenameUserConnectorRequest
 
 @typing_extensions.final
 class RenameUserConnectorResponse(google.protobuf.message.Message):
-    """RenameUserConnectorResponse represents a renamed Connector
-    resource
-    """
+    """RenameUserConnectorResponse contains a renamed connector."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     CONNECTOR_FIELD_NUMBER: builtins.int
     @property
     def connector(self) -> global___Connector:
-        """A connector"""
+        """The renamed connector resource."""
     def __init__(
         self,
         *,
@@ -740,8 +737,8 @@ global___RenameUserConnectorResponse = RenameUserConnectorResponse
 
 @typing_extensions.final
 class ExecuteUserConnectorRequest(google.protobuf.message.Message):
-    """ExecuteUserConnectorRequest represents a private request to execution
-    connector
+    """ExecuteUserConnectorRequest represents a request to execute a connector
+    owned by a user.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -750,14 +747,15 @@ class ExecuteUserConnectorRequest(google.protobuf.message.Message):
     INPUTS_FIELD_NUMBER: builtins.int
     TASK_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Name of a connector. For example:
-    "connectors/{name}"
+    """The resource name of the connector, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/connectors/{connector.id}`.
     """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """Inputs"""
+        """Connector input parameters."""
     task: builtins.str
-    """Task"""
+    """Task to be passed to the connector (e.g. `TASK_TEXT_GENERATION`)."""
     def __init__(
         self,
         *,
@@ -771,16 +769,14 @@ global___ExecuteUserConnectorRequest = ExecuteUserConnectorRequest
 
 @typing_extensions.final
 class ExecuteUserConnectorResponse(google.protobuf.message.Message):
-    """ExecuteUserConnectorResponse represents a response for execution
-    output
-    """
+    """ExecuteUserConnectorResponse contains the outcome of the execution."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     OUTPUTS_FIELD_NUMBER: builtins.int
     @property
     def outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """Outputs"""
+        """The execution outputs."""
     def __init__(
         self,
         *,
@@ -792,16 +788,17 @@ global___ExecuteUserConnectorResponse = ExecuteUserConnectorResponse
 
 @typing_extensions.final
 class TestUserConnectorRequest(google.protobuf.message.Message):
-    """TestUserConnectorRequest represents a public request to trigger check
-    action on a connector
+    """TestUserConnectorRequest represents a public request check the connection of
+    a connector.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """connector name. It must have the format of
-    "connectors/*"
+    """The resource name of the connector, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/connectors/{connector.id}`.
     """
     def __init__(
         self,
@@ -814,15 +811,13 @@ global___TestUserConnectorRequest = TestUserConnectorRequest
 
 @typing_extensions.final
 class TestUserConnectorResponse(google.protobuf.message.Message):
-    """TestUserConnectorResponse represents a response containing a
-    connector's current state
-    """
+    """TestUserConnectorResponse contains the connection state."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     STATE_FIELD_NUMBER: builtins.int
     state: global___Connector.State.ValueType
-    """Retrieved connector state"""
+    """The connector state."""
     def __init__(
         self,
         *,
@@ -834,16 +829,17 @@ global___TestUserConnectorResponse = TestUserConnectorResponse
 
 @typing_extensions.final
 class WatchUserConnectorRequest(google.protobuf.message.Message):
-    """WatchUserConnectorRequest represents a public request to query
-    a connector's current state
+    """WatchUserConnectorRequest represents a request to fetch the state of a
+    user-owned connector.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """connector name. It must have the format of
-    "connectors/*"
+    """The resource name of the connector, which allows its access by parent
+    connector and ID.
+    - Format: `users/{user.id}/connectors/{connector.id}`.
     """
     def __init__(
         self,
@@ -856,15 +852,13 @@ global___WatchUserConnectorRequest = WatchUserConnectorRequest
 
 @typing_extensions.final
 class WatchUserConnectorResponse(google.protobuf.message.Message):
-    """WatchUserConnectorResponse represents a response to fetch a
-    connector's current state
-    """
+    """WatchUserConnectorResponse contains the connector current state."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     STATE_FIELD_NUMBER: builtins.int
     state: global___Connector.State.ValueType
-    """Retrieved connector state"""
+    """The connector state."""
     def __init__(
         self,
         *,
@@ -876,8 +870,8 @@ global___WatchUserConnectorResponse = WatchUserConnectorResponse
 
 @typing_extensions.final
 class CreateOrganizationConnectorRequest(google.protobuf.message.Message):
-    """CreateOrganizationConnectorRequest represents a request to create a
-    connector
+    """CreateOrganizationConnectorRequest represents a request from an organization
+    to create a connector.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -886,10 +880,10 @@ class CreateOrganizationConnectorRequest(google.protobuf.message.Message):
     PARENT_FIELD_NUMBER: builtins.int
     @property
     def connector(self) -> global___Connector:
-        """connector"""
+        """The properties of the connector to be created."""
     parent: builtins.str
-    """The parent resource where this connector will be created.
-    Format: organizations/{organizations}
+    """The parent resource, i.e., the organization that creates the connector.
+    - Format: `organizations/{organization.id}`.
     """
     def __init__(
         self,
@@ -904,16 +898,14 @@ global___CreateOrganizationConnectorRequest = CreateOrganizationConnectorRequest
 
 @typing_extensions.final
 class CreateOrganizationConnectorResponse(google.protobuf.message.Message):
-    """CreateOrganizationConnectorResponse represents a response for a
-    connector
-    """
+    """CreateOrganizationConnectorResponse contains the created connector."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     CONNECTOR_FIELD_NUMBER: builtins.int
     @property
     def connector(self) -> global___Connector:
-        """connector"""
+        """The created connector resource."""
     def __init__(
         self,
         *,
@@ -926,8 +918,8 @@ global___CreateOrganizationConnectorResponse = CreateOrganizationConnectorRespon
 
 @typing_extensions.final
 class ListOrganizationConnectorsRequest(google.protobuf.message.Message):
-    """ListOrganizationConnectorsRequest represents a request to list
-    connectors
+    """ListOrganizationConnectorsRequest represents a request to list the
+    connectors of a organization.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -939,22 +931,22 @@ class ListOrganizationConnectorsRequest(google.protobuf.message.Message):
     PARENT_FIELD_NUMBER: builtins.int
     SHOW_DELETED_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """The maximum number of connectors to return. The service may return fewer
-    than this value. If unspecified, at most 10 connectors will be returned.
-    The maximum value is 100; values above 100 will be coerced to 100.
+    """The maximum number of connectors to return. If this parameter is
+    unspecified, at most 10 connectors will be returned. The cap value for this
+    parameter is 100 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     view: global___Connector.View.ValueType
-    """Connector view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired resource view in the response."""
     filter: builtins.str
     """Filter expression to list connectors"""
     parent: builtins.str
-    """The parent resource where this connector will be created.
-    Format: organizations/{organizations}
+    """The parent resource, i.e., the organization that created the connectors.
+    - Format: `organizations/{organization.id}`.
     """
     show_deleted: builtins.bool
-    """Return soft_deleted connectors"""
+    """Include soft-deleted connectors in the result."""
     def __init__(
         self,
         *,
@@ -982,9 +974,7 @@ global___ListOrganizationConnectorsRequest = ListOrganizationConnectorsRequest
 
 @typing_extensions.final
 class ListOrganizationConnectorsResponse(google.protobuf.message.Message):
-    """ListOrganizationConnectorsResponse represents a response for a list of
-    connectors
-    """
+    """ListOrganizationConnectorsResponse contains a list of connectors."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -993,9 +983,9 @@ class ListOrganizationConnectorsResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def connectors(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Connector]:
-        """A list of connectors"""
+        """A list of connector resources."""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
     """Total count of connectors"""
     def __init__(
@@ -1011,8 +1001,8 @@ global___ListOrganizationConnectorsResponse = ListOrganizationConnectorsResponse
 
 @typing_extensions.final
 class GetOrganizationConnectorRequest(google.protobuf.message.Message):
-    """GetOrganizationConnectorRequest represents a request to query a
-    connector
+    """GetOrganizationConnectorRequest represents a request to fetch the details of
+    a connector owned by an organization.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1020,11 +1010,12 @@ class GetOrganizationConnectorRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Connectorconnector name. It must have the format of
-    "connectors/*"
+    """The resource name of the connector, which allows its access by parent
+    organization and ID.
+    - Format: `organizations/{organization.id}/connectors/{connector.id}`.
     """
     view: global___Connector.View.ValueType
-    """Connector view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired resource view in the response."""
     def __init__(
         self,
         *,
@@ -1039,16 +1030,14 @@ global___GetOrganizationConnectorRequest = GetOrganizationConnectorRequest
 
 @typing_extensions.final
 class GetOrganizationConnectorResponse(google.protobuf.message.Message):
-    """GetOrganizationConnectorResponse represents a response for a
-    connector
-    """
+    """GetOrganizationConnectorResponse contains the requested connector."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     CONNECTOR_FIELD_NUMBER: builtins.int
     @property
     def connector(self) -> global___Connector:
-        """connector"""
+        """The connector resource."""
     def __init__(
         self,
         *,
@@ -1062,7 +1051,7 @@ global___GetOrganizationConnectorResponse = GetOrganizationConnectorResponse
 @typing_extensions.final
 class UpdateOrganizationConnectorRequest(google.protobuf.message.Message):
     """UpdateOrganizationConnectorRequest represents a request to update a
-    connector
+    connector owned by an organization.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1071,10 +1060,14 @@ class UpdateOrganizationConnectorRequest(google.protobuf.message.Message):
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     @property
     def connector(self) -> global___Connector:
-        """connector"""
+        """The connector fields that will replace the existing ones."""
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
-        """Update mask for a connector"""
+        """The update mask specifies the subset of fields that should be modified.
+
+        For more information about this field, see
+        https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#field-mask.
+        """
     def __init__(
         self,
         *,
@@ -1088,16 +1081,14 @@ global___UpdateOrganizationConnectorRequest = UpdateOrganizationConnectorRequest
 
 @typing_extensions.final
 class UpdateOrganizationConnectorResponse(google.protobuf.message.Message):
-    """UpdateOrganizationConnectorResponse represents a response for a
-    connector
-    """
+    """UpdateOrganizationConnectorResponse contains the updated connector."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     CONNECTOR_FIELD_NUMBER: builtins.int
     @property
     def connector(self) -> global___Connector:
-        """connector"""
+        """The updated connector resource."""
     def __init__(
         self,
         *,
@@ -1111,15 +1102,16 @@ global___UpdateOrganizationConnectorResponse = UpdateOrganizationConnectorRespon
 @typing_extensions.final
 class DeleteOrganizationConnectorRequest(google.protobuf.message.Message):
     """DeleteOrganizationConnectorRequest represents a request to delete a
-    connector
+    connector owned by an organization.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """connector name. It must have the format of
-    "connectors/*"
+    """The resource name of the connector, which allows its access by parent
+    organization and ID.
+    - Format: `organizations/{organization.id}/connectors/{connector.id}`.
     """
     def __init__(
         self,
@@ -1132,7 +1124,7 @@ global___DeleteOrganizationConnectorRequest = DeleteOrganizationConnectorRequest
 
 @typing_extensions.final
 class DeleteOrganizationConnectorResponse(google.protobuf.message.Message):
-    """DeleteOrganizationConnectorResponse represents an empty response"""
+    """DeleteOrganizationConnectorResponse is an empty response."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1145,15 +1137,16 @@ global___DeleteOrganizationConnectorResponse = DeleteOrganizationConnectorRespon
 @typing_extensions.final
 class ConnectOrganizationConnectorRequest(google.protobuf.message.Message):
     """ConnectOrganizationConnectorRequest represents a request to connect a
-    connector
+    connector owned by an organization.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """connector name. It must have the format of
-    "connectors/*"
+    """The resource name of the connector, which allows its access by parent
+    organization and ID.
+    - Format: `organizations/{organization.id}/connectors/{connector.id}`.
     """
     def __init__(
         self,
@@ -1166,16 +1159,14 @@ global___ConnectOrganizationConnectorRequest = ConnectOrganizationConnectorReque
 
 @typing_extensions.final
 class ConnectOrganizationConnectorResponse(google.protobuf.message.Message):
-    """ConnectOrganizationConnectorResponse represents a connected
-    connector
-    """
+    """ConnectOrganizationConnectorResponse contains the connector details."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     CONNECTOR_FIELD_NUMBER: builtins.int
     @property
     def connector(self) -> global___Connector:
-        """A connector"""
+        """The connector resource."""
     def __init__(
         self,
         *,
@@ -1189,15 +1180,16 @@ global___ConnectOrganizationConnectorResponse = ConnectOrganizationConnectorResp
 @typing_extensions.final
 class DisconnectOrganizationConnectorRequest(google.protobuf.message.Message):
     """DisconnectOrganizationConnectorRequest represents a request to disconnect a
-    connector
+    connector owned by an organization.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """connector name. It must have the format of
-    "connectors/*"
+    """The resource name of the connector, which allows its access by parent
+    organization and ID.
+    - Format: `organizations/{organization.id}/connectors/{connector.id}`.
     """
     def __init__(
         self,
@@ -1210,9 +1202,7 @@ global___DisconnectOrganizationConnectorRequest = DisconnectOrganizationConnecto
 
 @typing_extensions.final
 class DisconnectOrganizationConnectorResponse(google.protobuf.message.Message):
-    """DisconnectOrganizationConnectorResponse represents a disconnected
-    connector
-    """
+    """DisconnectOrganizationConnectorResponse contains the connector details."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1232,8 +1222,8 @@ global___DisconnectOrganizationConnectorResponse = DisconnectOrganizationConnect
 
 @typing_extensions.final
 class RenameOrganizationConnectorRequest(google.protobuf.message.Message):
-    """RenameOrganizationConnectorRequest represents a request to rename the
-    connector name
+    """RenameOrganizationConnectorRequest represents a request to rename the name
+    of a connector owned by an organization.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1241,13 +1231,13 @@ class RenameOrganizationConnectorRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     NEW_CONNECTOR_ID_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """connector name. It must have the format of
-    "connectors/*"
+    """The resource name of the connector, which allows its access by parent
+    organization and ID.
+    - Format: `organizations/{organization.id}/connectors/{connector.id}`.
     """
     new_connector_id: builtins.str
-    """Connector new resource id to replace with the
-    connector name to be
-    "connectors/{new_connector_id}"
+    """The new resource ID. This will transform the resource name into
+    `organizations/{organization.id}/connectors/{new_connector_id}`.
     """
     def __init__(
         self,
@@ -1261,16 +1251,14 @@ global___RenameOrganizationConnectorRequest = RenameOrganizationConnectorRequest
 
 @typing_extensions.final
 class RenameOrganizationConnectorResponse(google.protobuf.message.Message):
-    """RenameOrganizationConnectorResponse represents a renamed Connector
-    resource
-    """
+    """RenameOrganizationConnectorResponse contains a renamed connector."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     CONNECTOR_FIELD_NUMBER: builtins.int
     @property
     def connector(self) -> global___Connector:
-        """A connector"""
+        """The renamed connector resource."""
     def __init__(
         self,
         *,
@@ -1283,8 +1271,8 @@ global___RenameOrganizationConnectorResponse = RenameOrganizationConnectorRespon
 
 @typing_extensions.final
 class ExecuteOrganizationConnectorRequest(google.protobuf.message.Message):
-    """ExecuteOrganizationConnectorRequest represents a private request to execution
-    connector
+    """ExecuteOrganizationConnectorRequest represents a request to execute a
+    connector owned by an organization.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1293,14 +1281,15 @@ class ExecuteOrganizationConnectorRequest(google.protobuf.message.Message):
     INPUTS_FIELD_NUMBER: builtins.int
     TASK_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Name of a connector. For example:
-    "connectors/{name}"
+    """The resource name of the connector, which allows its access by parent
+    organization and ID.
+    - Format: `organizations/{organization.id}/connectors/{connector.id}`.
     """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """Inputs"""
+        """Connector input parameters."""
     task: builtins.str
-    """Task"""
+    """Task to be passed to the connector (e.g. `TASK_TEXT_GENERATION`)."""
     def __init__(
         self,
         *,
@@ -1314,16 +1303,14 @@ global___ExecuteOrganizationConnectorRequest = ExecuteOrganizationConnectorReque
 
 @typing_extensions.final
 class ExecuteOrganizationConnectorResponse(google.protobuf.message.Message):
-    """ExecuteOrganizationConnectorResponse represents a response for execution
-    output
-    """
+    """ExecuteOrganizationConnectorResponse contains the outcome of the execution."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     OUTPUTS_FIELD_NUMBER: builtins.int
     @property
     def outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """Outputs"""
+        """The execution outputs."""
     def __init__(
         self,
         *,
@@ -1335,16 +1322,17 @@ global___ExecuteOrganizationConnectorResponse = ExecuteOrganizationConnectorResp
 
 @typing_extensions.final
 class TestOrganizationConnectorRequest(google.protobuf.message.Message):
-    """TestOrganizationConnectorRequest represents a public request to trigger check
-    action on a connector
+    """TestOrganizationConnectorRequest represents a public request check the
+    connection of a connector.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """connector name. It must have the format of
-    "connectors/*"
+    """The resource name of the connector, which allows its access by parent
+    organization and ID.
+    - Format: `organizations/{organization.id}/connectors/{connector.id}`.
     """
     def __init__(
         self,
@@ -1357,15 +1345,13 @@ global___TestOrganizationConnectorRequest = TestOrganizationConnectorRequest
 
 @typing_extensions.final
 class TestOrganizationConnectorResponse(google.protobuf.message.Message):
-    """TestOrganizationConnectorResponse represents a response containing a
-    connector's current state
-    """
+    """TestOrganizationConnectorResponse contains the connection state."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     STATE_FIELD_NUMBER: builtins.int
     state: global___Connector.State.ValueType
-    """Retrieved connector state"""
+    """The connector state."""
     def __init__(
         self,
         *,
@@ -1377,16 +1363,17 @@ global___TestOrganizationConnectorResponse = TestOrganizationConnectorResponse
 
 @typing_extensions.final
 class WatchOrganizationConnectorRequest(google.protobuf.message.Message):
-    """WatchOrganizationConnectorRequest represents a public request to query
-    a connector's current state
+    """WatchOrganizationConnectorRequest represents a request to fetch the state of
+    a organization-owned connector.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """connector name. It must have the format of
-    "connectors/*"
+    """The resource name of the connector, which allows its access by parent
+    connector and ID.
+    - Format: `organizations/{organization.id}/connectors/{connector.id}`.
     """
     def __init__(
         self,
@@ -1399,15 +1386,13 @@ global___WatchOrganizationConnectorRequest = WatchOrganizationConnectorRequest
 
 @typing_extensions.final
 class WatchOrganizationConnectorResponse(google.protobuf.message.Message):
-    """WatchOrganizationConnectorResponse represents a response to fetch a
-    connector's current state
-    """
+    """WatchOrganizationConnectorResponse contains the connector current state."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     STATE_FIELD_NUMBER: builtins.int
     state: global___Connector.State.ValueType
-    """Retrieved connector state"""
+    """The connector state."""
     def __init__(
         self,
         *,
@@ -1434,7 +1419,7 @@ class ListConnectorsAdminRequest(google.protobuf.message.Message):
     SHOW_DELETED_FIELD_NUMBER: builtins.int
     page_size: builtins.int
     """The maximum number of connectors to return. If this parameter is
-    unspecified, at most 10 pipelines will be returned. The cap value for this
+    unspecified, at most 10 connectors will be returned. The cap value for this
     parameter is 100 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str
@@ -1447,7 +1432,7 @@ class ListConnectorsAdminRequest(google.protobuf.message.Message):
     - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
     """
     show_deleted: builtins.bool
-    """Include soft-deleted pipelines in the result."""
+    """Include soft-deleted connectors in the result."""
     def __init__(
         self,
         *,
@@ -1485,7 +1470,7 @@ class ListConnectorsAdminResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def connectors(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Connector]:
-        """A list of connectors."""
+        """A list of connector resources."""
     next_page_token: builtins.str
     """Next page token."""
     total_size: builtins.int
@@ -1504,7 +1489,7 @@ global___ListConnectorsAdminResponse = ListConnectorsAdminResponse
 @typing_extensions.final
 class LookUpConnectorAdminRequest(google.protobuf.message.Message):
     """LookUpConnectorAdminRequest represents a request to query a
-    connector via permalink by admin
+    connector via permalink by admin.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1516,7 +1501,7 @@ class LookUpConnectorAdminRequest(google.protobuf.message.Message):
     "connectors/{uid}"
     """
     view: global___Connector.View.ValueType
-    """Connector view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired resource view in the response."""
     def __init__(
         self,
         *,
@@ -1532,7 +1517,7 @@ global___LookUpConnectorAdminRequest = LookUpConnectorAdminRequest
 @typing_extensions.final
 class LookUpConnectorAdminResponse(google.protobuf.message.Message):
     """LookUpConnectorAdminResponse represents a response for a
-    connector
+    connector.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor

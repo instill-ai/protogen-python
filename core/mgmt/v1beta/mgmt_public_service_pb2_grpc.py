@@ -7,7 +7,10 @@ from core.mgmt.v1beta import mgmt_pb2 as core_dot_mgmt_dot_v1beta_dot_mgmt__pb2
 
 
 class MgmtPublicServiceStub(object):
-    """Mgmt service responds to external access
+    """MGMT
+
+    MgmtPublicService exposes the public Core endpoints that allow clients to
+    manage user resources.
     """
 
     def __init__(self, channel):
@@ -204,21 +207,24 @@ class MgmtPublicServiceStub(object):
 
 
 class MgmtPublicServiceServicer(object):
-    """Mgmt service responds to external access
+    """MGMT
+
+    MgmtPublicService exposes the public Core endpoints that allow clients to
+    manage user resources.
     """
 
     def Liveness(self, request, context):
-        """Liveness method receives a LivenessRequest message and returns a
-        LivenessResponse message.
-        See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+        """Check if the MGMT server is alive
+
+        See https://github.com/grpc/grpc/blob/master/doc/health-checking.md.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def Readiness(self, request, context):
-        """Readiness method receives a ReadinessRequest message and returns a
-        ReadinessResponse message.
+        """Check if the pipeline server is ready
+
         See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -226,280 +232,326 @@ class MgmtPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def CheckNamespace(self, request, context):
-        """Check namespace
+        """Check if a namespace is in use
+
+        Returns the availability of a namespace or, alternatively, the type of
+        resource that is using it.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListUsers(self, request, context):
-        """ListUsers method receives a ListUsersRequest message and returns a
-        ListUsersResponse message.
+        """List users
+
+        Returns a paginated list of users.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetUser(self, request, context):
-        """GetUser method receives a GetUser message and returns a
-        GetUser message.
+        """Get a user
+
+        Returns the details of a user by their ID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def PatchAuthenticatedUser(self, request, context):
-        """PatchAuthenticatedUser method receives a PatchAuthenticatedUserRequest
-        message and returns a PatchAuthenticatedUserResponse message.
+        """Update a user
+
+        Accesses and updates a user by ID. The authenticated user must match the
+        target in order to modify it.
+
+        In REST requests, only the supplied user fields will be taken into account
+        when updating the resource.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListUserMemberships(self, request, context):
-        """ListUserMemberships method receives a ListUserMembershipsRequest message and returns a
-        ListUserMembershipsResponse message.
+        """List user memberships
+
+        Returns the memberships of a user.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetUserMembership(self, request, context):
-        """GetUserMembership method receives a GetUserMembershipRequest message and returns a
-        GetUserMembershipResponse message.
+        """Get a user membership
+
+        Returns the details of the relationship between a user and an
+        organization. The authenticated must match the membership parent.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpdateUserMembership(self, request, context):
-        """UpdateUserMembership method receives a UpdateUserMembershipRequest message and returns
-        a UpdateUserMembershipResponse message.
+        """Update a user membership
+
+        Accesses and updates a user membership by parent and membership IDs.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteUserMembership(self, request, context):
-        """DeleteUserMembership method receives a DeleteUserMembershipRequest message and returns
-        a DeleteUserMembershipResponse message.
+        """Delete a user membership
+
+        Accesses and deletes a user membership by parent and membership IDs.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListOrganizations(self, request, context):
-        """ListOrganizations method receives a ListOrganizationsRequest message and returns
-        a ListOrganizationsResponse message.
+        """List organizations
+
+        Returns a paginated list of organizations.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def CreateOrganization(self, request, context):
-        """CreateOrganization receives a CreateOrganizationRequest message and returns a
-        a GetOrganizationResponse
+        """Create an organization
+
+        Creates an organization.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetOrganization(self, request, context):
-        """GetOrganization method receives a GetOrganizationRequest message and returns
-        a GetOrganizationResponse message.
+        """Get an organization
+
+        Returns the organization details by its ID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpdateOrganization(self, request, context):
-        """UpdateOrganization method receives a UpdateOrganizationRequest message and
-        returns a UpdateOrganizationResponse
+        """Update an organization
+
+        Accesses and updates an organization by ID.
+
+        In REST requests, only the supplied organization fields will be taken into
+        account when updating the resource.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteOrganization(self, request, context):
-        """DeleteOrganization method receives a DeleteOrganizationRequest message and
-        returns a DeleteOrganizationResponse
+        """Delete an organization
+
+        Accesses and deletes an organization by ID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListOrganizationMemberships(self, request, context):
-        """ListOrganizationMemberships method receives a ListOrganizationMembershipsRequest message and returns a
-        ListOrganizationMembershipsResponse message.
+        """List organization memberships
+
+        Returns a paginated list of the user memberships in an organization.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetOrganizationMembership(self, request, context):
-        """GetOrganizationMembership method receives a GetOrganizationMembershipRequest message and returns a
-        GetOrganizationMembershipResponse message.
+        """Get a an organization membership
+
+        Returns the details of a user membership within an organization.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpdateOrganizationMembership(self, request, context):
-        """UpdateOrganizationMembership method receives a UpdateOrganizationMembershipRequest message and returns
-        a UpdateOrganizationMembershipResponse message.
+        """Uppdate an organization membership
+
+        Updates a user membership within an organization.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteOrganizationMembership(self, request, context):
-        """DeleteOrganizationMembership method receives a DeleteOrganizationMembershipRequest message and returns
-        a DeleteOrganizationMembershipResponse message.
+        """Delete an organization membership
+
+        Deletes a user membership within an organization.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetUserSubscription(self, request, context):
-        """GetUserSubscription
+        """Get a user subscription
+
+        Returns the subscription details of a user.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetOrganizationSubscription(self, request, context):
-        """GetOrganizationSubscription
+        """Get an organization subscription
+
+        Returns the subscription details of an organization.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def CreateToken(self, request, context):
-        """CreateToken method receives a CreateTokenRequest message and returns
-        a CreateTokenResponse message.
+        """Create an API token
+
+        Creates an API token for the authenticated user.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListTokens(self, request, context):
-        """ListTokens method receives a ListTokensRequest message and returns a
-        ListTokensResponse message.
+        """List API tokens
+
+        Returns a paginated list of the API tokens of the authenticated user.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetToken(self, request, context):
-        """GetToken method receives a GetTokenRequest message and returns a
-        GetTokenResponse message.
+        """Get an API token
+
+        Returns the details of an API token.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteToken(self, request, context):
-        """DeleteToken method receives a DeleteTokenRequest message and returns
-        a DeleteTokenResponse message.
+        """Delete an API token
+
+        Deletes an API token.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ValidateToken(self, request, context):
-        """ValidateToken method receives a ValidateTokenRequest message and returns
-        a ValidateTokenResponse message.
+        """Validate an API token.
+
+        Validates an API token.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListPipelineTriggerRecords(self, request, context):
-        """========== Metric endpoints
+        """List pipeline triggers
 
-        ListPipelineTriggerRecords method receives a
-        ListPipelineTriggerRecordsRequest message and returns a
-        ListPipelineTriggerRecordsResponse message.
+        Returns a paginated list of pipeline executions.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListPipelineTriggerTableRecords(self, request, context):
-        """ListPipelineTriggerTableRecords method receives a
-        ListPipelineTriggerTableRecordsRequest message and returns a
-        ListPipelineTriggerTableRecordsResponse message.
+        """List pipeline trigger metrics
+
+        Returns a paginated list of pipeline executions aggregated by pipeline ID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListPipelineTriggerChartRecords(self, request, context):
-        """ListPipelineTriggerChartRecords method receives a
-        ListPipelineTriggerChartRecordsRequest message and returns a
-        ListPipelineTriggerChartRecordsResponse message.
+        """List pipeline trigger computation time charts
+
+        Returns a paginated list with pipeline trigger execution times, aggregated
+        by pipeline and time frames.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListConnectorExecuteRecords(self, request, context):
-        """ListConnectorExecuteRecords method receives a
-        ListConnectorExecuteRecordsRequest message and returns a
-        ListConnectorExecuteRecordsResponse message.
+        """List connector executions
+
+        Returns a paginated list of connector executions.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListConnectorExecuteTableRecords(self, request, context):
-        """ListConnectorExecuteTableRecords method receives a
-        ListConnectorExecuteTableRecordsRequest message and returns a
-        ListConnectorExecuteTableRecordsResponse message.
+        """List connector execution metrics
+
+        Returns a paginated list of connector executions aggregated by connector.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListConnectorExecuteChartRecords(self, request, context):
-        """ListConnectorExecuteChartRecords method receives a
-        ListConnectorExecuteChartRecordsRequest message and returns a
-        ListConnectorExecuteChartRecordsResponse message.
+        """List connector execution computation time charts
+
+        Returns a paginated list with connector execution times, aggregated by
+        connector and time frames.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def AuthTokenIssuer(self, request, context):
-        """AuthTokenIssuer endpoint
+        """Get Auth token issuer
+
+        Returns the auth token issuer details. This operation requires admin permissions.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def AuthLogin(self, request, context):
-        """Auth Login endpoint
+        """Log in a user
+
+        Authenticates a user and returns an access token.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def AuthLogout(self, request, context):
-        """Auth Logout endpoint
+        """Log out a user
+
+        Logs out an authenticated user.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def AuthChangePassword(self, request, context):
-        """Auth Change password endpoint
+        """Change password
+
+        Updates the password of a user.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def AuthValidateAccessToken(self, request, context):
-        """Auth AccessToken validation endpoint
+        """Validate an access token
+
+        Checks the validity of an access token.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -701,7 +753,10 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class MgmtPublicService(object):
-    """Mgmt service responds to external access
+    """MGMT
+
+    MgmtPublicService exposes the public Core endpoints that allow clients to
+    manage user resources.
     """
 
     @staticmethod

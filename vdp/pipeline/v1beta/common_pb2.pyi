@@ -25,41 +25,44 @@ class _Role:
 class _RoleEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Role.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     ROLE_UNSPECIFIED: _Role.ValueType  # 0
-    """ROLE: UNSPECIFIED"""
+    """Unspecified, equivalent to VIEWER."""
     ROLE_VIEWER: _Role.ValueType  # 1
-    """Role: Viewer"""
+    """Viewers can see the resource properties."""
     ROLE_EXECUTOR: _Role.ValueType  # 2
-    """Role: Executor"""
+    """Executors can execute the resource (e.g. trigger a pipeline)."""
 
 class Role(_Role, metaclass=_RoleEnumTypeWrapper):
-    """Role"""
+    """Role describes the permissions a user has over a resource."""
 
 ROLE_UNSPECIFIED: Role.ValueType  # 0
-"""ROLE: UNSPECIFIED"""
+"""Unspecified, equivalent to VIEWER."""
 ROLE_VIEWER: Role.ValueType  # 1
-"""Role: Viewer"""
+"""Viewers can see the resource properties."""
 ROLE_EXECUTOR: Role.ValueType  # 2
-"""Role: Executor"""
+"""Executors can execute the resource (e.g. trigger a pipeline)."""
 global___Role = Role
 
 @typing_extensions.final
 class Sharing(google.protobuf.message.Message):
-    """Sharing"""
+    """Sharing contains the information to share a resource with other users.
+
+    For more information, see [Share Pipelines](https://www.instill.tech/docs/latest/vdp/share).
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     @typing_extensions.final
     class User(google.protobuf.message.Message):
-        """User"""
+        """Describes the sharing configuration with a given user."""
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
         ENABLED_FIELD_NUMBER: builtins.int
         ROLE_FIELD_NUMBER: builtins.int
         enabled: builtins.bool
-        """enabled"""
+        """Defines whether the sharing option with this user is enabled."""
         role: global___Role.ValueType
-        """role"""
+        """Defines the role the user will have over the resource."""
         def __init__(
             self,
             *,
@@ -70,7 +73,7 @@ class Sharing(google.protobuf.message.Message):
 
     @typing_extensions.final
     class ShareCode(google.protobuf.message.Message):
-        """Share Code"""
+        """ShareCode describes a sharing configuration through a link."""
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -79,13 +82,17 @@ class Sharing(google.protobuf.message.Message):
         ENABLED_FIELD_NUMBER: builtins.int
         ROLE_FIELD_NUMBER: builtins.int
         user: builtins.str
-        """user"""
+        """Defines which users will be able to access the resource through the
+        code. This is a pattern that will be checked against user names.
+
+        For now, the only accepted value is `*/*`.
+        """
         code: builtins.str
-        """user"""
+        """The public URL that allows users to access the resource."""
         enabled: builtins.bool
-        """enabled"""
+        """Defines whether the sharing option via link is enabled."""
         role: global___Role.ValueType
-        """role"""
+        """Defines the role users will have over the resource."""
         def __init__(
             self,
             *,
@@ -118,10 +125,18 @@ class Sharing(google.protobuf.message.Message):
     SHARE_CODE_FIELD_NUMBER: builtins.int
     @property
     def users(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___Sharing.User]:
-        """users"""
+        """Defines sharing rules for a set of user resource names.
+
+        Each key in this object should contain a pattern that can be matched
+        against user names.
+
+        Each value is a user sharing configuration.
+
+        **NOTE**: For now, the only accepted key is `*/*`.
+        """
     @property
     def share_code(self) -> global___Sharing.ShareCode:
-        """shared code"""
+        """Defines the configuration to share a resource via link."""
     def __init__(
         self,
         *,
@@ -135,16 +150,16 @@ global___Sharing = Sharing
 
 @typing_extensions.final
 class Permission(google.protobuf.message.Message):
-    """Permission"""
+    """Permission defines how a resource can be used."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     CAN_EDIT_FIELD_NUMBER: builtins.int
     CAN_TRIGGER_FIELD_NUMBER: builtins.int
     can_edit: builtins.bool
-    """can_edit"""
+    """Defines whether the resource can be modified."""
     can_trigger: builtins.bool
-    """can_trigger"""
+    """Defines whether the resource can be executed."""
     def __init__(
         self,
         *,

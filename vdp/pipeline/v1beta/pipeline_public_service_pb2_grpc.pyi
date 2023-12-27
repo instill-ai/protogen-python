@@ -21,342 +21,532 @@ class _ServicerContext(grpc.ServicerContext, grpc.aio.ServicerContext):  # type:
     ...
 
 class PipelinePublicServiceStub:
-    """Pipeline service responds to external access"""
+    """VDP
+
+    PipelinePublicService exposes the public VDP endpoints that allow clients to
+    manage pipelines.
+    """
 
     def __init__(self, channel: typing.Union[grpc.Channel, grpc.aio.Channel]) -> None: ...
     Liveness: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.LivenessRequest,
         vdp.pipeline.v1beta.pipeline_pb2.LivenessResponse,
     ]
-    """Liveness method receives a LivenessRequest message and returns a
-    LivenessResponse message.
-    See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+    """Check if the pipeline server is alive
+
+    See https://github.com/grpc/grpc/blob/master/doc/health-checking.md.
     """
     Readiness: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.ReadinessRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ReadinessResponse,
     ]
-    """Readiness method receives a ReadinessRequest message and returns a
-    ReadinessResponse message.
+    """Check if the pipeline server is ready
+
     See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
     """
     ListPipelines: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesResponse,
     ]
-    """ListPipelines method receives a ListPipelinesRequest message and returns a
-    ListPipelinesResponse message.
+    """List accessible pipelines
+
+    Returns a paginated list of pipelines that are visible to the requester.
     """
     LookUpPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineResponse,
     ]
-    """LookUpPipeline method receives a LookUpPipelineRequest message and returns
-    a LookUpPipelineResponse
+    """Get a pipeline by UID
+
+    Returns the details of a pipeline by a permalink defined by the resource
+    UID.
     """
     CreateUserPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.CreateUserPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.CreateUserPipelineResponse,
     ]
-    """CreateUserPipeline method receives a CreateUserPipelineRequest message and returns
-    a CreateUserPipelineResponse message.
+    """Create a new user pipeline
+
+    Creates a new pipeline under the parenthood of a user. Users can only
+    create a pipeline as the parent of that resource (i.e. the authenticated
+    user must match the `parent` path parameter).
     """
     ListUserPipelines: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.ListUserPipelinesRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ListUserPipelinesResponse,
     ]
-    """ListUserPipelines method receives a ListUserPipelinesRequest message and returns a
-    ListUserPipelinesResponse message.
+    """List user pipelines
+
+    Returns a paginated list of pipelines that belong to the specified user.
+    The parent user may be different from the authenticated user, in which
+    case the results will contain the pipelines that are visible to the
+    latter.
     """
     GetUserPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.GetUserPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.GetUserPipelineResponse,
     ]
-    """GetUserPipeline method receives a GetUserPipelineRequest message and returns a
-    GetUserPipelineResponse message.
+    """Get a pipeline owned by a user
+
+    Returns the details of a user-owned pipeline by its resource name, which is defined
+    by the parent user and the ID of the pipeline.
     """
     UpdateUserPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.UpdateUserPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.UpdateUserPipelineResponse,
     ]
-    """UpdateUserPipeline method receives a UpdateUserPipelineRequest message and returns
-    a UpdateUserPipelineResponse message.
+    """Update a pipeline owned by a user
+
+    Udpates a pipeline, accessing it by its resource name, which is defined by
+    the parent user and the ID of the pipeline. The authenticated user must be
+    the parent of the pipeline in order to modify it.
+
+    In REST requests, only the supplied pipeline fields will be taken into
+    account when updating the resource.
     """
     DeleteUserPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.DeleteUserPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.DeleteUserPipelineResponse,
     ]
-    """DeleteUserPipeline method receives a DeleteUserPipelineRequest message and returns
-    a DeleteUserPipelineResponse message.
+    """Delete a pipeline owned by a user
+
+    Deletes a pipeline, accesing it by its resource name, which is defined by
+    the parent user and the ID of the pipeline. The authenticated user must be
+    the parent of the pipeline in order to delete it.
     """
     ValidateUserPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.ValidateUserPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ValidateUserPipelineResponse,
     ]
-    """Validate a pipeline."""
+    """Validate a pipeline a pipeline owned by a user
+
+    Validates a pipeline by its resource name, which is defined by the parent
+    user and the ID of the pipeline.
+
+    Validation checks the recipe of the pipeline and the status of its components.
+    """
     RenameUserPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.RenameUserPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.RenameUserPipelineResponse,
     ]
-    """RenameUserPipeline method receives a RenameUserPipelineRequest message and returns
-    a RenameUserPipelineResponse message.
+    """Rename a pipeline owned by a user
+
+    Updates the ID of a pipeline. Since this is an output-only field, a custom
+    method is required to modify it.
+
+    The pipeline name will be updated accordingly, as it is  composed by the
+    parent user and ID of the pipeline (e.g.
+    `users/luigi/pipelines/pizza-recipe-generator`).
+
+    The authenticated user must be the parent of the pipeline in order to
+    perform this action.
     """
     TriggerUserPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineResponse,
     ]
-    """TriggerUserPipeline method receives a TriggerUserPipelineRequest message
-    and returns a TriggerUserPipelineResponse.
+    """Trigger a pipeline owned by a user
+
+    Triggers the execution of a pipeline synchronously, i.e., the result is
+    sent back to the user right after the data is processed. This method is
+    intended for real-time inference when low latency is of concern.
+
+    The pipeline is identified by its resource name, formed by the parent user
+    and ID of the pipeline.
+
+    For more information, see [Trigger
+    Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
     """
     TriggerAsyncUserPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncUserPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncUserPipelineResponse,
     ]
-    """TriggerAsyncUserPipeline method receives a TriggerAsyncUserPipelineRequest message and
-    returns a TriggerAsyncUserPipelineResponse.
+    """Trigger a pipeline owned by a user asynchronously
+
+    Triggers the execution of a pipeline asynchronously, i.e., the result
+    contains the necessary information to access the result and status of the
+    operation. This method is intended for cases that require long-running
+    workloads.
+
+    The pipeline is identified by its resource name, formed by the parent user
+    and ID of the pipeline.
+
+    For more information, see [Trigger
+    Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
     """
     CreateUserPipelineRelease: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.CreateUserPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.CreateUserPipelineReleaseResponse,
     ]
-    """CreateUserPipelineRelease method receives a CreateUserPipelineReleaseRequest message and returns
-    a CreateUserPipelineReleaseResponse message.
+    """Release a version of a pipeline owned by a user
+
+    Commits the version of a pipeline, identified by its resource name, which
+    is formed by the parent user and ID of the pipeline.
+
+    The authenticated user must be the parent of the pipeline in order to
+    perform this action.
     """
     ListUserPipelineReleases: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.ListUserPipelineReleasesRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ListUserPipelineReleasesResponse,
     ]
-    """ListUserPipelineReleases method receives a ListUserPipelineReleasesRequest message and returns a
-    ListUserPipelineReleasesResponse message.
+    """List the releases in a pipeline owned by a user
+
+    Lists the commited versions of a pipeline, identified by its resource
+    name, which is formed by the parent user and ID of the pipeline.
     """
     GetUserPipelineRelease: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.GetUserPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.GetUserPipelineReleaseResponse,
     ]
-    """GetUserPipelineRelease method receives a GetUserPipelineReleaseRequest message and returns a
-    GetUserPipelineReleaseResponse message.
+    """Get a release in a pipeline owned by a user
+
+    Gets the details of a pipeline release, where the pipeline is identified
+    by its resource name, formed by its parent user and ID.
     """
     UpdateUserPipelineRelease: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.UpdateUserPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.UpdateUserPipelineReleaseResponse,
     ]
-    """UpdateUserPipelineRelease method receives a UpdateUserPipelineReleaseRequest message and returns
-    a UpdateUserPipelineReleaseResponse message.
+    """Update a release in a pipeline owned by a user
+
+    Updates the details of a pipeline release, where the pipeline is
+    identified by its resource name, formed by its parent user and ID.
+
+    The authenticated user must be the parent of the pipeline in order to
+    perform this action.
     """
     DeleteUserPipelineRelease: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.DeleteUserPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.DeleteUserPipelineReleaseResponse,
     ]
-    """DeleteUserPipelineRelease method receives a DeleteUserPipelineReleaseRequest message and returns
-    a DeleteUserPipelineReleaseResponse message.
+    """Delete a release in a pipeline owned by a user
+
+    Deletes a pipeline release, where the pipeline is identified by its
+    resource name, formed by its parent user and ID.
+
+    The authenticated user must be the parent of the pipeline in order to
+    perform this action.
     """
     RestoreUserPipelineRelease: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.RestoreUserPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.RestoreUserPipelineReleaseResponse,
     ]
-    """RestoreUserPipelineRelease method receives a RestoreUserPipelineReleaseRequest message
-    and returns a RestoreUserPipelineReleaseResponse
+    """Set the version of a pipeline owned by a user to a pinned release
+
+    Sets the pipeline configuration to a pinned version defined by a release.
+
+    The pipeline is identified by its resource name, formed by its parent user
+    and ID.
+
+    The authenticated user must be the parent of the pipeline in order to
+    perform this action.
     """
     WatchUserPipelineRelease: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.WatchUserPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.WatchUserPipelineReleaseResponse,
     ]
-    """WatchUserPipelineRelease method receives a WatchUserPipelineReleaseRequest message
-    and returns a WatchUserPipelineReleaseResponse
+    """Get the state of a release in a pipeline owned by a user
+
+    Gets the state of a pipeline release, where the pipeline is identified by
+    its resource name, formed by the parent user and ID of the pipeline.
     """
     RenameUserPipelineRelease: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.RenameUserPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.RenameUserPipelineReleaseResponse,
     ]
-    """RenameUserPipelineRelease method receives a RenameUserPipelineReleaseRequest message and returns
-    a RenameUserPipelineReleaseResponse message.
+    """Rename a release in a pipeline owned by a user
+
+    Updates the ID of a pipeline release, where the pipeline is identified by
+    its resource name, formed by the parent user and ID. Since this is an
+    output-only field, a custom method is required to modify it.
+
+    The pipeline release name will be updated accordingly, as it is  composed
+    by the pipeline name and the ID of the release (e.g.
+    `users/luigi/pipelines/pizza-recipe-generator/releases/v0.2.1`).
+
+    The authenticated user must be the parent of the pipeline in order to
+    perform this action.
     """
     TriggerUserPipelineRelease: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineReleaseResponse,
     ]
-    """TriggerUserPipelineRelease method receives a TriggeUserPipelineReleaseRequest message
-    and returns a TriggerPipelineReleasePipelineResponse.
+    """Trigger a version of a pipeline owned by a user
+
+    Triggers the synchronous execution of of a pipeline. While the trigger
+    endpoint (where the release version isn't specified) triggers the pipeline
+    at its latest release, this method allows the client to specified any
+    committed release.
+
+    The pipeline is identified by its resource name, formed by its parent user
+    and ID.
     """
     TriggerAsyncUserPipelineRelease: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncUserPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncUserPipelineReleaseResponse,
     ]
-    """TriggerAsyncUserPipelineRelease method receives a TriggerAsyncUserPipelineReleaseRequest message and
-    returns a TriggerAsyncUserPipelineReleaseResponse.
+    """Trigger a version of a pipeline owned by a user asynchronously
+
+    Triggers the asynchronous execution of of a pipeline. While the trigger
+    endpoint (where the release version isn't specified) triggers the pipeline
+    at its latest release, this method allows the client to specified any
+    committed release.
+
+    The pipeline is identified by its resource name, formed by its parent user
+    and ID.
     """
     CreateOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.CreateOrganizationPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.CreateOrganizationPipelineResponse,
     ]
-    """CreateOrganizationPipeline method receives a CreateOrganizationPipelineRequest message and returns
-    a CreateOrganizationPipelineResponse message.
+    """Create a new organization pipeline
+
+    Creates a new pipeline under the parenthood of an organization.
     """
     ListOrganizationPipelines: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.ListOrganizationPipelinesRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ListOrganizationPipelinesResponse,
     ]
-    """ListOrganizationPipelines method receives a ListOrganizationPipelinesRequest message and returns a
-    ListOrganizationPipelinesResponse message.
+    """List organization pipelines
+
+    Returns a paginated list of pipelines that belong to the specified
+    organization.
     """
     GetOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.GetOrganizationPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.GetOrganizationPipelineResponse,
     ]
-    """GetOrganizationPipeline method receives a GetOrganizationPipelineRequest message and returns a
-    GetOrganizationPipelineResponse message.
+    """Get a pipeline owned by an organization
+
+    Returns the details of an organization-owned pipeline by its resource name,
+    which is defined by the parent organization and the ID of the pipeline.
     """
     UpdateOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.UpdateOrganizationPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.UpdateOrganizationPipelineResponse,
     ]
-    """UpdateOrganizationPipeline method receives a UpdateOrganizationPipelineRequest message and returns
-    a UpdateOrganizationPipelineResponse message.
+    """Update a pipeline owned by an organization
+
+    Udpates a pipeline, accessing it by its resource name, which is defined by
+
+    In REST requests, only the supplied pipeline fields will be taken into
+    account when updating the resource.
     """
     DeleteOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.DeleteOrganizationPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.DeleteOrganizationPipelineResponse,
     ]
-    """DeleteOrganizationPipeline method receives a DeleteOrganizationPipelineRequest message and returns
-    a DeleteOrganizationPipelineResponse message.
+    """Delete a pipeline owned by an organization
+
+    Deletes a pipeline, accesing it by its resource name, which is defined by
+    the parent organization and the ID of the pipeline.
     """
     ValidateOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.ValidateOrganizationPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ValidateOrganizationPipelineResponse,
     ]
-    """Validate a pipeline."""
+    """Validate a pipeline a pipeline owned by an organization
+
+    Validates a pipeline by its resource name, which is defined by the parent
+    organization and the ID of the pipeline.
+
+    Validation checks the recipe of the pipeline and the status of its
+    components.
+    """
     RenameOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.RenameOrganizationPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.RenameOrganizationPipelineResponse,
     ]
-    """RenameOrganizationPipeline method receives a RenameOrganizationPipelineRequest message and returns
-    a RenameOrganizationPipelineResponse message.
+    """Rename a pipeline owned by an organization
+
+    Updates the ID of a pipeline. Since this is an output-only field, a custom
+    method is required to modify it.
+
+    The pipeline name will be updated accordingly, as it is  composed by the
+    parent organization and ID of the pipeline (e.g.
+    `organizations/luigi/pipelines/pizza-recipe-generator`).
     """
     TriggerOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineResponse,
     ]
-    """TriggerOrganizationPipeline method receives a TriggerOrganizationPipelineRequest message
-    and returns a TriggerOrganizationPipelineResponse.
+    """Trigger a pipeline owned by an organization
+
+    Triggers the execution of a pipeline synchronously, i.e., the result is sent
+    back to the organization right after the data is processed. This method is
+    intended for real-time inference when low latency is of concern.
+
+    The pipeline is identified by its resource name, formed by the parent
+    organization and ID of the pipeline.
+
+    For more information, see [Trigger
+    Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
     """
     TriggerAsyncOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncOrganizationPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncOrganizationPipelineResponse,
     ]
-    """TriggerAsyncOrganizationPipeline method receives a TriggerAsyncOrganizationPipelineRequest message and
-    returns a TriggerAsyncOrganizationPipelineResponse.
+    """Trigger a pipeline owned by an organization asynchronously
+
+    Triggers the execution of a pipeline asynchronously, i.e., the result
+    contains the necessary information to access the result and status of the
+    operation. This method is intended for cases that require long-running
+    workloads.
+
+    The pipeline is identified by its resource name, formed by the parent
+    organization and ID of the pipeline.
+
+    For more information, see [Trigger
+    Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
     """
     CreateOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.CreateOrganizationPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.CreateOrganizationPipelineReleaseResponse,
     ]
-    """CreateOrganizationPipelineRelease method receives a CreateOrganizationPipelineReleaseRequest message and returns
-    a CreateOrganizationPipelineReleaseResponse message.
+    """Release a version of a pipeline owned by an organization
+
+    Commits the version of a pipeline, identified by its resource name, which is
+    formed by the parent organization and ID of the pipeline.
     """
     ListOrganizationPipelineReleases: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.ListOrganizationPipelineReleasesRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ListOrganizationPipelineReleasesResponse,
     ]
-    """ListOrganizationPipelineReleases method receives a ListOrganizationPipelineReleasesRequest message and returns a
-    ListOrganizationPipelineReleasesResponse message.
+    """List the releases in a pipeline owned by an organization
+
+    Lists the commited versions of a pipeline, identified by its resource name,
+    which is formed by the parent organization and ID of the pipeline.
     """
     GetOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.GetOrganizationPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.GetOrganizationPipelineReleaseResponse,
     ]
-    """GetOrganizationPipelineRelease method receives a GetOrganizationPipelineReleaseRequest message and returns a
-    GetOrganizationPipelineReleaseResponse message.
+    """Get a release in a pipeline owned by an organization
+
+    Gets the details of a pipeline release, where the pipeline is identified by
+    its resource name, formed by its parent organization and ID.
     """
     UpdateOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.UpdateOrganizationPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.UpdateOrganizationPipelineReleaseResponse,
     ]
-    """UpdateOrganizationPipelineRelease method receives a UpdateOrganizationPipelineReleaseRequest message and returns
-    a UpdateOrganizationPipelineReleaseResponse message.
+    """Update a release in a pipeline owned by an organization
+
+    Updates the details of a pipeline release, where the pipeline is identified
+    by its resource name, formed by its parent organization and ID.
     """
     DeleteOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.DeleteOrganizationPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.DeleteOrganizationPipelineReleaseResponse,
     ]
-    """DeleteOrganizationPipelineRelease method receives a DeleteOrganizationPipelineReleaseRequest message and returns
-    a DeleteOrganizationPipelineReleaseResponse message.
+    """Delete a release in a pipeline owned by an organization
+
+    Deletes a pipeline release, where the pipeline is identified by its resource
+    name, formed by its parent organization and ID.
     """
     RestoreOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.RestoreOrganizationPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.RestoreOrganizationPipelineReleaseResponse,
     ]
-    """RestoreOrganizationPipelineRelease method receives a RestoreOrganizationPipelineReleaseRequest message
-    and returns a RestoreOrganizationPipelineReleaseResponse
+    """Set the version of a pipeline owned by an organization to a pinned release
+
+    Sets the pipeline configuration to a pinned version defined by a release.
+
+    The pipeline is identified by its resource name, formed by its parent
+    organization and ID.
     """
     WatchOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.WatchOrganizationPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.WatchOrganizationPipelineReleaseResponse,
     ]
-    """WatchOrganizationPipelineRelease method receives a WatchOrganizationPipelineReleaseRequest message
-    and returns a WatchOrganizationPipelineReleaseResponse
+    """Get the state of a release in a pipeline owned by an organization
+
+    Gets the state of a pipeline release, where the pipeline is identified by
+    its resource name, formed by the parent organization and ID of the pipeline.
     """
     RenameOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.RenameOrganizationPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.RenameOrganizationPipelineReleaseResponse,
     ]
-    """RenameOrganizationPipelineRelease method receives a RenameOrganizationPipelineReleaseRequest message and returns
-    a RenameOrganizationPipelineReleaseResponse message.
+    """Rename a release in a pipeline owned by an organization
+
+    Updates the ID of a pipeline release, where the pipeline is identified by
+    its resource name, formed by the parent organization and ID. Since this is
+    an output-only field, a custom method is required to modify it.
+
+    The pipeline release name will be updated accordingly, as it is  composed by
+    the pipeline name and the ID of the release (e.g.
+    `organizations/luigi/pipelines/pizza-recipe-generator/releases/v0.2.1`).
     """
     TriggerOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineReleaseResponse,
     ]
-    """TriggerOrganizationPipelineRelease method receives a TriggeOrganizationPipelineReleaseRequest message
-    and returns a TriggerPipelineReleasePipelineResponse.
+    """Trigger a version of a pipeline owned by an organization
+
+    Triggers the synchronous execution of of a pipeline. While the trigger
+    endpoint (where the release version isn't specified) triggers the pipeline
+    at its latest release, this method allows the client to specified any
+    committed release.
+
+    The pipeline is identified by its resource name, formed by its parent
+    organization and ID.
     """
     TriggerAsyncOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncOrganizationPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncOrganizationPipelineReleaseResponse,
     ]
-    """TriggerAsyncOrganizationPipelineRelease method receives a TriggerAsyncOrganizationPipelineReleaseRequest message and
-    returns a TriggerAsyncOrganizationPipelineReleaseResponse.
+    """Trigger a version of a pipeline owned by an organization asynchronously
+
+    Triggers the asynchronous execution of of a pipeline. While the trigger
+    endpoint (where the release version isn't specified) triggers the pipeline
+    at its latest release, this method allows the client to specified any
+    committed release.
+
+    The pipeline is identified by its resource name, formed by its parent
+    organization and ID.
     """
     GetOperation: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.GetOperationRequest,
         vdp.pipeline.v1beta.pipeline_pb2.GetOperationResponse,
     ]
-    """*Longrunning operation methods
+    """Get the details of a long-running operation
 
-    GetOperation method receives a
-    GetOperationRequest message and returns a
-    GetOperationResponse message.
+    This method allows requesters to request the status and outcome of
+    long-running operations such as asynchronous pipeline triggers.
     """
     ListConnectorDefinitions: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_definition_pb2.ListConnectorDefinitionsRequest,
         vdp.pipeline.v1beta.connector_definition_pb2.ListConnectorDefinitionsResponse,
     ]
-    """ListConnectorDefinitions method receives a
-    ListConnectorDefinitionsRequest message and returns a
-    ListConnectorDefinitionsResponse message.
+    """List connector definitions
+
+    Returns a paginated list of connector definitions.
     """
     GetConnectorDefinition: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_definition_pb2.GetConnectorDefinitionRequest,
         vdp.pipeline.v1beta.connector_definition_pb2.GetConnectorDefinitionResponse,
     ]
-    """GetConnectorDefinition method receives a
-    GetConnectorDefinitionRequest message and returns a
-    GetGetConnectorDefinitionResponse message.
+    """Get connector definition
+
+    Returns the details of a connector definition.
     """
     ListOperatorDefinitions: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.operator_definition_pb2.ListOperatorDefinitionsRequest,
         vdp.pipeline.v1beta.operator_definition_pb2.ListOperatorDefinitionsResponse,
     ]
-    """ListOperatorDefinitions method receives a
-    ListOperatorDefinitionsRequest message and returns a
-    ListOperatorDefinitionsResponse message.
+    """List operator definitions
+
+    Returns a paginated list of operator definitions.
     """
     GetOperatorDefinition: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.operator_definition_pb2.GetOperatorDefinitionRequest,
         vdp.pipeline.v1beta.operator_definition_pb2.GetOperatorDefinitionResponse,
     ]
-    """GetOperatorDefinition method receives a
-    GetOperatorDefinitionRequest message and returns a
-    GetGetOperatorDefinitionResponse message.
+    """Get operator definition
+
+    Returns the details of an operator definition.
     """
     ListConnectors: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.ListConnectorsRequest,
@@ -366,535 +556,753 @@ class PipelinePublicServiceStub:
     Connector methods
     ///////////////////////////////
 
-    ListConnectors method receives a
-    ListConnectorsRequest message and returns a
-    ListConnectorsResponse message.
+    List connectors
+
+    Returns all the connectors that are visible to the authenticated user.
     """
     LookUpConnector: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.LookUpConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.LookUpConnectorResponse,
     ]
-    """LookUpConnector method receives a
-    LookUpConnectorRequest message and returns a
-    LookUpConnectorResponse
+    """Get a connector by UID
+
+    Returns the details of a connector by UID.
     """
     CreateUserConnector: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.CreateUserConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.CreateUserConnectorResponse,
     ]
-    """CreateUserConnector method receives a
-    CreateUserConnectorRequest message and returns a
-    CreateUserConnectorResponse message.
+    """Create a new user connector
+
+    Creates a new connector under the parenthood of a user. Users can only
+    create a connector parents of that resource (i.e. the authenticated user
+    must match the `parent` path parameter).
     """
     ListUserConnectors: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.ListUserConnectorsRequest,
         vdp.pipeline.v1beta.connector_pb2.ListUserConnectorsResponse,
     ]
-    """ListUserConnectors method receives a
-    ListUserConnectorsRequest message and returns a
-    ListUserConnectorsResponse message.
+    """List user connectors
+
+    Returns a paginated list of connectors that belong to the specified user.
     """
     GetUserConnector: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.GetUserConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.GetUserConnectorResponse,
     ]
-    """GetUserConnector method receives a GetUserConnectorRequest
-    message and returns a GetUserConnectorResponse message.
+    """Get a connector owned by a user.
+
+    Returns the details of a user-owned connector.
     """
     UpdateUserConnector: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.UpdateUserConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.UpdateUserConnectorResponse,
     ]
-    """UpdateUserConnector method receives a
-    UpdateUserConnectorRequest message and returns a
-    UpdateUserConnectorResponse message.
+    """Update a connector owned by a user.
+
+    Updates a user-owned connector. The authebnticated user must be the parent
+    of the connector.
+
+    In REST requests, only the supplied connector fields will be taken into
+    account when updating the resource.
     """
     DeleteUserConnector: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.DeleteUserConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.DeleteUserConnectorResponse,
     ]
-    """DeleteUserConnector method receives a
-    DeleteUserConnectorRequest message and returns a
-    DeleteUserConnectorResponse message.
+    """Delete a connector owned by a user
+
+    Deletes a connector. The authenticated user must be the parent of the
+    connector in order to delete it.
     """
     ConnectUserConnector: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.ConnectUserConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.ConnectUserConnectorResponse,
     ]
-    """Connect a connector.
-    The "state" of the connector after connecting is "CONNECTED".
-    ConnectUserConnector can be called on Connector in the
-    state `DISCONNECTED`; Connector in a different state (including
-    `CONNECTED`) returns an error.
+    """Connect a connector owned by a user
+
+    Transitions the state of a connector from `DISCONNECTED` to `CONNECTED`. If
+    the state of the connector is different when the request is made, an error
+    is returned.
     """
     DisconnectUserConnector: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.DisconnectUserConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.DisconnectUserConnectorResponse,
     ]
-    """Disconnect a connector.
-    The "state" of the connector after disconnecting is "DISCONNECTED".
-    DisconnectUserConnector can be called on Connector in the
-    state `CONNECTED`; Connector in a different state (including
-    `DISCONNECTED`) returns an error.
+    """Disconnect a connector owned by a user
+
+    Transitions the state of a connector from `CONNECTED` to `DISCONNECTED`. If
+    the state of the connector is different when the request is made, an error
+    is returned.
     """
     RenameUserConnector: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.RenameUserConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.RenameUserConnectorResponse,
     ]
-    """RenameUserConnector method receives a
-    RenameUserConnectorRequest message and returns a
-    RenameUserConnectorResponse message.
+    """Rename a connector owned by a user
+
+    Updates the ID of a connector. Since this is an output-only field, a custom
+    method is required to modify it.
+
+    The connector name will be updated accordingly, as it is  composed by the
+    parent user and ID of the connector (e.g.
+    `users/indiana-jones/connector/whip`).
+
+    The authenticated user must be the parent of the connector in order to
+    perform this action.
     """
     ExecuteUserConnector: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.ExecuteUserConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.ExecuteUserConnectorResponse,
     ]
-    """ExecuteUserConnector method receives a
-    ExecuteUserConnectorRequest message and returns a
-    ExecuteUserConnectorResponse message.
+    """Execute a connector owned by a user
+
+    Executes a task in a user-owned connector.
     """
     WatchUserConnector: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.WatchUserConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.WatchUserConnectorResponse,
     ]
-    """WatchUserConnector method receives a
-    WatchUserConnectorRequest message and returns a
-    WatchUserConnectorResponse
+    """Get the state of a connector owned by a user
+
+    Gets the state of a user-owned connector.
     """
     TestUserConnector: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.TestUserConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.TestUserConnectorResponse,
     ]
-    """TestUserConnector method receives a TestUserConnectorRequest
-    message and returns a TestUserConnectorResponse
+    """Test a connector owned by a user
+
+    Tests the connection on a user-owned connector.
     """
     CreateOrganizationConnector: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.CreateOrganizationConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.CreateOrganizationConnectorResponse,
     ]
-    """CreateOrganizationConnector method receives a
-    CreateOrganizationConnectorRequest message and returns a
-    CreateOrganizationConnectorResponse message.
+    """Create a new organization connector
+
+    Creates a new connector under the parenthood of an organization.
     """
     ListOrganizationConnectors: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.ListOrganizationConnectorsRequest,
         vdp.pipeline.v1beta.connector_pb2.ListOrganizationConnectorsResponse,
     ]
-    """ListOrganizationConnectors method receives a
-    ListOrganizationConnectorsRequest message and returns a
-    ListOrganizationConnectorsResponse message.
+    """List organization connectors
+
+    Returns a paginated list of connectors that belong to the specified
+    organization.
     """
     GetOrganizationConnector: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.GetOrganizationConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.GetOrganizationConnectorResponse,
     ]
-    """GetOrganizationConnector method receives a GetOrganizationConnectorRequest
-    message and returns a GetOrganizationConnectorResponse message.
+    """Get a connector owned by an organization.
+
+    Returns the details of an organization-owned connector.
     """
     UpdateOrganizationConnector: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.UpdateOrganizationConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.UpdateOrganizationConnectorResponse,
     ]
-    """UpdateOrganizationConnector method receives a
-    UpdateOrganizationConnectorRequest message and returns a
-    UpdateOrganizationConnectorResponse message.
+    """Update a connector owned by an organization.
+
+    Updates an organization-owned connector.
+
+    In REST requests, only the supplied connector fields will be taken into
+    account when updating the resource.
     """
     DeleteOrganizationConnector: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.DeleteOrganizationConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.DeleteOrganizationConnectorResponse,
     ]
-    """DeleteOrganizationConnector method receives a
-    DeleteOrganizationConnectorRequest message and returns a
-    DeleteOrganizationConnectorResponse message.
+    """Delete a connector owned by an organization
+
+    Deletes a connector.
     """
     ConnectOrganizationConnector: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.ConnectOrganizationConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.ConnectOrganizationConnectorResponse,
     ]
-    """Connect a connector.
-    The "state" of the connector after connecting is "CONNECTED".
-    ConnectOrganizationConnector can be called on Connector in the
-    state `DISCONNECTED`; Connector in a different state (including
-    `CONNECTED`) returns an error.
+    """Connect a connector owned by an organization
+
+    Transitions the state of a connector from `DISCONNECTED` to `CONNECTED`. If
+    the state of the connector is different when the request is made, an error
+    is returned.
     """
     DisconnectOrganizationConnector: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.DisconnectOrganizationConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.DisconnectOrganizationConnectorResponse,
     ]
-    """Disconnect a connector.
-    The "state" of the connector after disconnecting is "DISCONNECTED".
-    DisconnectOrganizationConnector can be called on Connector in the
-    state `CONNECTED`; Connector in a different state (including
-    `DISCONNECTED`) returns an error.
+    """Disconnect a connector owned by an organization
+
+    Transitions the state of a connector from `CONNECTED` to `DISCONNECTED`. If
+    the state of the connector is different when the request is made, an error
+    is returned.
     """
     RenameOrganizationConnector: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.RenameOrganizationConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.RenameOrganizationConnectorResponse,
     ]
-    """RenameOrganizationConnector method receives a
-    RenameOrganizationConnectorRequest message and returns a
-    RenameOrganizationConnectorResponse message.
+    """Rename a connector owned by an organization
+
+    Updates the ID of a connector. Since this is an output-only field, a custom
+    method is required to modify it.
+
+    The connector name will be updated accordingly, as it is  composed by the
+    parent organization and ID of the connector (e.g.
+    `organizations/indiana-jones/connector/whip`).
     """
     ExecuteOrganizationConnector: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.ExecuteOrganizationConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.ExecuteOrganizationConnectorResponse,
     ]
-    """ExecuteOrganizationConnector method receives a
-    ExecuteOrganizationConnectorRequest message and returns a
-    ExecuteOrganizationConnectorResponse message.
+    """Execute a connector owned by an organization
+
+    Executes a task in an organization-owned connector.
     """
     WatchOrganizationConnector: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.WatchOrganizationConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.WatchOrganizationConnectorResponse,
     ]
-    """WatchOrganizationConnector method receives a
-    WatchOrganizationConnectorRequest message and returns a
-    WatchOrganizationConnectorResponse
+    """Get the state of a connector owned by an organization
+
+    Gets the state of an organization-owned connector.
     """
     TestOrganizationConnector: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.TestOrganizationConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.TestOrganizationConnectorResponse,
     ]
-    """TestOrganizationConnector method receives a TestOrganizationConnectorRequest
-    message and returns a TestOrganizationConnectorResponse
+    """Test a connector owned by an organization
+
+    Tests the connection on an organization-owned connector.
     """
 
 class PipelinePublicServiceAsyncStub:
-    """Pipeline service responds to external access"""
+    """VDP
+
+    PipelinePublicService exposes the public VDP endpoints that allow clients to
+    manage pipelines.
+    """
 
     Liveness: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.LivenessRequest,
         vdp.pipeline.v1beta.pipeline_pb2.LivenessResponse,
     ]
-    """Liveness method receives a LivenessRequest message and returns a
-    LivenessResponse message.
-    See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+    """Check if the pipeline server is alive
+
+    See https://github.com/grpc/grpc/blob/master/doc/health-checking.md.
     """
     Readiness: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.ReadinessRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ReadinessResponse,
     ]
-    """Readiness method receives a ReadinessRequest message and returns a
-    ReadinessResponse message.
+    """Check if the pipeline server is ready
+
     See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
     """
     ListPipelines: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesResponse,
     ]
-    """ListPipelines method receives a ListPipelinesRequest message and returns a
-    ListPipelinesResponse message.
+    """List accessible pipelines
+
+    Returns a paginated list of pipelines that are visible to the requester.
     """
     LookUpPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineResponse,
     ]
-    """LookUpPipeline method receives a LookUpPipelineRequest message and returns
-    a LookUpPipelineResponse
+    """Get a pipeline by UID
+
+    Returns the details of a pipeline by a permalink defined by the resource
+    UID.
     """
     CreateUserPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.CreateUserPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.CreateUserPipelineResponse,
     ]
-    """CreateUserPipeline method receives a CreateUserPipelineRequest message and returns
-    a CreateUserPipelineResponse message.
+    """Create a new user pipeline
+
+    Creates a new pipeline under the parenthood of a user. Users can only
+    create a pipeline as the parent of that resource (i.e. the authenticated
+    user must match the `parent` path parameter).
     """
     ListUserPipelines: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.ListUserPipelinesRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ListUserPipelinesResponse,
     ]
-    """ListUserPipelines method receives a ListUserPipelinesRequest message and returns a
-    ListUserPipelinesResponse message.
+    """List user pipelines
+
+    Returns a paginated list of pipelines that belong to the specified user.
+    The parent user may be different from the authenticated user, in which
+    case the results will contain the pipelines that are visible to the
+    latter.
     """
     GetUserPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.GetUserPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.GetUserPipelineResponse,
     ]
-    """GetUserPipeline method receives a GetUserPipelineRequest message and returns a
-    GetUserPipelineResponse message.
+    """Get a pipeline owned by a user
+
+    Returns the details of a user-owned pipeline by its resource name, which is defined
+    by the parent user and the ID of the pipeline.
     """
     UpdateUserPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.UpdateUserPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.UpdateUserPipelineResponse,
     ]
-    """UpdateUserPipeline method receives a UpdateUserPipelineRequest message and returns
-    a UpdateUserPipelineResponse message.
+    """Update a pipeline owned by a user
+
+    Udpates a pipeline, accessing it by its resource name, which is defined by
+    the parent user and the ID of the pipeline. The authenticated user must be
+    the parent of the pipeline in order to modify it.
+
+    In REST requests, only the supplied pipeline fields will be taken into
+    account when updating the resource.
     """
     DeleteUserPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.DeleteUserPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.DeleteUserPipelineResponse,
     ]
-    """DeleteUserPipeline method receives a DeleteUserPipelineRequest message and returns
-    a DeleteUserPipelineResponse message.
+    """Delete a pipeline owned by a user
+
+    Deletes a pipeline, accesing it by its resource name, which is defined by
+    the parent user and the ID of the pipeline. The authenticated user must be
+    the parent of the pipeline in order to delete it.
     """
     ValidateUserPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.ValidateUserPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ValidateUserPipelineResponse,
     ]
-    """Validate a pipeline."""
+    """Validate a pipeline a pipeline owned by a user
+
+    Validates a pipeline by its resource name, which is defined by the parent
+    user and the ID of the pipeline.
+
+    Validation checks the recipe of the pipeline and the status of its components.
+    """
     RenameUserPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.RenameUserPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.RenameUserPipelineResponse,
     ]
-    """RenameUserPipeline method receives a RenameUserPipelineRequest message and returns
-    a RenameUserPipelineResponse message.
+    """Rename a pipeline owned by a user
+
+    Updates the ID of a pipeline. Since this is an output-only field, a custom
+    method is required to modify it.
+
+    The pipeline name will be updated accordingly, as it is  composed by the
+    parent user and ID of the pipeline (e.g.
+    `users/luigi/pipelines/pizza-recipe-generator`).
+
+    The authenticated user must be the parent of the pipeline in order to
+    perform this action.
     """
     TriggerUserPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineResponse,
     ]
-    """TriggerUserPipeline method receives a TriggerUserPipelineRequest message
-    and returns a TriggerUserPipelineResponse.
+    """Trigger a pipeline owned by a user
+
+    Triggers the execution of a pipeline synchronously, i.e., the result is
+    sent back to the user right after the data is processed. This method is
+    intended for real-time inference when low latency is of concern.
+
+    The pipeline is identified by its resource name, formed by the parent user
+    and ID of the pipeline.
+
+    For more information, see [Trigger
+    Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
     """
     TriggerAsyncUserPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncUserPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncUserPipelineResponse,
     ]
-    """TriggerAsyncUserPipeline method receives a TriggerAsyncUserPipelineRequest message and
-    returns a TriggerAsyncUserPipelineResponse.
+    """Trigger a pipeline owned by a user asynchronously
+
+    Triggers the execution of a pipeline asynchronously, i.e., the result
+    contains the necessary information to access the result and status of the
+    operation. This method is intended for cases that require long-running
+    workloads.
+
+    The pipeline is identified by its resource name, formed by the parent user
+    and ID of the pipeline.
+
+    For more information, see [Trigger
+    Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
     """
     CreateUserPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.CreateUserPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.CreateUserPipelineReleaseResponse,
     ]
-    """CreateUserPipelineRelease method receives a CreateUserPipelineReleaseRequest message and returns
-    a CreateUserPipelineReleaseResponse message.
+    """Release a version of a pipeline owned by a user
+
+    Commits the version of a pipeline, identified by its resource name, which
+    is formed by the parent user and ID of the pipeline.
+
+    The authenticated user must be the parent of the pipeline in order to
+    perform this action.
     """
     ListUserPipelineReleases: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.ListUserPipelineReleasesRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ListUserPipelineReleasesResponse,
     ]
-    """ListUserPipelineReleases method receives a ListUserPipelineReleasesRequest message and returns a
-    ListUserPipelineReleasesResponse message.
+    """List the releases in a pipeline owned by a user
+
+    Lists the commited versions of a pipeline, identified by its resource
+    name, which is formed by the parent user and ID of the pipeline.
     """
     GetUserPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.GetUserPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.GetUserPipelineReleaseResponse,
     ]
-    """GetUserPipelineRelease method receives a GetUserPipelineReleaseRequest message and returns a
-    GetUserPipelineReleaseResponse message.
+    """Get a release in a pipeline owned by a user
+
+    Gets the details of a pipeline release, where the pipeline is identified
+    by its resource name, formed by its parent user and ID.
     """
     UpdateUserPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.UpdateUserPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.UpdateUserPipelineReleaseResponse,
     ]
-    """UpdateUserPipelineRelease method receives a UpdateUserPipelineReleaseRequest message and returns
-    a UpdateUserPipelineReleaseResponse message.
+    """Update a release in a pipeline owned by a user
+
+    Updates the details of a pipeline release, where the pipeline is
+    identified by its resource name, formed by its parent user and ID.
+
+    The authenticated user must be the parent of the pipeline in order to
+    perform this action.
     """
     DeleteUserPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.DeleteUserPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.DeleteUserPipelineReleaseResponse,
     ]
-    """DeleteUserPipelineRelease method receives a DeleteUserPipelineReleaseRequest message and returns
-    a DeleteUserPipelineReleaseResponse message.
+    """Delete a release in a pipeline owned by a user
+
+    Deletes a pipeline release, where the pipeline is identified by its
+    resource name, formed by its parent user and ID.
+
+    The authenticated user must be the parent of the pipeline in order to
+    perform this action.
     """
     RestoreUserPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.RestoreUserPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.RestoreUserPipelineReleaseResponse,
     ]
-    """RestoreUserPipelineRelease method receives a RestoreUserPipelineReleaseRequest message
-    and returns a RestoreUserPipelineReleaseResponse
+    """Set the version of a pipeline owned by a user to a pinned release
+
+    Sets the pipeline configuration to a pinned version defined by a release.
+
+    The pipeline is identified by its resource name, formed by its parent user
+    and ID.
+
+    The authenticated user must be the parent of the pipeline in order to
+    perform this action.
     """
     WatchUserPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.WatchUserPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.WatchUserPipelineReleaseResponse,
     ]
-    """WatchUserPipelineRelease method receives a WatchUserPipelineReleaseRequest message
-    and returns a WatchUserPipelineReleaseResponse
+    """Get the state of a release in a pipeline owned by a user
+
+    Gets the state of a pipeline release, where the pipeline is identified by
+    its resource name, formed by the parent user and ID of the pipeline.
     """
     RenameUserPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.RenameUserPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.RenameUserPipelineReleaseResponse,
     ]
-    """RenameUserPipelineRelease method receives a RenameUserPipelineReleaseRequest message and returns
-    a RenameUserPipelineReleaseResponse message.
+    """Rename a release in a pipeline owned by a user
+
+    Updates the ID of a pipeline release, where the pipeline is identified by
+    its resource name, formed by the parent user and ID. Since this is an
+    output-only field, a custom method is required to modify it.
+
+    The pipeline release name will be updated accordingly, as it is  composed
+    by the pipeline name and the ID of the release (e.g.
+    `users/luigi/pipelines/pizza-recipe-generator/releases/v0.2.1`).
+
+    The authenticated user must be the parent of the pipeline in order to
+    perform this action.
     """
     TriggerUserPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineReleaseResponse,
     ]
-    """TriggerUserPipelineRelease method receives a TriggeUserPipelineReleaseRequest message
-    and returns a TriggerPipelineReleasePipelineResponse.
+    """Trigger a version of a pipeline owned by a user
+
+    Triggers the synchronous execution of of a pipeline. While the trigger
+    endpoint (where the release version isn't specified) triggers the pipeline
+    at its latest release, this method allows the client to specified any
+    committed release.
+
+    The pipeline is identified by its resource name, formed by its parent user
+    and ID.
     """
     TriggerAsyncUserPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncUserPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncUserPipelineReleaseResponse,
     ]
-    """TriggerAsyncUserPipelineRelease method receives a TriggerAsyncUserPipelineReleaseRequest message and
-    returns a TriggerAsyncUserPipelineReleaseResponse.
+    """Trigger a version of a pipeline owned by a user asynchronously
+
+    Triggers the asynchronous execution of of a pipeline. While the trigger
+    endpoint (where the release version isn't specified) triggers the pipeline
+    at its latest release, this method allows the client to specified any
+    committed release.
+
+    The pipeline is identified by its resource name, formed by its parent user
+    and ID.
     """
     CreateOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.CreateOrganizationPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.CreateOrganizationPipelineResponse,
     ]
-    """CreateOrganizationPipeline method receives a CreateOrganizationPipelineRequest message and returns
-    a CreateOrganizationPipelineResponse message.
+    """Create a new organization pipeline
+
+    Creates a new pipeline under the parenthood of an organization.
     """
     ListOrganizationPipelines: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.ListOrganizationPipelinesRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ListOrganizationPipelinesResponse,
     ]
-    """ListOrganizationPipelines method receives a ListOrganizationPipelinesRequest message and returns a
-    ListOrganizationPipelinesResponse message.
+    """List organization pipelines
+
+    Returns a paginated list of pipelines that belong to the specified
+    organization.
     """
     GetOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.GetOrganizationPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.GetOrganizationPipelineResponse,
     ]
-    """GetOrganizationPipeline method receives a GetOrganizationPipelineRequest message and returns a
-    GetOrganizationPipelineResponse message.
+    """Get a pipeline owned by an organization
+
+    Returns the details of an organization-owned pipeline by its resource name,
+    which is defined by the parent organization and the ID of the pipeline.
     """
     UpdateOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.UpdateOrganizationPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.UpdateOrganizationPipelineResponse,
     ]
-    """UpdateOrganizationPipeline method receives a UpdateOrganizationPipelineRequest message and returns
-    a UpdateOrganizationPipelineResponse message.
+    """Update a pipeline owned by an organization
+
+    Udpates a pipeline, accessing it by its resource name, which is defined by
+
+    In REST requests, only the supplied pipeline fields will be taken into
+    account when updating the resource.
     """
     DeleteOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.DeleteOrganizationPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.DeleteOrganizationPipelineResponse,
     ]
-    """DeleteOrganizationPipeline method receives a DeleteOrganizationPipelineRequest message and returns
-    a DeleteOrganizationPipelineResponse message.
+    """Delete a pipeline owned by an organization
+
+    Deletes a pipeline, accesing it by its resource name, which is defined by
+    the parent organization and the ID of the pipeline.
     """
     ValidateOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.ValidateOrganizationPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ValidateOrganizationPipelineResponse,
     ]
-    """Validate a pipeline."""
+    """Validate a pipeline a pipeline owned by an organization
+
+    Validates a pipeline by its resource name, which is defined by the parent
+    organization and the ID of the pipeline.
+
+    Validation checks the recipe of the pipeline and the status of its
+    components.
+    """
     RenameOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.RenameOrganizationPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.RenameOrganizationPipelineResponse,
     ]
-    """RenameOrganizationPipeline method receives a RenameOrganizationPipelineRequest message and returns
-    a RenameOrganizationPipelineResponse message.
+    """Rename a pipeline owned by an organization
+
+    Updates the ID of a pipeline. Since this is an output-only field, a custom
+    method is required to modify it.
+
+    The pipeline name will be updated accordingly, as it is  composed by the
+    parent organization and ID of the pipeline (e.g.
+    `organizations/luigi/pipelines/pizza-recipe-generator`).
     """
     TriggerOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineResponse,
     ]
-    """TriggerOrganizationPipeline method receives a TriggerOrganizationPipelineRequest message
-    and returns a TriggerOrganizationPipelineResponse.
+    """Trigger a pipeline owned by an organization
+
+    Triggers the execution of a pipeline synchronously, i.e., the result is sent
+    back to the organization right after the data is processed. This method is
+    intended for real-time inference when low latency is of concern.
+
+    The pipeline is identified by its resource name, formed by the parent
+    organization and ID of the pipeline.
+
+    For more information, see [Trigger
+    Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
     """
     TriggerAsyncOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncOrganizationPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncOrganizationPipelineResponse,
     ]
-    """TriggerAsyncOrganizationPipeline method receives a TriggerAsyncOrganizationPipelineRequest message and
-    returns a TriggerAsyncOrganizationPipelineResponse.
+    """Trigger a pipeline owned by an organization asynchronously
+
+    Triggers the execution of a pipeline asynchronously, i.e., the result
+    contains the necessary information to access the result and status of the
+    operation. This method is intended for cases that require long-running
+    workloads.
+
+    The pipeline is identified by its resource name, formed by the parent
+    organization and ID of the pipeline.
+
+    For more information, see [Trigger
+    Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
     """
     CreateOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.CreateOrganizationPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.CreateOrganizationPipelineReleaseResponse,
     ]
-    """CreateOrganizationPipelineRelease method receives a CreateOrganizationPipelineReleaseRequest message and returns
-    a CreateOrganizationPipelineReleaseResponse message.
+    """Release a version of a pipeline owned by an organization
+
+    Commits the version of a pipeline, identified by its resource name, which is
+    formed by the parent organization and ID of the pipeline.
     """
     ListOrganizationPipelineReleases: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.ListOrganizationPipelineReleasesRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ListOrganizationPipelineReleasesResponse,
     ]
-    """ListOrganizationPipelineReleases method receives a ListOrganizationPipelineReleasesRequest message and returns a
-    ListOrganizationPipelineReleasesResponse message.
+    """List the releases in a pipeline owned by an organization
+
+    Lists the commited versions of a pipeline, identified by its resource name,
+    which is formed by the parent organization and ID of the pipeline.
     """
     GetOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.GetOrganizationPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.GetOrganizationPipelineReleaseResponse,
     ]
-    """GetOrganizationPipelineRelease method receives a GetOrganizationPipelineReleaseRequest message and returns a
-    GetOrganizationPipelineReleaseResponse message.
+    """Get a release in a pipeline owned by an organization
+
+    Gets the details of a pipeline release, where the pipeline is identified by
+    its resource name, formed by its parent organization and ID.
     """
     UpdateOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.UpdateOrganizationPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.UpdateOrganizationPipelineReleaseResponse,
     ]
-    """UpdateOrganizationPipelineRelease method receives a UpdateOrganizationPipelineReleaseRequest message and returns
-    a UpdateOrganizationPipelineReleaseResponse message.
+    """Update a release in a pipeline owned by an organization
+
+    Updates the details of a pipeline release, where the pipeline is identified
+    by its resource name, formed by its parent organization and ID.
     """
     DeleteOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.DeleteOrganizationPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.DeleteOrganizationPipelineReleaseResponse,
     ]
-    """DeleteOrganizationPipelineRelease method receives a DeleteOrganizationPipelineReleaseRequest message and returns
-    a DeleteOrganizationPipelineReleaseResponse message.
+    """Delete a release in a pipeline owned by an organization
+
+    Deletes a pipeline release, where the pipeline is identified by its resource
+    name, formed by its parent organization and ID.
     """
     RestoreOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.RestoreOrganizationPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.RestoreOrganizationPipelineReleaseResponse,
     ]
-    """RestoreOrganizationPipelineRelease method receives a RestoreOrganizationPipelineReleaseRequest message
-    and returns a RestoreOrganizationPipelineReleaseResponse
+    """Set the version of a pipeline owned by an organization to a pinned release
+
+    Sets the pipeline configuration to a pinned version defined by a release.
+
+    The pipeline is identified by its resource name, formed by its parent
+    organization and ID.
     """
     WatchOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.WatchOrganizationPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.WatchOrganizationPipelineReleaseResponse,
     ]
-    """WatchOrganizationPipelineRelease method receives a WatchOrganizationPipelineReleaseRequest message
-    and returns a WatchOrganizationPipelineReleaseResponse
+    """Get the state of a release in a pipeline owned by an organization
+
+    Gets the state of a pipeline release, where the pipeline is identified by
+    its resource name, formed by the parent organization and ID of the pipeline.
     """
     RenameOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.RenameOrganizationPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.RenameOrganizationPipelineReleaseResponse,
     ]
-    """RenameOrganizationPipelineRelease method receives a RenameOrganizationPipelineReleaseRequest message and returns
-    a RenameOrganizationPipelineReleaseResponse message.
+    """Rename a release in a pipeline owned by an organization
+
+    Updates the ID of a pipeline release, where the pipeline is identified by
+    its resource name, formed by the parent organization and ID. Since this is
+    an output-only field, a custom method is required to modify it.
+
+    The pipeline release name will be updated accordingly, as it is  composed by
+    the pipeline name and the ID of the release (e.g.
+    `organizations/luigi/pipelines/pizza-recipe-generator/releases/v0.2.1`).
     """
     TriggerOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineReleaseResponse,
     ]
-    """TriggerOrganizationPipelineRelease method receives a TriggeOrganizationPipelineReleaseRequest message
-    and returns a TriggerPipelineReleasePipelineResponse.
+    """Trigger a version of a pipeline owned by an organization
+
+    Triggers the synchronous execution of of a pipeline. While the trigger
+    endpoint (where the release version isn't specified) triggers the pipeline
+    at its latest release, this method allows the client to specified any
+    committed release.
+
+    The pipeline is identified by its resource name, formed by its parent
+    organization and ID.
     """
     TriggerAsyncOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncOrganizationPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncOrganizationPipelineReleaseResponse,
     ]
-    """TriggerAsyncOrganizationPipelineRelease method receives a TriggerAsyncOrganizationPipelineReleaseRequest message and
-    returns a TriggerAsyncOrganizationPipelineReleaseResponse.
+    """Trigger a version of a pipeline owned by an organization asynchronously
+
+    Triggers the asynchronous execution of of a pipeline. While the trigger
+    endpoint (where the release version isn't specified) triggers the pipeline
+    at its latest release, this method allows the client to specified any
+    committed release.
+
+    The pipeline is identified by its resource name, formed by its parent
+    organization and ID.
     """
     GetOperation: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.GetOperationRequest,
         vdp.pipeline.v1beta.pipeline_pb2.GetOperationResponse,
     ]
-    """*Longrunning operation methods
+    """Get the details of a long-running operation
 
-    GetOperation method receives a
-    GetOperationRequest message and returns a
-    GetOperationResponse message.
+    This method allows requesters to request the status and outcome of
+    long-running operations such as asynchronous pipeline triggers.
     """
     ListConnectorDefinitions: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_definition_pb2.ListConnectorDefinitionsRequest,
         vdp.pipeline.v1beta.connector_definition_pb2.ListConnectorDefinitionsResponse,
     ]
-    """ListConnectorDefinitions method receives a
-    ListConnectorDefinitionsRequest message and returns a
-    ListConnectorDefinitionsResponse message.
+    """List connector definitions
+
+    Returns a paginated list of connector definitions.
     """
     GetConnectorDefinition: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_definition_pb2.GetConnectorDefinitionRequest,
         vdp.pipeline.v1beta.connector_definition_pb2.GetConnectorDefinitionResponse,
     ]
-    """GetConnectorDefinition method receives a
-    GetConnectorDefinitionRequest message and returns a
-    GetGetConnectorDefinitionResponse message.
+    """Get connector definition
+
+    Returns the details of a connector definition.
     """
     ListOperatorDefinitions: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.operator_definition_pb2.ListOperatorDefinitionsRequest,
         vdp.pipeline.v1beta.operator_definition_pb2.ListOperatorDefinitionsResponse,
     ]
-    """ListOperatorDefinitions method receives a
-    ListOperatorDefinitionsRequest message and returns a
-    ListOperatorDefinitionsResponse message.
+    """List operator definitions
+
+    Returns a paginated list of operator definitions.
     """
     GetOperatorDefinition: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.operator_definition_pb2.GetOperatorDefinitionRequest,
         vdp.pipeline.v1beta.operator_definition_pb2.GetOperatorDefinitionResponse,
     ]
-    """GetOperatorDefinition method receives a
-    GetOperatorDefinitionRequest message and returns a
-    GetGetOperatorDefinitionResponse message.
+    """Get operator definition
+
+    Returns the details of an operator definition.
     """
     ListConnectors: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.ListConnectorsRequest,
@@ -904,201 +1312,233 @@ class PipelinePublicServiceAsyncStub:
     Connector methods
     ///////////////////////////////
 
-    ListConnectors method receives a
-    ListConnectorsRequest message and returns a
-    ListConnectorsResponse message.
+    List connectors
+
+    Returns all the connectors that are visible to the authenticated user.
     """
     LookUpConnector: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.LookUpConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.LookUpConnectorResponse,
     ]
-    """LookUpConnector method receives a
-    LookUpConnectorRequest message and returns a
-    LookUpConnectorResponse
+    """Get a connector by UID
+
+    Returns the details of a connector by UID.
     """
     CreateUserConnector: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.CreateUserConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.CreateUserConnectorResponse,
     ]
-    """CreateUserConnector method receives a
-    CreateUserConnectorRequest message and returns a
-    CreateUserConnectorResponse message.
+    """Create a new user connector
+
+    Creates a new connector under the parenthood of a user. Users can only
+    create a connector parents of that resource (i.e. the authenticated user
+    must match the `parent` path parameter).
     """
     ListUserConnectors: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.ListUserConnectorsRequest,
         vdp.pipeline.v1beta.connector_pb2.ListUserConnectorsResponse,
     ]
-    """ListUserConnectors method receives a
-    ListUserConnectorsRequest message and returns a
-    ListUserConnectorsResponse message.
+    """List user connectors
+
+    Returns a paginated list of connectors that belong to the specified user.
     """
     GetUserConnector: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.GetUserConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.GetUserConnectorResponse,
     ]
-    """GetUserConnector method receives a GetUserConnectorRequest
-    message and returns a GetUserConnectorResponse message.
+    """Get a connector owned by a user.
+
+    Returns the details of a user-owned connector.
     """
     UpdateUserConnector: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.UpdateUserConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.UpdateUserConnectorResponse,
     ]
-    """UpdateUserConnector method receives a
-    UpdateUserConnectorRequest message and returns a
-    UpdateUserConnectorResponse message.
+    """Update a connector owned by a user.
+
+    Updates a user-owned connector. The authebnticated user must be the parent
+    of the connector.
+
+    In REST requests, only the supplied connector fields will be taken into
+    account when updating the resource.
     """
     DeleteUserConnector: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.DeleteUserConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.DeleteUserConnectorResponse,
     ]
-    """DeleteUserConnector method receives a
-    DeleteUserConnectorRequest message and returns a
-    DeleteUserConnectorResponse message.
+    """Delete a connector owned by a user
+
+    Deletes a connector. The authenticated user must be the parent of the
+    connector in order to delete it.
     """
     ConnectUserConnector: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.ConnectUserConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.ConnectUserConnectorResponse,
     ]
-    """Connect a connector.
-    The "state" of the connector after connecting is "CONNECTED".
-    ConnectUserConnector can be called on Connector in the
-    state `DISCONNECTED`; Connector in a different state (including
-    `CONNECTED`) returns an error.
+    """Connect a connector owned by a user
+
+    Transitions the state of a connector from `DISCONNECTED` to `CONNECTED`. If
+    the state of the connector is different when the request is made, an error
+    is returned.
     """
     DisconnectUserConnector: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.DisconnectUserConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.DisconnectUserConnectorResponse,
     ]
-    """Disconnect a connector.
-    The "state" of the connector after disconnecting is "DISCONNECTED".
-    DisconnectUserConnector can be called on Connector in the
-    state `CONNECTED`; Connector in a different state (including
-    `DISCONNECTED`) returns an error.
+    """Disconnect a connector owned by a user
+
+    Transitions the state of a connector from `CONNECTED` to `DISCONNECTED`. If
+    the state of the connector is different when the request is made, an error
+    is returned.
     """
     RenameUserConnector: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.RenameUserConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.RenameUserConnectorResponse,
     ]
-    """RenameUserConnector method receives a
-    RenameUserConnectorRequest message and returns a
-    RenameUserConnectorResponse message.
+    """Rename a connector owned by a user
+
+    Updates the ID of a connector. Since this is an output-only field, a custom
+    method is required to modify it.
+
+    The connector name will be updated accordingly, as it is  composed by the
+    parent user and ID of the connector (e.g.
+    `users/indiana-jones/connector/whip`).
+
+    The authenticated user must be the parent of the connector in order to
+    perform this action.
     """
     ExecuteUserConnector: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.ExecuteUserConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.ExecuteUserConnectorResponse,
     ]
-    """ExecuteUserConnector method receives a
-    ExecuteUserConnectorRequest message and returns a
-    ExecuteUserConnectorResponse message.
+    """Execute a connector owned by a user
+
+    Executes a task in a user-owned connector.
     """
     WatchUserConnector: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.WatchUserConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.WatchUserConnectorResponse,
     ]
-    """WatchUserConnector method receives a
-    WatchUserConnectorRequest message and returns a
-    WatchUserConnectorResponse
+    """Get the state of a connector owned by a user
+
+    Gets the state of a user-owned connector.
     """
     TestUserConnector: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.TestUserConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.TestUserConnectorResponse,
     ]
-    """TestUserConnector method receives a TestUserConnectorRequest
-    message and returns a TestUserConnectorResponse
+    """Test a connector owned by a user
+
+    Tests the connection on a user-owned connector.
     """
     CreateOrganizationConnector: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.CreateOrganizationConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.CreateOrganizationConnectorResponse,
     ]
-    """CreateOrganizationConnector method receives a
-    CreateOrganizationConnectorRequest message and returns a
-    CreateOrganizationConnectorResponse message.
+    """Create a new organization connector
+
+    Creates a new connector under the parenthood of an organization.
     """
     ListOrganizationConnectors: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.ListOrganizationConnectorsRequest,
         vdp.pipeline.v1beta.connector_pb2.ListOrganizationConnectorsResponse,
     ]
-    """ListOrganizationConnectors method receives a
-    ListOrganizationConnectorsRequest message and returns a
-    ListOrganizationConnectorsResponse message.
+    """List organization connectors
+
+    Returns a paginated list of connectors that belong to the specified
+    organization.
     """
     GetOrganizationConnector: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.GetOrganizationConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.GetOrganizationConnectorResponse,
     ]
-    """GetOrganizationConnector method receives a GetOrganizationConnectorRequest
-    message and returns a GetOrganizationConnectorResponse message.
+    """Get a connector owned by an organization.
+
+    Returns the details of an organization-owned connector.
     """
     UpdateOrganizationConnector: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.UpdateOrganizationConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.UpdateOrganizationConnectorResponse,
     ]
-    """UpdateOrganizationConnector method receives a
-    UpdateOrganizationConnectorRequest message and returns a
-    UpdateOrganizationConnectorResponse message.
+    """Update a connector owned by an organization.
+
+    Updates an organization-owned connector.
+
+    In REST requests, only the supplied connector fields will be taken into
+    account when updating the resource.
     """
     DeleteOrganizationConnector: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.DeleteOrganizationConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.DeleteOrganizationConnectorResponse,
     ]
-    """DeleteOrganizationConnector method receives a
-    DeleteOrganizationConnectorRequest message and returns a
-    DeleteOrganizationConnectorResponse message.
+    """Delete a connector owned by an organization
+
+    Deletes a connector.
     """
     ConnectOrganizationConnector: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.ConnectOrganizationConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.ConnectOrganizationConnectorResponse,
     ]
-    """Connect a connector.
-    The "state" of the connector after connecting is "CONNECTED".
-    ConnectOrganizationConnector can be called on Connector in the
-    state `DISCONNECTED`; Connector in a different state (including
-    `CONNECTED`) returns an error.
+    """Connect a connector owned by an organization
+
+    Transitions the state of a connector from `DISCONNECTED` to `CONNECTED`. If
+    the state of the connector is different when the request is made, an error
+    is returned.
     """
     DisconnectOrganizationConnector: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.DisconnectOrganizationConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.DisconnectOrganizationConnectorResponse,
     ]
-    """Disconnect a connector.
-    The "state" of the connector after disconnecting is "DISCONNECTED".
-    DisconnectOrganizationConnector can be called on Connector in the
-    state `CONNECTED`; Connector in a different state (including
-    `DISCONNECTED`) returns an error.
+    """Disconnect a connector owned by an organization
+
+    Transitions the state of a connector from `CONNECTED` to `DISCONNECTED`. If
+    the state of the connector is different when the request is made, an error
+    is returned.
     """
     RenameOrganizationConnector: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.RenameOrganizationConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.RenameOrganizationConnectorResponse,
     ]
-    """RenameOrganizationConnector method receives a
-    RenameOrganizationConnectorRequest message and returns a
-    RenameOrganizationConnectorResponse message.
+    """Rename a connector owned by an organization
+
+    Updates the ID of a connector. Since this is an output-only field, a custom
+    method is required to modify it.
+
+    The connector name will be updated accordingly, as it is  composed by the
+    parent organization and ID of the connector (e.g.
+    `organizations/indiana-jones/connector/whip`).
     """
     ExecuteOrganizationConnector: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.ExecuteOrganizationConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.ExecuteOrganizationConnectorResponse,
     ]
-    """ExecuteOrganizationConnector method receives a
-    ExecuteOrganizationConnectorRequest message and returns a
-    ExecuteOrganizationConnectorResponse message.
+    """Execute a connector owned by an organization
+
+    Executes a task in an organization-owned connector.
     """
     WatchOrganizationConnector: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.WatchOrganizationConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.WatchOrganizationConnectorResponse,
     ]
-    """WatchOrganizationConnector method receives a
-    WatchOrganizationConnectorRequest message and returns a
-    WatchOrganizationConnectorResponse
+    """Get the state of a connector owned by an organization
+
+    Gets the state of an organization-owned connector.
     """
     TestOrganizationConnector: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.connector_pb2.TestOrganizationConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.TestOrganizationConnectorResponse,
     ]
-    """TestOrganizationConnector method receives a TestOrganizationConnectorRequest
-    message and returns a TestOrganizationConnectorResponse
+    """Test a connector owned by an organization
+
+    Tests the connection on an organization-owned connector.
     """
 
 class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
-    """Pipeline service responds to external access"""
+    """VDP
+
+    PipelinePublicService exposes the public VDP endpoints that allow clients to
+    manage pipelines.
+    """
 
     @abc.abstractmethod
     def Liveness(
@@ -1106,9 +1546,9 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.LivenessRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.LivenessResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.LivenessResponse]]:
-        """Liveness method receives a LivenessRequest message and returns a
-        LivenessResponse message.
-        See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+        """Check if the pipeline server is alive
+
+        See https://github.com/grpc/grpc/blob/master/doc/health-checking.md.
         """
     @abc.abstractmethod
     def Readiness(
@@ -1116,8 +1556,8 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.ReadinessRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.ReadinessResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.ReadinessResponse]]:
-        """Readiness method receives a ReadinessRequest message and returns a
-        ReadinessResponse message.
+        """Check if the pipeline server is ready
+
         See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
         """
     @abc.abstractmethod
@@ -1126,8 +1566,9 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesResponse]]:
-        """ListPipelines method receives a ListPipelinesRequest message and returns a
-        ListPipelinesResponse message.
+        """List accessible pipelines
+
+        Returns a paginated list of pipelines that are visible to the requester.
         """
     @abc.abstractmethod
     def LookUpPipeline(
@@ -1135,8 +1576,10 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineResponse]]:
-        """LookUpPipeline method receives a LookUpPipelineRequest message and returns
-        a LookUpPipelineResponse
+        """Get a pipeline by UID
+
+        Returns the details of a pipeline by a permalink defined by the resource
+        UID.
         """
     @abc.abstractmethod
     def CreateUserPipeline(
@@ -1144,8 +1587,11 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.CreateUserPipelineRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.CreateUserPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.CreateUserPipelineResponse]]:
-        """CreateUserPipeline method receives a CreateUserPipelineRequest message and returns
-        a CreateUserPipelineResponse message.
+        """Create a new user pipeline
+
+        Creates a new pipeline under the parenthood of a user. Users can only
+        create a pipeline as the parent of that resource (i.e. the authenticated
+        user must match the `parent` path parameter).
         """
     @abc.abstractmethod
     def ListUserPipelines(
@@ -1153,8 +1599,12 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.ListUserPipelinesRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.ListUserPipelinesResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.ListUserPipelinesResponse]]:
-        """ListUserPipelines method receives a ListUserPipelinesRequest message and returns a
-        ListUserPipelinesResponse message.
+        """List user pipelines
+
+        Returns a paginated list of pipelines that belong to the specified user.
+        The parent user may be different from the authenticated user, in which
+        case the results will contain the pipelines that are visible to the
+        latter.
         """
     @abc.abstractmethod
     def GetUserPipeline(
@@ -1162,8 +1612,10 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.GetUserPipelineRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.GetUserPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.GetUserPipelineResponse]]:
-        """GetUserPipeline method receives a GetUserPipelineRequest message and returns a
-        GetUserPipelineResponse message.
+        """Get a pipeline owned by a user
+
+        Returns the details of a user-owned pipeline by its resource name, which is defined
+        by the parent user and the ID of the pipeline.
         """
     @abc.abstractmethod
     def UpdateUserPipeline(
@@ -1171,8 +1623,14 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.UpdateUserPipelineRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.UpdateUserPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.UpdateUserPipelineResponse]]:
-        """UpdateUserPipeline method receives a UpdateUserPipelineRequest message and returns
-        a UpdateUserPipelineResponse message.
+        """Update a pipeline owned by a user
+
+        Udpates a pipeline, accessing it by its resource name, which is defined by
+        the parent user and the ID of the pipeline. The authenticated user must be
+        the parent of the pipeline in order to modify it.
+
+        In REST requests, only the supplied pipeline fields will be taken into
+        account when updating the resource.
         """
     @abc.abstractmethod
     def DeleteUserPipeline(
@@ -1180,8 +1638,11 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.DeleteUserPipelineRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.DeleteUserPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.DeleteUserPipelineResponse]]:
-        """DeleteUserPipeline method receives a DeleteUserPipelineRequest message and returns
-        a DeleteUserPipelineResponse message.
+        """Delete a pipeline owned by a user
+
+        Deletes a pipeline, accesing it by its resource name, which is defined by
+        the parent user and the ID of the pipeline. The authenticated user must be
+        the parent of the pipeline in order to delete it.
         """
     @abc.abstractmethod
     def ValidateUserPipeline(
@@ -1189,15 +1650,30 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.ValidateUserPipelineRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.ValidateUserPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.ValidateUserPipelineResponse]]:
-        """Validate a pipeline."""
+        """Validate a pipeline a pipeline owned by a user
+
+        Validates a pipeline by its resource name, which is defined by the parent
+        user and the ID of the pipeline.
+
+        Validation checks the recipe of the pipeline and the status of its components.
+        """
     @abc.abstractmethod
     def RenameUserPipeline(
         self,
         request: vdp.pipeline.v1beta.pipeline_pb2.RenameUserPipelineRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.RenameUserPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.RenameUserPipelineResponse]]:
-        """RenameUserPipeline method receives a RenameUserPipelineRequest message and returns
-        a RenameUserPipelineResponse message.
+        """Rename a pipeline owned by a user
+
+        Updates the ID of a pipeline. Since this is an output-only field, a custom
+        method is required to modify it.
+
+        The pipeline name will be updated accordingly, as it is  composed by the
+        parent user and ID of the pipeline (e.g.
+        `users/luigi/pipelines/pizza-recipe-generator`).
+
+        The authenticated user must be the parent of the pipeline in order to
+        perform this action.
         """
     @abc.abstractmethod
     def TriggerUserPipeline(
@@ -1205,8 +1681,17 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineResponse]]:
-        """TriggerUserPipeline method receives a TriggerUserPipelineRequest message
-        and returns a TriggerUserPipelineResponse.
+        """Trigger a pipeline owned by a user
+
+        Triggers the execution of a pipeline synchronously, i.e., the result is
+        sent back to the user right after the data is processed. This method is
+        intended for real-time inference when low latency is of concern.
+
+        The pipeline is identified by its resource name, formed by the parent user
+        and ID of the pipeline.
+
+        For more information, see [Trigger
+        Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
         """
     @abc.abstractmethod
     def TriggerAsyncUserPipeline(
@@ -1214,8 +1699,18 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncUserPipelineRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncUserPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncUserPipelineResponse]]:
-        """TriggerAsyncUserPipeline method receives a TriggerAsyncUserPipelineRequest message and
-        returns a TriggerAsyncUserPipelineResponse.
+        """Trigger a pipeline owned by a user asynchronously
+
+        Triggers the execution of a pipeline asynchronously, i.e., the result
+        contains the necessary information to access the result and status of the
+        operation. This method is intended for cases that require long-running
+        workloads.
+
+        The pipeline is identified by its resource name, formed by the parent user
+        and ID of the pipeline.
+
+        For more information, see [Trigger
+        Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
         """
     @abc.abstractmethod
     def CreateUserPipelineRelease(
@@ -1223,8 +1718,13 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.CreateUserPipelineReleaseRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.CreateUserPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.CreateUserPipelineReleaseResponse]]:
-        """CreateUserPipelineRelease method receives a CreateUserPipelineReleaseRequest message and returns
-        a CreateUserPipelineReleaseResponse message.
+        """Release a version of a pipeline owned by a user
+
+        Commits the version of a pipeline, identified by its resource name, which
+        is formed by the parent user and ID of the pipeline.
+
+        The authenticated user must be the parent of the pipeline in order to
+        perform this action.
         """
     @abc.abstractmethod
     def ListUserPipelineReleases(
@@ -1232,8 +1732,10 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.ListUserPipelineReleasesRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.ListUserPipelineReleasesResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.ListUserPipelineReleasesResponse]]:
-        """ListUserPipelineReleases method receives a ListUserPipelineReleasesRequest message and returns a
-        ListUserPipelineReleasesResponse message.
+        """List the releases in a pipeline owned by a user
+
+        Lists the commited versions of a pipeline, identified by its resource
+        name, which is formed by the parent user and ID of the pipeline.
         """
     @abc.abstractmethod
     def GetUserPipelineRelease(
@@ -1241,8 +1743,10 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.GetUserPipelineReleaseRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.GetUserPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.GetUserPipelineReleaseResponse]]:
-        """GetUserPipelineRelease method receives a GetUserPipelineReleaseRequest message and returns a
-        GetUserPipelineReleaseResponse message.
+        """Get a release in a pipeline owned by a user
+
+        Gets the details of a pipeline release, where the pipeline is identified
+        by its resource name, formed by its parent user and ID.
         """
     @abc.abstractmethod
     def UpdateUserPipelineRelease(
@@ -1250,8 +1754,13 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.UpdateUserPipelineReleaseRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.UpdateUserPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.UpdateUserPipelineReleaseResponse]]:
-        """UpdateUserPipelineRelease method receives a UpdateUserPipelineReleaseRequest message and returns
-        a UpdateUserPipelineReleaseResponse message.
+        """Update a release in a pipeline owned by a user
+
+        Updates the details of a pipeline release, where the pipeline is
+        identified by its resource name, formed by its parent user and ID.
+
+        The authenticated user must be the parent of the pipeline in order to
+        perform this action.
         """
     @abc.abstractmethod
     def DeleteUserPipelineRelease(
@@ -1259,8 +1768,13 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.DeleteUserPipelineReleaseRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.DeleteUserPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.DeleteUserPipelineReleaseResponse]]:
-        """DeleteUserPipelineRelease method receives a DeleteUserPipelineReleaseRequest message and returns
-        a DeleteUserPipelineReleaseResponse message.
+        """Delete a release in a pipeline owned by a user
+
+        Deletes a pipeline release, where the pipeline is identified by its
+        resource name, formed by its parent user and ID.
+
+        The authenticated user must be the parent of the pipeline in order to
+        perform this action.
         """
     @abc.abstractmethod
     def RestoreUserPipelineRelease(
@@ -1268,8 +1782,15 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.RestoreUserPipelineReleaseRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.RestoreUserPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.RestoreUserPipelineReleaseResponse]]:
-        """RestoreUserPipelineRelease method receives a RestoreUserPipelineReleaseRequest message
-        and returns a RestoreUserPipelineReleaseResponse
+        """Set the version of a pipeline owned by a user to a pinned release
+
+        Sets the pipeline configuration to a pinned version defined by a release.
+
+        The pipeline is identified by its resource name, formed by its parent user
+        and ID.
+
+        The authenticated user must be the parent of the pipeline in order to
+        perform this action.
         """
     @abc.abstractmethod
     def WatchUserPipelineRelease(
@@ -1277,8 +1798,10 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.WatchUserPipelineReleaseRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.WatchUserPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.WatchUserPipelineReleaseResponse]]:
-        """WatchUserPipelineRelease method receives a WatchUserPipelineReleaseRequest message
-        and returns a WatchUserPipelineReleaseResponse
+        """Get the state of a release in a pipeline owned by a user
+
+        Gets the state of a pipeline release, where the pipeline is identified by
+        its resource name, formed by the parent user and ID of the pipeline.
         """
     @abc.abstractmethod
     def RenameUserPipelineRelease(
@@ -1286,8 +1809,18 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.RenameUserPipelineReleaseRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.RenameUserPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.RenameUserPipelineReleaseResponse]]:
-        """RenameUserPipelineRelease method receives a RenameUserPipelineReleaseRequest message and returns
-        a RenameUserPipelineReleaseResponse message.
+        """Rename a release in a pipeline owned by a user
+
+        Updates the ID of a pipeline release, where the pipeline is identified by
+        its resource name, formed by the parent user and ID. Since this is an
+        output-only field, a custom method is required to modify it.
+
+        The pipeline release name will be updated accordingly, as it is  composed
+        by the pipeline name and the ID of the release (e.g.
+        `users/luigi/pipelines/pizza-recipe-generator/releases/v0.2.1`).
+
+        The authenticated user must be the parent of the pipeline in order to
+        perform this action.
         """
     @abc.abstractmethod
     def TriggerUserPipelineRelease(
@@ -1295,8 +1828,15 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineReleaseRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineReleaseResponse]]:
-        """TriggerUserPipelineRelease method receives a TriggeUserPipelineReleaseRequest message
-        and returns a TriggerPipelineReleasePipelineResponse.
+        """Trigger a version of a pipeline owned by a user
+
+        Triggers the synchronous execution of of a pipeline. While the trigger
+        endpoint (where the release version isn't specified) triggers the pipeline
+        at its latest release, this method allows the client to specified any
+        committed release.
+
+        The pipeline is identified by its resource name, formed by its parent user
+        and ID.
         """
     @abc.abstractmethod
     def TriggerAsyncUserPipelineRelease(
@@ -1304,8 +1844,15 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncUserPipelineReleaseRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncUserPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncUserPipelineReleaseResponse]]:
-        """TriggerAsyncUserPipelineRelease method receives a TriggerAsyncUserPipelineReleaseRequest message and
-        returns a TriggerAsyncUserPipelineReleaseResponse.
+        """Trigger a version of a pipeline owned by a user asynchronously
+
+        Triggers the asynchronous execution of of a pipeline. While the trigger
+        endpoint (where the release version isn't specified) triggers the pipeline
+        at its latest release, this method allows the client to specified any
+        committed release.
+
+        The pipeline is identified by its resource name, formed by its parent user
+        and ID.
         """
     @abc.abstractmethod
     def CreateOrganizationPipeline(
@@ -1313,8 +1860,9 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.CreateOrganizationPipelineRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.CreateOrganizationPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.CreateOrganizationPipelineResponse]]:
-        """CreateOrganizationPipeline method receives a CreateOrganizationPipelineRequest message and returns
-        a CreateOrganizationPipelineResponse message.
+        """Create a new organization pipeline
+
+        Creates a new pipeline under the parenthood of an organization.
         """
     @abc.abstractmethod
     def ListOrganizationPipelines(
@@ -1322,8 +1870,10 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.ListOrganizationPipelinesRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.ListOrganizationPipelinesResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.ListOrganizationPipelinesResponse]]:
-        """ListOrganizationPipelines method receives a ListOrganizationPipelinesRequest message and returns a
-        ListOrganizationPipelinesResponse message.
+        """List organization pipelines
+
+        Returns a paginated list of pipelines that belong to the specified
+        organization.
         """
     @abc.abstractmethod
     def GetOrganizationPipeline(
@@ -1331,8 +1881,10 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.GetOrganizationPipelineRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.GetOrganizationPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.GetOrganizationPipelineResponse]]:
-        """GetOrganizationPipeline method receives a GetOrganizationPipelineRequest message and returns a
-        GetOrganizationPipelineResponse message.
+        """Get a pipeline owned by an organization
+
+        Returns the details of an organization-owned pipeline by its resource name,
+        which is defined by the parent organization and the ID of the pipeline.
         """
     @abc.abstractmethod
     def UpdateOrganizationPipeline(
@@ -1340,8 +1892,12 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.UpdateOrganizationPipelineRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.UpdateOrganizationPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.UpdateOrganizationPipelineResponse]]:
-        """UpdateOrganizationPipeline method receives a UpdateOrganizationPipelineRequest message and returns
-        a UpdateOrganizationPipelineResponse message.
+        """Update a pipeline owned by an organization
+
+        Udpates a pipeline, accessing it by its resource name, which is defined by
+
+        In REST requests, only the supplied pipeline fields will be taken into
+        account when updating the resource.
         """
     @abc.abstractmethod
     def DeleteOrganizationPipeline(
@@ -1349,8 +1905,10 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.DeleteOrganizationPipelineRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.DeleteOrganizationPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.DeleteOrganizationPipelineResponse]]:
-        """DeleteOrganizationPipeline method receives a DeleteOrganizationPipelineRequest message and returns
-        a DeleteOrganizationPipelineResponse message.
+        """Delete a pipeline owned by an organization
+
+        Deletes a pipeline, accesing it by its resource name, which is defined by
+        the parent organization and the ID of the pipeline.
         """
     @abc.abstractmethod
     def ValidateOrganizationPipeline(
@@ -1358,15 +1916,28 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.ValidateOrganizationPipelineRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.ValidateOrganizationPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.ValidateOrganizationPipelineResponse]]:
-        """Validate a pipeline."""
+        """Validate a pipeline a pipeline owned by an organization
+
+        Validates a pipeline by its resource name, which is defined by the parent
+        organization and the ID of the pipeline.
+
+        Validation checks the recipe of the pipeline and the status of its
+        components.
+        """
     @abc.abstractmethod
     def RenameOrganizationPipeline(
         self,
         request: vdp.pipeline.v1beta.pipeline_pb2.RenameOrganizationPipelineRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.RenameOrganizationPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.RenameOrganizationPipelineResponse]]:
-        """RenameOrganizationPipeline method receives a RenameOrganizationPipelineRequest message and returns
-        a RenameOrganizationPipelineResponse message.
+        """Rename a pipeline owned by an organization
+
+        Updates the ID of a pipeline. Since this is an output-only field, a custom
+        method is required to modify it.
+
+        The pipeline name will be updated accordingly, as it is  composed by the
+        parent organization and ID of the pipeline (e.g.
+        `organizations/luigi/pipelines/pizza-recipe-generator`).
         """
     @abc.abstractmethod
     def TriggerOrganizationPipeline(
@@ -1374,8 +1945,17 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineResponse]]:
-        """TriggerOrganizationPipeline method receives a TriggerOrganizationPipelineRequest message
-        and returns a TriggerOrganizationPipelineResponse.
+        """Trigger a pipeline owned by an organization
+
+        Triggers the execution of a pipeline synchronously, i.e., the result is sent
+        back to the organization right after the data is processed. This method is
+        intended for real-time inference when low latency is of concern.
+
+        The pipeline is identified by its resource name, formed by the parent
+        organization and ID of the pipeline.
+
+        For more information, see [Trigger
+        Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
         """
     @abc.abstractmethod
     def TriggerAsyncOrganizationPipeline(
@@ -1383,8 +1963,18 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncOrganizationPipelineRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncOrganizationPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncOrganizationPipelineResponse]]:
-        """TriggerAsyncOrganizationPipeline method receives a TriggerAsyncOrganizationPipelineRequest message and
-        returns a TriggerAsyncOrganizationPipelineResponse.
+        """Trigger a pipeline owned by an organization asynchronously
+
+        Triggers the execution of a pipeline asynchronously, i.e., the result
+        contains the necessary information to access the result and status of the
+        operation. This method is intended for cases that require long-running
+        workloads.
+
+        The pipeline is identified by its resource name, formed by the parent
+        organization and ID of the pipeline.
+
+        For more information, see [Trigger
+        Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
         """
     @abc.abstractmethod
     def CreateOrganizationPipelineRelease(
@@ -1392,8 +1982,10 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.CreateOrganizationPipelineReleaseRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.CreateOrganizationPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.CreateOrganizationPipelineReleaseResponse]]:
-        """CreateOrganizationPipelineRelease method receives a CreateOrganizationPipelineReleaseRequest message and returns
-        a CreateOrganizationPipelineReleaseResponse message.
+        """Release a version of a pipeline owned by an organization
+
+        Commits the version of a pipeline, identified by its resource name, which is
+        formed by the parent organization and ID of the pipeline.
         """
     @abc.abstractmethod
     def ListOrganizationPipelineReleases(
@@ -1401,8 +1993,10 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.ListOrganizationPipelineReleasesRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.ListOrganizationPipelineReleasesResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.ListOrganizationPipelineReleasesResponse]]:
-        """ListOrganizationPipelineReleases method receives a ListOrganizationPipelineReleasesRequest message and returns a
-        ListOrganizationPipelineReleasesResponse message.
+        """List the releases in a pipeline owned by an organization
+
+        Lists the commited versions of a pipeline, identified by its resource name,
+        which is formed by the parent organization and ID of the pipeline.
         """
     @abc.abstractmethod
     def GetOrganizationPipelineRelease(
@@ -1410,8 +2004,10 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.GetOrganizationPipelineReleaseRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.GetOrganizationPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.GetOrganizationPipelineReleaseResponse]]:
-        """GetOrganizationPipelineRelease method receives a GetOrganizationPipelineReleaseRequest message and returns a
-        GetOrganizationPipelineReleaseResponse message.
+        """Get a release in a pipeline owned by an organization
+
+        Gets the details of a pipeline release, where the pipeline is identified by
+        its resource name, formed by its parent organization and ID.
         """
     @abc.abstractmethod
     def UpdateOrganizationPipelineRelease(
@@ -1419,8 +2015,10 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.UpdateOrganizationPipelineReleaseRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.UpdateOrganizationPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.UpdateOrganizationPipelineReleaseResponse]]:
-        """UpdateOrganizationPipelineRelease method receives a UpdateOrganizationPipelineReleaseRequest message and returns
-        a UpdateOrganizationPipelineReleaseResponse message.
+        """Update a release in a pipeline owned by an organization
+
+        Updates the details of a pipeline release, where the pipeline is identified
+        by its resource name, formed by its parent organization and ID.
         """
     @abc.abstractmethod
     def DeleteOrganizationPipelineRelease(
@@ -1428,8 +2026,10 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.DeleteOrganizationPipelineReleaseRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.DeleteOrganizationPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.DeleteOrganizationPipelineReleaseResponse]]:
-        """DeleteOrganizationPipelineRelease method receives a DeleteOrganizationPipelineReleaseRequest message and returns
-        a DeleteOrganizationPipelineReleaseResponse message.
+        """Delete a release in a pipeline owned by an organization
+
+        Deletes a pipeline release, where the pipeline is identified by its resource
+        name, formed by its parent organization and ID.
         """
     @abc.abstractmethod
     def RestoreOrganizationPipelineRelease(
@@ -1437,8 +2037,12 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.RestoreOrganizationPipelineReleaseRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.RestoreOrganizationPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.RestoreOrganizationPipelineReleaseResponse]]:
-        """RestoreOrganizationPipelineRelease method receives a RestoreOrganizationPipelineReleaseRequest message
-        and returns a RestoreOrganizationPipelineReleaseResponse
+        """Set the version of a pipeline owned by an organization to a pinned release
+
+        Sets the pipeline configuration to a pinned version defined by a release.
+
+        The pipeline is identified by its resource name, formed by its parent
+        organization and ID.
         """
     @abc.abstractmethod
     def WatchOrganizationPipelineRelease(
@@ -1446,8 +2050,10 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.WatchOrganizationPipelineReleaseRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.WatchOrganizationPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.WatchOrganizationPipelineReleaseResponse]]:
-        """WatchOrganizationPipelineRelease method receives a WatchOrganizationPipelineReleaseRequest message
-        and returns a WatchOrganizationPipelineReleaseResponse
+        """Get the state of a release in a pipeline owned by an organization
+
+        Gets the state of a pipeline release, where the pipeline is identified by
+        its resource name, formed by the parent organization and ID of the pipeline.
         """
     @abc.abstractmethod
     def RenameOrganizationPipelineRelease(
@@ -1455,8 +2061,15 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.RenameOrganizationPipelineReleaseRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.RenameOrganizationPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.RenameOrganizationPipelineReleaseResponse]]:
-        """RenameOrganizationPipelineRelease method receives a RenameOrganizationPipelineReleaseRequest message and returns
-        a RenameOrganizationPipelineReleaseResponse message.
+        """Rename a release in a pipeline owned by an organization
+
+        Updates the ID of a pipeline release, where the pipeline is identified by
+        its resource name, formed by the parent organization and ID. Since this is
+        an output-only field, a custom method is required to modify it.
+
+        The pipeline release name will be updated accordingly, as it is  composed by
+        the pipeline name and the ID of the release (e.g.
+        `organizations/luigi/pipelines/pizza-recipe-generator/releases/v0.2.1`).
         """
     @abc.abstractmethod
     def TriggerOrganizationPipelineRelease(
@@ -1464,8 +2077,15 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineReleaseRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineReleaseResponse]]:
-        """TriggerOrganizationPipelineRelease method receives a TriggeOrganizationPipelineReleaseRequest message
-        and returns a TriggerPipelineReleasePipelineResponse.
+        """Trigger a version of a pipeline owned by an organization
+
+        Triggers the synchronous execution of of a pipeline. While the trigger
+        endpoint (where the release version isn't specified) triggers the pipeline
+        at its latest release, this method allows the client to specified any
+        committed release.
+
+        The pipeline is identified by its resource name, formed by its parent
+        organization and ID.
         """
     @abc.abstractmethod
     def TriggerAsyncOrganizationPipelineRelease(
@@ -1473,8 +2093,15 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncOrganizationPipelineReleaseRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncOrganizationPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncOrganizationPipelineReleaseResponse]]:
-        """TriggerAsyncOrganizationPipelineRelease method receives a TriggerAsyncOrganizationPipelineReleaseRequest message and
-        returns a TriggerAsyncOrganizationPipelineReleaseResponse.
+        """Trigger a version of a pipeline owned by an organization asynchronously
+
+        Triggers the asynchronous execution of of a pipeline. While the trigger
+        endpoint (where the release version isn't specified) triggers the pipeline
+        at its latest release, this method allows the client to specified any
+        committed release.
+
+        The pipeline is identified by its resource name, formed by its parent
+        organization and ID.
         """
     @abc.abstractmethod
     def GetOperation(
@@ -1482,11 +2109,10 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.GetOperationRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.GetOperationResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.GetOperationResponse]]:
-        """*Longrunning operation methods
+        """Get the details of a long-running operation
 
-        GetOperation method receives a
-        GetOperationRequest message and returns a
-        GetOperationResponse message.
+        This method allows requesters to request the status and outcome of
+        long-running operations such as asynchronous pipeline triggers.
         """
     @abc.abstractmethod
     def ListConnectorDefinitions(
@@ -1494,9 +2120,9 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_definition_pb2.ListConnectorDefinitionsRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_definition_pb2.ListConnectorDefinitionsResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_definition_pb2.ListConnectorDefinitionsResponse]]:
-        """ListConnectorDefinitions method receives a
-        ListConnectorDefinitionsRequest message and returns a
-        ListConnectorDefinitionsResponse message.
+        """List connector definitions
+
+        Returns a paginated list of connector definitions.
         """
     @abc.abstractmethod
     def GetConnectorDefinition(
@@ -1504,9 +2130,9 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_definition_pb2.GetConnectorDefinitionRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_definition_pb2.GetConnectorDefinitionResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_definition_pb2.GetConnectorDefinitionResponse]]:
-        """GetConnectorDefinition method receives a
-        GetConnectorDefinitionRequest message and returns a
-        GetGetConnectorDefinitionResponse message.
+        """Get connector definition
+
+        Returns the details of a connector definition.
         """
     @abc.abstractmethod
     def ListOperatorDefinitions(
@@ -1514,9 +2140,9 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.operator_definition_pb2.ListOperatorDefinitionsRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.operator_definition_pb2.ListOperatorDefinitionsResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.operator_definition_pb2.ListOperatorDefinitionsResponse]]:
-        """ListOperatorDefinitions method receives a
-        ListOperatorDefinitionsRequest message and returns a
-        ListOperatorDefinitionsResponse message.
+        """List operator definitions
+
+        Returns a paginated list of operator definitions.
         """
     @abc.abstractmethod
     def GetOperatorDefinition(
@@ -1524,9 +2150,9 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.operator_definition_pb2.GetOperatorDefinitionRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.operator_definition_pb2.GetOperatorDefinitionResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.operator_definition_pb2.GetOperatorDefinitionResponse]]:
-        """GetOperatorDefinition method receives a
-        GetOperatorDefinitionRequest message and returns a
-        GetGetOperatorDefinitionResponse message.
+        """Get operator definition
+
+        Returns the details of an operator definition.
         """
     @abc.abstractmethod
     def ListConnectors(
@@ -1538,9 +2164,9 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         Connector methods
         ///////////////////////////////
 
-        ListConnectors method receives a
-        ListConnectorsRequest message and returns a
-        ListConnectorsResponse message.
+        List connectors
+
+        Returns all the connectors that are visible to the authenticated user.
         """
     @abc.abstractmethod
     def LookUpConnector(
@@ -1548,9 +2174,9 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.LookUpConnectorRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.LookUpConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.LookUpConnectorResponse]]:
-        """LookUpConnector method receives a
-        LookUpConnectorRequest message and returns a
-        LookUpConnectorResponse
+        """Get a connector by UID
+
+        Returns the details of a connector by UID.
         """
     @abc.abstractmethod
     def CreateUserConnector(
@@ -1558,9 +2184,11 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.CreateUserConnectorRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.CreateUserConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.CreateUserConnectorResponse]]:
-        """CreateUserConnector method receives a
-        CreateUserConnectorRequest message and returns a
-        CreateUserConnectorResponse message.
+        """Create a new user connector
+
+        Creates a new connector under the parenthood of a user. Users can only
+        create a connector parents of that resource (i.e. the authenticated user
+        must match the `parent` path parameter).
         """
     @abc.abstractmethod
     def ListUserConnectors(
@@ -1568,9 +2196,9 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.ListUserConnectorsRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.ListUserConnectorsResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.ListUserConnectorsResponse]]:
-        """ListUserConnectors method receives a
-        ListUserConnectorsRequest message and returns a
-        ListUserConnectorsResponse message.
+        """List user connectors
+
+        Returns a paginated list of connectors that belong to the specified user.
         """
     @abc.abstractmethod
     def GetUserConnector(
@@ -1578,8 +2206,9 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.GetUserConnectorRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.GetUserConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.GetUserConnectorResponse]]:
-        """GetUserConnector method receives a GetUserConnectorRequest
-        message and returns a GetUserConnectorResponse message.
+        """Get a connector owned by a user.
+
+        Returns the details of a user-owned connector.
         """
     @abc.abstractmethod
     def UpdateUserConnector(
@@ -1587,9 +2216,13 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.UpdateUserConnectorRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.UpdateUserConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.UpdateUserConnectorResponse]]:
-        """UpdateUserConnector method receives a
-        UpdateUserConnectorRequest message and returns a
-        UpdateUserConnectorResponse message.
+        """Update a connector owned by a user.
+
+        Updates a user-owned connector. The authebnticated user must be the parent
+        of the connector.
+
+        In REST requests, only the supplied connector fields will be taken into
+        account when updating the resource.
         """
     @abc.abstractmethod
     def DeleteUserConnector(
@@ -1597,9 +2230,10 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.DeleteUserConnectorRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.DeleteUserConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.DeleteUserConnectorResponse]]:
-        """DeleteUserConnector method receives a
-        DeleteUserConnectorRequest message and returns a
-        DeleteUserConnectorResponse message.
+        """Delete a connector owned by a user
+
+        Deletes a connector. The authenticated user must be the parent of the
+        connector in order to delete it.
         """
     @abc.abstractmethod
     def ConnectUserConnector(
@@ -1607,11 +2241,11 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.ConnectUserConnectorRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.ConnectUserConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.ConnectUserConnectorResponse]]:
-        """Connect a connector.
-        The "state" of the connector after connecting is "CONNECTED".
-        ConnectUserConnector can be called on Connector in the
-        state `DISCONNECTED`; Connector in a different state (including
-        `CONNECTED`) returns an error.
+        """Connect a connector owned by a user
+
+        Transitions the state of a connector from `DISCONNECTED` to `CONNECTED`. If
+        the state of the connector is different when the request is made, an error
+        is returned.
         """
     @abc.abstractmethod
     def DisconnectUserConnector(
@@ -1619,11 +2253,11 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.DisconnectUserConnectorRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.DisconnectUserConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.DisconnectUserConnectorResponse]]:
-        """Disconnect a connector.
-        The "state" of the connector after disconnecting is "DISCONNECTED".
-        DisconnectUserConnector can be called on Connector in the
-        state `CONNECTED`; Connector in a different state (including
-        `DISCONNECTED`) returns an error.
+        """Disconnect a connector owned by a user
+
+        Transitions the state of a connector from `CONNECTED` to `DISCONNECTED`. If
+        the state of the connector is different when the request is made, an error
+        is returned.
         """
     @abc.abstractmethod
     def RenameUserConnector(
@@ -1631,9 +2265,17 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.RenameUserConnectorRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.RenameUserConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.RenameUserConnectorResponse]]:
-        """RenameUserConnector method receives a
-        RenameUserConnectorRequest message and returns a
-        RenameUserConnectorResponse message.
+        """Rename a connector owned by a user
+
+        Updates the ID of a connector. Since this is an output-only field, a custom
+        method is required to modify it.
+
+        The connector name will be updated accordingly, as it is  composed by the
+        parent user and ID of the connector (e.g.
+        `users/indiana-jones/connector/whip`).
+
+        The authenticated user must be the parent of the connector in order to
+        perform this action.
         """
     @abc.abstractmethod
     def ExecuteUserConnector(
@@ -1641,9 +2283,9 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.ExecuteUserConnectorRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.ExecuteUserConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.ExecuteUserConnectorResponse]]:
-        """ExecuteUserConnector method receives a
-        ExecuteUserConnectorRequest message and returns a
-        ExecuteUserConnectorResponse message.
+        """Execute a connector owned by a user
+
+        Executes a task in a user-owned connector.
         """
     @abc.abstractmethod
     def WatchUserConnector(
@@ -1651,9 +2293,9 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.WatchUserConnectorRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.WatchUserConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.WatchUserConnectorResponse]]:
-        """WatchUserConnector method receives a
-        WatchUserConnectorRequest message and returns a
-        WatchUserConnectorResponse
+        """Get the state of a connector owned by a user
+
+        Gets the state of a user-owned connector.
         """
     @abc.abstractmethod
     def TestUserConnector(
@@ -1661,8 +2303,9 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.TestUserConnectorRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.TestUserConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.TestUserConnectorResponse]]:
-        """TestUserConnector method receives a TestUserConnectorRequest
-        message and returns a TestUserConnectorResponse
+        """Test a connector owned by a user
+
+        Tests the connection on a user-owned connector.
         """
     @abc.abstractmethod
     def CreateOrganizationConnector(
@@ -1670,9 +2313,9 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.CreateOrganizationConnectorRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.CreateOrganizationConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.CreateOrganizationConnectorResponse]]:
-        """CreateOrganizationConnector method receives a
-        CreateOrganizationConnectorRequest message and returns a
-        CreateOrganizationConnectorResponse message.
+        """Create a new organization connector
+
+        Creates a new connector under the parenthood of an organization.
         """
     @abc.abstractmethod
     def ListOrganizationConnectors(
@@ -1680,9 +2323,10 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.ListOrganizationConnectorsRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.ListOrganizationConnectorsResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.ListOrganizationConnectorsResponse]]:
-        """ListOrganizationConnectors method receives a
-        ListOrganizationConnectorsRequest message and returns a
-        ListOrganizationConnectorsResponse message.
+        """List organization connectors
+
+        Returns a paginated list of connectors that belong to the specified
+        organization.
         """
     @abc.abstractmethod
     def GetOrganizationConnector(
@@ -1690,8 +2334,9 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.GetOrganizationConnectorRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.GetOrganizationConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.GetOrganizationConnectorResponse]]:
-        """GetOrganizationConnector method receives a GetOrganizationConnectorRequest
-        message and returns a GetOrganizationConnectorResponse message.
+        """Get a connector owned by an organization.
+
+        Returns the details of an organization-owned connector.
         """
     @abc.abstractmethod
     def UpdateOrganizationConnector(
@@ -1699,9 +2344,12 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.UpdateOrganizationConnectorRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.UpdateOrganizationConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.UpdateOrganizationConnectorResponse]]:
-        """UpdateOrganizationConnector method receives a
-        UpdateOrganizationConnectorRequest message and returns a
-        UpdateOrganizationConnectorResponse message.
+        """Update a connector owned by an organization.
+
+        Updates an organization-owned connector.
+
+        In REST requests, only the supplied connector fields will be taken into
+        account when updating the resource.
         """
     @abc.abstractmethod
     def DeleteOrganizationConnector(
@@ -1709,9 +2357,9 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.DeleteOrganizationConnectorRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.DeleteOrganizationConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.DeleteOrganizationConnectorResponse]]:
-        """DeleteOrganizationConnector method receives a
-        DeleteOrganizationConnectorRequest message and returns a
-        DeleteOrganizationConnectorResponse message.
+        """Delete a connector owned by an organization
+
+        Deletes a connector.
         """
     @abc.abstractmethod
     def ConnectOrganizationConnector(
@@ -1719,11 +2367,11 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.ConnectOrganizationConnectorRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.ConnectOrganizationConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.ConnectOrganizationConnectorResponse]]:
-        """Connect a connector.
-        The "state" of the connector after connecting is "CONNECTED".
-        ConnectOrganizationConnector can be called on Connector in the
-        state `DISCONNECTED`; Connector in a different state (including
-        `CONNECTED`) returns an error.
+        """Connect a connector owned by an organization
+
+        Transitions the state of a connector from `DISCONNECTED` to `CONNECTED`. If
+        the state of the connector is different when the request is made, an error
+        is returned.
         """
     @abc.abstractmethod
     def DisconnectOrganizationConnector(
@@ -1731,11 +2379,11 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.DisconnectOrganizationConnectorRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.DisconnectOrganizationConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.DisconnectOrganizationConnectorResponse]]:
-        """Disconnect a connector.
-        The "state" of the connector after disconnecting is "DISCONNECTED".
-        DisconnectOrganizationConnector can be called on Connector in the
-        state `CONNECTED`; Connector in a different state (including
-        `DISCONNECTED`) returns an error.
+        """Disconnect a connector owned by an organization
+
+        Transitions the state of a connector from `CONNECTED` to `DISCONNECTED`. If
+        the state of the connector is different when the request is made, an error
+        is returned.
         """
     @abc.abstractmethod
     def RenameOrganizationConnector(
@@ -1743,9 +2391,14 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.RenameOrganizationConnectorRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.RenameOrganizationConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.RenameOrganizationConnectorResponse]]:
-        """RenameOrganizationConnector method receives a
-        RenameOrganizationConnectorRequest message and returns a
-        RenameOrganizationConnectorResponse message.
+        """Rename a connector owned by an organization
+
+        Updates the ID of a connector. Since this is an output-only field, a custom
+        method is required to modify it.
+
+        The connector name will be updated accordingly, as it is  composed by the
+        parent organization and ID of the connector (e.g.
+        `organizations/indiana-jones/connector/whip`).
         """
     @abc.abstractmethod
     def ExecuteOrganizationConnector(
@@ -1753,9 +2406,9 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.ExecuteOrganizationConnectorRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.ExecuteOrganizationConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.ExecuteOrganizationConnectorResponse]]:
-        """ExecuteOrganizationConnector method receives a
-        ExecuteOrganizationConnectorRequest message and returns a
-        ExecuteOrganizationConnectorResponse message.
+        """Execute a connector owned by an organization
+
+        Executes a task in an organization-owned connector.
         """
     @abc.abstractmethod
     def WatchOrganizationConnector(
@@ -1763,9 +2416,9 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.WatchOrganizationConnectorRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.WatchOrganizationConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.WatchOrganizationConnectorResponse]]:
-        """WatchOrganizationConnector method receives a
-        WatchOrganizationConnectorRequest message and returns a
-        WatchOrganizationConnectorResponse
+        """Get the state of a connector owned by an organization
+
+        Gets the state of an organization-owned connector.
         """
     @abc.abstractmethod
     def TestOrganizationConnector(
@@ -1773,8 +2426,9 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.TestOrganizationConnectorRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.TestOrganizationConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.TestOrganizationConnectorResponse]]:
-        """TestOrganizationConnector method receives a TestOrganizationConnectorRequest
-        message and returns a TestOrganizationConnectorResponse
+        """Test a connector owned by an organization
+
+        Tests the connection on an organization-owned connector.
         """
 
 def add_PipelinePublicServiceServicer_to_server(servicer: PipelinePublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

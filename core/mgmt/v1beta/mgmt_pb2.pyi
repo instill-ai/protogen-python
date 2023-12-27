@@ -29,24 +29,24 @@ class _View:
 class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_View.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     VIEW_UNSPECIFIED: _View.ValueType  # 0
-    """View: UNSPECIFIED, equivalent to BASIC."""
+    """Unspecified, equivalent to BASIC."""
     VIEW_BASIC: _View.ValueType  # 1
-    """View: BASIC"""
+    """Default view, only includes basic information."""
     VIEW_FULL: _View.ValueType  # 2
-    """View: FULL"""
+    """Full representation."""
 
 class View(_View, metaclass=_ViewEnumTypeWrapper):
-    """View represents a view of any resource. The resource view is implemented by
-    adding a parameter to the method request which allows the client to specify
-    which view of the resource it wants to receive in the response.
+    """View defines how a resource is presented. It can be used as a parameter in a
+    method request to allow clients to select the amount of information they
+    want in the response.
     """
 
 VIEW_UNSPECIFIED: View.ValueType  # 0
-"""View: UNSPECIFIED, equivalent to BASIC."""
+"""Unspecified, equivalent to BASIC."""
 VIEW_BASIC: View.ValueType  # 1
-"""View: BASIC"""
+"""Default view, only includes basic information."""
 VIEW_FULL: View.ValueType  # 2
-"""View: FULL"""
+"""Full representation."""
 global___View = View
 
 class _OwnerType:
@@ -80,21 +80,25 @@ class _MembershipState:
 class _MembershipStateEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_MembershipState.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     MEMBERSHIP_STATE_UNSPECIFIED: _MembershipState.ValueType  # 0
-    """UNSPECIFIED"""
+    """Unspecified."""
     MEMBERSHIP_STATE_ACTIVE: _MembershipState.ValueType  # 1
-    """Active"""
+    """Active."""
     MEMBERSHIP_STATE_PENDING: _MembershipState.ValueType  # 2
-    """Pending"""
+    """Pending, i.e., a request has been sent to the user to join an
+    organization.
+    """
 
 class MembershipState(_MembershipState, metaclass=_MembershipStateEnumTypeWrapper):
-    """MembershipState"""
+    """MembershipState describes the state of a user membership to an organization."""
 
 MEMBERSHIP_STATE_UNSPECIFIED: MembershipState.ValueType  # 0
-"""UNSPECIFIED"""
+"""Unspecified."""
 MEMBERSHIP_STATE_ACTIVE: MembershipState.ValueType  # 1
-"""Active"""
+"""Active."""
 MEMBERSHIP_STATE_PENDING: MembershipState.ValueType  # 2
-"""Pending"""
+"""Pending, i.e., a request has been sent to the user to join an
+organization.
+"""
 global___MembershipState = MembershipState
 
 @typing_extensions.final
@@ -184,10 +188,7 @@ global___ReadinessResponse = ReadinessResponse
 
 @typing_extensions.final
 class User(google.protobuf.message.Message):
-    """Users
-
-    User represents the content of a user
-    """
+    """User describes an individual that interacts with Instill AI."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -207,55 +208,58 @@ class User(google.protobuf.message.Message):
     PROFILE_AVATAR_FIELD_NUMBER: builtins.int
     PROFILE_DATA_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Resource name. It must have the format of "users/*".
-    For example: "users/local-user".
+    """The name of the user, defined by its ID.
+    - Format: `users/{user.id}`.
     """
     uid: builtins.str
-    """User ID in UUIDv4. This field is optionally set by users
-    (optional on resource creation, server-generated if unset).
+    """User UUID. This field is optionally set by users on creation (it will be
+    server-generated if unspecified).
     """
     id: builtins.str
-    """Resource ID (the last segment of the resource name), also the user
-    username. This conforms to RFC-1034, which restricts to letters, numbers,
-    and hyphen, with the first character a letter, the last a letter or a
-    number, and a 63 character maximum.
+    """Resource ID (used in `name` as the last segment). This conforms to
+    RFC-1034, which restricts to letters, numbers, and hyphen, with the first
+    character a letter, the last a letter or a number, and a 63 character
+    maximum.
+
     Note that the ID can be updated.
     """
     @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """User creation time"""
+        """Creation time."""
     @property
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """User update time"""
+        """Update time."""
     email: builtins.str
-    """User email"""
+    """Email."""
     customer_id: builtins.str
     """Stripe customer ID. This field is used in Instill Cloud."""
     first_name: builtins.str
-    """User first name"""
+    """First name."""
     last_name: builtins.str
-    """User last name"""
+    """Last name."""
     org_name: builtins.str
-    """User company or institution name"""
+    """Company or institution name."""
     role: builtins.str
-    """User role. Allowed roles:
-     - "manager"
-     - "ai-researcher"
-     - "ai-engineer"
-     - "data-engineer",
-     - "data-scientist",
-     - "analytics-engineer"
-     - "hobbyist"
+    """Role.
+
+    It must be one of the following allowed roles:
+    - `manager`
+    - `ai-researcher`
+    - `ai-engineer`
+    - `data-engineer`
+    - `data-scientist`
+    - `analytics-engineer`
+    - `hobbyist`
     """
     newsletter_subscription: builtins.bool
-    """User newsletter subscription"""
+    """This defines whether the user is subscribed to Instill AI's newsletter."""
     cookie_token: builtins.str
-    """User console cookie token"""
+    """Console cookie token."""
     profile_avatar: builtins.str
-    """Profile Avatar base64"""
+    """Profile Avatar in base64."""
     @property
     def profile_data(self) -> google.protobuf.struct_pb2.Struct:
-        """Profile Data"""
+        """Profile Data."""
     def __init__(
         self,
         *,
@@ -307,17 +311,19 @@ class ListUsersAdminRequest(google.protobuf.message.Message):
     VIEW_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """Page size: the maximum number of resources to return. The service may
-    return fewer than this value. If unspecified, at most 10 users will be
-    returned. The maximum value is 100; values above 100 will be coereced to
-    100.
+    """The maximum number of users to return. If this parameter is unspecified,
+    at most 10 pipelines will be returned. The cap value for this parameter is
+    100 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     view: global___View.ValueType
-    """View view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired resource view in the response."""
     filter: builtins.str
-    """Filter expression to list users"""
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
     def __init__(
         self,
         *,
@@ -352,9 +358,9 @@ class ListUsersAdminResponse(google.protobuf.message.Message):
     def users(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___User]:
         """A list of users"""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
-    """Total count of users"""
+    """Total number of users."""
     def __init__(
         self,
         *,
@@ -379,7 +385,7 @@ class GetUserAdminRequest(google.protobuf.message.Message):
     "users/local-user"
     """
     view: global___View.ValueType
-    """View view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired resource view in the response."""
     def __init__(
         self,
         *,
@@ -427,7 +433,7 @@ class LookUpUserAdminRequest(google.protobuf.message.Message):
     "users/{uid}"
     """
     view: global___View.ValueType
-    """View view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired resource view in the response."""
     def __init__(
         self,
         *,
@@ -471,17 +477,19 @@ class ListOrganizationsAdminRequest(google.protobuf.message.Message):
     VIEW_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """Page size: the maximum number of resources to return. The service may
-    return fewer than this value. If unspecified, at most 10 organizations will be
-    returned. The maximum value is 100; values above 100 will be coereced to
-    100.
+    """The maximum number of organizations to return. If this parameter is
+    unspecified, at most 10 pipelines will be returned. The cap value for this
+    parameter is 100 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     view: global___View.ValueType
-    """View view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired resource view in the response."""
     filter: builtins.str
-    """Filter expression to list organizations"""
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
     def __init__(
         self,
         *,
@@ -516,9 +524,9 @@ class ListOrganizationsAdminResponse(google.protobuf.message.Message):
     def organizations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Organization]:
         """A list of organizations"""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
-    """Total count of organizations"""
+    """Total number of organizations."""
     def __init__(
         self,
         *,
@@ -543,7 +551,7 @@ class GetOrganizationAdminRequest(google.protobuf.message.Message):
     "organizations/local-organization"
     """
     view: global___View.ValueType
-    """View view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired resource view in the response."""
     def __init__(
         self,
         *,
@@ -591,7 +599,7 @@ class LookUpOrganizationAdminRequest(google.protobuf.message.Message):
     "organizations/{uid}"
     """
     view: global___View.ValueType
-    """View view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired resource view in the response."""
     def __init__(
         self,
         *,
@@ -626,7 +634,7 @@ global___LookUpOrganizationAdminResponse = LookUpOrganizationAdminResponse
 
 @typing_extensions.final
 class ListUsersRequest(google.protobuf.message.Message):
-    """ListUsersRequest represents a request to list all users"""
+    """ListUsersRequest represents a request to list all users."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -635,17 +643,19 @@ class ListUsersRequest(google.protobuf.message.Message):
     VIEW_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """Page size: the maximum number of resources to return. The service may
-    return fewer than this value. If unspecified, at most 10 users will be
-    returned. The maximum value is 100; values above 100 will be coereced to
-    100.
+    """The maximum number of users to return. If this parameter is unspecified,
+    at most 10 pipelines will be returned. The cap value for this parameter is
+    100 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     view: global___View.ValueType
-    """View view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired resource view in the response."""
     filter: builtins.str
-    """Filter expression to list users"""
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
     def __init__(
         self,
         *,
@@ -669,7 +679,7 @@ global___ListUsersRequest = ListUsersRequest
 
 @typing_extensions.final
 class ListUsersResponse(google.protobuf.message.Message):
-    """ListUsersResponse represents a response for a list of users"""
+    """ListUsersResponse contains a list of users."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -678,11 +688,11 @@ class ListUsersResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def users(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___User]:
-        """A list of users"""
+        """A list of user resources."""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
-    """Total count of users"""
+    """Total number of users."""
     def __init__(
         self,
         *,
@@ -696,18 +706,18 @@ global___ListUsersResponse = ListUsersResponse
 
 @typing_extensions.final
 class GetUserRequest(google.protobuf.message.Message):
-    """GetUserRequest represents a request to query a user by admin"""
+    """GetUserRequest represents a request to fetch the details of a user."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Resource name of a user. For example:
-    "users/local-user"
+    """The resource name of the user, which allows its access by ID.
+    - Format: `users/{user.id}`.
     """
     view: global___View.ValueType
-    """View view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired resource view in the response."""
     def __init__(
         self,
         *,
@@ -722,14 +732,14 @@ global___GetUserRequest = GetUserRequest
 
 @typing_extensions.final
 class GetUserResponse(google.protobuf.message.Message):
-    """GetUserResponse represents a response for a user resource"""
+    """GetUserResponse contains the requested user."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     USER_FIELD_NUMBER: builtins.int
     @property
     def user(self) -> global___User:
-        """A user resource"""
+        """The user resource."""
     def __init__(
         self,
         *,
@@ -742,8 +752,8 @@ global___GetUserResponse = GetUserResponse
 
 @typing_extensions.final
 class PatchAuthenticatedUserRequest(google.protobuf.message.Message):
-    """PatchAuthenticatedUserRequest represents a request to
-    update the authenticated user
+    """PatchAuthenticatedUserRequest represents a request to update the
+    authenticated user.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -752,10 +762,14 @@ class PatchAuthenticatedUserRequest(google.protobuf.message.Message):
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     @property
     def user(self) -> global___User:
-        """The user to update"""
+        """The user fields that will replace the existing ones."""
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
-        """Update mask for a user resource"""
+        """The update mask specifies the subset of fields that should be modified.
+
+        For more information about this field, see
+        https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#field-mask.
+        """
     def __init__(
         self,
         *,
@@ -769,7 +783,7 @@ global___PatchAuthenticatedUserRequest = PatchAuthenticatedUserRequest
 
 @typing_extensions.final
 class PatchAuthenticatedUserResponse(google.protobuf.message.Message):
-    """PatchAuthenticatedUserResponse represents a response for
+    """PatchAuthenticatedUserResponse contains the updated user.
     the authenticated user resource
     """
 
@@ -778,7 +792,7 @@ class PatchAuthenticatedUserResponse(google.protobuf.message.Message):
     USER_FIELD_NUMBER: builtins.int
     @property
     def user(self) -> global___User:
-        """A user resource"""
+        """The updated user resource."""
     def __init__(
         self,
         *,
@@ -791,15 +805,15 @@ global___PatchAuthenticatedUserResponse = PatchAuthenticatedUserResponse
 
 @typing_extensions.final
 class CheckNamespaceRequest(google.protobuf.message.Message):
-    """CheckNamespaceRequest represents a request to verify if
-    a namespace has been occupied
+    """CheckNamespaceRequest represents a request to verify if a namespace is
+    available.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     ID_FIELD_NUMBER: builtins.int
     id: builtins.str
-    """Namespace ID to be checked"""
+    """The namespace ID to be checked."""
     def __init__(
         self,
         *,
@@ -811,8 +825,8 @@ global___CheckNamespaceRequest = CheckNamespaceRequest
 
 @typing_extensions.final
 class CheckNamespaceResponse(google.protobuf.message.Message):
-    """CheckNamespaceResponse represents a response about whether
-    the queried namespace has been occupied and return its type
+    """CheckNamespaceResponse contains the availability of a namespace or the type
+    of resource that's using it.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -824,33 +838,33 @@ class CheckNamespaceResponse(google.protobuf.message.Message):
     class _NamespaceEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[CheckNamespaceResponse._Namespace.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         NAMESPACE_UNSPECIFIED: CheckNamespaceResponse._Namespace.ValueType  # 0
-        """UNSPECIFIED"""
+        """Unspecified."""
         NAMESPACE_AVAILABLE: CheckNamespaceResponse._Namespace.ValueType  # 1
-        """Available"""
+        """Available."""
         NAMESPACE_USER: CheckNamespaceResponse._Namespace.ValueType  # 2
-        """User"""
+        """Namespace belongs to a user."""
         NAMESPACE_ORGANIZATION: CheckNamespaceResponse._Namespace.ValueType  # 3
-        """Org"""
+        """Namespace belongs to an organization."""
         NAMESPACE_RESERVED: CheckNamespaceResponse._Namespace.ValueType  # 4
-        """Reserved"""
+        """Reserved."""
 
     class Namespace(_Namespace, metaclass=_NamespaceEnumTypeWrapper):
-        """Namespace type enum"""
+        """Namespace contains information about the availability of a namespace."""
 
     NAMESPACE_UNSPECIFIED: CheckNamespaceResponse.Namespace.ValueType  # 0
-    """UNSPECIFIED"""
+    """Unspecified."""
     NAMESPACE_AVAILABLE: CheckNamespaceResponse.Namespace.ValueType  # 1
-    """Available"""
+    """Available."""
     NAMESPACE_USER: CheckNamespaceResponse.Namespace.ValueType  # 2
-    """User"""
+    """Namespace belongs to a user."""
     NAMESPACE_ORGANIZATION: CheckNamespaceResponse.Namespace.ValueType  # 3
-    """Org"""
+    """Namespace belongs to an organization."""
     NAMESPACE_RESERVED: CheckNamespaceResponse.Namespace.ValueType  # 4
-    """Reserved"""
+    """Reserved."""
 
     TYPE_FIELD_NUMBER: builtins.int
     type: global___CheckNamespaceResponse.Namespace.ValueType
-    """Namespace type"""
+    """Namespace type."""
     def __init__(
         self,
         *,
@@ -862,7 +876,7 @@ global___CheckNamespaceResponse = CheckNamespaceResponse
 
 @typing_extensions.final
 class ApiToken(google.protobuf.message.Message):
-    """ApiToken represents the content of a API token"""
+    """API tokens allow users to make requests to the Instill AI API."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -873,25 +887,25 @@ class ApiToken(google.protobuf.message.Message):
     class _StateEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ApiToken._State.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATE_UNSPECIFIED: ApiToken._State.ValueType  # 0
-        """State: UNSPECIFIED"""
+        """Unspecified."""
         STATE_INACTIVE: ApiToken._State.ValueType  # 1
-        """State: INACTIVE"""
+        """Inactive."""
         STATE_ACTIVE: ApiToken._State.ValueType  # 2
-        """State: ACTIVE"""
+        """Active."""
         STATE_EXPIRED: ApiToken._State.ValueType  # 3
-        """State: EXPIRED"""
+        """Expired."""
 
     class State(_State, metaclass=_StateEnumTypeWrapper):
-        """State enumerates the state of an API token"""
+        """State describes the state of an API token."""
 
     STATE_UNSPECIFIED: ApiToken.State.ValueType  # 0
-    """State: UNSPECIFIED"""
+    """Unspecified."""
     STATE_INACTIVE: ApiToken.State.ValueType  # 1
-    """State: INACTIVE"""
+    """Inactive."""
     STATE_ACTIVE: ApiToken.State.ValueType  # 2
-    """State: ACTIVE"""
+    """Active."""
     STATE_EXPIRED: ApiToken.State.ValueType  # 3
-    """State: EXPIRED"""
+    """Expired."""
 
     NAME_FIELD_NUMBER: builtins.int
     UID_FIELD_NUMBER: builtins.int
@@ -904,36 +918,40 @@ class ApiToken(google.protobuf.message.Message):
     TTL_FIELD_NUMBER: builtins.int
     EXPIRE_TIME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """API token resource name. It must have the format of "tokens/*" """
+    """The name of the token, define by its ID.
+    - Format: `tokens/{token.id}`.
+    """
     uid: builtins.str
-    """API token UUID"""
+    """API token UUID."""
     id: builtins.str
-    """API token resource ID (the last segment of the resource name) used to
-    construct the resource name. This conforms to RFC-1034, which restricts to
-    letters, numbers, and hyphen, with the first character a letter, the last a
-    letter or a number, and a 63 character maximum.
-    Use this field to define where it's being used.
+    """API token resource ID (used in `name` as the last segment). This conforms
+    to RFC-1034, which restricts to letters, numbers, and hyphen, with the
+    first character a letter, the last a letter or a number, and a 63
+    character maximum.
+
+    This field can reflect the client(s) that will use the token.
     """
     @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """API token creation time"""
+        """Creation time."""
     @property
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """API token update time"""
+        """Update time."""
     access_token: builtins.str
     """An opaque access token representing the API token string.
+
     To validate the token, the recipient of the token needs to call the server
     that issued the token.
     """
     state: global___ApiToken.State.ValueType
-    """API token state"""
+    """State."""
     token_type: builtins.str
-    """API token type, value is fixed to "Bearer" """
+    """Token type. Value is fixed to "Bearer"."""
     ttl: builtins.int
-    """Input only. The TTL in seconds for this resource."""
+    """The time-to-live in seconds for this resource."""
     @property
     def expire_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """API token expire time"""
+        """Expiration time."""
     def __init__(
         self,
         *,
@@ -956,14 +974,14 @@ global___ApiToken = ApiToken
 
 @typing_extensions.final
 class CreateTokenRequest(google.protobuf.message.Message):
-    """CreateTokenRequest represents a request to create a API token"""
+    """CreateTokenRequest represents a request to create an API token."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     TOKEN_FIELD_NUMBER: builtins.int
     @property
     def token(self) -> global___ApiToken:
-        """A token resource to create"""
+        """The properties of the token to be created."""
     def __init__(
         self,
         *,
@@ -976,14 +994,14 @@ global___CreateTokenRequest = CreateTokenRequest
 
 @typing_extensions.final
 class CreateTokenResponse(google.protobuf.message.Message):
-    """CreateTokenResponse represents a response for a API token resource"""
+    """CreateTokenResponse contains the created token."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     TOKEN_FIELD_NUMBER: builtins.int
     @property
     def token(self) -> global___ApiToken:
-        """The created API token resource"""
+        """The created API token resource."""
     def __init__(
         self,
         *,
@@ -996,19 +1014,19 @@ global___CreateTokenResponse = CreateTokenResponse
 
 @typing_extensions.final
 class ListTokensRequest(google.protobuf.message.Message):
-    """ListTokensRequest represents a request to list tokens"""
+    """ListTokensRequest represents a request to list the API tokens of a user."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """The maximum number of API tokens to return. The service may return fewer
-    than this value. If unspecified, at most 10 API tokens will be returned.
-    The maximum value is 100; values above 100 will be coerced to 100.
+    """The maximum number of tokens to return. If this parameter is unspecified,
+    at most 10 pipelines will be returned. The cap value for this parameter is
+    100 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     def __init__(
         self,
         *,
@@ -1026,7 +1044,7 @@ global___ListTokensRequest = ListTokensRequest
 
 @typing_extensions.final
 class ListTokensResponse(google.protobuf.message.Message):
-    """ListTokensResponse represents a response for a list of API tokens"""
+    """ListTokensResponse contains a list of API tokens."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1035,11 +1053,11 @@ class ListTokensResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def tokens(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ApiToken]:
-        """A list of API tokens resources"""
+        """A list of API token resources."""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
-    """Total count of API tokens resources"""
+    """Total number of API token resources."""
     def __init__(
         self,
         *,
@@ -1053,13 +1071,15 @@ global___ListTokensResponse = ListTokensResponse
 
 @typing_extensions.final
 class GetTokenRequest(google.protobuf.message.Message):
-    """GetTokenRequest represents a request to query an API token"""
+    """GetTokenRequest represents a request to fetch the details of an API token"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """API tokens resource name. It must have the format of "tokens/*" """
+    """The resource name of the token, which allows its access by ID.
+    - Format: `tokens/{token.id}`.
+    """
     def __init__(
         self,
         *,
@@ -1071,14 +1091,14 @@ global___GetTokenRequest = GetTokenRequest
 
 @typing_extensions.final
 class GetTokenResponse(google.protobuf.message.Message):
-    """GetTokenResponse represents a response for an API token resource"""
+    """GetTokenResponse contains the requested token."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     TOKEN_FIELD_NUMBER: builtins.int
     @property
     def token(self) -> global___ApiToken:
-        """An API token resource"""
+        """The API token resource."""
     def __init__(
         self,
         *,
@@ -1091,13 +1111,15 @@ global___GetTokenResponse = GetTokenResponse
 
 @typing_extensions.final
 class DeleteTokenRequest(google.protobuf.message.Message):
-    """DeleteTokenRequest represents a request to delete an API token resource"""
+    """DeleteTokenRequest represents a request to delete an API token resource."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """API token resource name. It must have the format of "tokens/*" """
+    """The resource name of the token, which allows its access by ID.
+    - Format: `tokens/{token.id}`.
+    """
     def __init__(
         self,
         *,
@@ -1109,7 +1131,7 @@ global___DeleteTokenRequest = DeleteTokenRequest
 
 @typing_extensions.final
 class DeleteTokenResponse(google.protobuf.message.Message):
-    """DeleteTokenResponse represents an empty response"""
+    """DeleteTokenResponse is an empty response."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1121,7 +1143,7 @@ global___DeleteTokenResponse = DeleteTokenResponse
 
 @typing_extensions.final
 class ValidateTokenRequest(google.protobuf.message.Message):
-    """Request for validating the token"""
+    """ValidateTokenRequest represents a request to validate a token."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1133,13 +1155,13 @@ global___ValidateTokenRequest = ValidateTokenRequest
 
 @typing_extensions.final
 class ValidateTokenResponse(google.protobuf.message.Message):
-    """Response for validating the token"""
+    """ValidateTokenResponse contains the validation of a token."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     USER_UID_FIELD_NUMBER: builtins.int
     user_uid: builtins.str
-    """user_uid"""
+    """If token is valid, UUID of the user that owns it."""
     def __init__(
         self,
         *,
@@ -1151,16 +1173,18 @@ global___ValidateTokenResponse = ValidateTokenResponse
 
 @typing_extensions.final
 class AuthTokenIssuerRequest(google.protobuf.message.Message):
-    """Request for user login"""
+    """AuthTokenIssuerRequest represents a request to fetch the issuer details of a
+    token.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     USERNAME_FIELD_NUMBER: builtins.int
     PASSWORD_FIELD_NUMBER: builtins.int
     username: builtins.str
-    """Username"""
+    """Username."""
     password: builtins.str
-    """Password"""
+    """Password."""
     def __init__(
         self,
         *,
@@ -1173,13 +1197,13 @@ global___AuthTokenIssuerRequest = AuthTokenIssuerRequest
 
 @typing_extensions.final
 class AuthTokenIssuerResponse(google.protobuf.message.Message):
-    """Response for user logout"""
+    """AuthTokenIssuerResponse contains the token issuer details."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     @typing_extensions.final
     class UnsignedAccessToken(google.protobuf.message.Message):
-        """UnsignedAccessToken"""
+        """UnsignedAccessToken contains the token issuer information."""
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1189,15 +1213,15 @@ class AuthTokenIssuerResponse(google.protobuf.message.Message):
         JTI_FIELD_NUMBER: builtins.int
         EXP_FIELD_NUMBER: builtins.int
         aud: builtins.str
-        """aud"""
+        """Audience."""
         iss: builtins.str
-        """iss"""
+        """Issuer."""
         sub: builtins.str
-        """sub"""
+        """Subject."""
         jti: builtins.str
-        """jti"""
+        """Unique identifier of the user."""
         exp: builtins.int
-        """exp"""
+        """Expiration date."""
         def __init__(
             self,
             *,
@@ -1212,7 +1236,7 @@ class AuthTokenIssuerResponse(google.protobuf.message.Message):
     ACCESS_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def access_token(self) -> global___AuthTokenIssuerResponse.UnsignedAccessToken:
-        """access_token"""
+        """Access token information."""
     def __init__(
         self,
         *,
@@ -1225,16 +1249,16 @@ global___AuthTokenIssuerResponse = AuthTokenIssuerResponse
 
 @typing_extensions.final
 class AuthLoginRequest(google.protobuf.message.Message):
-    """Request for user login"""
+    """AuthLoginRequest represents a request for user login."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     USERNAME_FIELD_NUMBER: builtins.int
     PASSWORD_FIELD_NUMBER: builtins.int
     username: builtins.str
-    """Username"""
+    """Username."""
     password: builtins.str
-    """Password"""
+    """Password."""
     def __init__(
         self,
         *,
@@ -1247,13 +1271,13 @@ global___AuthLoginRequest = AuthLoginRequest
 
 @typing_extensions.final
 class AuthLoginResponse(google.protobuf.message.Message):
-    """Response for user logout"""
+    """AuthLoginResponse contains the access token of the authenticated user."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     ACCESS_TOKEN_FIELD_NUMBER: builtins.int
     access_token: builtins.str
-    """access token"""
+    """User access token."""
     def __init__(
         self,
         *,
@@ -1265,7 +1289,7 @@ global___AuthLoginResponse = AuthLoginResponse
 
 @typing_extensions.final
 class AuthLogoutRequest(google.protobuf.message.Message):
-    """Request for user logout"""
+    """AuthLogoutRequest represents a request for user logout."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1277,7 +1301,7 @@ global___AuthLogoutRequest = AuthLogoutRequest
 
 @typing_extensions.final
 class AuthLogoutResponse(google.protobuf.message.Message):
-    """Response for user logout"""
+    """AuthLogoutResponse is an empty response."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1289,7 +1313,7 @@ global___AuthLogoutResponse = AuthLogoutResponse
 
 @typing_extensions.final
 class AuthValidateAccessTokenRequest(google.protobuf.message.Message):
-    """Request for access_token validation"""
+    """AuthValidateAccessTokenRequest represents a request for access token validation."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1301,7 +1325,7 @@ global___AuthValidateAccessTokenRequest = AuthValidateAccessTokenRequest
 
 @typing_extensions.final
 class AuthValidateAccessTokenResponse(google.protobuf.message.Message):
-    """Response for access_token validation"""
+    """AuthValidateAccessTokenResponse is an empty response."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1313,16 +1337,16 @@ global___AuthValidateAccessTokenResponse = AuthValidateAccessTokenResponse
 
 @typing_extensions.final
 class AuthChangePasswordRequest(google.protobuf.message.Message):
-    """Request for changing password"""
+    """AuthChangePasswordRequest represents a request to update a user's password."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     OLD_PASSWORD_FIELD_NUMBER: builtins.int
     NEW_PASSWORD_FIELD_NUMBER: builtins.int
     old_password: builtins.str
-    """Old password"""
+    """Old password."""
     new_password: builtins.str
-    """New password"""
+    """New password."""
     def __init__(
         self,
         *,
@@ -1335,7 +1359,7 @@ global___AuthChangePasswordRequest = AuthChangePasswordRequest
 
 @typing_extensions.final
 class AuthChangePasswordResponse(google.protobuf.message.Message):
-    """Response for changing password"""
+    """AuthChangePasswordResponse is an empty response."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1347,9 +1371,8 @@ global___AuthChangePasswordResponse = AuthChangePasswordResponse
 
 @typing_extensions.final
 class Organization(google.protobuf.message.Message):
-    """Orgnizations
-
-    Organization represents the content of a organization
+    """Organizations group several users. As entities, they can own resources such
+    as pipelines or releases.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1365,36 +1388,37 @@ class Organization(google.protobuf.message.Message):
     PROFILE_DATA_FIELD_NUMBER: builtins.int
     OWNER_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Resource name. It must have the format of "organizations/*".
-    For example: "organizations/local-organization".
+    """The name of the organization, defined by its ID.
+    - Format: `organization/{organization.id}`.
     """
     uid: builtins.str
-    """Organization ID in UUIDv4."""
+    """Organization UUID."""
     id: builtins.str
-    """Resource ID (the last segment of the resource name), also the organization
-    name. This conforms to RFC-1034, which restricts to letters, numbers,
-    and hyphen, with the first character a letter, the last a letter or a
-    number, and a 63 character maximum.
+    """Resource ID (used in `name` as the last segment). This conforms to
+    RFC-1034, which restricts to letters, numbers, and hyphen, with the first
+    character a letter, the last a letter or a number, and a 63 character
+    maximum.
+
     Note that the ID can be updated.
     """
     @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Owner type: fixed to `OWNER_TYPE_USER`"""
+        """Creation time."""
     @property
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Organization update time"""
+        """Update time."""
     org_name: builtins.str
-    """Organization company or institution name"""
+    """Company or institution name."""
     customer_id: builtins.str
     """Stripe customer ID. This field is used in Instill Cloud."""
     profile_avatar: builtins.str
-    """Profile Avatar base64"""
+    """Profile Avatar in base64."""
     @property
     def profile_data(self) -> google.protobuf.struct_pb2.Struct:
-        """Profile Data"""
+        """Profile Data."""
     @property
     def owner(self) -> global___User:
-        """Owner"""
+        """The user that owns the organization."""
     def __init__(
         self,
         *,
@@ -1431,17 +1455,19 @@ class ListOrganizationsRequest(google.protobuf.message.Message):
     VIEW_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """Page size: the maximum number of resources to return. The service may
-    return fewer than this value. If unspecified, at most 10 organizations will be
-    returned. The maximum value is 100; values above 100 will be coereced to
-    100.
+    """The maximum number of organizations to return. If this parameter is
+    unspecified, at most 10 pipelines will be returned. The cap value for this
+    parameter is 100 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     view: global___View.ValueType
-    """View view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired resource view in the response."""
     filter: builtins.str
-    """Filter expression to list organizations"""
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
     def __init__(
         self,
         *,
@@ -1476,9 +1502,9 @@ class ListOrganizationsResponse(google.protobuf.message.Message):
     def organizations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Organization]:
         """A list of organizations"""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
-    """Total count of organizations"""
+    """Total number of organizations."""
     def __init__(
         self,
         *,
@@ -1492,18 +1518,14 @@ global___ListOrganizationsResponse = ListOrganizationsResponse
 
 @typing_extensions.final
 class CreateOrganizationRequest(google.protobuf.message.Message):
-    """CreateOrganizationRequest represents a request to create a organization by"""
+    """CreateOrganizationRequest represents a request to create an organization."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     ORGANIZATION_FIELD_NUMBER: builtins.int
     @property
     def organization(self) -> global___Organization:
-        """The organization to be created
-
-        The organization's `name` field is used to identify the organization to create.
-        Format: organizations/{organization}
-        """
+        """The properties of the organization to be created."""
     def __init__(
         self,
         *,
@@ -1516,14 +1538,14 @@ global___CreateOrganizationRequest = CreateOrganizationRequest
 
 @typing_extensions.final
 class CreateOrganizationResponse(google.protobuf.message.Message):
-    """CreateOrganizationResponse represents a response for a organization response"""
+    """CreateOrganizationResponse contains the created organization."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     ORGANIZATION_FIELD_NUMBER: builtins.int
     @property
     def organization(self) -> global___Organization:
-        """A organization resource"""
+        """The organization resource."""
     def __init__(
         self,
         *,
@@ -1536,18 +1558,20 @@ global___CreateOrganizationResponse = CreateOrganizationResponse
 
 @typing_extensions.final
 class GetOrganizationRequest(google.protobuf.message.Message):
-    """GetOrganizationRequest represents a request to query a organization"""
+    """GetOrganizationRequest represents a request to fetch the details of an
+    organization.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Resource name of a organization. For example:
-    "organizations/local-organization"
+    """The resource name of the organization, which allows its access by ID.
+    - Format: `organizations/{organization.id}`.
     """
     view: global___View.ValueType
-    """View view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired resource view in the response."""
     def __init__(
         self,
         *,
@@ -1562,14 +1586,14 @@ global___GetOrganizationRequest = GetOrganizationRequest
 
 @typing_extensions.final
 class GetOrganizationResponse(google.protobuf.message.Message):
-    """GetOrganizationResponse represents a response for a organization resource"""
+    """GetOrganizationResponse contains the requested organization."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     ORGANIZATION_FIELD_NUMBER: builtins.int
     @property
     def organization(self) -> global___Organization:
-        """A organization resource"""
+        """The organization resource."""
     def __init__(
         self,
         *,
@@ -1582,7 +1606,7 @@ global___GetOrganizationResponse = GetOrganizationResponse
 
 @typing_extensions.final
 class UpdateOrganizationRequest(google.protobuf.message.Message):
-    """UpdateOrganizationRequest represents a request to update a organization"""
+    """UpdateOrganizationRequest represents a request to update an organization."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1590,14 +1614,14 @@ class UpdateOrganizationRequest(google.protobuf.message.Message):
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     @property
     def organization(self) -> global___Organization:
-        """The organization to update
-
-        The organization's `name` field is used to identify the organization to update.
-        Format: organizations/{organization}
-        """
+        """The organization fields that will replace the existing ones."""
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
-        """Update mask for a organization resource"""
+        """The update mask specifies the subset of fields that should be modified.
+
+        For more information about this field, see
+        https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#field-mask.
+        """
     def __init__(
         self,
         *,
@@ -1611,14 +1635,14 @@ global___UpdateOrganizationRequest = UpdateOrganizationRequest
 
 @typing_extensions.final
 class UpdateOrganizationResponse(google.protobuf.message.Message):
-    """UpdateOrganizationResponse represents a response for a organization resource"""
+    """UpdateOrganizationResponse contains the updated organization."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     ORGANIZATION_FIELD_NUMBER: builtins.int
     @property
     def organization(self) -> global___Organization:
-        """A organization resource"""
+        """The organization resource."""
     def __init__(
         self,
         *,
@@ -1631,14 +1655,14 @@ global___UpdateOrganizationResponse = UpdateOrganizationResponse
 
 @typing_extensions.final
 class DeleteOrganizationRequest(google.protobuf.message.Message):
-    """DeleteOrganizationRequest represents a request to delete a organization"""
+    """DeleteOrganizationRequest represents a request to delete an organization."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """The resource name of the organization to be deleted,
-    for example: "organizations/local-organization"
+    """The resource name of the organization, which allows its access by ID.
+    - Format: `organizations/{organization.id}`.
     """
     def __init__(
         self,
@@ -1651,7 +1675,7 @@ global___DeleteOrganizationRequest = DeleteOrganizationRequest
 
 @typing_extensions.final
 class DeleteOrganizationResponse(google.protobuf.message.Message):
-    """DeleteOrganizationResponse represents an empty response"""
+    """DeleteOrganizationResponse is an empty response."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1662,50 +1686,10 @@ class DeleteOrganizationResponse(google.protobuf.message.Message):
 global___DeleteOrganizationResponse = DeleteOrganizationResponse
 
 @typing_extensions.final
-class ExistOrganizationNameRequest(google.protobuf.message.Message):
-    """ExistOrganizationNameRequest represents a request to verify if
-    a organizationName has been occupied
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAME_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the user to check,
-    for example: "users/local-user"
-    """
-    def __init__(
-        self,
-        *,
-        name: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
-
-global___ExistOrganizationNameRequest = ExistOrganizationNameRequest
-
-@typing_extensions.final
-class ExistOrganizationNameResponse(google.protobuf.message.Message):
-    """ExistOrganizationNameResponse represents a response about whether
-    the queried organizationName has been occupied
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    EXISTS_FIELD_NUMBER: builtins.int
-    exists: builtins.bool
-    """A boolean value indicating whether the organizationName has been occupied"""
-    def __init__(
-        self,
-        *,
-        exists: builtins.bool = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["exists", b"exists"]) -> None: ...
-
-global___ExistOrganizationNameResponse = ExistOrganizationNameResponse
-
-@typing_extensions.final
 class OrganizationMembership(google.protobuf.message.Message):
-    """Membership represents the content of a membership"""
+    """An organization membership defines the relationship between an organization
+    and a user that is attached to it.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1715,17 +1699,20 @@ class OrganizationMembership(google.protobuf.message.Message):
     USER_FIELD_NUMBER: builtins.int
     ORGANIZATION_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Resource name. It must have the format of "organizations/*/memberships/*" """
+    """The resource name of the membership, which allows its access by
+    organization and user ID.
+    - Format: `organizations/{organization.id}/memberships/{user.id}`.
+    """
     role: builtins.str
-    """Role"""
+    """Role of the user in the organization."""
     state: global___MembershipState.ValueType
-    """State"""
+    """State of the membership."""
     @property
     def user(self) -> global___User:
-        """User"""
+        """User information."""
     @property
     def organization(self) -> global___Organization:
-        """Organization"""
+        """Organization information."""
     def __init__(
         self,
         *,
@@ -1742,7 +1729,9 @@ global___OrganizationMembership = OrganizationMembership
 
 @typing_extensions.final
 class UserMembership(google.protobuf.message.Message):
-    """Membership represents the content of a membership"""
+    """A user membership defines the relationship between a user and an
+    organization they belong to.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1752,17 +1741,20 @@ class UserMembership(google.protobuf.message.Message):
     USER_FIELD_NUMBER: builtins.int
     ORGANIZATION_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Resource name. It must have the format of "users/*/memberships/*"."""
+    """The resource name of the membership, which allows its access by user and
+    organization ID.
+    - Format: `users/{user.id}/memberships/{organization.id}`.
+    """
     role: builtins.str
-    """Role"""
+    """Role of the user in the organization."""
     state: global___MembershipState.ValueType
-    """State"""
+    """State of the membership."""
     @property
     def user(self) -> global___User:
-        """User"""
+        """User information."""
     @property
     def organization(self) -> global___Organization:
-        """Organization"""
+        """Organization information."""
     def __init__(
         self,
         *,
@@ -1779,14 +1771,16 @@ global___UserMembership = UserMembership
 
 @typing_extensions.final
 class ListUserMembershipsRequest(google.protobuf.message.Message):
-    """ListUserMembershipsRequest represents a request to list user memberships"""
+    """ListUserMembershipsRequest represents a request to list the memberships of a
+    user.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PARENT_FIELD_NUMBER: builtins.int
     parent: builtins.str
-    """The parent resource where this connector resource will be created.
-    Format: users/{users}
+    """The parent resource, i.e., the user to which the memberships belong.
+    Format: `users/{user.id}`.
     """
     def __init__(
         self,
@@ -1799,14 +1793,14 @@ global___ListUserMembershipsRequest = ListUserMembershipsRequest
 
 @typing_extensions.final
 class ListUserMembershipsResponse(google.protobuf.message.Message):
-    """ListUserMembershipsResponse represents a response for a list of memberships"""
+    """ListUserMembershipsResponse contains a list of memberships."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     MEMBERSHIPS_FIELD_NUMBER: builtins.int
     @property
     def memberships(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___UserMembership]:
-        """A list of memberships"""
+        """The user memberships, i.e., the organizations the user belongs to."""
     def __init__(
         self,
         *,
@@ -1818,16 +1812,19 @@ global___ListUserMembershipsResponse = ListUserMembershipsResponse
 
 @typing_extensions.final
 class GetUserMembershipRequest(google.protobuf.message.Message):
-    """GetUserMembershipRequest represents a request to query a membership"""
+    """GetUserMembershipRequest represents a request to query a user's membership."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Membership resource name. It must have the format of "users/*/memberships/*" """
+    """The resource name of the membership, which allows its access by user and
+    organization ID.
+    - Format: `users/{user.id}/memberships/{organization.id}`.
+    """
     view: global___View.ValueType
-    """Membership resource view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired resource view in the response."""
     def __init__(
         self,
         *,
@@ -1842,14 +1839,14 @@ global___GetUserMembershipRequest = GetUserMembershipRequest
 
 @typing_extensions.final
 class GetUserMembershipResponse(google.protobuf.message.Message):
-    """GetUserMembershipResponse represents a response for a membership resource"""
+    """GetUserMembershipResponse contains the user membership."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     MEMBERSHIP_FIELD_NUMBER: builtins.int
     @property
     def membership(self) -> global___UserMembership:
-        """A membership resource"""
+        """The requested user membership."""
     def __init__(
         self,
         *,
@@ -1862,7 +1859,7 @@ global___GetUserMembershipResponse = GetUserMembershipResponse
 
 @typing_extensions.final
 class UpdateUserMembershipRequest(google.protobuf.message.Message):
-    """UpdateUserMembershipRequest represents a request to update a membership"""
+    """UpdateUserMembershipRequest represents a request to update a user membership."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1870,10 +1867,14 @@ class UpdateUserMembershipRequest(google.protobuf.message.Message):
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     @property
     def membership(self) -> global___UserMembership:
-        """A membership resource to update"""
+        """The membership fields to update."""
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
-        """Update mask for a membership resource"""
+        """The update mask specifies the subset of fields that should be modified.
+
+        For more information about this field, see
+        https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#field-mask.
+        """
     def __init__(
         self,
         *,
@@ -1887,14 +1888,14 @@ global___UpdateUserMembershipRequest = UpdateUserMembershipRequest
 
 @typing_extensions.final
 class UpdateUserMembershipResponse(google.protobuf.message.Message):
-    """UpdateUserMembershipResponse represents a response for a membership resource"""
+    """UpdateUserMembershipResponse contains the updated membership."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     MEMBERSHIP_FIELD_NUMBER: builtins.int
     @property
     def membership(self) -> global___UserMembership:
-        """An updated membership resource"""
+        """The updated membership resource."""
     def __init__(
         self,
         *,
@@ -1907,13 +1908,18 @@ global___UpdateUserMembershipResponse = UpdateUserMembershipResponse
 
 @typing_extensions.final
 class DeleteUserMembershipRequest(google.protobuf.message.Message):
-    """DeleteUserMembershipRequest represents a request to delete a membership resource"""
+    """DeleteUserMembershipRequest represents a request to delete a user
+    membership.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Membership resource name. It must have the format of "users/*/membership/*" """
+    """The resource name of the membership, which allows its access by user and
+    organization ID.
+    - Format: `users/{user.id}/memberships/{organization.id}`.
+    """
     def __init__(
         self,
         *,
@@ -1925,7 +1931,7 @@ global___DeleteUserMembershipRequest = DeleteUserMembershipRequest
 
 @typing_extensions.final
 class DeleteUserMembershipResponse(google.protobuf.message.Message):
-    """DeleteUserMembershipResponse represents an empty response"""
+    """DeleteUserMembershipResponse is an empty response."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1937,14 +1943,17 @@ global___DeleteUserMembershipResponse = DeleteUserMembershipResponse
 
 @typing_extensions.final
 class ListOrganizationMembershipsRequest(google.protobuf.message.Message):
-    """ListOrganizationMembershipsRequest represents a request to list organization memberships"""
+    """ListOrganizationMembershipsRequest represents a request to list the
+    memberships of an organization.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PARENT_FIELD_NUMBER: builtins.int
     parent: builtins.str
-    """The parent resource where this connector resource will be created.
-    Format: organization/{organizations}
+    """The parent resource, i.e., the organization to which the memberships
+    belong.
+    Format: `organizations/{organization.id}`.
     """
     def __init__(
         self,
@@ -1957,14 +1966,16 @@ global___ListOrganizationMembershipsRequest = ListOrganizationMembershipsRequest
 
 @typing_extensions.final
 class ListOrganizationMembershipsResponse(google.protobuf.message.Message):
-    """ListOrganizationMembershipsResponse represents a response for a list of memberships"""
+    """ListOrganizationMembershipsResponse contains a list of memberships."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     MEMBERSHIPS_FIELD_NUMBER: builtins.int
     @property
     def memberships(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___OrganizationMembership]:
-        """A list of memberships"""
+        """The organization memberships, i.e., the users that belong to the
+        organization.
+        """
     def __init__(
         self,
         *,
@@ -1976,16 +1987,21 @@ global___ListOrganizationMembershipsResponse = ListOrganizationMembershipsRespon
 
 @typing_extensions.final
 class GetOrganizationMembershipRequest(google.protobuf.message.Message):
-    """GetOrganizationMembershipRequest represents a request to query a membership"""
+    """GetOrganizationMembershipRequest represents a request to query a user's
+    membership to an organization.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Membership resource name. It must have the format of "organizations/*/memberships/*" """
+    """The resource name of the membership, which allows its access by
+    organization and user ID.
+    - Format: `organizations/{organization.id}/memberships/{user.id}`.
+    """
     view: global___View.ValueType
-    """Membership resource view (default is VIEW_BASIC)"""
+    """View allows clients to specify the desired resource view in the response."""
     def __init__(
         self,
         *,
@@ -2000,14 +2016,14 @@ global___GetOrganizationMembershipRequest = GetOrganizationMembershipRequest
 
 @typing_extensions.final
 class GetOrganizationMembershipResponse(google.protobuf.message.Message):
-    """GetOrganizationMembershipResponse represents a response for a membership resource"""
+    """GetOrganizationMembershipResponse contains the organization membership."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     MEMBERSHIP_FIELD_NUMBER: builtins.int
     @property
     def membership(self) -> global___OrganizationMembership:
-        """A membership resource"""
+        """The requested organization membership."""
     def __init__(
         self,
         *,
@@ -2020,7 +2036,9 @@ global___GetOrganizationMembershipResponse = GetOrganizationMembershipResponse
 
 @typing_extensions.final
 class UpdateOrganizationMembershipRequest(google.protobuf.message.Message):
-    """UpdateOrganizationMembershipRequest represents a request to update a membership"""
+    """UpdateOrganizationMembershipRequest represents a request to update an
+    organization membership.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2028,10 +2046,14 @@ class UpdateOrganizationMembershipRequest(google.protobuf.message.Message):
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     @property
     def membership(self) -> global___OrganizationMembership:
-        """A membership resource to update"""
+        """The membership fields to update."""
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
-        """Update mask for a membership resource"""
+        """The update mask specifies the subset of fields that should be modified.
+
+        For more information about this field, see
+        https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#field-mask.
+        """
     def __init__(
         self,
         *,
@@ -2045,14 +2067,14 @@ global___UpdateOrganizationMembershipRequest = UpdateOrganizationMembershipReque
 
 @typing_extensions.final
 class UpdateOrganizationMembershipResponse(google.protobuf.message.Message):
-    """UpdateOrganizationMembershipResponse represents a response for a membership resource"""
+    """UpdateOrganizationMembershipResponse contains the updated membership."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     MEMBERSHIP_FIELD_NUMBER: builtins.int
     @property
     def membership(self) -> global___OrganizationMembership:
-        """An updated membership resource"""
+        """The updated membership resource."""
     def __init__(
         self,
         *,
@@ -2065,13 +2087,18 @@ global___UpdateOrganizationMembershipResponse = UpdateOrganizationMembershipResp
 
 @typing_extensions.final
 class DeleteOrganizationMembershipRequest(google.protobuf.message.Message):
-    """DeleteOrganizationMembershipRequest represents a request to delete a membership resource"""
+    """DeleteOrganizationMembershipRequest represents a request to delete an
+    organization membership.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Membership resource name. It must have the format of "organizations/*/membership/*" """
+    """The resource name of the membership, which allows its access by
+    organization and user ID.
+    - Format: `organizations/{organization.id}/memberships/{user.id}`.
+    """
     def __init__(
         self,
         *,
@@ -2083,7 +2110,7 @@ global___DeleteOrganizationMembershipRequest = DeleteOrganizationMembershipReque
 
 @typing_extensions.final
 class DeleteOrganizationMembershipResponse(google.protobuf.message.Message):
-    """DeleteOrganizationMembershipResponse represents an empty response"""
+    """DeleteOrganizationMembershipResponse is an empty response."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2095,13 +2122,13 @@ global___DeleteOrganizationMembershipResponse = DeleteOrganizationMembershipResp
 
 @typing_extensions.final
 class Subscription(google.protobuf.message.Message):
-    """Subscription"""
+    """Subscription details describe the plan (i.e. the features) a user has access to."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PLAN_FIELD_NUMBER: builtins.int
     plan: builtins.str
-    """plan"""
+    """Plan identifier, e.g. `freemium`."""
     def __init__(
         self,
         *,
@@ -2113,13 +2140,17 @@ global___Subscription = Subscription
 
 @typing_extensions.final
 class GetUserSubscriptionRequest(google.protobuf.message.Message):
-    """GetUserSubscriptionRequest"""
+    """GetUserSubscriptionRequest represents a query to fetch the subscription
+    details of a user.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PARENT_FIELD_NUMBER: builtins.int
     parent: builtins.str
-    """parent"""
+    """The parent resource, i.e., the user to which the subscription refers.
+    Format: `users/{user.id}`.
+    """
     def __init__(
         self,
         *,
@@ -2131,14 +2162,14 @@ global___GetUserSubscriptionRequest = GetUserSubscriptionRequest
 
 @typing_extensions.final
 class GetUserSubscriptionResponse(google.protobuf.message.Message):
-    """GetUserSubscriptionResponse"""
+    """GetUserSubscriptionResponse contains the requested subscription."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     SUBSCRIPTION_FIELD_NUMBER: builtins.int
     @property
     def subscription(self) -> global___Subscription:
-        """Subscription"""
+        """The subscription resource."""
     def __init__(
         self,
         *,
@@ -2151,13 +2182,18 @@ global___GetUserSubscriptionResponse = GetUserSubscriptionResponse
 
 @typing_extensions.final
 class GetOrganizationSubscriptionRequest(google.protobuf.message.Message):
-    """GetOrganizationSubscriptionRequest"""
+    """GetOrganizationSubscriptionRequest represents a query to fetch the
+    subscription details of an organization.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PARENT_FIELD_NUMBER: builtins.int
     parent: builtins.str
-    """parent"""
+    """The parent resource, i.e., the organization to which the subscription
+    refers.
+    Format: `organizations/{organization.id}`.
+    """
     def __init__(
         self,
         *,
@@ -2169,14 +2205,14 @@ global___GetOrganizationSubscriptionRequest = GetOrganizationSubscriptionRequest
 
 @typing_extensions.final
 class GetOrganizationSubscriptionResponse(google.protobuf.message.Message):
-    """GetOrganizationSubscriptionResponse"""
+    """GetOrganizationSubscriptionResponse contains the requested subscription."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     SUBSCRIPTION_FIELD_NUMBER: builtins.int
     @property
     def subscription(self) -> global___Subscription:
-        """Subscription"""
+        """The subscription resource."""
     def __init__(
         self,
         *,

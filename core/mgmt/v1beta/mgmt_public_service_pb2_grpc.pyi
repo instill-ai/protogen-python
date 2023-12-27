@@ -19,522 +19,642 @@ class _ServicerContext(grpc.ServicerContext, grpc.aio.ServicerContext):  # type:
     ...
 
 class MgmtPublicServiceStub:
-    """Mgmt service responds to external access"""
+    """MGMT
+
+    MgmtPublicService exposes the public Core endpoints that allow clients to
+    manage user resources.
+    """
 
     def __init__(self, channel: typing.Union[grpc.Channel, grpc.aio.Channel]) -> None: ...
     Liveness: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.LivenessRequest,
         core.mgmt.v1beta.mgmt_pb2.LivenessResponse,
     ]
-    """Liveness method receives a LivenessRequest message and returns a
-    LivenessResponse message.
-    See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+    """Check if the MGMT server is alive
+
+    See https://github.com/grpc/grpc/blob/master/doc/health-checking.md.
     """
     Readiness: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.ReadinessRequest,
         core.mgmt.v1beta.mgmt_pb2.ReadinessResponse,
     ]
-    """Readiness method receives a ReadinessRequest message and returns a
-    ReadinessResponse message.
+    """Check if the pipeline server is ready
+
     See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
     """
     CheckNamespace: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.CheckNamespaceRequest,
         core.mgmt.v1beta.mgmt_pb2.CheckNamespaceResponse,
     ]
-    """Check namespace"""
+    """Check if a namespace is in use
+
+    Returns the availability of a namespace or, alternatively, the type of
+    resource that is using it.
+    """
     ListUsers: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.ListUsersRequest,
         core.mgmt.v1beta.mgmt_pb2.ListUsersResponse,
     ]
-    """ListUsers method receives a ListUsersRequest message and returns a
-    ListUsersResponse message.
+    """List users
+
+    Returns a paginated list of users.
     """
     GetUser: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetUserRequest,
         core.mgmt.v1beta.mgmt_pb2.GetUserResponse,
     ]
-    """GetUser method receives a GetUser message and returns a
-    GetUser message.
+    """Get a user
+
+    Returns the details of a user by their ID.
     """
     PatchAuthenticatedUser: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.PatchAuthenticatedUserRequest,
         core.mgmt.v1beta.mgmt_pb2.PatchAuthenticatedUserResponse,
     ]
-    """PatchAuthenticatedUser method receives a PatchAuthenticatedUserRequest
-    message and returns a PatchAuthenticatedUserResponse message.
+    """Update a user
+
+    Accesses and updates a user by ID. The authenticated user must match the
+    target in order to modify it.
+
+    In REST requests, only the supplied user fields will be taken into account
+    when updating the resource.
     """
     ListUserMemberships: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.ListUserMembershipsRequest,
         core.mgmt.v1beta.mgmt_pb2.ListUserMembershipsResponse,
     ]
-    """ListUserMemberships method receives a ListUserMembershipsRequest message and returns a
-    ListUserMembershipsResponse message.
+    """List user memberships
+
+    Returns the memberships of a user.
     """
     GetUserMembership: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetUserMembershipRequest,
         core.mgmt.v1beta.mgmt_pb2.GetUserMembershipResponse,
     ]
-    """GetUserMembership method receives a GetUserMembershipRequest message and returns a
-    GetUserMembershipResponse message.
+    """Get a user membership
+
+    Returns the details of the relationship between a user and an
+    organization. The authenticated must match the membership parent.
     """
     UpdateUserMembership: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.UpdateUserMembershipRequest,
         core.mgmt.v1beta.mgmt_pb2.UpdateUserMembershipResponse,
     ]
-    """UpdateUserMembership method receives a UpdateUserMembershipRequest message and returns
-    a UpdateUserMembershipResponse message.
+    """Update a user membership
+
+    Accesses and updates a user membership by parent and membership IDs.
     """
     DeleteUserMembership: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.DeleteUserMembershipRequest,
         core.mgmt.v1beta.mgmt_pb2.DeleteUserMembershipResponse,
     ]
-    """DeleteUserMembership method receives a DeleteUserMembershipRequest message and returns
-    a DeleteUserMembershipResponse message.
+    """Delete a user membership
+
+    Accesses and deletes a user membership by parent and membership IDs.
     """
     ListOrganizations: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.ListOrganizationsRequest,
         core.mgmt.v1beta.mgmt_pb2.ListOrganizationsResponse,
     ]
-    """ListOrganizations method receives a ListOrganizationsRequest message and returns
-    a ListOrganizationsResponse message.
+    """List organizations
+
+    Returns a paginated list of organizations.
     """
     CreateOrganization: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.CreateOrganizationRequest,
         core.mgmt.v1beta.mgmt_pb2.CreateOrganizationResponse,
     ]
-    """CreateOrganization receives a CreateOrganizationRequest message and returns a
-    a GetOrganizationResponse
+    """Create an organization
+
+    Creates an organization.
     """
     GetOrganization: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationRequest,
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationResponse,
     ]
-    """GetOrganization method receives a GetOrganizationRequest message and returns
-    a GetOrganizationResponse message.
+    """Get an organization
+
+    Returns the organization details by its ID.
     """
     UpdateOrganization: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationRequest,
         core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationResponse,
     ]
-    """UpdateOrganization method receives a UpdateOrganizationRequest message and
-    returns a UpdateOrganizationResponse
+    """Update an organization
+
+    Accesses and updates an organization by ID.
+
+    In REST requests, only the supplied organization fields will be taken into
+    account when updating the resource.
     """
     DeleteOrganization: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationRequest,
         core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationResponse,
     ]
-    """DeleteOrganization method receives a DeleteOrganizationRequest message and
-    returns a DeleteOrganizationResponse
+    """Delete an organization
+
+    Accesses and deletes an organization by ID.
     """
     ListOrganizationMemberships: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.ListOrganizationMembershipsRequest,
         core.mgmt.v1beta.mgmt_pb2.ListOrganizationMembershipsResponse,
     ]
-    """ListOrganizationMemberships method receives a ListOrganizationMembershipsRequest message and returns a
-    ListOrganizationMembershipsResponse message.
+    """List organization memberships
+
+    Returns a paginated list of the user memberships in an organization.
     """
     GetOrganizationMembership: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationMembershipRequest,
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationMembershipResponse,
     ]
-    """GetOrganizationMembership method receives a GetOrganizationMembershipRequest message and returns a
-    GetOrganizationMembershipResponse message.
+    """Get a an organization membership
+
+    Returns the details of a user membership within an organization.
     """
     UpdateOrganizationMembership: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationMembershipRequest,
         core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationMembershipResponse,
     ]
-    """UpdateOrganizationMembership method receives a UpdateOrganizationMembershipRequest message and returns
-    a UpdateOrganizationMembershipResponse message.
+    """Uppdate an organization membership
+
+    Updates a user membership within an organization.
     """
     DeleteOrganizationMembership: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipRequest,
         core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipResponse,
     ]
-    """DeleteOrganizationMembership method receives a DeleteOrganizationMembershipRequest message and returns
-    a DeleteOrganizationMembershipResponse message.
+    """Delete an organization membership
+
+    Deletes a user membership within an organization.
     """
     GetUserSubscription: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionRequest,
         core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionResponse,
     ]
-    """GetUserSubscription"""
+    """Get a user subscription
+
+    Returns the subscription details of a user.
+    """
     GetOrganizationSubscription: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionRequest,
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionResponse,
     ]
-    """GetOrganizationSubscription"""
+    """Get an organization subscription
+
+    Returns the subscription details of an organization.
+    """
     CreateToken: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.CreateTokenRequest,
         core.mgmt.v1beta.mgmt_pb2.CreateTokenResponse,
     ]
-    """CreateToken method receives a CreateTokenRequest message and returns
-    a CreateTokenResponse message.
+    """Create an API token
+
+    Creates an API token for the authenticated user.
     """
     ListTokens: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.ListTokensRequest,
         core.mgmt.v1beta.mgmt_pb2.ListTokensResponse,
     ]
-    """ListTokens method receives a ListTokensRequest message and returns a
-    ListTokensResponse message.
+    """List API tokens
+
+    Returns a paginated list of the API tokens of the authenticated user.
     """
     GetToken: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetTokenRequest,
         core.mgmt.v1beta.mgmt_pb2.GetTokenResponse,
     ]
-    """GetToken method receives a GetTokenRequest message and returns a
-    GetTokenResponse message.
+    """Get an API token
+
+    Returns the details of an API token.
     """
     DeleteToken: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.DeleteTokenRequest,
         core.mgmt.v1beta.mgmt_pb2.DeleteTokenResponse,
     ]
-    """DeleteToken method receives a DeleteTokenRequest message and returns
-    a DeleteTokenResponse message.
+    """Delete an API token
+
+    Deletes an API token.
     """
     ValidateToken: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.ValidateTokenRequest,
         core.mgmt.v1beta.mgmt_pb2.ValidateTokenResponse,
     ]
-    """ValidateToken method receives a ValidateTokenRequest message and returns
-    a ValidateTokenResponse message.
+    """Validate an API token.
+
+    Validates an API token.
     """
     ListPipelineTriggerRecords: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsRequest,
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsResponse,
     ]
-    """========== Metric endpoints
+    """List pipeline triggers
 
-    ListPipelineTriggerRecords method receives a
-    ListPipelineTriggerRecordsRequest message and returns a
-    ListPipelineTriggerRecordsResponse message.
+    Returns a paginated list of pipeline executions.
     """
     ListPipelineTriggerTableRecords: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsRequest,
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsResponse,
     ]
-    """ListPipelineTriggerTableRecords method receives a
-    ListPipelineTriggerTableRecordsRequest message and returns a
-    ListPipelineTriggerTableRecordsResponse message.
+    """List pipeline trigger metrics
+
+    Returns a paginated list of pipeline executions aggregated by pipeline ID.
     """
     ListPipelineTriggerChartRecords: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsRequest,
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsResponse,
     ]
-    """ListPipelineTriggerChartRecords method receives a
-    ListPipelineTriggerChartRecordsRequest message and returns a
-    ListPipelineTriggerChartRecordsResponse message.
+    """List pipeline trigger computation time charts
+
+    Returns a paginated list with pipeline trigger execution times, aggregated
+    by pipeline and time frames.
     """
     ListConnectorExecuteRecords: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListConnectorExecuteRecordsRequest,
         core.mgmt.v1beta.metric_pb2.ListConnectorExecuteRecordsResponse,
     ]
-    """ListConnectorExecuteRecords method receives a
-    ListConnectorExecuteRecordsRequest message and returns a
-    ListConnectorExecuteRecordsResponse message.
+    """List connector executions
+
+    Returns a paginated list of connector executions.
     """
     ListConnectorExecuteTableRecords: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListConnectorExecuteTableRecordsRequest,
         core.mgmt.v1beta.metric_pb2.ListConnectorExecuteTableRecordsResponse,
     ]
-    """ListConnectorExecuteTableRecords method receives a
-    ListConnectorExecuteTableRecordsRequest message and returns a
-    ListConnectorExecuteTableRecordsResponse message.
+    """List connector execution metrics
+
+    Returns a paginated list of connector executions aggregated by connector.
     """
     ListConnectorExecuteChartRecords: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListConnectorExecuteChartRecordsRequest,
         core.mgmt.v1beta.metric_pb2.ListConnectorExecuteChartRecordsResponse,
     ]
-    """ListConnectorExecuteChartRecords method receives a
-    ListConnectorExecuteChartRecordsRequest message and returns a
-    ListConnectorExecuteChartRecordsResponse message.
+    """List connector execution computation time charts
+
+    Returns a paginated list with connector execution times, aggregated by
+    connector and time frames.
     """
     AuthTokenIssuer: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.AuthTokenIssuerRequest,
         core.mgmt.v1beta.mgmt_pb2.AuthTokenIssuerResponse,
     ]
-    """AuthTokenIssuer endpoint"""
+    """Get Auth token issuer
+
+    Returns the auth token issuer details. This operation requires admin permissions.
+    """
     AuthLogin: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.AuthLoginRequest,
         core.mgmt.v1beta.mgmt_pb2.AuthLoginResponse,
     ]
-    """Auth Login endpoint"""
+    """Log in a user
+
+    Authenticates a user and returns an access token.
+    """
     AuthLogout: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.AuthLogoutRequest,
         core.mgmt.v1beta.mgmt_pb2.AuthLogoutResponse,
     ]
-    """Auth Logout endpoint"""
+    """Log out a user
+
+    Logs out an authenticated user.
+    """
     AuthChangePassword: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.AuthChangePasswordRequest,
         core.mgmt.v1beta.mgmt_pb2.AuthChangePasswordResponse,
     ]
-    """Auth Change password endpoint"""
+    """Change password
+
+    Updates the password of a user.
+    """
     AuthValidateAccessToken: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.AuthValidateAccessTokenRequest,
         core.mgmt.v1beta.mgmt_pb2.AuthValidateAccessTokenResponse,
     ]
-    """Auth AccessToken validation endpoint"""
+    """Validate an access token
+
+    Checks the validity of an access token.
+    """
 
 class MgmtPublicServiceAsyncStub:
-    """Mgmt service responds to external access"""
+    """MGMT
+
+    MgmtPublicService exposes the public Core endpoints that allow clients to
+    manage user resources.
+    """
 
     Liveness: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.LivenessRequest,
         core.mgmt.v1beta.mgmt_pb2.LivenessResponse,
     ]
-    """Liveness method receives a LivenessRequest message and returns a
-    LivenessResponse message.
-    See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+    """Check if the MGMT server is alive
+
+    See https://github.com/grpc/grpc/blob/master/doc/health-checking.md.
     """
     Readiness: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.ReadinessRequest,
         core.mgmt.v1beta.mgmt_pb2.ReadinessResponse,
     ]
-    """Readiness method receives a ReadinessRequest message and returns a
-    ReadinessResponse message.
+    """Check if the pipeline server is ready
+
     See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
     """
     CheckNamespace: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.CheckNamespaceRequest,
         core.mgmt.v1beta.mgmt_pb2.CheckNamespaceResponse,
     ]
-    """Check namespace"""
+    """Check if a namespace is in use
+
+    Returns the availability of a namespace or, alternatively, the type of
+    resource that is using it.
+    """
     ListUsers: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.ListUsersRequest,
         core.mgmt.v1beta.mgmt_pb2.ListUsersResponse,
     ]
-    """ListUsers method receives a ListUsersRequest message and returns a
-    ListUsersResponse message.
+    """List users
+
+    Returns a paginated list of users.
     """
     GetUser: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetUserRequest,
         core.mgmt.v1beta.mgmt_pb2.GetUserResponse,
     ]
-    """GetUser method receives a GetUser message and returns a
-    GetUser message.
+    """Get a user
+
+    Returns the details of a user by their ID.
     """
     PatchAuthenticatedUser: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.PatchAuthenticatedUserRequest,
         core.mgmt.v1beta.mgmt_pb2.PatchAuthenticatedUserResponse,
     ]
-    """PatchAuthenticatedUser method receives a PatchAuthenticatedUserRequest
-    message and returns a PatchAuthenticatedUserResponse message.
+    """Update a user
+
+    Accesses and updates a user by ID. The authenticated user must match the
+    target in order to modify it.
+
+    In REST requests, only the supplied user fields will be taken into account
+    when updating the resource.
     """
     ListUserMemberships: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.ListUserMembershipsRequest,
         core.mgmt.v1beta.mgmt_pb2.ListUserMembershipsResponse,
     ]
-    """ListUserMemberships method receives a ListUserMembershipsRequest message and returns a
-    ListUserMembershipsResponse message.
+    """List user memberships
+
+    Returns the memberships of a user.
     """
     GetUserMembership: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetUserMembershipRequest,
         core.mgmt.v1beta.mgmt_pb2.GetUserMembershipResponse,
     ]
-    """GetUserMembership method receives a GetUserMembershipRequest message and returns a
-    GetUserMembershipResponse message.
+    """Get a user membership
+
+    Returns the details of the relationship between a user and an
+    organization. The authenticated must match the membership parent.
     """
     UpdateUserMembership: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.UpdateUserMembershipRequest,
         core.mgmt.v1beta.mgmt_pb2.UpdateUserMembershipResponse,
     ]
-    """UpdateUserMembership method receives a UpdateUserMembershipRequest message and returns
-    a UpdateUserMembershipResponse message.
+    """Update a user membership
+
+    Accesses and updates a user membership by parent and membership IDs.
     """
     DeleteUserMembership: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.DeleteUserMembershipRequest,
         core.mgmt.v1beta.mgmt_pb2.DeleteUserMembershipResponse,
     ]
-    """DeleteUserMembership method receives a DeleteUserMembershipRequest message and returns
-    a DeleteUserMembershipResponse message.
+    """Delete a user membership
+
+    Accesses and deletes a user membership by parent and membership IDs.
     """
     ListOrganizations: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.ListOrganizationsRequest,
         core.mgmt.v1beta.mgmt_pb2.ListOrganizationsResponse,
     ]
-    """ListOrganizations method receives a ListOrganizationsRequest message and returns
-    a ListOrganizationsResponse message.
+    """List organizations
+
+    Returns a paginated list of organizations.
     """
     CreateOrganization: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.CreateOrganizationRequest,
         core.mgmt.v1beta.mgmt_pb2.CreateOrganizationResponse,
     ]
-    """CreateOrganization receives a CreateOrganizationRequest message and returns a
-    a GetOrganizationResponse
+    """Create an organization
+
+    Creates an organization.
     """
     GetOrganization: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationRequest,
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationResponse,
     ]
-    """GetOrganization method receives a GetOrganizationRequest message and returns
-    a GetOrganizationResponse message.
+    """Get an organization
+
+    Returns the organization details by its ID.
     """
     UpdateOrganization: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationRequest,
         core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationResponse,
     ]
-    """UpdateOrganization method receives a UpdateOrganizationRequest message and
-    returns a UpdateOrganizationResponse
+    """Update an organization
+
+    Accesses and updates an organization by ID.
+
+    In REST requests, only the supplied organization fields will be taken into
+    account when updating the resource.
     """
     DeleteOrganization: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationRequest,
         core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationResponse,
     ]
-    """DeleteOrganization method receives a DeleteOrganizationRequest message and
-    returns a DeleteOrganizationResponse
+    """Delete an organization
+
+    Accesses and deletes an organization by ID.
     """
     ListOrganizationMemberships: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.ListOrganizationMembershipsRequest,
         core.mgmt.v1beta.mgmt_pb2.ListOrganizationMembershipsResponse,
     ]
-    """ListOrganizationMemberships method receives a ListOrganizationMembershipsRequest message and returns a
-    ListOrganizationMembershipsResponse message.
+    """List organization memberships
+
+    Returns a paginated list of the user memberships in an organization.
     """
     GetOrganizationMembership: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationMembershipRequest,
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationMembershipResponse,
     ]
-    """GetOrganizationMembership method receives a GetOrganizationMembershipRequest message and returns a
-    GetOrganizationMembershipResponse message.
+    """Get a an organization membership
+
+    Returns the details of a user membership within an organization.
     """
     UpdateOrganizationMembership: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationMembershipRequest,
         core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationMembershipResponse,
     ]
-    """UpdateOrganizationMembership method receives a UpdateOrganizationMembershipRequest message and returns
-    a UpdateOrganizationMembershipResponse message.
+    """Uppdate an organization membership
+
+    Updates a user membership within an organization.
     """
     DeleteOrganizationMembership: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipRequest,
         core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipResponse,
     ]
-    """DeleteOrganizationMembership method receives a DeleteOrganizationMembershipRequest message and returns
-    a DeleteOrganizationMembershipResponse message.
+    """Delete an organization membership
+
+    Deletes a user membership within an organization.
     """
     GetUserSubscription: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionRequest,
         core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionResponse,
     ]
-    """GetUserSubscription"""
+    """Get a user subscription
+
+    Returns the subscription details of a user.
+    """
     GetOrganizationSubscription: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionRequest,
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionResponse,
     ]
-    """GetOrganizationSubscription"""
+    """Get an organization subscription
+
+    Returns the subscription details of an organization.
+    """
     CreateToken: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.CreateTokenRequest,
         core.mgmt.v1beta.mgmt_pb2.CreateTokenResponse,
     ]
-    """CreateToken method receives a CreateTokenRequest message and returns
-    a CreateTokenResponse message.
+    """Create an API token
+
+    Creates an API token for the authenticated user.
     """
     ListTokens: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.ListTokensRequest,
         core.mgmt.v1beta.mgmt_pb2.ListTokensResponse,
     ]
-    """ListTokens method receives a ListTokensRequest message and returns a
-    ListTokensResponse message.
+    """List API tokens
+
+    Returns a paginated list of the API tokens of the authenticated user.
     """
     GetToken: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetTokenRequest,
         core.mgmt.v1beta.mgmt_pb2.GetTokenResponse,
     ]
-    """GetToken method receives a GetTokenRequest message and returns a
-    GetTokenResponse message.
+    """Get an API token
+
+    Returns the details of an API token.
     """
     DeleteToken: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.DeleteTokenRequest,
         core.mgmt.v1beta.mgmt_pb2.DeleteTokenResponse,
     ]
-    """DeleteToken method receives a DeleteTokenRequest message and returns
-    a DeleteTokenResponse message.
+    """Delete an API token
+
+    Deletes an API token.
     """
     ValidateToken: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.ValidateTokenRequest,
         core.mgmt.v1beta.mgmt_pb2.ValidateTokenResponse,
     ]
-    """ValidateToken method receives a ValidateTokenRequest message and returns
-    a ValidateTokenResponse message.
+    """Validate an API token.
+
+    Validates an API token.
     """
     ListPipelineTriggerRecords: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsRequest,
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsResponse,
     ]
-    """========== Metric endpoints
+    """List pipeline triggers
 
-    ListPipelineTriggerRecords method receives a
-    ListPipelineTriggerRecordsRequest message and returns a
-    ListPipelineTriggerRecordsResponse message.
+    Returns a paginated list of pipeline executions.
     """
     ListPipelineTriggerTableRecords: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsRequest,
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsResponse,
     ]
-    """ListPipelineTriggerTableRecords method receives a
-    ListPipelineTriggerTableRecordsRequest message and returns a
-    ListPipelineTriggerTableRecordsResponse message.
+    """List pipeline trigger metrics
+
+    Returns a paginated list of pipeline executions aggregated by pipeline ID.
     """
     ListPipelineTriggerChartRecords: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsRequest,
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsResponse,
     ]
-    """ListPipelineTriggerChartRecords method receives a
-    ListPipelineTriggerChartRecordsRequest message and returns a
-    ListPipelineTriggerChartRecordsResponse message.
+    """List pipeline trigger computation time charts
+
+    Returns a paginated list with pipeline trigger execution times, aggregated
+    by pipeline and time frames.
     """
     ListConnectorExecuteRecords: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListConnectorExecuteRecordsRequest,
         core.mgmt.v1beta.metric_pb2.ListConnectorExecuteRecordsResponse,
     ]
-    """ListConnectorExecuteRecords method receives a
-    ListConnectorExecuteRecordsRequest message and returns a
-    ListConnectorExecuteRecordsResponse message.
+    """List connector executions
+
+    Returns a paginated list of connector executions.
     """
     ListConnectorExecuteTableRecords: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListConnectorExecuteTableRecordsRequest,
         core.mgmt.v1beta.metric_pb2.ListConnectorExecuteTableRecordsResponse,
     ]
-    """ListConnectorExecuteTableRecords method receives a
-    ListConnectorExecuteTableRecordsRequest message and returns a
-    ListConnectorExecuteTableRecordsResponse message.
+    """List connector execution metrics
+
+    Returns a paginated list of connector executions aggregated by connector.
     """
     ListConnectorExecuteChartRecords: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListConnectorExecuteChartRecordsRequest,
         core.mgmt.v1beta.metric_pb2.ListConnectorExecuteChartRecordsResponse,
     ]
-    """ListConnectorExecuteChartRecords method receives a
-    ListConnectorExecuteChartRecordsRequest message and returns a
-    ListConnectorExecuteChartRecordsResponse message.
+    """List connector execution computation time charts
+
+    Returns a paginated list with connector execution times, aggregated by
+    connector and time frames.
     """
     AuthTokenIssuer: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.AuthTokenIssuerRequest,
         core.mgmt.v1beta.mgmt_pb2.AuthTokenIssuerResponse,
     ]
-    """AuthTokenIssuer endpoint"""
+    """Get Auth token issuer
+
+    Returns the auth token issuer details. This operation requires admin permissions.
+    """
     AuthLogin: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.AuthLoginRequest,
         core.mgmt.v1beta.mgmt_pb2.AuthLoginResponse,
     ]
-    """Auth Login endpoint"""
+    """Log in a user
+
+    Authenticates a user and returns an access token.
+    """
     AuthLogout: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.AuthLogoutRequest,
         core.mgmt.v1beta.mgmt_pb2.AuthLogoutResponse,
     ]
-    """Auth Logout endpoint"""
+    """Log out a user
+
+    Logs out an authenticated user.
+    """
     AuthChangePassword: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.AuthChangePasswordRequest,
         core.mgmt.v1beta.mgmt_pb2.AuthChangePasswordResponse,
     ]
-    """Auth Change password endpoint"""
+    """Change password
+
+    Updates the password of a user.
+    """
     AuthValidateAccessToken: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.AuthValidateAccessTokenRequest,
         core.mgmt.v1beta.mgmt_pb2.AuthValidateAccessTokenResponse,
     ]
-    """Auth AccessToken validation endpoint"""
+    """Validate an access token
+
+    Checks the validity of an access token.
+    """
 
 class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
-    """Mgmt service responds to external access"""
+    """MGMT
+
+    MgmtPublicService exposes the public Core endpoints that allow clients to
+    manage user resources.
+    """
 
     @abc.abstractmethod
     def Liveness(
@@ -542,9 +662,9 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.LivenessRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.LivenessResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.LivenessResponse]]:
-        """Liveness method receives a LivenessRequest message and returns a
-        LivenessResponse message.
-        See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+        """Check if the MGMT server is alive
+
+        See https://github.com/grpc/grpc/blob/master/doc/health-checking.md.
         """
     @abc.abstractmethod
     def Readiness(
@@ -552,8 +672,8 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.ReadinessRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.ReadinessResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.ReadinessResponse]]:
-        """Readiness method receives a ReadinessRequest message and returns a
-        ReadinessResponse message.
+        """Check if the pipeline server is ready
+
         See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
         """
     @abc.abstractmethod
@@ -562,15 +682,20 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.CheckNamespaceRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.CheckNamespaceResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.CheckNamespaceResponse]]:
-        """Check namespace"""
+        """Check if a namespace is in use
+
+        Returns the availability of a namespace or, alternatively, the type of
+        resource that is using it.
+        """
     @abc.abstractmethod
     def ListUsers(
         self,
         request: core.mgmt.v1beta.mgmt_pb2.ListUsersRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.ListUsersResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.ListUsersResponse]]:
-        """ListUsers method receives a ListUsersRequest message and returns a
-        ListUsersResponse message.
+        """List users
+
+        Returns a paginated list of users.
         """
     @abc.abstractmethod
     def GetUser(
@@ -578,8 +703,9 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.GetUserRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetUserResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetUserResponse]]:
-        """GetUser method receives a GetUser message and returns a
-        GetUser message.
+        """Get a user
+
+        Returns the details of a user by their ID.
         """
     @abc.abstractmethod
     def PatchAuthenticatedUser(
@@ -587,8 +713,13 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.PatchAuthenticatedUserRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.PatchAuthenticatedUserResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.PatchAuthenticatedUserResponse]]:
-        """PatchAuthenticatedUser method receives a PatchAuthenticatedUserRequest
-        message and returns a PatchAuthenticatedUserResponse message.
+        """Update a user
+
+        Accesses and updates a user by ID. The authenticated user must match the
+        target in order to modify it.
+
+        In REST requests, only the supplied user fields will be taken into account
+        when updating the resource.
         """
     @abc.abstractmethod
     def ListUserMemberships(
@@ -596,8 +727,9 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.ListUserMembershipsRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.ListUserMembershipsResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.ListUserMembershipsResponse]]:
-        """ListUserMemberships method receives a ListUserMembershipsRequest message and returns a
-        ListUserMembershipsResponse message.
+        """List user memberships
+
+        Returns the memberships of a user.
         """
     @abc.abstractmethod
     def GetUserMembership(
@@ -605,8 +737,10 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.GetUserMembershipRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetUserMembershipResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetUserMembershipResponse]]:
-        """GetUserMembership method receives a GetUserMembershipRequest message and returns a
-        GetUserMembershipResponse message.
+        """Get a user membership
+
+        Returns the details of the relationship between a user and an
+        organization. The authenticated must match the membership parent.
         """
     @abc.abstractmethod
     def UpdateUserMembership(
@@ -614,8 +748,9 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.UpdateUserMembershipRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.UpdateUserMembershipResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.UpdateUserMembershipResponse]]:
-        """UpdateUserMembership method receives a UpdateUserMembershipRequest message and returns
-        a UpdateUserMembershipResponse message.
+        """Update a user membership
+
+        Accesses and updates a user membership by parent and membership IDs.
         """
     @abc.abstractmethod
     def DeleteUserMembership(
@@ -623,8 +758,9 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.DeleteUserMembershipRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.DeleteUserMembershipResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.DeleteUserMembershipResponse]]:
-        """DeleteUserMembership method receives a DeleteUserMembershipRequest message and returns
-        a DeleteUserMembershipResponse message.
+        """Delete a user membership
+
+        Accesses and deletes a user membership by parent and membership IDs.
         """
     @abc.abstractmethod
     def ListOrganizations(
@@ -632,8 +768,9 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.ListOrganizationsRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.ListOrganizationsResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.ListOrganizationsResponse]]:
-        """ListOrganizations method receives a ListOrganizationsRequest message and returns
-        a ListOrganizationsResponse message.
+        """List organizations
+
+        Returns a paginated list of organizations.
         """
     @abc.abstractmethod
     def CreateOrganization(
@@ -641,8 +778,9 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.CreateOrganizationRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.CreateOrganizationResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.CreateOrganizationResponse]]:
-        """CreateOrganization receives a CreateOrganizationRequest message and returns a
-        a GetOrganizationResponse
+        """Create an organization
+
+        Creates an organization.
         """
     @abc.abstractmethod
     def GetOrganization(
@@ -650,8 +788,9 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.GetOrganizationRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetOrganizationResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetOrganizationResponse]]:
-        """GetOrganization method receives a GetOrganizationRequest message and returns
-        a GetOrganizationResponse message.
+        """Get an organization
+
+        Returns the organization details by its ID.
         """
     @abc.abstractmethod
     def UpdateOrganization(
@@ -659,8 +798,12 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationResponse]]:
-        """UpdateOrganization method receives a UpdateOrganizationRequest message and
-        returns a UpdateOrganizationResponse
+        """Update an organization
+
+        Accesses and updates an organization by ID.
+
+        In REST requests, only the supplied organization fields will be taken into
+        account when updating the resource.
         """
     @abc.abstractmethod
     def DeleteOrganization(
@@ -668,8 +811,9 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationResponse]]:
-        """DeleteOrganization method receives a DeleteOrganizationRequest message and
-        returns a DeleteOrganizationResponse
+        """Delete an organization
+
+        Accesses and deletes an organization by ID.
         """
     @abc.abstractmethod
     def ListOrganizationMemberships(
@@ -677,8 +821,9 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.ListOrganizationMembershipsRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.ListOrganizationMembershipsResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.ListOrganizationMembershipsResponse]]:
-        """ListOrganizationMemberships method receives a ListOrganizationMembershipsRequest message and returns a
-        ListOrganizationMembershipsResponse message.
+        """List organization memberships
+
+        Returns a paginated list of the user memberships in an organization.
         """
     @abc.abstractmethod
     def GetOrganizationMembership(
@@ -686,8 +831,9 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.GetOrganizationMembershipRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetOrganizationMembershipResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetOrganizationMembershipResponse]]:
-        """GetOrganizationMembership method receives a GetOrganizationMembershipRequest message and returns a
-        GetOrganizationMembershipResponse message.
+        """Get a an organization membership
+
+        Returns the details of a user membership within an organization.
         """
     @abc.abstractmethod
     def UpdateOrganizationMembership(
@@ -695,8 +841,9 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationMembershipRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationMembershipResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationMembershipResponse]]:
-        """UpdateOrganizationMembership method receives a UpdateOrganizationMembershipRequest message and returns
-        a UpdateOrganizationMembershipResponse message.
+        """Uppdate an organization membership
+
+        Updates a user membership within an organization.
         """
     @abc.abstractmethod
     def DeleteOrganizationMembership(
@@ -704,8 +851,9 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipResponse]]:
-        """DeleteOrganizationMembership method receives a DeleteOrganizationMembershipRequest message and returns
-        a DeleteOrganizationMembershipResponse message.
+        """Delete an organization membership
+
+        Deletes a user membership within an organization.
         """
     @abc.abstractmethod
     def GetUserSubscription(
@@ -713,22 +861,29 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionResponse]]:
-        """GetUserSubscription"""
+        """Get a user subscription
+
+        Returns the subscription details of a user.
+        """
     @abc.abstractmethod
     def GetOrganizationSubscription(
         self,
         request: core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionResponse]]:
-        """GetOrganizationSubscription"""
+        """Get an organization subscription
+
+        Returns the subscription details of an organization.
+        """
     @abc.abstractmethod
     def CreateToken(
         self,
         request: core.mgmt.v1beta.mgmt_pb2.CreateTokenRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.CreateTokenResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.CreateTokenResponse]]:
-        """CreateToken method receives a CreateTokenRequest message and returns
-        a CreateTokenResponse message.
+        """Create an API token
+
+        Creates an API token for the authenticated user.
         """
     @abc.abstractmethod
     def ListTokens(
@@ -736,8 +891,9 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.ListTokensRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.ListTokensResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.ListTokensResponse]]:
-        """ListTokens method receives a ListTokensRequest message and returns a
-        ListTokensResponse message.
+        """List API tokens
+
+        Returns a paginated list of the API tokens of the authenticated user.
         """
     @abc.abstractmethod
     def GetToken(
@@ -745,8 +901,9 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.GetTokenRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetTokenResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetTokenResponse]]:
-        """GetToken method receives a GetTokenRequest message and returns a
-        GetTokenResponse message.
+        """Get an API token
+
+        Returns the details of an API token.
         """
     @abc.abstractmethod
     def DeleteToken(
@@ -754,8 +911,9 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.DeleteTokenRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.DeleteTokenResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.DeleteTokenResponse]]:
-        """DeleteToken method receives a DeleteTokenRequest message and returns
-        a DeleteTokenResponse message.
+        """Delete an API token
+
+        Deletes an API token.
         """
     @abc.abstractmethod
     def ValidateToken(
@@ -763,8 +921,9 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.ValidateTokenRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.ValidateTokenResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.ValidateTokenResponse]]:
-        """ValidateToken method receives a ValidateTokenRequest message and returns
-        a ValidateTokenResponse message.
+        """Validate an API token.
+
+        Validates an API token.
         """
     @abc.abstractmethod
     def ListPipelineTriggerRecords(
@@ -772,11 +931,9 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsResponse, collections.abc.Awaitable[core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsResponse]]:
-        """========== Metric endpoints
+        """List pipeline triggers
 
-        ListPipelineTriggerRecords method receives a
-        ListPipelineTriggerRecordsRequest message and returns a
-        ListPipelineTriggerRecordsResponse message.
+        Returns a paginated list of pipeline executions.
         """
     @abc.abstractmethod
     def ListPipelineTriggerTableRecords(
@@ -784,9 +941,9 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsResponse, collections.abc.Awaitable[core.mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsResponse]]:
-        """ListPipelineTriggerTableRecords method receives a
-        ListPipelineTriggerTableRecordsRequest message and returns a
-        ListPipelineTriggerTableRecordsResponse message.
+        """List pipeline trigger metrics
+
+        Returns a paginated list of pipeline executions aggregated by pipeline ID.
         """
     @abc.abstractmethod
     def ListPipelineTriggerChartRecords(
@@ -794,9 +951,10 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsResponse, collections.abc.Awaitable[core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsResponse]]:
-        """ListPipelineTriggerChartRecords method receives a
-        ListPipelineTriggerChartRecordsRequest message and returns a
-        ListPipelineTriggerChartRecordsResponse message.
+        """List pipeline trigger computation time charts
+
+        Returns a paginated list with pipeline trigger execution times, aggregated
+        by pipeline and time frames.
         """
     @abc.abstractmethod
     def ListConnectorExecuteRecords(
@@ -804,9 +962,9 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.metric_pb2.ListConnectorExecuteRecordsRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.metric_pb2.ListConnectorExecuteRecordsResponse, collections.abc.Awaitable[core.mgmt.v1beta.metric_pb2.ListConnectorExecuteRecordsResponse]]:
-        """ListConnectorExecuteRecords method receives a
-        ListConnectorExecuteRecordsRequest message and returns a
-        ListConnectorExecuteRecordsResponse message.
+        """List connector executions
+
+        Returns a paginated list of connector executions.
         """
     @abc.abstractmethod
     def ListConnectorExecuteTableRecords(
@@ -814,9 +972,9 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.metric_pb2.ListConnectorExecuteTableRecordsRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.metric_pb2.ListConnectorExecuteTableRecordsResponse, collections.abc.Awaitable[core.mgmt.v1beta.metric_pb2.ListConnectorExecuteTableRecordsResponse]]:
-        """ListConnectorExecuteTableRecords method receives a
-        ListConnectorExecuteTableRecordsRequest message and returns a
-        ListConnectorExecuteTableRecordsResponse message.
+        """List connector execution metrics
+
+        Returns a paginated list of connector executions aggregated by connector.
         """
     @abc.abstractmethod
     def ListConnectorExecuteChartRecords(
@@ -824,9 +982,10 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.metric_pb2.ListConnectorExecuteChartRecordsRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.metric_pb2.ListConnectorExecuteChartRecordsResponse, collections.abc.Awaitable[core.mgmt.v1beta.metric_pb2.ListConnectorExecuteChartRecordsResponse]]:
-        """ListConnectorExecuteChartRecords method receives a
-        ListConnectorExecuteChartRecordsRequest message and returns a
-        ListConnectorExecuteChartRecordsResponse message.
+        """List connector execution computation time charts
+
+        Returns a paginated list with connector execution times, aggregated by
+        connector and time frames.
         """
     @abc.abstractmethod
     def AuthTokenIssuer(
@@ -834,34 +993,49 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.AuthTokenIssuerRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.AuthTokenIssuerResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.AuthTokenIssuerResponse]]:
-        """AuthTokenIssuer endpoint"""
+        """Get Auth token issuer
+
+        Returns the auth token issuer details. This operation requires admin permissions.
+        """
     @abc.abstractmethod
     def AuthLogin(
         self,
         request: core.mgmt.v1beta.mgmt_pb2.AuthLoginRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.AuthLoginResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.AuthLoginResponse]]:
-        """Auth Login endpoint"""
+        """Log in a user
+
+        Authenticates a user and returns an access token.
+        """
     @abc.abstractmethod
     def AuthLogout(
         self,
         request: core.mgmt.v1beta.mgmt_pb2.AuthLogoutRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.AuthLogoutResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.AuthLogoutResponse]]:
-        """Auth Logout endpoint"""
+        """Log out a user
+
+        Logs out an authenticated user.
+        """
     @abc.abstractmethod
     def AuthChangePassword(
         self,
         request: core.mgmt.v1beta.mgmt_pb2.AuthChangePasswordRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.AuthChangePasswordResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.AuthChangePasswordResponse]]:
-        """Auth Change password endpoint"""
+        """Change password
+
+        Updates the password of a user.
+        """
     @abc.abstractmethod
     def AuthValidateAccessToken(
         self,
         request: core.mgmt.v1beta.mgmt_pb2.AuthValidateAccessTokenRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.AuthValidateAccessTokenResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.AuthValidateAccessTokenResponse]]:
-        """Auth AccessToken validation endpoint"""
+        """Validate an access token
+
+        Checks the validity of an access token.
+        """
 
 def add_MgmtPublicServiceServicer_to_server(servicer: MgmtPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

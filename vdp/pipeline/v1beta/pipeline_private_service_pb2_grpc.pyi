@@ -30,7 +30,7 @@ class PipelinePrivateServiceStub:
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesAdminRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesAdminResponse,
     ]
-    """List pipelines (admin only).
+    """List pipelines (admin only)
 
     This is a *private* method that allows admin users and internal clients to
     list *all* pipeline resources.
@@ -39,7 +39,7 @@ class PipelinePrivateServiceStub:
         vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineAdminRequest,
         vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineAdminResponse,
     ]
-    """Get a pipeline by UID (admin only).
+    """Get a pipeline by UID (admin only)
 
     This is a *private* method that allows admin users to access any pipeline
     resource by its UID.
@@ -48,7 +48,7 @@ class PipelinePrivateServiceStub:
         vdp.pipeline.v1beta.operator_definition_pb2.LookUpOperatorDefinitionAdminRequest,
         vdp.pipeline.v1beta.operator_definition_pb2.LookUpOperatorDefinitionAdminResponse,
     ]
-    """Get an operator definition by UID (admin only).
+    """Get an operator definition by UID (admin only)
 
     This is a *private* method that allows admin users to access an operator
     definition by its UID.
@@ -57,7 +57,7 @@ class PipelinePrivateServiceStub:
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelineReleasesAdminRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelineReleasesAdminResponse,
     ]
-    """List pipeline releases (admin only).
+    """List pipeline releases (admin only)
 
     This is a *private* method that allows admin users to list *all* pipeline
     releases.
@@ -66,7 +66,7 @@ class PipelinePrivateServiceStub:
         vdp.pipeline.v1beta.connector_definition_pb2.LookUpConnectorDefinitionAdminRequest,
         vdp.pipeline.v1beta.connector_definition_pb2.LookUpConnectorDefinitionAdminResponse,
     ]
-    """Get a connector definition by UID (admin only).
+    """Get a connector definition by UID (admin only)
 
     This is a *private* method that allows admin users to access a connector
     definition by its UID.
@@ -75,7 +75,7 @@ class PipelinePrivateServiceStub:
         vdp.pipeline.v1beta.connector_pb2.ListConnectorsAdminRequest,
         vdp.pipeline.v1beta.connector_pb2.ListConnectorsAdminResponse,
     ]
-    """List connectors (admin only).
+    """List connectors (admin only)
 
     This is a *private* method that allows admin users to list *all* connectors.
     """
@@ -83,7 +83,7 @@ class PipelinePrivateServiceStub:
         vdp.pipeline.v1beta.connector_pb2.LookUpConnectorAdminRequest,
         vdp.pipeline.v1beta.connector_pb2.LookUpConnectorAdminResponse,
     ]
-    """Get a connector by UID (admin only).
+    """Get a connector by UID (admin only)
 
     This is a *private* method that allows admin users to access a connector
     by its UID.
@@ -92,7 +92,7 @@ class PipelinePrivateServiceStub:
         vdp.pipeline.v1beta.connector_pb2.CheckConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.CheckConnectorResponse,
     ]
-    """Get a connector current state (admin only).
+    """Get a connector current state (admin only)
 
     This is a *private* method that allows admin users to access the state of
     a connector by its UID.
@@ -107,7 +107,7 @@ class PipelinePrivateServiceAsyncStub:
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesAdminRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesAdminResponse,
     ]
-    """List pipelines (admin only).
+    """List pipelines (admin only)
 
     This is a *private* method that allows admin users and internal clients to
     list *all* pipeline resources.
@@ -116,7 +116,7 @@ class PipelinePrivateServiceAsyncStub:
         vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineAdminRequest,
         vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineAdminResponse,
     ]
-    """Get a pipeline by UID (admin only).
+    """Get a pipeline by UID (admin only)
 
     This is a *private* method that allows admin users to access any pipeline
     resource by its UID.
@@ -125,7 +125,7 @@ class PipelinePrivateServiceAsyncStub:
         vdp.pipeline.v1beta.operator_definition_pb2.LookUpOperatorDefinitionAdminRequest,
         vdp.pipeline.v1beta.operator_definition_pb2.LookUpOperatorDefinitionAdminResponse,
     ]
-    """Get an operator definition by UID (admin only).
+    """Get an operator definition by UID (admin only)
 
     This is a *private* method that allows admin users to access an operator
     definition by its UID.
@@ -134,7 +134,7 @@ class PipelinePrivateServiceAsyncStub:
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelineReleasesAdminRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelineReleasesAdminResponse,
     ]
-    """List pipeline releases (admin only).
+    """List pipeline releases (admin only)
 
     This is a *private* method that allows admin users to list *all* pipeline
     releases.
@@ -143,7 +143,7 @@ class PipelinePrivateServiceAsyncStub:
         vdp.pipeline.v1beta.connector_definition_pb2.LookUpConnectorDefinitionAdminRequest,
         vdp.pipeline.v1beta.connector_definition_pb2.LookUpConnectorDefinitionAdminResponse,
     ]
-    """Get a connector definition by UID (admin only).
+    """Get a connector definition by UID (admin only)
 
     This is a *private* method that allows admin users to access a connector
     definition by its UID.
@@ -152,7 +152,7 @@ class PipelinePrivateServiceAsyncStub:
         vdp.pipeline.v1beta.connector_pb2.ListConnectorsAdminRequest,
         vdp.pipeline.v1beta.connector_pb2.ListConnectorsAdminResponse,
     ]
-    """List connectors (admin only).
+    """List connectors (admin only)
 
     This is a *private* method that allows admin users to list *all* connectors.
     """
@@ -160,7 +160,7 @@ class PipelinePrivateServiceAsyncStub:
         vdp.pipeline.v1beta.connector_pb2.LookUpConnectorAdminRequest,
         vdp.pipeline.v1beta.connector_pb2.LookUpConnectorAdminResponse,
     ]
-    """Get a connector by UID (admin only).
+    """Get a connector by UID (admin only)
 
     This is a *private* method that allows admin users to access a connector
     by its UID.
@@ -169,7 +169,7 @@ class PipelinePrivateServiceAsyncStub:
         vdp.pipeline.v1beta.connector_pb2.CheckConnectorRequest,
         vdp.pipeline.v1beta.connector_pb2.CheckConnectorResponse,
     ]
-    """Get a connector current state (admin only).
+    """Get a connector current state (admin only)
 
     This is a *private* method that allows admin users to access the state of
     a connector by its UID.
@@ -186,7 +186,7 @@ class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesAdminRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesAdminResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesAdminResponse]]:
-        """List pipelines (admin only).
+        """List pipelines (admin only)
 
         This is a *private* method that allows admin users and internal clients to
         list *all* pipeline resources.
@@ -197,7 +197,7 @@ class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineAdminRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineAdminResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineAdminResponse]]:
-        """Get a pipeline by UID (admin only).
+        """Get a pipeline by UID (admin only)
 
         This is a *private* method that allows admin users to access any pipeline
         resource by its UID.
@@ -208,7 +208,7 @@ class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.operator_definition_pb2.LookUpOperatorDefinitionAdminRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.operator_definition_pb2.LookUpOperatorDefinitionAdminResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.operator_definition_pb2.LookUpOperatorDefinitionAdminResponse]]:
-        """Get an operator definition by UID (admin only).
+        """Get an operator definition by UID (admin only)
 
         This is a *private* method that allows admin users to access an operator
         definition by its UID.
@@ -219,7 +219,7 @@ class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.pipeline_pb2.ListPipelineReleasesAdminRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.ListPipelineReleasesAdminResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.ListPipelineReleasesAdminResponse]]:
-        """List pipeline releases (admin only).
+        """List pipeline releases (admin only)
 
         This is a *private* method that allows admin users to list *all* pipeline
         releases.
@@ -230,7 +230,7 @@ class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_definition_pb2.LookUpConnectorDefinitionAdminRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_definition_pb2.LookUpConnectorDefinitionAdminResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_definition_pb2.LookUpConnectorDefinitionAdminResponse]]:
-        """Get a connector definition by UID (admin only).
+        """Get a connector definition by UID (admin only)
 
         This is a *private* method that allows admin users to access a connector
         definition by its UID.
@@ -241,7 +241,7 @@ class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.ListConnectorsAdminRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.ListConnectorsAdminResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.ListConnectorsAdminResponse]]:
-        """List connectors (admin only).
+        """List connectors (admin only)
 
         This is a *private* method that allows admin users to list *all* connectors.
         """
@@ -251,7 +251,7 @@ class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.LookUpConnectorAdminRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.LookUpConnectorAdminResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.LookUpConnectorAdminResponse]]:
-        """Get a connector by UID (admin only).
+        """Get a connector by UID (admin only)
 
         This is a *private* method that allows admin users to access a connector
         by its UID.
@@ -262,7 +262,7 @@ class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
         request: vdp.pipeline.v1beta.connector_pb2.CheckConnectorRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.CheckConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.CheckConnectorResponse]]:
-        """Get a connector current state (admin only).
+        """Get a connector current state (admin only)
 
         This is a *private* method that allows admin users to access the state of
         a connector by its UID.

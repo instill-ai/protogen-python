@@ -67,7 +67,7 @@ class PipelinePrivateServiceServicer(object):
     """
 
     def ListPipelinesAdmin(self, request, context):
-        """List pipelines (admin only).
+        """List pipelines (admin only)
 
         This is a *private* method that allows admin users and internal clients to
         list *all* pipeline resources.
@@ -77,7 +77,7 @@ class PipelinePrivateServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def LookUpPipelineAdmin(self, request, context):
-        """Get a pipeline by UID (admin only).
+        """Get a pipeline by UID (admin only)
 
         This is a *private* method that allows admin users to access any pipeline
         resource by its UID.
@@ -87,7 +87,7 @@ class PipelinePrivateServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def LookUpOperatorDefinitionAdmin(self, request, context):
-        """Get an operator definition by UID (admin only).
+        """Get an operator definition by UID (admin only)
 
         This is a *private* method that allows admin users to access an operator
         definition by its UID.
@@ -97,7 +97,7 @@ class PipelinePrivateServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListPipelineReleasesAdmin(self, request, context):
-        """List pipeline releases (admin only).
+        """List pipeline releases (admin only)
 
         This is a *private* method that allows admin users to list *all* pipeline
         releases.
@@ -107,7 +107,7 @@ class PipelinePrivateServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def LookUpConnectorDefinitionAdmin(self, request, context):
-        """Get a connector definition by UID (admin only).
+        """Get a connector definition by UID (admin only)
 
         This is a *private* method that allows admin users to access a connector
         definition by its UID.
@@ -117,7 +117,7 @@ class PipelinePrivateServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListConnectorsAdmin(self, request, context):
-        """List connectors (admin only).
+        """List connectors (admin only)
 
         This is a *private* method that allows admin users to list *all* connectors.
         """
@@ -126,7 +126,7 @@ class PipelinePrivateServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def LookUpConnectorAdmin(self, request, context):
-        """Get a connector by UID (admin only).
+        """Get a connector by UID (admin only)
 
         This is a *private* method that allows admin users to access a connector
         by its UID.
@@ -136,7 +136,7 @@ class PipelinePrivateServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def CheckConnector(self, request, context):
-        """Get a connector current state (admin only).
+        """Get a connector current state (admin only)
 
         This is a *private* method that allows admin users to access the state of
         a connector by its UID.

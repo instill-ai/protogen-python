@@ -43,7 +43,7 @@ class _ConnectorTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._
 class ConnectorType(_ConnectorType, metaclass=_ConnectorTypeEnumTypeWrapper):
     """////////////////////////////////////////////////////////////////////////
 
-    ConnectorType holds the different connector types based on their tasks.
+    ConnectorType defines the connector type based on its task features.
     """
 
 CONNECTOR_TYPE_UNSPECIFIED: ConnectorType.ValueType  # 0
@@ -65,7 +65,8 @@ global___ConnectorType = ConnectorType
 @typing_extensions.final
 class ConnectorSpec(google.protobuf.message.Message):
     """//////////////////////////////////
-    Spec represents a spec data model
+
+    ConnectorSpec represents a specification data model.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -75,13 +76,13 @@ class ConnectorSpec(google.protobuf.message.Message):
     OPENAPI_SPECIFICATIONS_FIELD_NUMBER: builtins.int
     @property
     def resource_specification(self) -> google.protobuf.struct_pb2.Struct:
-        """Spec resource specification"""
+        """Resource specification."""
     @property
     def component_specification(self) -> google.protobuf.struct_pb2.Struct:
-        """Spec component specification"""
+        """Component specification."""
     @property
     def openapi_specifications(self) -> google.protobuf.struct_pb2.Struct:
-        """Spec openapi specification"""
+        """OpenAPI specification."""
     def __init__(
         self,
         *,
@@ -152,7 +153,7 @@ class ConnectorDefinition(google.protobuf.message.Message):
     uid: builtins.str
     """Connector definition UUID."""
     id: builtins.str
-    """Connector definition resource ID (used in the name as the last segment). This
+    """Connector definition resource ID (used in `name` as the last segment). This
     conforms to RFC-1034, which restricts to letters, numbers, and hyphen,
     with the first character a letter, the last a letter or a number, and a 63
     character maximum.
@@ -216,8 +217,8 @@ class ListConnectorDefinitionsRequest(google.protobuf.message.Message):
     RPC messages
     /////////////////////////////////////////////////////////////////////
 
-    ListConnectorDefinitionsRequest represents a request to list
-    ConnectorDefinitions
+    ListConnectorDefinitionsRequest represents a request to list connector
+    definitions.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -227,17 +228,19 @@ class ListConnectorDefinitionsRequest(google.protobuf.message.Message):
     VIEW_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """The maximum number of ConnectorDefinitions to return. The
-    service may return fewer than this value. If unspecified, at most 10
-    ConnectorDefinitions will be returned. The maximum value is 100;
-    values above 100 will be coerced to 100.
+    """The maximum number of connector definitions to return. If this parameter
+    is unspecified, at most 10 pipelines will be returned. The cap value for
+    this parameter is 100 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     view: global___ConnectorDefinition.View.ValueType
-    """Definition view (default is DEFINITION_VIEW_BASIC)"""
+    """View allows clients to specify the desired resource view in the response."""
     filter: builtins.str
-    """Filter expression to list connector definitions"""
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
     def __init__(
         self,
         *,
@@ -261,9 +264,7 @@ global___ListConnectorDefinitionsRequest = ListConnectorDefinitionsRequest
 
 @typing_extensions.final
 class ListConnectorDefinitionsResponse(google.protobuf.message.Message):
-    """ListConnectorDefinitionsResponse represents a response for a list
-    of ConnectorDefinitions
-    """
+    """ListConnectorDefinitionsResponse contains a list of connector definitions."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -272,11 +273,11 @@ class ListConnectorDefinitionsResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def connector_definitions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ConnectorDefinition]:
-        """A list of ConnectorDefinition resources"""
+        """A list of connector definition resources."""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
-    """Total count of ConnectorDefinition resources"""
+    """Total number of connector definitions."""
     def __init__(
         self,
         *,
@@ -290,8 +291,8 @@ global___ListConnectorDefinitionsResponse = ListConnectorDefinitionsResponse
 
 @typing_extensions.final
 class GetConnectorDefinitionRequest(google.protobuf.message.Message):
-    """GetConnectorDefinitionRequest represents a request to query a
-    ConnectorDefinition resource
+    """GetConnectorDefinitionRequest represents a request to fetch the details of a
+    connector definition.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -299,13 +300,11 @@ class GetConnectorDefinitionRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """ConnectorDefinition resource name. It must have the format of
-    "connector-definitions/*"
+    """The resource name of the connector definition, which allows its access by ID.
+    - Format: `connector-definitions/{id}`.
     """
     view: global___ConnectorDefinition.View.ValueType
-    """ConnectorDefinition resource view (default is
-    DEFINITION_VIEW_BASIC)
-    """
+    """View allows clients to specify the desired resource view in the response."""
     def __init__(
         self,
         *,
@@ -320,16 +319,14 @@ global___GetConnectorDefinitionRequest = GetConnectorDefinitionRequest
 
 @typing_extensions.final
 class GetConnectorDefinitionResponse(google.protobuf.message.Message):
-    """GetConnectorDefinitionResponse represents a
-    ConnectorDefinition response
-    """
+    """GetConnectorDefinitionResponse contains the requested connector definition."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     CONNECTOR_DEFINITION_FIELD_NUMBER: builtins.int
     @property
     def connector_definition(self) -> global___ConnectorDefinition:
-        """A ConnectorDefinition resource"""
+        """The connector definition resource."""
     def __init__(
         self,
         *,

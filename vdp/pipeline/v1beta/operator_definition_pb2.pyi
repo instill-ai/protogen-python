@@ -21,7 +21,7 @@ DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 @typing_extensions.final
 class OperatorSpec(google.protobuf.message.Message):
-    """View enumerates the definition views"""
+    """OperatorSpec represents a specification data model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -29,10 +29,10 @@ class OperatorSpec(google.protobuf.message.Message):
     OPENAPI_SPECIFICATIONS_FIELD_NUMBER: builtins.int
     @property
     def component_specification(self) -> google.protobuf.struct_pb2.Struct:
-        """Spec operator specification"""
+        """Component specification."""
     @property
     def openapi_specifications(self) -> google.protobuf.struct_pb2.Struct:
-        """Spec openapi specification"""
+        """OpenAPI specification."""
     def __init__(
         self,
         *,
@@ -99,7 +99,7 @@ class OperatorDefinition(google.protobuf.message.Message):
     uid: builtins.str
     """Operator definition UUID."""
     id: builtins.str
-    """Operator definition resource ID (used in the name as the last segment).
+    """Operator definition resource ID (used in `name` as the last segment).
     This conforms to RFC-1034, which restricts to letters, numbers, and
     hyphen, with the first character a letter, the last a letter or a number,
     and a 63 character maximum.
@@ -151,8 +151,8 @@ class ListOperatorDefinitionsRequest(google.protobuf.message.Message):
     RPC messages
     /////////////////////////////////////////////////////////////////////
 
-    ListOperatorDefinitionsRequest represents a request to list
-    OperatorDefinitions
+    ListOperatorDefinitionsRequest represents a request to list operator
+    definitions.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -168,11 +168,14 @@ class ListOperatorDefinitionsRequest(google.protobuf.message.Message):
     values above 100 will be coerced to 100.
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     view: global___OperatorDefinition.View.ValueType
-    """Definition view (default is DEFINITION_VIEW_BASIC)"""
+    """View allows clients to specify the desired resource view in the response."""
     filter: builtins.str
-    """Filter expression to list operator definitions"""
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
     def __init__(
         self,
         *,
@@ -196,9 +199,7 @@ global___ListOperatorDefinitionsRequest = ListOperatorDefinitionsRequest
 
 @typing_extensions.final
 class ListOperatorDefinitionsResponse(google.protobuf.message.Message):
-    """ListOperatorDefinitionsResponse represents a response for a list
-    of OperatorDefinitions
-    """
+    """ListOperatorDefinitionsResponse contains a list of operator definitions."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -207,11 +208,11 @@ class ListOperatorDefinitionsResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def operator_definitions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___OperatorDefinition]:
-        """A list of Operator resources"""
+        """A list of operator definition resources."""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
-    """Total count of Operator resources"""
+    """Total number of operator definitions."""
     def __init__(
         self,
         *,
@@ -225,8 +226,8 @@ global___ListOperatorDefinitionsResponse = ListOperatorDefinitionsResponse
 
 @typing_extensions.final
 class GetOperatorDefinitionRequest(google.protobuf.message.Message):
-    """GetOperatorDefinitionRequest represents a request to query a
-    Operator resource
+    """GetOperatorDefinitionRequest represents a request to fetch the details of a
+    operator definition.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -234,13 +235,11 @@ class GetOperatorDefinitionRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Operator resource name. It must have the format of
-    "operator-definitions/*"
+    """The resource name of the operator definition, which allows its access by ID.
+    - Format: `operator-definitions/{id}`.
     """
     view: global___OperatorDefinition.View.ValueType
-    """Operator resource view (default is
-    DEFINITION_VIEW_BASIC)
-    """
+    """View allows clients to specify the desired resource view in the response."""
     def __init__(
         self,
         *,
@@ -255,16 +254,14 @@ global___GetOperatorDefinitionRequest = GetOperatorDefinitionRequest
 
 @typing_extensions.final
 class GetOperatorDefinitionResponse(google.protobuf.message.Message):
-    """GetOperatorDefinitionResponse represents a
-    Operator response
-    """
+    """GetOperatorDefinitionResponse contains the requested operator definition."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     OPERATOR_DEFINITION_FIELD_NUMBER: builtins.int
     @property
     def operator_definition(self) -> global___OperatorDefinition:
-        """A Operator resource"""
+        """The operator definition resource."""
     def __init__(
         self,
         *,
