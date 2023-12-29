@@ -3,7 +3,9 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
+import google.protobuf.internal.containers
 import google.protobuf.message
 import sys
 
@@ -93,29 +95,78 @@ class PromptImage(google.protobuf.message.Message):
 global___PromptImage = PromptImage
 
 @typing_extensions.final
-class Content(google.protobuf.message.Message):
-    """Content used for chat history in text generation model"""
+class ImageContent(google.protobuf.message.Message):
+    """Image content for Message Content"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    IMAGE_URL_FIELD_NUMBER: builtins.int
+    DETAIL_FIELD_NUMBER: builtins.int
+    @property
+    def image_url(self) -> global___PromptImage:
+        """Image url or base64 code of Message Content"""
+    detail: builtins.str
+    """Additinoal information for Image Content"""
+    def __init__(
+        self,
+        *,
+        image_url: global___PromptImage | None = ...,
+        detail: builtins.str | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_detail", b"_detail", "detail", b"detail", "image_url", b"image_url"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_detail", b"_detail", "detail", b"detail", "image_url", b"image_url"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_detail", b"_detail"]) -> typing_extensions.Literal["detail"] | None: ...
+
+global___ImageContent = ImageContent
+
+@typing_extensions.final
+class MessageContent(google.protobuf.message.Message):
+    """Content used for chat history message in text generation model"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     TYPE_FIELD_NUMBER: builtins.int
-    CONTENT_FIELD_NUMBER: builtins.int
-    PROMPT_IMAGE_FIELD_NUMBER: builtins.int
+    IMAGE_URL_FIELD_NUMBER: builtins.int
+    TEXT_FIELD_NUMBER: builtins.int
     type: builtins.str
     """Type of Content"""
-    content: builtins.str
-    """Content of Text Message"""
     @property
-    def prompt_image(self) -> global___PromptImage:
-        """Content of Image"""
+    def image_url(self) -> global___ImageContent:
+        """Image Url is the naming convention by openAi but not necessarily a url"""
+    text: builtins.str
+    """Field for text"""
     def __init__(
         self,
         *,
         type: builtins.str = ...,
-        content: builtins.str = ...,
-        prompt_image: global___PromptImage | None = ...,
+        image_url: global___ImageContent | None = ...,
+        text: builtins.str = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["prompt_image", b"prompt_image"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["content", b"content", "prompt_image", b"prompt_image", "type", b"type"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["content", b"content", "image_url", b"image_url", "text", b"text"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["content", b"content", "image_url", b"image_url", "text", b"text", "type", b"type"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["content", b"content"]) -> typing_extensions.Literal["image_url", "text"] | None: ...
 
-global___Content = Content
+global___MessageContent = MessageContent
+
+@typing_extensions.final
+class Message(google.protobuf.message.Message):
+    """Message used for chat history in text generation model"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    ROLE_FIELD_NUMBER: builtins.int
+    CONTENT_FIELD_NUMBER: builtins.int
+    role: builtins.str
+    """The Role of a message"""
+    @property
+    def content(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___MessageContent]:
+        """The context of the message"""
+    def __init__(
+        self,
+        *,
+        role: builtins.str = ...,
+        content: collections.abc.Iterable[global___MessageContent] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["content", b"content", "role", b"role"]) -> None: ...
+
+global___Message = Message

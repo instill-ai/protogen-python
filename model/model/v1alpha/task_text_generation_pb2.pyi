@@ -40,7 +40,7 @@ class TextGenerationInput(google.protobuf.message.Message):
     def prompt_images(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[model.model.v1alpha.common_pb2.PromptImage]:
         """The prompt images"""
     @property
-    def chat_history(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[model.model.v1alpha.common_pb2.Content]:
+    def chat_history(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[model.model.v1alpha.common_pb2.Message]:
         """The chat history"""
     system_message: builtins.str
     """The system message"""
@@ -60,7 +60,7 @@ class TextGenerationInput(google.protobuf.message.Message):
         *,
         prompt: builtins.str = ...,
         prompt_images: collections.abc.Iterable[model.model.v1alpha.common_pb2.PromptImage] | None = ...,
-        chat_history: collections.abc.Iterable[model.model.v1alpha.common_pb2.Content] | None = ...,
+        chat_history: collections.abc.Iterable[model.model.v1alpha.common_pb2.Message] | None = ...,
         system_message: builtins.str | None = ...,
         max_new_tokens: builtins.int | None = ...,
         temperature: builtins.float | None = ...,
