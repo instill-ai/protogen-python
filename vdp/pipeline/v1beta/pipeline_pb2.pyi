@@ -291,6 +291,29 @@ class Pipeline(google.protobuf.message.Message):
     VIEW_RECIPE: Pipeline.View.ValueType  # 3
     """Contains the recipe of the resource."""
 
+    class _Visibility:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _VisibilityEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Pipeline._Visibility.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        VISIBILITY_UNSPECIFIED: Pipeline._Visibility.ValueType  # 0
+        """Unspecified, equivalent to PRIVATE."""
+        VISIBILITY_PRIVATE: Pipeline._Visibility.ValueType  # 1
+        """Only the user can see the pipeline."""
+        VISIBILITY_PUBLIC: Pipeline._Visibility.ValueType  # 2
+        """Other users can see the pipeline."""
+
+    class Visibility(_Visibility, metaclass=_VisibilityEnumTypeWrapper):
+        """Visibility defines who can access the pipeline."""
+
+    VISIBILITY_UNSPECIFIED: Pipeline.Visibility.ValueType  # 0
+    """Unspecified, equivalent to PRIVATE."""
+    VISIBILITY_PRIVATE: Pipeline.Visibility.ValueType  # 1
+    """Only the user can see the pipeline."""
+    VISIBILITY_PUBLIC: Pipeline.Visibility.ValueType  # 2
+    """Other users can see the pipeline."""
+
     NAME_FIELD_NUMBER: builtins.int
     UID_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
@@ -307,6 +330,7 @@ class Pipeline(google.protobuf.message.Message):
     RELEASES_FIELD_NUMBER: builtins.int
     README_FIELD_NUMBER: builtins.int
     PERMISSION_FIELD_NUMBER: builtins.int
+    VISIBILITY_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The name of the pipeline, defined by its owner and ID.
     - Format: `users/{user.id}/pipelines/{pipeline.id}`.
@@ -355,6 +379,8 @@ class Pipeline(google.protobuf.message.Message):
     @property
     def permission(self) -> vdp.pipeline.v1beta.common_pb2.Permission:
         """Permission defines how a pipeline can be used."""
+    visibility: global___Pipeline.Visibility.ValueType
+    """Pipeline visibility."""
     def __init__(
         self,
         *,
@@ -374,9 +400,10 @@ class Pipeline(google.protobuf.message.Message):
         releases: collections.abc.Iterable[global___PipelineRelease] | None = ...,
         readme: builtins.str = ...,
         permission: vdp.pipeline.v1beta.common_pb2.Permission | None = ...,
+        visibility: global___Pipeline.Visibility.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "metadata", b"metadata", "openapi_schema", b"openapi_schema", "owner", b"owner", "permission", b"permission", "recipe", b"recipe", "sharing", b"sharing", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "id", b"id", "metadata", b"metadata", "name", b"name", "openapi_schema", b"openapi_schema", "owner", b"owner", "owner_name", b"owner_name", "permission", b"permission", "readme", b"readme", "recipe", b"recipe", "releases", b"releases", "sharing", b"sharing", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "id", b"id", "metadata", b"metadata", "name", b"name", "openapi_schema", b"openapi_schema", "owner", b"owner", "owner_name", b"owner_name", "permission", b"permission", "readme", b"readme", "recipe", b"recipe", "releases", b"releases", "sharing", b"sharing", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_description", b"_description"]) -> typing_extensions.Literal["description"] | None: ...
 
 global___Pipeline = Pipeline
@@ -575,6 +602,7 @@ class ListPipelinesRequest(google.protobuf.message.Message):
     VIEW_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     SHOW_DELETED_FIELD_NUMBER: builtins.int
+    VISIBILITY_FIELD_NUMBER: builtins.int
     page_size: builtins.int
     """The maximum number of pipelines to return. If this parameter is
     unspecified, at most 10 pipelines will be returned. The cap value for this
@@ -593,6 +621,8 @@ class ListPipelinesRequest(google.protobuf.message.Message):
     """
     show_deleted: builtins.bool
     """Include soft-deleted pipelines in the result."""
+    visibility: global___Pipeline.Visibility.ValueType
+    """Limit results to pipelines with the specified visibility."""
     def __init__(
         self,
         *,
@@ -601,9 +631,10 @@ class ListPipelinesRequest(google.protobuf.message.Message):
         view: global___Pipeline.View.ValueType | None = ...,
         filter: builtins.str | None = ...,
         show_deleted: builtins.bool | None = ...,
+        visibility: global___Pipeline.Visibility.ValueType | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
     @typing.overload
@@ -614,6 +645,8 @@ class ListPipelinesRequest(google.protobuf.message.Message):
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_show_deleted", b"_show_deleted"]) -> typing_extensions.Literal["show_deleted"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_visibility", b"_visibility"]) -> typing_extensions.Literal["visibility"] | None: ...
 
 global___ListPipelinesRequest = ListPipelinesRequest
 
