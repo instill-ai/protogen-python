@@ -513,7 +513,11 @@ class MgmtPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def AuthTokenIssuer(self, request, context):
-        """Get Auth token issuer
+        """Auth endpoints are only used in the community edition and the OpenAPI
+        documentation references Instill Cloud. Therefore, these endpoints are
+        hidden.
+
+        Get Auth token issuer
 
         Returns the auth token issuer details. This operation requires admin permissions.
         """

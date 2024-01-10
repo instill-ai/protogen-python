@@ -297,7 +297,11 @@ class MgmtPublicServiceStub:
         core.mgmt.v1beta.mgmt_pb2.AuthTokenIssuerRequest,
         core.mgmt.v1beta.mgmt_pb2.AuthTokenIssuerResponse,
     ]
-    """Get Auth token issuer
+    """Auth endpoints are only used in the community edition and the OpenAPI
+    documentation references Instill Cloud. Therefore, these endpoints are
+    hidden.
+
+    Get Auth token issuer
 
     Returns the auth token issuer details. This operation requires admin permissions.
     """
@@ -612,7 +616,11 @@ class MgmtPublicServiceAsyncStub:
         core.mgmt.v1beta.mgmt_pb2.AuthTokenIssuerRequest,
         core.mgmt.v1beta.mgmt_pb2.AuthTokenIssuerResponse,
     ]
-    """Get Auth token issuer
+    """Auth endpoints are only used in the community edition and the OpenAPI
+    documentation references Instill Cloud. Therefore, these endpoints are
+    hidden.
+
+    Get Auth token issuer
 
     Returns the auth token issuer details. This operation requires admin permissions.
     """
@@ -993,7 +1001,11 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.AuthTokenIssuerRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.AuthTokenIssuerResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.AuthTokenIssuerResponse]]:
-        """Get Auth token issuer
+        """Auth endpoints are only used in the community edition and the OpenAPI
+        documentation references Instill Cloud. Therefore, these endpoints are
+        hidden.
+
+        Get Auth token issuer
 
         Returns the auth token issuer details. This operation requires admin permissions.
         """
