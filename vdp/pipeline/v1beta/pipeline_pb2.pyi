@@ -332,8 +332,8 @@ class Pipeline(google.protobuf.message.Message):
     PERMISSION_FIELD_NUMBER: builtins.int
     VISIBILITY_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """The name of the pipeline, defined by its owner and ID.
-    - Format: `users/{user.id}/pipelines/{pipeline.id}`.
+    """The name of the pipeline, defined by its parent and ID.
+    - Format: `{parent_type}/{parent.id}/pipelines/{pipeline.id}`.
     """
     uid: builtins.str
     """Pipeline UUID."""
@@ -534,8 +534,8 @@ class PipelineRelease(google.protobuf.message.Message):
     METADATA_FIELD_NUMBER: builtins.int
     README_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """The name of the release, defined by its owner and ID.
-    - Format: `users/{user.id}/pipelines/{pipeline.id}/releases/{release.id}
+    """The name of the release, defined by its parent and ID.
+    - Format: `{parent_type}/{parent.id}/pipelines/{pipeline.id}/releases/{release.id}
     """
     uid: builtins.str
     """Release UUID."""
