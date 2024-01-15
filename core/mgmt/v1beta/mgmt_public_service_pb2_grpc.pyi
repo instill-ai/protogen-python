@@ -26,6 +26,14 @@ class MgmtPublicServiceStub:
     """
 
     def __init__(self, channel: typing.Union[grpc.Channel, grpc.aio.Channel]) -> None: ...
+    DeleteOrganizationMembership: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipRequest,
+        core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipResponse,
+    ]
+    """Delete an organization membership
+
+    Deletes a user membership within an organization.
+    """
     Liveness: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.LivenessRequest,
         core.mgmt.v1beta.mgmt_pb2.LivenessResponse,
@@ -178,14 +186,6 @@ class MgmtPublicServiceStub:
     """Uppdate an organization membership
 
     Updates a user membership within an organization.
-    """
-    DeleteOrganizationMembership: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipRequest,
-        core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipResponse,
-    ]
-    """Delete an organization membership
-
-    Deletes a user membership within an organization.
     """
     GetUserSubscription: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionRequest,
@@ -345,6 +345,14 @@ class MgmtPublicServiceAsyncStub:
     manage user resources.
     """
 
+    DeleteOrganizationMembership: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipRequest,
+        core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipResponse,
+    ]
+    """Delete an organization membership
+
+    Deletes a user membership within an organization.
+    """
     Liveness: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.LivenessRequest,
         core.mgmt.v1beta.mgmt_pb2.LivenessResponse,
@@ -497,14 +505,6 @@ class MgmtPublicServiceAsyncStub:
     """Uppdate an organization membership
 
     Updates a user membership within an organization.
-    """
-    DeleteOrganizationMembership: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipRequest,
-        core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipResponse,
-    ]
-    """Delete an organization membership
-
-    Deletes a user membership within an organization.
     """
     GetUserSubscription: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionRequest,
@@ -664,6 +664,16 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
     manage user resources.
     """
 
+    @abc.abstractmethod
+    def DeleteOrganizationMembership(
+        self,
+        request: core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipResponse]]:
+        """Delete an organization membership
+
+        Deletes a user membership within an organization.
+        """
     @abc.abstractmethod
     def Liveness(
         self,
@@ -852,16 +862,6 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         """Uppdate an organization membership
 
         Updates a user membership within an organization.
-        """
-    @abc.abstractmethod
-    def DeleteOrganizationMembership(
-        self,
-        request: core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipResponse]]:
-        """Delete an organization membership
-
-        Deletes a user membership within an organization.
         """
     @abc.abstractmethod
     def GetUserSubscription(

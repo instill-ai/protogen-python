@@ -19,6 +19,11 @@ class MgmtPublicServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
+        self.DeleteOrganizationMembership = channel.unary_unary(
+                '/core.mgmt.v1beta.MgmtPublicService/DeleteOrganizationMembership',
+                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.DeleteOrganizationMembershipRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.DeleteOrganizationMembershipResponse.FromString,
+                )
         self.Liveness = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/Liveness',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LivenessRequest.SerializeToString,
@@ -108,11 +113,6 @@ class MgmtPublicServiceStub(object):
                 '/core.mgmt.v1beta.MgmtPublicService/UpdateOrganizationMembership',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.UpdateOrganizationMembershipRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.UpdateOrganizationMembershipResponse.FromString,
-                )
-        self.DeleteOrganizationMembership = channel.unary_unary(
-                '/core.mgmt.v1beta.MgmtPublicService/DeleteOrganizationMembership',
-                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.DeleteOrganizationMembershipRequest.SerializeToString,
-                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.DeleteOrganizationMembershipResponse.FromString,
                 )
         self.GetUserSubscription = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/GetUserSubscription',
@@ -212,6 +212,15 @@ class MgmtPublicServiceServicer(object):
     MgmtPublicService exposes the public Core endpoints that allow clients to
     manage user resources.
     """
+
+    def DeleteOrganizationMembership(self, request, context):
+        """Delete an organization membership
+
+        Deletes a user membership within an organization.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def Liveness(self, request, context):
         """Check if the MGMT server is alive
@@ -379,15 +388,6 @@ class MgmtPublicServiceServicer(object):
         """Uppdate an organization membership
 
         Updates a user membership within an organization.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def DeleteOrganizationMembership(self, request, context):
-        """Delete an organization membership
-
-        Deletes a user membership within an organization.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -564,6 +564,11 @@ class MgmtPublicServiceServicer(object):
 
 def add_MgmtPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
+            'DeleteOrganizationMembership': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteOrganizationMembership,
+                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.DeleteOrganizationMembershipRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.DeleteOrganizationMembershipResponse.SerializeToString,
+            ),
             'Liveness': grpc.unary_unary_rpc_method_handler(
                     servicer.Liveness,
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LivenessRequest.FromString,
@@ -653,11 +658,6 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     servicer.UpdateOrganizationMembership,
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.UpdateOrganizationMembershipRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.UpdateOrganizationMembershipResponse.SerializeToString,
-            ),
-            'DeleteOrganizationMembership': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteOrganizationMembership,
-                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.DeleteOrganizationMembershipRequest.FromString,
-                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.DeleteOrganizationMembershipResponse.SerializeToString,
             ),
             'GetUserSubscription': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUserSubscription,
@@ -762,6 +762,23 @@ class MgmtPublicService(object):
     MgmtPublicService exposes the public Core endpoints that allow clients to
     manage user resources.
     """
+
+    @staticmethod
+    def DeleteOrganizationMembership(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/DeleteOrganizationMembership',
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.DeleteOrganizationMembershipRequest.SerializeToString,
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.DeleteOrganizationMembershipResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def Liveness(request,
@@ -1066,23 +1083,6 @@ class MgmtPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/UpdateOrganizationMembership',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.UpdateOrganizationMembershipRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.UpdateOrganizationMembershipResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def DeleteOrganizationMembership(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/DeleteOrganizationMembership',
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.DeleteOrganizationMembershipRequest.SerializeToString,
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.DeleteOrganizationMembershipResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
