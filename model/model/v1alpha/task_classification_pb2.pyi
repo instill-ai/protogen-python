@@ -18,16 +18,16 @@ DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 @typing_extensions.final
 class ClassificationInput(google.protobuf.message.Message):
-    """ClassificationInput represents the input of classification task"""
+    """ClassificationInput is the input of an image classification task."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     IMAGE_URL_FIELD_NUMBER: builtins.int
     IMAGE_BASE64_FIELD_NUMBER: builtins.int
     image_url: builtins.str
-    """Image type URL"""
+    """Image URL."""
     image_base64: builtins.str
-    """Image type base64"""
+    """Base64-encoded image."""
     def __init__(
         self,
         *,
@@ -42,8 +42,8 @@ global___ClassificationInput = ClassificationInput
 
 @typing_extensions.final
 class ClassificationInputStream(google.protobuf.message.Message):
-    """ClassificationInputStream represents the input of classification task when
-    using stream method
+    """ClassificationInputStream represents the input of an image classification
+    task when the input is streamed as a binary files.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -52,9 +52,9 @@ class ClassificationInputStream(google.protobuf.message.Message):
     CONTENT_FIELD_NUMBER: builtins.int
     @property
     def file_lengths(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.int]:
-        """The list of file length for each uploaded binary file"""
+        """File length for each uploaded binary file."""
     content: builtins.bytes
-    """Content of images in bytes"""
+    """Byte representation of the images."""
     def __init__(
         self,
         *,
@@ -67,16 +67,16 @@ global___ClassificationInputStream = ClassificationInputStream
 
 @typing_extensions.final
 class ClassificationOutput(google.protobuf.message.Message):
-    """ClassificationOutput represents the output of classification task"""
+    """ClassificationOutput contains the result of an image classification task."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     CATEGORY_FIELD_NUMBER: builtins.int
     SCORE_FIELD_NUMBER: builtins.int
     category: builtins.str
-    """Classification category"""
+    """Category."""
     score: builtins.float
-    """Classification score"""
+    """Score."""
     def __init__(
         self,
         *,

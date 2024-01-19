@@ -19,7 +19,7 @@ DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 @typing_extensions.final
 class DetectionObject(google.protobuf.message.Message):
-    """DetectionObject represents a predicted object"""
+    """DetectionObject represents an identified object in an image."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -27,12 +27,12 @@ class DetectionObject(google.protobuf.message.Message):
     SCORE_FIELD_NUMBER: builtins.int
     BOUNDING_BOX_FIELD_NUMBER: builtins.int
     category: builtins.str
-    """Detection object category"""
+    """Category."""
     score: builtins.float
-    """Detection object score"""
+    """Score."""
     @property
     def bounding_box(self) -> model.model.v1alpha.common_pb2.BoundingBox:
-        """Detection bounding box"""
+        """Bounding box."""
     def __init__(
         self,
         *,
@@ -47,16 +47,16 @@ global___DetectionObject = DetectionObject
 
 @typing_extensions.final
 class DetectionInput(google.protobuf.message.Message):
-    """DetectionInput represents the input of detection task"""
+    """DetectionInput represents the input of an object detection task."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     IMAGE_URL_FIELD_NUMBER: builtins.int
     IMAGE_BASE64_FIELD_NUMBER: builtins.int
     image_url: builtins.str
-    """Image type URL"""
+    """Image URL."""
     image_base64: builtins.str
-    """Image type base64"""
+    """Base64-encoded image."""
     def __init__(
         self,
         *,
@@ -71,8 +71,8 @@ global___DetectionInput = DetectionInput
 
 @typing_extensions.final
 class DetectionInputStream(google.protobuf.message.Message):
-    """DetectionInputStream represents the input of detection task when using stream
-    method
+    """DetectionInputStream represents the input of an object detection task when
+    the input is streamed as binary files.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -81,9 +81,9 @@ class DetectionInputStream(google.protobuf.message.Message):
     CONTENT_FIELD_NUMBER: builtins.int
     @property
     def file_lengths(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.int]:
-        """The list of file length for each uploaded binary file"""
+        """File length for each uploaded binary file."""
     content: builtins.bytes
-    """Content of images in bytes"""
+    """Byte representation of the images."""
     def __init__(
         self,
         *,
@@ -96,14 +96,14 @@ global___DetectionInputStream = DetectionInputStream
 
 @typing_extensions.final
 class DetectionOutput(google.protobuf.message.Message):
-    """DetectionOutput represents the output of detection task"""
+    """DetectionOutput contains the result of an object detection task."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     OBJECTS_FIELD_NUMBER: builtins.int
     @property
     def objects(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DetectionObject]:
-        """A list of detection objects"""
+        """A list of detected objects."""
     def __init__(
         self,
         *,

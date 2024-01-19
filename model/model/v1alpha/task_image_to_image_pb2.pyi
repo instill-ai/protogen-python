@@ -20,7 +20,7 @@ DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 @typing_extensions.final
 class ImageToImageInput(google.protobuf.message.Message):
-    """ImageToImageInput represents the input of image to image task"""
+    """ImageToImageInput represents the input of an image-to-image task."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -33,22 +33,22 @@ class ImageToImageInput(google.protobuf.message.Message):
     SAMPLES_FIELD_NUMBER: builtins.int
     EXTRA_PARAMS_FIELD_NUMBER: builtins.int
     prompt_image_url: builtins.str
-    """Image type URL"""
+    """Image URL."""
     prompt_image_base64: builtins.str
-    """Image type base64"""
+    """Base64-encoded image."""
     prompt: builtins.str
-    """The prompt text"""
+    """Input text."""
     steps: builtins.int
-    """The steps, default is 5"""
+    """Steps, defaults to 5."""
     cfg_scale: builtins.float
-    """The guidance scale, default is 7.5"""
+    """Guidance scale, defaults to 7.5"""
     seed: builtins.int
-    """The seed, default is 0"""
+    """Seed, defaults to 0."""
     samples: builtins.int
-    """The number of generated samples, default is 1"""
+    """Number of generated samples, defaults to 1."""
     @property
     def extra_params(self) -> google.protobuf.struct_pb2.Struct:
-        """The extra parameters"""
+        """Extra parameters."""
     def __init__(
         self,
         *,
@@ -80,14 +80,14 @@ global___ImageToImageInput = ImageToImageInput
 
 @typing_extensions.final
 class ImageToImageOutput(google.protobuf.message.Message):
-    """ImageToImageOutput represents the output of image to image task"""
+    """ImageToImageOutput contains the result of an image-to-image task."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     IMAGES_FIELD_NUMBER: builtins.int
     @property
     def images(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """List of generated images"""
+        """A list of generated images."""
     def __init__(
         self,
         *,

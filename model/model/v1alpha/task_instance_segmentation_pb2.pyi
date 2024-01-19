@@ -19,7 +19,9 @@ DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 @typing_extensions.final
 class InstanceSegmentationObject(google.protobuf.message.Message):
-    """InstanceSegmentationObject corresponding to a instance segmentation object"""
+    """InstanceSegmentationObject is an object in an image, localized and
+    delineated.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -28,14 +30,14 @@ class InstanceSegmentationObject(google.protobuf.message.Message):
     SCORE_FIELD_NUMBER: builtins.int
     BOUNDING_BOX_FIELD_NUMBER: builtins.int
     rle: builtins.str
-    """Instance RLE segmentation mask"""
+    """RLE segmentation mask."""
     category: builtins.str
-    """Instance category"""
+    """Category."""
     score: builtins.float
-    """Instance score"""
+    """Score."""
     @property
     def bounding_box(self) -> model.model.v1alpha.common_pb2.BoundingBox:
-        """Instance bounding box"""
+        """Bounding box."""
     def __init__(
         self,
         *,
@@ -51,16 +53,18 @@ global___InstanceSegmentationObject = InstanceSegmentationObject
 
 @typing_extensions.final
 class InstanceSegmentationInput(google.protobuf.message.Message):
-    """InstanceSegmentationInput represents the input of instance segmentation task"""
+    """InstanceSegmentationInput represents the input of an instance segmentation
+    task.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     IMAGE_URL_FIELD_NUMBER: builtins.int
     IMAGE_BASE64_FIELD_NUMBER: builtins.int
     image_url: builtins.str
-    """Image type URL"""
+    """Image URL."""
     image_base64: builtins.str
-    """Image type base64"""
+    """Base64-encoded image."""
     def __init__(
         self,
         *,
@@ -75,8 +79,8 @@ global___InstanceSegmentationInput = InstanceSegmentationInput
 
 @typing_extensions.final
 class InstanceSegmentationInputStream(google.protobuf.message.Message):
-    """InstanceSegmentationInputStream represents the input of instance segmentation
-    task when using stream method
+    """InstanceSegmentationInputStream represents the input of an instance
+    segmentation task when the input is streamed as binary files.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -85,9 +89,9 @@ class InstanceSegmentationInputStream(google.protobuf.message.Message):
     CONTENT_FIELD_NUMBER: builtins.int
     @property
     def file_lengths(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.int]:
-        """The list of file length for each uploaded binary file"""
+        """File length for each uploaded binary file."""
     content: builtins.bytes
-    """Content of images in bytes"""
+    """Byte representation of the images."""
     def __init__(
         self,
         *,
@@ -100,8 +104,8 @@ global___InstanceSegmentationInputStream = InstanceSegmentationInputStream
 
 @typing_extensions.final
 class InstanceSegmentationOutput(google.protobuf.message.Message):
-    """InstanceSegmentationOutput represents the output of instance segmentation
-    task
+    """InstanceSegmentationOutput contains the result of an instance segmentation
+    task.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -109,7 +113,7 @@ class InstanceSegmentationOutput(google.protobuf.message.Message):
     OBJECTS_FIELD_NUMBER: builtins.int
     @property
     def objects(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___InstanceSegmentationObject]:
-        """A list of instance segmentation objects"""
+        """A list of instance segmentation objects."""
     def __init__(
         self,
         *,

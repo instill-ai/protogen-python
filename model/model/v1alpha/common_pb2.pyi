@@ -18,7 +18,9 @@ DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 @typing_extensions.final
 class BoundingBox(google.protobuf.message.Message):
-    """BoundingBox represents the bounding box data structure"""
+    """BoundingBox represents a frame in an image that can be drawn when detecting
+    patterns in objects.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -27,13 +29,13 @@ class BoundingBox(google.protobuf.message.Message):
     WIDTH_FIELD_NUMBER: builtins.int
     HEIGHT_FIELD_NUMBER: builtins.int
     top: builtins.float
-    """Bounding box top y-axis value"""
+    """Top Y-axis."""
     left: builtins.float
-    """Bounding box left x-axis value"""
+    """Left X-axis."""
     width: builtins.float
-    """Bounding box width value"""
+    """Width."""
     height: builtins.float
-    """Bounding box height value"""
+    """Height."""
     def __init__(
         self,
         *,
@@ -47,41 +49,17 @@ class BoundingBox(google.protobuf.message.Message):
 global___BoundingBox = BoundingBox
 
 @typing_extensions.final
-class ExtraParamObject(google.protobuf.message.Message):
-    """Additional hyperparameters for model inferences
-    or other configuration not listsed in protobuf
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    PARAM_NAME_FIELD_NUMBER: builtins.int
-    PARAM_VALUE_FIELD_NUMBER: builtins.int
-    param_name: builtins.str
-    """Name of the hyperparameter"""
-    param_value: builtins.str
-    """Value of the hyperparameter"""
-    def __init__(
-        self,
-        *,
-        param_name: builtins.str = ...,
-        param_value: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["param_name", b"param_name", "param_value", b"param_value"]) -> None: ...
-
-global___ExtraParamObject = ExtraParamObject
-
-@typing_extensions.final
 class PromptImage(google.protobuf.message.Message):
-    """Prompt Image for text generation model"""
+    """PromptImage is an image input for model inference."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PROMPT_IMAGE_URL_FIELD_NUMBER: builtins.int
     PROMPT_IMAGE_BASE64_FIELD_NUMBER: builtins.int
     prompt_image_url: builtins.str
-    """Image URL"""
+    """Image URL."""
     prompt_image_base64: builtins.str
-    """Base64 encoded Image"""
+    """Base64-encoded image."""
     def __init__(
         self,
         *,
@@ -96,7 +74,7 @@ global___PromptImage = PromptImage
 
 @typing_extensions.final
 class ImageContent(google.protobuf.message.Message):
-    """Image content for Message Content"""
+    """ImageContent holds an image with some details in plain text."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -104,9 +82,13 @@ class ImageContent(google.protobuf.message.Message):
     DETAIL_FIELD_NUMBER: builtins.int
     @property
     def image_url(self) -> global___PromptImage:
-        """Image url or base64 code of Message Content"""
+        """Image as URL or base64 code.
+
+        NOTE: the `image_url` name comes from a convention from OpenAI, it doesn't
+        determine the format of the image.
+        """
     detail: builtins.str
-    """Additinoal information for Image Content"""
+    """Additional information."""
     def __init__(
         self,
         *,
@@ -121,7 +103,9 @@ global___ImageContent = ImageContent
 
 @typing_extensions.final
 class MessageContent(google.protobuf.message.Message):
-    """Content used for chat history message in text generation model"""
+    """MessageContent is a message in a chat history message, used in text
+    generation models.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -129,12 +113,16 @@ class MessageContent(google.protobuf.message.Message):
     IMAGE_URL_FIELD_NUMBER: builtins.int
     TEXT_FIELD_NUMBER: builtins.int
     type: builtins.str
-    """Type of Content"""
+    """Content type."""
     @property
     def image_url(self) -> global___ImageContent:
-        """Image Url is the naming convention by openAi but not necessarily a url"""
+        """Image content.
+
+        NOTE: the `image_url` name comes from a convention from OpenAI, it doesn't
+        determine the format of the image.
+        """
     text: builtins.str
-    """Field for text"""
+    """Text content."""
     def __init__(
         self,
         *,
@@ -150,17 +138,17 @@ global___MessageContent = MessageContent
 
 @typing_extensions.final
 class Message(google.protobuf.message.Message):
-    """Message used for chat history in text generation model"""
+    """Message is used in chat history in text generation models."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     ROLE_FIELD_NUMBER: builtins.int
     CONTENT_FIELD_NUMBER: builtins.int
     role: builtins.str
-    """The Role of a message"""
+    """The Role of a message, e.g. `system`, `user`, etc. Defines the way the model answers questions."""
     @property
     def content(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___MessageContent]:
-        """The context of the message"""
+        """Message content."""
     def __init__(
         self,
         *,

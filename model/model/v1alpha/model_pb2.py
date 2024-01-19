@@ -11,14 +11,15 @@ from google.protobuf.internal import builder as _builder
 _sym_db = _symbol_database.Default()
 
 
-from common.healthcheck.v1beta import healthcheck_pb2 as common_dot_healthcheck_dot_v1beta_dot_healthcheck__pb2
-from common.task.v1alpha import task_pb2 as common_dot_task_dot_v1alpha_dot_task__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.longrunning import operations_pb2 as google_dot_longrunning_dot_operations__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from protoc_gen_openapiv2.options import annotations_pb2 as protoc__gen__openapiv2_dot_options_dot_annotations__pb2
+from common.healthcheck.v1beta import healthcheck_pb2 as common_dot_healthcheck_dot_v1beta_dot_healthcheck__pb2
+from common.task.v1alpha import task_pb2 as common_dot_task_dot_v1alpha_dot_task__pb2
 from model.model.v1alpha import model_definition_pb2 as model_dot_model_dot_v1alpha_dot_model__definition__pb2
 from model.model.v1alpha import task_classification_pb2 as model_dot_model_dot_v1alpha_dot_task__classification__pb2
 from model.model.v1alpha import task_detection_pb2 as model_dot_model_dot_v1alpha_dot_task__detection__pb2
@@ -32,10 +33,9 @@ from model.model.v1alpha import task_text_generation_chat_pb2 as model_dot_model
 from model.model.v1alpha import task_text_to_image_pb2 as model_dot_model_dot_v1alpha_dot_task__text__to__image__pb2
 from model.model.v1alpha import task_unspecified_pb2 as model_dot_model_dot_v1alpha_dot_task__unspecified__pb2
 from model.model.v1alpha import task_visual_question_answering_pb2 as model_dot_model_dot_v1alpha_dot_task__visual__question__answering__pb2
-from protoc_gen_openapiv2.options import annotations_pb2 as protoc__gen__openapiv2_dot_options_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1fmodel/model/v1alpha/model.proto\x12\x13model.model.v1alpha\x1a+common/healthcheck/v1beta/healthcheck.proto\x1a\x1e\x63ommon/task/v1alpha/task.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a*model/model/v1alpha/model_definition.proto\x1a-model/model/v1alpha/task_classification.proto\x1a(model/model/v1alpha/task_detection.proto\x1a-model/model/v1alpha/task_image_to_image.proto\x1a\x34model/model/v1alpha/task_instance_segmentation.proto\x1a\'model/model/v1alpha/task_keypoint.proto\x1a\"model/model/v1alpha/task_ocr.proto\x1a\x34model/model/v1alpha/task_semantic_segmentation.proto\x1a.model/model/v1alpha/task_text_generation.proto\x1a\x33model/model/v1alpha/task_text_generation_chat.proto\x1a,model/model/v1alpha/task_text_to_image.proto\x1a*model/model/v1alpha/task_unspecified.proto\x1a\x38model/model/v1alpha/task_visual_question_answering.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\"\x96\x01\n\x0fLivenessRequest\x12j\n\x14health_check_request\x18\x01 \x01(\x0b\x32-.common.healthcheck.v1beta.HealthCheckRequestB\x04\xe2\x41\x01\x01H\x00R\x12healthCheckRequest\x88\x01\x01\x42\x17\n\x15_health_check_request\"v\n\x10LivenessResponse\x12\x62\n\x15health_check_response\x18\x01 \x01(\x0b\x32..common.healthcheck.v1beta.HealthCheckResponseR\x13healthCheckResponse\"\x97\x01\n\x10ReadinessRequest\x12j\n\x14health_check_request\x18\x01 \x01(\x0b\x32-.common.healthcheck.v1beta.HealthCheckRequestB\x04\xe2\x41\x01\x01H\x00R\x12healthCheckRequest\x88\x01\x01\x42\x17\n\x15_health_check_request\"w\n\x11ReadinessResponse\x12\x62\n\x15health_check_response\x18\x01 \x01(\x0b\x32..common.healthcheck.v1beta.HealthCheckResponseR\x13healthCheckResponse\"\xf3\x07\n\x05Model\x12\x18\n\x04name\x18\x01 \x01(\tB\x04\xe2\x41\x01\x03R\x04name\x12\x16\n\x03uid\x18\x02 \x01(\tB\x04\xe2\x41\x01\x03R\x03uid\x12\x14\n\x02id\x18\x03 \x01(\tB\x04\xe2\x41\x01\x05R\x02id\x12+\n\x0b\x64\x65scription\x18\x04 \x01(\tB\x04\xe2\x41\x01\x01H\x00R\x0b\x64\x65scription\x88\x01\x01\x12T\n\x10model_definition\x18\x05 \x01(\tB)\xe2\x41\x01\x05\xfa\x41\"\n api.instill.tech/ModelDefinitionR\x0fmodelDefinition\x12\x43\n\rconfiguration\x18\x06 \x01(\x0b\x32\x17.google.protobuf.StructB\x04\xe2\x41\x01\x05R\rconfiguration\x12\x33\n\x04task\x18\x07 \x01(\x0e\x32\x19.common.task.v1alpha.TaskB\x04\xe2\x41\x01\x03R\x04task\x12<\n\x05state\x18\x08 \x01(\x0e\x32 .model.model.v1alpha.Model.StateB\x04\xe2\x41\x01\x03R\x05state\x12K\n\nvisibility\x18\t \x01(\x0e\x32%.model.model.v1alpha.Model.VisibilityB\x04\xe2\x41\x01\x03R\nvisibility\x12\x41\n\x0b\x63reate_time\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x04\xe2\x41\x01\x03R\ncreateTime\x12\x41\n\x0bupdate_time\x18\r \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x04\xe2\x41\x01\x03R\nupdateTime\x12\x41\n\x0b\x64\x65lete_time\x18\x0e \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x04\xe2\x41\x01\x03R\ndeleteTime\x12#\n\nowner_name\x18\x0f \x01(\tB\x04\xe2\x41\x01\x03R\townerName\x12\x33\n\x05owner\x18\x10 \x01(\x0b\x32\x17.google.protobuf.StructB\x04\xe2\x41\x01\x03R\x05owner\"W\n\nVisibility\x12\x1a\n\x16VISIBILITY_UNSPECIFIED\x10\x00\x12\x16\n\x12VISIBILITY_PRIVATE\x10\x01\x12\x15\n\x11VISIBILITY_PUBLIC\x10\x02\"T\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x11\n\rSTATE_OFFLINE\x10\x01\x12\x10\n\x0cSTATE_ONLINE\x10\x02\x12\x0f\n\x0bSTATE_ERROR\x10\x03:8\xea\x41\x35\n\x16\x61pi.instill.tech/Model\x12\x1busers/{user}/models/{model}B\x0e\n\x0c_description\"\xe0\x01\n\tModelCard\x12\x18\n\x04name\x18\x01 \x01(\tB\x04\xe2\x41\x01\x03R\x04name\x12\x18\n\x04size\x18\x02 \x01(\x05\x42\x04\xe2\x41\x01\x03R\x04size\x12\x18\n\x04type\x18\x03 \x01(\tB\x04\xe2\x41\x01\x03R\x04type\x12\x1e\n\x07\x63ontent\x18\x04 \x01(\x0c\x42\x04\xe2\x41\x01\x03R\x07\x63ontent\x12 \n\x08\x65ncoding\x18\x05 \x01(\tB\x04\xe2\x41\x01\x03R\x08\x65ncoding:C\xea\x41@\n\x1a\x61pi.instill.tech/ModelCard\x12\"users/{user}/models/{model}/readme\"\x84\x02\n\x11ListModelsRequest\x12&\n\tpage_size\x18\x01 \x01(\x05\x42\x04\xe2\x41\x01\x01H\x00R\x08pageSize\x88\x01\x01\x12(\n\npage_token\x18\x02 \x01(\tB\x04\xe2\x41\x01\x01H\x01R\tpageToken\x88\x01\x01\x12\x38\n\x04view\x18\x03 \x01(\x0e\x32\x19.model.model.v1alpha.ViewB\x04\xe2\x41\x01\x01H\x02R\x04view\x88\x01\x01\x12,\n\x0cshow_deleted\x18\x04 \x01(\x08\x42\x04\xe2\x41\x01\x01H\x03R\x0bshowDeleted\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\x07\n\x05_viewB\x0f\n\r_show_deleted\"\x8f\x01\n\x12ListModelsResponse\x12\x32\n\x06models\x18\x01 \x03(\x0b\x32\x1a.model.model.v1alpha.ModelR\x06models\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x05R\ttotalSize\"{\n\x12LookUpModelRequest\x12\"\n\tpermalink\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\tpermalink\x12\x38\n\x04view\x18\x02 \x01(\x0e\x32\x19.model.model.v1alpha.ViewB\x04\xe2\x41\x01\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"G\n\x13LookUpModelResponse\x12\x30\n\x05model\x18\x01 \x01(\x0b\x32\x1a.model.model.v1alpha.ModelR\x05model\"\x89\x01\n\x16\x43reateUserModelRequest\x12\x36\n\x05model\x18\x01 \x01(\x0b\x32\x1a.model.model.v1alpha.ModelB\x04\xe2\x41\x01\x02R\x05model\x12\x37\n\x06parent\x18\x02 \x01(\tB\x1f\xe2\x41\x01\x02\xfa\x41\x18\x12\x16\x61pi.instill.tech/ModelR\x06parent\"\\\n\x17\x43reateUserModelResponse\x12\x41\n\toperation\x18\x01 \x01(\x0b\x32\x1d.google.longrunning.OperationB\x04\xe2\x41\x01\x03R\toperation\"\xb9\x01\n&CreateUserModelBinaryFileUploadRequest\x12\x36\n\x05model\x18\x01 \x01(\x0b\x32\x1a.model.model.v1alpha.ModelB\x04\xe2\x41\x01\x02R\x05model\x12\x1e\n\x07\x63ontent\x18\x02 \x01(\x0c\x42\x04\xe2\x41\x01\x02R\x07\x63ontent\x12\x37\n\x06parent\x18\x03 \x01(\tB\x1f\xe2\x41\x01\x02\xfa\x41\x18\x12\x16\x61pi.instill.tech/ModelR\x06parent\"l\n\'CreateUserModelBinaryFileUploadResponse\x12\x41\n\toperation\x18\x01 \x01(\x0b\x32\x1d.google.longrunning.OperationB\x04\xe2\x41\x01\x03R\toperation\"\xc1\x02\n\x15ListUserModelsRequest\x12&\n\tpage_size\x18\x01 \x01(\x05\x42\x04\xe2\x41\x01\x01H\x00R\x08pageSize\x88\x01\x01\x12(\n\npage_token\x18\x02 \x01(\tB\x04\xe2\x41\x01\x01H\x01R\tpageToken\x88\x01\x01\x12\x38\n\x04view\x18\x03 \x01(\x0e\x32\x19.model.model.v1alpha.ViewB\x04\xe2\x41\x01\x01H\x02R\x04view\x88\x01\x01\x12\x37\n\x06parent\x18\x04 \x01(\tB\x1f\xe2\x41\x01\x02\xfa\x41\x18\x12\x16\x61pi.instill.tech/ModelR\x06parent\x12,\n\x0cshow_deleted\x18\x05 \x01(\x08\x42\x04\xe2\x41\x01\x01H\x03R\x0bshowDeleted\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\x07\n\x05_viewB\x0f\n\r_show_deleted\"\x93\x01\n\x16ListUserModelsResponse\x12\x32\n\x06models\x18\x01 \x03(\x0b\x32\x1a.model.model.v1alpha.ModelR\x06models\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x05R\ttotalSize\"\xa0\x01\n\x13GetUserModelRequest\x12\x46\n\x04name\x18\x01 \x01(\tB2\x92\x41\x10\xca>\r\xfa\x02\nmodel.name\xe2\x41\x01\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\x12\x38\n\x04view\x18\x02 \x01(\x0e\x32\x19.model.model.v1alpha.ViewB\x04\xe2\x41\x01\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"H\n\x14GetUserModelResponse\x12\x30\n\x05model\x18\x01 \x01(\x0b\x32\x1a.model.model.v1alpha.ModelR\x05model\"\x93\x01\n\x16UpdateUserModelRequest\x12\x36\n\x05model\x18\x01 \x01(\x0b\x32\x1a.model.model.v1alpha.ModelB\x04\xe2\x41\x01\x02R\x05model\x12\x41\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x04\xe2\x41\x01\x02R\nupdateMask\"K\n\x17UpdateUserModelResponse\x12\x30\n\x05model\x18\x01 \x01(\x0b\x32\x1a.model.model.v1alpha.ModelR\x05model\"`\n\x16\x44\x65leteUserModelRequest\x12\x46\n\x04name\x18\x01 \x01(\tB2\x92\x41\x10\xca>\r\xfa\x02\nmodel.name\xe2\x41\x01\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\"\x19\n\x17\x44\x65leteUserModelResponse\"u\n\x16RenameUserModelRequest\x12\x33\n\x04name\x18\x01 \x01(\tB\x1f\xe2\x41\x01\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\x12&\n\x0cnew_model_id\x18\x02 \x01(\tB\x04\xe2\x41\x01\x02R\nnewModelId\"K\n\x17RenameUserModelResponse\x12\x30\n\x05model\x18\x01 \x01(\x0b\x32\x1a.model.model.v1alpha.ModelR\x05model\"N\n\x17PublishUserModelRequest\x12\x33\n\x04name\x18\x01 \x01(\tB\x1f\xe2\x41\x01\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\"L\n\x18PublishUserModelResponse\x12\x30\n\x05model\x18\x01 \x01(\x0b\x32\x1a.model.model.v1alpha.ModelR\x05model\"P\n\x19UnpublishUserModelRequest\x12\x33\n\x04name\x18\x01 \x01(\tB\x1f\xe2\x41\x01\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\"N\n\x1aUnpublishUserModelResponse\x12\x30\n\x05model\x18\x01 \x01(\x0b\x32\x1a.model.model.v1alpha.ModelR\x05model\"M\n\x16\x44\x65ployUserModelRequest\x12\x33\n\x04name\x18\x01 \x01(\tB\x1f\xe2\x41\x01\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\"4\n\x17\x44\x65ployUserModelResponse\x12\x19\n\x08model_id\x18\x01 \x01(\tR\x07modelId\"O\n\x18UndeployUserModelRequest\x12\x33\n\x04name\x18\x01 \x01(\tB\x1f\xe2\x41\x01\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\"6\n\x19UndeployUserModelResponse\x12\x19\n\x08model_id\x18\x01 \x01(\tR\x07modelId\"l\n\x17GetUserModelCardRequest\x12Q\n\x04name\x18\x01 \x01(\tB=\x92\x41\x17\xca>\x14\xfa\x02\x11model.name/readme\xe2\x41\x01\x02\xfa\x41\x1c\n\x1a\x61pi.instill.tech/ModelCardR\x04name\"R\n\x18GetUserModelCardResponse\x12\x36\n\x06readme\x18\x01 \x01(\x0b\x32\x1e.model.model.v1alpha.ModelCardR\x06readme\"e\n\x15WatchUserModelRequest\x12L\n\x04name\x18\x01 \x01(\tB8\x92\x41\x16\xca>\x13\xfa\x02\x10model.name/watch\xe2\x41\x01\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\"l\n\x16WatchUserModelResponse\x12\x36\n\x05state\x18\x01 \x01(\x0e\x32 .model.model.v1alpha.Model.StateR\x05state\x12\x1a\n\x08progress\x18\x02 \x01(\x05R\x08progress\"\x80\x08\n\tTaskInput\x12R\n\x0e\x63lassification\x18\x01 \x01(\x0b\x32(.model.model.v1alpha.ClassificationInputH\x00R\x0e\x63lassification\x12\x43\n\tdetection\x18\x02 \x01(\x0b\x32#.model.model.v1alpha.DetectionInputH\x00R\tdetection\x12@\n\x08keypoint\x18\x03 \x01(\x0b\x32\".model.model.v1alpha.KeypointInputH\x00R\x08keypoint\x12\x31\n\x03ocr\x18\x04 \x01(\x0b\x32\x1d.model.model.v1alpha.OcrInputH\x00R\x03ocr\x12\x65\n\x15instance_segmentation\x18\x05 \x01(\x0b\x32..model.model.v1alpha.InstanceSegmentationInputH\x00R\x14instanceSegmentation\x12\x65\n\x15semantic_segmentation\x18\x06 \x01(\x0b\x32..model.model.v1alpha.SemanticSegmentationInputH\x00R\x14semanticSegmentation\x12K\n\rtext_to_image\x18\x07 \x01(\x0b\x32%.model.model.v1alpha.TextToImageInputH\x00R\x0btextToImage\x12N\n\x0eimage_to_image\x18\x08 \x01(\x0b\x32&.model.model.v1alpha.ImageToImageInputH\x00R\x0cimageToImage\x12S\n\x0ftext_generation\x18\t \x01(\x0b\x32(.model.model.v1alpha.TextGenerationInputH\x00R\x0etextGeneration\x12`\n\x14text_generation_chat\x18\n \x01(\x0b\x32,.model.model.v1alpha.TextGenerationChatInputH\x00R\x12textGenerationChat\x12o\n\x19visual_question_answering\x18\x0b \x01(\x0b\x32\x31.model.model.v1alpha.VisualQuestionAnsweringInputH\x00R\x17visualQuestionAnswering\x12I\n\x0bunspecified\x18\x0c \x01(\x0b\x32%.model.model.v1alpha.UnspecifiedInputH\x00R\x0bunspecifiedB\x07\n\x05input\"\xaa\x08\n\x0fTaskInputStream\x12X\n\x0e\x63lassification\x18\x01 \x01(\x0b\x32..model.model.v1alpha.ClassificationInputStreamH\x00R\x0e\x63lassification\x12I\n\tdetection\x18\x02 \x01(\x0b\x32).model.model.v1alpha.DetectionInputStreamH\x00R\tdetection\x12\x46\n\x08keypoint\x18\x03 \x01(\x0b\x32(.model.model.v1alpha.KeypointInputStreamH\x00R\x08keypoint\x12\x37\n\x03ocr\x18\x04 \x01(\x0b\x32#.model.model.v1alpha.OcrInputStreamH\x00R\x03ocr\x12k\n\x15instance_segmentation\x18\x05 \x01(\x0b\x32\x34.model.model.v1alpha.InstanceSegmentationInputStreamH\x00R\x14instanceSegmentation\x12k\n\x15semantic_segmentation\x18\x06 \x01(\x0b\x32\x34.model.model.v1alpha.SemanticSegmentationInputStreamH\x00R\x14semanticSegmentation\x12K\n\rtext_to_image\x18\x07 \x01(\x0b\x32%.model.model.v1alpha.TextToImageInputH\x00R\x0btextToImage\x12N\n\x0eimage_to_image\x18\x08 \x01(\x0b\x32&.model.model.v1alpha.ImageToImageInputH\x00R\x0cimageToImage\x12S\n\x0ftext_generation\x18\t \x01(\x0b\x32(.model.model.v1alpha.TextGenerationInputH\x00R\x0etextGeneration\x12`\n\x14text_generation_chat\x18\n \x01(\x0b\x32,.model.model.v1alpha.TextGenerationChatInputH\x00R\x12textGenerationChat\x12o\n\x19visual_question_answering\x18\x0b \x01(\x0b\x32\x31.model.model.v1alpha.VisualQuestionAnsweringInputH\x00R\x17visualQuestionAnswering\x12I\n\x0bunspecified\x18\x0c \x01(\x0b\x32%.model.model.v1alpha.UnspecifiedInputH\x00R\x0bunspecifiedB\x07\n\x05input\"\xd6\x08\n\nTaskOutput\x12Y\n\x0e\x63lassification\x18\x01 \x01(\x0b\x32).model.model.v1alpha.ClassificationOutputB\x04\xe2\x41\x01\x03H\x00R\x0e\x63lassification\x12J\n\tdetection\x18\x02 \x01(\x0b\x32$.model.model.v1alpha.DetectionOutputB\x04\xe2\x41\x01\x03H\x00R\tdetection\x12G\n\x08keypoint\x18\x03 \x01(\x0b\x32#.model.model.v1alpha.KeypointOutputB\x04\xe2\x41\x01\x03H\x00R\x08keypoint\x12\x38\n\x03ocr\x18\x04 \x01(\x0b\x32\x1e.model.model.v1alpha.OcrOutputB\x04\xe2\x41\x01\x03H\x00R\x03ocr\x12l\n\x15instance_segmentation\x18\x05 \x01(\x0b\x32/.model.model.v1alpha.InstanceSegmentationOutputB\x04\xe2\x41\x01\x03H\x00R\x14instanceSegmentation\x12l\n\x15semantic_segmentation\x18\x06 \x01(\x0b\x32/.model.model.v1alpha.SemanticSegmentationOutputB\x04\xe2\x41\x01\x03H\x00R\x14semanticSegmentation\x12R\n\rtext_to_image\x18\x07 \x01(\x0b\x32&.model.model.v1alpha.TextToImageOutputB\x04\xe2\x41\x01\x03H\x00R\x0btextToImage\x12U\n\x0eimage_to_image\x18\x08 \x01(\x0b\x32\'.model.model.v1alpha.ImageToImageOutputB\x04\xe2\x41\x01\x03H\x00R\x0cimageToImage\x12Z\n\x0ftext_generation\x18\t \x01(\x0b\x32).model.model.v1alpha.TextGenerationOutputB\x04\xe2\x41\x01\x03H\x00R\x0etextGeneration\x12g\n\x14text_generation_chat\x18\n \x01(\x0b\x32-.model.model.v1alpha.TextGenerationChatOutputB\x04\xe2\x41\x01\x03H\x00R\x12textGenerationChat\x12v\n\x19visual_question_answering\x18\x0b \x01(\x0b\x32\x32.model.model.v1alpha.VisualQuestionAnsweringOutputB\x04\xe2\x41\x01\x03H\x00R\x17visualQuestionAnswering\x12P\n\x0bunspecified\x18\x0c \x01(\x0b\x32&.model.model.v1alpha.UnspecifiedOutputB\x04\xe2\x41\x01\x03H\x00R\x0bunspecifiedB\x08\n\x06output\"\x95\x01\n\x17TriggerUserModelRequest\x12\x33\n\x04name\x18\x01 \x01(\tB\x1f\xe2\x41\x01\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\x12\x45\n\x0btask_inputs\x18\x02 \x03(\x0b\x32\x1e.model.model.v1alpha.TaskInputB\x04\xe2\x41\x01\x02R\ntaskInputs\"\x8d\x01\n\x18TriggerUserModelResponse\x12-\n\x04task\x18\x01 \x01(\x0e\x32\x19.common.task.v1alpha.TaskR\x04task\x12\x42\n\x0ctask_outputs\x18\x02 \x03(\x0b\x32\x1f.model.model.v1alpha.TaskOutputR\x0btaskOutputs\"\xa9\x01\n\'TriggerUserModelBinaryFileUploadRequest\x12\x33\n\x04name\x18\x01 \x01(\tB\x1f\xe2\x41\x01\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\x12I\n\ntask_input\x18\x02 \x01(\x0b\x32$.model.model.v1alpha.TaskInputStreamB\x04\xe2\x41\x01\x02R\ttaskInput\"\xa9\x01\n(TriggerUserModelBinaryFileUploadResponse\x12\x33\n\x04task\x18\x01 \x01(\x0e\x32\x19.common.task.v1alpha.TaskB\x04\xe2\x41\x01\x02R\x04task\x12H\n\x0ctask_outputs\x18\x02 \x03(\x0b\x32\x1f.model.model.v1alpha.TaskOutputB\x04\xe2\x41\x01\x02R\x0btaskOutputs\"\x92\x01\n\x14TestUserModelRequest\x12\x33\n\x04name\x18\x01 \x01(\tB\x1f\xe2\x41\x01\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\x12\x45\n\x0btask_inputs\x18\x02 \x03(\x0b\x32\x1e.model.model.v1alpha.TaskInputB\x04\xe2\x41\x01\x02R\ntaskInputs\"\x96\x01\n\x15TestUserModelResponse\x12\x33\n\x04task\x18\x01 \x01(\x0e\x32\x19.common.task.v1alpha.TaskB\x04\xe2\x41\x01\x02R\x04task\x12H\n\x0ctask_outputs\x18\x02 \x03(\x0b\x32\x1f.model.model.v1alpha.TaskOutputB\x04\xe2\x41\x01\x02R\x0btaskOutputs\"\xa6\x01\n$TestUserModelBinaryFileUploadRequest\x12\x33\n\x04name\x18\x01 \x01(\tB\x1f\xe2\x41\x01\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\x12I\n\ntask_input\x18\x02 \x01(\x0b\x32$.model.model.v1alpha.TaskInputStreamB\x04\xe2\x41\x01\x02R\ttaskInput\"\xa6\x01\n%TestUserModelBinaryFileUploadResponse\x12\x33\n\x04task\x18\x01 \x01(\x0e\x32\x19.common.task.v1alpha.TaskB\x04\xe2\x41\x01\x02R\x04task\x12H\n\x0ctask_outputs\x18\x02 \x03(\x0b\x32\x1f.model.model.v1alpha.TaskOutputB\x04\xe2\x41\x01\x02R\x0btaskOutputs\"w\n\x18GetModelOperationRequest\x12\x18\n\x04name\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x04name\x12\x38\n\x04view\x18\x02 \x01(\x0e\x32\x19.model.model.v1alpha.ViewB\x04\xe2\x41\x01\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"X\n\x19GetModelOperationResponse\x12;\n\toperation\x18\x01 \x01(\x0b\x32\x1d.google.longrunning.OperationR\toperation\"\x89\x02\n\x16ListModelsAdminRequest\x12&\n\tpage_size\x18\x01 \x01(\x05\x42\x04\xe2\x41\x01\x01H\x00R\x08pageSize\x88\x01\x01\x12(\n\npage_token\x18\x02 \x01(\tB\x04\xe2\x41\x01\x01H\x01R\tpageToken\x88\x01\x01\x12\x38\n\x04view\x18\x03 \x01(\x0e\x32\x19.model.model.v1alpha.ViewB\x04\xe2\x41\x01\x01H\x02R\x04view\x88\x01\x01\x12,\n\x0cshow_deleted\x18\x04 \x01(\x08\x42\x04\xe2\x41\x01\x01H\x03R\x0bshowDeleted\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\x07\n\x05_viewB\x0f\n\r_show_deleted\"\x94\x01\n\x17ListModelsAdminResponse\x12\x32\n\x06models\x18\x01 \x03(\x0b\x32\x1a.model.model.v1alpha.ModelR\x06models\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x05R\ttotalSize\"\x80\x01\n\x17LookUpModelAdminRequest\x12\"\n\tpermalink\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\tpermalink\x12\x38\n\x04view\x18\x02 \x01(\x0e\x32\x19.model.model.v1alpha.ViewB\x04\xe2\x41\x01\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"L\n\x18LookUpModelAdminResponse\x12\x30\n\x05model\x18\x01 \x01(\x0b\x32\x1a.model.model.v1alpha.ModelR\x05model\"G\n\x16\x43heckModelAdminRequest\x12-\n\x0fmodel_permalink\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x0emodelPermalink\"Q\n\x17\x43heckModelAdminResponse\x12\x36\n\x05state\x18\x01 \x01(\x0e\x32 .model.model.v1alpha.Model.StateR\x05state\"H\n\x17\x44\x65ployModelAdminRequest\x12-\n\x0fmodel_permalink\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x0emodelPermalink\"W\n\x18\x44\x65ployModelAdminResponse\x12;\n\toperation\x18\x01 \x01(\x0b\x32\x1d.google.longrunning.OperationR\toperation\"J\n\x19UndeployModelAdminRequest\x12-\n\x0fmodel_permalink\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x0emodelPermalink\"Y\n\x1aUndeployModelAdminResponse\x12;\n\toperation\x18\x01 \x01(\x0b\x32\x1d.google.longrunning.OperationR\toperationB\xd7\x01\n\x17\x63om.model.model.v1alphaB\nModelProtoP\x01ZBgithub.com/instill-ai/protogen-go/model/model/v1alpha;modelv1alpha\xa2\x02\x03MMX\xaa\x02\x13Model.Model.V1alpha\xca\x02\x13Model\\Model\\V1alpha\xe2\x02\x1fModel\\Model\\V1alpha\\GPBMetadata\xea\x02\x15Model::Model::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1fmodel/model/v1alpha/model.proto\x12\x13model.model.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a+common/healthcheck/v1beta/healthcheck.proto\x1a\x1e\x63ommon/task/v1alpha/task.proto\x1a*model/model/v1alpha/model_definition.proto\x1a-model/model/v1alpha/task_classification.proto\x1a(model/model/v1alpha/task_detection.proto\x1a-model/model/v1alpha/task_image_to_image.proto\x1a\x34model/model/v1alpha/task_instance_segmentation.proto\x1a\'model/model/v1alpha/task_keypoint.proto\x1a\"model/model/v1alpha/task_ocr.proto\x1a\x34model/model/v1alpha/task_semantic_segmentation.proto\x1a.model/model/v1alpha/task_text_generation.proto\x1a\x33model/model/v1alpha/task_text_generation_chat.proto\x1a,model/model/v1alpha/task_text_to_image.proto\x1a*model/model/v1alpha/task_unspecified.proto\x1a\x38model/model/v1alpha/task_visual_question_answering.proto\"\x96\x01\n\x0fLivenessRequest\x12j\n\x14health_check_request\x18\x01 \x01(\x0b\x32-.common.healthcheck.v1beta.HealthCheckRequestB\x04\xe2\x41\x01\x01H\x00R\x12healthCheckRequest\x88\x01\x01\x42\x17\n\x15_health_check_request\"v\n\x10LivenessResponse\x12\x62\n\x15health_check_response\x18\x01 \x01(\x0b\x32..common.healthcheck.v1beta.HealthCheckResponseR\x13healthCheckResponse\"\x97\x01\n\x10ReadinessRequest\x12j\n\x14health_check_request\x18\x01 \x01(\x0b\x32-.common.healthcheck.v1beta.HealthCheckRequestB\x04\xe2\x41\x01\x01H\x00R\x12healthCheckRequest\x88\x01\x01\x42\x17\n\x15_health_check_request\"w\n\x11ReadinessResponse\x12\x62\n\x15health_check_response\x18\x01 \x01(\x0b\x32..common.healthcheck.v1beta.HealthCheckResponseR\x13healthCheckResponse\"\xa0\x08\n\x05Model\x12+\n\x04name\x18\x01 \x01(\tB\x17\x92\x41\x10\xca>\r\xfa\x02\nmodel_name\xe2\x41\x01\x03R\x04name\x12\x16\n\x03uid\x18\x02 \x01(\tB\x04\xe2\x41\x01\x03R\x03uid\x12\x14\n\x02id\x18\x03 \x01(\tB\x04\xe2\x41\x01\x05R\x02id\x12+\n\x0b\x64\x65scription\x18\x04 \x01(\tB\x04\xe2\x41\x01\x01H\x00R\x0b\x64\x65scription\x88\x01\x01\x12T\n\x10model_definition\x18\x05 \x01(\tB)\xe2\x41\x01\x05\xfa\x41\"\n api.instill.tech/ModelDefinitionR\x0fmodelDefinition\x12\x43\n\rconfiguration\x18\x06 \x01(\x0b\x32\x17.google.protobuf.StructB\x04\xe2\x41\x01\x05R\rconfiguration\x12\x33\n\x04task\x18\x07 \x01(\x0e\x32\x19.common.task.v1alpha.TaskB\x04\xe2\x41\x01\x03R\x04task\x12<\n\x05state\x18\x08 \x01(\x0e\x32 .model.model.v1alpha.Model.StateB\x04\xe2\x41\x01\x03R\x05state\x12K\n\nvisibility\x18\t \x01(\x0e\x32%.model.model.v1alpha.Model.VisibilityB\x04\xe2\x41\x01\x03R\nvisibility\x12\x41\n\x0b\x63reate_time\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x04\xe2\x41\x01\x03R\ncreateTime\x12\x41\n\x0bupdate_time\x18\r \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x04\xe2\x41\x01\x03R\nupdateTime\x12\x41\n\x0b\x64\x65lete_time\x18\x0e \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x04\xe2\x41\x01\x03R\ndeleteTime\x12#\n\nowner_name\x18\x0f \x01(\tB\x04\xe2\x41\x01\x03R\townerName\x12\x33\n\x05owner\x18\x10 \x01(\x0b\x32\x17.google.protobuf.StructB\x04\xe2\x41\x01\x03R\x05owner\"W\n\nVisibility\x12\x1a\n\x16VISIBILITY_UNSPECIFIED\x10\x00\x12\x16\n\x12VISIBILITY_PRIVATE\x10\x01\x12\x15\n\x11VISIBILITY_PUBLIC\x10\x02\"T\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x11\n\rSTATE_OFFLINE\x10\x01\x12\x10\n\x0cSTATE_ONLINE\x10\x02\x12\x0f\n\x0bSTATE_ERROR\x10\x03:R\xea\x41O\n\x16\x61pi.instill.tech/Model\x12!users/{user.id}/models/{model.id}\x12\x12models/{model.uid}B\x0e\n\x0c_description\"\xe6\x01\n\tModelCard\x12\x18\n\x04name\x18\x01 \x01(\tB\x04\xe2\x41\x01\x03R\x04name\x12\x18\n\x04size\x18\x02 \x01(\x05\x42\x04\xe2\x41\x01\x03R\x04size\x12\x18\n\x04type\x18\x03 \x01(\tB\x04\xe2\x41\x01\x03R\x04type\x12\x1e\n\x07\x63ontent\x18\x04 \x01(\x0c\x42\x04\xe2\x41\x01\x03R\x07\x63ontent\x12 \n\x08\x65ncoding\x18\x05 \x01(\tB\x04\xe2\x41\x01\x03R\x08\x65ncoding:I\xea\x41\x46\n\x1a\x61pi.instill.tech/ModelCard\x12(users/{user.id}/models/{model.id}/readme\"\x84\x02\n\x11ListModelsRequest\x12&\n\tpage_size\x18\x01 \x01(\x05\x42\x04\xe2\x41\x01\x01H\x00R\x08pageSize\x88\x01\x01\x12(\n\npage_token\x18\x02 \x01(\tB\x04\xe2\x41\x01\x01H\x01R\tpageToken\x88\x01\x01\x12\x38\n\x04view\x18\x03 \x01(\x0e\x32\x19.model.model.v1alpha.ViewB\x04\xe2\x41\x01\x01H\x02R\x04view\x88\x01\x01\x12,\n\x0cshow_deleted\x18\x04 \x01(\x08\x42\x04\xe2\x41\x01\x01H\x03R\x0bshowDeleted\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\x07\n\x05_viewB\x0f\n\r_show_deleted\"\x8f\x01\n\x12ListModelsResponse\x12\x32\n\x06models\x18\x01 \x03(\x0b\x32\x1a.model.model.v1alpha.ModelR\x06models\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x05R\ttotalSize\"{\n\x12LookUpModelRequest\x12\"\n\tpermalink\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\tpermalink\x12\x38\n\x04view\x18\x02 \x01(\x0e\x32\x19.model.model.v1alpha.ViewB\x04\xe2\x41\x01\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"G\n\x13LookUpModelResponse\x12\x30\n\x05model\x18\x01 \x01(\x0b\x32\x1a.model.model.v1alpha.ModelR\x05model\"\x95\x01\n\x16\x43reateUserModelRequest\x12\x30\n\x05model\x18\x01 \x01(\x0b\x32\x1a.model.model.v1alpha.ModelR\x05model\x12I\n\x06parent\x18\x02 \x01(\tB1\x92\x41\x0f\xca>\x0c\xfa\x02\tuser_name\xe2\x41\x01\x02\xfa\x41\x18\x12\x16\x61pi.instill.tech/ModelR\x06parent\"\\\n\x17\x43reateUserModelResponse\x12\x41\n\toperation\x18\x01 \x01(\x0b\x32\x1d.google.longrunning.OperationB\x04\xe2\x41\x01\x03R\toperation\"\xcb\x01\n&CreateUserModelBinaryFileUploadRequest\x12\x36\n\x05model\x18\x01 \x01(\x0b\x32\x1a.model.model.v1alpha.ModelB\x04\xe2\x41\x01\x02R\x05model\x12\x1e\n\x07\x63ontent\x18\x02 \x01(\x0c\x42\x04\xe2\x41\x01\x02R\x07\x63ontent\x12I\n\x06parent\x18\x03 \x01(\tB1\x92\x41\x0f\xca>\x0c\xfa\x02\tuser_name\xe2\x41\x01\x02\xfa\x41\x18\x12\x16\x61pi.instill.tech/ModelR\x06parent\"l\n\'CreateUserModelBinaryFileUploadResponse\x12\x41\n\toperation\x18\x01 \x01(\x0b\x32\x1d.google.longrunning.OperationB\x04\xe2\x41\x01\x03R\toperation\"\xd3\x02\n\x15ListUserModelsRequest\x12&\n\tpage_size\x18\x01 \x01(\x05\x42\x04\xe2\x41\x01\x01H\x00R\x08pageSize\x88\x01\x01\x12(\n\npage_token\x18\x02 \x01(\tB\x04\xe2\x41\x01\x01H\x01R\tpageToken\x88\x01\x01\x12\x38\n\x04view\x18\x03 \x01(\x0e\x32\x19.model.model.v1alpha.ViewB\x04\xe2\x41\x01\x01H\x02R\x04view\x88\x01\x01\x12I\n\x06parent\x18\x04 \x01(\tB1\x92\x41\x0f\xca>\x0c\xfa\x02\tuser_name\xe2\x41\x01\x02\xfa\x41\x18\x12\x16\x61pi.instill.tech/ModelR\x06parent\x12,\n\x0cshow_deleted\x18\x05 \x01(\x08\x42\x04\xe2\x41\x01\x01H\x03R\x0bshowDeleted\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\x07\n\x05_viewB\x0f\n\r_show_deleted\"\x93\x01\n\x16ListUserModelsResponse\x12\x32\n\x06models\x18\x01 \x03(\x0b\x32\x1a.model.model.v1alpha.ModelR\x06models\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x05R\ttotalSize\"\xa5\x01\n\x13GetUserModelRequest\x12K\n\x04name\x18\x01 \x01(\tB7\x92\x41\x15\xca>\x12\xfa\x02\x0fuser_model_name\xe2\x41\x01\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\x12\x38\n\x04view\x18\x02 \x01(\x0e\x32\x19.model.model.v1alpha.ViewB\x04\xe2\x41\x01\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"H\n\x14GetUserModelResponse\x12\x30\n\x05model\x18\x01 \x01(\x0b\x32\x1a.model.model.v1alpha.ModelR\x05model\"\x93\x01\n\x16UpdateUserModelRequest\x12\x36\n\x05model\x18\x01 \x01(\x0b\x32\x1a.model.model.v1alpha.ModelB\x04\xe2\x41\x01\x02R\x05model\x12\x41\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x04\xe2\x41\x01\x02R\nupdateMask\"K\n\x17UpdateUserModelResponse\x12\x30\n\x05model\x18\x01 \x01(\x0b\x32\x1a.model.model.v1alpha.ModelR\x05model\"e\n\x16\x44\x65leteUserModelRequest\x12K\n\x04name\x18\x01 \x01(\tB7\x92\x41\x15\xca>\x12\xfa\x02\x0fuser_model_name\xe2\x41\x01\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\"\x19\n\x17\x44\x65leteUserModelResponse\"\x8d\x01\n\x16RenameUserModelRequest\x12K\n\x04name\x18\x01 \x01(\tB7\x92\x41\x15\xca>\x12\xfa\x02\x0fuser_model_name\xe2\x41\x01\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\x12&\n\x0cnew_model_id\x18\x02 \x01(\tB\x04\xe2\x41\x01\x02R\nnewModelId\"K\n\x17RenameUserModelResponse\x12\x30\n\x05model\x18\x01 \x01(\x0b\x32\x1a.model.model.v1alpha.ModelR\x05model\"f\n\x17PublishUserModelRequest\x12K\n\x04name\x18\x01 \x01(\tB7\x92\x41\x15\xca>\x12\xfa\x02\x0fuser_model_name\xe2\x41\x01\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\"L\n\x18PublishUserModelResponse\x12\x30\n\x05model\x18\x01 \x01(\x0b\x32\x1a.model.model.v1alpha.ModelR\x05model\"h\n\x19UnpublishUserModelRequest\x12K\n\x04name\x18\x01 \x01(\tB7\x92\x41\x15\xca>\x12\xfa\x02\x0fuser_model_name\xe2\x41\x01\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\"N\n\x1aUnpublishUserModelResponse\x12\x30\n\x05model\x18\x01 \x01(\x0b\x32\x1a.model.model.v1alpha.ModelR\x05model\"e\n\x16\x44\x65ployUserModelRequest\x12K\n\x04name\x18\x01 \x01(\tB7\x92\x41\x15\xca>\x12\xfa\x02\x0fuser_model_name\xe2\x41\x01\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\"4\n\x17\x44\x65ployUserModelResponse\x12\x19\n\x08model_id\x18\x01 \x01(\tR\x07modelId\"g\n\x18UndeployUserModelRequest\x12K\n\x04name\x18\x01 \x01(\tB7\x92\x41\x15\xca>\x12\xfa\x02\x0fuser_model_name\xe2\x41\x01\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\"6\n\x19UndeployUserModelResponse\x12\x19\n\x08model_id\x18\x01 \x01(\tR\x07modelId\"o\n\x17GetUserModelCardRequest\x12T\n\x04name\x18\x01 \x01(\tB@\x92\x41\x1a\xca>\x17\xfa\x02\x14user_model_card_name\xe2\x41\x01\x02\xfa\x41\x1c\n\x1a\x61pi.instill.tech/ModelCardR\x04name\"R\n\x18GetUserModelCardResponse\x12\x36\n\x06readme\x18\x01 \x01(\x0b\x32\x1e.model.model.v1alpha.ModelCardR\x06readme\"d\n\x15WatchUserModelRequest\x12K\n\x04name\x18\x01 \x01(\tB7\x92\x41\x15\xca>\x12\xfa\x02\x0fuser_model_name\xe2\x41\x01\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\"l\n\x16WatchUserModelResponse\x12\x36\n\x05state\x18\x01 \x01(\x0e\x32 .model.model.v1alpha.Model.StateR\x05state\x12\x1a\n\x08progress\x18\x02 \x01(\x05R\x08progress\"\x80\x08\n\tTaskInput\x12R\n\x0e\x63lassification\x18\x01 \x01(\x0b\x32(.model.model.v1alpha.ClassificationInputH\x00R\x0e\x63lassification\x12\x43\n\tdetection\x18\x02 \x01(\x0b\x32#.model.model.v1alpha.DetectionInputH\x00R\tdetection\x12@\n\x08keypoint\x18\x03 \x01(\x0b\x32\".model.model.v1alpha.KeypointInputH\x00R\x08keypoint\x12\x31\n\x03ocr\x18\x04 \x01(\x0b\x32\x1d.model.model.v1alpha.OcrInputH\x00R\x03ocr\x12\x65\n\x15instance_segmentation\x18\x05 \x01(\x0b\x32..model.model.v1alpha.InstanceSegmentationInputH\x00R\x14instanceSegmentation\x12\x65\n\x15semantic_segmentation\x18\x06 \x01(\x0b\x32..model.model.v1alpha.SemanticSegmentationInputH\x00R\x14semanticSegmentation\x12K\n\rtext_to_image\x18\x07 \x01(\x0b\x32%.model.model.v1alpha.TextToImageInputH\x00R\x0btextToImage\x12N\n\x0eimage_to_image\x18\x08 \x01(\x0b\x32&.model.model.v1alpha.ImageToImageInputH\x00R\x0cimageToImage\x12S\n\x0ftext_generation\x18\t \x01(\x0b\x32(.model.model.v1alpha.TextGenerationInputH\x00R\x0etextGeneration\x12`\n\x14text_generation_chat\x18\n \x01(\x0b\x32,.model.model.v1alpha.TextGenerationChatInputH\x00R\x12textGenerationChat\x12o\n\x19visual_question_answering\x18\x0b \x01(\x0b\x32\x31.model.model.v1alpha.VisualQuestionAnsweringInputH\x00R\x17visualQuestionAnswering\x12I\n\x0bunspecified\x18\x0c \x01(\x0b\x32%.model.model.v1alpha.UnspecifiedInputH\x00R\x0bunspecifiedB\x07\n\x05input\"\xaa\x08\n\x0fTaskInputStream\x12X\n\x0e\x63lassification\x18\x01 \x01(\x0b\x32..model.model.v1alpha.ClassificationInputStreamH\x00R\x0e\x63lassification\x12I\n\tdetection\x18\x02 \x01(\x0b\x32).model.model.v1alpha.DetectionInputStreamH\x00R\tdetection\x12\x46\n\x08keypoint\x18\x03 \x01(\x0b\x32(.model.model.v1alpha.KeypointInputStreamH\x00R\x08keypoint\x12\x37\n\x03ocr\x18\x04 \x01(\x0b\x32#.model.model.v1alpha.OcrInputStreamH\x00R\x03ocr\x12k\n\x15instance_segmentation\x18\x05 \x01(\x0b\x32\x34.model.model.v1alpha.InstanceSegmentationInputStreamH\x00R\x14instanceSegmentation\x12k\n\x15semantic_segmentation\x18\x06 \x01(\x0b\x32\x34.model.model.v1alpha.SemanticSegmentationInputStreamH\x00R\x14semanticSegmentation\x12K\n\rtext_to_image\x18\x07 \x01(\x0b\x32%.model.model.v1alpha.TextToImageInputH\x00R\x0btextToImage\x12N\n\x0eimage_to_image\x18\x08 \x01(\x0b\x32&.model.model.v1alpha.ImageToImageInputH\x00R\x0cimageToImage\x12S\n\x0ftext_generation\x18\t \x01(\x0b\x32(.model.model.v1alpha.TextGenerationInputH\x00R\x0etextGeneration\x12`\n\x14text_generation_chat\x18\n \x01(\x0b\x32,.model.model.v1alpha.TextGenerationChatInputH\x00R\x12textGenerationChat\x12o\n\x19visual_question_answering\x18\x0b \x01(\x0b\x32\x31.model.model.v1alpha.VisualQuestionAnsweringInputH\x00R\x17visualQuestionAnswering\x12I\n\x0bunspecified\x18\x0c \x01(\x0b\x32%.model.model.v1alpha.UnspecifiedInputH\x00R\x0bunspecifiedB\x07\n\x05input\"\xd6\x08\n\nTaskOutput\x12Y\n\x0e\x63lassification\x18\x01 \x01(\x0b\x32).model.model.v1alpha.ClassificationOutputB\x04\xe2\x41\x01\x03H\x00R\x0e\x63lassification\x12J\n\tdetection\x18\x02 \x01(\x0b\x32$.model.model.v1alpha.DetectionOutputB\x04\xe2\x41\x01\x03H\x00R\tdetection\x12G\n\x08keypoint\x18\x03 \x01(\x0b\x32#.model.model.v1alpha.KeypointOutputB\x04\xe2\x41\x01\x03H\x00R\x08keypoint\x12\x38\n\x03ocr\x18\x04 \x01(\x0b\x32\x1e.model.model.v1alpha.OcrOutputB\x04\xe2\x41\x01\x03H\x00R\x03ocr\x12l\n\x15instance_segmentation\x18\x05 \x01(\x0b\x32/.model.model.v1alpha.InstanceSegmentationOutputB\x04\xe2\x41\x01\x03H\x00R\x14instanceSegmentation\x12l\n\x15semantic_segmentation\x18\x06 \x01(\x0b\x32/.model.model.v1alpha.SemanticSegmentationOutputB\x04\xe2\x41\x01\x03H\x00R\x14semanticSegmentation\x12R\n\rtext_to_image\x18\x07 \x01(\x0b\x32&.model.model.v1alpha.TextToImageOutputB\x04\xe2\x41\x01\x03H\x00R\x0btextToImage\x12U\n\x0eimage_to_image\x18\x08 \x01(\x0b\x32\'.model.model.v1alpha.ImageToImageOutputB\x04\xe2\x41\x01\x03H\x00R\x0cimageToImage\x12Z\n\x0ftext_generation\x18\t \x01(\x0b\x32).model.model.v1alpha.TextGenerationOutputB\x04\xe2\x41\x01\x03H\x00R\x0etextGeneration\x12g\n\x14text_generation_chat\x18\n \x01(\x0b\x32-.model.model.v1alpha.TextGenerationChatOutputB\x04\xe2\x41\x01\x03H\x00R\x12textGenerationChat\x12v\n\x19visual_question_answering\x18\x0b \x01(\x0b\x32\x32.model.model.v1alpha.VisualQuestionAnsweringOutputB\x04\xe2\x41\x01\x03H\x00R\x17visualQuestionAnswering\x12P\n\x0bunspecified\x18\x0c \x01(\x0b\x32&.model.model.v1alpha.UnspecifiedOutputB\x04\xe2\x41\x01\x03H\x00R\x0bunspecifiedB\x08\n\x06output\"\xad\x01\n\x17TriggerUserModelRequest\x12K\n\x04name\x18\x01 \x01(\tB7\x92\x41\x15\xca>\x12\xfa\x02\x0fuser_model_name\xe2\x41\x01\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\x12\x45\n\x0btask_inputs\x18\x02 \x03(\x0b\x32\x1e.model.model.v1alpha.TaskInputB\x04\xe2\x41\x01\x02R\ntaskInputs\"\x8d\x01\n\x18TriggerUserModelResponse\x12-\n\x04task\x18\x01 \x01(\x0e\x32\x19.common.task.v1alpha.TaskR\x04task\x12\x42\n\x0ctask_outputs\x18\x02 \x03(\x0b\x32\x1f.model.model.v1alpha.TaskOutputR\x0btaskOutputs\"\xc1\x01\n\'TriggerUserModelBinaryFileUploadRequest\x12K\n\x04name\x18\x01 \x01(\tB7\x92\x41\x15\xca>\x12\xfa\x02\x0fuser_model_name\xe2\x41\x01\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\x12I\n\ntask_input\x18\x02 \x01(\x0b\x32$.model.model.v1alpha.TaskInputStreamB\x04\xe2\x41\x01\x02R\ttaskInput\"\xa9\x01\n(TriggerUserModelBinaryFileUploadResponse\x12\x33\n\x04task\x18\x01 \x01(\x0e\x32\x19.common.task.v1alpha.TaskB\x04\xe2\x41\x01\x02R\x04task\x12H\n\x0ctask_outputs\x18\x02 \x03(\x0b\x32\x1f.model.model.v1alpha.TaskOutputB\x04\xe2\x41\x01\x02R\x0btaskOutputs\"\xaa\x01\n\x14TestUserModelRequest\x12K\n\x04name\x18\x01 \x01(\tB7\x92\x41\x15\xca>\x12\xfa\x02\x0fuser_model_name\xe2\x41\x01\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\x12\x45\n\x0btask_inputs\x18\x02 \x03(\x0b\x32\x1e.model.model.v1alpha.TaskInputB\x04\xe2\x41\x01\x02R\ntaskInputs\"\x96\x01\n\x15TestUserModelResponse\x12\x33\n\x04task\x18\x01 \x01(\x0e\x32\x19.common.task.v1alpha.TaskB\x04\xe2\x41\x01\x02R\x04task\x12H\n\x0ctask_outputs\x18\x02 \x03(\x0b\x32\x1f.model.model.v1alpha.TaskOutputB\x04\xe2\x41\x01\x02R\x0btaskOutputs\"\xa6\x01\n$TestUserModelBinaryFileUploadRequest\x12\x33\n\x04name\x18\x01 \x01(\tB\x1f\xe2\x41\x01\x02\xfa\x41\x18\n\x16\x61pi.instill.tech/ModelR\x04name\x12I\n\ntask_input\x18\x02 \x01(\x0b\x32$.model.model.v1alpha.TaskInputStreamB\x04\xe2\x41\x01\x02R\ttaskInput\"\xa6\x01\n%TestUserModelBinaryFileUploadResponse\x12\x33\n\x04task\x18\x01 \x01(\x0e\x32\x19.common.task.v1alpha.TaskB\x04\xe2\x41\x01\x02R\x04task\x12H\n\x0ctask_outputs\x18\x02 \x03(\x0b\x32\x1f.model.model.v1alpha.TaskOutputB\x04\xe2\x41\x01\x02R\x0btaskOutputs\"y\n\x18GetModelOperationRequest\x12\x18\n\x04name\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x04name\x12:\n\x04view\x18\x02 \x01(\x0e\x32\x19.model.model.v1alpha.ViewB\x06\x18\x01\xe2\x41\x01\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"X\n\x19GetModelOperationResponse\x12;\n\toperation\x18\x01 \x01(\x0b\x32\x1d.google.longrunning.OperationR\toperation\"\x89\x02\n\x16ListModelsAdminRequest\x12&\n\tpage_size\x18\x01 \x01(\x05\x42\x04\xe2\x41\x01\x01H\x00R\x08pageSize\x88\x01\x01\x12(\n\npage_token\x18\x02 \x01(\tB\x04\xe2\x41\x01\x01H\x01R\tpageToken\x88\x01\x01\x12\x38\n\x04view\x18\x03 \x01(\x0e\x32\x19.model.model.v1alpha.ViewB\x04\xe2\x41\x01\x01H\x02R\x04view\x88\x01\x01\x12,\n\x0cshow_deleted\x18\x04 \x01(\x08\x42\x04\xe2\x41\x01\x01H\x03R\x0bshowDeleted\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\x07\n\x05_viewB\x0f\n\r_show_deleted\"\x94\x01\n\x17ListModelsAdminResponse\x12\x32\n\x06models\x18\x01 \x03(\x0b\x32\x1a.model.model.v1alpha.ModelR\x06models\x12&\n\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1d\n\ntotal_size\x18\x03 \x01(\x05R\ttotalSize\"\x80\x01\n\x17LookUpModelAdminRequest\x12\"\n\tpermalink\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\tpermalink\x12\x38\n\x04view\x18\x02 \x01(\x0e\x32\x19.model.model.v1alpha.ViewB\x04\xe2\x41\x01\x01H\x00R\x04view\x88\x01\x01\x42\x07\n\x05_view\"L\n\x18LookUpModelAdminResponse\x12\x30\n\x05model\x18\x01 \x01(\x0b\x32\x1a.model.model.v1alpha.ModelR\x05model\"G\n\x16\x43heckModelAdminRequest\x12-\n\x0fmodel_permalink\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x0emodelPermalink\"Q\n\x17\x43heckModelAdminResponse\x12\x36\n\x05state\x18\x01 \x01(\x0e\x32 .model.model.v1alpha.Model.StateR\x05state\"H\n\x17\x44\x65ployModelAdminRequest\x12-\n\x0fmodel_permalink\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x0emodelPermalink\"W\n\x18\x44\x65ployModelAdminResponse\x12;\n\toperation\x18\x01 \x01(\x0b\x32\x1d.google.longrunning.OperationR\toperation\"J\n\x19UndeployModelAdminRequest\x12-\n\x0fmodel_permalink\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x0emodelPermalink\"Y\n\x1aUndeployModelAdminResponse\x12;\n\toperation\x18\x01 \x01(\x0b\x32\x1d.google.longrunning.OperationR\toperationB\xd7\x01\n\x17\x63om.model.model.v1alphaB\nModelProtoP\x01ZBgithub.com/instill-ai/protogen-go/model/model/v1alpha;modelv1alpha\xa2\x02\x03MMX\xaa\x02\x13Model.Model.V1alpha\xca\x02\x13Model\\Model\\V1alpha\xe2\x02\x1fModel\\Model\\V1alpha\\GPBMetadata\xea\x02\x15Model::Model::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -49,7 +49,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _READINESSREQUEST.fields_by_name['health_check_request']._options = None
   _READINESSREQUEST.fields_by_name['health_check_request']._serialized_options = b'\342A\001\001'
   _MODEL.fields_by_name['name']._options = None
-  _MODEL.fields_by_name['name']._serialized_options = b'\342A\001\003'
+  _MODEL.fields_by_name['name']._serialized_options = b'\222A\020\312>\r\372\002\nmodel_name\342A\001\003'
   _MODEL.fields_by_name['uid']._options = None
   _MODEL.fields_by_name['uid']._serialized_options = b'\342A\001\003'
   _MODEL.fields_by_name['id']._options = None
@@ -77,7 +77,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _MODEL.fields_by_name['owner']._options = None
   _MODEL.fields_by_name['owner']._serialized_options = b'\342A\001\003'
   _MODEL._options = None
-  _MODEL._serialized_options = b'\352A5\n\026api.instill.tech/Model\022\033users/{user}/models/{model}'
+  _MODEL._serialized_options = b'\352AO\n\026api.instill.tech/Model\022!users/{user.id}/models/{model.id}\022\022models/{model.uid}'
   _MODELCARD.fields_by_name['name']._options = None
   _MODELCARD.fields_by_name['name']._serialized_options = b'\342A\001\003'
   _MODELCARD.fields_by_name['size']._options = None
@@ -89,7 +89,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _MODELCARD.fields_by_name['encoding']._options = None
   _MODELCARD.fields_by_name['encoding']._serialized_options = b'\342A\001\003'
   _MODELCARD._options = None
-  _MODELCARD._serialized_options = b'\352A@\n\032api.instill.tech/ModelCard\022\"users/{user}/models/{model}/readme'
+  _MODELCARD._serialized_options = b'\352AF\n\032api.instill.tech/ModelCard\022(users/{user.id}/models/{model.id}/readme'
   _LISTMODELSREQUEST.fields_by_name['page_size']._options = None
   _LISTMODELSREQUEST.fields_by_name['page_size']._serialized_options = b'\342A\001\001'
   _LISTMODELSREQUEST.fields_by_name['page_token']._options = None
@@ -102,10 +102,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _LOOKUPMODELREQUEST.fields_by_name['permalink']._serialized_options = b'\342A\001\002'
   _LOOKUPMODELREQUEST.fields_by_name['view']._options = None
   _LOOKUPMODELREQUEST.fields_by_name['view']._serialized_options = b'\342A\001\001'
-  _CREATEUSERMODELREQUEST.fields_by_name['model']._options = None
-  _CREATEUSERMODELREQUEST.fields_by_name['model']._serialized_options = b'\342A\001\002'
   _CREATEUSERMODELREQUEST.fields_by_name['parent']._options = None
-  _CREATEUSERMODELREQUEST.fields_by_name['parent']._serialized_options = b'\342A\001\002\372A\030\022\026api.instill.tech/Model'
+  _CREATEUSERMODELREQUEST.fields_by_name['parent']._serialized_options = b'\222A\017\312>\014\372\002\tuser_name\342A\001\002\372A\030\022\026api.instill.tech/Model'
   _CREATEUSERMODELRESPONSE.fields_by_name['operation']._options = None
   _CREATEUSERMODELRESPONSE.fields_by_name['operation']._serialized_options = b'\342A\001\003'
   _CREATEUSERMODELBINARYFILEUPLOADREQUEST.fields_by_name['model']._options = None
@@ -113,7 +111,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _CREATEUSERMODELBINARYFILEUPLOADREQUEST.fields_by_name['content']._options = None
   _CREATEUSERMODELBINARYFILEUPLOADREQUEST.fields_by_name['content']._serialized_options = b'\342A\001\002'
   _CREATEUSERMODELBINARYFILEUPLOADREQUEST.fields_by_name['parent']._options = None
-  _CREATEUSERMODELBINARYFILEUPLOADREQUEST.fields_by_name['parent']._serialized_options = b'\342A\001\002\372A\030\022\026api.instill.tech/Model'
+  _CREATEUSERMODELBINARYFILEUPLOADREQUEST.fields_by_name['parent']._serialized_options = b'\222A\017\312>\014\372\002\tuser_name\342A\001\002\372A\030\022\026api.instill.tech/Model'
   _CREATEUSERMODELBINARYFILEUPLOADRESPONSE.fields_by_name['operation']._options = None
   _CREATEUSERMODELBINARYFILEUPLOADRESPONSE.fields_by_name['operation']._serialized_options = b'\342A\001\003'
   _LISTUSERMODELSREQUEST.fields_by_name['page_size']._options = None
@@ -123,11 +121,11 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _LISTUSERMODELSREQUEST.fields_by_name['view']._options = None
   _LISTUSERMODELSREQUEST.fields_by_name['view']._serialized_options = b'\342A\001\001'
   _LISTUSERMODELSREQUEST.fields_by_name['parent']._options = None
-  _LISTUSERMODELSREQUEST.fields_by_name['parent']._serialized_options = b'\342A\001\002\372A\030\022\026api.instill.tech/Model'
+  _LISTUSERMODELSREQUEST.fields_by_name['parent']._serialized_options = b'\222A\017\312>\014\372\002\tuser_name\342A\001\002\372A\030\022\026api.instill.tech/Model'
   _LISTUSERMODELSREQUEST.fields_by_name['show_deleted']._options = None
   _LISTUSERMODELSREQUEST.fields_by_name['show_deleted']._serialized_options = b'\342A\001\001'
   _GETUSERMODELREQUEST.fields_by_name['name']._options = None
-  _GETUSERMODELREQUEST.fields_by_name['name']._serialized_options = b'\222A\020\312>\r\372\002\nmodel.name\342A\001\002\372A\030\n\026api.instill.tech/Model'
+  _GETUSERMODELREQUEST.fields_by_name['name']._serialized_options = b'\222A\025\312>\022\372\002\017user_model_name\342A\001\002\372A\030\n\026api.instill.tech/Model'
   _GETUSERMODELREQUEST.fields_by_name['view']._options = None
   _GETUSERMODELREQUEST.fields_by_name['view']._serialized_options = b'\342A\001\001'
   _UPDATEUSERMODELREQUEST.fields_by_name['model']._options = None
@@ -135,23 +133,23 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _UPDATEUSERMODELREQUEST.fields_by_name['update_mask']._options = None
   _UPDATEUSERMODELREQUEST.fields_by_name['update_mask']._serialized_options = b'\342A\001\002'
   _DELETEUSERMODELREQUEST.fields_by_name['name']._options = None
-  _DELETEUSERMODELREQUEST.fields_by_name['name']._serialized_options = b'\222A\020\312>\r\372\002\nmodel.name\342A\001\002\372A\030\n\026api.instill.tech/Model'
+  _DELETEUSERMODELREQUEST.fields_by_name['name']._serialized_options = b'\222A\025\312>\022\372\002\017user_model_name\342A\001\002\372A\030\n\026api.instill.tech/Model'
   _RENAMEUSERMODELREQUEST.fields_by_name['name']._options = None
-  _RENAMEUSERMODELREQUEST.fields_by_name['name']._serialized_options = b'\342A\001\002\372A\030\n\026api.instill.tech/Model'
+  _RENAMEUSERMODELREQUEST.fields_by_name['name']._serialized_options = b'\222A\025\312>\022\372\002\017user_model_name\342A\001\002\372A\030\n\026api.instill.tech/Model'
   _RENAMEUSERMODELREQUEST.fields_by_name['new_model_id']._options = None
   _RENAMEUSERMODELREQUEST.fields_by_name['new_model_id']._serialized_options = b'\342A\001\002'
   _PUBLISHUSERMODELREQUEST.fields_by_name['name']._options = None
-  _PUBLISHUSERMODELREQUEST.fields_by_name['name']._serialized_options = b'\342A\001\002\372A\030\n\026api.instill.tech/Model'
+  _PUBLISHUSERMODELREQUEST.fields_by_name['name']._serialized_options = b'\222A\025\312>\022\372\002\017user_model_name\342A\001\002\372A\030\n\026api.instill.tech/Model'
   _UNPUBLISHUSERMODELREQUEST.fields_by_name['name']._options = None
-  _UNPUBLISHUSERMODELREQUEST.fields_by_name['name']._serialized_options = b'\342A\001\002\372A\030\n\026api.instill.tech/Model'
+  _UNPUBLISHUSERMODELREQUEST.fields_by_name['name']._serialized_options = b'\222A\025\312>\022\372\002\017user_model_name\342A\001\002\372A\030\n\026api.instill.tech/Model'
   _DEPLOYUSERMODELREQUEST.fields_by_name['name']._options = None
-  _DEPLOYUSERMODELREQUEST.fields_by_name['name']._serialized_options = b'\342A\001\002\372A\030\n\026api.instill.tech/Model'
+  _DEPLOYUSERMODELREQUEST.fields_by_name['name']._serialized_options = b'\222A\025\312>\022\372\002\017user_model_name\342A\001\002\372A\030\n\026api.instill.tech/Model'
   _UNDEPLOYUSERMODELREQUEST.fields_by_name['name']._options = None
-  _UNDEPLOYUSERMODELREQUEST.fields_by_name['name']._serialized_options = b'\342A\001\002\372A\030\n\026api.instill.tech/Model'
+  _UNDEPLOYUSERMODELREQUEST.fields_by_name['name']._serialized_options = b'\222A\025\312>\022\372\002\017user_model_name\342A\001\002\372A\030\n\026api.instill.tech/Model'
   _GETUSERMODELCARDREQUEST.fields_by_name['name']._options = None
-  _GETUSERMODELCARDREQUEST.fields_by_name['name']._serialized_options = b'\222A\027\312>\024\372\002\021model.name/readme\342A\001\002\372A\034\n\032api.instill.tech/ModelCard'
+  _GETUSERMODELCARDREQUEST.fields_by_name['name']._serialized_options = b'\222A\032\312>\027\372\002\024user_model_card_name\342A\001\002\372A\034\n\032api.instill.tech/ModelCard'
   _WATCHUSERMODELREQUEST.fields_by_name['name']._options = None
-  _WATCHUSERMODELREQUEST.fields_by_name['name']._serialized_options = b'\222A\026\312>\023\372\002\020model.name/watch\342A\001\002\372A\030\n\026api.instill.tech/Model'
+  _WATCHUSERMODELREQUEST.fields_by_name['name']._serialized_options = b'\222A\025\312>\022\372\002\017user_model_name\342A\001\002\372A\030\n\026api.instill.tech/Model'
   _TASKOUTPUT.fields_by_name['classification']._options = None
   _TASKOUTPUT.fields_by_name['classification']._serialized_options = b'\342A\001\003'
   _TASKOUTPUT.fields_by_name['detection']._options = None
@@ -177,11 +175,11 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _TASKOUTPUT.fields_by_name['unspecified']._options = None
   _TASKOUTPUT.fields_by_name['unspecified']._serialized_options = b'\342A\001\003'
   _TRIGGERUSERMODELREQUEST.fields_by_name['name']._options = None
-  _TRIGGERUSERMODELREQUEST.fields_by_name['name']._serialized_options = b'\342A\001\002\372A\030\n\026api.instill.tech/Model'
+  _TRIGGERUSERMODELREQUEST.fields_by_name['name']._serialized_options = b'\222A\025\312>\022\372\002\017user_model_name\342A\001\002\372A\030\n\026api.instill.tech/Model'
   _TRIGGERUSERMODELREQUEST.fields_by_name['task_inputs']._options = None
   _TRIGGERUSERMODELREQUEST.fields_by_name['task_inputs']._serialized_options = b'\342A\001\002'
   _TRIGGERUSERMODELBINARYFILEUPLOADREQUEST.fields_by_name['name']._options = None
-  _TRIGGERUSERMODELBINARYFILEUPLOADREQUEST.fields_by_name['name']._serialized_options = b'\342A\001\002\372A\030\n\026api.instill.tech/Model'
+  _TRIGGERUSERMODELBINARYFILEUPLOADREQUEST.fields_by_name['name']._serialized_options = b'\222A\025\312>\022\372\002\017user_model_name\342A\001\002\372A\030\n\026api.instill.tech/Model'
   _TRIGGERUSERMODELBINARYFILEUPLOADREQUEST.fields_by_name['task_input']._options = None
   _TRIGGERUSERMODELBINARYFILEUPLOADREQUEST.fields_by_name['task_input']._serialized_options = b'\342A\001\002'
   _TRIGGERUSERMODELBINARYFILEUPLOADRESPONSE.fields_by_name['task']._options = None
@@ -189,7 +187,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _TRIGGERUSERMODELBINARYFILEUPLOADRESPONSE.fields_by_name['task_outputs']._options = None
   _TRIGGERUSERMODELBINARYFILEUPLOADRESPONSE.fields_by_name['task_outputs']._serialized_options = b'\342A\001\002'
   _TESTUSERMODELREQUEST.fields_by_name['name']._options = None
-  _TESTUSERMODELREQUEST.fields_by_name['name']._serialized_options = b'\342A\001\002\372A\030\n\026api.instill.tech/Model'
+  _TESTUSERMODELREQUEST.fields_by_name['name']._serialized_options = b'\222A\025\312>\022\372\002\017user_model_name\342A\001\002\372A\030\n\026api.instill.tech/Model'
   _TESTUSERMODELREQUEST.fields_by_name['task_inputs']._options = None
   _TESTUSERMODELREQUEST.fields_by_name['task_inputs']._serialized_options = b'\342A\001\002'
   _TESTUSERMODELRESPONSE.fields_by_name['task']._options = None
@@ -207,7 +205,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _GETMODELOPERATIONREQUEST.fields_by_name['name']._options = None
   _GETMODELOPERATIONREQUEST.fields_by_name['name']._serialized_options = b'\342A\001\002'
   _GETMODELOPERATIONREQUEST.fields_by_name['view']._options = None
-  _GETMODELOPERATIONREQUEST.fields_by_name['view']._serialized_options = b'\342A\001\001'
+  _GETMODELOPERATIONREQUEST.fields_by_name['view']._serialized_options = b'\030\001\342A\001\001'
   _LISTMODELSADMINREQUEST.fields_by_name['page_size']._options = None
   _LISTMODELSADMINREQUEST.fields_by_name['page_size']._serialized_options = b'\342A\001\001'
   _LISTMODELSADMINREQUEST.fields_by_name['page_token']._options = None
@@ -235,117 +233,117 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_READINESSRESPONSE']._serialized_start=1416
   _globals['_READINESSRESPONSE']._serialized_end=1535
   _globals['_MODEL']._serialized_start=1538
-  _globals['_MODEL']._serialized_end=2549
-  _globals['_MODEL_VISIBILITY']._serialized_start=2302
-  _globals['_MODEL_VISIBILITY']._serialized_end=2389
-  _globals['_MODEL_STATE']._serialized_start=2391
-  _globals['_MODEL_STATE']._serialized_end=2475
-  _globals['_MODELCARD']._serialized_start=2552
-  _globals['_MODELCARD']._serialized_end=2776
-  _globals['_LISTMODELSREQUEST']._serialized_start=2779
-  _globals['_LISTMODELSREQUEST']._serialized_end=3039
-  _globals['_LISTMODELSRESPONSE']._serialized_start=3042
-  _globals['_LISTMODELSRESPONSE']._serialized_end=3185
-  _globals['_LOOKUPMODELREQUEST']._serialized_start=3187
-  _globals['_LOOKUPMODELREQUEST']._serialized_end=3310
-  _globals['_LOOKUPMODELRESPONSE']._serialized_start=3312
-  _globals['_LOOKUPMODELRESPONSE']._serialized_end=3383
-  _globals['_CREATEUSERMODELREQUEST']._serialized_start=3386
-  _globals['_CREATEUSERMODELREQUEST']._serialized_end=3523
-  _globals['_CREATEUSERMODELRESPONSE']._serialized_start=3525
-  _globals['_CREATEUSERMODELRESPONSE']._serialized_end=3617
-  _globals['_CREATEUSERMODELBINARYFILEUPLOADREQUEST']._serialized_start=3620
-  _globals['_CREATEUSERMODELBINARYFILEUPLOADREQUEST']._serialized_end=3805
-  _globals['_CREATEUSERMODELBINARYFILEUPLOADRESPONSE']._serialized_start=3807
-  _globals['_CREATEUSERMODELBINARYFILEUPLOADRESPONSE']._serialized_end=3915
-  _globals['_LISTUSERMODELSREQUEST']._serialized_start=3918
-  _globals['_LISTUSERMODELSREQUEST']._serialized_end=4239
-  _globals['_LISTUSERMODELSRESPONSE']._serialized_start=4242
-  _globals['_LISTUSERMODELSRESPONSE']._serialized_end=4389
-  _globals['_GETUSERMODELREQUEST']._serialized_start=4392
-  _globals['_GETUSERMODELREQUEST']._serialized_end=4552
-  _globals['_GETUSERMODELRESPONSE']._serialized_start=4554
-  _globals['_GETUSERMODELRESPONSE']._serialized_end=4626
-  _globals['_UPDATEUSERMODELREQUEST']._serialized_start=4629
-  _globals['_UPDATEUSERMODELREQUEST']._serialized_end=4776
-  _globals['_UPDATEUSERMODELRESPONSE']._serialized_start=4778
-  _globals['_UPDATEUSERMODELRESPONSE']._serialized_end=4853
-  _globals['_DELETEUSERMODELREQUEST']._serialized_start=4855
-  _globals['_DELETEUSERMODELREQUEST']._serialized_end=4951
-  _globals['_DELETEUSERMODELRESPONSE']._serialized_start=4953
-  _globals['_DELETEUSERMODELRESPONSE']._serialized_end=4978
-  _globals['_RENAMEUSERMODELREQUEST']._serialized_start=4980
-  _globals['_RENAMEUSERMODELREQUEST']._serialized_end=5097
-  _globals['_RENAMEUSERMODELRESPONSE']._serialized_start=5099
-  _globals['_RENAMEUSERMODELRESPONSE']._serialized_end=5174
-  _globals['_PUBLISHUSERMODELREQUEST']._serialized_start=5176
-  _globals['_PUBLISHUSERMODELREQUEST']._serialized_end=5254
-  _globals['_PUBLISHUSERMODELRESPONSE']._serialized_start=5256
-  _globals['_PUBLISHUSERMODELRESPONSE']._serialized_end=5332
-  _globals['_UNPUBLISHUSERMODELREQUEST']._serialized_start=5334
-  _globals['_UNPUBLISHUSERMODELREQUEST']._serialized_end=5414
-  _globals['_UNPUBLISHUSERMODELRESPONSE']._serialized_start=5416
-  _globals['_UNPUBLISHUSERMODELRESPONSE']._serialized_end=5494
-  _globals['_DEPLOYUSERMODELREQUEST']._serialized_start=5496
-  _globals['_DEPLOYUSERMODELREQUEST']._serialized_end=5573
-  _globals['_DEPLOYUSERMODELRESPONSE']._serialized_start=5575
-  _globals['_DEPLOYUSERMODELRESPONSE']._serialized_end=5627
-  _globals['_UNDEPLOYUSERMODELREQUEST']._serialized_start=5629
-  _globals['_UNDEPLOYUSERMODELREQUEST']._serialized_end=5708
-  _globals['_UNDEPLOYUSERMODELRESPONSE']._serialized_start=5710
-  _globals['_UNDEPLOYUSERMODELRESPONSE']._serialized_end=5764
-  _globals['_GETUSERMODELCARDREQUEST']._serialized_start=5766
-  _globals['_GETUSERMODELCARDREQUEST']._serialized_end=5874
-  _globals['_GETUSERMODELCARDRESPONSE']._serialized_start=5876
-  _globals['_GETUSERMODELCARDRESPONSE']._serialized_end=5958
-  _globals['_WATCHUSERMODELREQUEST']._serialized_start=5960
-  _globals['_WATCHUSERMODELREQUEST']._serialized_end=6061
-  _globals['_WATCHUSERMODELRESPONSE']._serialized_start=6063
-  _globals['_WATCHUSERMODELRESPONSE']._serialized_end=6171
-  _globals['_TASKINPUT']._serialized_start=6174
-  _globals['_TASKINPUT']._serialized_end=7198
-  _globals['_TASKINPUTSTREAM']._serialized_start=7201
-  _globals['_TASKINPUTSTREAM']._serialized_end=8267
-  _globals['_TASKOUTPUT']._serialized_start=8270
-  _globals['_TASKOUTPUT']._serialized_end=9380
-  _globals['_TRIGGERUSERMODELREQUEST']._serialized_start=9383
-  _globals['_TRIGGERUSERMODELREQUEST']._serialized_end=9532
-  _globals['_TRIGGERUSERMODELRESPONSE']._serialized_start=9535
-  _globals['_TRIGGERUSERMODELRESPONSE']._serialized_end=9676
-  _globals['_TRIGGERUSERMODELBINARYFILEUPLOADREQUEST']._serialized_start=9679
-  _globals['_TRIGGERUSERMODELBINARYFILEUPLOADREQUEST']._serialized_end=9848
-  _globals['_TRIGGERUSERMODELBINARYFILEUPLOADRESPONSE']._serialized_start=9851
-  _globals['_TRIGGERUSERMODELBINARYFILEUPLOADRESPONSE']._serialized_end=10020
-  _globals['_TESTUSERMODELREQUEST']._serialized_start=10023
-  _globals['_TESTUSERMODELREQUEST']._serialized_end=10169
-  _globals['_TESTUSERMODELRESPONSE']._serialized_start=10172
-  _globals['_TESTUSERMODELRESPONSE']._serialized_end=10322
-  _globals['_TESTUSERMODELBINARYFILEUPLOADREQUEST']._serialized_start=10325
-  _globals['_TESTUSERMODELBINARYFILEUPLOADREQUEST']._serialized_end=10491
-  _globals['_TESTUSERMODELBINARYFILEUPLOADRESPONSE']._serialized_start=10494
-  _globals['_TESTUSERMODELBINARYFILEUPLOADRESPONSE']._serialized_end=10660
-  _globals['_GETMODELOPERATIONREQUEST']._serialized_start=10662
-  _globals['_GETMODELOPERATIONREQUEST']._serialized_end=10781
-  _globals['_GETMODELOPERATIONRESPONSE']._serialized_start=10783
-  _globals['_GETMODELOPERATIONRESPONSE']._serialized_end=10871
-  _globals['_LISTMODELSADMINREQUEST']._serialized_start=10874
-  _globals['_LISTMODELSADMINREQUEST']._serialized_end=11139
-  _globals['_LISTMODELSADMINRESPONSE']._serialized_start=11142
-  _globals['_LISTMODELSADMINRESPONSE']._serialized_end=11290
-  _globals['_LOOKUPMODELADMINREQUEST']._serialized_start=11293
-  _globals['_LOOKUPMODELADMINREQUEST']._serialized_end=11421
-  _globals['_LOOKUPMODELADMINRESPONSE']._serialized_start=11423
-  _globals['_LOOKUPMODELADMINRESPONSE']._serialized_end=11499
-  _globals['_CHECKMODELADMINREQUEST']._serialized_start=11501
-  _globals['_CHECKMODELADMINREQUEST']._serialized_end=11572
-  _globals['_CHECKMODELADMINRESPONSE']._serialized_start=11574
-  _globals['_CHECKMODELADMINRESPONSE']._serialized_end=11655
-  _globals['_DEPLOYMODELADMINREQUEST']._serialized_start=11657
-  _globals['_DEPLOYMODELADMINREQUEST']._serialized_end=11729
-  _globals['_DEPLOYMODELADMINRESPONSE']._serialized_start=11731
-  _globals['_DEPLOYMODELADMINRESPONSE']._serialized_end=11818
-  _globals['_UNDEPLOYMODELADMINREQUEST']._serialized_start=11820
-  _globals['_UNDEPLOYMODELADMINREQUEST']._serialized_end=11894
-  _globals['_UNDEPLOYMODELADMINRESPONSE']._serialized_start=11896
-  _globals['_UNDEPLOYMODELADMINRESPONSE']._serialized_end=11985
+  _globals['_MODEL']._serialized_end=2594
+  _globals['_MODEL_VISIBILITY']._serialized_start=2321
+  _globals['_MODEL_VISIBILITY']._serialized_end=2408
+  _globals['_MODEL_STATE']._serialized_start=2410
+  _globals['_MODEL_STATE']._serialized_end=2494
+  _globals['_MODELCARD']._serialized_start=2597
+  _globals['_MODELCARD']._serialized_end=2827
+  _globals['_LISTMODELSREQUEST']._serialized_start=2830
+  _globals['_LISTMODELSREQUEST']._serialized_end=3090
+  _globals['_LISTMODELSRESPONSE']._serialized_start=3093
+  _globals['_LISTMODELSRESPONSE']._serialized_end=3236
+  _globals['_LOOKUPMODELREQUEST']._serialized_start=3238
+  _globals['_LOOKUPMODELREQUEST']._serialized_end=3361
+  _globals['_LOOKUPMODELRESPONSE']._serialized_start=3363
+  _globals['_LOOKUPMODELRESPONSE']._serialized_end=3434
+  _globals['_CREATEUSERMODELREQUEST']._serialized_start=3437
+  _globals['_CREATEUSERMODELREQUEST']._serialized_end=3586
+  _globals['_CREATEUSERMODELRESPONSE']._serialized_start=3588
+  _globals['_CREATEUSERMODELRESPONSE']._serialized_end=3680
+  _globals['_CREATEUSERMODELBINARYFILEUPLOADREQUEST']._serialized_start=3683
+  _globals['_CREATEUSERMODELBINARYFILEUPLOADREQUEST']._serialized_end=3886
+  _globals['_CREATEUSERMODELBINARYFILEUPLOADRESPONSE']._serialized_start=3888
+  _globals['_CREATEUSERMODELBINARYFILEUPLOADRESPONSE']._serialized_end=3996
+  _globals['_LISTUSERMODELSREQUEST']._serialized_start=3999
+  _globals['_LISTUSERMODELSREQUEST']._serialized_end=4338
+  _globals['_LISTUSERMODELSRESPONSE']._serialized_start=4341
+  _globals['_LISTUSERMODELSRESPONSE']._serialized_end=4488
+  _globals['_GETUSERMODELREQUEST']._serialized_start=4491
+  _globals['_GETUSERMODELREQUEST']._serialized_end=4656
+  _globals['_GETUSERMODELRESPONSE']._serialized_start=4658
+  _globals['_GETUSERMODELRESPONSE']._serialized_end=4730
+  _globals['_UPDATEUSERMODELREQUEST']._serialized_start=4733
+  _globals['_UPDATEUSERMODELREQUEST']._serialized_end=4880
+  _globals['_UPDATEUSERMODELRESPONSE']._serialized_start=4882
+  _globals['_UPDATEUSERMODELRESPONSE']._serialized_end=4957
+  _globals['_DELETEUSERMODELREQUEST']._serialized_start=4959
+  _globals['_DELETEUSERMODELREQUEST']._serialized_end=5060
+  _globals['_DELETEUSERMODELRESPONSE']._serialized_start=5062
+  _globals['_DELETEUSERMODELRESPONSE']._serialized_end=5087
+  _globals['_RENAMEUSERMODELREQUEST']._serialized_start=5090
+  _globals['_RENAMEUSERMODELREQUEST']._serialized_end=5231
+  _globals['_RENAMEUSERMODELRESPONSE']._serialized_start=5233
+  _globals['_RENAMEUSERMODELRESPONSE']._serialized_end=5308
+  _globals['_PUBLISHUSERMODELREQUEST']._serialized_start=5310
+  _globals['_PUBLISHUSERMODELREQUEST']._serialized_end=5412
+  _globals['_PUBLISHUSERMODELRESPONSE']._serialized_start=5414
+  _globals['_PUBLISHUSERMODELRESPONSE']._serialized_end=5490
+  _globals['_UNPUBLISHUSERMODELREQUEST']._serialized_start=5492
+  _globals['_UNPUBLISHUSERMODELREQUEST']._serialized_end=5596
+  _globals['_UNPUBLISHUSERMODELRESPONSE']._serialized_start=5598
+  _globals['_UNPUBLISHUSERMODELRESPONSE']._serialized_end=5676
+  _globals['_DEPLOYUSERMODELREQUEST']._serialized_start=5678
+  _globals['_DEPLOYUSERMODELREQUEST']._serialized_end=5779
+  _globals['_DEPLOYUSERMODELRESPONSE']._serialized_start=5781
+  _globals['_DEPLOYUSERMODELRESPONSE']._serialized_end=5833
+  _globals['_UNDEPLOYUSERMODELREQUEST']._serialized_start=5835
+  _globals['_UNDEPLOYUSERMODELREQUEST']._serialized_end=5938
+  _globals['_UNDEPLOYUSERMODELRESPONSE']._serialized_start=5940
+  _globals['_UNDEPLOYUSERMODELRESPONSE']._serialized_end=5994
+  _globals['_GETUSERMODELCARDREQUEST']._serialized_start=5996
+  _globals['_GETUSERMODELCARDREQUEST']._serialized_end=6107
+  _globals['_GETUSERMODELCARDRESPONSE']._serialized_start=6109
+  _globals['_GETUSERMODELCARDRESPONSE']._serialized_end=6191
+  _globals['_WATCHUSERMODELREQUEST']._serialized_start=6193
+  _globals['_WATCHUSERMODELREQUEST']._serialized_end=6293
+  _globals['_WATCHUSERMODELRESPONSE']._serialized_start=6295
+  _globals['_WATCHUSERMODELRESPONSE']._serialized_end=6403
+  _globals['_TASKINPUT']._serialized_start=6406
+  _globals['_TASKINPUT']._serialized_end=7430
+  _globals['_TASKINPUTSTREAM']._serialized_start=7433
+  _globals['_TASKINPUTSTREAM']._serialized_end=8499
+  _globals['_TASKOUTPUT']._serialized_start=8502
+  _globals['_TASKOUTPUT']._serialized_end=9612
+  _globals['_TRIGGERUSERMODELREQUEST']._serialized_start=9615
+  _globals['_TRIGGERUSERMODELREQUEST']._serialized_end=9788
+  _globals['_TRIGGERUSERMODELRESPONSE']._serialized_start=9791
+  _globals['_TRIGGERUSERMODELRESPONSE']._serialized_end=9932
+  _globals['_TRIGGERUSERMODELBINARYFILEUPLOADREQUEST']._serialized_start=9935
+  _globals['_TRIGGERUSERMODELBINARYFILEUPLOADREQUEST']._serialized_end=10128
+  _globals['_TRIGGERUSERMODELBINARYFILEUPLOADRESPONSE']._serialized_start=10131
+  _globals['_TRIGGERUSERMODELBINARYFILEUPLOADRESPONSE']._serialized_end=10300
+  _globals['_TESTUSERMODELREQUEST']._serialized_start=10303
+  _globals['_TESTUSERMODELREQUEST']._serialized_end=10473
+  _globals['_TESTUSERMODELRESPONSE']._serialized_start=10476
+  _globals['_TESTUSERMODELRESPONSE']._serialized_end=10626
+  _globals['_TESTUSERMODELBINARYFILEUPLOADREQUEST']._serialized_start=10629
+  _globals['_TESTUSERMODELBINARYFILEUPLOADREQUEST']._serialized_end=10795
+  _globals['_TESTUSERMODELBINARYFILEUPLOADRESPONSE']._serialized_start=10798
+  _globals['_TESTUSERMODELBINARYFILEUPLOADRESPONSE']._serialized_end=10964
+  _globals['_GETMODELOPERATIONREQUEST']._serialized_start=10966
+  _globals['_GETMODELOPERATIONREQUEST']._serialized_end=11087
+  _globals['_GETMODELOPERATIONRESPONSE']._serialized_start=11089
+  _globals['_GETMODELOPERATIONRESPONSE']._serialized_end=11177
+  _globals['_LISTMODELSADMINREQUEST']._serialized_start=11180
+  _globals['_LISTMODELSADMINREQUEST']._serialized_end=11445
+  _globals['_LISTMODELSADMINRESPONSE']._serialized_start=11448
+  _globals['_LISTMODELSADMINRESPONSE']._serialized_end=11596
+  _globals['_LOOKUPMODELADMINREQUEST']._serialized_start=11599
+  _globals['_LOOKUPMODELADMINREQUEST']._serialized_end=11727
+  _globals['_LOOKUPMODELADMINRESPONSE']._serialized_start=11729
+  _globals['_LOOKUPMODELADMINRESPONSE']._serialized_end=11805
+  _globals['_CHECKMODELADMINREQUEST']._serialized_start=11807
+  _globals['_CHECKMODELADMINREQUEST']._serialized_end=11878
+  _globals['_CHECKMODELADMINRESPONSE']._serialized_start=11880
+  _globals['_CHECKMODELADMINRESPONSE']._serialized_end=11961
+  _globals['_DEPLOYMODELADMINREQUEST']._serialized_start=11963
+  _globals['_DEPLOYMODELADMINREQUEST']._serialized_end=12035
+  _globals['_DEPLOYMODELADMINRESPONSE']._serialized_start=12037
+  _globals['_DEPLOYMODELADMINRESPONSE']._serialized_end=12124
+  _globals['_UNDEPLOYMODELADMINREQUEST']._serialized_start=12126
+  _globals['_UNDEPLOYMODELADMINREQUEST']._serialized_end=12200
+  _globals['_UNDEPLOYMODELADMINRESPONSE']._serialized_start=12202
+  _globals['_UNDEPLOYMODELADMINRESPONSE']._serialized_end=12291
 # @@protoc_insertion_point(module_scope)

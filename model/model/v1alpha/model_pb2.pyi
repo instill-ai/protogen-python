@@ -121,7 +121,9 @@ global___ReadinessResponse = ReadinessResponse
 
 @typing_extensions.final
 class Model(google.protobuf.message.Message):
-    """Model represents a model"""
+    """Model represents an AI model, i.e. a program that performs tasks as decision
+    making or or pattern recognition based on its training data
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -132,21 +134,21 @@ class Model(google.protobuf.message.Message):
     class _VisibilityEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Model._Visibility.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         VISIBILITY_UNSPECIFIED: Model._Visibility.ValueType  # 0
-        """Visibility: UNSPECIFIED, equivalent to PRIVATE."""
+        """Unspecified, equivalent to PRIVATE."""
         VISIBILITY_PRIVATE: Model._Visibility.ValueType  # 1
-        """Visibility: PRIVATE"""
+        """Only the owner can see the model."""
         VISIBILITY_PUBLIC: Model._Visibility.ValueType  # 2
-        """Visibility: PUBLIC"""
+        """Other users can see the model."""
 
     class Visibility(_Visibility, metaclass=_VisibilityEnumTypeWrapper):
-        """Model visibility including public or private"""
+        """Visibility defines who can access the model."""
 
     VISIBILITY_UNSPECIFIED: Model.Visibility.ValueType  # 0
-    """Visibility: UNSPECIFIED, equivalent to PRIVATE."""
+    """Unspecified, equivalent to PRIVATE."""
     VISIBILITY_PRIVATE: Model.Visibility.ValueType  # 1
-    """Visibility: PRIVATE"""
+    """Only the owner can see the model."""
     VISIBILITY_PUBLIC: Model.Visibility.ValueType  # 2
-    """Visibility: PUBLIC"""
+    """Other users can see the model."""
 
     class _State:
         ValueType = typing.NewType("ValueType", builtins.int)
@@ -155,25 +157,38 @@ class Model(google.protobuf.message.Message):
     class _StateEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Model._State.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATE_UNSPECIFIED: Model._State.ValueType  # 0
-        """State: UNSPECIFIED"""
+        """Unspecified. This state can occur while a model is being deployed."""
         STATE_OFFLINE: Model._State.ValueType  # 1
-        """State: OFFLINE"""
+        """Offline is the default state when a model is initially created. A model
+        can be switched from ONLINE to this state by using the `undeploy`
+        method.
+        """
         STATE_ONLINE: Model._State.ValueType  # 2
-        """State: ONLINE"""
+        """Online is the state of a model when it has been deployed (i.e. when the
+        `deploy` method has been used on an OFFLINE model).
+        """
         STATE_ERROR: Model._State.ValueType  # 3
-        """State: ERROR"""
+        """Error is the state when the model is undeployable on Instill Model."""
 
     class State(_State, metaclass=_StateEnumTypeWrapper):
-        """State enumerates a model state"""
+        """State describes the state of a model. See [Deploy
+        Models](https://www.instill.tech/docs/latest/model/deploy) for more
+        information.
+        """
 
     STATE_UNSPECIFIED: Model.State.ValueType  # 0
-    """State: UNSPECIFIED"""
+    """Unspecified. This state can occur while a model is being deployed."""
     STATE_OFFLINE: Model.State.ValueType  # 1
-    """State: OFFLINE"""
+    """Offline is the default state when a model is initially created. A model
+    can be switched from ONLINE to this state by using the `undeploy`
+    method.
+    """
     STATE_ONLINE: Model.State.ValueType  # 2
-    """State: ONLINE"""
+    """Online is the state of a model when it has been deployed (i.e. when the
+    `deploy` method has been used on an OFFLINE model).
+    """
     STATE_ERROR: Model.State.ValueType  # 3
-    """State: ERROR"""
+    """Error is the state when the model is undeployable on Instill Model."""
 
     NAME_FIELD_NUMBER: builtins.int
     UID_FIELD_NUMBER: builtins.int
@@ -190,46 +205,47 @@ class Model(google.protobuf.message.Message):
     OWNER_NAME_FIELD_NUMBER: builtins.int
     OWNER_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Resource name. It must have the format of "users/{user}/models/{model}".
-    For example: "users/instill-ai/models/yolov4"
+    """The resource name of the model, which allows its access by owner and ID.
+    - Format: `users/{user.id}/models/{model.id}`.
     """
     uid: builtins.str
-    """Model ID in UUIDv4"""
+    """Model UUID."""
     id: builtins.str
-    """Resource ID (the last segment of the resource name) used to construct the
-    resource name. This conforms to RFC-1034, which restricts to letters,
-    numbers, and hyphen, with the first character a letter, the last a letter
-    or a number, and a 63 character maximum.
+    """Model resource ID (used in `name` as the last segment). This conforms to
+    RFC-1034, which restricts to letters, numbers, and hyphen, with the first
+    character a letter, the last a letter or a number, and a 63 character
+    maximum.
     """
     description: builtins.str
-    """Model description"""
+    """Model description."""
     model_definition: builtins.str
-    """Model definition resource name"""
+    """The model definition that has been used to import the model."""
     @property
     def configuration(self) -> google.protobuf.struct_pb2.Struct:
-        """Model configuration represents the configuration JSON that has been
-        validated using the `model_spec` JSON schema of a ModelDefinition
+        """Model configuration. This field is validated against the model
+        specification in the model definition (i.e. the `model_spec` field in the
+        model definition).
         """
     task: common.task.v1alpha.task_pb2.Task.ValueType
-    """Model task"""
+    """Model task."""
     state: global___Model.State.ValueType
-    """Model state"""
+    """Model state."""
     visibility: global___Model.Visibility.ValueType
-    """Model visibility including public or private"""
+    """Model visibility."""
     @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Model create time"""
+        """Model creation time."""
     @property
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Model update time"""
+        """Model update time."""
     @property
     def delete_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Model delete time"""
+        """Model deletion time."""
     owner_name: builtins.str
-    """Owner Name"""
+    """Resource name of the owner."""
     @property
     def owner(self) -> google.protobuf.struct_pb2.Struct:
-        """Owner details"""
+        """Owner details, such as the profile data."""
     def __init__(
         self,
         *,
@@ -256,8 +272,12 @@ global___Model = Model
 
 @typing_extensions.final
 class ModelCard(google.protobuf.message.Message):
-    """ModelCard represents the README card for a model. There
-    exists one and exactly one README card per model.
+    """ModelCard represents a README.md file that accompanies the model to describe
+    handy information with additional model metadata. Under the hood, a model
+    card is associated with a specific model. It is an crucial for
+    reproducibility, sharing and discoverability.
+
+    Each model has exactly one README card.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -268,17 +288,18 @@ class ModelCard(google.protobuf.message.Message):
     CONTENT_FIELD_NUMBER: builtins.int
     ENCODING_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Resource name. It must have the format of
-    "users/{user}/models/{model}/readme"
+    """The resource name of the model card, which allows its access by parent
+    user and model ID.
+    - Format: `users/{user.id}/models/{model.id}/readme`.
     """
     size: builtins.int
-    """Size of the file"""
+    """Size of the file in bytes."""
     type: builtins.str
-    """Type of the resource. Fixed to "file"."""
+    """Type of the resource. Its value is fixed to `file`."""
     content: builtins.bytes
-    """Content of the README file in bytes and base64 format"""
+    """Content of the README file in bytes and base64 format."""
     encoding: builtins.str
-    """Encoding type of the content. Fixed to "base64"."""
+    """Encoding type of the content. Its value is fixed to `base64`."""
     def __init__(
         self,
         *,
@@ -294,7 +315,7 @@ global___ModelCard = ModelCard
 
 @typing_extensions.final
 class ListModelsRequest(google.protobuf.message.Message):
-    """ListModelsRequest represents a request to list all models"""
+    """ListModelsRequest represents a request to list  models."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -303,20 +324,16 @@ class ListModelsRequest(google.protobuf.message.Message):
     VIEW_FIELD_NUMBER: builtins.int
     SHOW_DELETED_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """Page size: the maximum number of resources to return. The service may
-    return fewer than this value. If unspecified, at most 10 models will be
-    returned. The maximum value is 100; values above 100 will be coereced to
-    100.
+    """The maximum number of models to return. If this parameter is unspecified,
+    at most 10 models will be returned. The cap value for this parameter is
+    100 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     view: model.model.v1alpha.model_definition_pb2.View.ValueType
-    """Model view (default is VIEW_BASIC)
-    VIEW_UNSPECIFIED/VIEW_BASIC: omit `Model.configuration`
-    VIEW_FULL: show full information
-    """
+    """View allows clients to specify the desired model view in the response."""
     show_deleted: builtins.bool
-    """Return soft_deleted models"""
+    """Include soft-deleted models in the result."""
     def __init__(
         self,
         *,
@@ -340,7 +357,7 @@ global___ListModelsRequest = ListModelsRequest
 
 @typing_extensions.final
 class ListModelsResponse(google.protobuf.message.Message):
-    """ListModelsResponse represents a response for a list of models"""
+    """ListModelsResponse contains a list of models."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -349,11 +366,11 @@ class ListModelsResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def models(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Model]:
-        """a list of Models"""
+        """A list of model resources."""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
-    """Total count of models"""
+    """Total number of models."""
     def __init__(
         self,
         *,
@@ -367,21 +384,18 @@ global___ListModelsResponse = ListModelsResponse
 
 @typing_extensions.final
 class LookUpModelRequest(google.protobuf.message.Message):
-    """LookUpModelRequest represents a request to query a model via permalink"""
+    """LookUpModelRequest represents a request to query a model by its UID."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PERMALINK_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     permalink: builtins.str
-    """Permalink of a model. For example:
-    Format: models/{uid}
+    """The permalink of the model, which allows its access by UID.
+    - Format: `models/{model.uid}`.
     """
     view: model.model.v1alpha.model_definition_pb2.View.ValueType
-    """Model view (default is VIEW_BASIC)
-    VIEW_UNSPECIFIED/VIEW_BASIC: omit `Model.configuration`
-    VIEW_FULL: show full information
-    """
+    """View allows clients to specify the desired model view in the response."""
     def __init__(
         self,
         *,
@@ -396,14 +410,14 @@ global___LookUpModelRequest = LookUpModelRequest
 
 @typing_extensions.final
 class LookUpModelResponse(google.protobuf.message.Message):
-    """LookUpModelResponse represents a response for a model"""
+    """LookUpModelResponse contains the requested model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     MODEL_FIELD_NUMBER: builtins.int
     @property
     def model(self) -> global___Model:
-        """A model resource"""
+        """The requested model."""
     def __init__(
         self,
         *,
@@ -416,7 +430,7 @@ global___LookUpModelResponse = LookUpModelResponse
 
 @typing_extensions.final
 class CreateUserModelRequest(google.protobuf.message.Message):
-    """CreateUserModelRequest represents a request to create a model"""
+    """CreateUserModelRequest represents a request from a user to create a model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -424,14 +438,10 @@ class CreateUserModelRequest(google.protobuf.message.Message):
     PARENT_FIELD_NUMBER: builtins.int
     @property
     def model(self) -> global___Model:
-        """The model to be created
-
-        The model `name` field is used to identify the model to create.
-        Format: users/{user}/models/{model}
-        """
+        """The properties of the model to be created."""
     parent: builtins.str
-    """The parent resource where this connector resource will be created.
-    Format: users/{users}
+    """The parent resource, i.e., the user that creates the model.
+    Format: `users/{user.id}`.
     """
     def __init__(
         self,
@@ -446,14 +456,16 @@ global___CreateUserModelRequest = CreateUserModelRequest
 
 @typing_extensions.final
 class CreateUserModelResponse(google.protobuf.message.Message):
-    """CreateUserModelResponse represents a response for a model"""
+    """CreateUserModelResponse contains the information to access the status of the
+    model creation operation.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     OPERATION_FIELD_NUMBER: builtins.int
     @property
     def operation(self) -> google.longrunning.operations_pb2.Operation:
-        """Create model operation message"""
+        """Long-running operation information."""
     def __init__(
         self,
         *,
@@ -466,7 +478,9 @@ global___CreateUserModelResponse = CreateUserModelResponse
 
 @typing_extensions.final
 class CreateUserModelBinaryFileUploadRequest(google.protobuf.message.Message):
-    """CreateUserModelBinaryFileUploadRequest represents a request to create a model"""
+    """CreateUserModelBinaryFileUploadRequest represents a request to create a
+    model by uploading its content in bytes.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -475,16 +489,12 @@ class CreateUserModelBinaryFileUploadRequest(google.protobuf.message.Message):
     PARENT_FIELD_NUMBER: builtins.int
     @property
     def model(self) -> global___Model:
-        """The model to be created
-
-        The model `name` field is used to identify the model to create.
-        Format: users/{user}/models/{model}
-        """
+        """The properties of the model to be created."""
     content: builtins.bytes
-    """Model content in bytes"""
+    """Model content in bytes."""
     parent: builtins.str
-    """The parent resource where this connector resource will be created.
-    Format: users/{users}
+    """The parent resource, i.e., the user that creates the model.
+    Format: `users/{user.id}`.
     """
     def __init__(
         self,
@@ -500,14 +510,16 @@ global___CreateUserModelBinaryFileUploadRequest = CreateUserModelBinaryFileUploa
 
 @typing_extensions.final
 class CreateUserModelBinaryFileUploadResponse(google.protobuf.message.Message):
-    """CreateUserModelBinaryFileUploadResponse represents a response for a model"""
+    """CreateUserModelBinaryFileUploadResponse contains the information to access
+    the status of the model creation operation.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     OPERATION_FIELD_NUMBER: builtins.int
     @property
     def operation(self) -> google.longrunning.operations_pb2.Operation:
-        """Create model operation message"""
+        """Long-running operation information."""
     def __init__(
         self,
         *,
@@ -520,7 +532,7 @@ global___CreateUserModelBinaryFileUploadResponse = CreateUserModelBinaryFileUplo
 
 @typing_extensions.final
 class ListUserModelsRequest(google.protobuf.message.Message):
-    """ListUserModelsRequest represents a request to list all models"""
+    """ListUserModelsRequest represents a request to list the models of a user."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -530,24 +542,20 @@ class ListUserModelsRequest(google.protobuf.message.Message):
     PARENT_FIELD_NUMBER: builtins.int
     SHOW_DELETED_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """Page size: the maximum number of resources to return. The service may
-    return fewer than this value. If unspecified, at most 10 models will be
-    returned. The maximum value is 100; values above 100 will be coereced to
-    100.
+    """The maximum number of models to return. If this parameter is unspecified,
+    at most 10 models will be returned. The cap value for this parameter is
+    100 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     view: model.model.v1alpha.model_definition_pb2.View.ValueType
-    """Model view (default is VIEW_BASIC)
-    VIEW_UNSPECIFIED/VIEW_BASIC: omit `Model.configuration`
-    VIEW_FULL: show full information
-    """
+    """View allows clients to specify the desired model view in the response."""
     parent: builtins.str
-    """The parent resource where this connector resource will be created.
-    Format: users/{users}
+    """The parent resource, i.e., the user that created the models.
+    - Format: `users/{user.id}`.
     """
     show_deleted: builtins.bool
-    """Return soft_deleted models"""
+    """Include soft-deleted models in the result."""
     def __init__(
         self,
         *,
@@ -572,7 +580,7 @@ global___ListUserModelsRequest = ListUserModelsRequest
 
 @typing_extensions.final
 class ListUserModelsResponse(google.protobuf.message.Message):
-    """ListUserModelsResponse represents a response for a list of models"""
+    """ListUserModelsResponse contains a list of models."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -581,11 +589,11 @@ class ListUserModelsResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def models(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Model]:
-        """a list of Models"""
+        """A list of model resources."""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
-    """Total count of models"""
+    """Total number of models."""
     def __init__(
         self,
         *,
@@ -599,21 +607,21 @@ global___ListUserModelsResponse = ListUserModelsResponse
 
 @typing_extensions.final
 class GetUserModelRequest(google.protobuf.message.Message):
-    """GetUserModelRequest represents a request to query a model"""
+    """GetUserModelRequest represents a request to fetch the details of a model
+    owned by a user.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Resource name of the model.
-    Format: users/{user}/models/{model}
+    """The resource name of the model, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/models/{model.id}`.
     """
     view: model.model.v1alpha.model_definition_pb2.View.ValueType
-    """Model view (default is VIEW_BASIC)
-    VIEW_UNSPECIFIED/VIEW_BASIC: omit `Model.configuration`
-    VIEW_FULL: show full information
-    """
+    """View allows clients to specify the desired model view in the response."""
     def __init__(
         self,
         *,
@@ -628,14 +636,14 @@ global___GetUserModelRequest = GetUserModelRequest
 
 @typing_extensions.final
 class GetUserModelResponse(google.protobuf.message.Message):
-    """GetUserModelResponse represents a response for a model"""
+    """GetUserModelResponse contains the requested model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     MODEL_FIELD_NUMBER: builtins.int
     @property
     def model(self) -> global___Model:
-        """The retrieved model"""
+        """The model resource."""
     def __init__(
         self,
         *,
@@ -648,7 +656,9 @@ global___GetUserModelResponse = GetUserModelResponse
 
 @typing_extensions.final
 class UpdateUserModelRequest(google.protobuf.message.Message):
-    """UpdateUserModelRequest represents a request to update a model"""
+    """UpdateUserModelRequest represents a request to update a model owned by a
+    user.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -659,7 +669,11 @@ class UpdateUserModelRequest(google.protobuf.message.Message):
         """The model to update"""
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
-        """Mask of fields to update."""
+        """The update mask specifies the subset of fields that should be modified.
+
+        For more information about this field, see
+        https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#field-mask.
+        """
     def __init__(
         self,
         *,
@@ -673,14 +687,14 @@ global___UpdateUserModelRequest = UpdateUserModelRequest
 
 @typing_extensions.final
 class UpdateUserModelResponse(google.protobuf.message.Message):
-    """UpdateUserModelResponse represents a response for a model"""
+    """UpdateUserModelResponse contains the updated model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     MODEL_FIELD_NUMBER: builtins.int
     @property
     def model(self) -> global___Model:
-        """The updated model"""
+        """The updated model resource."""
     def __init__(
         self,
         *,
@@ -693,14 +707,17 @@ global___UpdateUserModelResponse = UpdateUserModelResponse
 
 @typing_extensions.final
 class DeleteUserModelRequest(google.protobuf.message.Message):
-    """DeleteUserModelRequest represents a request to delete a model"""
+    """DeleteUserModelRequest represents a request to delete a model owned by a
+    user.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Resource name of the model.
-    Format: users/{user}/models/{model}
+    """The resource name of the model, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/models/{model.id}`.
     """
     def __init__(
         self,
@@ -713,7 +730,7 @@ global___DeleteUserModelRequest = DeleteUserModelRequest
 
 @typing_extensions.final
 class DeleteUserModelResponse(google.protobuf.message.Message):
-    """DeleteUserModelResponse represents an empty response"""
+    """DeleteUserModelResponse is an empty response."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -732,12 +749,13 @@ class RenameUserModelRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     NEW_MODEL_ID_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Resource name for the model to be renamed.
-    Format: users/{user}/models/{model}
+    """The resource name of the model, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/models/{model.id}`.
     """
     new_model_id: builtins.str
-    """New ID of this model
-    Format: users/{user}/models/{new_model_id}
+    """The new resource ID. This will transform the resource name into
+    `users/{user.id}/models/{new_model_id}`.
     """
     def __init__(
         self,
@@ -751,14 +769,14 @@ global___RenameUserModelRequest = RenameUserModelRequest
 
 @typing_extensions.final
 class RenameUserModelResponse(google.protobuf.message.Message):
-    """RenameUserModelResponse represents a response for a model"""
+    """RenameUserModelResponse contains a renamed model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     MODEL_FIELD_NUMBER: builtins.int
     @property
     def model(self) -> global___Model:
-        """Renamed model"""
+        """The renamed model resource."""
     def __init__(
         self,
         *,
@@ -771,14 +789,15 @@ global___RenameUserModelResponse = RenameUserModelResponse
 
 @typing_extensions.final
 class PublishUserModelRequest(google.protobuf.message.Message):
-    """PublisUserhModelRequest represents a request to publish a model"""
+    """PublisUserhModelRequest represents a request to publish a model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Resource name of the model.
-    Format: users/{user}/models/{model}
+    """The resource name of the model, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/models/{model.id}`.
     """
     def __init__(
         self,
@@ -791,14 +810,14 @@ global___PublishUserModelRequest = PublishUserModelRequest
 
 @typing_extensions.final
 class PublishUserModelResponse(google.protobuf.message.Message):
-    """PublishUserModelResponse represents a response for the published model"""
+    """PublishUserModelResponse contains a published model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     MODEL_FIELD_NUMBER: builtins.int
     @property
     def model(self) -> global___Model:
-        """Published model"""
+        """The published model resource."""
     def __init__(
         self,
         *,
@@ -811,14 +830,15 @@ global___PublishUserModelResponse = PublishUserModelResponse
 
 @typing_extensions.final
 class UnpublishUserModelRequest(google.protobuf.message.Message):
-    """UnpublishUserModelRequest represents a request to unpublish a model"""
+    """UnpublishUserModelRequest represents a request to unpublish a model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Resource name of the model.
-    Format: users/{user}/models/{model}
+    """The resource name of the model, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/models/{model.id}`.
     """
     def __init__(
         self,
@@ -831,14 +851,14 @@ global___UnpublishUserModelRequest = UnpublishUserModelRequest
 
 @typing_extensions.final
 class UnpublishUserModelResponse(google.protobuf.message.Message):
-    """UnpublishUserModelResponse represents a response for the unpublished model"""
+    """UnpublishUserModelResponse contains an unpublished model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     MODEL_FIELD_NUMBER: builtins.int
     @property
     def model(self) -> global___Model:
-        """Unpublished model"""
+        """The unpublished model resource."""
     def __init__(
         self,
         *,
@@ -851,14 +871,17 @@ global___UnpublishUserModelResponse = UnpublishUserModelResponse
 
 @typing_extensions.final
 class DeployUserModelRequest(google.protobuf.message.Message):
-    """DeployUserModelRequest represents a request to deploy a model to online state"""
+    """DeployUserModelRequest represents a request to set a model to an ONLINE
+    state.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Resource name for the model to be deployed.
-    Format: users/{user}/models/{model}
+    """The resource name of the model, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/models/{model.id}`.
     """
     def __init__(
         self,
@@ -871,15 +894,13 @@ global___DeployUserModelRequest = DeployUserModelRequest
 
 @typing_extensions.final
 class DeployUserModelResponse(google.protobuf.message.Message):
-    """DeployUserModelResponse represents a response for a deployed model"""
+    """DeployUserModelResponse contains the ID of the deployed model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     MODEL_ID_FIELD_NUMBER: builtins.int
     model_id: builtins.str
-    """Deployed model's id
-    Format: users/{user}/models/{model}
-    """
+    """ID of the deployed model, e.g. `llava-7b`."""
     def __init__(
         self,
         *,
@@ -891,16 +912,17 @@ global___DeployUserModelResponse = DeployUserModelResponse
 
 @typing_extensions.final
 class UndeployUserModelRequest(google.protobuf.message.Message):
-    """UndeployUserModelRequest represents a request to undeploy a model to offline
-    state
+    """UndeployUserModelRequest represents a request to set a model to an OFFLINE
+    state.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Resource name for the model to be undeployed.
-    Format: users/{user}/models/{model}
+    """The resource name of the model, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/models/{model.id}`.
     """
     def __init__(
         self,
@@ -913,15 +935,13 @@ global___UndeployUserModelRequest = UndeployUserModelRequest
 
 @typing_extensions.final
 class UndeployUserModelResponse(google.protobuf.message.Message):
-    """UndeployUserModelResponse represents a response for a undeployed model"""
+    """UndeployUserModelResponse contains the ID of the undeployed model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     MODEL_ID_FIELD_NUMBER: builtins.int
     model_id: builtins.str
-    """Undeployed model's id
-    Format: users/{user}/models/{model}
-    """
+    """ID of the undeployed model, e.g. `llava-7b`."""
     def __init__(
         self,
         *,
@@ -933,14 +953,17 @@ global___UndeployUserModelResponse = UndeployUserModelResponse
 
 @typing_extensions.final
 class GetUserModelCardRequest(google.protobuf.message.Message):
-    """GetUserModelCardRequest represents a request to query a model's README card"""
+    """GetUserModelCardRequest represents a request to fetch the README card of a
+    model.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Resource name of the model card.
-    For example "// Format: users/{user}/models/{model}/readme"
+    """The resource name of the model card, which allows its access by parent
+    user and model ID.
+    - Format: `users/{user.id}/models/{model.id}/readme`.
     """
     def __init__(
         self,
@@ -953,14 +976,14 @@ global___GetUserModelCardRequest = GetUserModelCardRequest
 
 @typing_extensions.final
 class GetUserModelCardResponse(google.protobuf.message.Message):
-    """GetUserModelCardResponse represents a response to fetch a model's README card"""
+    """GetUserModelCardResponse contains the model's README card."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     README_FIELD_NUMBER: builtins.int
     @property
     def readme(self) -> global___ModelCard:
-        """Retrieved model card"""
+        """A model card resource."""
     def __init__(
         self,
         *,
@@ -973,16 +996,17 @@ global___GetUserModelCardResponse = GetUserModelCardResponse
 
 @typing_extensions.final
 class WatchUserModelRequest(google.protobuf.message.Message):
-    """WatchUserModelRequest represents a public request to query
-    a model's current state and longrunning progress
+    """WatchUserModelRequest represents a request to fetch current state of a model
+    and its long-running operation progress.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Resource name of the model.
-    Format: users/{user}/models/{model}
+    """The resource name of the model, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/models/{model.id}`.
     """
     def __init__(
         self,
@@ -995,18 +1019,18 @@ global___WatchUserModelRequest = WatchUserModelRequest
 
 @typing_extensions.final
 class WatchUserModelResponse(google.protobuf.message.Message):
-    """WatchUserModelResponse represents a public response to
-    fetch a model current state and longrunning progress
-    """
+    """WatchUserModelResponse contains the state and progress of a model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     STATE_FIELD_NUMBER: builtins.int
     PROGRESS_FIELD_NUMBER: builtins.int
     state: global___Model.State.ValueType
-    """Retrieved model state"""
+    """State."""
     progress: builtins.int
-    """Retrieved model logrunning progress"""
+    """Long-running operation progress. If there are no ongoing operations, the
+    value will be 0.
+    """
     def __init__(
         self,
         *,
@@ -1023,7 +1047,7 @@ class TaskInput(google.protobuf.message.Message):
      Trigger methods
     //////////////////////////////////
 
-    Input represents the input to trigger a model
+    TaskInput represents a question or task for an AI model.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1042,40 +1066,40 @@ class TaskInput(google.protobuf.message.Message):
     UNSPECIFIED_FIELD_NUMBER: builtins.int
     @property
     def classification(self) -> model.model.v1alpha.task_classification_pb2.ClassificationInput:
-        """The classification input"""
+        """Image classification input."""
     @property
     def detection(self) -> model.model.v1alpha.task_detection_pb2.DetectionInput:
-        """The detection input"""
+        """Object detection input."""
     @property
     def keypoint(self) -> model.model.v1alpha.task_keypoint_pb2.KeypointInput:
-        """The keypoint input"""
+        """Keypoint detection input."""
     @property
     def ocr(self) -> model.model.v1alpha.task_ocr_pb2.OcrInput:
-        """The ocr input"""
+        """Optical Character Recognition input."""
     @property
     def instance_segmentation(self) -> model.model.v1alpha.task_instance_segmentation_pb2.InstanceSegmentationInput:
-        """The instance segmentation input"""
+        """Instance segmentation input."""
     @property
     def semantic_segmentation(self) -> model.model.v1alpha.task_semantic_segmentation_pb2.SemanticSegmentationInput:
-        """The semantic segmentation input"""
+        """Semantic segmentation input."""
     @property
     def text_to_image(self) -> model.model.v1alpha.task_text_to_image_pb2.TextToImageInput:
-        """The text to image input"""
+        """Text to image input."""
     @property
     def image_to_image(self) -> model.model.v1alpha.task_image_to_image_pb2.ImageToImageInput:
-        """The image to image input"""
+        """Image to image input."""
     @property
     def text_generation(self) -> model.model.v1alpha.task_text_generation_pb2.TextGenerationInput:
-        """The text generation input"""
+        """Text generation input."""
     @property
     def text_generation_chat(self) -> model.model.v1alpha.task_text_generation_chat_pb2.TextGenerationChatInput:
-        """The text generation chat input"""
+        """Conversational text generation input."""
     @property
     def visual_question_answering(self) -> model.model.v1alpha.task_visual_question_answering_pb2.VisualQuestionAnsweringInput:
-        """The visual question answering input"""
+        """Visual question answering input."""
     @property
     def unspecified(self) -> model.model.v1alpha.task_unspecified_pb2.UnspecifiedInput:
-        """The unspecified task input"""
+        """Unspecified task input."""
     def __init__(
         self,
         *,
@@ -1176,7 +1200,7 @@ global___TaskInputStream = TaskInputStream
 
 @typing_extensions.final
 class TaskOutput(google.protobuf.message.Message):
-    """TaskOutput represents the output of a CV Task result from a model"""
+    """TaskOutput represents the result of an AI task performed by a model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1194,40 +1218,40 @@ class TaskOutput(google.protobuf.message.Message):
     UNSPECIFIED_FIELD_NUMBER: builtins.int
     @property
     def classification(self) -> model.model.v1alpha.task_classification_pb2.ClassificationOutput:
-        """The classification output"""
+        """Image classification output."""
     @property
     def detection(self) -> model.model.v1alpha.task_detection_pb2.DetectionOutput:
-        """The detection output"""
+        """Object detection output."""
     @property
     def keypoint(self) -> model.model.v1alpha.task_keypoint_pb2.KeypointOutput:
-        """The keypoint output"""
+        """Keypoint detection output."""
     @property
     def ocr(self) -> model.model.v1alpha.task_ocr_pb2.OcrOutput:
-        """The ocr output"""
+        """Optical Character Recognition output."""
     @property
     def instance_segmentation(self) -> model.model.v1alpha.task_instance_segmentation_pb2.InstanceSegmentationOutput:
-        """The instance segmentation output"""
+        """Instance segmentation output."""
     @property
     def semantic_segmentation(self) -> model.model.v1alpha.task_semantic_segmentation_pb2.SemanticSegmentationOutput:
-        """The semantic segmentation output"""
+        """Semantic segmentation output."""
     @property
     def text_to_image(self) -> model.model.v1alpha.task_text_to_image_pb2.TextToImageOutput:
-        """The text to image output"""
+        """Text to image output."""
     @property
     def image_to_image(self) -> model.model.v1alpha.task_image_to_image_pb2.ImageToImageOutput:
-        """The image to image output"""
+        """Image to image output."""
     @property
     def text_generation(self) -> model.model.v1alpha.task_text_generation_pb2.TextGenerationOutput:
-        """The text generation output"""
+        """Text generation output."""
     @property
     def text_generation_chat(self) -> model.model.v1alpha.task_text_generation_chat_pb2.TextGenerationChatOutput:
-        """The text generation output"""
+        """Conversational text generation output."""
     @property
     def visual_question_answering(self) -> model.model.v1alpha.task_visual_question_answering_pb2.VisualQuestionAnsweringOutput:
-        """The text generation output"""
+        """Visual question answering output."""
     @property
     def unspecified(self) -> model.model.v1alpha.task_unspecified_pb2.UnspecifiedOutput:
-        """The unspecified task output"""
+        """Unspecified task output."""
     def __init__(
         self,
         *,
@@ -1252,19 +1276,20 @@ global___TaskOutput = TaskOutput
 
 @typing_extensions.final
 class TriggerUserModelRequest(google.protobuf.message.Message):
-    """TriggerUserModelRequest represents a request to trigger a model"""
+    """TriggerUserModelRequest represents a request to trigger a model inference."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     TASK_INPUTS_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """The resource name of the model to trigger.
-    Format: users/{user}/models/{model}
+    """The resource name of the model , which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/models/{model.id}`.
     """
     @property
     def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
-        """Input to trigger the model"""
+        """Inference input parameters."""
     def __init__(
         self,
         *,
@@ -1277,19 +1302,17 @@ global___TriggerUserModelRequest = TriggerUserModelRequest
 
 @typing_extensions.final
 class TriggerUserModelResponse(google.protobuf.message.Message):
-    """TriggerUserModelResponse represents a response for the output for
-    triggering a model
-    """
+    """TriggerUserModelResponse contains the model inference results."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     TASK_FIELD_NUMBER: builtins.int
     TASK_OUTPUTS_FIELD_NUMBER: builtins.int
     task: common.task.v1alpha.task_pb2.Task.ValueType
-    """The task type"""
+    """Task type."""
     @property
     def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskOutput]:
-        """The task output from a model"""
+        """Model inference outputs."""
     def __init__(
         self,
         *,
@@ -1302,8 +1325,8 @@ global___TriggerUserModelResponse = TriggerUserModelResponse
 
 @typing_extensions.final
 class TriggerUserModelBinaryFileUploadRequest(google.protobuf.message.Message):
-    """TriggerUserModelBinaryFileUploadRequest represents a request to test a
-    model by uploading binary file
+    """TriggerUserModelBinaryFileUploadRequest represents a request trigger a model
+    inference by uploading a binary file as the input.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1311,12 +1334,13 @@ class TriggerUserModelBinaryFileUploadRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     TASK_INPUT_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """The resource name of the model to trigger.
-    Format: users/{user}/models/{model}
+    """The resource name of the model , which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/models/{model.id}`.
     """
     @property
     def task_input(self) -> global___TaskInputStream:
-        """Input to trigger the model"""
+        """Inference input as a binary file."""
     def __init__(
         self,
         *,
@@ -1330,19 +1354,17 @@ global___TriggerUserModelBinaryFileUploadRequest = TriggerUserModelBinaryFileUpl
 
 @typing_extensions.final
 class TriggerUserModelBinaryFileUploadResponse(google.protobuf.message.Message):
-    """TriggerUserModelBinaryFileUploadResponse represents a response for the
-    output for testing a model
-    """
+    """TriggerUserModelBinaryFileUploadResponse contains the model inference results."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     TASK_FIELD_NUMBER: builtins.int
     TASK_OUTPUTS_FIELD_NUMBER: builtins.int
     task: common.task.v1alpha.task_pb2.Task.ValueType
-    """The task type"""
+    """Task type."""
     @property
     def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskOutput]:
-        """The task output from a model"""
+        """Model inference outputs."""
     def __init__(
         self,
         *,
@@ -1355,19 +1377,20 @@ global___TriggerUserModelBinaryFileUploadResponse = TriggerUserModelBinaryFileUp
 
 @typing_extensions.final
 class TestUserModelRequest(google.protobuf.message.Message):
-    """TestUserModelRequest represents a request to test a model"""
+    """TestUserModelRequest represents a request to test a model inference."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     TASK_INPUTS_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """The resource name of the model to trigger.
-    Format: users/{user}/models/{model}
+    """The resource name of the model , which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/models/{model.id}`.
     """
     @property
     def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
-        """Input to trigger the model"""
+        """Inference input parameters."""
     def __init__(
         self,
         *,
@@ -1458,19 +1481,20 @@ global___TestUserModelBinaryFileUploadResponse = TestUserModelBinaryFileUploadRe
 
 @typing_extensions.final
 class GetModelOperationRequest(google.protobuf.message.Message):
-    """GerModelOperationRequest represents a request to query a model operation"""
+    """GerModelOperationRequest represents a request to fetch a long-running
+    operation performed on a model.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """The name of the operation resource."""
-    view: model.model.v1alpha.model_definition_pb2.View.ValueType
-    """View (default is VIEW_BASIC)
-    VIEW_UNSPECIFIED/VIEW_BASIC: omit `Model.configuration`,
-    `Model.configuration` VIEW_FULL: show full information
+    """The resource name of the model, which allows its access ID.
+    - Format: `operations/{operation.id}`.
     """
+    view: model.model.v1alpha.model_definition_pb2.View.ValueType
+    """View allows clients to specify the desired model view in the response."""
     def __init__(
         self,
         *,
@@ -1485,14 +1509,16 @@ global___GetModelOperationRequest = GetModelOperationRequest
 
 @typing_extensions.final
 class GetModelOperationResponse(google.protobuf.message.Message):
-    """GetModelOperationResponse represents a response for a model operation"""
+    """GetModelOperationRequest represents a request to query a long-running
+    operation.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     OPERATION_FIELD_NUMBER: builtins.int
     @property
     def operation(self) -> google.longrunning.operations_pb2.Operation:
-        """The retrieved model operation"""
+        """The long-running operation."""
     def __init__(
         self,
         *,
@@ -1568,7 +1594,7 @@ class ListModelsAdminResponse(google.protobuf.message.Message):
     next_page_token: builtins.str
     """Next page token"""
     total_size: builtins.int
-    """Total count of models"""
+    """Total number of models."""
     def __init__(
         self,
         *,

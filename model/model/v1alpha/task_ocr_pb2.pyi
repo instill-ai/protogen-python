@@ -19,7 +19,9 @@ DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 @typing_extensions.final
 class OcrObject(google.protobuf.message.Message):
-    """OcrObject represents a predicted ocr object"""
+    """OcrObject is a text object within an image. OCR stands for Optical Character
+    Recognition.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -27,12 +29,12 @@ class OcrObject(google.protobuf.message.Message):
     SCORE_FIELD_NUMBER: builtins.int
     BOUNDING_BOX_FIELD_NUMBER: builtins.int
     text: builtins.str
-    """OCR text"""
+    """Text."""
     score: builtins.float
-    """OCR text score"""
+    """Score."""
     @property
     def bounding_box(self) -> model.model.v1alpha.common_pb2.BoundingBox:
-        """OCR bounding box"""
+        """Bounding box."""
     def __init__(
         self,
         *,
@@ -47,16 +49,16 @@ global___OcrObject = OcrObject
 
 @typing_extensions.final
 class OcrInput(google.protobuf.message.Message):
-    """OcrInput represents the input of ocr task"""
+    """OcrInput represents the input of an OCR task."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     IMAGE_URL_FIELD_NUMBER: builtins.int
     IMAGE_BASE64_FIELD_NUMBER: builtins.int
     image_url: builtins.str
-    """Image type URL"""
+    """Image URL."""
     image_base64: builtins.str
-    """Image type base64"""
+    """Base64-encoded image."""
     def __init__(
         self,
         *,
@@ -71,7 +73,9 @@ global___OcrInput = OcrInput
 
 @typing_extensions.final
 class OcrInputStream(google.protobuf.message.Message):
-    """OcrInputStream represents the input of ocr task when using stream method"""
+    """OcrInputStream represents the input of an OCR task when the input is
+    streamed as binary files.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -79,9 +83,9 @@ class OcrInputStream(google.protobuf.message.Message):
     CONTENT_FIELD_NUMBER: builtins.int
     @property
     def file_lengths(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.int]:
-        """The list of file length for each uploaded binary file"""
+        """File length for each uploaded binary file."""
     content: builtins.bytes
-    """Content of images in bytes"""
+    """Byte representation of the images."""
     def __init__(
         self,
         *,
@@ -94,14 +98,14 @@ global___OcrInputStream = OcrInputStream
 
 @typing_extensions.final
 class OcrOutput(google.protobuf.message.Message):
-    """OcrOutput represents the output of ocr task"""
+    """OcrOutput contains the result of an OCR task."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     OBJECTS_FIELD_NUMBER: builtins.int
     @property
     def objects(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___OcrObject]:
-        """A list of OCR objects"""
+        """A list of text objects."""
     def __init__(
         self,
         *,

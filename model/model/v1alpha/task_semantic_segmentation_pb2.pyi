@@ -18,16 +18,18 @@ DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 @typing_extensions.final
 class SemanticSegmentationStuff(google.protobuf.message.Message):
-    """SemanticSegmentationStuff corresponding to a semantic segmentation stuff"""
+    """SemanticSegmentationStuff is an object detected within an image and
+    classified into a predefined category.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     RLE_FIELD_NUMBER: builtins.int
     CATEGORY_FIELD_NUMBER: builtins.int
     rle: builtins.str
-    """RLE segmentation mask"""
+    """RLE segmentation mask."""
     category: builtins.str
-    """Stuff category"""
+    """Category."""
     def __init__(
         self,
         *,
@@ -40,16 +42,18 @@ global___SemanticSegmentationStuff = SemanticSegmentationStuff
 
 @typing_extensions.final
 class SemanticSegmentationInput(google.protobuf.message.Message):
-    """SemanticSegmentationInput represents the input of semantic segmentation task"""
+    """SemanticSegmentationInput represents the input of a semantic segmentation
+    task.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     IMAGE_URL_FIELD_NUMBER: builtins.int
     IMAGE_BASE64_FIELD_NUMBER: builtins.int
     image_url: builtins.str
-    """Image type URL"""
+    """Image URL."""
     image_base64: builtins.str
-    """Image type base64"""
+    """Base64-encoded image."""
     def __init__(
         self,
         *,
@@ -64,8 +68,8 @@ global___SemanticSegmentationInput = SemanticSegmentationInput
 
 @typing_extensions.final
 class SemanticSegmentationInputStream(google.protobuf.message.Message):
-    """SemanticSegmentationInputStream represents the input of semantic segmentation
-    task when using stream method
+    """SemanticSegmentationInputStream represents the input of a semantic
+    segmentation task when the input is streamed as a binary files.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -74,9 +78,9 @@ class SemanticSegmentationInputStream(google.protobuf.message.Message):
     CONTENT_FIELD_NUMBER: builtins.int
     @property
     def file_lengths(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.int]:
-        """The list of file length for each uploaded binary file"""
+        """File length for each uploaded binary file."""
     content: builtins.bytes
-    """Content of images in bytes"""
+    """Byte representation of the images."""
     def __init__(
         self,
         *,
@@ -89,8 +93,8 @@ global___SemanticSegmentationInputStream = SemanticSegmentationInputStream
 
 @typing_extensions.final
 class SemanticSegmentationOutput(google.protobuf.message.Message):
-    """SemanticSegmentationOutput represents the output of semantic segmentation
-    task
+    """SemanticSegmentationOutput represents the output of a semantic segmentation
+    task.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -98,7 +102,7 @@ class SemanticSegmentationOutput(google.protobuf.message.Message):
     STUFFS_FIELD_NUMBER: builtins.int
     @property
     def stuffs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___SemanticSegmentationStuff]:
-        """A list of semantic segmentation stuffs"""
+        """A list of detected objects classified into categories."""
     def __init__(
         self,
         *,

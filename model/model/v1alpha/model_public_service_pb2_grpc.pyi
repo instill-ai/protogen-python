@@ -19,140 +19,195 @@ class _ServicerContext(grpc.ServicerContext, grpc.aio.ServicerContext):  # type:
     ...
 
 class ModelPublicServiceStub:
-    """Model service responds to external access"""
+    """Model
+
+    ModelPublicService exposes the public endpoints that allow clients to manage
+    models.
+    """
 
     def __init__(self, channel: typing.Union[grpc.Channel, grpc.aio.Channel]) -> None: ...
     Liveness: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.LivenessRequest,
         model.model.v1alpha.model_pb2.LivenessResponse,
     ]
-    """Liveness method receives a LivenessRequest message and returns a
-    LivenessResponse message.
-    See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+    """Check if the model server is alive
+
+    See https://github.com/grpc/grpc/blob/master/doc/health-checking.md.
     """
     Readiness: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.ReadinessRequest,
         model.model.v1alpha.model_pb2.ReadinessResponse,
     ]
-    """Readiness method receives a ReadinessRequest message and returns a
-    ReadinessResponse message.
+    """Check if the model server is ready
+
     See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
     """
     ListModelDefinitions: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_definition_pb2.ListModelDefinitionsRequest,
         model.model.v1alpha.model_definition_pb2.ListModelDefinitionsResponse,
     ]
-    """ListModelDefinitions method receives a ListModelDefinitionsRequest message
-    and returns a ListModelDefinitionsResponse
+    """List model definitions
+
+    Returns a paginated list of model definitions.
     """
     GetModelDefinition: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_definition_pb2.GetModelDefinitionRequest,
         model.model.v1alpha.model_definition_pb2.GetModelDefinitionResponse,
     ]
-    """GetModelDefinition method receives a GetModelDefinitionRequest message and
-    returns a GetModelDefinitionResponse
+    """Get a model definition
+
+    Returns the details of a model definition.
     """
     ListModels: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.ListModelsRequest,
         model.model.v1alpha.model_pb2.ListModelsResponse,
     ]
-    """ListModels method receives a ListModelsRequest message and returns a
-    ListModelsResponse
+    """List models
+
+    Returns a paginated list of models.
     """
     LookUpModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.LookUpModelRequest,
         model.model.v1alpha.model_pb2.LookUpModelResponse,
     ]
-    """LookUpUodel method receives a LookUpModelRequest message and returns a
-    LookUpModelResponse
+    """Get a model by UID
+
+    Returns the details of a model by a permalink defined by the resource UID.
     """
     ListUserModels: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.ListUserModelsRequest,
         model.model.v1alpha.model_pb2.ListUserModelsResponse,
     ]
-    """LisUsertModels method receives a ListUserModelsRequest message and returns a
-    ListUserModelsResponse
+    """List user models
+
+    Returns a paginated list of models that belong to the specified user. The
+    parent user may be different from the authenticated user, in which case
+    the results will contain the models that are visible to the latter.
     """
     CreateUserModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.CreateUserModelRequest,
         model.model.v1alpha.model_pb2.CreateUserModelResponse,
     ]
-    """CreateUserModel method receives a CreateUserModelRequest message and returns a
-    CreateUserModelResponse
+    """Create a new model
+
+    Creates a new model under the parenthood of a user. This is an
+    asynchronous endpoint, i.e., the server will not wait for the model to be
+    created in order to respond. Instead, it will return a response with the
+    necessary information to access the result and status of the creation
+    operation.
     """
     CreateUserModelBinaryFileUpload: grpc.StreamUnaryMultiCallable[
         model.model.v1alpha.model_pb2.CreateUserModelBinaryFileUploadRequest,
         model.model.v1alpha.model_pb2.CreateUserModelBinaryFileUploadResponse,
     ]
-    """CreateUserModelBinaryFileUpload method receives a
-    CreateUserModelBinaryFileUploadRequest message and returns a
-    CreateUserModelBinaryFileUploadResponse message.
+    """Upload model binary
 
-    Endpoint: "POST /v1alpha/users/*/models:multipart"
+    Creates a new model by upploading its binary content.
     """
     GetUserModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetUserModelRequest,
         model.model.v1alpha.model_pb2.GetUserModelResponse,
     ]
-    """GetUserModel method receives a GetUserModelRequest message and returns a
-    GetUserModelResponse
+    """Get a model
+
+    Returns the detail of a model, accessing it by the model ID and its parent user.
     """
     UpdateUserModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.UpdateUserModelRequest,
         model.model.v1alpha.model_pb2.UpdateUserModelResponse,
     ]
-    """UpdateUserModel method receives a UpdateUserModelRequest message and returns a
-    UpdateUserModelResponse
+    """Update a model
+
+    Updates a model, accessing it by its resource name, which is defined by
+    the parent user and the ID of the model.
+
+    In REST requests, only the supplied model fields will be taken into
+    account when updating the resource.
     """
     DeleteUserModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.DeleteUserModelRequest,
         model.model.v1alpha.model_pb2.DeleteUserModelResponse,
     ]
-    """DeleteUserModel method receives a DeleteUserModelRequest message and returns a
-    DeleteUserModelResponse
+    """Delete a model
+
+    Deletes a model, accesing it by its resource name, which is defined by the
+    parent user and the ID of the model.
     """
     RenameUserModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.RenameUserModelRequest,
         model.model.v1alpha.model_pb2.RenameUserModelResponse,
     ]
-    """RenameUserModel method rename a model"""
+    """Rename a model
+
+    Renames a model, accesing it by its resource name, which is defined by the
+    parent user and the ID of the model.
+    """
     PublishUserModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.PublishUserModelRequest,
         model.model.v1alpha.model_pb2.PublishUserModelResponse,
     ]
-    """PublishUserModel method receives a PublisUserhModelRequest message and returns a
-    PublishUserModelResponse
+    """Publish a model
+
+    Updates the visibility in a model to PUBLIC. The model is accessed by its
+    resource name, defined by the model ID and its parent user.
     """
     UnpublishUserModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.UnpublishUserModelRequest,
         model.model.v1alpha.model_pb2.UnpublishUserModelResponse,
     ]
-    """UnpublishUserModel method receives a UnpublishUserModelRequest message and returns
-    a UnpublishUserModelResponse
+    """Unpublish a model
+
+    Updates the visibility in a model to PRIVATE. The model is accessed by its
+    resource name, defined by the model ID and its parent user.
     """
     DeployUserModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.DeployUserModelRequest,
         model.model.v1alpha.model_pb2.DeployUserModelResponse,
     ]
-    """DeployUserModel deploy a model to online state"""
+    """Deploy a model
+
+    Transitions the model into an ONLINE state. The model is accessed by its
+    resource name, defined by the model ID and its parent user.
+
+    While this operation is being performed, the state of the model will
+    transition to UNSPECIFIED. As completing the deployment might take time,
+    the server will not wait to complete the operation to return a response.
+    The state of the model can be used to track the completion of the
+    operation. This can be done by using the `watch` operation on the model.
+    """
     UndeployUserModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.UndeployUserModelRequest,
         model.model.v1alpha.model_pb2.UndeployUserModelResponse,
     ]
-    """UndeployUserModel undeploy a model to offline state"""
+    """Undeploy a model
+
+    Transitions the model into an OFFLINE state. The model is accessed by its
+    resource name, defined by the model ID and its parent user.
+
+    While this operation is being performed, the state of the model will
+    transition to UNSPECIFIED. As completing the teardown might take time,
+    the server will not wait to complete the operation to return a response.
+    The state of the model can be used to track the completion of the
+    operation. This can be done by using the `watch` operation on the model.
+    """
     GetUserModelCard: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetUserModelCardRequest,
         model.model.v1alpha.model_pb2.GetUserModelCardResponse,
     ]
-    """GetUserModelCard method receives a GetUserModelCardRequest message
-    and returns a GetUserModelCardResponseUser
+    """Get a model card
+
+    Returns the README file that accompanies a model, describing it and
+    enhancing it with metadata. The model is accessed by its resource name.
     """
     WatchUserModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.WatchUserModelRequest,
         model.model.v1alpha.model_pb2.WatchUserModelResponse,
     ]
-    """WatchUserModel method receives a WatchUserModelRequest message
-    and returns a WatchModelResponse
+    """Watch the state of a model
+
+    Returns the state of a model. The deploy / undeploy actions take some
+    time, during which a model will be in an UNSPECIFIED state. This endpoint
+    allows clients to track the state and progress of the model.
     """
     TriggerUserModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerUserModelRequest,
@@ -160,179 +215,229 @@ class ModelPublicServiceStub:
     ]
     """/////////////////////////////////////////////////////
 
-    TriggerUserModel method receives a TriggerUserModelRequest message
-    and returns a TriggerUserModelResponse message.
+    Trigger model inference
+
+    Triggers a deployed model to infer the result of a set of task or
+    questions.
     """
     TriggerUserModelBinaryFileUpload: grpc.StreamUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerUserModelBinaryFileUploadRequest,
         model.model.v1alpha.model_pb2.TriggerUserModelBinaryFileUploadResponse,
     ]
-    """TriggerUserModelBinaryFileUpload method receives a
-    TriggerUserModelBinaryFileUploadRequest message and returns a
-    TriggerUserModelBinaryFileUploadResponse message.
+    """Trigger model inference with a binary input
 
-    Endpoint: "POST/v1alpha/{name=models/*}/trigger-multipart"
+    Triggers a deployed model to infer the result of a task or question,
+    submitted as a binary file.
     """
     TestUserModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TestUserModelRequest,
         model.model.v1alpha.model_pb2.TestUserModelResponse,
     ]
-    """TestUserModel method receives a TestUserModelRequest message
-    and returns a TestUserModelResponse message.
-    """
+    """Test model inference"""
     TestUserModelBinaryFileUpload: grpc.StreamUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TestUserModelBinaryFileUploadRequest,
         model.model.v1alpha.model_pb2.TestUserModelBinaryFileUploadResponse,
     ]
-    """TestUserModelBinaryFileUpload method receives a
-    TestUserModelBinaryFileUploadRequest message and returns a
-    TestUserModelBinaryFileUploadResponse message.
-
-    Endpoint: "POST/v1alpha/{name=users/*/models/*}/test-multipart"
-    """
+    """Test model inference with binary inputs"""
     GetModelOperation: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetModelOperationRequest,
         model.model.v1alpha.model_pb2.GetModelOperationResponse,
     ]
-    """GetModelOperation method receives a
-    GetModelOperationRequest message and returns a
-    GetModelOperationResponse message.
+    """Get the details of a long-running operation
+
+    This method allows requesters to request the status and outcome of
+    long-running operations in a model, such as deployment.
     """
 
 class ModelPublicServiceAsyncStub:
-    """Model service responds to external access"""
+    """Model
+
+    ModelPublicService exposes the public endpoints that allow clients to manage
+    models.
+    """
 
     Liveness: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.LivenessRequest,
         model.model.v1alpha.model_pb2.LivenessResponse,
     ]
-    """Liveness method receives a LivenessRequest message and returns a
-    LivenessResponse message.
-    See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+    """Check if the model server is alive
+
+    See https://github.com/grpc/grpc/blob/master/doc/health-checking.md.
     """
     Readiness: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.ReadinessRequest,
         model.model.v1alpha.model_pb2.ReadinessResponse,
     ]
-    """Readiness method receives a ReadinessRequest message and returns a
-    ReadinessResponse message.
+    """Check if the model server is ready
+
     See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
     """
     ListModelDefinitions: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_definition_pb2.ListModelDefinitionsRequest,
         model.model.v1alpha.model_definition_pb2.ListModelDefinitionsResponse,
     ]
-    """ListModelDefinitions method receives a ListModelDefinitionsRequest message
-    and returns a ListModelDefinitionsResponse
+    """List model definitions
+
+    Returns a paginated list of model definitions.
     """
     GetModelDefinition: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_definition_pb2.GetModelDefinitionRequest,
         model.model.v1alpha.model_definition_pb2.GetModelDefinitionResponse,
     ]
-    """GetModelDefinition method receives a GetModelDefinitionRequest message and
-    returns a GetModelDefinitionResponse
+    """Get a model definition
+
+    Returns the details of a model definition.
     """
     ListModels: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.ListModelsRequest,
         model.model.v1alpha.model_pb2.ListModelsResponse,
     ]
-    """ListModels method receives a ListModelsRequest message and returns a
-    ListModelsResponse
+    """List models
+
+    Returns a paginated list of models.
     """
     LookUpModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.LookUpModelRequest,
         model.model.v1alpha.model_pb2.LookUpModelResponse,
     ]
-    """LookUpUodel method receives a LookUpModelRequest message and returns a
-    LookUpModelResponse
+    """Get a model by UID
+
+    Returns the details of a model by a permalink defined by the resource UID.
     """
     ListUserModels: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.ListUserModelsRequest,
         model.model.v1alpha.model_pb2.ListUserModelsResponse,
     ]
-    """LisUsertModels method receives a ListUserModelsRequest message and returns a
-    ListUserModelsResponse
+    """List user models
+
+    Returns a paginated list of models that belong to the specified user. The
+    parent user may be different from the authenticated user, in which case
+    the results will contain the models that are visible to the latter.
     """
     CreateUserModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.CreateUserModelRequest,
         model.model.v1alpha.model_pb2.CreateUserModelResponse,
     ]
-    """CreateUserModel method receives a CreateUserModelRequest message and returns a
-    CreateUserModelResponse
+    """Create a new model
+
+    Creates a new model under the parenthood of a user. This is an
+    asynchronous endpoint, i.e., the server will not wait for the model to be
+    created in order to respond. Instead, it will return a response with the
+    necessary information to access the result and status of the creation
+    operation.
     """
     CreateUserModelBinaryFileUpload: grpc.aio.StreamUnaryMultiCallable[
         model.model.v1alpha.model_pb2.CreateUserModelBinaryFileUploadRequest,
         model.model.v1alpha.model_pb2.CreateUserModelBinaryFileUploadResponse,
     ]
-    """CreateUserModelBinaryFileUpload method receives a
-    CreateUserModelBinaryFileUploadRequest message and returns a
-    CreateUserModelBinaryFileUploadResponse message.
+    """Upload model binary
 
-    Endpoint: "POST /v1alpha/users/*/models:multipart"
+    Creates a new model by upploading its binary content.
     """
     GetUserModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetUserModelRequest,
         model.model.v1alpha.model_pb2.GetUserModelResponse,
     ]
-    """GetUserModel method receives a GetUserModelRequest message and returns a
-    GetUserModelResponse
+    """Get a model
+
+    Returns the detail of a model, accessing it by the model ID and its parent user.
     """
     UpdateUserModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.UpdateUserModelRequest,
         model.model.v1alpha.model_pb2.UpdateUserModelResponse,
     ]
-    """UpdateUserModel method receives a UpdateUserModelRequest message and returns a
-    UpdateUserModelResponse
+    """Update a model
+
+    Updates a model, accessing it by its resource name, which is defined by
+    the parent user and the ID of the model.
+
+    In REST requests, only the supplied model fields will be taken into
+    account when updating the resource.
     """
     DeleteUserModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.DeleteUserModelRequest,
         model.model.v1alpha.model_pb2.DeleteUserModelResponse,
     ]
-    """DeleteUserModel method receives a DeleteUserModelRequest message and returns a
-    DeleteUserModelResponse
+    """Delete a model
+
+    Deletes a model, accesing it by its resource name, which is defined by the
+    parent user and the ID of the model.
     """
     RenameUserModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.RenameUserModelRequest,
         model.model.v1alpha.model_pb2.RenameUserModelResponse,
     ]
-    """RenameUserModel method rename a model"""
+    """Rename a model
+
+    Renames a model, accesing it by its resource name, which is defined by the
+    parent user and the ID of the model.
+    """
     PublishUserModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.PublishUserModelRequest,
         model.model.v1alpha.model_pb2.PublishUserModelResponse,
     ]
-    """PublishUserModel method receives a PublisUserhModelRequest message and returns a
-    PublishUserModelResponse
+    """Publish a model
+
+    Updates the visibility in a model to PUBLIC. The model is accessed by its
+    resource name, defined by the model ID and its parent user.
     """
     UnpublishUserModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.UnpublishUserModelRequest,
         model.model.v1alpha.model_pb2.UnpublishUserModelResponse,
     ]
-    """UnpublishUserModel method receives a UnpublishUserModelRequest message and returns
-    a UnpublishUserModelResponse
+    """Unpublish a model
+
+    Updates the visibility in a model to PRIVATE. The model is accessed by its
+    resource name, defined by the model ID and its parent user.
     """
     DeployUserModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.DeployUserModelRequest,
         model.model.v1alpha.model_pb2.DeployUserModelResponse,
     ]
-    """DeployUserModel deploy a model to online state"""
+    """Deploy a model
+
+    Transitions the model into an ONLINE state. The model is accessed by its
+    resource name, defined by the model ID and its parent user.
+
+    While this operation is being performed, the state of the model will
+    transition to UNSPECIFIED. As completing the deployment might take time,
+    the server will not wait to complete the operation to return a response.
+    The state of the model can be used to track the completion of the
+    operation. This can be done by using the `watch` operation on the model.
+    """
     UndeployUserModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.UndeployUserModelRequest,
         model.model.v1alpha.model_pb2.UndeployUserModelResponse,
     ]
-    """UndeployUserModel undeploy a model to offline state"""
+    """Undeploy a model
+
+    Transitions the model into an OFFLINE state. The model is accessed by its
+    resource name, defined by the model ID and its parent user.
+
+    While this operation is being performed, the state of the model will
+    transition to UNSPECIFIED. As completing the teardown might take time,
+    the server will not wait to complete the operation to return a response.
+    The state of the model can be used to track the completion of the
+    operation. This can be done by using the `watch` operation on the model.
+    """
     GetUserModelCard: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetUserModelCardRequest,
         model.model.v1alpha.model_pb2.GetUserModelCardResponse,
     ]
-    """GetUserModelCard method receives a GetUserModelCardRequest message
-    and returns a GetUserModelCardResponseUser
+    """Get a model card
+
+    Returns the README file that accompanies a model, describing it and
+    enhancing it with metadata. The model is accessed by its resource name.
     """
     WatchUserModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.WatchUserModelRequest,
         model.model.v1alpha.model_pb2.WatchUserModelResponse,
     ]
-    """WatchUserModel method receives a WatchUserModelRequest message
-    and returns a WatchModelResponse
+    """Watch the state of a model
+
+    Returns the state of a model. The deploy / undeploy actions take some
+    time, during which a model will be in an UNSPECIFIED state. This endpoint
+    allows clients to track the state and progress of the model.
     """
     TriggerUserModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerUserModelRequest,
@@ -340,47 +445,46 @@ class ModelPublicServiceAsyncStub:
     ]
     """/////////////////////////////////////////////////////
 
-    TriggerUserModel method receives a TriggerUserModelRequest message
-    and returns a TriggerUserModelResponse message.
+    Trigger model inference
+
+    Triggers a deployed model to infer the result of a set of task or
+    questions.
     """
     TriggerUserModelBinaryFileUpload: grpc.aio.StreamUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerUserModelBinaryFileUploadRequest,
         model.model.v1alpha.model_pb2.TriggerUserModelBinaryFileUploadResponse,
     ]
-    """TriggerUserModelBinaryFileUpload method receives a
-    TriggerUserModelBinaryFileUploadRequest message and returns a
-    TriggerUserModelBinaryFileUploadResponse message.
+    """Trigger model inference with a binary input
 
-    Endpoint: "POST/v1alpha/{name=models/*}/trigger-multipart"
+    Triggers a deployed model to infer the result of a task or question,
+    submitted as a binary file.
     """
     TestUserModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TestUserModelRequest,
         model.model.v1alpha.model_pb2.TestUserModelResponse,
     ]
-    """TestUserModel method receives a TestUserModelRequest message
-    and returns a TestUserModelResponse message.
-    """
+    """Test model inference"""
     TestUserModelBinaryFileUpload: grpc.aio.StreamUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TestUserModelBinaryFileUploadRequest,
         model.model.v1alpha.model_pb2.TestUserModelBinaryFileUploadResponse,
     ]
-    """TestUserModelBinaryFileUpload method receives a
-    TestUserModelBinaryFileUploadRequest message and returns a
-    TestUserModelBinaryFileUploadResponse message.
-
-    Endpoint: "POST/v1alpha/{name=users/*/models/*}/test-multipart"
-    """
+    """Test model inference with binary inputs"""
     GetModelOperation: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetModelOperationRequest,
         model.model.v1alpha.model_pb2.GetModelOperationResponse,
     ]
-    """GetModelOperation method receives a
-    GetModelOperationRequest message and returns a
-    GetModelOperationResponse message.
+    """Get the details of a long-running operation
+
+    This method allows requesters to request the status and outcome of
+    long-running operations in a model, such as deployment.
     """
 
 class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
-    """Model service responds to external access"""
+    """Model
+
+    ModelPublicService exposes the public endpoints that allow clients to manage
+    models.
+    """
 
     @abc.abstractmethod
     def Liveness(
@@ -388,9 +492,9 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         request: model.model.v1alpha.model_pb2.LivenessRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.LivenessResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.LivenessResponse]]:
-        """Liveness method receives a LivenessRequest message and returns a
-        LivenessResponse message.
-        See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+        """Check if the model server is alive
+
+        See https://github.com/grpc/grpc/blob/master/doc/health-checking.md.
         """
     @abc.abstractmethod
     def Readiness(
@@ -398,8 +502,8 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         request: model.model.v1alpha.model_pb2.ReadinessRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.ReadinessResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.ReadinessResponse]]:
-        """Readiness method receives a ReadinessRequest message and returns a
-        ReadinessResponse message.
+        """Check if the model server is ready
+
         See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
         """
     @abc.abstractmethod
@@ -408,8 +512,9 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         request: model.model.v1alpha.model_definition_pb2.ListModelDefinitionsRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_definition_pb2.ListModelDefinitionsResponse, collections.abc.Awaitable[model.model.v1alpha.model_definition_pb2.ListModelDefinitionsResponse]]:
-        """ListModelDefinitions method receives a ListModelDefinitionsRequest message
-        and returns a ListModelDefinitionsResponse
+        """List model definitions
+
+        Returns a paginated list of model definitions.
         """
     @abc.abstractmethod
     def GetModelDefinition(
@@ -417,8 +522,9 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         request: model.model.v1alpha.model_definition_pb2.GetModelDefinitionRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_definition_pb2.GetModelDefinitionResponse, collections.abc.Awaitable[model.model.v1alpha.model_definition_pb2.GetModelDefinitionResponse]]:
-        """GetModelDefinition method receives a GetModelDefinitionRequest message and
-        returns a GetModelDefinitionResponse
+        """Get a model definition
+
+        Returns the details of a model definition.
         """
     @abc.abstractmethod
     def ListModels(
@@ -426,8 +532,9 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         request: model.model.v1alpha.model_pb2.ListModelsRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.ListModelsResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.ListModelsResponse]]:
-        """ListModels method receives a ListModelsRequest message and returns a
-        ListModelsResponse
+        """List models
+
+        Returns a paginated list of models.
         """
     @abc.abstractmethod
     def LookUpModel(
@@ -435,8 +542,9 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         request: model.model.v1alpha.model_pb2.LookUpModelRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.LookUpModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.LookUpModelResponse]]:
-        """LookUpUodel method receives a LookUpModelRequest message and returns a
-        LookUpModelResponse
+        """Get a model by UID
+
+        Returns the details of a model by a permalink defined by the resource UID.
         """
     @abc.abstractmethod
     def ListUserModels(
@@ -444,8 +552,11 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         request: model.model.v1alpha.model_pb2.ListUserModelsRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.ListUserModelsResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.ListUserModelsResponse]]:
-        """LisUsertModels method receives a ListUserModelsRequest message and returns a
-        ListUserModelsResponse
+        """List user models
+
+        Returns a paginated list of models that belong to the specified user. The
+        parent user may be different from the authenticated user, in which case
+        the results will contain the models that are visible to the latter.
         """
     @abc.abstractmethod
     def CreateUserModel(
@@ -453,8 +564,13 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         request: model.model.v1alpha.model_pb2.CreateUserModelRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.CreateUserModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.CreateUserModelResponse]]:
-        """CreateUserModel method receives a CreateUserModelRequest message and returns a
-        CreateUserModelResponse
+        """Create a new model
+
+        Creates a new model under the parenthood of a user. This is an
+        asynchronous endpoint, i.e., the server will not wait for the model to be
+        created in order to respond. Instead, it will return a response with the
+        necessary information to access the result and status of the creation
+        operation.
         """
     @abc.abstractmethod
     def CreateUserModelBinaryFileUpload(
@@ -462,11 +578,9 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         request_iterator: _MaybeAsyncIterator[model.model.v1alpha.model_pb2.CreateUserModelBinaryFileUploadRequest],
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.CreateUserModelBinaryFileUploadResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.CreateUserModelBinaryFileUploadResponse]]:
-        """CreateUserModelBinaryFileUpload method receives a
-        CreateUserModelBinaryFileUploadRequest message and returns a
-        CreateUserModelBinaryFileUploadResponse message.
+        """Upload model binary
 
-        Endpoint: "POST /v1alpha/users/*/models:multipart"
+        Creates a new model by upploading its binary content.
         """
     @abc.abstractmethod
     def GetUserModel(
@@ -474,8 +588,9 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         request: model.model.v1alpha.model_pb2.GetUserModelRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.GetUserModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.GetUserModelResponse]]:
-        """GetUserModel method receives a GetUserModelRequest message and returns a
-        GetUserModelResponse
+        """Get a model
+
+        Returns the detail of a model, accessing it by the model ID and its parent user.
         """
     @abc.abstractmethod
     def UpdateUserModel(
@@ -483,8 +598,13 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         request: model.model.v1alpha.model_pb2.UpdateUserModelRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.UpdateUserModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.UpdateUserModelResponse]]:
-        """UpdateUserModel method receives a UpdateUserModelRequest message and returns a
-        UpdateUserModelResponse
+        """Update a model
+
+        Updates a model, accessing it by its resource name, which is defined by
+        the parent user and the ID of the model.
+
+        In REST requests, only the supplied model fields will be taken into
+        account when updating the resource.
         """
     @abc.abstractmethod
     def DeleteUserModel(
@@ -492,8 +612,10 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         request: model.model.v1alpha.model_pb2.DeleteUserModelRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.DeleteUserModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.DeleteUserModelResponse]]:
-        """DeleteUserModel method receives a DeleteUserModelRequest message and returns a
-        DeleteUserModelResponse
+        """Delete a model
+
+        Deletes a model, accesing it by its resource name, which is defined by the
+        parent user and the ID of the model.
         """
     @abc.abstractmethod
     def RenameUserModel(
@@ -501,15 +623,21 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         request: model.model.v1alpha.model_pb2.RenameUserModelRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.RenameUserModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.RenameUserModelResponse]]:
-        """RenameUserModel method rename a model"""
+        """Rename a model
+
+        Renames a model, accesing it by its resource name, which is defined by the
+        parent user and the ID of the model.
+        """
     @abc.abstractmethod
     def PublishUserModel(
         self,
         request: model.model.v1alpha.model_pb2.PublishUserModelRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.PublishUserModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.PublishUserModelResponse]]:
-        """PublishUserModel method receives a PublisUserhModelRequest message and returns a
-        PublishUserModelResponse
+        """Publish a model
+
+        Updates the visibility in a model to PUBLIC. The model is accessed by its
+        resource name, defined by the model ID and its parent user.
         """
     @abc.abstractmethod
     def UnpublishUserModel(
@@ -517,8 +645,10 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         request: model.model.v1alpha.model_pb2.UnpublishUserModelRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.UnpublishUserModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.UnpublishUserModelResponse]]:
-        """UnpublishUserModel method receives a UnpublishUserModelRequest message and returns
-        a UnpublishUserModelResponse
+        """Unpublish a model
+
+        Updates the visibility in a model to PRIVATE. The model is accessed by its
+        resource name, defined by the model ID and its parent user.
         """
     @abc.abstractmethod
     def DeployUserModel(
@@ -526,22 +656,44 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         request: model.model.v1alpha.model_pb2.DeployUserModelRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.DeployUserModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.DeployUserModelResponse]]:
-        """DeployUserModel deploy a model to online state"""
+        """Deploy a model
+
+        Transitions the model into an ONLINE state. The model is accessed by its
+        resource name, defined by the model ID and its parent user.
+
+        While this operation is being performed, the state of the model will
+        transition to UNSPECIFIED. As completing the deployment might take time,
+        the server will not wait to complete the operation to return a response.
+        The state of the model can be used to track the completion of the
+        operation. This can be done by using the `watch` operation on the model.
+        """
     @abc.abstractmethod
     def UndeployUserModel(
         self,
         request: model.model.v1alpha.model_pb2.UndeployUserModelRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.UndeployUserModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.UndeployUserModelResponse]]:
-        """UndeployUserModel undeploy a model to offline state"""
+        """Undeploy a model
+
+        Transitions the model into an OFFLINE state. The model is accessed by its
+        resource name, defined by the model ID and its parent user.
+
+        While this operation is being performed, the state of the model will
+        transition to UNSPECIFIED. As completing the teardown might take time,
+        the server will not wait to complete the operation to return a response.
+        The state of the model can be used to track the completion of the
+        operation. This can be done by using the `watch` operation on the model.
+        """
     @abc.abstractmethod
     def GetUserModelCard(
         self,
         request: model.model.v1alpha.model_pb2.GetUserModelCardRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.GetUserModelCardResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.GetUserModelCardResponse]]:
-        """GetUserModelCard method receives a GetUserModelCardRequest message
-        and returns a GetUserModelCardResponseUser
+        """Get a model card
+
+        Returns the README file that accompanies a model, describing it and
+        enhancing it with metadata. The model is accessed by its resource name.
         """
     @abc.abstractmethod
     def WatchUserModel(
@@ -549,8 +701,11 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         request: model.model.v1alpha.model_pb2.WatchUserModelRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.WatchUserModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.WatchUserModelResponse]]:
-        """WatchUserModel method receives a WatchUserModelRequest message
-        and returns a WatchModelResponse
+        """Watch the state of a model
+
+        Returns the state of a model. The deploy / undeploy actions take some
+        time, during which a model will be in an UNSPECIFIED state. This endpoint
+        allows clients to track the state and progress of the model.
         """
     @abc.abstractmethod
     def TriggerUserModel(
@@ -560,8 +715,10 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.TriggerUserModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TriggerUserModelResponse]]:
         """/////////////////////////////////////////////////////
 
-        TriggerUserModel method receives a TriggerUserModelRequest message
-        and returns a TriggerUserModelResponse message.
+        Trigger model inference
+
+        Triggers a deployed model to infer the result of a set of task or
+        questions.
         """
     @abc.abstractmethod
     def TriggerUserModelBinaryFileUpload(
@@ -569,11 +726,10 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         request_iterator: _MaybeAsyncIterator[model.model.v1alpha.model_pb2.TriggerUserModelBinaryFileUploadRequest],
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.TriggerUserModelBinaryFileUploadResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TriggerUserModelBinaryFileUploadResponse]]:
-        """TriggerUserModelBinaryFileUpload method receives a
-        TriggerUserModelBinaryFileUploadRequest message and returns a
-        TriggerUserModelBinaryFileUploadResponse message.
+        """Trigger model inference with a binary input
 
-        Endpoint: "POST/v1alpha/{name=models/*}/trigger-multipart"
+        Triggers a deployed model to infer the result of a task or question,
+        submitted as a binary file.
         """
     @abc.abstractmethod
     def TestUserModel(
@@ -581,30 +737,24 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         request: model.model.v1alpha.model_pb2.TestUserModelRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.TestUserModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TestUserModelResponse]]:
-        """TestUserModel method receives a TestUserModelRequest message
-        and returns a TestUserModelResponse message.
-        """
+        """Test model inference"""
     @abc.abstractmethod
     def TestUserModelBinaryFileUpload(
         self,
         request_iterator: _MaybeAsyncIterator[model.model.v1alpha.model_pb2.TestUserModelBinaryFileUploadRequest],
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.TestUserModelBinaryFileUploadResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TestUserModelBinaryFileUploadResponse]]:
-        """TestUserModelBinaryFileUpload method receives a
-        TestUserModelBinaryFileUploadRequest message and returns a
-        TestUserModelBinaryFileUploadResponse message.
-
-        Endpoint: "POST/v1alpha/{name=users/*/models/*}/test-multipart"
-        """
+        """Test model inference with binary inputs"""
     @abc.abstractmethod
     def GetModelOperation(
         self,
         request: model.model.v1alpha.model_pb2.GetModelOperationRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.GetModelOperationResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.GetModelOperationResponse]]:
-        """GetModelOperation method receives a
-        GetModelOperationRequest message and returns a
-        GetModelOperationResponse message.
+        """Get the details of a long-running operation
+
+        This method allows requesters to request the status and outcome of
+        long-running operations in a model, such as deployment.
         """
 
 def add_ModelPublicServiceServicer_to_server(servicer: ModelPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

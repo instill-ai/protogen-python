@@ -22,63 +22,63 @@ class _Task:
 class _TaskEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Task.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     TASK_UNSPECIFIED: _Task.ValueType  # 0
-    """Task: UNSPECIFIED"""
+    """Unspecified."""
     TASK_CLASSIFICATION: _Task.ValueType  # 1
-    """Task: CLASSIFICATION"""
+    """Image Classification - classify images into predefined categories."""
     TASK_DETECTION: _Task.ValueType  # 2
-    """Task: DETECTION"""
+    """Object Detection - detect and localize multiple objects in images."""
     TASK_KEYPOINT: _Task.ValueType  # 3
-    """Task: KEYPOINT"""
+    """Keypoint Detection - detect and localize multiple keypoints of objects in images."""
     TASK_OCR: _Task.ValueType  # 4
-    """Task: OCR"""
+    """OCR (Optical Character Recognition) - detect and recognize text in images."""
     TASK_INSTANCE_SEGMENTATION: _Task.ValueType  # 5
-    """Task: INSTANCE SEGMENTATION"""
+    """Instance Segmentation - detect, localize and delineate multiple objects in images."""
     TASK_SEMANTIC_SEGMENTATION: _Task.ValueType  # 6
-    """Task: SEMANTIC SEGMENTATION"""
+    """Semantic Segmentation - classify image pixels into predefined categories."""
     TASK_TEXT_TO_IMAGE: _Task.ValueType  # 7
-    """Task: TEXT TO IMAGE"""
+    """Text to Image - generate images from input text prompts."""
     TASK_TEXT_GENERATION: _Task.ValueType  # 8
-    """Task: TEXT GENERATION"""
+    """Text Generation - generate texts from input text prompts."""
     TASK_TEXT_GENERATION_CHAT: _Task.ValueType  # 9
-    """Task: TEXT GENERATION CHAT"""
+    """Conversational Text Generation - generate text as responses to a dialog input."""
     TASK_VISUAL_QUESTION_ANSWERING: _Task.ValueType  # 10
-    """Task: VISUAL QUESTION ANSWERING"""
+    """Visual Question Answering - generate text as a response to a visual prompt."""
     TASK_IMAGE_TO_IMAGE: _Task.ValueType  # 11
-    """Task: IMAGE TO IMAGE"""
+    """Image to Image - generate an image from another image."""
     TASK_TEXT_EMBEDDINGS: _Task.ValueType  # 12
-    """Task: TEXT EMBEDDINGS"""
+    """Text Embeddings - generate an embedding (a representation as coordinates) from a text input."""
     TASK_SPEECH_RECOGNITION: _Task.ValueType  # 13
-    """Task: SPEECH RECOGNITION"""
+    """Speech Recognition - transcribe the words in an audio input."""
 
 class Task(_Task, metaclass=_TaskEnumTypeWrapper):
-    """Task enumerates the AI task type"""
+    """Task enumerates the AI task that a model is designed to solve."""
 
 TASK_UNSPECIFIED: Task.ValueType  # 0
-"""Task: UNSPECIFIED"""
+"""Unspecified."""
 TASK_CLASSIFICATION: Task.ValueType  # 1
-"""Task: CLASSIFICATION"""
+"""Image Classification - classify images into predefined categories."""
 TASK_DETECTION: Task.ValueType  # 2
-"""Task: DETECTION"""
+"""Object Detection - detect and localize multiple objects in images."""
 TASK_KEYPOINT: Task.ValueType  # 3
-"""Task: KEYPOINT"""
+"""Keypoint Detection - detect and localize multiple keypoints of objects in images."""
 TASK_OCR: Task.ValueType  # 4
-"""Task: OCR"""
+"""OCR (Optical Character Recognition) - detect and recognize text in images."""
 TASK_INSTANCE_SEGMENTATION: Task.ValueType  # 5
-"""Task: INSTANCE SEGMENTATION"""
+"""Instance Segmentation - detect, localize and delineate multiple objects in images."""
 TASK_SEMANTIC_SEGMENTATION: Task.ValueType  # 6
-"""Task: SEMANTIC SEGMENTATION"""
+"""Semantic Segmentation - classify image pixels into predefined categories."""
 TASK_TEXT_TO_IMAGE: Task.ValueType  # 7
-"""Task: TEXT TO IMAGE"""
+"""Text to Image - generate images from input text prompts."""
 TASK_TEXT_GENERATION: Task.ValueType  # 8
-"""Task: TEXT GENERATION"""
+"""Text Generation - generate texts from input text prompts."""
 TASK_TEXT_GENERATION_CHAT: Task.ValueType  # 9
-"""Task: TEXT GENERATION CHAT"""
+"""Conversational Text Generation - generate text as responses to a dialog input."""
 TASK_VISUAL_QUESTION_ANSWERING: Task.ValueType  # 10
-"""Task: VISUAL QUESTION ANSWERING"""
+"""Visual Question Answering - generate text as a response to a visual prompt."""
 TASK_IMAGE_TO_IMAGE: Task.ValueType  # 11
-"""Task: IMAGE TO IMAGE"""
+"""Image to Image - generate an image from another image."""
 TASK_TEXT_EMBEDDINGS: Task.ValueType  # 12
-"""Task: TEXT EMBEDDINGS"""
+"""Text Embeddings - generate an embedding (a representation as coordinates) from a text input."""
 TASK_SPEECH_RECOGNITION: Task.ValueType  # 13
-"""Task: SPEECH RECOGNITION"""
+"""Speech Recognition - transcribe the words in an audio input."""
 global___Task = Task

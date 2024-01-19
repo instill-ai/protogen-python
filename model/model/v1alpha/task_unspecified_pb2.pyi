@@ -19,14 +19,14 @@ DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 @typing_extensions.final
 class UnspecifiedInput(google.protobuf.message.Message):
-    """UnspecifiedInput represents the input of unspecified task"""
+    """UnspecifiedInput represents the input of an unspecified task."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     RAW_INPUTS_FIELD_NUMBER: builtins.int
     @property
     def raw_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """A list of unspecified task inputs"""
+        """A list of values for the task."""
     def __init__(
         self,
         *,
@@ -38,14 +38,14 @@ global___UnspecifiedInput = UnspecifiedInput
 
 @typing_extensions.final
 class UnspecifiedOutput(google.protobuf.message.Message):
-    """UnspecifiedOutput represents the output of unspecified task"""
+    """UnspecifiedOutput contains the result of an unspecified task."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     RAW_OUTPUTS_FIELD_NUMBER: builtins.int
     @property
     def raw_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """A list of unspecified task outputs"""
+        """The task outputs."""
     def __init__(
         self,
         *,

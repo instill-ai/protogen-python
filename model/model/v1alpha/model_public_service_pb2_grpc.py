@@ -7,7 +7,10 @@ from model.model.v1alpha import model_pb2 as model_dot_model_dot_v1alpha_dot_mod
 
 
 class ModelPublicServiceStub(object):
-    """Model service responds to external access
+    """Model
+
+    ModelPublicService exposes the public endpoints that allow clients to manage
+    models.
     """
 
     def __init__(self, channel):
@@ -139,21 +142,24 @@ class ModelPublicServiceStub(object):
 
 
 class ModelPublicServiceServicer(object):
-    """Model service responds to external access
+    """Model
+
+    ModelPublicService exposes the public endpoints that allow clients to manage
+    models.
     """
 
     def Liveness(self, request, context):
-        """Liveness method receives a LivenessRequest message and returns a
-        LivenessResponse message.
-        See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+        """Check if the model server is alive
+
+        See https://github.com/grpc/grpc/blob/master/doc/health-checking.md.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def Readiness(self, request, context):
-        """Readiness method receives a ReadinessRequest message and returns a
-        ReadinessResponse message.
+        """Check if the model server is ready
+
         See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -161,136 +167,184 @@ class ModelPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListModelDefinitions(self, request, context):
-        """ListModelDefinitions method receives a ListModelDefinitionsRequest message
-        and returns a ListModelDefinitionsResponse
+        """List model definitions
+
+        Returns a paginated list of model definitions.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetModelDefinition(self, request, context):
-        """GetModelDefinition method receives a GetModelDefinitionRequest message and
-        returns a GetModelDefinitionResponse
+        """Get a model definition
+
+        Returns the details of a model definition.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListModels(self, request, context):
-        """ListModels method receives a ListModelsRequest message and returns a
-        ListModelsResponse
+        """List models
+
+        Returns a paginated list of models.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def LookUpModel(self, request, context):
-        """LookUpUodel method receives a LookUpModelRequest message and returns a
-        LookUpModelResponse
+        """Get a model by UID
+
+        Returns the details of a model by a permalink defined by the resource UID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListUserModels(self, request, context):
-        """LisUsertModels method receives a ListUserModelsRequest message and returns a
-        ListUserModelsResponse
+        """List user models
+
+        Returns a paginated list of models that belong to the specified user. The
+        parent user may be different from the authenticated user, in which case
+        the results will contain the models that are visible to the latter.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def CreateUserModel(self, request, context):
-        """CreateUserModel method receives a CreateUserModelRequest message and returns a
-        CreateUserModelResponse
+        """Create a new model
+
+        Creates a new model under the parenthood of a user. This is an
+        asynchronous endpoint, i.e., the server will not wait for the model to be
+        created in order to respond. Instead, it will return a response with the
+        necessary information to access the result and status of the creation
+        operation.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def CreateUserModelBinaryFileUpload(self, request_iterator, context):
-        """CreateUserModelBinaryFileUpload method receives a
-        CreateUserModelBinaryFileUploadRequest message and returns a
-        CreateUserModelBinaryFileUploadResponse message.
+        """Upload model binary
 
-        Endpoint: "POST /v1alpha/users/*/models:multipart"
+        Creates a new model by upploading its binary content.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetUserModel(self, request, context):
-        """GetUserModel method receives a GetUserModelRequest message and returns a
-        GetUserModelResponse
+        """Get a model
+
+        Returns the detail of a model, accessing it by the model ID and its parent user.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpdateUserModel(self, request, context):
-        """UpdateUserModel method receives a UpdateUserModelRequest message and returns a
-        UpdateUserModelResponse
+        """Update a model
+
+        Updates a model, accessing it by its resource name, which is defined by
+        the parent user and the ID of the model.
+
+        In REST requests, only the supplied model fields will be taken into
+        account when updating the resource.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteUserModel(self, request, context):
-        """DeleteUserModel method receives a DeleteUserModelRequest message and returns a
-        DeleteUserModelResponse
+        """Delete a model
+
+        Deletes a model, accesing it by its resource name, which is defined by the
+        parent user and the ID of the model.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def RenameUserModel(self, request, context):
-        """RenameUserModel method rename a model
+        """Rename a model
+
+        Renames a model, accesing it by its resource name, which is defined by the
+        parent user and the ID of the model.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def PublishUserModel(self, request, context):
-        """PublishUserModel method receives a PublisUserhModelRequest message and returns a
-        PublishUserModelResponse
+        """Publish a model
+
+        Updates the visibility in a model to PUBLIC. The model is accessed by its
+        resource name, defined by the model ID and its parent user.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UnpublishUserModel(self, request, context):
-        """UnpublishUserModel method receives a UnpublishUserModelRequest message and returns
-        a UnpublishUserModelResponse
+        """Unpublish a model
+
+        Updates the visibility in a model to PRIVATE. The model is accessed by its
+        resource name, defined by the model ID and its parent user.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeployUserModel(self, request, context):
-        """DeployUserModel deploy a model to online state
+        """Deploy a model
+
+        Transitions the model into an ONLINE state. The model is accessed by its
+        resource name, defined by the model ID and its parent user.
+
+        While this operation is being performed, the state of the model will
+        transition to UNSPECIFIED. As completing the deployment might take time,
+        the server will not wait to complete the operation to return a response.
+        The state of the model can be used to track the completion of the
+        operation. This can be done by using the `watch` operation on the model.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UndeployUserModel(self, request, context):
-        """UndeployUserModel undeploy a model to offline state
+        """Undeploy a model
+
+        Transitions the model into an OFFLINE state. The model is accessed by its
+        resource name, defined by the model ID and its parent user.
+
+        While this operation is being performed, the state of the model will
+        transition to UNSPECIFIED. As completing the teardown might take time,
+        the server will not wait to complete the operation to return a response.
+        The state of the model can be used to track the completion of the
+        operation. This can be done by using the `watch` operation on the model.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetUserModelCard(self, request, context):
-        """GetUserModelCard method receives a GetUserModelCardRequest message
-        and returns a GetUserModelCardResponseUser
+        """Get a model card
+
+        Returns the README file that accompanies a model, describing it and
+        enhancing it with metadata. The model is accessed by its resource name.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def WatchUserModel(self, request, context):
-        """WatchUserModel method receives a WatchUserModelRequest message
-        and returns a WatchModelResponse
+        """Watch the state of a model
+
+        Returns the state of a model. The deploy / undeploy actions take some
+        time, during which a model will be in an UNSPECIFIED state. This endpoint
+        allows clients to track the state and progress of the model.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -299,47 +353,44 @@ class ModelPublicServiceServicer(object):
     def TriggerUserModel(self, request, context):
         """/////////////////////////////////////////////////////
 
-        TriggerUserModel method receives a TriggerUserModelRequest message
-        and returns a TriggerUserModelResponse message.
+        Trigger model inference
+
+        Triggers a deployed model to infer the result of a set of task or
+        questions.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def TriggerUserModelBinaryFileUpload(self, request_iterator, context):
-        """TriggerUserModelBinaryFileUpload method receives a
-        TriggerUserModelBinaryFileUploadRequest message and returns a
-        TriggerUserModelBinaryFileUploadResponse message.
+        """Trigger model inference with a binary input
 
-        Endpoint: "POST/v1alpha/{name=models/*}/trigger-multipart"
+        Triggers a deployed model to infer the result of a task or question,
+        submitted as a binary file.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def TestUserModel(self, request, context):
-        """TestUserModel method receives a TestUserModelRequest message
-        and returns a TestUserModelResponse message.
+        """Test model inference
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def TestUserModelBinaryFileUpload(self, request_iterator, context):
-        """TestUserModelBinaryFileUpload method receives a
-        TestUserModelBinaryFileUploadRequest message and returns a
-        TestUserModelBinaryFileUploadResponse message.
-
-        Endpoint: "POST/v1alpha/{name=users/*/models/*}/test-multipart"
+        """Test model inference with binary inputs
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetModelOperation(self, request, context):
-        """GetModelOperation method receives a
-        GetModelOperationRequest message and returns a
-        GetModelOperationResponse message.
+        """Get the details of a long-running operation
+
+        This method allows requesters to request the status and outcome of
+        long-running operations in a model, such as deployment.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -476,7 +527,10 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class ModelPublicService(object):
-    """Model service responds to external access
+    """Model
+
+    ModelPublicService exposes the public endpoints that allow clients to manage
+    models.
     """
 
     @staticmethod

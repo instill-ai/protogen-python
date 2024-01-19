@@ -147,8 +147,8 @@ class ConnectorDefinition(google.protobuf.message.Message):
     VENDOR_FIELD_NUMBER: builtins.int
     VENDOR_ATTRIBUTES_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """The name of the connector definition.
-    - Format: `connector-definitions/*`.
+    """The name of the connector definition, defined by its ID.
+    - Format: `connector-definitions/{id}
     """
     uid: builtins.str
     """Connector definition UUID."""

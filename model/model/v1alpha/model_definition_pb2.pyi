@@ -27,29 +27,32 @@ class _ReleaseStage:
 class _ReleaseStageEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ReleaseStage.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     RELEASE_STAGE_UNSPECIFIED: _ReleaseStage.ValueType  # 0
-    """ReleaseStage: UNSPECIFIED"""
+    """Unspecified."""
     RELEASE_STAGE_ALPHA: _ReleaseStage.ValueType  # 1
-    """ReleaseStage: ALPHA"""
+    """Alpha."""
     RELEASE_STAGE_BETA: _ReleaseStage.ValueType  # 2
-    """ReleaseStage: BETA"""
+    """Beta."""
     RELEASE_STAGE_GENERALLY_AVAILABLE: _ReleaseStage.ValueType  # 3
-    """ReleaseStage: GENERALLY_AVAILABLE"""
+    """Generally available."""
     RELEASE_STAGE_CUSTOM: _ReleaseStage.ValueType  # 4
-    """ReleaseStage: CUSTOM"""
+    """Custom."""
 
 class ReleaseStage(_ReleaseStage, metaclass=_ReleaseStageEnumTypeWrapper):
-    """ReleaseStage enumerates the release stages"""
+    """/////////////////////////////////////////////////////////////////
+
+    ReleaseStage defines the stage of a release.
+    """
 
 RELEASE_STAGE_UNSPECIFIED: ReleaseStage.ValueType  # 0
-"""ReleaseStage: UNSPECIFIED"""
+"""Unspecified."""
 RELEASE_STAGE_ALPHA: ReleaseStage.ValueType  # 1
-"""ReleaseStage: ALPHA"""
+"""Alpha."""
 RELEASE_STAGE_BETA: ReleaseStage.ValueType  # 2
-"""ReleaseStage: BETA"""
+"""Beta."""
 RELEASE_STAGE_GENERALLY_AVAILABLE: ReleaseStage.ValueType  # 3
-"""ReleaseStage: GENERALLY_AVAILABLE"""
+"""Generally available."""
 RELEASE_STAGE_CUSTOM: ReleaseStage.ValueType  # 4
-"""ReleaseStage: CUSTOM"""
+"""Custom."""
 global___ReleaseStage = ReleaseStage
 
 class _View:
@@ -59,30 +62,28 @@ class _View:
 class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_View.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     VIEW_UNSPECIFIED: _View.ValueType  # 0
-    """View: UNSPECIFIED, equivalent to BASIC."""
+    """Unspecified, equivalent to BASIC."""
     VIEW_BASIC: _View.ValueType  # 1
-    """View: BASIC, server response only include basic information of the resource"""
+    """Default view, only includes basic information (omits `model_spec`)."""
     VIEW_FULL: _View.ValueType  # 2
-    """View: FULL, full representation of the resource"""
+    """Full representation."""
 
 class View(_View, metaclass=_ViewEnumTypeWrapper):
-    """View represents a view of any resource. The resource view is implemented by
-    adding a parameter to the method request which allows the client to specify
-    which view of the resource it wants to receive in the response.
-    """
+    """View defines how a model definition is presented."""
 
 VIEW_UNSPECIFIED: View.ValueType  # 0
-"""View: UNSPECIFIED, equivalent to BASIC."""
+"""Unspecified, equivalent to BASIC."""
 VIEW_BASIC: View.ValueType  # 1
-"""View: BASIC, server response only include basic information of the resource"""
+"""Default view, only includes basic information (omits `model_spec`)."""
 VIEW_FULL: View.ValueType  # 2
-"""View: FULL, full representation of the resource"""
+"""Full representation."""
 global___View = View
 
 @typing_extensions.final
 class ModelDefinition(google.protobuf.message.Message):
     """/////////////////////////////////////////////////////////////////
-    ModelDefinition represents the definition of a model
+
+    ModelDefinition defines how to configure and import a model.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -98,36 +99,38 @@ class ModelDefinition(google.protobuf.message.Message):
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """ModelDefinition resource name. It must have the format of
-    "model-definitions/{model-definition}"
+    """The resource name of the model, which allows its access by ID.
+    - Format: `model-definitions/{id}`.
     """
     uid: builtins.str
-    """ModelDefinition ID in UUIDv4"""
+    """Model definition UUID."""
     id: builtins.str
-    """ModelDefinition resource ID (the last segment of the resource name) used to
-    construct the resource name.
+    """Model definition resource ID (used in `name` as the last segment). This
+    conforms to RFC-1034, which restricts to letters, numbers, and hyphen,
+    with the first character a letter, the last a letter or a number, and a 63
+    character maximum.
     """
     title: builtins.str
-    """ModelDefinition display official title"""
+    """Official display title."""
     documentation_url: builtins.str
-    """ModelDefinition documentation url"""
+    """Documentation URL."""
     icon: builtins.str
-    """ModelDefinition icon"""
+    """Display icon."""
     release_stage: global___ReleaseStage.ValueType
-    """ModelDefinition release stage"""
+    """Release stage."""
     @property
     def model_spec(self) -> google.protobuf.struct_pb2.Struct:
-        """ModelDefinition model specification represents the JSON schema used to
+        """The model specification represented by a JSON schema. It is used to
         validate the JSON configurations of a model created from a specific model
-        source. Must be a valid JSON that includes what fields are needed to
-        create/display a model.
+        source. It must be a valid JSON that includes what fields are needed to
+        create or display a model.
         """
     @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """ModelDefinition create time"""
+        """Creation time."""
     @property
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """ModelDefinition update time"""
+        """Update time."""
     def __init__(
         self,
         *,
@@ -150,7 +153,7 @@ global___ModelDefinition = ModelDefinition
 @typing_extensions.final
 class ListModelDefinitionsRequest(google.protobuf.message.Message):
     """ListModelDefinitionsRequest represents a request to list all supported model
-    definitions
+    definitions.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -159,19 +162,14 @@ class ListModelDefinitionsRequest(google.protobuf.message.Message):
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """Page size: the maximum number of resources to return. The service may
-    return fewer than this value. If unspecified, at most 10 ModelDefinitions
-    will be returned. The maximum value is 100; values above 100 will be
-    coereced to 100.
+    """The maximum number of model definitions to return. If this parameter
+    is unspecified, at most 10 pipelines will be returned. The cap value for
+    this parameter is 100 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str
-    """Page token"""
+    """Page token."""
     view: global___View.ValueType
-    """Definition view (default is VIEW_BASIC)
-    VIEW_UNSPECIFIED/VIEW_BASIC: omit `ModelDefinition.model_spec` and
-    `ModelDefinition.model_spec`
-    VIEW_FULL: show full information
-    """
+    """View allows clients to specify the desired resource view in the response."""
     def __init__(
         self,
         *,
@@ -192,9 +190,7 @@ global___ListModelDefinitionsRequest = ListModelDefinitionsRequest
 
 @typing_extensions.final
 class ListModelDefinitionsResponse(google.protobuf.message.Message):
-    """ListModelDefinitionsResponse represents a response to list all supported
-    model definitions
-    """
+    """ListModelDefinitionsResponse contains a list of model definitions."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -203,11 +199,11 @@ class ListModelDefinitionsResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def model_definitions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ModelDefinition]:
-        """a list of ModelDefinition instances"""
+        """A list of model definition resources."""
     next_page_token: builtins.str
-    """Next page token"""
+    """Next page token."""
     total_size: builtins.int
-    """Total count of model definitions"""
+    """Total number of model definitions."""
     def __init__(
         self,
         *,
@@ -221,22 +217,20 @@ global___ListModelDefinitionsResponse = ListModelDefinitionsResponse
 
 @typing_extensions.final
 class GetModelDefinitionRequest(google.protobuf.message.Message):
-    """GetModelDefinitionRequest represents a request to query a model definition"""
+    """GetModelDefinitionRequest represents a request to fetch the details of a
+    model definition.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Resource name of the model definition.
-    For example "model-definitions/{uuid}"
+    """The resource name of the model definition, which allows its access by ID.
+    - Format: `model-definitions/{id}`.
     """
     view: global___View.ValueType
-    """Definition view (default is VIEW_BASIC)
-    VIEW_UNSPECIFIED/VIEW_BASIC: omit `ModelDefinition.model_spec` and
-    `ModelDefinition.model_spec`
-    VIEW_FULL: show full information
-    """
+    """View allows clients to specify the desired resource view in the response."""
     def __init__(
         self,
         *,
@@ -251,14 +245,14 @@ global___GetModelDefinitionRequest = GetModelDefinitionRequest
 
 @typing_extensions.final
 class GetModelDefinitionResponse(google.protobuf.message.Message):
-    """GetModelDefinitionResponse represents a response for a model definition"""
+    """GetModelDefinitionResponse contains the requested model definition."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     MODEL_DEFINITION_FIELD_NUMBER: builtins.int
     @property
     def model_definition(self) -> global___ModelDefinition:
-        """A model definition instance"""
+        """The model definition resource."""
     def __init__(
         self,
         *,

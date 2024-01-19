@@ -19,7 +19,7 @@ DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 @typing_extensions.final
 class Keypoint(google.protobuf.message.Message):
-    """Keypoint structure which include coordinate and keypoint visibility"""
+    """Keypoint contains the coordinates and visibility of a keypoint in an object."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -27,11 +27,11 @@ class Keypoint(google.protobuf.message.Message):
     Y_FIELD_NUMBER: builtins.int
     V_FIELD_NUMBER: builtins.int
     x: builtins.float
-    """x coordinate"""
+    """X coordinate."""
     y: builtins.float
-    """y coordinate"""
+    """Y coordinate."""
     v: builtins.float
-    """visibility"""
+    """Visibility."""
     def __init__(
         self,
         *,
@@ -45,7 +45,9 @@ global___Keypoint = Keypoint
 
 @typing_extensions.final
 class KeypointObject(google.protobuf.message.Message):
-    """KeypointObject corresponding to a person object"""
+    """KeypointObject is a detected object with its keypoints, e.g. a detected
+    human shape with its legs, arms, core, etc.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -54,12 +56,12 @@ class KeypointObject(google.protobuf.message.Message):
     BOUNDING_BOX_FIELD_NUMBER: builtins.int
     @property
     def keypoints(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Keypoint]:
-        """Keypoints"""
+        """Keypoints."""
     score: builtins.float
-    """Keypoint score"""
+    """Score."""
     @property
     def bounding_box(self) -> model.model.v1alpha.common_pb2.BoundingBox:
-        """Bounding box object"""
+        """Bounding box."""
     def __init__(
         self,
         *,
@@ -74,16 +76,16 @@ global___KeypointObject = KeypointObject
 
 @typing_extensions.final
 class KeypointInput(google.protobuf.message.Message):
-    """KeypointInput represents the input of keypoint detection task"""
+    """KeypointInput represents the input of a keypoint detection task."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     IMAGE_URL_FIELD_NUMBER: builtins.int
     IMAGE_BASE64_FIELD_NUMBER: builtins.int
     image_url: builtins.str
-    """Image type URL"""
+    """Image URL."""
     image_base64: builtins.str
-    """Image type base64"""
+    """Base64-encoded image."""
     def __init__(
         self,
         *,
@@ -98,8 +100,8 @@ global___KeypointInput = KeypointInput
 
 @typing_extensions.final
 class KeypointInputStream(google.protobuf.message.Message):
-    """KeypointInputStream represents the input of keypoint detection task when
-    using stream method
+    """KeypointInputStream represents the input of a keypoint detection task when
+    the input is streamed as binary files.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -108,9 +110,9 @@ class KeypointInputStream(google.protobuf.message.Message):
     CONTENT_FIELD_NUMBER: builtins.int
     @property
     def file_lengths(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.int]:
-        """The list of file length for each uploaded binary file"""
+        """File length for each uploaded binary file."""
     content: builtins.bytes
-    """Content of images in bytes"""
+    """Byte representation of the images."""
     def __init__(
         self,
         *,
@@ -123,14 +125,14 @@ global___KeypointInputStream = KeypointInputStream
 
 @typing_extensions.final
 class KeypointOutput(google.protobuf.message.Message):
-    """KeypointOutput represents the output of keypoint detection task"""
+    """KeypointOutput represents the result of a keypoint detection task."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     OBJECTS_FIELD_NUMBER: builtins.int
     @property
     def objects(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___KeypointObject]:
-        """A list of keypoint objects"""
+        """A list of keypoint objects."""
     def __init__(
         self,
         *,
