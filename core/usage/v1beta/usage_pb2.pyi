@@ -217,16 +217,21 @@ class MgmtUsageData(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    USAGES_FIELD_NUMBER: builtins.int
+    USER_USAGES_FIELD_NUMBER: builtins.int
+    ORG_USAGES_FIELD_NUMBER: builtins.int
     @property
-    def usages(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[core.mgmt.v1beta.mgmt_pb2.User]:
+    def user_usages(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[core.mgmt.v1beta.mgmt_pb2.User]:
         """Repeated user usage data"""
+    @property
+    def org_usages(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[core.mgmt.v1beta.mgmt_pb2.Organization]:
+        """Repeated org usage data"""
     def __init__(
         self,
         *,
-        usages: collections.abc.Iterable[core.mgmt.v1beta.mgmt_pb2.User] | None = ...,
+        user_usages: collections.abc.Iterable[core.mgmt.v1beta.mgmt_pb2.User] | None = ...,
+        org_usages: collections.abc.Iterable[core.mgmt.v1beta.mgmt_pb2.Organization] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["usages", b"usages"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["org_usages", b"org_usages", "user_usages", b"user_usages"]) -> None: ...
 
 global___MgmtUsageData = MgmtUsageData
 
@@ -433,6 +438,7 @@ class PipelineUsageData(google.protobuf.message.Message):
             PIPELINE_RELEASE_UID_FIELD_NUMBER: builtins.int
             USER_UID_FIELD_NUMBER: builtins.int
             USER_TYPE_FIELD_NUMBER: builtins.int
+            PIPELINE_ID_FIELD_NUMBER: builtins.int
             pipeline_uid: builtins.str
             """UID for the triggered pipeline"""
             trigger_uid: builtins.str
@@ -452,6 +458,8 @@ class PipelineUsageData(google.protobuf.message.Message):
             """UUID of the user who trigger the pipeline"""
             user_type: core.mgmt.v1beta.mgmt_pb2.OwnerType.ValueType
             """Type of the user who trigger the pipeline"""
+            pipeline_id: builtins.str
+            """ID for the triggered pipeline"""
             def __init__(
                 self,
                 *,
@@ -464,9 +472,10 @@ class PipelineUsageData(google.protobuf.message.Message):
                 pipeline_release_uid: builtins.str = ...,
                 user_uid: builtins.str = ...,
                 user_type: core.mgmt.v1beta.mgmt_pb2.OwnerType.ValueType = ...,
+                pipeline_id: builtins.str = ...,
             ) -> None: ...
             def HasField(self, field_name: typing_extensions.Literal["trigger_time", b"trigger_time"]) -> builtins.bool: ...
-            def ClearField(self, field_name: typing_extensions.Literal["pipeline_release_id", b"pipeline_release_id", "pipeline_release_uid", b"pipeline_release_uid", "pipeline_uid", b"pipeline_uid", "status", b"status", "trigger_mode", b"trigger_mode", "trigger_time", b"trigger_time", "trigger_uid", b"trigger_uid", "user_type", b"user_type", "user_uid", b"user_uid"]) -> None: ...
+            def ClearField(self, field_name: typing_extensions.Literal["pipeline_id", b"pipeline_id", "pipeline_release_id", b"pipeline_release_id", "pipeline_release_uid", b"pipeline_release_uid", "pipeline_uid", b"pipeline_uid", "status", b"status", "trigger_mode", b"trigger_mode", "trigger_time", b"trigger_time", "trigger_uid", b"trigger_uid", "user_type", b"user_type", "user_uid", b"user_uid"]) -> None: ...
 
         OWNER_UID_FIELD_NUMBER: builtins.int
         PIPELINE_TRIGGER_DATA_FIELD_NUMBER: builtins.int
