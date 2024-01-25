@@ -124,15 +124,80 @@ class ModelPublicServiceStub(object):
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelBinaryFileUploadRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelBinaryFileUploadResponse.FromString,
                 )
-        self.TestUserModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/TestUserModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TestUserModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TestUserModelResponse.FromString,
+        self.ListOrganizationModels = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/ListOrganizationModels',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelsRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelsResponse.FromString,
                 )
-        self.TestUserModelBinaryFileUpload = channel.stream_unary(
-                '/model.model.v1alpha.ModelPublicService/TestUserModelBinaryFileUpload',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TestUserModelBinaryFileUploadRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TestUserModelBinaryFileUploadResponse.FromString,
+        self.CreateOrganizationModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/CreateOrganizationModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelResponse.FromString,
+                )
+        self.CreateOrganizationModelBinaryFileUpload = channel.stream_unary(
+                '/model.model.v1alpha.ModelPublicService/CreateOrganizationModelBinaryFileUpload',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelBinaryFileUploadRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelBinaryFileUploadResponse.FromString,
+                )
+        self.GetOrganizationModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/GetOrganizationModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationModelResponse.FromString,
+                )
+        self.UpdateOrganizationModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/UpdateOrganizationModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UpdateOrganizationModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UpdateOrganizationModelResponse.FromString,
+                )
+        self.DeleteOrganizationModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/DeleteOrganizationModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteOrganizationModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteOrganizationModelResponse.FromString,
+                )
+        self.RenameOrganizationModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/RenameOrganizationModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameOrganizationModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameOrganizationModelResponse.FromString,
+                )
+        self.PublishOrganizationModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/PublishOrganizationModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.PublishOrganizationModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.PublishOrganizationModelResponse.FromString,
+                )
+        self.UnpublishOrganizationModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/UnpublishOrganizationModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishOrganizationModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishOrganizationModelResponse.FromString,
+                )
+        self.DeployOrganizationModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/DeployOrganizationModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployOrganizationModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployOrganizationModelResponse.FromString,
+                )
+        self.UndeployOrganizationModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/UndeployOrganizationModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelResponse.FromString,
+                )
+        self.GetOrganizationModelCard = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/GetOrganizationModelCard',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationModelCardRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationModelCardResponse.FromString,
+                )
+        self.WatchOrganizationModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/WatchOrganizationModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationModelResponse.FromString,
+                )
+        self.TriggerOrganizationModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/TriggerOrganizationModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelResponse.FromString,
+                )
+        self.TriggerOrganizationModelBinaryFileUpload = channel.stream_unary(
+                '/model.model.v1alpha.ModelPublicService/TriggerOrganizationModelBinaryFileUpload',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelBinaryFileUploadRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelBinaryFileUploadResponse.FromString,
                 )
         self.GetModelOperation = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/GetModelOperation',
@@ -372,15 +437,171 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def TestUserModel(self, request, context):
-        """Test model inference
+    def ListOrganizationModels(self, request, context):
+        """List organization models
+
+        Returns a paginated list of models that belong to the specified organization. The
+        parent organization may be different from the authenticated organization, in which case
+        the results will contain the models that are visible to the latter.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def TestUserModelBinaryFileUpload(self, request_iterator, context):
-        """Test model inference with binary inputs
+    def CreateOrganizationModel(self, request, context):
+        """Create a new model
+
+        Creates a new model under the parenthood of a organization. This is an
+        asynchronous endpoint, i.e., the server will not wait for the model to be
+        created in order to respond. Instead, it will return a response with the
+        necessary information to access the result and status of the creation
+        operation.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateOrganizationModelBinaryFileUpload(self, request_iterator, context):
+        """Upload model binary
+
+        Creates a new model by upploading its binary content.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetOrganizationModel(self, request, context):
+        """Get a model
+
+        Returns the detail of a model, accessing it by the model ID and its parent organization.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateOrganizationModel(self, request, context):
+        """Update a model
+
+        Updates a model, accessing it by its resource name, which is defined by
+        the parent organization and the ID of the model.
+
+        In REST requests, only the supplied model fields will be taken into
+        account when updating the resource.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteOrganizationModel(self, request, context):
+        """Delete a model
+
+        Deletes a model, accesing it by its resource name, which is defined by the
+        parent organization and the ID of the model.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RenameOrganizationModel(self, request, context):
+        """Rename a model
+
+        Renames a model, accesing it by its resource name, which is defined by the
+        parent organization and the ID of the model.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def PublishOrganizationModel(self, request, context):
+        """Publish a model
+
+        Updates the visibility in a model to PUBLIC. The model is accessed by its
+        resource name, defined by the model ID and its parent organization.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UnpublishOrganizationModel(self, request, context):
+        """Unpublish a model
+
+        Updates the visibility in a model to PRIVATE. The model is accessed by its
+        resource name, defined by the model ID and its parent organization.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeployOrganizationModel(self, request, context):
+        """Deploy a model
+
+        Transitions the model into an ONLINE state. The model is accessed by its
+        resource name, defined by the model ID and its parent organization.
+
+        While this operation is being performed, the state of the model will
+        transition to UNSPECIFIED. As completing the deployment might take time,
+        the server will not wait to complete the operation to return a response.
+        The state of the model can be used to track the completion of the
+        operation. This can be done by using the `watch` operation on the model.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UndeployOrganizationModel(self, request, context):
+        """Undeploy a model
+
+        Transitions the model into an OFFLINE state. The model is accessed by its
+        resource name, defined by the model ID and its parent organization.
+
+        While this operation is being performed, the state of the model will
+        transition to UNSPECIFIED. As completing the teardown might take time,
+        the server will not wait to complete the operation to return a response.
+        The state of the model can be used to track the completion of the
+        operation. This can be done by using the `watch` operation on the model.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetOrganizationModelCard(self, request, context):
+        """Get a model card
+
+        Returns the README file that accompanies a model, describing it and
+        enhancing it with metadata. The model is accessed by its resource name.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def WatchOrganizationModel(self, request, context):
+        """Watch the state of a model
+
+        Returns the state of a model. The deploy / undeploy actions take some
+        time, during which a model will be in an UNSPECIFIED state. This endpoint
+        allows clients to track the state and progress of the model.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TriggerOrganizationModel(self, request, context):
+        """/////////////////////////////////////////////////////
+
+        Trigger model inference
+
+        Triggers a deployed model to infer the result of a set of task or
+        questions.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TriggerOrganizationModelBinaryFileUpload(self, request_iterator, context):
+        """Trigger model inference with a binary input
+
+        Triggers a deployed model to infer the result of a task or question,
+        submitted as a binary file.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -504,15 +725,80 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelBinaryFileUploadRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelBinaryFileUploadResponse.SerializeToString,
             ),
-            'TestUserModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.TestUserModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TestUserModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TestUserModelResponse.SerializeToString,
+            'ListOrganizationModels': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListOrganizationModels,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelsRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelsResponse.SerializeToString,
             ),
-            'TestUserModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
-                    servicer.TestUserModelBinaryFileUpload,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TestUserModelBinaryFileUploadRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TestUserModelBinaryFileUploadResponse.SerializeToString,
+            'CreateOrganizationModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateOrganizationModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelResponse.SerializeToString,
+            ),
+            'CreateOrganizationModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
+                    servicer.CreateOrganizationModelBinaryFileUpload,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelBinaryFileUploadRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelBinaryFileUploadResponse.SerializeToString,
+            ),
+            'GetOrganizationModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOrganizationModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationModelResponse.SerializeToString,
+            ),
+            'UpdateOrganizationModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateOrganizationModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UpdateOrganizationModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UpdateOrganizationModelResponse.SerializeToString,
+            ),
+            'DeleteOrganizationModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteOrganizationModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteOrganizationModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteOrganizationModelResponse.SerializeToString,
+            ),
+            'RenameOrganizationModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.RenameOrganizationModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameOrganizationModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameOrganizationModelResponse.SerializeToString,
+            ),
+            'PublishOrganizationModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.PublishOrganizationModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.PublishOrganizationModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.PublishOrganizationModelResponse.SerializeToString,
+            ),
+            'UnpublishOrganizationModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.UnpublishOrganizationModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishOrganizationModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishOrganizationModelResponse.SerializeToString,
+            ),
+            'DeployOrganizationModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeployOrganizationModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployOrganizationModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployOrganizationModelResponse.SerializeToString,
+            ),
+            'UndeployOrganizationModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.UndeployOrganizationModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelResponse.SerializeToString,
+            ),
+            'GetOrganizationModelCard': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOrganizationModelCard,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationModelCardRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationModelCardResponse.SerializeToString,
+            ),
+            'WatchOrganizationModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.WatchOrganizationModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationModelResponse.SerializeToString,
+            ),
+            'TriggerOrganizationModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.TriggerOrganizationModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelResponse.SerializeToString,
+            ),
+            'TriggerOrganizationModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
+                    servicer.TriggerOrganizationModelBinaryFileUpload,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelBinaryFileUploadRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelBinaryFileUploadResponse.SerializeToString,
             ),
             'GetModelOperation': grpc.unary_unary_rpc_method_handler(
                     servicer.GetModelOperation,
@@ -891,7 +1177,7 @@ class ModelPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def TestUserModel(request,
+    def ListOrganizationModels(request,
             target,
             options=(),
             channel_credentials=None,
@@ -901,14 +1187,14 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TestUserModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.TestUserModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.TestUserModelResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/ListOrganizationModels',
+            model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelsRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def TestUserModelBinaryFileUpload(request_iterator,
+    def CreateOrganizationModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -918,9 +1204,230 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/model.model.v1alpha.ModelPublicService/TestUserModelBinaryFileUpload',
-            model_dot_model_dot_v1alpha_dot_model__pb2.TestUserModelBinaryFileUploadRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.TestUserModelBinaryFileUploadResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/CreateOrganizationModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateOrganizationModelBinaryFileUpload(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_unary(request_iterator, target, '/model.model.v1alpha.ModelPublicService/CreateOrganizationModelBinaryFileUpload',
+            model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelBinaryFileUploadRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelBinaryFileUploadResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetOrganizationModel(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/GetOrganizationModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateOrganizationModel(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/UpdateOrganizationModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.UpdateOrganizationModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.UpdateOrganizationModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteOrganizationModel(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/DeleteOrganizationModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.DeleteOrganizationModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.DeleteOrganizationModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RenameOrganizationModel(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/RenameOrganizationModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.RenameOrganizationModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.RenameOrganizationModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def PublishOrganizationModel(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/PublishOrganizationModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.PublishOrganizationModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.PublishOrganizationModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UnpublishOrganizationModel(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/UnpublishOrganizationModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishOrganizationModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishOrganizationModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeployOrganizationModel(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/DeployOrganizationModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.DeployOrganizationModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.DeployOrganizationModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UndeployOrganizationModel(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/UndeployOrganizationModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetOrganizationModelCard(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/GetOrganizationModelCard',
+            model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationModelCardRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationModelCardResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def WatchOrganizationModel(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/WatchOrganizationModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TriggerOrganizationModel(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TriggerOrganizationModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TriggerOrganizationModelBinaryFileUpload(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_unary(request_iterator, target, '/model.model.v1alpha.ModelPublicService/TriggerOrganizationModelBinaryFileUpload',
+            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelBinaryFileUploadRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelBinaryFileUploadResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

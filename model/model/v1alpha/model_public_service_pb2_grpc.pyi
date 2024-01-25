@@ -229,16 +229,161 @@ class ModelPublicServiceStub:
     Triggers a deployed model to infer the result of a task or question,
     submitted as a binary file.
     """
-    TestUserModel: grpc.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.TestUserModelRequest,
-        model.model.v1alpha.model_pb2.TestUserModelResponse,
+    ListOrganizationModels: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.ListOrganizationModelsRequest,
+        model.model.v1alpha.model_pb2.ListOrganizationModelsResponse,
     ]
-    """Test model inference"""
-    TestUserModelBinaryFileUpload: grpc.StreamUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.TestUserModelBinaryFileUploadRequest,
-        model.model.v1alpha.model_pb2.TestUserModelBinaryFileUploadResponse,
+    """List organization models
+
+    Returns a paginated list of models that belong to the specified organization. The
+    parent organization may be different from the authenticated organization, in which case
+    the results will contain the models that are visible to the latter.
+    """
+    CreateOrganizationModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.CreateOrganizationModelRequest,
+        model.model.v1alpha.model_pb2.CreateOrganizationModelResponse,
     ]
-    """Test model inference with binary inputs"""
+    """Create a new model
+
+    Creates a new model under the parenthood of a organization. This is an
+    asynchronous endpoint, i.e., the server will not wait for the model to be
+    created in order to respond. Instead, it will return a response with the
+    necessary information to access the result and status of the creation
+    operation.
+    """
+    CreateOrganizationModelBinaryFileUpload: grpc.StreamUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.CreateOrganizationModelBinaryFileUploadRequest,
+        model.model.v1alpha.model_pb2.CreateOrganizationModelBinaryFileUploadResponse,
+    ]
+    """Upload model binary
+
+    Creates a new model by upploading its binary content.
+    """
+    GetOrganizationModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.GetOrganizationModelRequest,
+        model.model.v1alpha.model_pb2.GetOrganizationModelResponse,
+    ]
+    """Get a model
+
+    Returns the detail of a model, accessing it by the model ID and its parent organization.
+    """
+    UpdateOrganizationModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.UpdateOrganizationModelRequest,
+        model.model.v1alpha.model_pb2.UpdateOrganizationModelResponse,
+    ]
+    """Update a model
+
+    Updates a model, accessing it by its resource name, which is defined by
+    the parent organization and the ID of the model.
+
+    In REST requests, only the supplied model fields will be taken into
+    account when updating the resource.
+    """
+    DeleteOrganizationModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.DeleteOrganizationModelRequest,
+        model.model.v1alpha.model_pb2.DeleteOrganizationModelResponse,
+    ]
+    """Delete a model
+
+    Deletes a model, accesing it by its resource name, which is defined by the
+    parent organization and the ID of the model.
+    """
+    RenameOrganizationModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.RenameOrganizationModelRequest,
+        model.model.v1alpha.model_pb2.RenameOrganizationModelResponse,
+    ]
+    """Rename a model
+
+    Renames a model, accesing it by its resource name, which is defined by the
+    parent organization and the ID of the model.
+    """
+    PublishOrganizationModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.PublishOrganizationModelRequest,
+        model.model.v1alpha.model_pb2.PublishOrganizationModelResponse,
+    ]
+    """Publish a model
+
+    Updates the visibility in a model to PUBLIC. The model is accessed by its
+    resource name, defined by the model ID and its parent organization.
+    """
+    UnpublishOrganizationModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.UnpublishOrganizationModelRequest,
+        model.model.v1alpha.model_pb2.UnpublishOrganizationModelResponse,
+    ]
+    """Unpublish a model
+
+    Updates the visibility in a model to PRIVATE. The model is accessed by its
+    resource name, defined by the model ID and its parent organization.
+    """
+    DeployOrganizationModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.DeployOrganizationModelRequest,
+        model.model.v1alpha.model_pb2.DeployOrganizationModelResponse,
+    ]
+    """Deploy a model
+
+    Transitions the model into an ONLINE state. The model is accessed by its
+    resource name, defined by the model ID and its parent organization.
+
+    While this operation is being performed, the state of the model will
+    transition to UNSPECIFIED. As completing the deployment might take time,
+    the server will not wait to complete the operation to return a response.
+    The state of the model can be used to track the completion of the
+    operation. This can be done by using the `watch` operation on the model.
+    """
+    UndeployOrganizationModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.UndeployOrganizationModelRequest,
+        model.model.v1alpha.model_pb2.UndeployOrganizationModelResponse,
+    ]
+    """Undeploy a model
+
+    Transitions the model into an OFFLINE state. The model is accessed by its
+    resource name, defined by the model ID and its parent organization.
+
+    While this operation is being performed, the state of the model will
+    transition to UNSPECIFIED. As completing the teardown might take time,
+    the server will not wait to complete the operation to return a response.
+    The state of the model can be used to track the completion of the
+    operation. This can be done by using the `watch` operation on the model.
+    """
+    GetOrganizationModelCard: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.GetOrganizationModelCardRequest,
+        model.model.v1alpha.model_pb2.GetOrganizationModelCardResponse,
+    ]
+    """Get a model card
+
+    Returns the README file that accompanies a model, describing it and
+    enhancing it with metadata. The model is accessed by its resource name.
+    """
+    WatchOrganizationModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.WatchOrganizationModelRequest,
+        model.model.v1alpha.model_pb2.WatchOrganizationModelResponse,
+    ]
+    """Watch the state of a model
+
+    Returns the state of a model. The deploy / undeploy actions take some
+    time, during which a model will be in an UNSPECIFIED state. This endpoint
+    allows clients to track the state and progress of the model.
+    """
+    TriggerOrganizationModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerOrganizationModelRequest,
+        model.model.v1alpha.model_pb2.TriggerOrganizationModelResponse,
+    ]
+    """/////////////////////////////////////////////////////
+
+    Trigger model inference
+
+    Triggers a deployed model to infer the result of a set of task or
+    questions.
+    """
+    TriggerOrganizationModelBinaryFileUpload: grpc.StreamUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerOrganizationModelBinaryFileUploadRequest,
+        model.model.v1alpha.model_pb2.TriggerOrganizationModelBinaryFileUploadResponse,
+    ]
+    """Trigger model inference with a binary input
+
+    Triggers a deployed model to infer the result of a task or question,
+    submitted as a binary file.
+    """
     GetModelOperation: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetModelOperationRequest,
         model.model.v1alpha.model_pb2.GetModelOperationResponse,
@@ -459,16 +604,161 @@ class ModelPublicServiceAsyncStub:
     Triggers a deployed model to infer the result of a task or question,
     submitted as a binary file.
     """
-    TestUserModel: grpc.aio.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.TestUserModelRequest,
-        model.model.v1alpha.model_pb2.TestUserModelResponse,
+    ListOrganizationModels: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.ListOrganizationModelsRequest,
+        model.model.v1alpha.model_pb2.ListOrganizationModelsResponse,
     ]
-    """Test model inference"""
-    TestUserModelBinaryFileUpload: grpc.aio.StreamUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.TestUserModelBinaryFileUploadRequest,
-        model.model.v1alpha.model_pb2.TestUserModelBinaryFileUploadResponse,
+    """List organization models
+
+    Returns a paginated list of models that belong to the specified organization. The
+    parent organization may be different from the authenticated organization, in which case
+    the results will contain the models that are visible to the latter.
+    """
+    CreateOrganizationModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.CreateOrganizationModelRequest,
+        model.model.v1alpha.model_pb2.CreateOrganizationModelResponse,
     ]
-    """Test model inference with binary inputs"""
+    """Create a new model
+
+    Creates a new model under the parenthood of a organization. This is an
+    asynchronous endpoint, i.e., the server will not wait for the model to be
+    created in order to respond. Instead, it will return a response with the
+    necessary information to access the result and status of the creation
+    operation.
+    """
+    CreateOrganizationModelBinaryFileUpload: grpc.aio.StreamUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.CreateOrganizationModelBinaryFileUploadRequest,
+        model.model.v1alpha.model_pb2.CreateOrganizationModelBinaryFileUploadResponse,
+    ]
+    """Upload model binary
+
+    Creates a new model by upploading its binary content.
+    """
+    GetOrganizationModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.GetOrganizationModelRequest,
+        model.model.v1alpha.model_pb2.GetOrganizationModelResponse,
+    ]
+    """Get a model
+
+    Returns the detail of a model, accessing it by the model ID and its parent organization.
+    """
+    UpdateOrganizationModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.UpdateOrganizationModelRequest,
+        model.model.v1alpha.model_pb2.UpdateOrganizationModelResponse,
+    ]
+    """Update a model
+
+    Updates a model, accessing it by its resource name, which is defined by
+    the parent organization and the ID of the model.
+
+    In REST requests, only the supplied model fields will be taken into
+    account when updating the resource.
+    """
+    DeleteOrganizationModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.DeleteOrganizationModelRequest,
+        model.model.v1alpha.model_pb2.DeleteOrganizationModelResponse,
+    ]
+    """Delete a model
+
+    Deletes a model, accesing it by its resource name, which is defined by the
+    parent organization and the ID of the model.
+    """
+    RenameOrganizationModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.RenameOrganizationModelRequest,
+        model.model.v1alpha.model_pb2.RenameOrganizationModelResponse,
+    ]
+    """Rename a model
+
+    Renames a model, accesing it by its resource name, which is defined by the
+    parent organization and the ID of the model.
+    """
+    PublishOrganizationModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.PublishOrganizationModelRequest,
+        model.model.v1alpha.model_pb2.PublishOrganizationModelResponse,
+    ]
+    """Publish a model
+
+    Updates the visibility in a model to PUBLIC. The model is accessed by its
+    resource name, defined by the model ID and its parent organization.
+    """
+    UnpublishOrganizationModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.UnpublishOrganizationModelRequest,
+        model.model.v1alpha.model_pb2.UnpublishOrganizationModelResponse,
+    ]
+    """Unpublish a model
+
+    Updates the visibility in a model to PRIVATE. The model is accessed by its
+    resource name, defined by the model ID and its parent organization.
+    """
+    DeployOrganizationModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.DeployOrganizationModelRequest,
+        model.model.v1alpha.model_pb2.DeployOrganizationModelResponse,
+    ]
+    """Deploy a model
+
+    Transitions the model into an ONLINE state. The model is accessed by its
+    resource name, defined by the model ID and its parent organization.
+
+    While this operation is being performed, the state of the model will
+    transition to UNSPECIFIED. As completing the deployment might take time,
+    the server will not wait to complete the operation to return a response.
+    The state of the model can be used to track the completion of the
+    operation. This can be done by using the `watch` operation on the model.
+    """
+    UndeployOrganizationModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.UndeployOrganizationModelRequest,
+        model.model.v1alpha.model_pb2.UndeployOrganizationModelResponse,
+    ]
+    """Undeploy a model
+
+    Transitions the model into an OFFLINE state. The model is accessed by its
+    resource name, defined by the model ID and its parent organization.
+
+    While this operation is being performed, the state of the model will
+    transition to UNSPECIFIED. As completing the teardown might take time,
+    the server will not wait to complete the operation to return a response.
+    The state of the model can be used to track the completion of the
+    operation. This can be done by using the `watch` operation on the model.
+    """
+    GetOrganizationModelCard: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.GetOrganizationModelCardRequest,
+        model.model.v1alpha.model_pb2.GetOrganizationModelCardResponse,
+    ]
+    """Get a model card
+
+    Returns the README file that accompanies a model, describing it and
+    enhancing it with metadata. The model is accessed by its resource name.
+    """
+    WatchOrganizationModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.WatchOrganizationModelRequest,
+        model.model.v1alpha.model_pb2.WatchOrganizationModelResponse,
+    ]
+    """Watch the state of a model
+
+    Returns the state of a model. The deploy / undeploy actions take some
+    time, during which a model will be in an UNSPECIFIED state. This endpoint
+    allows clients to track the state and progress of the model.
+    """
+    TriggerOrganizationModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerOrganizationModelRequest,
+        model.model.v1alpha.model_pb2.TriggerOrganizationModelResponse,
+    ]
+    """/////////////////////////////////////////////////////
+
+    Trigger model inference
+
+    Triggers a deployed model to infer the result of a set of task or
+    questions.
+    """
+    TriggerOrganizationModelBinaryFileUpload: grpc.aio.StreamUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerOrganizationModelBinaryFileUploadRequest,
+        model.model.v1alpha.model_pb2.TriggerOrganizationModelBinaryFileUploadResponse,
+    ]
+    """Trigger model inference with a binary input
+
+    Triggers a deployed model to infer the result of a task or question,
+    submitted as a binary file.
+    """
     GetModelOperation: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetModelOperationRequest,
         model.model.v1alpha.model_pb2.GetModelOperationResponse,
@@ -732,19 +1022,190 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         submitted as a binary file.
         """
     @abc.abstractmethod
-    def TestUserModel(
+    def ListOrganizationModels(
         self,
-        request: model.model.v1alpha.model_pb2.TestUserModelRequest,
+        request: model.model.v1alpha.model_pb2.ListOrganizationModelsRequest,
         context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_pb2.TestUserModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TestUserModelResponse]]:
-        """Test model inference"""
+    ) -> typing.Union[model.model.v1alpha.model_pb2.ListOrganizationModelsResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.ListOrganizationModelsResponse]]:
+        """List organization models
+
+        Returns a paginated list of models that belong to the specified organization. The
+        parent organization may be different from the authenticated organization, in which case
+        the results will contain the models that are visible to the latter.
+        """
     @abc.abstractmethod
-    def TestUserModelBinaryFileUpload(
+    def CreateOrganizationModel(
         self,
-        request_iterator: _MaybeAsyncIterator[model.model.v1alpha.model_pb2.TestUserModelBinaryFileUploadRequest],
+        request: model.model.v1alpha.model_pb2.CreateOrganizationModelRequest,
         context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_pb2.TestUserModelBinaryFileUploadResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TestUserModelBinaryFileUploadResponse]]:
-        """Test model inference with binary inputs"""
+    ) -> typing.Union[model.model.v1alpha.model_pb2.CreateOrganizationModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.CreateOrganizationModelResponse]]:
+        """Create a new model
+
+        Creates a new model under the parenthood of a organization. This is an
+        asynchronous endpoint, i.e., the server will not wait for the model to be
+        created in order to respond. Instead, it will return a response with the
+        necessary information to access the result and status of the creation
+        operation.
+        """
+    @abc.abstractmethod
+    def CreateOrganizationModelBinaryFileUpload(
+        self,
+        request_iterator: _MaybeAsyncIterator[model.model.v1alpha.model_pb2.CreateOrganizationModelBinaryFileUploadRequest],
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.CreateOrganizationModelBinaryFileUploadResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.CreateOrganizationModelBinaryFileUploadResponse]]:
+        """Upload model binary
+
+        Creates a new model by upploading its binary content.
+        """
+    @abc.abstractmethod
+    def GetOrganizationModel(
+        self,
+        request: model.model.v1alpha.model_pb2.GetOrganizationModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.GetOrganizationModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.GetOrganizationModelResponse]]:
+        """Get a model
+
+        Returns the detail of a model, accessing it by the model ID and its parent organization.
+        """
+    @abc.abstractmethod
+    def UpdateOrganizationModel(
+        self,
+        request: model.model.v1alpha.model_pb2.UpdateOrganizationModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.UpdateOrganizationModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.UpdateOrganizationModelResponse]]:
+        """Update a model
+
+        Updates a model, accessing it by its resource name, which is defined by
+        the parent organization and the ID of the model.
+
+        In REST requests, only the supplied model fields will be taken into
+        account when updating the resource.
+        """
+    @abc.abstractmethod
+    def DeleteOrganizationModel(
+        self,
+        request: model.model.v1alpha.model_pb2.DeleteOrganizationModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.DeleteOrganizationModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.DeleteOrganizationModelResponse]]:
+        """Delete a model
+
+        Deletes a model, accesing it by its resource name, which is defined by the
+        parent organization and the ID of the model.
+        """
+    @abc.abstractmethod
+    def RenameOrganizationModel(
+        self,
+        request: model.model.v1alpha.model_pb2.RenameOrganizationModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.RenameOrganizationModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.RenameOrganizationModelResponse]]:
+        """Rename a model
+
+        Renames a model, accesing it by its resource name, which is defined by the
+        parent organization and the ID of the model.
+        """
+    @abc.abstractmethod
+    def PublishOrganizationModel(
+        self,
+        request: model.model.v1alpha.model_pb2.PublishOrganizationModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.PublishOrganizationModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.PublishOrganizationModelResponse]]:
+        """Publish a model
+
+        Updates the visibility in a model to PUBLIC. The model is accessed by its
+        resource name, defined by the model ID and its parent organization.
+        """
+    @abc.abstractmethod
+    def UnpublishOrganizationModel(
+        self,
+        request: model.model.v1alpha.model_pb2.UnpublishOrganizationModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.UnpublishOrganizationModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.UnpublishOrganizationModelResponse]]:
+        """Unpublish a model
+
+        Updates the visibility in a model to PRIVATE. The model is accessed by its
+        resource name, defined by the model ID and its parent organization.
+        """
+    @abc.abstractmethod
+    def DeployOrganizationModel(
+        self,
+        request: model.model.v1alpha.model_pb2.DeployOrganizationModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.DeployOrganizationModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.DeployOrganizationModelResponse]]:
+        """Deploy a model
+
+        Transitions the model into an ONLINE state. The model is accessed by its
+        resource name, defined by the model ID and its parent organization.
+
+        While this operation is being performed, the state of the model will
+        transition to UNSPECIFIED. As completing the deployment might take time,
+        the server will not wait to complete the operation to return a response.
+        The state of the model can be used to track the completion of the
+        operation. This can be done by using the `watch` operation on the model.
+        """
+    @abc.abstractmethod
+    def UndeployOrganizationModel(
+        self,
+        request: model.model.v1alpha.model_pb2.UndeployOrganizationModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.UndeployOrganizationModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.UndeployOrganizationModelResponse]]:
+        """Undeploy a model
+
+        Transitions the model into an OFFLINE state. The model is accessed by its
+        resource name, defined by the model ID and its parent organization.
+
+        While this operation is being performed, the state of the model will
+        transition to UNSPECIFIED. As completing the teardown might take time,
+        the server will not wait to complete the operation to return a response.
+        The state of the model can be used to track the completion of the
+        operation. This can be done by using the `watch` operation on the model.
+        """
+    @abc.abstractmethod
+    def GetOrganizationModelCard(
+        self,
+        request: model.model.v1alpha.model_pb2.GetOrganizationModelCardRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.GetOrganizationModelCardResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.GetOrganizationModelCardResponse]]:
+        """Get a model card
+
+        Returns the README file that accompanies a model, describing it and
+        enhancing it with metadata. The model is accessed by its resource name.
+        """
+    @abc.abstractmethod
+    def WatchOrganizationModel(
+        self,
+        request: model.model.v1alpha.model_pb2.WatchOrganizationModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.WatchOrganizationModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.WatchOrganizationModelResponse]]:
+        """Watch the state of a model
+
+        Returns the state of a model. The deploy / undeploy actions take some
+        time, during which a model will be in an UNSPECIFIED state. This endpoint
+        allows clients to track the state and progress of the model.
+        """
+    @abc.abstractmethod
+    def TriggerOrganizationModel(
+        self,
+        request: model.model.v1alpha.model_pb2.TriggerOrganizationModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.TriggerOrganizationModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TriggerOrganizationModelResponse]]:
+        """/////////////////////////////////////////////////////
+
+        Trigger model inference
+
+        Triggers a deployed model to infer the result of a set of task or
+        questions.
+        """
+    @abc.abstractmethod
+    def TriggerOrganizationModelBinaryFileUpload(
+        self,
+        request_iterator: _MaybeAsyncIterator[model.model.v1alpha.model_pb2.TriggerOrganizationModelBinaryFileUploadRequest],
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.TriggerOrganizationModelBinaryFileUploadResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TriggerOrganizationModelBinaryFileUploadResponse]]:
+        """Trigger model inference with a binary input
+
+        Triggers a deployed model to infer the result of a task or question,
+        submitted as a binary file.
+        """
     @abc.abstractmethod
     def GetModelOperation(
         self,
