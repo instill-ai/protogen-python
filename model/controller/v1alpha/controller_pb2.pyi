@@ -109,6 +109,7 @@ class Resource(google.protobuf.message.Message):
     MODEL_STATE_FIELD_NUMBER: builtins.int
     BACKEND_STATE_FIELD_NUMBER: builtins.int
     PROGRESS_FIELD_NUMBER: builtins.int
+    WORKFLOW_ID_FIELD_NUMBER: builtins.int
     resource_permalink: builtins.str
     """Permalink of a resource. For example:
     "resources/{resource_uuid}/types/{type}"
@@ -119,6 +120,8 @@ class Resource(google.protobuf.message.Message):
     """Backend service state"""
     progress: builtins.int
     """Resource longrunning progress"""
+    workflow_id: builtins.str
+    """Resource longrunning workflow id"""
     def __init__(
         self,
         *,
@@ -126,11 +129,14 @@ class Resource(google.protobuf.message.Message):
         model_state: model.model.v1alpha.model_pb2.Model.State.ValueType = ...,
         backend_state: common.healthcheck.v1beta.healthcheck_pb2.HealthCheckResponse.ServingStatus.ValueType = ...,
         progress: builtins.int | None = ...,
+        workflow_id: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_progress", b"_progress", "backend_state", b"backend_state", "model_state", b"model_state", "progress", b"progress", "state", b"state"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_progress", b"_progress", "backend_state", b"backend_state", "model_state", b"model_state", "progress", b"progress", "resource_permalink", b"resource_permalink", "state", b"state"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_progress", b"_progress", "_workflow_id", b"_workflow_id", "backend_state", b"backend_state", "model_state", b"model_state", "progress", b"progress", "state", b"state", "workflow_id", b"workflow_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_progress", b"_progress", "_workflow_id", b"_workflow_id", "backend_state", b"backend_state", "model_state", b"model_state", "progress", b"progress", "resource_permalink", b"resource_permalink", "state", b"state", "workflow_id", b"workflow_id"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_progress", b"_progress"]) -> typing_extensions.Literal["progress"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_workflow_id", b"_workflow_id"]) -> typing_extensions.Literal["workflow_id"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["state", b"state"]) -> typing_extensions.Literal["model_state", "backend_state"] | None: ...
 
@@ -183,21 +189,16 @@ class UpdateResourceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     RESOURCE_FIELD_NUMBER: builtins.int
-    WORKFLOW_ID_FIELD_NUMBER: builtins.int
     @property
     def resource(self) -> global___Resource:
         """Resource state"""
-    workflow_id: builtins.str
-    """Resource long-running workflow id"""
     def __init__(
         self,
         *,
         resource: global___Resource | None = ...,
-        workflow_id: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_workflow_id", b"_workflow_id", "resource", b"resource", "workflow_id", b"workflow_id"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_workflow_id", b"_workflow_id", "resource", b"resource", "workflow_id", b"workflow_id"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_workflow_id", b"_workflow_id"]) -> typing_extensions.Literal["workflow_id"] | None: ...
+    def HasField(self, field_name: typing_extensions.Literal["resource", b"resource"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["resource", b"resource"]) -> None: ...
 
 global___UpdateResourceRequest = UpdateResourceRequest
 
