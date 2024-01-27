@@ -785,6 +785,7 @@ class ListUserPipelinesRequest(google.protobuf.message.Message):
     FILTER_FIELD_NUMBER: builtins.int
     PARENT_FIELD_NUMBER: builtins.int
     SHOW_DELETED_FIELD_NUMBER: builtins.int
+    VISIBILITY_FIELD_NUMBER: builtins.int
     page_size: builtins.int
     """The maximum number of pipelines to return. If this parameter is
     unspecified, at most 10 pipelines will be returned. The cap value for this
@@ -807,6 +808,8 @@ class ListUserPipelinesRequest(google.protobuf.message.Message):
     """
     show_deleted: builtins.bool
     """Include soft-deleted pipelines in the result."""
+    visibility: global___Pipeline.Visibility.ValueType
+    """Limit results to pipelines with the specified visibility."""
     def __init__(
         self,
         *,
@@ -816,9 +819,10 @@ class ListUserPipelinesRequest(google.protobuf.message.Message):
         filter: builtins.str | None = ...,
         parent: builtins.str = ...,
         show_deleted: builtins.bool | None = ...,
+        visibility: global___Pipeline.Visibility.ValueType | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "parent", b"parent", "show_deleted", b"show_deleted", "view", b"view"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "parent", b"parent", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
     @typing.overload
@@ -829,6 +833,8 @@ class ListUserPipelinesRequest(google.protobuf.message.Message):
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_show_deleted", b"_show_deleted"]) -> typing_extensions.Literal["show_deleted"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_visibility", b"_visibility"]) -> typing_extensions.Literal["visibility"] | None: ...
 
 global___ListUserPipelinesRequest = ListUserPipelinesRequest
 
@@ -1764,6 +1770,7 @@ class ListOrganizationPipelinesRequest(google.protobuf.message.Message):
     FILTER_FIELD_NUMBER: builtins.int
     PARENT_FIELD_NUMBER: builtins.int
     SHOW_DELETED_FIELD_NUMBER: builtins.int
+    VISIBILITY_FIELD_NUMBER: builtins.int
     page_size: builtins.int
     """The maximum number of pipelines to return. If this parameter is
     unspecified, at most 10 pipelines will be returned. The cap value for this
@@ -1786,6 +1793,8 @@ class ListOrganizationPipelinesRequest(google.protobuf.message.Message):
     """
     show_deleted: builtins.bool
     """Include soft-deleted pipelines in the result."""
+    visibility: global___Pipeline.Visibility.ValueType
+    """Limit results to pipelines with the specified visibility."""
     def __init__(
         self,
         *,
@@ -1795,9 +1804,10 @@ class ListOrganizationPipelinesRequest(google.protobuf.message.Message):
         filter: builtins.str | None = ...,
         parent: builtins.str = ...,
         show_deleted: builtins.bool | None = ...,
+        visibility: global___Pipeline.Visibility.ValueType | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "parent", b"parent", "show_deleted", b"show_deleted", "view", b"view"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "parent", b"parent", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
     @typing.overload
@@ -1808,6 +1818,8 @@ class ListOrganizationPipelinesRequest(google.protobuf.message.Message):
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_show_deleted", b"_show_deleted"]) -> typing_extensions.Literal["show_deleted"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_visibility", b"_visibility"]) -> typing_extensions.Literal["visibility"] | None: ...
 
 global___ListOrganizationPipelinesRequest = ListOrganizationPipelinesRequest
 
