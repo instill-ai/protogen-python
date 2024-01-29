@@ -2,6 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+from vdp.pipeline.v1beta import common_pb2 as vdp_dot_pipeline_dot_v1beta_dot_common__pb2
 from vdp.pipeline.v1beta import connector_definition_pb2 as vdp_dot_pipeline_dot_v1beta_dot_connector__definition__pb2
 from vdp.pipeline.v1beta import connector_pb2 as vdp_dot_pipeline_dot_v1beta_dot_connector__pb2
 from vdp.pipeline.v1beta import operator_definition_pb2 as vdp_dot_pipeline_dot_v1beta_dot_operator__definition__pb2
@@ -385,6 +386,11 @@ class PipelinePublicServiceStub(object):
                 '/vdp.pipeline.v1beta.PipelinePublicService/TestOrganizationConnector',
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_connector__pb2.TestOrganizationConnectorRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_connector__pb2.TestOrganizationConnectorResponse.FromString,
+                )
+        self.CheckName = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/CheckName',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_common__pb2.CheckNameRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_common__pb2.CheckNameResponse.FromString,
                 )
 
 
@@ -1232,6 +1238,19 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CheckName(self, request, context):
+        """Check the availibity of a resource name
+
+        Check the availibity of a resource name. The name should be in the formats:
+        - users/<user_id>/pipelines/<pipeline_id>
+        - users/<user_id>/connectors/<connector_id>
+        - organizations/<org_id>/pipelines/<pipeline_id>
+        - organizations/<org_id>/connectors/<connector_id>
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_PipelinePublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -1599,6 +1618,11 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     servicer.TestOrganizationConnector,
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_connector__pb2.TestOrganizationConnectorRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1beta_dot_connector__pb2.TestOrganizationConnectorResponse.SerializeToString,
+            ),
+            'CheckName': grpc.unary_unary_rpc_method_handler(
+                    servicer.CheckName,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_common__pb2.CheckNameRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_common__pb2.CheckNameResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -2852,5 +2876,22 @@ class PipelinePublicService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/TestOrganizationConnector',
             vdp_dot_pipeline_dot_v1beta_dot_connector__pb2.TestOrganizationConnectorRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1beta_dot_connector__pb2.TestOrganizationConnectorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CheckName(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/CheckName',
+            vdp_dot_pipeline_dot_v1beta_dot_common__pb2.CheckNameRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_common__pb2.CheckNameResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

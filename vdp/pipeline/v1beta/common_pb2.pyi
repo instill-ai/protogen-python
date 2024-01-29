@@ -169,3 +169,71 @@ class Permission(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["can_edit", b"can_edit", "can_trigger", b"can_trigger"]) -> None: ...
 
 global___Permission = Permission
+
+@typing_extensions.final
+class CheckNameRequest(google.protobuf.message.Message):
+    """CheckNameRequest represents a request to verify if a name is
+    available.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The name of the resource to be checked, should be in the formats:
+     - users/<user_id>/pipelines/<pipeline_id>
+     - users/<user_id>/connectors/<connector_id>
+     - organizations/<org_id>/pipelines/<pipeline_id>
+     - organizations/<org_id>/connectors/<connector_id>
+    """
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
+
+global___CheckNameRequest = CheckNameRequest
+
+@typing_extensions.final
+class CheckNameResponse(google.protobuf.message.Message):
+    """CheckNameResponse contains the availability of a name
+    of resource that's using it.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    class _Name:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _NameEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[CheckNameResponse._Name.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        NAME_UNSPECIFIED: CheckNameResponse._Name.ValueType  # 0
+        """Unspecified."""
+        NAME_AVAILABLE: CheckNameResponse._Name.ValueType  # 1
+        """Available."""
+        NAME_UNAVAILABLE: CheckNameResponse._Name.ValueType  # 2
+        """Unavailable."""
+
+    class Name(_Name, metaclass=_NameEnumTypeWrapper):
+        """Availability of Name"""
+
+    NAME_UNSPECIFIED: CheckNameResponse.Name.ValueType  # 0
+    """Unspecified."""
+    NAME_AVAILABLE: CheckNameResponse.Name.ValueType  # 1
+    """Available."""
+    NAME_UNAVAILABLE: CheckNameResponse.Name.ValueType  # 2
+    """Unavailable."""
+
+    AVAILABILITY_FIELD_NUMBER: builtins.int
+    availability: global___CheckNameResponse.Name.ValueType
+    """Availability"""
+    def __init__(
+        self,
+        *,
+        availability: global___CheckNameResponse.Name.ValueType = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["availability", b"availability"]) -> None: ...
+
+global___CheckNameResponse = CheckNameResponse

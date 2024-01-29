@@ -7,6 +7,7 @@ import collections.abc
 import grpc
 import grpc.aio
 import typing
+import vdp.pipeline.v1beta.common_pb2
 import vdp.pipeline.v1beta.connector_definition_pb2
 import vdp.pipeline.v1beta.connector_pb2
 import vdp.pipeline.v1beta.operator_definition_pb2
@@ -792,6 +793,18 @@ class PipelinePublicServiceStub:
 
     Tests the connection on an organization-owned connector.
     """
+    CheckName: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.common_pb2.CheckNameRequest,
+        vdp.pipeline.v1beta.common_pb2.CheckNameResponse,
+    ]
+    """Check the availibity of a resource name
+
+    Check the availibity of a resource name. The name should be in the formats:
+     - users/<user_id>/pipelines/<pipeline_id>
+     - users/<user_id>/connectors/<connector_id>
+     - organizations/<org_id>/pipelines/<pipeline_id>
+     - organizations/<org_id>/connectors/<connector_id>
+    """
 
 class PipelinePublicServiceAsyncStub:
     """VDP
@@ -1563,6 +1576,18 @@ class PipelinePublicServiceAsyncStub:
     """Test a connector owned by an organization
 
     Tests the connection on an organization-owned connector.
+    """
+    CheckName: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.common_pb2.CheckNameRequest,
+        vdp.pipeline.v1beta.common_pb2.CheckNameResponse,
+    ]
+    """Check the availibity of a resource name
+
+    Check the availibity of a resource name. The name should be in the formats:
+     - users/<user_id>/pipelines/<pipeline_id>
+     - users/<user_id>/connectors/<connector_id>
+     - organizations/<org_id>/pipelines/<pipeline_id>
+     - organizations/<org_id>/connectors/<connector_id>
     """
 
 class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
@@ -2481,6 +2506,20 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         """Test a connector owned by an organization
 
         Tests the connection on an organization-owned connector.
+        """
+    @abc.abstractmethod
+    def CheckName(
+        self,
+        request: vdp.pipeline.v1beta.common_pb2.CheckNameRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.common_pb2.CheckNameResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.common_pb2.CheckNameResponse]]:
+        """Check the availibity of a resource name
+
+        Check the availibity of a resource name. The name should be in the formats:
+         - users/<user_id>/pipelines/<pipeline_id>
+         - users/<user_id>/connectors/<connector_id>
+         - organizations/<org_id>/pipelines/<pipeline_id>
+         - organizations/<org_id>/connectors/<connector_id>
         """
 
 def add_PipelinePublicServiceServicer_to_server(servicer: PipelinePublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
