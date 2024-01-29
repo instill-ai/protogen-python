@@ -76,6 +76,11 @@ class PipelinePublicServiceStub(object):
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RenameUserPipelineRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RenameUserPipelineResponse.FromString,
                 )
+        self.CloneUserPipeline = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/CloneUserPipeline',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneUserPipelineRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneUserPipelineResponse.FromString,
+                )
         self.TriggerUserPipeline = channel.unary_unary(
                 '/vdp.pipeline.v1beta.PipelinePublicService/TriggerUserPipeline',
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerUserPipelineRequest.SerializeToString,
@@ -170,6 +175,11 @@ class PipelinePublicServiceStub(object):
                 '/vdp.pipeline.v1beta.PipelinePublicService/RenameOrganizationPipeline',
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RenameOrganizationPipelineRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RenameOrganizationPipelineResponse.FromString,
+                )
+        self.CloneOrganizationPipeline = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/CloneOrganizationPipeline',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneOrganizationPipelineRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneOrganizationPipelineResponse.FromString,
                 )
         self.TriggerOrganizationPipeline = channel.unary_unary(
                 '/vdp.pipeline.v1beta.PipelinePublicService/TriggerOrganizationPipeline',
@@ -509,6 +519,15 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CloneUserPipeline(self, request, context):
+        """Clone a pipeline owned by a user
+
+        Clone a pipeline owned by a user, the target pipeline can be under a user or organization namespace.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def TriggerUserPipeline(self, request, context):
         """Trigger a pipeline owned by a user
 
@@ -749,6 +768,15 @@ class PipelinePublicServiceServicer(object):
         The pipeline name will be updated accordingly, as it is  composed by the
         parent organization and ID of the pipeline (e.g.
         `organizations/luigi/pipelines/pizza-recipe-generator`).
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CloneOrganizationPipeline(self, request, context):
+        """Clone a pipeline owned by an organization
+
+        Clone a pipeline owned by an organization, the target pipeline can be under a user or organization namespace.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1262,6 +1290,11 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RenameUserPipelineRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RenameUserPipelineResponse.SerializeToString,
             ),
+            'CloneUserPipeline': grpc.unary_unary_rpc_method_handler(
+                    servicer.CloneUserPipeline,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneUserPipelineRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneUserPipelineResponse.SerializeToString,
+            ),
             'TriggerUserPipeline': grpc.unary_unary_rpc_method_handler(
                     servicer.TriggerUserPipeline,
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerUserPipelineRequest.FromString,
@@ -1356,6 +1389,11 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     servicer.RenameOrganizationPipeline,
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RenameOrganizationPipelineRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RenameOrganizationPipelineResponse.SerializeToString,
+            ),
+            'CloneOrganizationPipeline': grpc.unary_unary_rpc_method_handler(
+                    servicer.CloneOrganizationPipeline,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneOrganizationPipelineRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneOrganizationPipelineResponse.SerializeToString,
             ),
             'TriggerOrganizationPipeline': grpc.unary_unary_rpc_method_handler(
                     servicer.TriggerOrganizationPipeline,
@@ -1764,6 +1802,23 @@ class PipelinePublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def CloneUserPipeline(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/CloneUserPipeline',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneUserPipelineRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneUserPipelineResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def TriggerUserPipeline(request,
             target,
             options=(),
@@ -2083,6 +2138,23 @@ class PipelinePublicService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/RenameOrganizationPipeline',
             vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RenameOrganizationPipelineRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RenameOrganizationPipelineResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CloneOrganizationPipeline(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/CloneOrganizationPipeline',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneOrganizationPipelineRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneOrganizationPipelineResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

@@ -1093,6 +1093,53 @@ class RenameUserPipelineResponse(google.protobuf.message.Message):
 global___RenameUserPipelineResponse = RenameUserPipelineResponse
 
 @typing_extensions.final
+class CloneUserPipelineRequest(google.protobuf.message.Message):
+    """CloneUserPipelineRequest represents a request to clone a pipeline owned by a user."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    TARGET_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the pipeline, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/pipelines/{pipeline.id}`.
+    """
+    target: builtins.str
+    """The target pipeline
+    - Format: `users/{user.id}/pipelines/{pipeline.id}` or `organizations/{org.id}/pipelines/{pipeline.id}`
+    """
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        target: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "target", b"target"]) -> None: ...
+
+global___CloneUserPipelineRequest = CloneUserPipelineRequest
+
+@typing_extensions.final
+class CloneUserPipelineResponse(google.protobuf.message.Message):
+    """CloneUserPipelineResponse contains a cloned pipeline."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PIPELINE_FIELD_NUMBER: builtins.int
+    @property
+    def pipeline(self) -> global___Pipeline:
+        """The cloned pipeline resource."""
+    def __init__(
+        self,
+        *,
+        pipeline: global___Pipeline | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline"]) -> None: ...
+
+global___CloneUserPipelineResponse = CloneUserPipelineResponse
+
+@typing_extensions.final
 class TriggerUserPipelineRequest(google.protobuf.message.Message):
     """TriggerUserPipelineRequest represents a request to trigger a user-owned
     pipeline synchronously.
@@ -2076,6 +2123,53 @@ class RenameOrganizationPipelineResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline"]) -> None: ...
 
 global___RenameOrganizationPipelineResponse = RenameOrganizationPipelineResponse
+
+@typing_extensions.final
+class CloneOrganizationPipelineRequest(google.protobuf.message.Message):
+    """CloneOrganizationPipelineRequest represents a request to clone a pipeline owned by a organization."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    TARGET_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the pipeline, which allows its access by parent user
+    and ID.
+    - Format: `organizations/{org.id}/pipelines/{pipeline.id}`.
+    """
+    target: builtins.str
+    """The target pipeline
+    - Format: `users/{user.id}/pipelines/{pipeline.id}` or `organizations/{org.id}/pipelines/{pipeline.id}`
+    """
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        target: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "target", b"target"]) -> None: ...
+
+global___CloneOrganizationPipelineRequest = CloneOrganizationPipelineRequest
+
+@typing_extensions.final
+class CloneOrganizationPipelineResponse(google.protobuf.message.Message):
+    """CloneOrganizationPipelineResponse contains a cloned pipeline."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PIPELINE_FIELD_NUMBER: builtins.int
+    @property
+    def pipeline(self) -> global___Pipeline:
+        """The cloned pipeline resource."""
+    def __init__(
+        self,
+        *,
+        pipeline: global___Pipeline | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline"]) -> None: ...
+
+global___CloneOrganizationPipelineResponse = CloneOrganizationPipelineResponse
 
 @typing_extensions.final
 class TriggerOrganizationPipelineRequest(google.protobuf.message.Message):

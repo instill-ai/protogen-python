@@ -141,6 +141,14 @@ class PipelinePublicServiceStub:
     The authenticated user must be the parent of the pipeline in order to
     perform this action.
     """
+    CloneUserPipeline: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.CloneUserPipelineRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.CloneUserPipelineResponse,
+    ]
+    """Clone a pipeline owned by a user
+
+    Clone a pipeline owned by a user, the target pipeline can be under a user or organization namespace.
+    """
     TriggerUserPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineResponse,
@@ -366,6 +374,14 @@ class PipelinePublicServiceStub:
     The pipeline name will be updated accordingly, as it is  composed by the
     parent organization and ID of the pipeline (e.g.
     `organizations/luigi/pipelines/pizza-recipe-generator`).
+    """
+    CloneOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.CloneOrganizationPipelineRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.CloneOrganizationPipelineResponse,
+    ]
+    """Clone a pipeline owned by an organization
+
+    Clone a pipeline owned by an organization, the target pipeline can be under a user or organization namespace.
     """
     TriggerOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineRequest,
@@ -897,6 +913,14 @@ class PipelinePublicServiceAsyncStub:
     The authenticated user must be the parent of the pipeline in order to
     perform this action.
     """
+    CloneUserPipeline: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.CloneUserPipelineRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.CloneUserPipelineResponse,
+    ]
+    """Clone a pipeline owned by a user
+
+    Clone a pipeline owned by a user, the target pipeline can be under a user or organization namespace.
+    """
     TriggerUserPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineResponse,
@@ -1122,6 +1146,14 @@ class PipelinePublicServiceAsyncStub:
     The pipeline name will be updated accordingly, as it is  composed by the
     parent organization and ID of the pipeline (e.g.
     `organizations/luigi/pipelines/pizza-recipe-generator`).
+    """
+    CloneOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.CloneOrganizationPipelineRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.CloneOrganizationPipelineResponse,
+    ]
+    """Clone a pipeline owned by an organization
+
+    Clone a pipeline owned by an organization, the target pipeline can be under a user or organization namespace.
     """
     TriggerOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineRequest,
@@ -1676,6 +1708,16 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         perform this action.
         """
     @abc.abstractmethod
+    def CloneUserPipeline(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.CloneUserPipelineRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.CloneUserPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.CloneUserPipelineResponse]]:
+        """Clone a pipeline owned by a user
+
+        Clone a pipeline owned by a user, the target pipeline can be under a user or organization namespace.
+        """
+    @abc.abstractmethod
     def TriggerUserPipeline(
         self,
         request: vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineRequest,
@@ -1938,6 +1980,16 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         The pipeline name will be updated accordingly, as it is  composed by the
         parent organization and ID of the pipeline (e.g.
         `organizations/luigi/pipelines/pizza-recipe-generator`).
+        """
+    @abc.abstractmethod
+    def CloneOrganizationPipeline(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.CloneOrganizationPipelineRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.CloneOrganizationPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.CloneOrganizationPipelineResponse]]:
+        """Clone a pipeline owned by an organization
+
+        Clone a pipeline owned by an organization, the target pipeline can be under a user or organization namespace.
         """
     @abc.abstractmethod
     def TriggerOrganizationPipeline(
