@@ -1094,7 +1094,9 @@ global___RenameUserPipelineResponse = RenameUserPipelineResponse
 
 @typing_extensions.final
 class CloneUserPipelineRequest(google.protobuf.message.Message):
-    """CloneUserPipelineRequest represents a request to clone a pipeline owned by a user."""
+    """CloneUserPipelineRequest represents a request to clone a pipeline owned by a
+    user.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1106,8 +1108,10 @@ class CloneUserPipelineRequest(google.protobuf.message.Message):
     - Format: `users/{user.id}/pipelines/{pipeline.id}`.
     """
     target: builtins.str
-    """The target pipeline
-    - Format: `users/{user.id}/pipelines/{pipeline.id}` or `organizations/{org.id}/pipelines/{pipeline.id}`
+    """The target pipeline name. It can be under a user or an organization
+    namespace, so the following formats are accepted:
+    - `users/{user.id}/pipelines/{pipeline.id}`
+    - `organizations/{organization.id}/pipelines/{pipeline.id}`
     """
     def __init__(
         self,
@@ -1806,7 +1810,7 @@ global___CreateOrganizationPipelineResponse = CreateOrganizationPipelineResponse
 @typing_extensions.final
 class ListOrganizationPipelinesRequest(google.protobuf.message.Message):
     """ListOrganizationPipelinesRequest represents a request to list the pipelines
-    of a organization.
+    of an organization.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -2126,20 +2130,24 @@ global___RenameOrganizationPipelineResponse = RenameOrganizationPipelineResponse
 
 @typing_extensions.final
 class CloneOrganizationPipelineRequest(google.protobuf.message.Message):
-    """CloneOrganizationPipelineRequest represents a request to clone a pipeline owned by a organization."""
+    """CloneOrganizationPipelineRequest represents a request to clone a pipeline
+    owned by an organization.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     TARGET_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """The resource name of the pipeline, which allows its access by parent user
-    and ID.
-    - Format: `organizations/{org.id}/pipelines/{pipeline.id}`.
+    """The resource name of the pipeline, which allows its access by parent
+    organization and ID.
+    - Format: `organizations/{organization.id}/pipelines/{pipeline.id}`.
     """
     target: builtins.str
-    """The target pipeline
-    - Format: `users/{user.id}/pipelines/{pipeline.id}` or `organizations/{org.id}/pipelines/{pipeline.id}`
+    """The target pipeline name. It can be under a user or an organization
+    namespace, so the following formats are accepted:
+    - `users/{user.id}/pipelines/{pipeline.id}`
+    - `organizations/{organization.id}/pipelines/{pipeline.id}`
     """
     def __init__(
         self,
@@ -2650,7 +2658,7 @@ global___RenameOrganizationPipelineReleaseResponse = RenameOrganizationPipelineR
 @typing_extensions.final
 class WatchOrganizationPipelineReleaseRequest(google.protobuf.message.Message):
     """WatchOrganizationPipelineReleaseRequest represents a request to query the
-    state of a organization-owned pipeline release.
+    state of an organization-owned pipeline release.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor

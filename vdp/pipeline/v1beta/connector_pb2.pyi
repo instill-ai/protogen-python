@@ -919,7 +919,7 @@ global___CreateOrganizationConnectorResponse = CreateOrganizationConnectorRespon
 @typing_extensions.final
 class ListOrganizationConnectorsRequest(google.protobuf.message.Message):
     """ListOrganizationConnectorsRequest represents a request to list the
-    connectors of a organization.
+    connectors of an organization.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1364,7 +1364,7 @@ global___TestOrganizationConnectorResponse = TestOrganizationConnectorResponse
 @typing_extensions.final
 class WatchOrganizationConnectorRequest(google.protobuf.message.Message):
     """WatchOrganizationConnectorRequest represents a request to fetch the state of
-    a organization-owned connector.
+    an organization-owned connector.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor

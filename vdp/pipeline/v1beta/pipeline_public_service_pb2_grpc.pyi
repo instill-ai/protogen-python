@@ -148,7 +148,8 @@ class PipelinePublicServiceStub:
     ]
     """Clone a pipeline owned by a user
 
-    Clone a pipeline owned by a user, the target pipeline can be under a user or organization namespace.
+    Clones a pipeline owned by a user. The new pipeline may have a different
+    parent, and this can be either a user or an organization.
     """
     TriggerUserPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineRequest,
@@ -382,7 +383,8 @@ class PipelinePublicServiceStub:
     ]
     """Clone a pipeline owned by an organization
 
-    Clone a pipeline owned by an organization, the target pipeline can be under a user or organization namespace.
+    Clones a pipeline owned by an organization. The new pipeline may have a
+    different parent, and this can be either a user or an organization.
     """
     TriggerOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineRequest,
@@ -799,11 +801,8 @@ class PipelinePublicServiceStub:
     ]
     """Check the availibity of a resource name
 
-    Check the availibity of a resource name. The name should be in the formats:
-     - users/<user_id>/pipelines/<pipeline_id>
-     - users/<user_id>/connectors/<connector_id>
-     - organizations/<org_id>/pipelines/<pipeline_id>
-     - organizations/<org_id>/connectors/<connector_id>
+    Check whether a resource name is already in use. Currently this endpoint
+    only supports pipeline and connector resource names.
     """
 
 class PipelinePublicServiceAsyncStub:
@@ -932,7 +931,8 @@ class PipelinePublicServiceAsyncStub:
     ]
     """Clone a pipeline owned by a user
 
-    Clone a pipeline owned by a user, the target pipeline can be under a user or organization namespace.
+    Clones a pipeline owned by a user. The new pipeline may have a different
+    parent, and this can be either a user or an organization.
     """
     TriggerUserPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineRequest,
@@ -1166,7 +1166,8 @@ class PipelinePublicServiceAsyncStub:
     ]
     """Clone a pipeline owned by an organization
 
-    Clone a pipeline owned by an organization, the target pipeline can be under a user or organization namespace.
+    Clones a pipeline owned by an organization. The new pipeline may have a
+    different parent, and this can be either a user or an organization.
     """
     TriggerOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineRequest,
@@ -1583,11 +1584,8 @@ class PipelinePublicServiceAsyncStub:
     ]
     """Check the availibity of a resource name
 
-    Check the availibity of a resource name. The name should be in the formats:
-     - users/<user_id>/pipelines/<pipeline_id>
-     - users/<user_id>/connectors/<connector_id>
-     - organizations/<org_id>/pipelines/<pipeline_id>
-     - organizations/<org_id>/connectors/<connector_id>
+    Check whether a resource name is already in use. Currently this endpoint
+    only supports pipeline and connector resource names.
     """
 
 class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
@@ -1740,7 +1738,8 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.CloneUserPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.CloneUserPipelineResponse]]:
         """Clone a pipeline owned by a user
 
-        Clone a pipeline owned by a user, the target pipeline can be under a user or organization namespace.
+        Clones a pipeline owned by a user. The new pipeline may have a different
+        parent, and this can be either a user or an organization.
         """
     @abc.abstractmethod
     def TriggerUserPipeline(
@@ -2014,7 +2013,8 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.CloneOrganizationPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.CloneOrganizationPipelineResponse]]:
         """Clone a pipeline owned by an organization
 
-        Clone a pipeline owned by an organization, the target pipeline can be under a user or organization namespace.
+        Clones a pipeline owned by an organization. The new pipeline may have a
+        different parent, and this can be either a user or an organization.
         """
     @abc.abstractmethod
     def TriggerOrganizationPipeline(
@@ -2515,11 +2515,8 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[vdp.pipeline.v1beta.common_pb2.CheckNameResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.common_pb2.CheckNameResponse]]:
         """Check the availibity of a resource name
 
-        Check the availibity of a resource name. The name should be in the formats:
-         - users/<user_id>/pipelines/<pipeline_id>
-         - users/<user_id>/connectors/<connector_id>
-         - organizations/<org_id>/pipelines/<pipeline_id>
-         - organizations/<org_id>/connectors/<connector_id>
+        Check whether a resource name is already in use. Currently this endpoint
+        only supports pipeline and connector resource names.
         """
 
 def add_PipelinePublicServiceServicer_to_server(servicer: PipelinePublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

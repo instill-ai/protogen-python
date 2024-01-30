@@ -528,7 +528,8 @@ class PipelinePublicServiceServicer(object):
     def CloneUserPipeline(self, request, context):
         """Clone a pipeline owned by a user
 
-        Clone a pipeline owned by a user, the target pipeline can be under a user or organization namespace.
+        Clones a pipeline owned by a user. The new pipeline may have a different
+        parent, and this can be either a user or an organization.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -782,7 +783,8 @@ class PipelinePublicServiceServicer(object):
     def CloneOrganizationPipeline(self, request, context):
         """Clone a pipeline owned by an organization
 
-        Clone a pipeline owned by an organization, the target pipeline can be under a user or organization namespace.
+        Clones a pipeline owned by an organization. The new pipeline may have a
+        different parent, and this can be either a user or an organization.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1241,11 +1243,8 @@ class PipelinePublicServiceServicer(object):
     def CheckName(self, request, context):
         """Check the availibity of a resource name
 
-        Check the availibity of a resource name. The name should be in the formats:
-        - users/<user_id>/pipelines/<pipeline_id>
-        - users/<user_id>/connectors/<connector_id>
-        - organizations/<org_id>/pipelines/<pipeline_id>
-        - organizations/<org_id>/connectors/<connector_id>
+        Check whether a resource name is already in use. Currently this endpoint
+        only supports pipeline and connector resource names.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

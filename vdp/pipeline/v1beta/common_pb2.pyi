@@ -180,11 +180,12 @@ class CheckNameRequest(google.protobuf.message.Message):
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """The name of the resource to be checked, should be in the formats:
-     - users/<user_id>/pipelines/<pipeline_id>
-     - users/<user_id>/connectors/<connector_id>
-     - organizations/<org_id>/pipelines/<pipeline_id>
-     - organizations/<org_id>/connectors/<connector_id>
+    """The name of the resource to be checked. For the moment, only pipeline and
+    connector names can be checked. The following formats are accepted:
+    - `users/{user.id}/pipelines/{pipeline.id}`
+    - `users/{user.id}/connectors/{connector.id}`
+    - `organizations/{organization.id}/pipelines/{pipeline.id}`
+    - `organizations/{organization.id}/connectors/{connector.id}`
     """
     def __init__(
         self,
@@ -197,9 +198,7 @@ global___CheckNameRequest = CheckNameRequest
 
 @typing_extensions.final
 class CheckNameResponse(google.protobuf.message.Message):
-    """CheckNameResponse contains the availability of a name
-    of resource that's using it.
-    """
+    """CheckNameResponse contains the availability of a resource name."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -217,7 +216,7 @@ class CheckNameResponse(google.protobuf.message.Message):
         """Unavailable."""
 
     class Name(_Name, metaclass=_NameEnumTypeWrapper):
-        """Availability of Name"""
+        """Name defines the availability of a resource name."""
 
     NAME_UNSPECIFIED: CheckNameResponse.Name.ValueType  # 0
     """Unspecified."""
@@ -228,7 +227,7 @@ class CheckNameResponse(google.protobuf.message.Message):
 
     AVAILABILITY_FIELD_NUMBER: builtins.int
     availability: global___CheckNameResponse.Name.ValueType
-    """Availability"""
+    """The availability of the requested name."""
     def __init__(
         self,
         *,
