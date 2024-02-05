@@ -39,6 +39,16 @@ class MgmtPublicServiceStub(object):
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceResponse.FromString,
                 )
+        self.GetAuthenticatedUser = channel.unary_unary(
+                '/core.mgmt.v1beta.MgmtPublicService/GetAuthenticatedUser',
+                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserResponse.FromString,
+                )
+        self.PatchAuthenticatedUser = channel.unary_unary(
+                '/core.mgmt.v1beta.MgmtPublicService/PatchAuthenticatedUser',
+                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.PatchAuthenticatedUserRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.PatchAuthenticatedUserResponse.FromString,
+                )
         self.ListUsers = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/ListUsers',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListUsersRequest.SerializeToString,
@@ -48,11 +58,6 @@ class MgmtPublicServiceStub(object):
                 '/core.mgmt.v1beta.MgmtPublicService/GetUser',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserResponse.FromString,
-                )
-        self.PatchAuthenticatedUser = channel.unary_unary(
-                '/core.mgmt.v1beta.MgmtPublicService/PatchAuthenticatedUser',
-                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.PatchAuthenticatedUserRequest.SerializeToString,
-                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.PatchAuthenticatedUserResponse.FromString,
                 )
         self.ListUserMemberships = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/ListUserMemberships',
@@ -250,6 +255,27 @@ class MgmtPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAuthenticatedUser(self, request, context):
+        """Get the authenticated user
+
+        Returns the details of the authenticated user.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def PatchAuthenticatedUser(self, request, context):
+        """Update the authenticated user
+
+        Updates the information of the authenticated user.
+
+        In REST requests, only the supplied user fields will be taken into account
+        when updating the resource.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListUsers(self, request, context):
         """List users
 
@@ -263,19 +289,6 @@ class MgmtPublicServiceServicer(object):
         """Get a user
 
         Returns the details of a user by their ID.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def PatchAuthenticatedUser(self, request, context):
-        """Update a user
-
-        Accesses and updates a user by ID. The authenticated user must match the
-        target in order to modify it.
-
-        In REST requests, only the supplied user fields will be taken into account
-        when updating the resource.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -584,6 +597,16 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceResponse.SerializeToString,
             ),
+            'GetAuthenticatedUser': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAuthenticatedUser,
+                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserResponse.SerializeToString,
+            ),
+            'PatchAuthenticatedUser': grpc.unary_unary_rpc_method_handler(
+                    servicer.PatchAuthenticatedUser,
+                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.PatchAuthenticatedUserRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.PatchAuthenticatedUserResponse.SerializeToString,
+            ),
             'ListUsers': grpc.unary_unary_rpc_method_handler(
                     servicer.ListUsers,
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListUsersRequest.FromString,
@@ -593,11 +616,6 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     servicer.GetUser,
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserResponse.SerializeToString,
-            ),
-            'PatchAuthenticatedUser': grpc.unary_unary_rpc_method_handler(
-                    servicer.PatchAuthenticatedUser,
-                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.PatchAuthenticatedUserRequest.FromString,
-                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.PatchAuthenticatedUserResponse.SerializeToString,
             ),
             'ListUserMemberships': grpc.unary_unary_rpc_method_handler(
                     servicer.ListUserMemberships,
@@ -832,6 +850,40 @@ class MgmtPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def GetAuthenticatedUser(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/GetAuthenticatedUser',
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserRequest.SerializeToString,
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def PatchAuthenticatedUser(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/PatchAuthenticatedUser',
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.PatchAuthenticatedUserRequest.SerializeToString,
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.PatchAuthenticatedUserResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def ListUsers(request,
             target,
             options=(),
@@ -862,23 +914,6 @@ class MgmtPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/GetUser',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def PatchAuthenticatedUser(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/PatchAuthenticatedUser',
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.PatchAuthenticatedUserRequest.SerializeToString,
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.PatchAuthenticatedUserResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

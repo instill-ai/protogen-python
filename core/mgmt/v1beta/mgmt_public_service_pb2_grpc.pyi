@@ -59,6 +59,25 @@ class MgmtPublicServiceStub:
     Returns the availability of a namespace or, alternatively, the type of
     resource that is using it.
     """
+    GetAuthenticatedUser: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserRequest,
+        core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserResponse,
+    ]
+    """Get the authenticated user
+
+    Returns the details of the authenticated user.
+    """
+    PatchAuthenticatedUser: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.PatchAuthenticatedUserRequest,
+        core.mgmt.v1beta.mgmt_pb2.PatchAuthenticatedUserResponse,
+    ]
+    """Update the authenticated user
+
+    Updates the information of the authenticated user.
+
+    In REST requests, only the supplied user fields will be taken into account
+    when updating the resource.
+    """
     ListUsers: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.ListUsersRequest,
         core.mgmt.v1beta.mgmt_pb2.ListUsersResponse,
@@ -74,18 +93,6 @@ class MgmtPublicServiceStub:
     """Get a user
 
     Returns the details of a user by their ID.
-    """
-    PatchAuthenticatedUser: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.PatchAuthenticatedUserRequest,
-        core.mgmt.v1beta.mgmt_pb2.PatchAuthenticatedUserResponse,
-    ]
-    """Update a user
-
-    Accesses and updates a user by ID. The authenticated user must match the
-    target in order to modify it.
-
-    In REST requests, only the supplied user fields will be taken into account
-    when updating the resource.
     """
     ListUserMemberships: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.ListUserMembershipsRequest,
@@ -378,6 +385,25 @@ class MgmtPublicServiceAsyncStub:
     Returns the availability of a namespace or, alternatively, the type of
     resource that is using it.
     """
+    GetAuthenticatedUser: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserRequest,
+        core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserResponse,
+    ]
+    """Get the authenticated user
+
+    Returns the details of the authenticated user.
+    """
+    PatchAuthenticatedUser: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.PatchAuthenticatedUserRequest,
+        core.mgmt.v1beta.mgmt_pb2.PatchAuthenticatedUserResponse,
+    ]
+    """Update the authenticated user
+
+    Updates the information of the authenticated user.
+
+    In REST requests, only the supplied user fields will be taken into account
+    when updating the resource.
+    """
     ListUsers: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.ListUsersRequest,
         core.mgmt.v1beta.mgmt_pb2.ListUsersResponse,
@@ -393,18 +419,6 @@ class MgmtPublicServiceAsyncStub:
     """Get a user
 
     Returns the details of a user by their ID.
-    """
-    PatchAuthenticatedUser: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.PatchAuthenticatedUserRequest,
-        core.mgmt.v1beta.mgmt_pb2.PatchAuthenticatedUserResponse,
-    ]
-    """Update a user
-
-    Accesses and updates a user by ID. The authenticated user must match the
-    target in order to modify it.
-
-    In REST requests, only the supplied user fields will be taken into account
-    when updating the resource.
     """
     ListUserMemberships: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.ListUserMembershipsRequest,
@@ -706,6 +720,29 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         resource that is using it.
         """
     @abc.abstractmethod
+    def GetAuthenticatedUser(
+        self,
+        request: core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserResponse]]:
+        """Get the authenticated user
+
+        Returns the details of the authenticated user.
+        """
+    @abc.abstractmethod
+    def PatchAuthenticatedUser(
+        self,
+        request: core.mgmt.v1beta.mgmt_pb2.PatchAuthenticatedUserRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.PatchAuthenticatedUserResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.PatchAuthenticatedUserResponse]]:
+        """Update the authenticated user
+
+        Updates the information of the authenticated user.
+
+        In REST requests, only the supplied user fields will be taken into account
+        when updating the resource.
+        """
+    @abc.abstractmethod
     def ListUsers(
         self,
         request: core.mgmt.v1beta.mgmt_pb2.ListUsersRequest,
@@ -724,20 +761,6 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         """Get a user
 
         Returns the details of a user by their ID.
-        """
-    @abc.abstractmethod
-    def PatchAuthenticatedUser(
-        self,
-        request: core.mgmt.v1beta.mgmt_pb2.PatchAuthenticatedUserRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.PatchAuthenticatedUserResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.PatchAuthenticatedUserResponse]]:
-        """Update a user
-
-        Accesses and updates a user by ID. The authenticated user must match the
-        target in order to modify it.
-
-        In REST requests, only the supplied user fields will be taken into account
-        when updating the resource.
         """
     @abc.abstractmethod
     def ListUserMemberships(
