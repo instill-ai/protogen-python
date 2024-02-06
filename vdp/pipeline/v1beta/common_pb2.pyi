@@ -236,3 +236,31 @@ class CheckNameResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["availability", b"availability"]) -> None: ...
 
 global___CheckNameResponse = CheckNameResponse
+
+@typing_extensions.final
+class ComponentTask(google.protobuf.message.Message):
+    """ComponentTask contains information about a task that a component can
+    perform.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    TITLE_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The task name, e.g. `TASK_TEXT_GENERATION`."""
+    title: builtins.str
+    """Title is the task name in a human-friendly format."""
+    description: builtins.str
+    """Description contains information about the task."""
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        title: builtins.str = ...,
+        description: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "name", b"name", "title", b"title"]) -> None: ...
+
+global___ComponentTask = ComponentTask

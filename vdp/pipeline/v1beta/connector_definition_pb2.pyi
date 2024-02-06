@@ -11,6 +11,7 @@ import google.protobuf.message
 import google.protobuf.struct_pb2
 import sys
 import typing
+import vdp.pipeline.v1beta.common_pb2
 
 if sys.version_info >= (3, 10):
     import typing as typing_extensions
@@ -118,7 +119,9 @@ class ConnectorDefinition(google.protobuf.message.Message):
         VIEW_UNSPECIFIED: ConnectorDefinition._View.ValueType  # 0
         """Unspecified, equivalent to BASIC."""
         VIEW_BASIC: ConnectorDefinition._View.ValueType  # 1
-        """Default view, only includes basic information."""
+        """Default view, only includes basic information (removes the `spec`
+        field).
+        """
         VIEW_FULL: ConnectorDefinition._View.ValueType  # 2
         """Full representation."""
 
@@ -128,7 +131,9 @@ class ConnectorDefinition(google.protobuf.message.Message):
     VIEW_UNSPECIFIED: ConnectorDefinition.View.ValueType  # 0
     """Unspecified, equivalent to BASIC."""
     VIEW_BASIC: ConnectorDefinition.View.ValueType  # 1
-    """Default view, only includes basic information."""
+    """Default view, only includes basic information (removes the `spec`
+    field).
+    """
     VIEW_FULL: ConnectorDefinition.View.ValueType  # 2
     """Full representation."""
 
@@ -143,9 +148,11 @@ class ConnectorDefinition(google.protobuf.message.Message):
     TOMBSTONE_FIELD_NUMBER: builtins.int
     PUBLIC_FIELD_NUMBER: builtins.int
     CUSTOM_FIELD_NUMBER: builtins.int
-    ICON_URL_FIELD_NUMBER: builtins.int
     VENDOR_FIELD_NUMBER: builtins.int
     VENDOR_ATTRIBUTES_FIELD_NUMBER: builtins.int
+    SOURCE_URL_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
+    TASKS_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The name of the connector definition, defined by its ID.
     - Format: `connector-definitions/{id}
@@ -163,7 +170,10 @@ class ConnectorDefinition(google.protobuf.message.Message):
     documentation_url: builtins.str
     """Connector definition documentation URL."""
     icon: builtins.str
-    """Connector definition icon."""
+    """Connector definition icon. This is a path that's relative to the root of
+    the connector implementation (see `source_url`) and that allows clients
+    frontend applications to pull and locate the icons.
+    """
     @property
     def spec(self) -> global___ConnectorSpec:
         """Connector definition specification."""
@@ -181,13 +191,22 @@ class ConnectorDefinition(google.protobuf.message.Message):
     """Connector definition custom flag, i.e., whether this is a custom
     connector definition.
     """
-    icon_url: builtins.str
-    """Connector definition icon URL."""
     vendor: builtins.str
     """Connector definition vendor name."""
     @property
     def vendor_attributes(self) -> google.protobuf.struct_pb2.Struct:
         """Vendor-specific attributes."""
+    source_url: builtins.str
+    """Source code URL. This points to the source code where the connector is
+    implemented.
+    """
+    version: builtins.str
+    """Connector definition version. This is a string that fulfills the SemVer
+    specification (e.g. `1.0.0-beta`).
+    """
+    @property
+    def tasks(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[vdp.pipeline.v1beta.common_pb2.ComponentTask]:
+        """List of tasks that can be executed by the connector."""
     def __init__(
         self,
         *,
@@ -202,12 +221,14 @@ class ConnectorDefinition(google.protobuf.message.Message):
         tombstone: builtins.bool = ...,
         public: builtins.bool = ...,
         custom: builtins.bool = ...,
-        icon_url: builtins.str = ...,
         vendor: builtins.str = ...,
         vendor_attributes: google.protobuf.struct_pb2.Struct | None = ...,
+        source_url: builtins.str = ...,
+        version: builtins.str = ...,
+        tasks: collections.abc.Iterable[vdp.pipeline.v1beta.common_pb2.ComponentTask] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["spec", b"spec", "vendor_attributes", b"vendor_attributes"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["custom", b"custom", "documentation_url", b"documentation_url", "icon", b"icon", "icon_url", b"icon_url", "id", b"id", "name", b"name", "public", b"public", "spec", b"spec", "title", b"title", "tombstone", b"tombstone", "type", b"type", "uid", b"uid", "vendor", b"vendor", "vendor_attributes", b"vendor_attributes"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["custom", b"custom", "documentation_url", b"documentation_url", "icon", b"icon", "id", b"id", "name", b"name", "public", b"public", "source_url", b"source_url", "spec", b"spec", "tasks", b"tasks", "title", b"title", "tombstone", b"tombstone", "type", b"type", "uid", b"uid", "vendor", b"vendor", "vendor_attributes", b"vendor_attributes", "version", b"version"]) -> None: ...
 
 global___ConnectorDefinition = ConnectorDefinition
 

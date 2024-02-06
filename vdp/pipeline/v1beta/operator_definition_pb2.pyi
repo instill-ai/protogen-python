@@ -11,6 +11,7 @@ import google.protobuf.message
 import google.protobuf.struct_pb2
 import sys
 import typing
+import vdp.pipeline.v1beta.common_pb2
 
 if sys.version_info >= (3, 10):
     import typing as typing_extensions
@@ -67,7 +68,9 @@ class OperatorDefinition(google.protobuf.message.Message):
         VIEW_UNSPECIFIED: OperatorDefinition._View.ValueType  # 0
         """Unspecified, equivalent to BASIC."""
         VIEW_BASIC: OperatorDefinition._View.ValueType  # 1
-        """Default view, only includes basic information."""
+        """Default view, only includes basic information (removes the `spec`
+        field).
+        """
         VIEW_FULL: OperatorDefinition._View.ValueType  # 2
         """Full representation."""
 
@@ -77,7 +80,9 @@ class OperatorDefinition(google.protobuf.message.Message):
     VIEW_UNSPECIFIED: OperatorDefinition.View.ValueType  # 0
     """Unspecified, equivalent to BASIC."""
     VIEW_BASIC: OperatorDefinition.View.ValueType  # 1
-    """Default view, only includes basic information."""
+    """Default view, only includes basic information (removes the `spec`
+    field).
+    """
     VIEW_FULL: OperatorDefinition.View.ValueType  # 2
     """Full representation."""
 
@@ -91,7 +96,9 @@ class OperatorDefinition(google.protobuf.message.Message):
     TOMBSTONE_FIELD_NUMBER: builtins.int
     PUBLIC_FIELD_NUMBER: builtins.int
     CUSTOM_FIELD_NUMBER: builtins.int
-    ICON_URL_FIELD_NUMBER: builtins.int
+    SOURCE_URL_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
+    TASKS_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The name of the operator definition.
     - Format: `operator-definitions/*`
@@ -109,7 +116,10 @@ class OperatorDefinition(google.protobuf.message.Message):
     documentation_url: builtins.str
     """Operator definition documentation URL."""
     icon: builtins.str
-    """Operator definition icon."""
+    """Operator definition icon. This is a path that's relative to the root of
+    the operator implementation (see `source_url`) and that allows clients
+    frontend applications to pull and locate the icons.
+    """
     @property
     def spec(self) -> global___OperatorSpec:
         """Operator definition specification."""
@@ -123,8 +133,17 @@ class OperatorDefinition(google.protobuf.message.Message):
     """
     custom: builtins.bool
     """The custom flag determines whether this is a custom operator definition."""
-    icon_url: builtins.str
-    """Operator definition icon URL."""
+    source_url: builtins.str
+    """Source code URL. This points to the source code where the operator is
+    implemented.
+    """
+    version: builtins.str
+    """Operator definition version. This is a string that fulfills the SemVer
+    specification (e.g. `1.0.0-beta`).
+    """
+    @property
+    def tasks(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[vdp.pipeline.v1beta.common_pb2.ComponentTask]:
+        """List of tasks that can be executed by the operator."""
     def __init__(
         self,
         *,
@@ -138,10 +157,12 @@ class OperatorDefinition(google.protobuf.message.Message):
         tombstone: builtins.bool = ...,
         public: builtins.bool = ...,
         custom: builtins.bool = ...,
-        icon_url: builtins.str = ...,
+        source_url: builtins.str = ...,
+        version: builtins.str = ...,
+        tasks: collections.abc.Iterable[vdp.pipeline.v1beta.common_pb2.ComponentTask] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["spec", b"spec"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["custom", b"custom", "documentation_url", b"documentation_url", "icon", b"icon", "icon_url", b"icon_url", "id", b"id", "name", b"name", "public", b"public", "spec", b"spec", "title", b"title", "tombstone", b"tombstone", "uid", b"uid"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["custom", b"custom", "documentation_url", b"documentation_url", "icon", b"icon", "id", b"id", "name", b"name", "public", b"public", "source_url", b"source_url", "spec", b"spec", "tasks", b"tasks", "title", b"title", "tombstone", b"tombstone", "uid", b"uid", "version", b"version"]) -> None: ...
 
 global___OperatorDefinition = OperatorDefinition
 
