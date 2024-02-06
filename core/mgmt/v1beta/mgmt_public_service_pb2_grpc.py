@@ -119,10 +119,10 @@ class MgmtPublicServiceStub(object):
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.UpdateOrganizationMembershipRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.UpdateOrganizationMembershipResponse.FromString,
                 )
-        self.GetUserSubscription = channel.unary_unary(
-                '/core.mgmt.v1beta.MgmtPublicService/GetUserSubscription',
-                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserSubscriptionRequest.SerializeToString,
-                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserSubscriptionResponse.FromString,
+        self.GetAuthenticatedUserSubscription = channel.unary_unary(
+                '/core.mgmt.v1beta.MgmtPublicService/GetAuthenticatedUserSubscription',
+                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserSubscriptionRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserSubscriptionResponse.FromString,
                 )
         self.GetOrganizationSubscription = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/GetOrganizationSubscription',
@@ -406,10 +406,10 @@ class MgmtPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetUserSubscription(self, request, context):
-        """Get a user subscription
+    def GetAuthenticatedUserSubscription(self, request, context):
+        """Get the subscription of the authenticated user
 
-        Returns the subscription details of a user.
+        Returns the subscription details of the authenticated user.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -677,10 +677,10 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.UpdateOrganizationMembershipRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.UpdateOrganizationMembershipResponse.SerializeToString,
             ),
-            'GetUserSubscription': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetUserSubscription,
-                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserSubscriptionRequest.FromString,
-                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserSubscriptionResponse.SerializeToString,
+            'GetAuthenticatedUserSubscription': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAuthenticatedUserSubscription,
+                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserSubscriptionRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserSubscriptionResponse.SerializeToString,
             ),
             'GetOrganizationSubscription': grpc.unary_unary_rpc_method_handler(
                     servicer.GetOrganizationSubscription,
@@ -1122,7 +1122,7 @@ class MgmtPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetUserSubscription(request,
+    def GetAuthenticatedUserSubscription(request,
             target,
             options=(),
             channel_credentials=None,
@@ -1132,9 +1132,9 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/GetUserSubscription',
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserSubscriptionRequest.SerializeToString,
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserSubscriptionResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/GetAuthenticatedUserSubscription',
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserSubscriptionRequest.SerializeToString,
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserSubscriptionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

@@ -10,7 +10,6 @@ import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
-import google.protobuf.struct_pb2
 import google.protobuf.timestamp_pb2
 import sys
 import typing
@@ -215,6 +214,136 @@ class ReadinessResponse(google.protobuf.message.Message):
 global___ReadinessResponse = ReadinessResponse
 
 @typing_extensions.final
+class UserProfile(google.protobuf.message.Message):
+    """UserProfile describes the public data of a user."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    @typing_extensions.final
+    class SocialProfileLinksEntry(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        KEY_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
+            *,
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
+
+    DISPLAY_NAME_FIELD_NUMBER: builtins.int
+    BIO_FIELD_NUMBER: builtins.int
+    AVATAR_FIELD_NUMBER: builtins.int
+    PUBLIC_EMAIL_FIELD_NUMBER: builtins.int
+    COMPANY_NAME_FIELD_NUMBER: builtins.int
+    SOCIAL_PROFILE_LINKS_FIELD_NUMBER: builtins.int
+    display_name: builtins.str
+    """Display name."""
+    bio: builtins.str
+    """Biography."""
+    avatar: builtins.str
+    """Avatar in base64 format."""
+    public_email: builtins.str
+    """Public email."""
+    company_name: builtins.str
+    """Company name."""
+    @property
+    def social_profile_links(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
+        """Social profile links list the links to the user's social profiles.
+        The key represents the provider, and the value is the corresponding URL.
+        """
+    def __init__(
+        self,
+        *,
+        display_name: builtins.str | None = ...,
+        bio: builtins.str | None = ...,
+        avatar: builtins.str | None = ...,
+        public_email: builtins.str | None = ...,
+        company_name: builtins.str | None = ...,
+        social_profile_links: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_avatar", b"_avatar", "_bio", b"_bio", "_company_name", b"_company_name", "_display_name", b"_display_name", "_public_email", b"_public_email", "avatar", b"avatar", "bio", b"bio", "company_name", b"company_name", "display_name", b"display_name", "public_email", b"public_email"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_avatar", b"_avatar", "_bio", b"_bio", "_company_name", b"_company_name", "_display_name", b"_display_name", "_public_email", b"_public_email", "avatar", b"avatar", "bio", b"bio", "company_name", b"company_name", "display_name", b"display_name", "public_email", b"public_email", "social_profile_links", b"social_profile_links"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_avatar", b"_avatar"]) -> typing_extensions.Literal["avatar"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_bio", b"_bio"]) -> typing_extensions.Literal["bio"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_company_name", b"_company_name"]) -> typing_extensions.Literal["company_name"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_display_name", b"_display_name"]) -> typing_extensions.Literal["display_name"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_public_email", b"_public_email"]) -> typing_extensions.Literal["public_email"] | None: ...
+
+global___UserProfile = UserProfile
+
+@typing_extensions.final
+class OrganizationProfile(google.protobuf.message.Message):
+    """OrganizationProfile describes the public data of an organization."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    @typing_extensions.final
+    class SocialProfileLinksEntry(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        KEY_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
+            *,
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
+
+    DISPLAY_NAME_FIELD_NUMBER: builtins.int
+    BIO_FIELD_NUMBER: builtins.int
+    AVATAR_FIELD_NUMBER: builtins.int
+    PUBLIC_EMAIL_FIELD_NUMBER: builtins.int
+    SOCIAL_PROFILE_LINKS_FIELD_NUMBER: builtins.int
+    display_name: builtins.str
+    """Display name."""
+    bio: builtins.str
+    """Biography."""
+    avatar: builtins.str
+    """Avatar in base64 format."""
+    public_email: builtins.str
+    """Public email."""
+    @property
+    def social_profile_links(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
+        """Social profile links list the links to the organization's social profiles.
+        The key represents the provider, and the value is the corresponding URL.
+        """
+    def __init__(
+        self,
+        *,
+        display_name: builtins.str | None = ...,
+        bio: builtins.str | None = ...,
+        avatar: builtins.str | None = ...,
+        public_email: builtins.str | None = ...,
+        social_profile_links: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_avatar", b"_avatar", "_bio", b"_bio", "_display_name", b"_display_name", "_public_email", b"_public_email", "avatar", b"avatar", "bio", b"bio", "display_name", b"display_name", "public_email", b"public_email"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_avatar", b"_avatar", "_bio", b"_bio", "_display_name", b"_display_name", "_public_email", b"_public_email", "avatar", b"avatar", "bio", b"bio", "display_name", b"display_name", "public_email", b"public_email", "social_profile_links", b"social_profile_links"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_avatar", b"_avatar"]) -> typing_extensions.Literal["avatar"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_bio", b"_bio"]) -> typing_extensions.Literal["bio"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_display_name", b"_display_name"]) -> typing_extensions.Literal["display_name"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_public_email", b"_public_email"]) -> typing_extensions.Literal["public_email"] | None: ...
+
+global___OrganizationProfile = OrganizationProfile
+
+@typing_extensions.final
 class AuthenticatedUser(google.protobuf.message.Message):
     """AuthenticatedUser contains the information of an authenticated user, i.e.,
     the public user information plus some fields that should only be accessed by
@@ -230,14 +359,11 @@ class AuthenticatedUser(google.protobuf.message.Message):
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     EMAIL_FIELD_NUMBER: builtins.int
     CUSTOMER_ID_FIELD_NUMBER: builtins.int
-    FIRST_NAME_FIELD_NUMBER: builtins.int
-    LAST_NAME_FIELD_NUMBER: builtins.int
-    COMPANY_NAME_FIELD_NUMBER: builtins.int
     ROLE_FIELD_NUMBER: builtins.int
     NEWSLETTER_SUBSCRIPTION_FIELD_NUMBER: builtins.int
-    PROFILE_AVATAR_FIELD_NUMBER: builtins.int
-    PROFILE_DATA_FIELD_NUMBER: builtins.int
+    COOKIE_TOKEN_FIELD_NUMBER: builtins.int
     ONBOARDING_STATUS_FIELD_NUMBER: builtins.int
+    PROFILE_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The name of the user, defined by its ID.
     - Format: `users/{user.id}`.
@@ -264,12 +390,6 @@ class AuthenticatedUser(google.protobuf.message.Message):
     """Email."""
     customer_id: builtins.str
     """Stripe customer ID. This field is used in Instill Cloud."""
-    first_name: builtins.str
-    """First name."""
-    last_name: builtins.str
-    """Last name."""
-    company_name: builtins.str
-    """Company or institution name."""
     role: builtins.str
     """Role.
 
@@ -284,13 +404,13 @@ class AuthenticatedUser(google.protobuf.message.Message):
     """
     newsletter_subscription: builtins.bool
     """This defines whether the user is subscribed to Instill AI's newsletter."""
-    profile_avatar: builtins.str
-    """Profile Avatar in base64."""
-    @property
-    def profile_data(self) -> google.protobuf.struct_pb2.Struct:
-        """Profile Data."""
+    cookie_token: builtins.str
+    """Console cookie token."""
     onboarding_status: global___OnboardingStatus.ValueType
     """Onboarding Status."""
+    @property
+    def profile(self) -> global___UserProfile:
+        """Profile."""
     def __init__(
         self,
         *,
@@ -301,27 +421,16 @@ class AuthenticatedUser(google.protobuf.message.Message):
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         email: builtins.str = ...,
         customer_id: builtins.str = ...,
-        first_name: builtins.str | None = ...,
-        last_name: builtins.str | None = ...,
-        company_name: builtins.str | None = ...,
         role: builtins.str | None = ...,
         newsletter_subscription: builtins.bool = ...,
-        profile_avatar: builtins.str | None = ...,
-        profile_data: google.protobuf.struct_pb2.Struct | None = ...,
+        cookie_token: builtins.str | None = ...,
         onboarding_status: global___OnboardingStatus.ValueType = ...,
+        profile: global___UserProfile | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_company_name", b"_company_name", "_first_name", b"_first_name", "_last_name", b"_last_name", "_profile_avatar", b"_profile_avatar", "_profile_data", b"_profile_data", "_role", b"_role", "_uid", b"_uid", "company_name", b"company_name", "create_time", b"create_time", "first_name", b"first_name", "last_name", b"last_name", "profile_avatar", b"profile_avatar", "profile_data", b"profile_data", "role", b"role", "uid", b"uid", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_company_name", b"_company_name", "_first_name", b"_first_name", "_last_name", b"_last_name", "_profile_avatar", b"_profile_avatar", "_profile_data", b"_profile_data", "_role", b"_role", "_uid", b"_uid", "company_name", b"company_name", "create_time", b"create_time", "customer_id", b"customer_id", "email", b"email", "first_name", b"first_name", "id", b"id", "last_name", b"last_name", "name", b"name", "newsletter_subscription", b"newsletter_subscription", "onboarding_status", b"onboarding_status", "profile_avatar", b"profile_avatar", "profile_data", b"profile_data", "role", b"role", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_cookie_token", b"_cookie_token", "_role", b"_role", "_uid", b"_uid", "cookie_token", b"cookie_token", "create_time", b"create_time", "profile", b"profile", "role", b"role", "uid", b"uid", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_cookie_token", b"_cookie_token", "_role", b"_role", "_uid", b"_uid", "cookie_token", b"cookie_token", "create_time", b"create_time", "customer_id", b"customer_id", "email", b"email", "id", b"id", "name", b"name", "newsletter_subscription", b"newsletter_subscription", "onboarding_status", b"onboarding_status", "profile", b"profile", "role", b"role", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_company_name", b"_company_name"]) -> typing_extensions.Literal["company_name"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_first_name", b"_first_name"]) -> typing_extensions.Literal["first_name"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_last_name", b"_last_name"]) -> typing_extensions.Literal["last_name"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_profile_avatar", b"_profile_avatar"]) -> typing_extensions.Literal["profile_avatar"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_profile_data", b"_profile_data"]) -> typing_extensions.Literal["profile_data"] | None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_cookie_token", b"_cookie_token"]) -> typing_extensions.Literal["cookie_token"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_role", b"_role"]) -> typing_extensions.Literal["role"] | None: ...
     @typing.overload
@@ -342,11 +451,7 @@ class User(google.protobuf.message.Message):
     ID_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
-    CUSTOMER_ID_FIELD_NUMBER: builtins.int
-    FIRST_NAME_FIELD_NUMBER: builtins.int
-    LAST_NAME_FIELD_NUMBER: builtins.int
-    PROFILE_AVATAR_FIELD_NUMBER: builtins.int
-    PROFILE_DATA_FIELD_NUMBER: builtins.int
+    PROFILE_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The name of the user, defined by its ID.
     - Format: `users/{user.id}`.
@@ -369,17 +474,9 @@ class User(google.protobuf.message.Message):
     @property
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Update time."""
-    customer_id: builtins.str
-    """Stripe customer ID. This field is used in Instill Cloud."""
-    first_name: builtins.str
-    """First name."""
-    last_name: builtins.str
-    """Last name."""
-    profile_avatar: builtins.str
-    """Profile Avatar in base64."""
     @property
-    def profile_data(self) -> google.protobuf.struct_pb2.Struct:
-        """Profile Data."""
+    def profile(self) -> global___UserProfile:
+        """Profile."""
     def __init__(
         self,
         *,
@@ -388,23 +485,10 @@ class User(google.protobuf.message.Message):
         id: builtins.str = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        customer_id: builtins.str = ...,
-        first_name: builtins.str | None = ...,
-        last_name: builtins.str | None = ...,
-        profile_avatar: builtins.str | None = ...,
-        profile_data: google.protobuf.struct_pb2.Struct | None = ...,
+        profile: global___UserProfile | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_first_name", b"_first_name", "_last_name", b"_last_name", "_profile_avatar", b"_profile_avatar", "_profile_data", b"_profile_data", "_uid", b"_uid", "create_time", b"create_time", "first_name", b"first_name", "last_name", b"last_name", "profile_avatar", b"profile_avatar", "profile_data", b"profile_data", "uid", b"uid", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_first_name", b"_first_name", "_last_name", b"_last_name", "_profile_avatar", b"_profile_avatar", "_profile_data", b"_profile_data", "_uid", b"_uid", "create_time", b"create_time", "customer_id", b"customer_id", "first_name", b"first_name", "id", b"id", "last_name", b"last_name", "name", b"name", "profile_avatar", b"profile_avatar", "profile_data", b"profile_data", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_first_name", b"_first_name"]) -> typing_extensions.Literal["first_name"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_last_name", b"_last_name"]) -> typing_extensions.Literal["last_name"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_profile_avatar", b"_profile_avatar"]) -> typing_extensions.Literal["profile_avatar"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_profile_data", b"_profile_data"]) -> typing_extensions.Literal["profile_data"] | None: ...
-    @typing.overload
+    def HasField(self, field_name: typing_extensions.Literal["_uid", b"_uid", "create_time", b"create_time", "profile", b"profile", "uid", b"uid", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_uid", b"_uid", "create_time", b"create_time", "id", b"id", "name", b"name", "profile", b"profile", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_uid", b"_uid"]) -> typing_extensions.Literal["uid"] | None: ...
 
 global___User = User
@@ -1525,11 +1609,8 @@ class Organization(google.protobuf.message.Message):
     ID_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
-    ORG_NAME_FIELD_NUMBER: builtins.int
-    CUSTOMER_ID_FIELD_NUMBER: builtins.int
-    PROFILE_AVATAR_FIELD_NUMBER: builtins.int
-    PROFILE_DATA_FIELD_NUMBER: builtins.int
     OWNER_FIELD_NUMBER: builtins.int
+    PROFILE_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The name of the organization, defined by its ID.
     - Format: `organization/{organization.id}`.
@@ -1550,18 +1631,12 @@ class Organization(google.protobuf.message.Message):
     @property
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Update time."""
-    org_name: builtins.str
-    """Company or institution name."""
-    customer_id: builtins.str
-    """Stripe customer ID. This field is used in Instill Cloud."""
-    profile_avatar: builtins.str
-    """Profile Avatar in base64."""
-    @property
-    def profile_data(self) -> google.protobuf.struct_pb2.Struct:
-        """Profile Data."""
     @property
     def owner(self) -> global___User:
         """The user that owns the organization."""
+    @property
+    def profile(self) -> global___OrganizationProfile:
+        """Profile."""
     def __init__(
         self,
         *,
@@ -1570,20 +1645,11 @@ class Organization(google.protobuf.message.Message):
         id: builtins.str = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        org_name: builtins.str | None = ...,
-        customer_id: builtins.str = ...,
-        profile_avatar: builtins.str | None = ...,
-        profile_data: google.protobuf.struct_pb2.Struct | None = ...,
         owner: global___User | None = ...,
+        profile: global___OrganizationProfile | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_org_name", b"_org_name", "_profile_avatar", b"_profile_avatar", "_profile_data", b"_profile_data", "create_time", b"create_time", "org_name", b"org_name", "owner", b"owner", "profile_avatar", b"profile_avatar", "profile_data", b"profile_data", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_org_name", b"_org_name", "_profile_avatar", b"_profile_avatar", "_profile_data", b"_profile_data", "create_time", b"create_time", "customer_id", b"customer_id", "id", b"id", "name", b"name", "org_name", b"org_name", "owner", b"owner", "profile_avatar", b"profile_avatar", "profile_data", b"profile_data", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_org_name", b"_org_name"]) -> typing_extensions.Literal["org_name"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_profile_avatar", b"_profile_avatar"]) -> typing_extensions.Literal["profile_avatar"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_profile_data", b"_profile_data"]) -> typing_extensions.Literal["profile_data"] | None: ...
+    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "owner", b"owner", "profile", b"profile", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "id", b"id", "name", b"name", "owner", b"owner", "profile", b"profile", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
 
 global___Organization = Organization
 
@@ -2264,64 +2330,184 @@ class DeleteOrganizationMembershipResponse(google.protobuf.message.Message):
 global___DeleteOrganizationMembershipResponse = DeleteOrganizationMembershipResponse
 
 @typing_extensions.final
-class Subscription(google.protobuf.message.Message):
-    """Subscription details describe the plan (i.e. the features) a user has access to."""
+class StripeSubscriptionDetail(google.protobuf.message.Message):
+    """StripeSubscriptionDetail describes the details of a subscription in Stripe."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CUSTOMER_ID_FIELD_NUMBER: builtins.int
+    PRODUCT_NAME_FIELD_NUMBER: builtins.int
+    ID_FIELD_NUMBER: builtins.int
+    ITEM_ID_FIELD_NUMBER: builtins.int
+    PRICE_FIELD_NUMBER: builtins.int
+    CANCELED_AT_FIELD_NUMBER: builtins.int
+    customer_id: builtins.str
+    """Customer ID associated with the subscription."""
+    product_name: builtins.str
+    """Product name associated with the subscription in Stripe."""
+    id: builtins.str
+    """Unique identifier for the subscription."""
+    item_id: builtins.str
+    """Identifier for the specific item within the subscription."""
+    price: builtins.float
+    """Price of the subscription."""
+    canceled_at: builtins.int
+    """Optional timestamp indicating when the subscription was canceled, if applicable."""
+    def __init__(
+        self,
+        *,
+        customer_id: builtins.str = ...,
+        product_name: builtins.str = ...,
+        id: builtins.str = ...,
+        item_id: builtins.str = ...,
+        price: builtins.float = ...,
+        canceled_at: builtins.int | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_canceled_at", b"_canceled_at", "canceled_at", b"canceled_at"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_canceled_at", b"_canceled_at", "canceled_at", b"canceled_at", "customer_id", b"customer_id", "id", b"id", "item_id", b"item_id", "price", b"price", "product_name", b"product_name"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_canceled_at", b"_canceled_at"]) -> typing_extensions.Literal["canceled_at"] | None: ...
+
+global___StripeSubscriptionDetail = StripeSubscriptionDetail
+
+@typing_extensions.final
+class UserSubscription(google.protobuf.message.Message):
+    """UserSubscription details describe the plan (i.e., features) a user has access to."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    class _Plan:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _PlanEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[UserSubscription._Plan.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        PLAN_UNSPECIFIED: UserSubscription._Plan.ValueType  # 0
+        """Unspecified plan."""
+        PLAN_FREEMIUM: UserSubscription._Plan.ValueType  # 1
+        """Freemium plan."""
+        PLAN_PRO: UserSubscription._Plan.ValueType  # 2
+        """Pro plan."""
+
+    class Plan(_Plan, metaclass=_PlanEnumTypeWrapper):
+        """Enumerates the plan types for the user subscription."""
+
+    PLAN_UNSPECIFIED: UserSubscription.Plan.ValueType  # 0
+    """Unspecified plan."""
+    PLAN_FREEMIUM: UserSubscription.Plan.ValueType  # 1
+    """Freemium plan."""
+    PLAN_PRO: UserSubscription.Plan.ValueType  # 2
+    """Pro plan."""
 
     PLAN_FIELD_NUMBER: builtins.int
-    plan: builtins.str
-    """Plan identifier, e.g. `freemium`."""
+    DETAIL_FIELD_NUMBER: builtins.int
+    plan: global___UserSubscription.Plan.ValueType
+    """Plan identifier."""
+    @property
+    def detail(self) -> global___StripeSubscriptionDetail:
+        """Details of the associated Stripe subscription."""
     def __init__(
         self,
         *,
-        plan: builtins.str = ...,
+        plan: global___UserSubscription.Plan.ValueType = ...,
+        detail: global___StripeSubscriptionDetail | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["plan", b"plan"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["detail", b"detail"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["detail", b"detail", "plan", b"plan"]) -> None: ...
 
-global___Subscription = Subscription
+global___UserSubscription = UserSubscription
 
 @typing_extensions.final
-class GetUserSubscriptionRequest(google.protobuf.message.Message):
-    """GetUserSubscriptionRequest represents a query to fetch the subscription
-    details of a user.
+class OrganizationSubscription(google.protobuf.message.Message):
+    """OrganizationSubscription details describe the plan (i.e., features) an organization has access to."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    class _Plan:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _PlanEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[OrganizationSubscription._Plan.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        PLAN_UNSPECIFIED: OrganizationSubscription._Plan.ValueType  # 0
+        """Unspecified plan."""
+        PLAN_FREEMIUM: OrganizationSubscription._Plan.ValueType  # 1
+        """Freemium plan."""
+        PLAN_TEAM: OrganizationSubscription._Plan.ValueType  # 2
+        """Team plan."""
+        PLAN_ENTERPRISE: OrganizationSubscription._Plan.ValueType  # 3
+        """Enterprise plan."""
+
+    class Plan(_Plan, metaclass=_PlanEnumTypeWrapper):
+        """Enumerates the plan types for the organization subscription."""
+
+    PLAN_UNSPECIFIED: OrganizationSubscription.Plan.ValueType  # 0
+    """Unspecified plan."""
+    PLAN_FREEMIUM: OrganizationSubscription.Plan.ValueType  # 1
+    """Freemium plan."""
+    PLAN_TEAM: OrganizationSubscription.Plan.ValueType  # 2
+    """Team plan."""
+    PLAN_ENTERPRISE: OrganizationSubscription.Plan.ValueType  # 3
+    """Enterprise plan."""
+
+    PLAN_FIELD_NUMBER: builtins.int
+    DETAIL_FIELD_NUMBER: builtins.int
+    MAX_SEATS_FIELD_NUMBER: builtins.int
+    USED_SEATS_FIELD_NUMBER: builtins.int
+    plan: global___OrganizationSubscription.Plan.ValueType
+    """Plan identifier."""
+    @property
+    def detail(self) -> global___StripeSubscriptionDetail:
+        """Details of the associated Stripe subscription."""
+    max_seats: builtins.int
+    """Maximum number of seats allowed."""
+    used_seats: builtins.int
+    """Number of used seats within the organization subscription."""
+    def __init__(
+        self,
+        *,
+        plan: global___OrganizationSubscription.Plan.ValueType = ...,
+        detail: global___StripeSubscriptionDetail | None = ...,
+        max_seats: builtins.int = ...,
+        used_seats: builtins.int = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["detail", b"detail"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["detail", b"detail", "max_seats", b"max_seats", "plan", b"plan", "used_seats", b"used_seats"]) -> None: ...
+
+global___OrganizationSubscription = OrganizationSubscription
+
+@typing_extensions.final
+class GetAuthenticatedUserSubscriptionRequest(google.protobuf.message.Message):
+    """GetAuthenticatedUserSubscriptionRequest represents a query to fetch the subscription
+    details of the authenticated user.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    PARENT_FIELD_NUMBER: builtins.int
-    parent: builtins.str
-    """The parent resource, i.e., the user to which the subscription refers.
-    Format: `users/{user.id}`.
-    """
     def __init__(
         self,
-        *,
-        parent: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["parent", b"parent"]) -> None: ...
 
-global___GetUserSubscriptionRequest = GetUserSubscriptionRequest
+global___GetAuthenticatedUserSubscriptionRequest = GetAuthenticatedUserSubscriptionRequest
 
 @typing_extensions.final
-class GetUserSubscriptionResponse(google.protobuf.message.Message):
-    """GetUserSubscriptionResponse contains the requested subscription."""
+class GetAuthenticatedUserSubscriptionResponse(google.protobuf.message.Message):
+    """GetAuthenticatedUserSubscriptionResponse contains the requested subscription."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     SUBSCRIPTION_FIELD_NUMBER: builtins.int
     @property
-    def subscription(self) -> global___Subscription:
+    def subscription(self) -> global___UserSubscription:
         """The subscription resource."""
     def __init__(
         self,
         *,
-        subscription: global___Subscription | None = ...,
+        subscription: global___UserSubscription | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["subscription", b"subscription"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["subscription", b"subscription"]) -> None: ...
 
-global___GetUserSubscriptionResponse = GetUserSubscriptionResponse
+global___GetAuthenticatedUserSubscriptionResponse = GetAuthenticatedUserSubscriptionResponse
 
 @typing_extensions.final
 class GetOrganizationSubscriptionRequest(google.protobuf.message.Message):
@@ -2354,12 +2540,12 @@ class GetOrganizationSubscriptionResponse(google.protobuf.message.Message):
 
     SUBSCRIPTION_FIELD_NUMBER: builtins.int
     @property
-    def subscription(self) -> global___Subscription:
+    def subscription(self) -> global___OrganizationSubscription:
         """The subscription resource."""
     def __init__(
         self,
         *,
-        subscription: global___Subscription | None = ...,
+        subscription: global___OrganizationSubscription | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["subscription", b"subscription"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["subscription", b"subscription"]) -> None: ...
@@ -2392,12 +2578,12 @@ class GetUserSubscriptionAdminResponse(google.protobuf.message.Message):
 
     SUBSCRIPTION_FIELD_NUMBER: builtins.int
     @property
-    def subscription(self) -> global___Subscription:
+    def subscription(self) -> global___UserSubscription:
         """Subscription"""
     def __init__(
         self,
         *,
-        subscription: global___Subscription | None = ...,
+        subscription: global___UserSubscription | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["subscription", b"subscription"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["subscription", b"subscription"]) -> None: ...
@@ -2430,12 +2616,12 @@ class GetOrganizationSubscriptionAdminResponse(google.protobuf.message.Message):
 
     SUBSCRIPTION_FIELD_NUMBER: builtins.int
     @property
-    def subscription(self) -> global___Subscription:
+    def subscription(self) -> global___OrganizationSubscription:
         """Subscription"""
     def __init__(
         self,
         *,
-        subscription: global___Subscription | None = ...,
+        subscription: global___OrganizationSubscription | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["subscription", b"subscription"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["subscription", b"subscription"]) -> None: ...

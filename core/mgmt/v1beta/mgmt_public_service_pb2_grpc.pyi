@@ -194,13 +194,13 @@ class MgmtPublicServiceStub:
 
     Updates a user membership within an organization.
     """
-    GetUserSubscription: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionRequest,
-        core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionResponse,
+    GetAuthenticatedUserSubscription: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserSubscriptionRequest,
+        core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserSubscriptionResponse,
     ]
-    """Get a user subscription
+    """Get the subscription of the authenticated user
 
-    Returns the subscription details of a user.
+    Returns the subscription details of the authenticated user.
     """
     GetOrganizationSubscription: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionRequest,
@@ -520,13 +520,13 @@ class MgmtPublicServiceAsyncStub:
 
     Updates a user membership within an organization.
     """
-    GetUserSubscription: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionRequest,
-        core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionResponse,
+    GetAuthenticatedUserSubscription: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserSubscriptionRequest,
+        core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserSubscriptionResponse,
     ]
-    """Get a user subscription
+    """Get the subscription of the authenticated user
 
-    Returns the subscription details of a user.
+    Returns the subscription details of the authenticated user.
     """
     GetOrganizationSubscription: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionRequest,
@@ -887,14 +887,14 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         Updates a user membership within an organization.
         """
     @abc.abstractmethod
-    def GetUserSubscription(
+    def GetAuthenticatedUserSubscription(
         self,
-        request: core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionRequest,
+        request: core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserSubscriptionRequest,
         context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionResponse]]:
-        """Get a user subscription
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserSubscriptionResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserSubscriptionResponse]]:
+        """Get the subscription of the authenticated user
 
-        Returns the subscription details of a user.
+        Returns the subscription details of the authenticated user.
         """
     @abc.abstractmethod
     def GetOrganizationSubscription(
