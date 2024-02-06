@@ -2335,14 +2335,11 @@ class StripeSubscriptionDetail(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    CUSTOMER_ID_FIELD_NUMBER: builtins.int
     PRODUCT_NAME_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
     ITEM_ID_FIELD_NUMBER: builtins.int
     PRICE_FIELD_NUMBER: builtins.int
     CANCELED_AT_FIELD_NUMBER: builtins.int
-    customer_id: builtins.str
-    """Customer ID associated with the subscription."""
     product_name: builtins.str
     """Product name associated with the subscription in Stripe."""
     id: builtins.str
@@ -2356,7 +2353,6 @@ class StripeSubscriptionDetail(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        customer_id: builtins.str = ...,
         product_name: builtins.str = ...,
         id: builtins.str = ...,
         item_id: builtins.str = ...,
@@ -2364,7 +2360,7 @@ class StripeSubscriptionDetail(google.protobuf.message.Message):
         canceled_at: builtins.int | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_canceled_at", b"_canceled_at", "canceled_at", b"canceled_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_canceled_at", b"_canceled_at", "canceled_at", b"canceled_at", "customer_id", b"customer_id", "id", b"id", "item_id", b"item_id", "price", b"price", "product_name", b"product_name"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_canceled_at", b"_canceled_at", "canceled_at", b"canceled_at", "id", b"id", "item_id", b"item_id", "price", b"price", "product_name", b"product_name"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_canceled_at", b"_canceled_at"]) -> typing_extensions.Literal["canceled_at"] | None: ...
 
 global___StripeSubscriptionDetail = StripeSubscriptionDetail
