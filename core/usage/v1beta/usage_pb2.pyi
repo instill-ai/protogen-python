@@ -130,6 +130,8 @@ class Session(google.protobuf.message.Message):
         """Service: MODEL"""
         SERVICE_PIPELINE: Session._Service.ValueType  # 4
         """Service: PIPELINE"""
+        SERVICE_ARTIFACT: Session._Service.ValueType  # 5
+        """Service: ARTIFACT"""
 
     class Service(_Service, metaclass=_ServiceEnumTypeWrapper):
         """Service enumerates the services to collect data from"""
@@ -144,6 +146,8 @@ class Session(google.protobuf.message.Message):
     """Service: MODEL"""
     SERVICE_PIPELINE: Session.Service.ValueType  # 4
     """Service: PIPELINE"""
+    SERVICE_ARTIFACT: Session.Service.ValueType  # 5
+    """Service: ARTIFACT"""
 
     NAME_FIELD_NUMBER: builtins.int
     UID_FIELD_NUMBER: builtins.int
@@ -510,6 +514,45 @@ class PipelineUsageData(google.protobuf.message.Message):
 global___PipelineUsageData = PipelineUsageData
 
 @typing_extensions.final
+class ArtifactUsageData(google.protobuf.message.Message):
+    """Artifact service usage data"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    @typing_extensions.final
+    class UserUsageData(google.protobuf.message.Message):
+        """Per user usage data in the artifact service"""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        OWNER_UID_FIELD_NUMBER: builtins.int
+        OWNER_TYPE_FIELD_NUMBER: builtins.int
+        owner_uid: builtins.str
+        """Owner UUID"""
+        owner_type: core.mgmt.v1beta.mgmt_pb2.OwnerType.ValueType
+        """Owner type"""
+        def __init__(
+            self,
+            *,
+            owner_uid: builtins.str = ...,
+            owner_type: core.mgmt.v1beta.mgmt_pb2.OwnerType.ValueType = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["owner_type", b"owner_type", "owner_uid", b"owner_uid"]) -> None: ...
+
+    USAGES_FIELD_NUMBER: builtins.int
+    @property
+    def usages(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ArtifactUsageData.UserUsageData]:
+        """Usage data of all users in the artifact service"""
+    def __init__(
+        self,
+        *,
+        usages: collections.abc.Iterable[global___ArtifactUsageData.UserUsageData] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["usages", b"usages"]) -> None: ...
+
+global___ArtifactUsageData = ArtifactUsageData
+
+@typing_extensions.final
 class SessionReport(google.protobuf.message.Message):
     """SessionReport represents a report to be sent to the server that includes the
     usage data of a session
@@ -525,6 +568,7 @@ class SessionReport(google.protobuf.message.Message):
     CONNECTOR_USAGE_DATA_FIELD_NUMBER: builtins.int
     MODEL_USAGE_DATA_FIELD_NUMBER: builtins.int
     PIPELINE_USAGE_DATA_FIELD_NUMBER: builtins.int
+    ARTIFACT_USAGE_DATA_FIELD_NUMBER: builtins.int
     session_uid: builtins.str
     """Session uid"""
     token: builtins.str
@@ -546,6 +590,9 @@ class SessionReport(google.protobuf.message.Message):
     @property
     def pipeline_usage_data(self) -> global___PipelineUsageData:
         """Pipeline service usage data"""
+    @property
+    def artifact_usage_data(self) -> global___ArtifactUsageData:
+        """Artifact service usage data"""
     def __init__(
         self,
         *,
@@ -557,10 +604,11 @@ class SessionReport(google.protobuf.message.Message):
         connector_usage_data: global___ConnectorUsageData | None = ...,
         model_usage_data: global___ModelUsageData | None = ...,
         pipeline_usage_data: global___PipelineUsageData | None = ...,
+        artifact_usage_data: global___ArtifactUsageData | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connector_usage_data", b"connector_usage_data", "mgmt_usage_data", b"mgmt_usage_data", "model_usage_data", b"model_usage_data", "pipeline_usage_data", b"pipeline_usage_data", "session", b"session", "usage_data", b"usage_data"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["connector_usage_data", b"connector_usage_data", "mgmt_usage_data", b"mgmt_usage_data", "model_usage_data", b"model_usage_data", "pipeline_usage_data", b"pipeline_usage_data", "pow", b"pow", "session", b"session", "session_uid", b"session_uid", "token", b"token", "usage_data", b"usage_data"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["usage_data", b"usage_data"]) -> typing_extensions.Literal["mgmt_usage_data", "connector_usage_data", "model_usage_data", "pipeline_usage_data"] | None: ...
+    def HasField(self, field_name: typing_extensions.Literal["artifact_usage_data", b"artifact_usage_data", "connector_usage_data", b"connector_usage_data", "mgmt_usage_data", b"mgmt_usage_data", "model_usage_data", b"model_usage_data", "pipeline_usage_data", b"pipeline_usage_data", "session", b"session", "usage_data", b"usage_data"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["artifact_usage_data", b"artifact_usage_data", "connector_usage_data", b"connector_usage_data", "mgmt_usage_data", b"mgmt_usage_data", "model_usage_data", b"model_usage_data", "pipeline_usage_data", b"pipeline_usage_data", "pow", b"pow", "session", b"session", "session_uid", b"session_uid", "token", b"token", "usage_data", b"usage_data"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["usage_data", b"usage_data"]) -> typing_extensions.Literal["mgmt_usage_data", "connector_usage_data", "model_usage_data", "pipeline_usage_data", "artifact_usage_data"] | None: ...
 
 global___SessionReport = SessionReport
 
