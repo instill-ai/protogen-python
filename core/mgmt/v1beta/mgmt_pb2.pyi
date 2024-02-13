@@ -2335,11 +2335,60 @@ class StripeSubscriptionDetail(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    class _Status:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[StripeSubscriptionDetail._Status.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        STATUS_UNSPECIFIED: StripeSubscriptionDetail._Status.ValueType  # 0
+        """Unspecified status."""
+        STATUS_INCOMPLETE: StripeSubscriptionDetail._Status.ValueType  # 1
+        """Incomplete."""
+        STATUS_INCOMPLETE_EXPIRED: StripeSubscriptionDetail._Status.ValueType  # 2
+        """Incomplete Expired."""
+        STATUS_TRIALING: StripeSubscriptionDetail._Status.ValueType  # 3
+        """Trialing."""
+        STATUS_ACTIVE: StripeSubscriptionDetail._Status.ValueType  # 4
+        """Active."""
+        STATUS_PAST_DUE: StripeSubscriptionDetail._Status.ValueType  # 5
+        """Past due."""
+        STATUS_CANCELED: StripeSubscriptionDetail._Status.ValueType  # 6
+        """Canceled."""
+        STATUS_UNPAID: StripeSubscriptionDetail._Status.ValueType  # 7
+        """Unpaid."""
+        STATUS_PAUSED: StripeSubscriptionDetail._Status.ValueType  # 8
+        """Paused."""
+
+    class Status(_Status, metaclass=_StatusEnumTypeWrapper):
+        """Enumerates the status types for the user's subscription."""
+
+    STATUS_UNSPECIFIED: StripeSubscriptionDetail.Status.ValueType  # 0
+    """Unspecified status."""
+    STATUS_INCOMPLETE: StripeSubscriptionDetail.Status.ValueType  # 1
+    """Incomplete."""
+    STATUS_INCOMPLETE_EXPIRED: StripeSubscriptionDetail.Status.ValueType  # 2
+    """Incomplete Expired."""
+    STATUS_TRIALING: StripeSubscriptionDetail.Status.ValueType  # 3
+    """Trialing."""
+    STATUS_ACTIVE: StripeSubscriptionDetail.Status.ValueType  # 4
+    """Active."""
+    STATUS_PAST_DUE: StripeSubscriptionDetail.Status.ValueType  # 5
+    """Past due."""
+    STATUS_CANCELED: StripeSubscriptionDetail.Status.ValueType  # 6
+    """Canceled."""
+    STATUS_UNPAID: StripeSubscriptionDetail.Status.ValueType  # 7
+    """Unpaid."""
+    STATUS_PAUSED: StripeSubscriptionDetail.Status.ValueType  # 8
+    """Paused."""
+
     PRODUCT_NAME_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
     ITEM_ID_FIELD_NUMBER: builtins.int
     PRICE_FIELD_NUMBER: builtins.int
     CANCELED_AT_FIELD_NUMBER: builtins.int
+    TRIAL_END_FIELD_NUMBER: builtins.int
+    STATUS_FIELD_NUMBER: builtins.int
     product_name: builtins.str
     """Product name associated with the subscription in Stripe."""
     id: builtins.str
@@ -2350,6 +2399,10 @@ class StripeSubscriptionDetail(google.protobuf.message.Message):
     """Price of the subscription."""
     canceled_at: builtins.int
     """Optional timestamp indicating when the subscription was canceled, if applicable."""
+    trial_end: builtins.int
+    """Optional timestamp indicating when the trial ended, if applicable."""
+    status: global___StripeSubscriptionDetail.Status.ValueType
+    """Status of the subscription."""
     def __init__(
         self,
         *,
@@ -2358,10 +2411,15 @@ class StripeSubscriptionDetail(google.protobuf.message.Message):
         item_id: builtins.str = ...,
         price: builtins.float = ...,
         canceled_at: builtins.int | None = ...,
+        trial_end: builtins.int | None = ...,
+        status: global___StripeSubscriptionDetail.Status.ValueType = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_canceled_at", b"_canceled_at", "canceled_at", b"canceled_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_canceled_at", b"_canceled_at", "canceled_at", b"canceled_at", "id", b"id", "item_id", b"item_id", "price", b"price", "product_name", b"product_name"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_canceled_at", b"_canceled_at", "_trial_end", b"_trial_end", "canceled_at", b"canceled_at", "trial_end", b"trial_end"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_canceled_at", b"_canceled_at", "_trial_end", b"_trial_end", "canceled_at", b"canceled_at", "id", b"id", "item_id", b"item_id", "price", b"price", "product_name", b"product_name", "status", b"status", "trial_end", b"trial_end"]) -> None: ...
+    @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_canceled_at", b"_canceled_at"]) -> typing_extensions.Literal["canceled_at"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_trial_end", b"_trial_end"]) -> typing_extensions.Literal["trial_end"] | None: ...
 
 global___StripeSubscriptionDetail = StripeSubscriptionDetail
 
