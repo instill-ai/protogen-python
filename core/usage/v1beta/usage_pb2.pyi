@@ -224,7 +224,7 @@ class MgmtUsageData(google.protobuf.message.Message):
     USER_USAGES_FIELD_NUMBER: builtins.int
     ORG_USAGES_FIELD_NUMBER: builtins.int
     @property
-    def user_usages(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[core.mgmt.v1beta.mgmt_pb2.User]:
+    def user_usages(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[core.mgmt.v1beta.mgmt_pb2.AuthenticatedUser]:
         """Repeated user usage data"""
     @property
     def org_usages(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[core.mgmt.v1beta.mgmt_pb2.Organization]:
@@ -232,7 +232,7 @@ class MgmtUsageData(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        user_usages: collections.abc.Iterable[core.mgmt.v1beta.mgmt_pb2.User] | None = ...,
+        user_usages: collections.abc.Iterable[core.mgmt.v1beta.mgmt_pb2.AuthenticatedUser] | None = ...,
         org_usages: collections.abc.Iterable[core.mgmt.v1beta.mgmt_pb2.Organization] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["org_usages", b"org_usages", "user_usages", b"user_usages"]) -> None: ...
