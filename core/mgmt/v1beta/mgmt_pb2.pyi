@@ -439,6 +439,32 @@ class AuthenticatedUser(google.protobuf.message.Message):
 global___AuthenticatedUser = AuthenticatedUser
 
 @typing_extensions.final
+class Owner(google.protobuf.message.Message):
+    """Owner is a wrapper for User and Organization, used to embed owner information in other resources."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    USER_FIELD_NUMBER: builtins.int
+    ORGANIZATION_FIELD_NUMBER: builtins.int
+    @property
+    def user(self) -> global___User:
+        """User."""
+    @property
+    def organization(self) -> global___Organization:
+        """Organization."""
+    def __init__(
+        self,
+        *,
+        user: global___User | None = ...,
+        organization: global___Organization | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["organization", b"organization", "owner", b"owner", "user", b"user"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["organization", b"organization", "owner", b"owner", "user", b"user"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["owner", b"owner"]) -> typing_extensions.Literal["user", "organization"] | None: ...
+
+global___Owner = Owner
+
+@typing_extensions.final
 class User(google.protobuf.message.Message):
     """User describes an individual that interacts with Instill AI. It doesn't
     contain any private information about the user.

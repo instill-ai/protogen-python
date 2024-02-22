@@ -6,6 +6,7 @@ import builtins
 import collections.abc
 import common.healthcheck.v1beta.healthcheck_pb2
 import common.task.v1alpha.task_pb2
+import core.mgmt.v1beta.mgmt_pb2
 import google.longrunning.operations_pb2
 import google.protobuf.descriptor
 import google.protobuf.field_mask_pb2
@@ -244,8 +245,8 @@ class Model(google.protobuf.message.Message):
     owner_name: builtins.str
     """Resource name of the owner."""
     @property
-    def owner(self) -> google.protobuf.struct_pb2.Struct:
-        """Owner details, such as the profile data."""
+    def owner(self) -> core.mgmt.v1beta.mgmt_pb2.Owner:
+        """Model owner."""
     def __init__(
         self,
         *,
@@ -262,11 +263,14 @@ class Model(google.protobuf.message.Message):
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         owner_name: builtins.str = ...,
-        owner: google.protobuf.struct_pb2.Struct | None = ...,
+        owner: core.mgmt.v1beta.mgmt_pb2.Owner | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "owner", b"owner", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "id", b"id", "model_definition", b"model_definition", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "state", b"state", "task", b"task", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "_owner", b"_owner", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "owner", b"owner", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "_owner", b"_owner", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "id", b"id", "model_definition", b"model_definition", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "state", b"state", "task", b"task", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
+    @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_description", b"_description"]) -> typing_extensions.Literal["description"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_owner", b"_owner"]) -> typing_extensions.Literal["owner"] | None: ...
 
 global___Model = Model
 

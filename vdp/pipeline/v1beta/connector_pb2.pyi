@@ -4,6 +4,7 @@ isort:skip_file
 """
 import builtins
 import collections.abc
+import core.mgmt.v1beta.mgmt_pb2
 import google.protobuf.descriptor
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
@@ -172,8 +173,8 @@ class Connector(google.protobuf.message.Message):
     owner_name: builtins.str
     """Owner name."""
     @property
-    def owner(self) -> google.protobuf.struct_pb2.Struct:
-        """Owner details."""
+    def owner(self) -> core.mgmt.v1beta.mgmt_pb2.Owner:
+        """Connector owner."""
     def __init__(
         self,
         *,
@@ -192,11 +193,14 @@ class Connector(google.protobuf.message.Message):
         connector_definition: vdp.pipeline.v1beta.connector_definition_pb2.ConnectorDefinition | None = ...,
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         owner_name: builtins.str = ...,
-        owner: google.protobuf.struct_pb2.Struct | None = ...,
+        owner: core.mgmt.v1beta.mgmt_pb2.Owner | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "configuration", b"configuration", "connector_definition", b"connector_definition", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "owner", b"owner", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "configuration", b"configuration", "connector_definition", b"connector_definition", "connector_definition_name", b"connector_definition_name", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "id", b"id", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "state", b"state", "tombstone", b"tombstone", "type", b"type", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "_owner", b"_owner", "configuration", b"configuration", "connector_definition", b"connector_definition", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "owner", b"owner", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "_owner", b"_owner", "configuration", b"configuration", "connector_definition", b"connector_definition", "connector_definition_name", b"connector_definition_name", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "id", b"id", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "state", b"state", "tombstone", b"tombstone", "type", b"type", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
+    @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_description", b"_description"]) -> typing_extensions.Literal["description"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_owner", b"_owner"]) -> typing_extensions.Literal["owner"] | None: ...
 
 global___Connector = Connector
 
