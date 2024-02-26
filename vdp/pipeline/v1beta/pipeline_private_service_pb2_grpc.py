@@ -2,9 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from vdp.pipeline.v1beta import connector_definition_pb2 as vdp_dot_pipeline_dot_v1beta_dot_connector__definition__pb2
 from vdp.pipeline.v1beta import connector_pb2 as vdp_dot_pipeline_dot_v1beta_dot_connector__pb2
-from vdp.pipeline.v1beta import operator_definition_pb2 as vdp_dot_pipeline_dot_v1beta_dot_operator__definition__pb2
 from vdp.pipeline.v1beta import pipeline_pb2 as vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2
 
 
@@ -29,20 +27,10 @@ class PipelinePrivateServiceStub(object):
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.LookUpPipelineAdminRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.LookUpPipelineAdminResponse.FromString,
                 )
-        self.LookUpOperatorDefinitionAdmin = channel.unary_unary(
-                '/vdp.pipeline.v1beta.PipelinePrivateService/LookUpOperatorDefinitionAdmin',
-                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_operator__definition__pb2.LookUpOperatorDefinitionAdminRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_operator__definition__pb2.LookUpOperatorDefinitionAdminResponse.FromString,
-                )
         self.ListPipelineReleasesAdmin = channel.unary_unary(
                 '/vdp.pipeline.v1beta.PipelinePrivateService/ListPipelineReleasesAdmin',
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineReleasesAdminRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineReleasesAdminResponse.FromString,
-                )
-        self.LookUpConnectorDefinitionAdmin = channel.unary_unary(
-                '/vdp.pipeline.v1beta.PipelinePrivateService/LookUpConnectorDefinitionAdmin',
-                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_connector__definition__pb2.LookUpConnectorDefinitionAdminRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_connector__definition__pb2.LookUpConnectorDefinitionAdminResponse.FromString,
                 )
         self.ListConnectorsAdmin = channel.unary_unary(
                 '/vdp.pipeline.v1beta.PipelinePrivateService/ListConnectorsAdmin',
@@ -86,31 +74,11 @@ class PipelinePrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def LookUpOperatorDefinitionAdmin(self, request, context):
-        """Get an operator definition by UID (admin only)
-
-        This is a *private* method that allows admin users to access an operator
-        definition by its UID.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def ListPipelineReleasesAdmin(self, request, context):
         """List pipeline releases (admin only)
 
         This is a *private* method that allows admin users to list *all* pipeline
         releases.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def LookUpConnectorDefinitionAdmin(self, request, context):
-        """Get a connector definition by UID (admin only)
-
-        This is a *private* method that allows admin users to access a connector
-        definition by its UID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -158,20 +126,10 @@ def add_PipelinePrivateServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.LookUpPipelineAdminRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.LookUpPipelineAdminResponse.SerializeToString,
             ),
-            'LookUpOperatorDefinitionAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.LookUpOperatorDefinitionAdmin,
-                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_operator__definition__pb2.LookUpOperatorDefinitionAdminRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_operator__definition__pb2.LookUpOperatorDefinitionAdminResponse.SerializeToString,
-            ),
             'ListPipelineReleasesAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.ListPipelineReleasesAdmin,
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineReleasesAdminRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineReleasesAdminResponse.SerializeToString,
-            ),
-            'LookUpConnectorDefinitionAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.LookUpConnectorDefinitionAdmin,
-                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_connector__definition__pb2.LookUpConnectorDefinitionAdminRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_connector__definition__pb2.LookUpConnectorDefinitionAdminResponse.SerializeToString,
             ),
             'ListConnectorsAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.ListConnectorsAdmin,
@@ -235,23 +193,6 @@ class PipelinePrivateService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def LookUpOperatorDefinitionAdmin(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePrivateService/LookUpOperatorDefinitionAdmin',
-            vdp_dot_pipeline_dot_v1beta_dot_operator__definition__pb2.LookUpOperatorDefinitionAdminRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1beta_dot_operator__definition__pb2.LookUpOperatorDefinitionAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def ListPipelineReleasesAdmin(request,
             target,
             options=(),
@@ -265,23 +206,6 @@ class PipelinePrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePrivateService/ListPipelineReleasesAdmin',
             vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineReleasesAdminRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineReleasesAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def LookUpConnectorDefinitionAdmin(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePrivateService/LookUpConnectorDefinitionAdmin',
-            vdp_dot_pipeline_dot_v1beta_dot_connector__definition__pb2.LookUpConnectorDefinitionAdminRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1beta_dot_connector__definition__pb2.LookUpConnectorDefinitionAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

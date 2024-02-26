@@ -3,9 +3,8 @@
 import grpc
 
 from vdp.pipeline.v1beta import common_pb2 as vdp_dot_pipeline_dot_v1beta_dot_common__pb2
-from vdp.pipeline.v1beta import connector_definition_pb2 as vdp_dot_pipeline_dot_v1beta_dot_connector__definition__pb2
+from vdp.pipeline.v1beta import component_definition_pb2 as vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2
 from vdp.pipeline.v1beta import connector_pb2 as vdp_dot_pipeline_dot_v1beta_dot_connector__pb2
-from vdp.pipeline.v1beta import operator_definition_pb2 as vdp_dot_pipeline_dot_v1beta_dot_operator__definition__pb2
 from vdp.pipeline.v1beta import pipeline_pb2 as vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2
 
 
@@ -249,23 +248,28 @@ class PipelinePublicServiceStub(object):
                 )
         self.ListConnectorDefinitions = channel.unary_unary(
                 '/vdp.pipeline.v1beta.PipelinePublicService/ListConnectorDefinitions',
-                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_connector__definition__pb2.ListConnectorDefinitionsRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_connector__definition__pb2.ListConnectorDefinitionsResponse.FromString,
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListConnectorDefinitionsRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListConnectorDefinitionsResponse.FromString,
                 )
         self.GetConnectorDefinition = channel.unary_unary(
                 '/vdp.pipeline.v1beta.PipelinePublicService/GetConnectorDefinition',
-                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_connector__definition__pb2.GetConnectorDefinitionRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_connector__definition__pb2.GetConnectorDefinitionResponse.FromString,
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.GetConnectorDefinitionRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.GetConnectorDefinitionResponse.FromString,
                 )
         self.ListOperatorDefinitions = channel.unary_unary(
                 '/vdp.pipeline.v1beta.PipelinePublicService/ListOperatorDefinitions',
-                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_operator__definition__pb2.ListOperatorDefinitionsRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_operator__definition__pb2.ListOperatorDefinitionsResponse.FromString,
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListOperatorDefinitionsRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListOperatorDefinitionsResponse.FromString,
+                )
+        self.ListComponentDefinitions = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/ListComponentDefinitions',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListComponentDefinitionsRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListComponentDefinitionsResponse.FromString,
                 )
         self.GetOperatorDefinition = channel.unary_unary(
                 '/vdp.pipeline.v1beta.PipelinePublicService/GetOperatorDefinition',
-                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_operator__definition__pb2.GetOperatorDefinitionRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_operator__definition__pb2.GetOperatorDefinitionResponse.FromString,
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.GetOperatorDefinitionRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.GetOperatorDefinitionResponse.FromString,
                 )
         self.ListConnectors = channel.unary_unary(
                 '/vdp.pipeline.v1beta.PipelinePublicService/ListConnectors',
@@ -979,6 +983,17 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListComponentDefinitions(self, request, context):
+        """List component definitions
+
+        Returns a paginated list of component definitions, regardless their type.
+        This offers a single source of truth, with pagination and filter
+        capabilities, for the components that might be used in a VDP pipeline.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetOperatorDefinition(self, request, context):
         """Get operator definition
 
@@ -1480,23 +1495,28 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
             ),
             'ListConnectorDefinitions': grpc.unary_unary_rpc_method_handler(
                     servicer.ListConnectorDefinitions,
-                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_connector__definition__pb2.ListConnectorDefinitionsRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_connector__definition__pb2.ListConnectorDefinitionsResponse.SerializeToString,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListConnectorDefinitionsRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListConnectorDefinitionsResponse.SerializeToString,
             ),
             'GetConnectorDefinition': grpc.unary_unary_rpc_method_handler(
                     servicer.GetConnectorDefinition,
-                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_connector__definition__pb2.GetConnectorDefinitionRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_connector__definition__pb2.GetConnectorDefinitionResponse.SerializeToString,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.GetConnectorDefinitionRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.GetConnectorDefinitionResponse.SerializeToString,
             ),
             'ListOperatorDefinitions': grpc.unary_unary_rpc_method_handler(
                     servicer.ListOperatorDefinitions,
-                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_operator__definition__pb2.ListOperatorDefinitionsRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_operator__definition__pb2.ListOperatorDefinitionsResponse.SerializeToString,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListOperatorDefinitionsRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListOperatorDefinitionsResponse.SerializeToString,
+            ),
+            'ListComponentDefinitions': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListComponentDefinitions,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListComponentDefinitionsRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListComponentDefinitionsResponse.SerializeToString,
             ),
             'GetOperatorDefinition': grpc.unary_unary_rpc_method_handler(
                     servicer.GetOperatorDefinition,
-                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_operator__definition__pb2.GetOperatorDefinitionRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_operator__definition__pb2.GetOperatorDefinitionResponse.SerializeToString,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.GetOperatorDefinitionRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.GetOperatorDefinitionResponse.SerializeToString,
             ),
             'ListConnectors': grpc.unary_unary_rpc_method_handler(
                     servicer.ListConnectors,
@@ -2414,8 +2434,8 @@ class PipelinePublicService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/ListConnectorDefinitions',
-            vdp_dot_pipeline_dot_v1beta_dot_connector__definition__pb2.ListConnectorDefinitionsRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1beta_dot_connector__definition__pb2.ListConnectorDefinitionsResponse.FromString,
+            vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListConnectorDefinitionsRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListConnectorDefinitionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -2431,8 +2451,8 @@ class PipelinePublicService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/GetConnectorDefinition',
-            vdp_dot_pipeline_dot_v1beta_dot_connector__definition__pb2.GetConnectorDefinitionRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1beta_dot_connector__definition__pb2.GetConnectorDefinitionResponse.FromString,
+            vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.GetConnectorDefinitionRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.GetConnectorDefinitionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -2448,8 +2468,25 @@ class PipelinePublicService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/ListOperatorDefinitions',
-            vdp_dot_pipeline_dot_v1beta_dot_operator__definition__pb2.ListOperatorDefinitionsRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1beta_dot_operator__definition__pb2.ListOperatorDefinitionsResponse.FromString,
+            vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListOperatorDefinitionsRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListOperatorDefinitionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListComponentDefinitions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/ListComponentDefinitions',
+            vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListComponentDefinitionsRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListComponentDefinitionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -2465,8 +2502,8 @@ class PipelinePublicService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/GetOperatorDefinition',
-            vdp_dot_pipeline_dot_v1beta_dot_operator__definition__pb2.GetOperatorDefinitionRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1beta_dot_operator__definition__pb2.GetOperatorDefinitionResponse.FromString,
+            vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.GetOperatorDefinitionRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.GetOperatorDefinitionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

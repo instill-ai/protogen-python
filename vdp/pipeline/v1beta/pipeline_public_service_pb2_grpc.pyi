@@ -8,9 +8,8 @@ import grpc
 import grpc.aio
 import typing
 import vdp.pipeline.v1beta.common_pb2
-import vdp.pipeline.v1beta.connector_definition_pb2
+import vdp.pipeline.v1beta.component_definition_pb2
 import vdp.pipeline.v1beta.connector_pb2
-import vdp.pipeline.v1beta.operator_definition_pb2
 import vdp.pipeline.v1beta.pipeline_pb2
 
 _T = typing.TypeVar('_T')
@@ -536,32 +535,42 @@ class PipelinePublicServiceStub:
     long-running operations such as asynchronous pipeline triggers.
     """
     ListConnectorDefinitions: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.connector_definition_pb2.ListConnectorDefinitionsRequest,
-        vdp.pipeline.v1beta.connector_definition_pb2.ListConnectorDefinitionsResponse,
+        vdp.pipeline.v1beta.component_definition_pb2.ListConnectorDefinitionsRequest,
+        vdp.pipeline.v1beta.component_definition_pb2.ListConnectorDefinitionsResponse,
     ]
     """List connector definitions
 
     Returns a paginated list of connector definitions.
     """
     GetConnectorDefinition: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.connector_definition_pb2.GetConnectorDefinitionRequest,
-        vdp.pipeline.v1beta.connector_definition_pb2.GetConnectorDefinitionResponse,
+        vdp.pipeline.v1beta.component_definition_pb2.GetConnectorDefinitionRequest,
+        vdp.pipeline.v1beta.component_definition_pb2.GetConnectorDefinitionResponse,
     ]
     """Get connector definition
 
     Returns the details of a connector definition.
     """
     ListOperatorDefinitions: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.operator_definition_pb2.ListOperatorDefinitionsRequest,
-        vdp.pipeline.v1beta.operator_definition_pb2.ListOperatorDefinitionsResponse,
+        vdp.pipeline.v1beta.component_definition_pb2.ListOperatorDefinitionsRequest,
+        vdp.pipeline.v1beta.component_definition_pb2.ListOperatorDefinitionsResponse,
     ]
     """List operator definitions
 
     Returns a paginated list of operator definitions.
     """
+    ListComponentDefinitions: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.component_definition_pb2.ListComponentDefinitionsRequest,
+        vdp.pipeline.v1beta.component_definition_pb2.ListComponentDefinitionsResponse,
+    ]
+    """List component definitions
+
+    Returns a paginated list of component definitions, regardless their type.
+    This offers a single source of truth, with pagination and filter
+    capabilities, for the components that might be used in a VDP pipeline.
+    """
     GetOperatorDefinition: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.operator_definition_pb2.GetOperatorDefinitionRequest,
-        vdp.pipeline.v1beta.operator_definition_pb2.GetOperatorDefinitionResponse,
+        vdp.pipeline.v1beta.component_definition_pb2.GetOperatorDefinitionRequest,
+        vdp.pipeline.v1beta.component_definition_pb2.GetOperatorDefinitionResponse,
     ]
     """Get operator definition
 
@@ -1319,32 +1328,42 @@ class PipelinePublicServiceAsyncStub:
     long-running operations such as asynchronous pipeline triggers.
     """
     ListConnectorDefinitions: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.connector_definition_pb2.ListConnectorDefinitionsRequest,
-        vdp.pipeline.v1beta.connector_definition_pb2.ListConnectorDefinitionsResponse,
+        vdp.pipeline.v1beta.component_definition_pb2.ListConnectorDefinitionsRequest,
+        vdp.pipeline.v1beta.component_definition_pb2.ListConnectorDefinitionsResponse,
     ]
     """List connector definitions
 
     Returns a paginated list of connector definitions.
     """
     GetConnectorDefinition: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.connector_definition_pb2.GetConnectorDefinitionRequest,
-        vdp.pipeline.v1beta.connector_definition_pb2.GetConnectorDefinitionResponse,
+        vdp.pipeline.v1beta.component_definition_pb2.GetConnectorDefinitionRequest,
+        vdp.pipeline.v1beta.component_definition_pb2.GetConnectorDefinitionResponse,
     ]
     """Get connector definition
 
     Returns the details of a connector definition.
     """
     ListOperatorDefinitions: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.operator_definition_pb2.ListOperatorDefinitionsRequest,
-        vdp.pipeline.v1beta.operator_definition_pb2.ListOperatorDefinitionsResponse,
+        vdp.pipeline.v1beta.component_definition_pb2.ListOperatorDefinitionsRequest,
+        vdp.pipeline.v1beta.component_definition_pb2.ListOperatorDefinitionsResponse,
     ]
     """List operator definitions
 
     Returns a paginated list of operator definitions.
     """
+    ListComponentDefinitions: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.component_definition_pb2.ListComponentDefinitionsRequest,
+        vdp.pipeline.v1beta.component_definition_pb2.ListComponentDefinitionsResponse,
+    ]
+    """List component definitions
+
+    Returns a paginated list of component definitions, regardless their type.
+    This offers a single source of truth, with pagination and filter
+    capabilities, for the components that might be used in a VDP pipeline.
+    """
     GetOperatorDefinition: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.operator_definition_pb2.GetOperatorDefinitionRequest,
-        vdp.pipeline.v1beta.operator_definition_pb2.GetOperatorDefinitionResponse,
+        vdp.pipeline.v1beta.component_definition_pb2.GetOperatorDefinitionRequest,
+        vdp.pipeline.v1beta.component_definition_pb2.GetOperatorDefinitionResponse,
     ]
     """Get operator definition
 
@@ -2194,9 +2213,9 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def ListConnectorDefinitions(
         self,
-        request: vdp.pipeline.v1beta.connector_definition_pb2.ListConnectorDefinitionsRequest,
+        request: vdp.pipeline.v1beta.component_definition_pb2.ListConnectorDefinitionsRequest,
         context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.connector_definition_pb2.ListConnectorDefinitionsResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_definition_pb2.ListConnectorDefinitionsResponse]]:
+    ) -> typing.Union[vdp.pipeline.v1beta.component_definition_pb2.ListConnectorDefinitionsResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.component_definition_pb2.ListConnectorDefinitionsResponse]]:
         """List connector definitions
 
         Returns a paginated list of connector definitions.
@@ -2204,9 +2223,9 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def GetConnectorDefinition(
         self,
-        request: vdp.pipeline.v1beta.connector_definition_pb2.GetConnectorDefinitionRequest,
+        request: vdp.pipeline.v1beta.component_definition_pb2.GetConnectorDefinitionRequest,
         context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.connector_definition_pb2.GetConnectorDefinitionResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_definition_pb2.GetConnectorDefinitionResponse]]:
+    ) -> typing.Union[vdp.pipeline.v1beta.component_definition_pb2.GetConnectorDefinitionResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.component_definition_pb2.GetConnectorDefinitionResponse]]:
         """Get connector definition
 
         Returns the details of a connector definition.
@@ -2214,19 +2233,31 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def ListOperatorDefinitions(
         self,
-        request: vdp.pipeline.v1beta.operator_definition_pb2.ListOperatorDefinitionsRequest,
+        request: vdp.pipeline.v1beta.component_definition_pb2.ListOperatorDefinitionsRequest,
         context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.operator_definition_pb2.ListOperatorDefinitionsResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.operator_definition_pb2.ListOperatorDefinitionsResponse]]:
+    ) -> typing.Union[vdp.pipeline.v1beta.component_definition_pb2.ListOperatorDefinitionsResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.component_definition_pb2.ListOperatorDefinitionsResponse]]:
         """List operator definitions
 
         Returns a paginated list of operator definitions.
         """
     @abc.abstractmethod
+    def ListComponentDefinitions(
+        self,
+        request: vdp.pipeline.v1beta.component_definition_pb2.ListComponentDefinitionsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.component_definition_pb2.ListComponentDefinitionsResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.component_definition_pb2.ListComponentDefinitionsResponse]]:
+        """List component definitions
+
+        Returns a paginated list of component definitions, regardless their type.
+        This offers a single source of truth, with pagination and filter
+        capabilities, for the components that might be used in a VDP pipeline.
+        """
+    @abc.abstractmethod
     def GetOperatorDefinition(
         self,
-        request: vdp.pipeline.v1beta.operator_definition_pb2.GetOperatorDefinitionRequest,
+        request: vdp.pipeline.v1beta.component_definition_pb2.GetOperatorDefinitionRequest,
         context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.operator_definition_pb2.GetOperatorDefinitionResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.operator_definition_pb2.GetOperatorDefinitionResponse]]:
+    ) -> typing.Union[vdp.pipeline.v1beta.component_definition_pb2.GetOperatorDefinitionResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.component_definition_pb2.GetOperatorDefinitionResponse]]:
         """Get operator definition
 
         Returns the details of an operator definition.

@@ -17,9 +17,8 @@ import google.protobuf.timestamp_pb2
 import sys
 import typing
 import vdp.pipeline.v1beta.common_pb2
-import vdp.pipeline.v1beta.connector_definition_pb2
+import vdp.pipeline.v1beta.component_definition_pb2
 import vdp.pipeline.v1beta.connector_pb2
-import vdp.pipeline.v1beta.operator_definition_pb2
 
 if sys.version_info >= (3, 10):
     import typing as typing_extensions
@@ -27,38 +26,6 @@ else:
     import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
-
-class _ComponentType:
-    ValueType = typing.NewType("ValueType", builtins.int)
-    V: typing_extensions.TypeAlias = ValueType
-
-class _ComponentTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ComponentType.ValueType], builtins.type):
-    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-    COMPONENT_TYPE_UNSPECIFIED: _ComponentType.ValueType  # 0
-    """Unspecified."""
-    COMPONENT_TYPE_CONNECTOR_AI: _ComponentType.ValueType  # 1
-    """Connect with an AI model."""
-    COMPONENT_TYPE_CONNECTOR_DATA: _ComponentType.ValueType  # 2
-    """Connect with a remote data source."""
-    COMPONENT_TYPE_CONNECTOR_BLOCKCHAIN: _ComponentType.ValueType  # 3
-    """Connect with a blockchain service."""
-    COMPONENT_TYPE_OPERATOR: _ComponentType.ValueType  # 4
-    """Manipulate data."""
-
-class ComponentType(_ComponentType, metaclass=_ComponentTypeEnumTypeWrapper):
-    """ComponentType defines the component type based on its task features."""
-
-COMPONENT_TYPE_UNSPECIFIED: ComponentType.ValueType  # 0
-"""Unspecified."""
-COMPONENT_TYPE_CONNECTOR_AI: ComponentType.ValueType  # 1
-"""Connect with an AI model."""
-COMPONENT_TYPE_CONNECTOR_DATA: ComponentType.ValueType  # 2
-"""Connect with a remote data source."""
-COMPONENT_TYPE_CONNECTOR_BLOCKCHAIN: ComponentType.ValueType  # 3
-"""Connect with a blockchain service."""
-COMPONENT_TYPE_OPERATOR: ComponentType.ValueType  # 4
-"""Manipulate data."""
-global___ComponentType = ComponentType
 
 class _State:
     ValueType = typing.NewType("ValueType", builtins.int)
@@ -200,17 +167,17 @@ class Component(google.protobuf.message.Message):
     @property
     def configuration(self) -> google.protobuf.struct_pb2.Struct:
         """Describes the component configuration."""
-    type: global___ComponentType.ValueType
+    type: vdp.pipeline.v1beta.common_pb2.ComponentType.ValueType
     """Defines the type of task the component will perform."""
     definition_name: builtins.str
     """The name of the component definition. It references the connector or
     operator definition on top of which a connector is built.
     """
     @property
-    def operator_definition(self) -> vdp.pipeline.v1beta.operator_definition_pb2.OperatorDefinition:
+    def operator_definition(self) -> vdp.pipeline.v1beta.component_definition_pb2.OperatorDefinition:
         """operator definition detail"""
     @property
-    def connector_definition(self) -> vdp.pipeline.v1beta.connector_definition_pb2.ConnectorDefinition:
+    def connector_definition(self) -> vdp.pipeline.v1beta.component_definition_pb2.ConnectorDefinition:
         """connector definition detail"""
     def __init__(
         self,
@@ -219,10 +186,10 @@ class Component(google.protobuf.message.Message):
         resource_name: builtins.str = ...,
         resource: vdp.pipeline.v1beta.connector_pb2.Connector | None = ...,
         configuration: google.protobuf.struct_pb2.Struct | None = ...,
-        type: global___ComponentType.ValueType = ...,
+        type: vdp.pipeline.v1beta.common_pb2.ComponentType.ValueType = ...,
         definition_name: builtins.str = ...,
-        operator_definition: vdp.pipeline.v1beta.operator_definition_pb2.OperatorDefinition | None = ...,
-        connector_definition: vdp.pipeline.v1beta.connector_definition_pb2.ConnectorDefinition | None = ...,
+        operator_definition: vdp.pipeline.v1beta.component_definition_pb2.OperatorDefinition | None = ...,
+        connector_definition: vdp.pipeline.v1beta.component_definition_pb2.ConnectorDefinition | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["configuration", b"configuration", "connector_definition", b"connector_definition", "definition", b"definition", "operator_definition", b"operator_definition", "resource", b"resource"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["configuration", b"configuration", "connector_definition", b"connector_definition", "definition", b"definition", "definition_name", b"definition_name", "id", b"id", "operator_definition", b"operator_definition", "resource", b"resource", "resource_name", b"resource_name", "type", b"type"]) -> None: ...

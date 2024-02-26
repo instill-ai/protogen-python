@@ -42,6 +42,38 @@ ROLE_EXECUTOR: Role.ValueType  # 2
 """Executors can execute the resource (e.g. trigger a pipeline)."""
 global___Role = Role
 
+class _ComponentType:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _ComponentTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ComponentType.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    COMPONENT_TYPE_UNSPECIFIED: _ComponentType.ValueType  # 0
+    """Unspecified."""
+    COMPONENT_TYPE_CONNECTOR_AI: _ComponentType.ValueType  # 1
+    """Connect with an AI model."""
+    COMPONENT_TYPE_CONNECTOR_DATA: _ComponentType.ValueType  # 2
+    """Connect with a remote data source."""
+    COMPONENT_TYPE_OPERATOR: _ComponentType.ValueType  # 4
+    """Manipulate data."""
+    COMPONENT_TYPE_CONNECTOR_APPLICATION: _ComponentType.ValueType  # 5
+    """Connect with an external application."""
+
+class ComponentType(_ComponentType, metaclass=_ComponentTypeEnumTypeWrapper):
+    """ComponentType defines the component type based on its task features."""
+
+COMPONENT_TYPE_UNSPECIFIED: ComponentType.ValueType  # 0
+"""Unspecified."""
+COMPONENT_TYPE_CONNECTOR_AI: ComponentType.ValueType  # 1
+"""Connect with an AI model."""
+COMPONENT_TYPE_CONNECTOR_DATA: ComponentType.ValueType  # 2
+"""Connect with a remote data source."""
+COMPONENT_TYPE_OPERATOR: ComponentType.ValueType  # 4
+"""Manipulate data."""
+COMPONENT_TYPE_CONNECTOR_APPLICATION: ComponentType.ValueType  # 5
+"""Connect with an external application."""
+global___ComponentType = ComponentType
+
 @typing_extensions.final
 class Sharing(google.protobuf.message.Message):
     """Sharing contains the information to share a resource with other users.

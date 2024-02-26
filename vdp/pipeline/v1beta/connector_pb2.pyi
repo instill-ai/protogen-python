@@ -14,7 +14,7 @@ import google.protobuf.struct_pb2
 import google.protobuf.timestamp_pb2
 import sys
 import typing
-import vdp.pipeline.v1beta.connector_definition_pb2
+import vdp.pipeline.v1beta.component_definition_pb2
 
 if sys.version_info >= (3, 10):
     import typing as typing_extensions
@@ -143,7 +143,7 @@ class Connector(google.protobuf.message.Message):
     """
     connector_definition_name: builtins.str
     """Connector definition that describes the connector configuration."""
-    type: vdp.pipeline.v1beta.connector_definition_pb2.ConnectorType.ValueType
+    type: vdp.pipeline.v1beta.component_definition_pb2.ConnectorType.ValueType
     """Connector type."""
     description: builtins.str
     """Connector description."""
@@ -165,7 +165,7 @@ class Connector(google.protobuf.message.Message):
     visibility: global___Connector.Visibility.ValueType
     """Connector visibility."""
     @property
-    def connector_definition(self) -> vdp.pipeline.v1beta.connector_definition_pb2.ConnectorDefinition:
+    def connector_definition(self) -> vdp.pipeline.v1beta.component_definition_pb2.ConnectorDefinition:
         """Embed content of the ConnectorDefinition."""
     @property
     def delete_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
@@ -182,7 +182,7 @@ class Connector(google.protobuf.message.Message):
         uid: builtins.str = ...,
         id: builtins.str = ...,
         connector_definition_name: builtins.str = ...,
-        type: vdp.pipeline.v1beta.connector_definition_pb2.ConnectorType.ValueType = ...,
+        type: vdp.pipeline.v1beta.component_definition_pb2.ConnectorType.ValueType = ...,
         description: builtins.str | None = ...,
         configuration: google.protobuf.struct_pb2.Struct | None = ...,
         state: global___Connector.State.ValueType = ...,
@@ -190,7 +190,7 @@ class Connector(google.protobuf.message.Message):
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         visibility: global___Connector.Visibility.ValueType = ...,
-        connector_definition: vdp.pipeline.v1beta.connector_definition_pb2.ConnectorDefinition | None = ...,
+        connector_definition: vdp.pipeline.v1beta.component_definition_pb2.ConnectorDefinition | None = ...,
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         owner_name: builtins.str = ...,
         owner: core.mgmt.v1beta.mgmt_pb2.Owner | None = ...,
