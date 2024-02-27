@@ -2415,6 +2415,7 @@ class StripeSubscriptionDetail(google.protobuf.message.Message):
     CANCELED_AT_FIELD_NUMBER: builtins.int
     TRIAL_END_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
     product_name: builtins.str
     """Product name associated with the subscription in Stripe."""
     id: builtins.str
@@ -2429,6 +2430,8 @@ class StripeSubscriptionDetail(google.protobuf.message.Message):
     """Optional timestamp indicating when the trial ended, if applicable."""
     status: global___StripeSubscriptionDetail.Status.ValueType
     """Status of the subscription."""
+    description: builtins.str
+    """Description of the subscription."""
     def __init__(
         self,
         *,
@@ -2439,9 +2442,10 @@ class StripeSubscriptionDetail(google.protobuf.message.Message):
         canceled_at: builtins.int | None = ...,
         trial_end: builtins.int | None = ...,
         status: global___StripeSubscriptionDetail.Status.ValueType = ...,
+        description: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_canceled_at", b"_canceled_at", "_trial_end", b"_trial_end", "canceled_at", b"canceled_at", "trial_end", b"trial_end"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_canceled_at", b"_canceled_at", "_trial_end", b"_trial_end", "canceled_at", b"canceled_at", "id", b"id", "item_id", b"item_id", "price", b"price", "product_name", b"product_name", "status", b"status", "trial_end", b"trial_end"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_canceled_at", b"_canceled_at", "_trial_end", b"_trial_end", "canceled_at", b"canceled_at", "description", b"description", "id", b"id", "item_id", b"item_id", "price", b"price", "product_name", b"product_name", "status", b"status", "trial_end", b"trial_end"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_canceled_at", b"_canceled_at"]) -> typing_extensions.Literal["canceled_at"] | None: ...
     @typing.overload
