@@ -383,16 +383,14 @@ class ListComponentDefinitionsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PAGE_SIZE_FIELD_NUMBER: builtins.int
-    PAGE_TOKEN_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
+    PAGE_FIELD_NUMBER: builtins.int
     page_size: builtins.int
     """The maximum number of component definitions to return. If this parameter
     is unspecified, at most 10 definitions will be returned. The cap value for
     this parameter is 100 (i.e. any value above that will be coerced to 100).
     """
-    page_token: builtins.str
-    """Page token."""
     view: global___ComponentDefinition.View.ValueType
     """View allows clients to specify the desired resource view in the response."""
     filter: builtins.str
@@ -401,22 +399,24 @@ class ListComponentDefinitionsRequest(google.protobuf.message.Message):
     - Example: `component_type="COMPONENT_TYPE_CONNECTOR_AI"`.
     - Example: `tasks:"TASK_TEXT_GENERATION"`.
     """
+    page: builtins.int
+    """Page number."""
     def __init__(
         self,
         *,
         page_size: builtins.int | None = ...,
-        page_token: builtins.str | None = ...,
         view: global___ComponentDefinition.View.ValueType | None = ...,
         filter: builtins.str | None = ...,
+        page: builtins.int | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_view", b"_view", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_view", b"_view", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "view", b"view"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page", b"_page", "_page_size", b"_page_size", "_view", b"_view", "filter", b"filter", "page", b"page", "page_size", b"page_size", "view", b"view"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page", b"_page", "_page_size", b"_page_size", "_view", b"_view", "filter", b"filter", "page", b"page", "page_size", b"page_size", "view", b"view"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page", b"_page"]) -> typing_extensions.Literal["page"] | None: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_token", b"_page_token"]) -> typing_extensions.Literal["page_token"] | None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
 
@@ -429,23 +429,27 @@ class ListComponentDefinitionsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     COMPONENT_DEFINITIONS_FIELD_NUMBER: builtins.int
-    NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_FIELD_NUMBER: builtins.int
     @property
     def component_definitions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ComponentDefinition]:
         """A list of component definition resources."""
-    next_page_token: builtins.str
-    """Next page token."""
     total_size: builtins.int
     """Total number of connector definitions."""
+    page_size: builtins.int
+    """The requested page size."""
+    page: builtins.int
+    """The requested page offset."""
     def __init__(
         self,
         *,
         component_definitions: collections.abc.Iterable[global___ComponentDefinition] | None = ...,
-        next_page_token: builtins.str = ...,
         total_size: builtins.int = ...,
+        page_size: builtins.int = ...,
+        page: builtins.int = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["component_definitions", b"component_definitions", "next_page_token", b"next_page_token", "total_size", b"total_size"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["component_definitions", b"component_definitions", "page", b"page", "page_size", b"page_size", "total_size", b"total_size"]) -> None: ...
 
 global___ListComponentDefinitionsResponse = ListComponentDefinitionsResponse
 
