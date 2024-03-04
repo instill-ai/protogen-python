@@ -174,6 +174,7 @@ class ConnectorDefinition(google.protobuf.message.Message):
     SOURCE_URL_FIELD_NUMBER: builtins.int
     VERSION_FIELD_NUMBER: builtins.int
     TASKS_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The name of the connector definition, defined by its ID.
     - Format: `connector-definitions/{id}
@@ -228,6 +229,8 @@ class ConnectorDefinition(google.protobuf.message.Message):
     @property
     def tasks(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[vdp.pipeline.v1beta.common_pb2.ComponentTask]:
         """List of tasks that can be executed by the connector."""
+    description: builtins.str
+    """Short description of the connector."""
     def __init__(
         self,
         *,
@@ -247,9 +250,10 @@ class ConnectorDefinition(google.protobuf.message.Message):
         source_url: builtins.str = ...,
         version: builtins.str = ...,
         tasks: collections.abc.Iterable[vdp.pipeline.v1beta.common_pb2.ComponentTask] | None = ...,
+        description: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["spec", b"spec", "vendor_attributes", b"vendor_attributes"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["custom", b"custom", "documentation_url", b"documentation_url", "icon", b"icon", "id", b"id", "name", b"name", "public", b"public", "source_url", b"source_url", "spec", b"spec", "tasks", b"tasks", "title", b"title", "tombstone", b"tombstone", "type", b"type", "uid", b"uid", "vendor", b"vendor", "vendor_attributes", b"vendor_attributes", "version", b"version"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["custom", b"custom", "description", b"description", "documentation_url", b"documentation_url", "icon", b"icon", "id", b"id", "name", b"name", "public", b"public", "source_url", b"source_url", "spec", b"spec", "tasks", b"tasks", "title", b"title", "tombstone", b"tombstone", "type", b"type", "uid", b"uid", "vendor", b"vendor", "vendor_attributes", b"vendor_attributes", "version", b"version"]) -> None: ...
 
 global___ConnectorDefinition = ConnectorDefinition
 
@@ -303,6 +307,7 @@ class OperatorDefinition(google.protobuf.message.Message):
     SOURCE_URL_FIELD_NUMBER: builtins.int
     VERSION_FIELD_NUMBER: builtins.int
     TASKS_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The name of the operator definition.
     - Format: `operator-definitions/*`
@@ -348,6 +353,8 @@ class OperatorDefinition(google.protobuf.message.Message):
     @property
     def tasks(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[vdp.pipeline.v1beta.common_pb2.ComponentTask]:
         """List of tasks that can be executed by the operator."""
+    description: builtins.str
+    """Short description of the operator."""
     def __init__(
         self,
         *,
@@ -364,9 +371,10 @@ class OperatorDefinition(google.protobuf.message.Message):
         source_url: builtins.str = ...,
         version: builtins.str = ...,
         tasks: collections.abc.Iterable[vdp.pipeline.v1beta.common_pb2.ComponentTask] | None = ...,
+        description: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["spec", b"spec"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["custom", b"custom", "documentation_url", b"documentation_url", "icon", b"icon", "id", b"id", "name", b"name", "public", b"public", "source_url", b"source_url", "spec", b"spec", "tasks", b"tasks", "title", b"title", "tombstone", b"tombstone", "uid", b"uid", "version", b"version"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["custom", b"custom", "description", b"description", "documentation_url", b"documentation_url", "icon", b"icon", "id", b"id", "name", b"name", "public", b"public", "source_url", b"source_url", "spec", b"spec", "tasks", b"tasks", "title", b"title", "tombstone", b"tombstone", "uid", b"uid", "version", b"version"]) -> None: ...
 
 global___OperatorDefinition = OperatorDefinition
 
