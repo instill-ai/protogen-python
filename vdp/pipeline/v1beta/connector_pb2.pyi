@@ -25,9 +25,10 @@ DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 @typing_extensions.final
 class Connector(google.protobuf.message.Message):
-    """A Connector is a type of pipeline component that queries, processes or sends
-    the ingested unstructured data to a service or app. Users need to configure
-    their connectors (e.g. by providing an API token to a remote service).
+    """A connector allows users to query, process or send data to a service or app.
+    Users can create and configure connectors that may later be referenced in
+    their pipelines via a connector component in order to process their ingested
+    unstructured data.
 
     For more information, see
     [Component](https://www.instill.tech/docs/latest/core/concepts/pipeline#pipeline-component)

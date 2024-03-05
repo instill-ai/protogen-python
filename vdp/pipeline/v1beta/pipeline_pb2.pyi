@@ -138,8 +138,305 @@ class ReadinessResponse(google.protobuf.message.Message):
 global___ReadinessResponse = ReadinessResponse
 
 @typing_extensions.final
+class StartComponent(google.protobuf.message.Message):
+    """StartComponent
+    Configures the starting point for pipeline triggering.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    @typing_extensions.final
+    class Field(google.protobuf.message.Message):
+        """Represents a field within the start component."""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        TITLE_FIELD_NUMBER: builtins.int
+        DESCRIPTION_FIELD_NUMBER: builtins.int
+        INSTILL_FORMAT_FIELD_NUMBER: builtins.int
+        INSTILL_UI_ORDER_FIELD_NUMBER: builtins.int
+        INSTILL_UI_MULTILINE_FIELD_NUMBER: builtins.int
+        title: builtins.str
+        """Title of the field."""
+        description: builtins.str
+        """Description of the field."""
+        instill_format: builtins.str
+        """Instill format."""
+        instill_ui_order: builtins.int
+        """Instill UI order."""
+        instill_ui_multiline: builtins.bool
+        """Instill UI Multiline."""
+        def __init__(
+            self,
+            *,
+            title: builtins.str = ...,
+            description: builtins.str = ...,
+            instill_format: builtins.str = ...,
+            instill_ui_order: builtins.int = ...,
+            instill_ui_multiline: builtins.bool = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "instill_format", b"instill_format", "instill_ui_multiline", b"instill_ui_multiline", "instill_ui_order", b"instill_ui_order", "title", b"title"]) -> None: ...
+
+    @typing_extensions.final
+    class FieldsEntry(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        KEY_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        key: builtins.str
+        @property
+        def value(self) -> global___StartComponent.Field: ...
+        def __init__(
+            self,
+            *,
+            key: builtins.str = ...,
+            value: global___StartComponent.Field | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["value", b"value"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
+
+    FIELDS_FIELD_NUMBER: builtins.int
+    @property
+    def fields(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___StartComponent.Field]:
+        """Fields configuration.
+        Key: Key of the input data.
+        Field: Field settings of the value.
+        """
+    def __init__(
+        self,
+        *,
+        fields: collections.abc.Mapping[builtins.str, global___StartComponent.Field] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["fields", b"fields"]) -> None: ...
+
+global___StartComponent = StartComponent
+
+@typing_extensions.final
+class EndComponent(google.protobuf.message.Message):
+    """EndComponent
+    Configures the ending point for pipeline triggering.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    @typing_extensions.final
+    class Field(google.protobuf.message.Message):
+        """Represents a field within the end component."""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        TITLE_FIELD_NUMBER: builtins.int
+        DESCRIPTION_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        INSTILL_UI_ORDER_FIELD_NUMBER: builtins.int
+        title: builtins.str
+        """Title of the field."""
+        description: builtins.str
+        """Description of the field."""
+        value: builtins.str
+        """Value of the field."""
+        instill_ui_order: builtins.int
+        """Instill UI order."""
+        def __init__(
+            self,
+            *,
+            title: builtins.str = ...,
+            description: builtins.str = ...,
+            value: builtins.str = ...,
+            instill_ui_order: builtins.int = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "instill_ui_order", b"instill_ui_order", "title", b"title", "value", b"value"]) -> None: ...
+
+    @typing_extensions.final
+    class FieldsEntry(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        KEY_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        key: builtins.str
+        @property
+        def value(self) -> global___EndComponent.Field: ...
+        def __init__(
+            self,
+            *,
+            key: builtins.str = ...,
+            value: global___EndComponent.Field | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["value", b"value"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
+
+    FIELDS_FIELD_NUMBER: builtins.int
+    @property
+    def fields(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___EndComponent.Field]:
+        """Fields configuration.
+        Key: Key of the output data.
+        Field: Field settings of the value.
+        """
+    def __init__(
+        self,
+        *,
+        fields: collections.abc.Mapping[builtins.str, global___EndComponent.Field] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["fields", b"fields"]) -> None: ...
+
+global___EndComponent = EndComponent
+
+@typing_extensions.final
+class ConnectorComponent(google.protobuf.message.Message):
+    """ConnectorComponent
+    Configures a connector component. Requires the creation of a connector resource first.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    DEFINITION_NAME_FIELD_NUMBER: builtins.int
+    DEFINITION_FIELD_NUMBER: builtins.int
+    CONNECTOR_NAME_FIELD_NUMBER: builtins.int
+    CONNECTOR_FIELD_NUMBER: builtins.int
+    TASK_FIELD_NUMBER: builtins.int
+    INPUT_FIELD_NUMBER: builtins.int
+    CONDITION_FIELD_NUMBER: builtins.int
+    definition_name: builtins.str
+    """Definition name."""
+    @property
+    def definition(self) -> vdp.pipeline.v1beta.component_definition_pb2.ConnectorDefinition:
+        """Connector definition."""
+    connector_name: builtins.str
+    """Connector name. Leave empty if not created."""
+    @property
+    def connector(self) -> vdp.pipeline.v1beta.connector_pb2.Connector:
+        """Describes the connector details (e.g., configuration to connect with the vendor service)."""
+    task: builtins.str
+    """Task."""
+    @property
+    def input(self) -> google.protobuf.struct_pb2.Struct:
+        """Input configuration of the component. JSON schema described in the connector definition."""
+    condition: builtins.str
+    """Condition statement determining whether the component is executed or not."""
+    def __init__(
+        self,
+        *,
+        definition_name: builtins.str = ...,
+        definition: vdp.pipeline.v1beta.component_definition_pb2.ConnectorDefinition | None = ...,
+        connector_name: builtins.str = ...,
+        connector: vdp.pipeline.v1beta.connector_pb2.Connector | None = ...,
+        task: builtins.str = ...,
+        input: google.protobuf.struct_pb2.Struct | None = ...,
+        condition: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connector", b"connector", "definition", b"definition", "input", b"input"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["condition", b"condition", "connector", b"connector", "connector_name", b"connector_name", "definition", b"definition", "definition_name", b"definition_name", "input", b"input", "task", b"task"]) -> None: ...
+
+global___ConnectorComponent = ConnectorComponent
+
+@typing_extensions.final
+class OperatorComponent(google.protobuf.message.Message):
+    """OperatorComponent
+    Configures an operator component.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    DEFINITION_NAME_FIELD_NUMBER: builtins.int
+    DEFINITION_FIELD_NUMBER: builtins.int
+    TASK_FIELD_NUMBER: builtins.int
+    INPUT_FIELD_NUMBER: builtins.int
+    CONDITION_FIELD_NUMBER: builtins.int
+    definition_name: builtins.str
+    """Definition name."""
+    @property
+    def definition(self) -> vdp.pipeline.v1beta.component_definition_pb2.OperatorDefinition:
+        """Operator definition."""
+    task: builtins.str
+    """Task."""
+    @property
+    def input(self) -> google.protobuf.struct_pb2.Struct:
+        """Input configuration of the component. JSON schema described in the operator definition."""
+    condition: builtins.str
+    """Condition statement determining whether the component is executed or not."""
+    def __init__(
+        self,
+        *,
+        definition_name: builtins.str = ...,
+        definition: vdp.pipeline.v1beta.component_definition_pb2.OperatorDefinition | None = ...,
+        task: builtins.str = ...,
+        input: google.protobuf.struct_pb2.Struct | None = ...,
+        condition: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["definition", b"definition", "input", b"input"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["condition", b"condition", "definition", b"definition", "definition_name", b"definition_name", "input", b"input", "task", b"task"]) -> None: ...
+
+global___OperatorComponent = OperatorComponent
+
+@typing_extensions.final
+class IteratorComponent(google.protobuf.message.Message):
+    """IteratorComponent
+    Configures an iterator component. An iterator takes an array and executes an
+    operation (defined by a set of nested components) on each of its elements.
+    It can be regarded as triggering a sub-pipeline using the elements of an
+    array as input.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    @typing_extensions.final
+    class OutputElementsEntry(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        KEY_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
+            *,
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
+
+    INPUT_FIELD_NUMBER: builtins.int
+    OUTPUT_ELEMENTS_FIELD_NUMBER: builtins.int
+    COMPONENTS_FIELD_NUMBER: builtins.int
+    CONDITION_FIELD_NUMBER: builtins.int
+    input: builtins.str
+    """Input: The iterator will iterate over the elements of the input (must be an array)."""
+    @property
+    def output_elements(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
+        """Output elements: Configure the output arrays of the iterator.
+        The key is the output element variable name, and the value is the data reference of the template.
+        Example:
+        output_elements: {
+          "key1": "${element.output.a}",
+          "key2": "${element.output.b}",
+        }
+        This will create the results:
+        output: {
+          "key1": [ ${element1.output.a},  ${element2.output.a} ... ],
+          "key2": [ ${element1.output.b},  ${element2.output.b} ... ],
+        }
+        """
+    @property
+    def components(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___NestedComponent]:
+        """Components: These components will be executed for each input element."""
+    condition: builtins.str
+    """Condition statement determining whether the component is executed or not."""
+    def __init__(
+        self,
+        *,
+        input: builtins.str = ...,
+        output_elements: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        components: collections.abc.Iterable[global___NestedComponent] | None = ...,
+        condition: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["components", b"components", "condition", b"condition", "input", b"input", "output_elements", b"output_elements"]) -> None: ...
+
+global___IteratorComponent = IteratorComponent
+
+@typing_extensions.final
 class Component(google.protobuf.message.Message):
-    """Component is the fundamental building block in pipelines.
+    """Component
+    Fundamental building block in pipelines.
 
     For more information, see [Pipeline
     Component](https://www.instill.tech/docs/latest/core/concepts/pipeline#pipeline-component)
@@ -148,54 +445,85 @@ class Component(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     ID_FIELD_NUMBER: builtins.int
-    RESOURCE_NAME_FIELD_NUMBER: builtins.int
-    RESOURCE_FIELD_NUMBER: builtins.int
-    CONFIGURATION_FIELD_NUMBER: builtins.int
-    TYPE_FIELD_NUMBER: builtins.int
-    DEFINITION_NAME_FIELD_NUMBER: builtins.int
-    OPERATOR_DEFINITION_FIELD_NUMBER: builtins.int
-    CONNECTOR_DEFINITION_FIELD_NUMBER: builtins.int
+    METADATA_FIELD_NUMBER: builtins.int
+    START_COMPONENT_FIELD_NUMBER: builtins.int
+    END_COMPONENT_FIELD_NUMBER: builtins.int
+    CONNECTOR_COMPONENT_FIELD_NUMBER: builtins.int
+    OPERATOR_COMPONENT_FIELD_NUMBER: builtins.int
+    ITERATOR_COMPONENT_FIELD_NUMBER: builtins.int
     id: builtins.str
     """Component ID, provided by the user on creation."""
-    resource_name: builtins.str
-    """Resource name."""
     @property
-    def resource(self) -> vdp.pipeline.v1beta.connector_pb2.Connector:
-        """If the component is a connector, describes the connector details (e.g. the
-        configuration to connect with an AI model).
-        """
+    def metadata(self) -> google.protobuf.struct_pb2.Struct:
+        """Metadata of the component."""
     @property
-    def configuration(self) -> google.protobuf.struct_pb2.Struct:
-        """Describes the component configuration."""
-    type: vdp.pipeline.v1beta.common_pb2.ComponentType.ValueType
-    """Defines the type of task the component will perform."""
-    definition_name: builtins.str
-    """The name of the component definition. It references the connector or
-    operator definition on top of which a connector is built.
-    """
+    def start_component(self) -> global___StartComponent:
+        """StartComponent"""
     @property
-    def operator_definition(self) -> vdp.pipeline.v1beta.component_definition_pb2.OperatorDefinition:
-        """operator definition detail"""
+    def end_component(self) -> global___EndComponent:
+        """EndComponent"""
     @property
-    def connector_definition(self) -> vdp.pipeline.v1beta.component_definition_pb2.ConnectorDefinition:
-        """connector definition detail"""
+    def connector_component(self) -> global___ConnectorComponent:
+        """ConnectorComponent"""
+    @property
+    def operator_component(self) -> global___OperatorComponent:
+        """OperatorComponent"""
+    @property
+    def iterator_component(self) -> global___IteratorComponent:
+        """IteratorComponent"""
     def __init__(
         self,
         *,
         id: builtins.str = ...,
-        resource_name: builtins.str = ...,
-        resource: vdp.pipeline.v1beta.connector_pb2.Connector | None = ...,
-        configuration: google.protobuf.struct_pb2.Struct | None = ...,
-        type: vdp.pipeline.v1beta.common_pb2.ComponentType.ValueType = ...,
-        definition_name: builtins.str = ...,
-        operator_definition: vdp.pipeline.v1beta.component_definition_pb2.OperatorDefinition | None = ...,
-        connector_definition: vdp.pipeline.v1beta.component_definition_pb2.ConnectorDefinition | None = ...,
+        metadata: google.protobuf.struct_pb2.Struct | None = ...,
+        start_component: global___StartComponent | None = ...,
+        end_component: global___EndComponent | None = ...,
+        connector_component: global___ConnectorComponent | None = ...,
+        operator_component: global___OperatorComponent | None = ...,
+        iterator_component: global___IteratorComponent | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["configuration", b"configuration", "connector_definition", b"connector_definition", "definition", b"definition", "operator_definition", b"operator_definition", "resource", b"resource"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["configuration", b"configuration", "connector_definition", b"connector_definition", "definition", b"definition", "definition_name", b"definition_name", "id", b"id", "operator_definition", b"operator_definition", "resource", b"resource", "resource_name", b"resource_name", "type", b"type"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["definition", b"definition"]) -> typing_extensions.Literal["operator_definition", "connector_definition"] | None: ...
+    def HasField(self, field_name: typing_extensions.Literal["component", b"component", "connector_component", b"connector_component", "end_component", b"end_component", "iterator_component", b"iterator_component", "metadata", b"metadata", "operator_component", b"operator_component", "start_component", b"start_component"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["component", b"component", "connector_component", b"connector_component", "end_component", b"end_component", "id", b"id", "iterator_component", b"iterator_component", "metadata", b"metadata", "operator_component", b"operator_component", "start_component", b"start_component"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["component", b"component"]) -> typing_extensions.Literal["start_component", "end_component", "connector_component", "operator_component", "iterator_component"] | None: ...
 
 global___Component = Component
+
+@typing_extensions.final
+class NestedComponent(google.protobuf.message.Message):
+    """NestedComponent
+    Fundamental building block in iterator component.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    ID_FIELD_NUMBER: builtins.int
+    METADATA_FIELD_NUMBER: builtins.int
+    CONNECTOR_COMPONENT_FIELD_NUMBER: builtins.int
+    OPERATOR_COMPONENT_FIELD_NUMBER: builtins.int
+    id: builtins.str
+    """Component ID, provided by the user on creation."""
+    @property
+    def metadata(self) -> google.protobuf.struct_pb2.Struct:
+        """Metadata of the component."""
+    @property
+    def connector_component(self) -> global___ConnectorComponent:
+        """ConnectorConfiguration"""
+    @property
+    def operator_component(self) -> global___OperatorComponent:
+        """OperatorConfiguration"""
+    def __init__(
+        self,
+        *,
+        id: builtins.str = ...,
+        metadata: google.protobuf.struct_pb2.Struct | None = ...,
+        connector_component: global___ConnectorComponent | None = ...,
+        operator_component: global___OperatorComponent | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["component", b"component", "connector_component", b"connector_component", "metadata", b"metadata", "operator_component", b"operator_component"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["component", b"component", "connector_component", b"connector_component", "id", b"id", "metadata", b"metadata", "operator_component", b"operator_component"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["component", b"component"]) -> typing_extensions.Literal["connector_component", "operator_component"] | None: ...
+
+global___NestedComponent = NestedComponent
 
 @typing_extensions.final
 class Recipe(google.protobuf.message.Message):
