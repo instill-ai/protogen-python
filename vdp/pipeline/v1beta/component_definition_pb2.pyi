@@ -115,14 +115,57 @@ class ComponentDefinition(google.protobuf.message.Message):
 global___ComponentDefinition = ComponentDefinition
 
 @typing_extensions.final
+class DataSpecification(google.protobuf.message.Message):
+    """DataSpecification describes the JSON schema of component input and output."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    INPUT_FIELD_NUMBER: builtins.int
+    OUTPUT_FIELD_NUMBER: builtins.int
+    @property
+    def input(self) -> google.protobuf.struct_pb2.Struct:
+        """JSON schema describing the component input data."""
+    @property
+    def output(self) -> google.protobuf.struct_pb2.Struct:
+        """JSON schema describing the component output data."""
+    def __init__(
+        self,
+        *,
+        input: google.protobuf.struct_pb2.Struct | None = ...,
+        output: google.protobuf.struct_pb2.Struct | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["input", b"input", "output", b"output"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["input", b"input", "output", b"output"]) -> None: ...
+
+global___DataSpecification = DataSpecification
+
+@typing_extensions.final
 class ConnectorSpec(google.protobuf.message.Message):
     """ConnectorSpec represents a specification data model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
+    class DataSpecificationsEntry(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        KEY_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        key: builtins.str
+        @property
+        def value(self) -> global___DataSpecification: ...
+        def __init__(
+            self,
+            *,
+            key: builtins.str = ...,
+            value: global___DataSpecification | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["value", b"value"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
+
     RESOURCE_SPECIFICATION_FIELD_NUMBER: builtins.int
     COMPONENT_SPECIFICATION_FIELD_NUMBER: builtins.int
-    OPENAPI_SPECIFICATIONS_FIELD_NUMBER: builtins.int
+    DATA_SPECIFICATIONS_FIELD_NUMBER: builtins.int
     @property
     def resource_specification(self) -> google.protobuf.struct_pb2.Struct:
         """Resource specification."""
@@ -130,17 +173,19 @@ class ConnectorSpec(google.protobuf.message.Message):
     def component_specification(self) -> google.protobuf.struct_pb2.Struct:
         """Component specification."""
     @property
-    def openapi_specifications(self) -> google.protobuf.struct_pb2.Struct:
-        """OpenAPI specification."""
+    def data_specifications(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___DataSpecification]:
+        """Data specifications.
+        The key represents the task, and the value is the corresponding data_specification.
+        """
     def __init__(
         self,
         *,
         resource_specification: google.protobuf.struct_pb2.Struct | None = ...,
         component_specification: google.protobuf.struct_pb2.Struct | None = ...,
-        openapi_specifications: google.protobuf.struct_pb2.Struct | None = ...,
+        data_specifications: collections.abc.Mapping[builtins.str, global___DataSpecification] | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification", "openapi_specifications", b"openapi_specifications", "resource_specification", b"resource_specification"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification", "openapi_specifications", b"openapi_specifications", "resource_specification", b"resource_specification"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification", "resource_specification", b"resource_specification"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification", "data_specifications", b"data_specifications", "resource_specification", b"resource_specification"]) -> None: ...
 
 global___ConnectorSpec = ConnectorSpec
 
@@ -263,22 +308,42 @@ class OperatorSpec(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
+    class DataSpecificationsEntry(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        KEY_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        key: builtins.str
+        @property
+        def value(self) -> global___DataSpecification: ...
+        def __init__(
+            self,
+            *,
+            key: builtins.str = ...,
+            value: global___DataSpecification | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["value", b"value"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
+
     COMPONENT_SPECIFICATION_FIELD_NUMBER: builtins.int
-    OPENAPI_SPECIFICATIONS_FIELD_NUMBER: builtins.int
+    DATA_SPECIFICATIONS_FIELD_NUMBER: builtins.int
     @property
     def component_specification(self) -> google.protobuf.struct_pb2.Struct:
         """Component specification."""
     @property
-    def openapi_specifications(self) -> google.protobuf.struct_pb2.Struct:
-        """OpenAPI specification."""
+    def data_specifications(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___DataSpecification]:
+        """Data specifications.
+        The key represents the task, and the value is the corresponding data_specification.
+        """
     def __init__(
         self,
         *,
         component_specification: google.protobuf.struct_pb2.Struct | None = ...,
-        openapi_specifications: google.protobuf.struct_pb2.Struct | None = ...,
+        data_specifications: collections.abc.Mapping[builtins.str, global___DataSpecification] | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification", "openapi_specifications", b"openapi_specifications"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification", "openapi_specifications", b"openapi_specifications"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification", "data_specifications", b"data_specifications"]) -> None: ...
 
 global___OperatorSpec = OperatorSpec
 
