@@ -90,6 +90,96 @@ class ComponentDefinition(google.protobuf.message.Message):
     VIEW_FULL: ComponentDefinition.View.ValueType  # 2
     """Full representation."""
 
+    class _ReleaseStage:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _ReleaseStageEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ComponentDefinition._ReleaseStage.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        RELEASE_STAGE_UNSPECIFIED: ComponentDefinition._ReleaseStage.ValueType  # 0
+        """Unspecified."""
+        RELEASE_STAGE_OPEN_FOR_CONTRIBUTION: ComponentDefinition._ReleaseStage.ValueType  # 1
+        """This component is unimplemented and community contributions are welcome
+        for this component.
+
+        It is recommended that the major and minor versions for definitions at
+        this release stage is kept at 0, e.g., `0.0.1`, `0.0.4`, etc.
+        """
+        RELEASE_STAGE_COMING_SOON: ComponentDefinition._ReleaseStage.ValueType  # 2
+        """The implementation of this component is planned and will be tackled by
+        the Instill AI team.
+
+        It is recommended that the major and minor versions for definitions at
+        this release stage is kept at 0, e.g., `0.0.1`, `0.0.4`, etc.
+        """
+        RELEASE_STAGE_ALPHA: ComponentDefinition._ReleaseStage.ValueType  # 3
+        """Initial implementation intended to gather feedback and issues from early
+        adopters. Alpha releases are discouraged for production use cases.
+
+        The `version` field in the definition must have `alpha` as its first
+        pre-release identifier, e.g., `0.1.0-alpha`, `0.1.3-alpha.1`.
+        """
+        RELEASE_STAGE_BETA: ComponentDefinition._ReleaseStage.ValueType  # 4
+        """The connector has reached stability and no backwards incompatible
+        changes are expected. Before reaching general availability, it should be
+        validated by a broader group of users. Some fixes might be added during
+        this process.
+
+        The `version` field in the definition must have `beta` as its first
+        pre-release identifier, e.g., `0.1.0-beta`, `0.1.3-beta.1`.
+        """
+        RELEASE_STAGE_GA: ComponentDefinition._ReleaseStage.ValueType  # 5
+        """Generally available - ready for use in production and fully supported by
+        Instill AI.
+        """
+
+    class ReleaseStage(_ReleaseStage, metaclass=_ReleaseStageEnumTypeWrapper):
+        """ReleaseStage defines the release stage of a component. This is used to
+        group components with the same pre-relase groups (e.g. `0.1.0-beta`,
+        `0.1.0-beta.1` -> `RELEASE_STAGE_BETA`) and to include other "in progress"
+        (i.e. coming soon, open for contributions) stages that may not be relevant
+        within semantic versioning.
+        See the documentation of each value for potential constraints between
+        `version` and `release_stage` fields.`
+        """
+
+    RELEASE_STAGE_UNSPECIFIED: ComponentDefinition.ReleaseStage.ValueType  # 0
+    """Unspecified."""
+    RELEASE_STAGE_OPEN_FOR_CONTRIBUTION: ComponentDefinition.ReleaseStage.ValueType  # 1
+    """This component is unimplemented and community contributions are welcome
+    for this component.
+
+    It is recommended that the major and minor versions for definitions at
+    this release stage is kept at 0, e.g., `0.0.1`, `0.0.4`, etc.
+    """
+    RELEASE_STAGE_COMING_SOON: ComponentDefinition.ReleaseStage.ValueType  # 2
+    """The implementation of this component is planned and will be tackled by
+    the Instill AI team.
+
+    It is recommended that the major and minor versions for definitions at
+    this release stage is kept at 0, e.g., `0.0.1`, `0.0.4`, etc.
+    """
+    RELEASE_STAGE_ALPHA: ComponentDefinition.ReleaseStage.ValueType  # 3
+    """Initial implementation intended to gather feedback and issues from early
+    adopters. Alpha releases are discouraged for production use cases.
+
+    The `version` field in the definition must have `alpha` as its first
+    pre-release identifier, e.g., `0.1.0-alpha`, `0.1.3-alpha.1`.
+    """
+    RELEASE_STAGE_BETA: ComponentDefinition.ReleaseStage.ValueType  # 4
+    """The connector has reached stability and no backwards incompatible
+    changes are expected. Before reaching general availability, it should be
+    validated by a broader group of users. Some fixes might be added during
+    this process.
+
+    The `version` field in the definition must have `beta` as its first
+    pre-release identifier, e.g., `0.1.0-beta`, `0.1.3-beta.1`.
+    """
+    RELEASE_STAGE_GA: ComponentDefinition.ReleaseStage.ValueType  # 5
+    """Generally available - ready for use in production and fully supported by
+    Instill AI.
+    """
+
     TYPE_FIELD_NUMBER: builtins.int
     OPERATOR_DEFINITION_FIELD_NUMBER: builtins.int
     CONNECTOR_DEFINITION_FIELD_NUMBER: builtins.int
@@ -220,6 +310,7 @@ class ConnectorDefinition(google.protobuf.message.Message):
     VERSION_FIELD_NUMBER: builtins.int
     TASKS_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
+    RELEASE_STAGE_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The name of the connector definition, defined by its ID.
     - Format: `connector-definitions/{id}
@@ -276,6 +367,8 @@ class ConnectorDefinition(google.protobuf.message.Message):
         """List of tasks that can be executed by the connector."""
     description: builtins.str
     """Short description of the connector."""
+    release_stage: global___ComponentDefinition.ReleaseStage.ValueType
+    """Release stage."""
     def __init__(
         self,
         *,
@@ -296,9 +389,10 @@ class ConnectorDefinition(google.protobuf.message.Message):
         version: builtins.str = ...,
         tasks: collections.abc.Iterable[vdp.pipeline.v1beta.common_pb2.ComponentTask] | None = ...,
         description: builtins.str = ...,
+        release_stage: global___ComponentDefinition.ReleaseStage.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["spec", b"spec", "vendor_attributes", b"vendor_attributes"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["custom", b"custom", "description", b"description", "documentation_url", b"documentation_url", "icon", b"icon", "id", b"id", "name", b"name", "public", b"public", "source_url", b"source_url", "spec", b"spec", "tasks", b"tasks", "title", b"title", "tombstone", b"tombstone", "type", b"type", "uid", b"uid", "vendor", b"vendor", "vendor_attributes", b"vendor_attributes", "version", b"version"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["custom", b"custom", "description", b"description", "documentation_url", b"documentation_url", "icon", b"icon", "id", b"id", "name", b"name", "public", b"public", "release_stage", b"release_stage", "source_url", b"source_url", "spec", b"spec", "tasks", b"tasks", "title", b"title", "tombstone", b"tombstone", "type", b"type", "uid", b"uid", "vendor", b"vendor", "vendor_attributes", b"vendor_attributes", "version", b"version"]) -> None: ...
 
 global___ConnectorDefinition = ConnectorDefinition
 
@@ -373,6 +467,7 @@ class OperatorDefinition(google.protobuf.message.Message):
     VERSION_FIELD_NUMBER: builtins.int
     TASKS_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
+    RELEASE_STAGE_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The name of the operator definition.
     - Format: `operator-definitions/*`
@@ -420,6 +515,8 @@ class OperatorDefinition(google.protobuf.message.Message):
         """List of tasks that can be executed by the operator."""
     description: builtins.str
     """Short description of the operator."""
+    release_stage: global___ComponentDefinition.ReleaseStage.ValueType
+    """Release stage."""
     def __init__(
         self,
         *,
@@ -437,9 +534,10 @@ class OperatorDefinition(google.protobuf.message.Message):
         version: builtins.str = ...,
         tasks: collections.abc.Iterable[vdp.pipeline.v1beta.common_pb2.ComponentTask] | None = ...,
         description: builtins.str = ...,
+        release_stage: global___ComponentDefinition.ReleaseStage.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["spec", b"spec"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["custom", b"custom", "description", b"description", "documentation_url", b"documentation_url", "icon", b"icon", "id", b"id", "name", b"name", "public", b"public", "source_url", b"source_url", "spec", b"spec", "tasks", b"tasks", "title", b"title", "tombstone", b"tombstone", "uid", b"uid", "version", b"version"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["custom", b"custom", "description", b"description", "documentation_url", b"documentation_url", "icon", b"icon", "id", b"id", "name", b"name", "public", b"public", "release_stage", b"release_stage", "source_url", b"source_url", "spec", b"spec", "tasks", b"tasks", "title", b"title", "tombstone", b"tombstone", "uid", b"uid", "version", b"version"]) -> None: ...
 
 global___OperatorDefinition = OperatorDefinition
 
