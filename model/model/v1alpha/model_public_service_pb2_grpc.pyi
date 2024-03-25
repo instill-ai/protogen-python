@@ -96,14 +96,6 @@ class ModelPublicServiceStub:
     necessary information to access the result and status of the creation
     operation.
     """
-    CreateUserModelBinaryFileUpload: grpc.StreamUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.CreateUserModelBinaryFileUploadRequest,
-        model.model.v1alpha.model_pb2.CreateUserModelBinaryFileUploadResponse,
-    ]
-    """Upload model binary
-
-    Creates a new model by upploading its binary content.
-    """
     GetUserModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetUserModelRequest,
         model.model.v1alpha.model_pb2.GetUserModelResponse,
@@ -159,36 +151,6 @@ class ModelPublicServiceStub:
 
     Updates the visibility in a model to PRIVATE. The model is accessed by its
     resource name, defined by the model ID and its parent user.
-    """
-    DeployUserModel: grpc.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.DeployUserModelRequest,
-        model.model.v1alpha.model_pb2.DeployUserModelResponse,
-    ]
-    """Deploy a model
-
-    Transitions the model into an ONLINE state. The model is accessed by its
-    resource name, defined by the model ID and its parent user.
-
-    While this operation is being performed, the state of the model will
-    transition to UNSPECIFIED. As completing the deployment might take time,
-    the server will not wait to complete the operation to return a response.
-    The state of the model can be used to track the completion of the
-    operation. This can be done by using the `watch` operation on the model.
-    """
-    UndeployUserModel: grpc.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.UndeployUserModelRequest,
-        model.model.v1alpha.model_pb2.UndeployUserModelResponse,
-    ]
-    """Undeploy a model
-
-    Transitions the model into an OFFLINE state. The model is accessed by its
-    resource name, defined by the model ID and its parent user.
-
-    While this operation is being performed, the state of the model will
-    transition to UNSPECIFIED. As completing the teardown might take time,
-    the server will not wait to complete the operation to return a response.
-    The state of the model can be used to track the completion of the
-    operation. This can be done by using the `watch` operation on the model.
     """
     GetUserModelCard: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetUserModelCardRequest,
@@ -251,14 +213,6 @@ class ModelPublicServiceStub:
     necessary information to access the result and status of the creation
     operation.
     """
-    CreateOrganizationModelBinaryFileUpload: grpc.StreamUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.CreateOrganizationModelBinaryFileUploadRequest,
-        model.model.v1alpha.model_pb2.CreateOrganizationModelBinaryFileUploadResponse,
-    ]
-    """Upload model binary
-
-    Creates a new model by upploading its binary content.
-    """
     GetOrganizationModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetOrganizationModelRequest,
         model.model.v1alpha.model_pb2.GetOrganizationModelResponse,
@@ -314,36 +268,6 @@ class ModelPublicServiceStub:
 
     Updates the visibility in a model to PRIVATE. The model is accessed by its
     resource name, defined by the model ID and its parent organization.
-    """
-    DeployOrganizationModel: grpc.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.DeployOrganizationModelRequest,
-        model.model.v1alpha.model_pb2.DeployOrganizationModelResponse,
-    ]
-    """Deploy a model
-
-    Transitions the model into an ONLINE state. The model is accessed by its
-    resource name, defined by the model ID and its parent organization.
-
-    While this operation is being performed, the state of the model will
-    transition to UNSPECIFIED. As completing the deployment might take time,
-    the server will not wait to complete the operation to return a response.
-    The state of the model can be used to track the completion of the
-    operation. This can be done by using the `watch` operation on the model.
-    """
-    UndeployOrganizationModel: grpc.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.UndeployOrganizationModelRequest,
-        model.model.v1alpha.model_pb2.UndeployOrganizationModelResponse,
-    ]
-    """Undeploy a model
-
-    Transitions the model into an OFFLINE state. The model is accessed by its
-    resource name, defined by the model ID and its parent organization.
-
-    While this operation is being performed, the state of the model will
-    transition to UNSPECIFIED. As completing the teardown might take time,
-    the server will not wait to complete the operation to return a response.
-    The state of the model can be used to track the completion of the
-    operation. This can be done by using the `watch` operation on the model.
     """
     GetOrganizationModelCard: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetOrganizationModelCardRequest,
@@ -471,14 +395,6 @@ class ModelPublicServiceAsyncStub:
     necessary information to access the result and status of the creation
     operation.
     """
-    CreateUserModelBinaryFileUpload: grpc.aio.StreamUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.CreateUserModelBinaryFileUploadRequest,
-        model.model.v1alpha.model_pb2.CreateUserModelBinaryFileUploadResponse,
-    ]
-    """Upload model binary
-
-    Creates a new model by upploading its binary content.
-    """
     GetUserModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetUserModelRequest,
         model.model.v1alpha.model_pb2.GetUserModelResponse,
@@ -534,36 +450,6 @@ class ModelPublicServiceAsyncStub:
 
     Updates the visibility in a model to PRIVATE. The model is accessed by its
     resource name, defined by the model ID and its parent user.
-    """
-    DeployUserModel: grpc.aio.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.DeployUserModelRequest,
-        model.model.v1alpha.model_pb2.DeployUserModelResponse,
-    ]
-    """Deploy a model
-
-    Transitions the model into an ONLINE state. The model is accessed by its
-    resource name, defined by the model ID and its parent user.
-
-    While this operation is being performed, the state of the model will
-    transition to UNSPECIFIED. As completing the deployment might take time,
-    the server will not wait to complete the operation to return a response.
-    The state of the model can be used to track the completion of the
-    operation. This can be done by using the `watch` operation on the model.
-    """
-    UndeployUserModel: grpc.aio.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.UndeployUserModelRequest,
-        model.model.v1alpha.model_pb2.UndeployUserModelResponse,
-    ]
-    """Undeploy a model
-
-    Transitions the model into an OFFLINE state. The model is accessed by its
-    resource name, defined by the model ID and its parent user.
-
-    While this operation is being performed, the state of the model will
-    transition to UNSPECIFIED. As completing the teardown might take time,
-    the server will not wait to complete the operation to return a response.
-    The state of the model can be used to track the completion of the
-    operation. This can be done by using the `watch` operation on the model.
     """
     GetUserModelCard: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetUserModelCardRequest,
@@ -626,14 +512,6 @@ class ModelPublicServiceAsyncStub:
     necessary information to access the result and status of the creation
     operation.
     """
-    CreateOrganizationModelBinaryFileUpload: grpc.aio.StreamUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.CreateOrganizationModelBinaryFileUploadRequest,
-        model.model.v1alpha.model_pb2.CreateOrganizationModelBinaryFileUploadResponse,
-    ]
-    """Upload model binary
-
-    Creates a new model by upploading its binary content.
-    """
     GetOrganizationModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetOrganizationModelRequest,
         model.model.v1alpha.model_pb2.GetOrganizationModelResponse,
@@ -689,36 +567,6 @@ class ModelPublicServiceAsyncStub:
 
     Updates the visibility in a model to PRIVATE. The model is accessed by its
     resource name, defined by the model ID and its parent organization.
-    """
-    DeployOrganizationModel: grpc.aio.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.DeployOrganizationModelRequest,
-        model.model.v1alpha.model_pb2.DeployOrganizationModelResponse,
-    ]
-    """Deploy a model
-
-    Transitions the model into an ONLINE state. The model is accessed by its
-    resource name, defined by the model ID and its parent organization.
-
-    While this operation is being performed, the state of the model will
-    transition to UNSPECIFIED. As completing the deployment might take time,
-    the server will not wait to complete the operation to return a response.
-    The state of the model can be used to track the completion of the
-    operation. This can be done by using the `watch` operation on the model.
-    """
-    UndeployOrganizationModel: grpc.aio.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.UndeployOrganizationModelRequest,
-        model.model.v1alpha.model_pb2.UndeployOrganizationModelResponse,
-    ]
-    """Undeploy a model
-
-    Transitions the model into an OFFLINE state. The model is accessed by its
-    resource name, defined by the model ID and its parent organization.
-
-    While this operation is being performed, the state of the model will
-    transition to UNSPECIFIED. As completing the teardown might take time,
-    the server will not wait to complete the operation to return a response.
-    The state of the model can be used to track the completion of the
-    operation. This can be done by using the `watch` operation on the model.
     """
     GetOrganizationModelCard: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetOrganizationModelCardRequest,
@@ -863,16 +711,6 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         operation.
         """
     @abc.abstractmethod
-    def CreateUserModelBinaryFileUpload(
-        self,
-        request_iterator: _MaybeAsyncIterator[model.model.v1alpha.model_pb2.CreateUserModelBinaryFileUploadRequest],
-        context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_pb2.CreateUserModelBinaryFileUploadResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.CreateUserModelBinaryFileUploadResponse]]:
-        """Upload model binary
-
-        Creates a new model by upploading its binary content.
-        """
-    @abc.abstractmethod
     def GetUserModel(
         self,
         request: model.model.v1alpha.model_pb2.GetUserModelRequest,
@@ -939,40 +777,6 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
 
         Updates the visibility in a model to PRIVATE. The model is accessed by its
         resource name, defined by the model ID and its parent user.
-        """
-    @abc.abstractmethod
-    def DeployUserModel(
-        self,
-        request: model.model.v1alpha.model_pb2.DeployUserModelRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_pb2.DeployUserModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.DeployUserModelResponse]]:
-        """Deploy a model
-
-        Transitions the model into an ONLINE state. The model is accessed by its
-        resource name, defined by the model ID and its parent user.
-
-        While this operation is being performed, the state of the model will
-        transition to UNSPECIFIED. As completing the deployment might take time,
-        the server will not wait to complete the operation to return a response.
-        The state of the model can be used to track the completion of the
-        operation. This can be done by using the `watch` operation on the model.
-        """
-    @abc.abstractmethod
-    def UndeployUserModel(
-        self,
-        request: model.model.v1alpha.model_pb2.UndeployUserModelRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_pb2.UndeployUserModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.UndeployUserModelResponse]]:
-        """Undeploy a model
-
-        Transitions the model into an OFFLINE state. The model is accessed by its
-        resource name, defined by the model ID and its parent user.
-
-        While this operation is being performed, the state of the model will
-        transition to UNSPECIFIED. As completing the teardown might take time,
-        the server will not wait to complete the operation to return a response.
-        The state of the model can be used to track the completion of the
-        operation. This can be done by using the `watch` operation on the model.
         """
     @abc.abstractmethod
     def GetUserModelCard(
@@ -1048,16 +852,6 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         operation.
         """
     @abc.abstractmethod
-    def CreateOrganizationModelBinaryFileUpload(
-        self,
-        request_iterator: _MaybeAsyncIterator[model.model.v1alpha.model_pb2.CreateOrganizationModelBinaryFileUploadRequest],
-        context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_pb2.CreateOrganizationModelBinaryFileUploadResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.CreateOrganizationModelBinaryFileUploadResponse]]:
-        """Upload model binary
-
-        Creates a new model by upploading its binary content.
-        """
-    @abc.abstractmethod
     def GetOrganizationModel(
         self,
         request: model.model.v1alpha.model_pb2.GetOrganizationModelRequest,
@@ -1124,40 +918,6 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
 
         Updates the visibility in a model to PRIVATE. The model is accessed by its
         resource name, defined by the model ID and its parent organization.
-        """
-    @abc.abstractmethod
-    def DeployOrganizationModel(
-        self,
-        request: model.model.v1alpha.model_pb2.DeployOrganizationModelRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_pb2.DeployOrganizationModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.DeployOrganizationModelResponse]]:
-        """Deploy a model
-
-        Transitions the model into an ONLINE state. The model is accessed by its
-        resource name, defined by the model ID and its parent organization.
-
-        While this operation is being performed, the state of the model will
-        transition to UNSPECIFIED. As completing the deployment might take time,
-        the server will not wait to complete the operation to return a response.
-        The state of the model can be used to track the completion of the
-        operation. This can be done by using the `watch` operation on the model.
-        """
-    @abc.abstractmethod
-    def UndeployOrganizationModel(
-        self,
-        request: model.model.v1alpha.model_pb2.UndeployOrganizationModelRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_pb2.UndeployOrganizationModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.UndeployOrganizationModelResponse]]:
-        """Undeploy a model
-
-        Transitions the model into an OFFLINE state. The model is accessed by its
-        resource name, defined by the model ID and its parent organization.
-
-        While this operation is being performed, the state of the model will
-        transition to UNSPECIFIED. As completing the teardown might take time,
-        the server will not wait to complete the operation to return a response.
-        The state of the model can be used to track the completion of the
-        operation. This can be done by using the `watch` operation on the model.
         """
     @abc.abstractmethod
     def GetOrganizationModelCard(

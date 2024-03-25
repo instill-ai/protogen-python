@@ -38,6 +38,45 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+class _State:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _StateEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_State.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    STATE_UNSPECIFIED: _State.ValueType  # 0
+    """Unspecified. This state can occur while a model is under operation."""
+    STATE_OFFLINE: _State.ValueType  # 1
+    """Offline is the state when the model instance number is 0."""
+    STATE_SCALING: _State.ValueType  # 2
+    """Scaling is the transition state when a model instance is scaling up or down."""
+    STATE_ACTIVE: _State.ValueType  # 3
+    """Active is the state when a model is processing requests."""
+    STATE_IDLE: _State.ValueType  # 4
+    """Idle is the state when a model is alive but not processing requests."""
+    STATE_ERROR: _State.ValueType  # 5
+    """Error is the state when the model is undeployable."""
+
+class State(_State, metaclass=_StateEnumTypeWrapper):
+    """State describes the state of a model. See [Deploy
+    Models](https://www.instill.tech/docs/latest/model/deploy) for more
+    information.
+    """
+
+STATE_UNSPECIFIED: State.ValueType  # 0
+"""Unspecified. This state can occur while a model is under operation."""
+STATE_OFFLINE: State.ValueType  # 1
+"""Offline is the state when the model instance number is 0."""
+STATE_SCALING: State.ValueType  # 2
+"""Scaling is the transition state when a model instance is scaling up or down."""
+STATE_ACTIVE: State.ValueType  # 3
+"""Active is the state when a model is processing requests."""
+STATE_IDLE: State.ValueType  # 4
+"""Idle is the state when a model is alive but not processing requests."""
+STATE_ERROR: State.ValueType  # 5
+"""Error is the state when the model is undeployable."""
+global___State = State
+
 @typing_extensions.final
 class LivenessRequest(google.protobuf.message.Message):
     """LivenessRequest represents a request to check a service liveness status"""
@@ -151,46 +190,6 @@ class Model(google.protobuf.message.Message):
     VISIBILITY_PUBLIC: Model.Visibility.ValueType  # 2
     """Other users can see the model."""
 
-    class _State:
-        ValueType = typing.NewType("ValueType", builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-
-    class _StateEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Model._State.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        STATE_UNSPECIFIED: Model._State.ValueType  # 0
-        """Unspecified. This state can occur while a model is being deployed."""
-        STATE_OFFLINE: Model._State.ValueType  # 1
-        """Offline is the default state when a model is initially created. A model
-        can be switched from ONLINE to this state by using the `undeploy`
-        method.
-        """
-        STATE_ONLINE: Model._State.ValueType  # 2
-        """Online is the state of a model when it has been deployed (i.e. when the
-        `deploy` method has been used on an OFFLINE model).
-        """
-        STATE_ERROR: Model._State.ValueType  # 3
-        """Error is the state when the model is undeployable on Instill Model."""
-
-    class State(_State, metaclass=_StateEnumTypeWrapper):
-        """State describes the state of a model. See [Deploy
-        Models](https://www.instill.tech/docs/latest/model/deploy) for more
-        information.
-        """
-
-    STATE_UNSPECIFIED: Model.State.ValueType  # 0
-    """Unspecified. This state can occur while a model is being deployed."""
-    STATE_OFFLINE: Model.State.ValueType  # 1
-    """Offline is the default state when a model is initially created. A model
-    can be switched from ONLINE to this state by using the `undeploy`
-    method.
-    """
-    STATE_ONLINE: Model.State.ValueType  # 2
-    """Online is the state of a model when it has been deployed (i.e. when the
-    `deploy` method has been used on an OFFLINE model).
-    """
-    STATE_ERROR: Model.State.ValueType  # 3
-    """Error is the state when the model is undeployable on Instill Model."""
-
     NAME_FIELD_NUMBER: builtins.int
     UID_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
@@ -198,13 +197,18 @@ class Model(google.protobuf.message.Message):
     MODEL_DEFINITION_FIELD_NUMBER: builtins.int
     CONFIGURATION_FIELD_NUMBER: builtins.int
     TASK_FIELD_NUMBER: builtins.int
-    STATE_FIELD_NUMBER: builtins.int
     VISIBILITY_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     DELETE_TIME_FIELD_NUMBER: builtins.int
     OWNER_NAME_FIELD_NUMBER: builtins.int
     OWNER_FIELD_NUMBER: builtins.int
+    REGION_FIELD_NUMBER: builtins.int
+    HARDWARE_FIELD_NUMBER: builtins.int
+    README_FIELD_NUMBER: builtins.int
+    SOURCE_URL_FIELD_NUMBER: builtins.int
+    DOCUMENTATION_URL_FIELD_NUMBER: builtins.int
+    LICENSE_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the model, which allows its access by owner and ID.
     - Format: `users/{user.id}/models/{model.id}`.
@@ -229,8 +233,6 @@ class Model(google.protobuf.message.Message):
         """
     task: common.task.v1alpha.task_pb2.Task.ValueType
     """Model task."""
-    state: global___Model.State.ValueType
-    """Model state."""
     visibility: global___Model.Visibility.ValueType
     """Model visibility."""
     @property
@@ -247,6 +249,18 @@ class Model(google.protobuf.message.Message):
     @property
     def owner(self) -> core.mgmt.v1beta.mgmt_pb2.Owner:
         """Model owner."""
+    region: builtins.str
+    """Region of choice for the particular provider to host the model."""
+    hardware: builtins.str
+    """Hardware of choice to serve the model."""
+    readme: builtins.str
+    """README holds the model documentation."""
+    source_url: builtins.str
+    """A link to the source code of the model (e.g. to a GitHub repository)."""
+    documentation_url: builtins.str
+    """A link to any extra information."""
+    license: builtins.str
+    """License under which the model is distributed."""
     def __init__(
         self,
         *,
@@ -257,16 +271,21 @@ class Model(google.protobuf.message.Message):
         model_definition: builtins.str = ...,
         configuration: google.protobuf.struct_pb2.Struct | None = ...,
         task: common.task.v1alpha.task_pb2.Task.ValueType = ...,
-        state: global___Model.State.ValueType = ...,
         visibility: global___Model.Visibility.ValueType = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         owner_name: builtins.str = ...,
         owner: core.mgmt.v1beta.mgmt_pb2.Owner | None = ...,
+        region: builtins.str = ...,
+        hardware: builtins.str = ...,
+        readme: builtins.str = ...,
+        source_url: builtins.str = ...,
+        documentation_url: builtins.str = ...,
+        license: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "_owner", b"_owner", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "owner", b"owner", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "_owner", b"_owner", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "id", b"id", "model_definition", b"model_definition", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "state", b"state", "task", b"task", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "_owner", b"_owner", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "hardware", b"hardware", "id", b"id", "license", b"license", "model_definition", b"model_definition", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "readme", b"readme", "region", b"region", "source_url", b"source_url", "task", b"task", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_description", b"_description"]) -> typing_extensions.Literal["description"] | None: ...
     @typing.overload
@@ -460,79 +479,23 @@ global___CreateUserModelRequest = CreateUserModelRequest
 
 @typing_extensions.final
 class CreateUserModelResponse(google.protobuf.message.Message):
-    """CreateUserModelResponse contains the information to access the status of the
-    model creation operation.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    OPERATION_FIELD_NUMBER: builtins.int
-    @property
-    def operation(self) -> google.longrunning.operations_pb2.Operation:
-        """Long-running operation information."""
-    def __init__(
-        self,
-        *,
-        operation: google.longrunning.operations_pb2.Operation | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> None: ...
-
-global___CreateUserModelResponse = CreateUserModelResponse
-
-@typing_extensions.final
-class CreateUserModelBinaryFileUploadRequest(google.protobuf.message.Message):
-    """CreateUserModelBinaryFileUploadRequest represents a request to create a
-    model by uploading its content in bytes.
-    """
+    """CreateUserModelResponse contains the created model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     MODEL_FIELD_NUMBER: builtins.int
-    CONTENT_FIELD_NUMBER: builtins.int
-    PARENT_FIELD_NUMBER: builtins.int
     @property
     def model(self) -> global___Model:
-        """The properties of the model to be created."""
-    content: builtins.bytes
-    """Model content in bytes."""
-    parent: builtins.str
-    """The parent resource, i.e., the user that creates the model.
-    Format: `users/{user.id}`.
-    """
+        """The created model resource."""
     def __init__(
         self,
         *,
         model: global___Model | None = ...,
-        content: builtins.bytes = ...,
-        parent: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["model", b"model"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["content", b"content", "model", b"model", "parent", b"parent"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model", b"model"]) -> None: ...
 
-global___CreateUserModelBinaryFileUploadRequest = CreateUserModelBinaryFileUploadRequest
-
-@typing_extensions.final
-class CreateUserModelBinaryFileUploadResponse(google.protobuf.message.Message):
-    """CreateUserModelBinaryFileUploadResponse contains the information to access
-    the status of the model creation operation.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    OPERATION_FIELD_NUMBER: builtins.int
-    @property
-    def operation(self) -> google.longrunning.operations_pb2.Operation:
-        """Long-running operation information."""
-    def __init__(
-        self,
-        *,
-        operation: google.longrunning.operations_pb2.Operation | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> None: ...
-
-global___CreateUserModelBinaryFileUploadResponse = CreateUserModelBinaryFileUploadResponse
+global___CreateUserModelResponse = CreateUserModelResponse
 
 @typing_extensions.final
 class ListUserModelsRequest(google.protobuf.message.Message):
@@ -874,88 +837,6 @@ class UnpublishUserModelResponse(google.protobuf.message.Message):
 global___UnpublishUserModelResponse = UnpublishUserModelResponse
 
 @typing_extensions.final
-class DeployUserModelRequest(google.protobuf.message.Message):
-    """DeployUserModelRequest represents a request to set a model to an ONLINE
-    state.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAME_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the model, which allows its access by parent user
-    and ID.
-    - Format: `users/{user.id}/models/{model.id}`.
-    """
-    def __init__(
-        self,
-        *,
-        name: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
-
-global___DeployUserModelRequest = DeployUserModelRequest
-
-@typing_extensions.final
-class DeployUserModelResponse(google.protobuf.message.Message):
-    """DeployUserModelResponse contains the ID of the deployed model."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    MODEL_ID_FIELD_NUMBER: builtins.int
-    model_id: builtins.str
-    """ID of the deployed model, e.g. `llava-7b`."""
-    def __init__(
-        self,
-        *,
-        model_id: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id"]) -> None: ...
-
-global___DeployUserModelResponse = DeployUserModelResponse
-
-@typing_extensions.final
-class UndeployUserModelRequest(google.protobuf.message.Message):
-    """UndeployUserModelRequest represents a request to set a model to an OFFLINE
-    state.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAME_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the model, which allows its access by parent user
-    and ID.
-    - Format: `users/{user.id}/models/{model.id}`.
-    """
-    def __init__(
-        self,
-        *,
-        name: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
-
-global___UndeployUserModelRequest = UndeployUserModelRequest
-
-@typing_extensions.final
-class UndeployUserModelResponse(google.protobuf.message.Message):
-    """UndeployUserModelResponse contains the ID of the undeployed model."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    MODEL_ID_FIELD_NUMBER: builtins.int
-    model_id: builtins.str
-    """ID of the undeployed model, e.g. `llava-7b`."""
-    def __init__(
-        self,
-        *,
-        model_id: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id"]) -> None: ...
-
-global___UndeployUserModelResponse = UndeployUserModelResponse
-
-@typing_extensions.final
 class GetUserModelCardRequest(google.protobuf.message.Message):
     """GetUserModelCardRequest represents a request to fetch the README card of a
     model.
@@ -1000,48 +881,44 @@ global___GetUserModelCardResponse = GetUserModelCardResponse
 
 @typing_extensions.final
 class WatchUserModelRequest(google.protobuf.message.Message):
-    """WatchUserModelRequest represents a request to fetch current state of a model
-    and its long-running operation progress.
-    """
+    """WatchUserModelRequest represents a request to fetch current state of a model"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the model, which allows its access by parent user
     and ID.
     - Format: `users/{user.id}/models/{model.id}`.
     """
+    version: builtins.str
+    """Model version tag"""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
+        version: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "version", b"version"]) -> None: ...
 
 global___WatchUserModelRequest = WatchUserModelRequest
 
 @typing_extensions.final
 class WatchUserModelResponse(google.protobuf.message.Message):
-    """WatchUserModelResponse contains the state and progress of a model."""
+    """WatchUserModelResponse contains the state of a model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     STATE_FIELD_NUMBER: builtins.int
-    PROGRESS_FIELD_NUMBER: builtins.int
-    state: global___Model.State.ValueType
+    state: global___State.ValueType
     """State."""
-    progress: builtins.int
-    """Long-running operation progress. If there are no ongoing operations, the
-    value will be 0.
-    """
     def __init__(
         self,
         *,
-        state: global___Model.State.ValueType = ...,
-        progress: builtins.int = ...,
+        state: global___State.ValueType = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["progress", b"progress", "state", b"state"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["state", b"state"]) -> None: ...
 
 global___WatchUserModelResponse = WatchUserModelResponse
 
@@ -1286,6 +1163,7 @@ class TriggerUserModelRequest(google.protobuf.message.Message):
 
     NAME_FIELD_NUMBER: builtins.int
     TASK_INPUTS_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the model , which allows its access by parent user
     and ID.
@@ -1294,13 +1172,16 @@ class TriggerUserModelRequest(google.protobuf.message.Message):
     @property
     def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
         """Inference input parameters."""
+    version: builtins.str
+    """Model version tag"""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
         task_inputs: collections.abc.Iterable[global___TaskInput] | None = ...,
+        version: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "task_inputs", b"task_inputs"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "task_inputs", b"task_inputs", "version", b"version"]) -> None: ...
 
 global___TriggerUserModelRequest = TriggerUserModelRequest
 
@@ -1337,6 +1218,7 @@ class TriggerUserModelBinaryFileUploadRequest(google.protobuf.message.Message):
 
     NAME_FIELD_NUMBER: builtins.int
     TASK_INPUT_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the model , which allows its access by parent user
     and ID.
@@ -1345,14 +1227,17 @@ class TriggerUserModelBinaryFileUploadRequest(google.protobuf.message.Message):
     @property
     def task_input(self) -> global___TaskInputStream:
         """Inference input as a binary file."""
+    version: builtins.str
+    """Model version tag"""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
         task_input: global___TaskInputStream | None = ...,
+        version: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["task_input", b"task_input"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "task_input", b"task_input"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "task_input", b"task_input", "version", b"version"]) -> None: ...
 
 global___TriggerUserModelBinaryFileUploadRequest = TriggerUserModelBinaryFileUploadRequest
 
@@ -1364,18 +1249,22 @@ class TriggerUserModelBinaryFileUploadResponse(google.protobuf.message.Message):
 
     TASK_FIELD_NUMBER: builtins.int
     TASK_OUTPUTS_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
     task: common.task.v1alpha.task_pb2.Task.ValueType
     """Task type."""
     @property
     def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskOutput]:
         """Model inference outputs."""
+    version: builtins.str
+    """Model version tag"""
     def __init__(
         self,
         *,
         task: common.task.v1alpha.task_pb2.Task.ValueType = ...,
         task_outputs: collections.abc.Iterable[global___TaskOutput] | None = ...,
+        version: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["task", b"task", "task_outputs", b"task_outputs"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["task", b"task", "task_outputs", b"task_outputs", "version", b"version"]) -> None: ...
 
 global___TriggerUserModelBinaryFileUploadResponse = TriggerUserModelBinaryFileUploadResponse
 
@@ -1412,79 +1301,23 @@ global___CreateOrganizationModelRequest = CreateOrganizationModelRequest
 
 @typing_extensions.final
 class CreateOrganizationModelResponse(google.protobuf.message.Message):
-    """CreateOrganizationModelResponse contains the information to access the status of the
-    model creation operation.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    OPERATION_FIELD_NUMBER: builtins.int
-    @property
-    def operation(self) -> google.longrunning.operations_pb2.Operation:
-        """Long-running operation information."""
-    def __init__(
-        self,
-        *,
-        operation: google.longrunning.operations_pb2.Operation | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> None: ...
-
-global___CreateOrganizationModelResponse = CreateOrganizationModelResponse
-
-@typing_extensions.final
-class CreateOrganizationModelBinaryFileUploadRequest(google.protobuf.message.Message):
-    """CreateOrganizationModelBinaryFileUploadRequest represents a request to create a
-    model by uploading its content in bytes.
-    """
+    """CreateOrganizationModelResponse contains the created model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     MODEL_FIELD_NUMBER: builtins.int
-    CONTENT_FIELD_NUMBER: builtins.int
-    PARENT_FIELD_NUMBER: builtins.int
     @property
     def model(self) -> global___Model:
-        """The properties of the model to be created."""
-    content: builtins.bytes
-    """Model content in bytes."""
-    parent: builtins.str
-    """The parent resource, i.e., the organization that creates the model.
-    Format: `organizations/{organization.id}`.
-    """
+        """The created model resource."""
     def __init__(
         self,
         *,
         model: global___Model | None = ...,
-        content: builtins.bytes = ...,
-        parent: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["model", b"model"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["content", b"content", "model", b"model", "parent", b"parent"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model", b"model"]) -> None: ...
 
-global___CreateOrganizationModelBinaryFileUploadRequest = CreateOrganizationModelBinaryFileUploadRequest
-
-@typing_extensions.final
-class CreateOrganizationModelBinaryFileUploadResponse(google.protobuf.message.Message):
-    """CreateOrganizationModelBinaryFileUploadResponse contains the information to access
-    the status of the model creation operation.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    OPERATION_FIELD_NUMBER: builtins.int
-    @property
-    def operation(self) -> google.longrunning.operations_pb2.Operation:
-        """Long-running operation information."""
-    def __init__(
-        self,
-        *,
-        operation: google.longrunning.operations_pb2.Operation | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> None: ...
-
-global___CreateOrganizationModelBinaryFileUploadResponse = CreateOrganizationModelBinaryFileUploadResponse
+global___CreateOrganizationModelResponse = CreateOrganizationModelResponse
 
 @typing_extensions.final
 class ListOrganizationModelsRequest(google.protobuf.message.Message):
@@ -1828,88 +1661,6 @@ class UnpublishOrganizationModelResponse(google.protobuf.message.Message):
 global___UnpublishOrganizationModelResponse = UnpublishOrganizationModelResponse
 
 @typing_extensions.final
-class DeployOrganizationModelRequest(google.protobuf.message.Message):
-    """DeployOrganizationModelRequest represents a request to set a model to an ONLINE
-    state.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAME_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the model, which allows its access by parent organization
-    and ID.
-    - Format: `organizations/{organization.id}/models/{model.id}`.
-    """
-    def __init__(
-        self,
-        *,
-        name: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
-
-global___DeployOrganizationModelRequest = DeployOrganizationModelRequest
-
-@typing_extensions.final
-class DeployOrganizationModelResponse(google.protobuf.message.Message):
-    """DeployOrganizationModelResponse contains the ID of the deployed model."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    MODEL_ID_FIELD_NUMBER: builtins.int
-    model_id: builtins.str
-    """ID of the deployed model, e.g. `llava-7b`."""
-    def __init__(
-        self,
-        *,
-        model_id: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id"]) -> None: ...
-
-global___DeployOrganizationModelResponse = DeployOrganizationModelResponse
-
-@typing_extensions.final
-class UndeployOrganizationModelRequest(google.protobuf.message.Message):
-    """UndeployOrganizationModelRequest represents a request to set a model to an OFFLINE
-    state.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAME_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the model, which allows its access by parent organization
-    and ID.
-    - Format: `organizations/{organization.id}/models/{model.id}`.
-    """
-    def __init__(
-        self,
-        *,
-        name: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
-
-global___UndeployOrganizationModelRequest = UndeployOrganizationModelRequest
-
-@typing_extensions.final
-class UndeployOrganizationModelResponse(google.protobuf.message.Message):
-    """UndeployOrganizationModelResponse contains the ID of the undeployed model."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    MODEL_ID_FIELD_NUMBER: builtins.int
-    model_id: builtins.str
-    """ID of the undeployed model, e.g. `llava-7b`."""
-    def __init__(
-        self,
-        *,
-        model_id: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id"]) -> None: ...
-
-global___UndeployOrganizationModelResponse = UndeployOrganizationModelResponse
-
-@typing_extensions.final
 class GetOrganizationModelCardRequest(google.protobuf.message.Message):
     """GetOrganizationModelCardRequest represents a request to fetch the README card of a
     model.
@@ -1954,48 +1705,44 @@ global___GetOrganizationModelCardResponse = GetOrganizationModelCardResponse
 
 @typing_extensions.final
 class WatchOrganizationModelRequest(google.protobuf.message.Message):
-    """WatchOrganizationModelRequest represents a request to fetch current state of a model
-    and its long-running operation progress.
-    """
+    """WatchOrganizationModelRequest represents a request to fetch current state of a model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the model, which allows its access by parent organization
     and ID.
     - Format: `organizations/{organization.id}/models/{model.id}`.
     """
+    version: builtins.str
+    """Model version tag"""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
+        version: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "version", b"version"]) -> None: ...
 
 global___WatchOrganizationModelRequest = WatchOrganizationModelRequest
 
 @typing_extensions.final
 class WatchOrganizationModelResponse(google.protobuf.message.Message):
-    """WatchOrganizationModelResponse contains the state and progress of a model."""
+    """WatchOrganizationModelResponse contains the state of a model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     STATE_FIELD_NUMBER: builtins.int
-    PROGRESS_FIELD_NUMBER: builtins.int
-    state: global___Model.State.ValueType
+    state: global___State.ValueType
     """State."""
-    progress: builtins.int
-    """Long-running operation progress. If there are no ongoing operations, the
-    value will be 0.
-    """
     def __init__(
         self,
         *,
-        state: global___Model.State.ValueType = ...,
-        progress: builtins.int = ...,
+        state: global___State.ValueType = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["progress", b"progress", "state", b"state"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["state", b"state"]) -> None: ...
 
 global___WatchOrganizationModelResponse = WatchOrganizationModelResponse
 
@@ -2007,6 +1754,7 @@ class TriggerOrganizationModelRequest(google.protobuf.message.Message):
 
     NAME_FIELD_NUMBER: builtins.int
     TASK_INPUTS_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the model , which allows its access by parent organization
     and ID.
@@ -2015,13 +1763,16 @@ class TriggerOrganizationModelRequest(google.protobuf.message.Message):
     @property
     def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
         """Inference input parameters."""
+    version: builtins.str
+    """Model version tag"""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
         task_inputs: collections.abc.Iterable[global___TaskInput] | None = ...,
+        version: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "task_inputs", b"task_inputs"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "task_inputs", b"task_inputs", "version", b"version"]) -> None: ...
 
 global___TriggerOrganizationModelRequest = TriggerOrganizationModelRequest
 
@@ -2058,6 +1809,7 @@ class TriggerOrganizationModelBinaryFileUploadRequest(google.protobuf.message.Me
 
     NAME_FIELD_NUMBER: builtins.int
     TASK_INPUT_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the model , which allows its access by parent organization
     and ID.
@@ -2066,14 +1818,17 @@ class TriggerOrganizationModelBinaryFileUploadRequest(google.protobuf.message.Me
     @property
     def task_input(self) -> global___TaskInputStream:
         """Inference input as a binary file."""
+    version: builtins.str
+    """Model version tag"""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
         task_input: global___TaskInputStream | None = ...,
+        version: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["task_input", b"task_input"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "task_input", b"task_input"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "task_input", b"task_input", "version", b"version"]) -> None: ...
 
 global___TriggerOrganizationModelBinaryFileUploadRequest = TriggerOrganizationModelBinaryFileUploadRequest
 
@@ -2279,64 +2034,31 @@ class LookUpModelAdminResponse(google.protobuf.message.Message):
 global___LookUpModelAdminResponse = LookUpModelAdminResponse
 
 @typing_extensions.final
-class CheckModelAdminRequest(google.protobuf.message.Message):
-    """CheckModelAdminRequest represents a private request to query
-    a model current state and longrunning progress
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    MODEL_PERMALINK_FIELD_NUMBER: builtins.int
-    model_permalink: builtins.str
-    """Permalink of a model. For example:
-    "models/{uid}"
-    """
-    def __init__(
-        self,
-        *,
-        model_permalink: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["model_permalink", b"model_permalink"]) -> None: ...
-
-global___CheckModelAdminRequest = CheckModelAdminRequest
-
-@typing_extensions.final
-class CheckModelAdminResponse(google.protobuf.message.Message):
-    """CheckModelAdminResponse represents a response to fetch a model's
-    current state and longrunning progress
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    STATE_FIELD_NUMBER: builtins.int
-    state: global___Model.State.ValueType
-    """Retrieved model state"""
-    def __init__(
-        self,
-        *,
-        state: global___Model.State.ValueType = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["state", b"state"]) -> None: ...
-
-global___CheckModelAdminResponse = CheckModelAdminResponse
-
-@typing_extensions.final
 class DeployModelAdminRequest(google.protobuf.message.Message):
     """DeployModelAdminRequest represents a request to deploy a model to online state"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    MODEL_PERMALINK_FIELD_NUMBER: builtins.int
-    model_permalink: builtins.str
-    """Permalink for the model to be deployed.
-    Format: "models/{uid}"
+    NAME_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
+    DIGEST_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the model, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/models/{model.id}`.
     """
+    version: builtins.str
+    """Model version tag"""
+    digest: builtins.str
+    """Model image digest"""
     def __init__(
         self,
         *,
-        model_permalink: builtins.str = ...,
+        name: builtins.str = ...,
+        version: builtins.str = ...,
+        digest: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["model_permalink", b"model_permalink"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["digest", b"digest", "name", b"name", "version", b"version"]) -> None: ...
 
 global___DeployModelAdminRequest = DeployModelAdminRequest
 
@@ -2346,17 +2068,9 @@ class DeployModelAdminResponse(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    OPERATION_FIELD_NUMBER: builtins.int
-    @property
-    def operation(self) -> google.longrunning.operations_pb2.Operation:
-        """Deploy operation message"""
     def __init__(
         self,
-        *,
-        operation: google.longrunning.operations_pb2.Operation | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> None: ...
 
 global___DeployModelAdminResponse = DeployModelAdminResponse
 
@@ -2368,17 +2082,26 @@ class UndeployModelAdminRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    MODEL_PERMALINK_FIELD_NUMBER: builtins.int
-    model_permalink: builtins.str
-    """Permalink for the model to be undeployed.
-    Format: "models/{uid}"
+    NAME_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
+    DIGEST_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the model, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/models/{model.id}`.
     """
+    version: builtins.str
+    """Model version tag"""
+    digest: builtins.str
+    """Model image digest"""
     def __init__(
         self,
         *,
-        model_permalink: builtins.str = ...,
+        name: builtins.str = ...,
+        version: builtins.str = ...,
+        digest: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["model_permalink", b"model_permalink"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["digest", b"digest", "name", b"name", "version", b"version"]) -> None: ...
 
 global___UndeployModelAdminRequest = UndeployModelAdminRequest
 
@@ -2388,16 +2111,8 @@ class UndeployModelAdminResponse(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    OPERATION_FIELD_NUMBER: builtins.int
-    @property
-    def operation(self) -> google.longrunning.operations_pb2.Operation:
-        """Undeploy operation message"""
     def __init__(
         self,
-        *,
-        operation: google.longrunning.operations_pb2.Operation | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> None: ...
 
 global___UndeployModelAdminResponse = UndeployModelAdminResponse

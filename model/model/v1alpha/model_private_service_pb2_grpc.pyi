@@ -37,13 +37,6 @@ class ModelPrivateServiceStub:
     """LookUpModelAdmin method receives a LookUpModelAdminRequest message and
     returns a LookUpModelAdminResponse
     """
-    CheckModelAdmin: grpc.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.CheckModelAdminRequest,
-        model.model.v1alpha.model_pb2.CheckModelAdminResponse,
-    ]
-    """CheckModelAdmin method receives a CheckModelAdminRequest message and returns a
-    CheckModelAdminResponse
-    """
     DeployModelAdmin: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.DeployModelAdminRequest,
         model.model.v1alpha.model_pb2.DeployModelAdminResponse,
@@ -73,13 +66,6 @@ class ModelPrivateServiceAsyncStub:
     ]
     """LookUpModelAdmin method receives a LookUpModelAdminRequest message and
     returns a LookUpModelAdminResponse
-    """
-    CheckModelAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.CheckModelAdminRequest,
-        model.model.v1alpha.model_pb2.CheckModelAdminResponse,
-    ]
-    """CheckModelAdmin method receives a CheckModelAdminRequest message and returns a
-    CheckModelAdminResponse
     """
     DeployModelAdmin: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.DeployModelAdminRequest,
@@ -114,15 +100,6 @@ class ModelPrivateServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.LookUpModelAdminResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.LookUpModelAdminResponse]]:
         """LookUpModelAdmin method receives a LookUpModelAdminRequest message and
         returns a LookUpModelAdminResponse
-        """
-    @abc.abstractmethod
-    def CheckModelAdmin(
-        self,
-        request: model.model.v1alpha.model_pb2.CheckModelAdminRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_pb2.CheckModelAdminResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.CheckModelAdminResponse]]:
-        """CheckModelAdmin method receives a CheckModelAdminRequest message and returns a
-        CheckModelAdminResponse
         """
     @abc.abstractmethod
     def DeployModelAdmin(

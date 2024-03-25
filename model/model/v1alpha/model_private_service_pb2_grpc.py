@@ -26,11 +26,6 @@ class ModelPrivateServiceStub(object):
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminResponse.FromString,
                 )
-        self.CheckModelAdmin = channel.unary_unary(
-                '/model.model.v1alpha.ModelPrivateService/CheckModelAdmin',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CheckModelAdminRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CheckModelAdminResponse.FromString,
-                )
         self.DeployModelAdmin = channel.unary_unary(
                 '/model.model.v1alpha.ModelPrivateService/DeployModelAdmin',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployModelAdminRequest.SerializeToString,
@@ -64,14 +59,6 @@ class ModelPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def CheckModelAdmin(self, request, context):
-        """CheckModelAdmin method receives a CheckModelAdminRequest message and returns a
-        CheckModelAdminResponse
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def DeployModelAdmin(self, request, context):
         """DeployModelAdmin deploy a model to online state
         """
@@ -98,11 +85,6 @@ def add_ModelPrivateServiceServicer_to_server(servicer, server):
                     servicer.LookUpModelAdmin,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminResponse.SerializeToString,
-            ),
-            'CheckModelAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.CheckModelAdmin,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CheckModelAdminRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CheckModelAdminResponse.SerializeToString,
             ),
             'DeployModelAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.DeployModelAdmin,
@@ -157,23 +139,6 @@ class ModelPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/LookUpModelAdmin',
             model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def CheckModelAdmin(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/CheckModelAdmin',
-            model_dot_model_dot_v1alpha_dot_model__pb2.CheckModelAdminRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.CheckModelAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

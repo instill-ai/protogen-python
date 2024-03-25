@@ -59,11 +59,6 @@ class ModelPublicServiceStub(object):
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelResponse.FromString,
                 )
-        self.CreateUserModelBinaryFileUpload = channel.stream_unary(
-                '/model.model.v1alpha.ModelPublicService/CreateUserModelBinaryFileUpload',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelBinaryFileUploadRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelBinaryFileUploadResponse.FromString,
-                )
         self.GetUserModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/GetUserModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetUserModelRequest.SerializeToString,
@@ -93,16 +88,6 @@ class ModelPublicServiceStub(object):
                 '/model.model.v1alpha.ModelPublicService/UnpublishUserModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishUserModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishUserModelResponse.FromString,
-                )
-        self.DeployUserModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/DeployUserModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployUserModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployUserModelResponse.FromString,
-                )
-        self.UndeployUserModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/UndeployUserModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelResponse.FromString,
                 )
         self.GetUserModelCard = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/GetUserModelCard',
@@ -134,11 +119,6 @@ class ModelPublicServiceStub(object):
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelResponse.FromString,
                 )
-        self.CreateOrganizationModelBinaryFileUpload = channel.stream_unary(
-                '/model.model.v1alpha.ModelPublicService/CreateOrganizationModelBinaryFileUpload',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelBinaryFileUploadRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelBinaryFileUploadResponse.FromString,
-                )
         self.GetOrganizationModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/GetOrganizationModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationModelRequest.SerializeToString,
@@ -168,16 +148,6 @@ class ModelPublicServiceStub(object):
                 '/model.model.v1alpha.ModelPublicService/UnpublishOrganizationModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishOrganizationModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishOrganizationModelResponse.FromString,
-                )
-        self.DeployOrganizationModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/DeployOrganizationModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployOrganizationModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployOrganizationModelResponse.FromString,
-                )
-        self.UndeployOrganizationModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/UndeployOrganizationModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelResponse.FromString,
                 )
         self.GetOrganizationModelCard = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/GetOrganizationModelCard',
@@ -291,15 +261,6 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def CreateUserModelBinaryFileUpload(self, request_iterator, context):
-        """Upload model binary
-
-        Creates a new model by upploading its binary content.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def GetUserModel(self, request, context):
         """Get a model
 
@@ -357,38 +318,6 @@ class ModelPublicServiceServicer(object):
 
         Updates the visibility in a model to PRIVATE. The model is accessed by its
         resource name, defined by the model ID and its parent user.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def DeployUserModel(self, request, context):
-        """Deploy a model
-
-        Transitions the model into an ONLINE state. The model is accessed by its
-        resource name, defined by the model ID and its parent user.
-
-        While this operation is being performed, the state of the model will
-        transition to UNSPECIFIED. As completing the deployment might take time,
-        the server will not wait to complete the operation to return a response.
-        The state of the model can be used to track the completion of the
-        operation. This can be done by using the `watch` operation on the model.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def UndeployUserModel(self, request, context):
-        """Undeploy a model
-
-        Transitions the model into an OFFLINE state. The model is accessed by its
-        resource name, defined by the model ID and its parent user.
-
-        While this operation is being performed, the state of the model will
-        transition to UNSPECIFIED. As completing the teardown might take time,
-        the server will not wait to complete the operation to return a response.
-        The state of the model can be used to track the completion of the
-        operation. This can be done by using the `watch` operation on the model.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -461,15 +390,6 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def CreateOrganizationModelBinaryFileUpload(self, request_iterator, context):
-        """Upload model binary
-
-        Creates a new model by upploading its binary content.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def GetOrganizationModel(self, request, context):
         """Get a model
 
@@ -527,38 +447,6 @@ class ModelPublicServiceServicer(object):
 
         Updates the visibility in a model to PRIVATE. The model is accessed by its
         resource name, defined by the model ID and its parent organization.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def DeployOrganizationModel(self, request, context):
-        """Deploy a model
-
-        Transitions the model into an ONLINE state. The model is accessed by its
-        resource name, defined by the model ID and its parent organization.
-
-        While this operation is being performed, the state of the model will
-        transition to UNSPECIFIED. As completing the deployment might take time,
-        the server will not wait to complete the operation to return a response.
-        The state of the model can be used to track the completion of the
-        operation. This can be done by using the `watch` operation on the model.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def UndeployOrganizationModel(self, request, context):
-        """Undeploy a model
-
-        Transitions the model into an OFFLINE state. The model is accessed by its
-        resource name, defined by the model ID and its parent organization.
-
-        While this operation is being performed, the state of the model will
-        transition to UNSPECIFIED. As completing the teardown might take time,
-        the server will not wait to complete the operation to return a response.
-        The state of the model can be used to track the completion of the
-        operation. This can be done by using the `watch` operation on the model.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -660,11 +548,6 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelResponse.SerializeToString,
             ),
-            'CreateUserModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
-                    servicer.CreateUserModelBinaryFileUpload,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelBinaryFileUploadRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelBinaryFileUploadResponse.SerializeToString,
-            ),
             'GetUserModel': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUserModel,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetUserModelRequest.FromString,
@@ -694,16 +577,6 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     servicer.UnpublishUserModel,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishUserModelRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishUserModelResponse.SerializeToString,
-            ),
-            'DeployUserModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeployUserModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployUserModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployUserModelResponse.SerializeToString,
-            ),
-            'UndeployUserModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.UndeployUserModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelResponse.SerializeToString,
             ),
             'GetUserModelCard': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUserModelCard,
@@ -735,11 +608,6 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelResponse.SerializeToString,
             ),
-            'CreateOrganizationModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
-                    servicer.CreateOrganizationModelBinaryFileUpload,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelBinaryFileUploadRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelBinaryFileUploadResponse.SerializeToString,
-            ),
             'GetOrganizationModel': grpc.unary_unary_rpc_method_handler(
                     servicer.GetOrganizationModel,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationModelRequest.FromString,
@@ -769,16 +637,6 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     servicer.UnpublishOrganizationModel,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishOrganizationModelRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishOrganizationModelResponse.SerializeToString,
-            ),
-            'DeployOrganizationModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeployOrganizationModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployOrganizationModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployOrganizationModelResponse.SerializeToString,
-            ),
-            'UndeployOrganizationModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.UndeployOrganizationModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelResponse.SerializeToString,
             ),
             'GetOrganizationModelCard': grpc.unary_unary_rpc_method_handler(
                     servicer.GetOrganizationModelCard,
@@ -956,23 +814,6 @@ class ModelPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def CreateUserModelBinaryFileUpload(request_iterator,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/model.model.v1alpha.ModelPublicService/CreateUserModelBinaryFileUpload',
-            model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelBinaryFileUploadRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelBinaryFileUploadResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def GetUserModel(request,
             target,
             options=(),
@@ -1071,40 +912,6 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/UnpublishUserModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishUserModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishUserModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def DeployUserModel(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/DeployUserModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.DeployUserModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.DeployUserModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def UndeployUserModel(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/UndeployUserModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1211,23 +1018,6 @@ class ModelPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def CreateOrganizationModelBinaryFileUpload(request_iterator,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/model.model.v1alpha.ModelPublicService/CreateOrganizationModelBinaryFileUpload',
-            model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelBinaryFileUploadRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelBinaryFileUploadResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def GetOrganizationModel(request,
             target,
             options=(),
@@ -1326,40 +1116,6 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/UnpublishOrganizationModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishOrganizationModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishOrganizationModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def DeployOrganizationModel(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/DeployOrganizationModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.DeployOrganizationModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.DeployOrganizationModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def UndeployOrganizationModel(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/UndeployOrganizationModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
