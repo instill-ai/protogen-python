@@ -13,9 +13,11 @@ _sym_db = _symbol_database.Default()
 
 from common.healthcheck.v1beta import healthcheck_pb2 as common_dot_healthcheck_dot_v1beta_dot_healthcheck__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
+from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(artifact/artifact/v1alpha/artifact.proto\x12\x19\x61rtifact.artifact.v1alpha\x1a+common/healthcheck/v1beta/healthcheck.proto\x1a\x1fgoogle/api/field_behavior.proto\"\x96\x01\n\x0fLivenessRequest\x12j\n\x14health_check_request\x18\x01 \x01(\x0b\x32-.common.healthcheck.v1beta.HealthCheckRequestB\x04\xe2\x41\x01\x01H\x00R\x12healthCheckRequest\x88\x01\x01\x42\x17\n\x15_health_check_request\"v\n\x10LivenessResponse\x12\x62\n\x15health_check_response\x18\x01 \x01(\x0b\x32..common.healthcheck.v1beta.HealthCheckResponseR\x13healthCheckResponse\"\x97\x01\n\x10ReadinessRequest\x12j\n\x14health_check_request\x18\x01 \x01(\x0b\x32-.common.healthcheck.v1beta.HealthCheckRequestB\x04\xe2\x41\x01\x01H\x00R\x12healthCheckRequest\x88\x01\x01\x42\x17\n\x15_health_check_request\"w\n\x11ReadinessResponse\x12\x62\n\x15health_check_response\x18\x01 \x01(\x0b\x32..common.healthcheck.v1beta.HealthCheckResponseR\x13healthCheckResponseB\x81\x02\n\x1d\x63om.artifact.artifact.v1alphaB\rArtifactProtoP\x01ZKgithub.com/instill-ai/protogen-go/artifact/artifact/v1alpha;artifactv1alpha\xa2\x02\x03\x41\x41X\xaa\x02\x19\x41rtifact.Artifact.V1alpha\xca\x02\x19\x41rtifact\\Artifact\\V1alpha\xe2\x02%Artifact\\Artifact\\V1alpha\\GPBMetadata\xea\x02\x1b\x41rtifact::Artifact::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(artifact/artifact/v1alpha/artifact.proto\x12\x19\x61rtifact.artifact.v1alpha\x1a+common/healthcheck/v1beta/healthcheck.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x96\x01\n\x0fLivenessRequest\x12j\n\x14health_check_request\x18\x01 \x01(\x0b\x32-.common.healthcheck.v1beta.HealthCheckRequestB\x04\xe2\x41\x01\x01H\x00R\x12healthCheckRequest\x88\x01\x01\x42\x17\n\x15_health_check_request\"v\n\x10LivenessResponse\x12\x62\n\x15health_check_response\x18\x01 \x01(\x0b\x32..common.healthcheck.v1beta.HealthCheckResponseR\x13healthCheckResponse\"\x97\x01\n\x10ReadinessRequest\x12j\n\x14health_check_request\x18\x01 \x01(\x0b\x32-.common.healthcheck.v1beta.HealthCheckRequestB\x04\xe2\x41\x01\x01H\x00R\x12healthCheckRequest\x88\x01\x01\x42\x17\n\x15_health_check_request\"w\n\x11ReadinessResponse\x12\x62\n\x15health_check_response\x18\x01 \x01(\x0b\x32..common.healthcheck.v1beta.HealthCheckResponseR\x13healthCheckResponse\"\xa0\x01\n\rRepositoryTag\x12\x18\n\x04name\x18\x01 \x01(\tB\x04\xe2\x41\x01\x05R\x04name\x12\x14\n\x02id\x18\x02 \x01(\tB\x04\xe2\x41\x01\x05R\x02id\x12\x1c\n\x06\x64igest\x18\x03 \x01(\tB\x04\xe2\x41\x01\x03R\x06\x64igest\x12\x41\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x04\xe2\x41\x01\x03R\nupdateTime\"\xb7\x01\n\x19ListRepositoryTagsRequest\x12&\n\tpage_size\x18\x01 \x01(\x05\x42\x04\xe2\x41\x01\x01H\x00R\x08pageSize\x88\x01\x01\x12\x1d\n\x04page\x18\x02 \x01(\x05\x42\x04\xe2\x41\x01\x01H\x01R\x04page\x88\x01\x01\x12<\n\x06parent\x18\x03 \x01(\tB$\xe2\x41\x01\x02\xfa\x41\x1d\n\x1b\x61pi.instill.tech/RepositoryR\x06parentB\x0c\n\n_page_sizeB\x07\n\x05_page\"\xaa\x01\n\x1aListRepositoryTagsResponse\x12<\n\x04tags\x18\x01 \x03(\x0b\x32(.artifact.artifact.v1alpha.RepositoryTagR\x04tags\x12\x1d\n\ntotal_size\x18\x02 \x01(\x05R\ttotalSize\x12\x1b\n\tpage_size\x18\x03 \x01(\x05R\x08pageSize\x12\x12\n\x04page\x18\x04 \x01(\x05R\x04page\"\x96\x01\n\x1a\x43reateRepositoryTagRequest\x12:\n\x03tag\x18\x01 \x01(\x0b\x32(.artifact.artifact.v1alpha.RepositoryTagR\x03tag\x12<\n\x06parent\x18\x02 \x01(\tB$\xe2\x41\x01\x02\xfa\x41\x1d\n\x1b\x61pi.instill.tech/RepositoryR\x06parent\"Y\n\x1b\x43reateRepositoryTagResponse\x12:\n\x03tag\x18\x01 \x01(\x0b\x32(.artifact.artifact.v1alpha.RepositoryTagR\x03tagB\x81\x02\n\x1d\x63om.artifact.artifact.v1alphaB\rArtifactProtoP\x01ZKgithub.com/instill-ai/protogen-go/artifact/artifact/v1alpha;artifactv1alpha\xa2\x02\x03\x41\x41X\xaa\x02\x19\x41rtifact.Artifact.V1alpha\xca\x02\x19\x41rtifact\\Artifact\\V1alpha\xe2\x02%Artifact\\Artifact\\V1alpha\\GPBMetadata\xea\x02\x1b\x41rtifact::Artifact::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -28,12 +30,38 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _LIVENESSREQUEST.fields_by_name['health_check_request']._serialized_options = b'\342A\001\001'
   _READINESSREQUEST.fields_by_name['health_check_request']._options = None
   _READINESSREQUEST.fields_by_name['health_check_request']._serialized_options = b'\342A\001\001'
-  _globals['_LIVENESSREQUEST']._serialized_start=150
-  _globals['_LIVENESSREQUEST']._serialized_end=300
-  _globals['_LIVENESSRESPONSE']._serialized_start=302
-  _globals['_LIVENESSRESPONSE']._serialized_end=420
-  _globals['_READINESSREQUEST']._serialized_start=423
-  _globals['_READINESSREQUEST']._serialized_end=574
-  _globals['_READINESSRESPONSE']._serialized_start=576
-  _globals['_READINESSRESPONSE']._serialized_end=695
+  _REPOSITORYTAG.fields_by_name['name']._options = None
+  _REPOSITORYTAG.fields_by_name['name']._serialized_options = b'\342A\001\005'
+  _REPOSITORYTAG.fields_by_name['id']._options = None
+  _REPOSITORYTAG.fields_by_name['id']._serialized_options = b'\342A\001\005'
+  _REPOSITORYTAG.fields_by_name['digest']._options = None
+  _REPOSITORYTAG.fields_by_name['digest']._serialized_options = b'\342A\001\003'
+  _REPOSITORYTAG.fields_by_name['update_time']._options = None
+  _REPOSITORYTAG.fields_by_name['update_time']._serialized_options = b'\342A\001\003'
+  _LISTREPOSITORYTAGSREQUEST.fields_by_name['page_size']._options = None
+  _LISTREPOSITORYTAGSREQUEST.fields_by_name['page_size']._serialized_options = b'\342A\001\001'
+  _LISTREPOSITORYTAGSREQUEST.fields_by_name['page']._options = None
+  _LISTREPOSITORYTAGSREQUEST.fields_by_name['page']._serialized_options = b'\342A\001\001'
+  _LISTREPOSITORYTAGSREQUEST.fields_by_name['parent']._options = None
+  _LISTREPOSITORYTAGSREQUEST.fields_by_name['parent']._serialized_options = b'\342A\001\002\372A\035\n\033api.instill.tech/Repository'
+  _CREATEREPOSITORYTAGREQUEST.fields_by_name['parent']._options = None
+  _CREATEREPOSITORYTAGREQUEST.fields_by_name['parent']._serialized_options = b'\342A\001\002\372A\035\n\033api.instill.tech/Repository'
+  _globals['_LIVENESSREQUEST']._serialized_start=210
+  _globals['_LIVENESSREQUEST']._serialized_end=360
+  _globals['_LIVENESSRESPONSE']._serialized_start=362
+  _globals['_LIVENESSRESPONSE']._serialized_end=480
+  _globals['_READINESSREQUEST']._serialized_start=483
+  _globals['_READINESSREQUEST']._serialized_end=634
+  _globals['_READINESSRESPONSE']._serialized_start=636
+  _globals['_READINESSRESPONSE']._serialized_end=755
+  _globals['_REPOSITORYTAG']._serialized_start=758
+  _globals['_REPOSITORYTAG']._serialized_end=918
+  _globals['_LISTREPOSITORYTAGSREQUEST']._serialized_start=921
+  _globals['_LISTREPOSITORYTAGSREQUEST']._serialized_end=1104
+  _globals['_LISTREPOSITORYTAGSRESPONSE']._serialized_start=1107
+  _globals['_LISTREPOSITORYTAGSRESPONSE']._serialized_end=1277
+  _globals['_CREATEREPOSITORYTAGREQUEST']._serialized_start=1280
+  _globals['_CREATEREPOSITORYTAGREQUEST']._serialized_end=1430
+  _globals['_CREATEREPOSITORYTAGRESPONSE']._serialized_start=1432
+  _globals['_CREATEREPOSITORYTAGRESPONSE']._serialized_end=1521
 # @@protoc_insertion_point(module_scope)

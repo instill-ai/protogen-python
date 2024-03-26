@@ -6,9 +6,7 @@ from artifact.artifact.v1alpha import artifact_pb2 as artifact_dot_artifact_dot_
 
 
 class ArtifactPublicServiceStub(object):
-    """Artifact
-
-    ArtifactPublicService exposes the public endpoints that allow clients to
+    """ArtifactPublicService exposes the public endpoints that allow clients to
     manage artifacts.
     """
 
@@ -31,9 +29,7 @@ class ArtifactPublicServiceStub(object):
 
 
 class ArtifactPublicServiceServicer(object):
-    """Artifact
-
-    ArtifactPublicService exposes the public endpoints that allow clients to
+    """ArtifactPublicService exposes the public endpoints that allow clients to
     manage artifacts.
     """
 
@@ -76,9 +72,7 @@ def add_ArtifactPublicServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class ArtifactPublicService(object):
-    """Artifact
-
-    ArtifactPublicService exposes the public endpoints that allow clients to
+    """ArtifactPublicService exposes the public endpoints that allow clients to
     manage artifacts.
     """
 

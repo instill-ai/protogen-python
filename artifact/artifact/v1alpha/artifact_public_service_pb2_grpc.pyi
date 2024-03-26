@@ -18,9 +18,7 @@ class _ServicerContext(grpc.ServicerContext, grpc.aio.ServicerContext):  # type:
     ...
 
 class ArtifactPublicServiceStub:
-    """Artifact
-
-    ArtifactPublicService exposes the public endpoints that allow clients to
+    """ArtifactPublicService exposes the public endpoints that allow clients to
     manage artifacts.
     """
 
@@ -43,9 +41,7 @@ class ArtifactPublicServiceStub:
     """
 
 class ArtifactPublicServiceAsyncStub:
-    """Artifact
-
-    ArtifactPublicService exposes the public endpoints that allow clients to
+    """ArtifactPublicService exposes the public endpoints that allow clients to
     manage artifacts.
     """
 
@@ -67,9 +63,7 @@ class ArtifactPublicServiceAsyncStub:
     """
 
 class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
-    """Artifact
-
-    ArtifactPublicService exposes the public endpoints that allow clients to
+    """ArtifactPublicService exposes the public endpoints that allow clients to
     manage artifacts.
     """
 

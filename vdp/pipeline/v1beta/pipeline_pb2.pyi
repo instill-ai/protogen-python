@@ -840,7 +840,7 @@ class PipelineRelease(google.protobuf.message.Message):
     DATA_SPECIFICATION_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The name of the release, defined by its parent and ID.
-    - Format: `{parent_type}/{parent.id}/pipelines/{pipeline.id}/releases/{release.id}
+    - Format: `{parent_type}/{parent.id}/pipelines/{pipeline.id}/releases/{release.id}`.
     """
     uid: builtins.str
     """Release UUID."""
