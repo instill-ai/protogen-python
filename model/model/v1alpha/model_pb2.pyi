@@ -911,14 +911,18 @@ class WatchUserModelResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     STATE_FIELD_NUMBER: builtins.int
+    MESSAGE_FIELD_NUMBER: builtins.int
     state: global___State.ValueType
     """State."""
+    message: builtins.str
+    """Detail description of the state"""
     def __init__(
         self,
         *,
         state: global___State.ValueType = ...,
+        message: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["state", b"state"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["message", b"message", "state", b"state"]) -> None: ...
 
 global___WatchUserModelResponse = WatchUserModelResponse
 
@@ -1735,14 +1739,18 @@ class WatchOrganizationModelResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     STATE_FIELD_NUMBER: builtins.int
+    MESSAGE_FIELD_NUMBER: builtins.int
     state: global___State.ValueType
     """State."""
+    message: builtins.str
+    """Detail description of the state"""
     def __init__(
         self,
         *,
         state: global___State.ValueType = ...,
+        message: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["state", b"state"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["message", b"message", "state", b"state"]) -> None: ...
 
 global___WatchOrganizationModelResponse = WatchOrganizationModelResponse
 
