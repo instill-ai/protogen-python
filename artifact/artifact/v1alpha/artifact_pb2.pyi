@@ -199,7 +199,7 @@ class ListRepositoryTagsRequest(google.protobuf.message.Message):
     parent: builtins.str
     """The repository holding the different versions of a given content.
     - Format: `repositories/{repository.id}`.
-    - Example: `repository/flaming-wombat/llama-2-7b`.
+    - Example: `repositories/flaming-wombat/llama-2-7b`.
     """
     def __init__(
         self,
@@ -257,23 +257,16 @@ class CreateRepositoryTagRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     TAG_FIELD_NUMBER: builtins.int
-    PARENT_FIELD_NUMBER: builtins.int
     @property
     def tag(self) -> global___RepositoryTag:
         """The tag information."""
-    parent: builtins.str
-    """The repository holding the different versions of a given content.
-    - Format: `repositories/{repository.id}`.
-    - Example: `repository/flaming-wombat/llama-2-7b`.
-    """
     def __init__(
         self,
         *,
         tag: global___RepositoryTag | None = ...,
-        parent: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["tag", b"tag"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["parent", b"parent", "tag", b"tag"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["tag", b"tag"]) -> None: ...
 
 global___CreateRepositoryTagRequest = CreateRepositoryTagRequest
 
