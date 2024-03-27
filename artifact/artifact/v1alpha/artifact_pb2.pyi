@@ -156,7 +156,13 @@ class RepositoryTag(google.protobuf.message.Message):
     id: builtins.str
     """The tag identifier."""
     digest: builtins.str
-    """Unique identifier, computed from the manifest the tag refers to."""
+    """The Artifact backend will register the tag digest and timestamp when a
+    new version is pushed. However, the registry remains the source of truth
+    for tags, so if this information isn't found in the Artifact database,
+    these fields will be empty.
+
+    Unique identifier, computed from the manifest the tag refers to.
+    """
     @property
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Tag update time, i.e. timestamp of the last push."""
