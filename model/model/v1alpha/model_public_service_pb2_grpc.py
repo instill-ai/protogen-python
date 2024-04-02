@@ -104,6 +104,11 @@ class ModelPublicServiceStub(object):
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelResponse.FromString,
                 )
+        self.TriggerAsyncUserModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/TriggerAsyncUserModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncUserModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncUserModelResponse.FromString,
+                )
         self.TriggerUserModelBinaryFileUpload = channel.stream_unary(
                 '/model.model.v1alpha.ModelPublicService/TriggerUserModelBinaryFileUpload',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelBinaryFileUploadRequest.SerializeToString,
@@ -163,6 +168,11 @@ class ModelPublicServiceStub(object):
                 '/model.model.v1alpha.ModelPublicService/TriggerOrganizationModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelResponse.FromString,
+                )
+        self.TriggerAsyncOrganizationModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/TriggerAsyncOrganizationModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationModelResponse.FromString,
                 )
         self.TriggerOrganizationModelBinaryFileUpload = channel.stream_unary(
                 '/model.model.v1alpha.ModelPublicService/TriggerOrganizationModelBinaryFileUpload',
@@ -356,6 +366,16 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def TriggerAsyncUserModel(self, request, context):
+        """Trigger model inference asynchronously
+
+        Triggers a deployed model to infer the result of a set of task or
+        questions.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def TriggerUserModelBinaryFileUpload(self, request_iterator, context):
         """Trigger model inference with a binary input
 
@@ -485,6 +505,16 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def TriggerAsyncOrganizationModel(self, request, context):
+        """Trigger model inference asynchronously
+
+        Triggers a deployed model to infer the result of a set of task or
+        questions.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def TriggerOrganizationModelBinaryFileUpload(self, request_iterator, context):
         """Trigger model inference with a binary input
 
@@ -593,6 +623,11 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelResponse.SerializeToString,
             ),
+            'TriggerAsyncUserModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.TriggerAsyncUserModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncUserModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncUserModelResponse.SerializeToString,
+            ),
             'TriggerUserModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
                     servicer.TriggerUserModelBinaryFileUpload,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelBinaryFileUploadRequest.FromString,
@@ -652,6 +687,11 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     servicer.TriggerOrganizationModel,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelResponse.SerializeToString,
+            ),
+            'TriggerAsyncOrganizationModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.TriggerAsyncOrganizationModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationModelResponse.SerializeToString,
             ),
             'TriggerOrganizationModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
                     servicer.TriggerOrganizationModelBinaryFileUpload,
@@ -967,6 +1007,23 @@ class ModelPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def TriggerAsyncUserModel(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TriggerAsyncUserModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncUserModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncUserModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def TriggerUserModelBinaryFileUpload(request_iterator,
             target,
             options=(),
@@ -1167,6 +1224,23 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TriggerOrganizationModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TriggerAsyncOrganizationModel(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TriggerAsyncOrganizationModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

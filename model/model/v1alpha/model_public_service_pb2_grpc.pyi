@@ -182,6 +182,15 @@ class ModelPublicServiceStub:
     Triggers a deployed model to infer the result of a set of task or
     questions.
     """
+    TriggerAsyncUserModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerAsyncUserModelRequest,
+        model.model.v1alpha.model_pb2.TriggerAsyncUserModelResponse,
+    ]
+    """Trigger model inference asynchronously
+
+    Triggers a deployed model to infer the result of a set of task or
+    questions.
+    """
     TriggerUserModelBinaryFileUpload: grpc.StreamUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerUserModelBinaryFileUploadRequest,
         model.model.v1alpha.model_pb2.TriggerUserModelBinaryFileUploadResponse,
@@ -295,6 +304,15 @@ class ModelPublicServiceStub:
     """/////////////////////////////////////////////////////
 
     Trigger model inference
+
+    Triggers a deployed model to infer the result of a set of task or
+    questions.
+    """
+    TriggerAsyncOrganizationModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerAsyncOrganizationModelRequest,
+        model.model.v1alpha.model_pb2.TriggerAsyncOrganizationModelResponse,
+    ]
+    """Trigger model inference asynchronously
 
     Triggers a deployed model to infer the result of a set of task or
     questions.
@@ -481,6 +499,15 @@ class ModelPublicServiceAsyncStub:
     Triggers a deployed model to infer the result of a set of task or
     questions.
     """
+    TriggerAsyncUserModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerAsyncUserModelRequest,
+        model.model.v1alpha.model_pb2.TriggerAsyncUserModelResponse,
+    ]
+    """Trigger model inference asynchronously
+
+    Triggers a deployed model to infer the result of a set of task or
+    questions.
+    """
     TriggerUserModelBinaryFileUpload: grpc.aio.StreamUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerUserModelBinaryFileUploadRequest,
         model.model.v1alpha.model_pb2.TriggerUserModelBinaryFileUploadResponse,
@@ -594,6 +621,15 @@ class ModelPublicServiceAsyncStub:
     """/////////////////////////////////////////////////////
 
     Trigger model inference
+
+    Triggers a deployed model to infer the result of a set of task or
+    questions.
+    """
+    TriggerAsyncOrganizationModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerAsyncOrganizationModelRequest,
+        model.model.v1alpha.model_pb2.TriggerAsyncOrganizationModelResponse,
+    ]
+    """Trigger model inference asynchronously
 
     Triggers a deployed model to infer the result of a set of task or
     questions.
@@ -815,6 +851,17 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         questions.
         """
     @abc.abstractmethod
+    def TriggerAsyncUserModel(
+        self,
+        request: model.model.v1alpha.model_pb2.TriggerAsyncUserModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.TriggerAsyncUserModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TriggerAsyncUserModelResponse]]:
+        """Trigger model inference asynchronously
+
+        Triggers a deployed model to infer the result of a set of task or
+        questions.
+        """
+    @abc.abstractmethod
     def TriggerUserModelBinaryFileUpload(
         self,
         request_iterator: _MaybeAsyncIterator[model.model.v1alpha.model_pb2.TriggerUserModelBinaryFileUploadRequest],
@@ -951,6 +998,17 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         """/////////////////////////////////////////////////////
 
         Trigger model inference
+
+        Triggers a deployed model to infer the result of a set of task or
+        questions.
+        """
+    @abc.abstractmethod
+    def TriggerAsyncOrganizationModel(
+        self,
+        request: model.model.v1alpha.model_pb2.TriggerAsyncOrganizationModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.TriggerAsyncOrganizationModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TriggerAsyncOrganizationModelResponse]]:
+        """Trigger model inference asynchronously
 
         Triggers a deployed model to infer the result of a set of task or
         questions.
