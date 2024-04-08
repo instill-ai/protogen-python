@@ -160,6 +160,49 @@ class ReadinessResponse(google.protobuf.message.Message):
 global___ReadinessResponse = ReadinessResponse
 
 @typing_extensions.final
+class ModelVersion(google.protobuf.message.Message):
+    """ModelVersion contains information about the version of a model."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    ID_FIELD_NUMBER: builtins.int
+    DIGEST_FIELD_NUMBER: builtins.int
+    STATE_FIELD_NUMBER: builtins.int
+    UPDATE_TIME_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The parent resource, i.e., the user that created the models.
+    - Format: `users/{user.id}`.
+    The resource name of the model, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/models/{model.id}`.
+    The name of the tag.
+    - Format: `users/{user.id}/models/{model.id}/versions/{version.id}`.
+    """
+    id: builtins.str
+    """The tag identifier."""
+    digest: builtins.str
+    """Unique identifier, computed from the manifest the tag refers to."""
+    state: global___State.ValueType
+    """Current state of this model version."""
+    @property
+    def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Tag update time, i.e. timestamp of the last push."""
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        id: builtins.str = ...,
+        digest: builtins.str = ...,
+        state: global___State.ValueType = ...,
+        update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["digest", b"digest", "id", b"id", "name", b"name", "state", b"state", "update_time", b"update_time"]) -> None: ...
+
+global___ModelVersion = ModelVersion
+
+@typing_extensions.final
 class Model(google.protobuf.message.Message):
     """Model represents an AI model, i.e. a program that performs tasks as decision
     making or or pattern recognition based on its training data
@@ -925,6 +968,77 @@ class WatchUserModelResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["message", b"message", "state", b"state"]) -> None: ...
 
 global___WatchUserModelResponse = WatchUserModelResponse
+
+@typing_extensions.final
+class ListUserModelVersionsRequest(google.protobuf.message.Message):
+    """ListUserModelVersionsRequest represents a request to list all the versions
+    of a model namespace of a user.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
+    page_size: builtins.int
+    """The maximum number of tags to return. The default and cap values are 10
+    and 100, respectively.
+    """
+    page: builtins.int
+    """Page number."""
+    name: builtins.str
+    """The parent resource, i.e., the user that created the models.
+    - Format: `users/{user.id}`.
+    The resource name of the model, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/models/{model.id}`.
+    """
+    def __init__(
+        self,
+        *,
+        page_size: builtins.int | None = ...,
+        page: builtins.int | None = ...,
+        name: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_page", b"_page", "_page_size", b"_page_size", "page", b"page", "page_size", b"page_size"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_page", b"_page", "_page_size", b"_page_size", "name", b"name", "page", b"page", "page_size", b"page_size"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page", b"_page"]) -> typing_extensions.Literal["page"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
+
+global___ListUserModelVersionsRequest = ListUserModelVersionsRequest
+
+@typing_extensions.final
+class ListUserModelVersionsResponse(google.protobuf.message.Message):
+    """ListUserModelVersionsResponse contains a list of models."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VERSIONS_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_FIELD_NUMBER: builtins.int
+    @property
+    def versions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ModelVersion]:
+        """A list of model resources."""
+    total_size: builtins.int
+    """Total number of tags."""
+    page_size: builtins.int
+    """The requested page size."""
+    page: builtins.int
+    """The requested page offset."""
+    def __init__(
+        self,
+        *,
+        versions: collections.abc.Iterable[global___ModelVersion] | None = ...,
+        total_size: builtins.int = ...,
+        page_size: builtins.int = ...,
+        page: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["page", b"page", "page_size", b"page_size", "total_size", b"total_size", "versions", b"versions"]) -> None: ...
+
+global___ListUserModelVersionsResponse = ListUserModelVersionsResponse
 
 @typing_extensions.final
 class TaskInput(google.protobuf.message.Message):
@@ -1807,6 +1921,77 @@ class WatchOrganizationModelResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["message", b"message", "state", b"state"]) -> None: ...
 
 global___WatchOrganizationModelResponse = WatchOrganizationModelResponse
+
+@typing_extensions.final
+class ListOrganizationModelVersionsRequest(google.protobuf.message.Message):
+    """ListOrganizationModelVersionsRequest represents a request to list all the versions
+    of a model namespace of an organization.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
+    page_size: builtins.int
+    """The maximum number of tags to return. The default and cap values are 10
+    and 100, respectively.
+    """
+    page: builtins.int
+    """Page number."""
+    name: builtins.str
+    """The parent resource, i.e., the user that created the models.
+    - Format: `organizations/{organization.id}`.
+    The resource name of the model, which allows its access by parent user
+    and ID.
+    - Format: `organizations/{organization.id}/models/{model.id}`.
+    """
+    def __init__(
+        self,
+        *,
+        page_size: builtins.int | None = ...,
+        page: builtins.int | None = ...,
+        name: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_page", b"_page", "_page_size", b"_page_size", "page", b"page", "page_size", b"page_size"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_page", b"_page", "_page_size", b"_page_size", "name", b"name", "page", b"page", "page_size", b"page_size"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page", b"_page"]) -> typing_extensions.Literal["page"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
+
+global___ListOrganizationModelVersionsRequest = ListOrganizationModelVersionsRequest
+
+@typing_extensions.final
+class ListOrganizationModelVersionsResponse(google.protobuf.message.Message):
+    """ListOrganizationModelVersionsResponse contains a list of models."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VERSIONS_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_FIELD_NUMBER: builtins.int
+    @property
+    def versions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ModelVersion]:
+        """A list of model resources."""
+    total_size: builtins.int
+    """Total number of tags."""
+    page_size: builtins.int
+    """The requested page size."""
+    page: builtins.int
+    """The requested page offset."""
+    def __init__(
+        self,
+        *,
+        versions: collections.abc.Iterable[global___ModelVersion] | None = ...,
+        total_size: builtins.int = ...,
+        page_size: builtins.int = ...,
+        page: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["page", b"page", "page_size", b"page_size", "total_size", b"total_size", "versions", b"versions"]) -> None: ...
+
+global___ListOrganizationModelVersionsResponse = ListOrganizationModelVersionsResponse
 
 @typing_extensions.final
 class TriggerOrganizationModelRequest(google.protobuf.message.Message):

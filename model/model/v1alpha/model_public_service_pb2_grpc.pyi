@@ -171,6 +171,15 @@ class ModelPublicServiceStub:
     time, during which a model will be in an UNSPECIFIED state. This endpoint
     allows clients to track the state and progress of the model.
     """
+    ListUserModelVersions: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.ListUserModelVersionsRequest,
+        model.model.v1alpha.model_pb2.ListUserModelVersionsResponse,
+    ]
+    """List user model versions
+
+    Returns a paginated list of version of a model namespace that belong to the specified user.
+    Contains model version and digest.
+    """
     TriggerUserModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerUserModelRequest,
         model.model.v1alpha.model_pb2.TriggerUserModelResponse,
@@ -296,6 +305,15 @@ class ModelPublicServiceStub:
     Returns the state of a model. The deploy / undeploy actions take some
     time, during which a model will be in an UNSPECIFIED state. This endpoint
     allows clients to track the state and progress of the model.
+    """
+    ListOrganizationModelVersions: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.ListOrganizationModelVersionsRequest,
+        model.model.v1alpha.model_pb2.ListOrganizationModelVersionsResponse,
+    ]
+    """List organization model versions
+
+    Returns a paginated list of version of a model namespace that belong to the specified organization.
+    Contains model version and digest.
     """
     TriggerOrganizationModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerOrganizationModelRequest,
@@ -488,6 +506,15 @@ class ModelPublicServiceAsyncStub:
     time, during which a model will be in an UNSPECIFIED state. This endpoint
     allows clients to track the state and progress of the model.
     """
+    ListUserModelVersions: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.ListUserModelVersionsRequest,
+        model.model.v1alpha.model_pb2.ListUserModelVersionsResponse,
+    ]
+    """List user model versions
+
+    Returns a paginated list of version of a model namespace that belong to the specified user.
+    Contains model version and digest.
+    """
     TriggerUserModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerUserModelRequest,
         model.model.v1alpha.model_pb2.TriggerUserModelResponse,
@@ -613,6 +640,15 @@ class ModelPublicServiceAsyncStub:
     Returns the state of a model. The deploy / undeploy actions take some
     time, during which a model will be in an UNSPECIFIED state. This endpoint
     allows clients to track the state and progress of the model.
+    """
+    ListOrganizationModelVersions: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.ListOrganizationModelVersionsRequest,
+        model.model.v1alpha.model_pb2.ListOrganizationModelVersionsResponse,
+    ]
+    """List organization model versions
+
+    Returns a paginated list of version of a model namespace that belong to the specified organization.
+    Contains model version and digest.
     """
     TriggerOrganizationModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerOrganizationModelRequest,
@@ -838,6 +874,17 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         allows clients to track the state and progress of the model.
         """
     @abc.abstractmethod
+    def ListUserModelVersions(
+        self,
+        request: model.model.v1alpha.model_pb2.ListUserModelVersionsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.ListUserModelVersionsResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.ListUserModelVersionsResponse]]:
+        """List user model versions
+
+        Returns a paginated list of version of a model namespace that belong to the specified user.
+        Contains model version and digest.
+        """
+    @abc.abstractmethod
     def TriggerUserModel(
         self,
         request: model.model.v1alpha.model_pb2.TriggerUserModelRequest,
@@ -988,6 +1035,17 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         Returns the state of a model. The deploy / undeploy actions take some
         time, during which a model will be in an UNSPECIFIED state. This endpoint
         allows clients to track the state and progress of the model.
+        """
+    @abc.abstractmethod
+    def ListOrganizationModelVersions(
+        self,
+        request: model.model.v1alpha.model_pb2.ListOrganizationModelVersionsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.ListOrganizationModelVersionsResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.ListOrganizationModelVersionsResponse]]:
+        """List organization model versions
+
+        Returns a paginated list of version of a model namespace that belong to the specified organization.
+        Contains model version and digest.
         """
     @abc.abstractmethod
     def TriggerOrganizationModel(

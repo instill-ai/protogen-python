@@ -99,6 +99,11 @@ class ModelPublicServiceStub(object):
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserModelResponse.FromString,
                 )
+        self.ListUserModelVersions = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/ListUserModelVersions',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelVersionsRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelVersionsResponse.FromString,
+                )
         self.TriggerUserModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/TriggerUserModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelRequest.SerializeToString,
@@ -163,6 +168,11 @@ class ModelPublicServiceStub(object):
                 '/model.model.v1alpha.ModelPublicService/WatchOrganizationModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationModelResponse.FromString,
+                )
+        self.ListOrganizationModelVersions = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/ListOrganizationModelVersions',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelVersionsRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelVersionsResponse.FromString,
                 )
         self.TriggerOrganizationModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/TriggerOrganizationModel',
@@ -354,6 +364,16 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListUserModelVersions(self, request, context):
+        """List user model versions
+
+        Returns a paginated list of version of a model namespace that belong to the specified user.
+        Contains model version and digest.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def TriggerUserModel(self, request, context):
         """/////////////////////////////////////////////////////
 
@@ -493,6 +513,16 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListOrganizationModelVersions(self, request, context):
+        """List organization model versions
+
+        Returns a paginated list of version of a model namespace that belong to the specified organization.
+        Contains model version and digest.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def TriggerOrganizationModel(self, request, context):
         """/////////////////////////////////////////////////////
 
@@ -618,6 +648,11 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserModelRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserModelResponse.SerializeToString,
             ),
+            'ListUserModelVersions': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListUserModelVersions,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelVersionsRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelVersionsResponse.SerializeToString,
+            ),
             'TriggerUserModel': grpc.unary_unary_rpc_method_handler(
                     servicer.TriggerUserModel,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelRequest.FromString,
@@ -682,6 +717,11 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     servicer.WatchOrganizationModel,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationModelRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationModelResponse.SerializeToString,
+            ),
+            'ListOrganizationModelVersions': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListOrganizationModelVersions,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelVersionsRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelVersionsResponse.SerializeToString,
             ),
             'TriggerOrganizationModel': grpc.unary_unary_rpc_method_handler(
                     servicer.TriggerOrganizationModel,
@@ -990,6 +1030,23 @@ class ModelPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ListUserModelVersions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/ListUserModelVersions',
+            model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelVersionsRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelVersionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def TriggerUserModel(request,
             target,
             options=(),
@@ -1207,6 +1264,23 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/WatchOrganizationModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListOrganizationModelVersions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/ListOrganizationModelVersions',
+            model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelVersionsRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelVersionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
