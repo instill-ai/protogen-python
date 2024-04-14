@@ -1914,49 +1914,6 @@ class RenameUserPipelineReleaseResponse(google.protobuf.message.Message):
 global___RenameUserPipelineReleaseResponse = RenameUserPipelineReleaseResponse
 
 @typing_extensions.final
-class WatchUserPipelineReleaseRequest(google.protobuf.message.Message):
-    """WatchUserPipelineReleaseRequest represents a request to query the state of a
-    user-owned pipeline release.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAME_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the pipeline release, which allows its access by
-    parent pipeline and ID.
-    - Format: `users/{user.id}/pipelines/{pipeline.id}/releases/{release.id}`.
-    """
-    def __init__(
-        self,
-        *,
-        name: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
-
-global___WatchUserPipelineReleaseRequest = WatchUserPipelineReleaseRequest
-
-@typing_extensions.final
-class WatchUserPipelineReleaseResponse(google.protobuf.message.Message):
-    """WatchUserPipelineReleaseResponse contains the pipeline release current
-    state.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    STATE_FIELD_NUMBER: builtins.int
-    state: global___State.ValueType
-    """The pipeline release state."""
-    def __init__(
-        self,
-        *,
-        state: global___State.ValueType = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["state", b"state"]) -> None: ...
-
-global___WatchUserPipelineReleaseResponse = WatchUserPipelineReleaseResponse
-
-@typing_extensions.final
 class TriggerUserPipelineReleaseRequest(google.protobuf.message.Message):
     """TriggerUserPipelineReleaseRequest represents a request to trigger a pinned
     release of a user-owned pipeline.
@@ -2956,50 +2913,6 @@ class RenameOrganizationPipelineReleaseResponse(google.protobuf.message.Message)
     def ClearField(self, field_name: typing_extensions.Literal["release", b"release"]) -> None: ...
 
 global___RenameOrganizationPipelineReleaseResponse = RenameOrganizationPipelineReleaseResponse
-
-@typing_extensions.final
-class WatchOrganizationPipelineReleaseRequest(google.protobuf.message.Message):
-    """WatchOrganizationPipelineReleaseRequest represents a request to query the
-    state of an organization-owned pipeline release.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAME_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the pipeline release, which allows its access by
-    parent pipeline and ID.
-    - Format:
-    `organizations/{organization.id}/pipelines/{pipeline.id}/releases/{release.id}`.
-    """
-    def __init__(
-        self,
-        *,
-        name: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
-
-global___WatchOrganizationPipelineReleaseRequest = WatchOrganizationPipelineReleaseRequest
-
-@typing_extensions.final
-class WatchOrganizationPipelineReleaseResponse(google.protobuf.message.Message):
-    """WatchOrganizationPipelineReleaseResponse contains the pipeline release
-    current state.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    STATE_FIELD_NUMBER: builtins.int
-    state: global___State.ValueType
-    """The pipeline release state."""
-    def __init__(
-        self,
-        *,
-        state: global___State.ValueType = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["state", b"state"]) -> None: ...
-
-global___WatchOrganizationPipelineReleaseResponse = WatchOrganizationPipelineReleaseResponse
 
 @typing_extensions.final
 class TriggerOrganizationPipelineReleaseRequest(google.protobuf.message.Message):

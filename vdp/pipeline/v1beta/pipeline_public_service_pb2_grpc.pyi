@@ -250,15 +250,6 @@ class PipelinePublicServiceStub:
     The authenticated user must be the parent of the pipeline in order to
     perform this action.
     """
-    WatchUserPipelineRelease: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.pipeline_pb2.WatchUserPipelineReleaseRequest,
-        vdp.pipeline.v1beta.pipeline_pb2.WatchUserPipelineReleaseResponse,
-    ]
-    """Get the state of a release in a pipeline owned by a user
-
-    Gets the state of a pipeline release, where the pipeline is identified by
-    its resource name, formed by the parent user and ID of the pipeline.
-    """
     RenameUserPipelineRelease: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.RenameUserPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.RenameUserPipelineReleaseResponse,
@@ -472,15 +463,6 @@ class PipelinePublicServiceStub:
 
     The pipeline is identified by its resource name, formed by its parent
     organization and ID.
-    """
-    WatchOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.pipeline_pb2.WatchOrganizationPipelineReleaseRequest,
-        vdp.pipeline.v1beta.pipeline_pb2.WatchOrganizationPipelineReleaseResponse,
-    ]
-    """Get the state of a release in a pipeline owned by an organization
-
-    Gets the state of a pipeline release, where the pipeline is identified by
-    its resource name, formed by the parent organization and ID of the pipeline.
     """
     RenameOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.RenameOrganizationPipelineReleaseRequest,
@@ -815,15 +797,6 @@ class PipelinePublicServiceAsyncStub:
     The authenticated user must be the parent of the pipeline in order to
     perform this action.
     """
-    WatchUserPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.pipeline_pb2.WatchUserPipelineReleaseRequest,
-        vdp.pipeline.v1beta.pipeline_pb2.WatchUserPipelineReleaseResponse,
-    ]
-    """Get the state of a release in a pipeline owned by a user
-
-    Gets the state of a pipeline release, where the pipeline is identified by
-    its resource name, formed by the parent user and ID of the pipeline.
-    """
     RenameUserPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.RenameUserPipelineReleaseRequest,
         vdp.pipeline.v1beta.pipeline_pb2.RenameUserPipelineReleaseResponse,
@@ -1037,15 +1010,6 @@ class PipelinePublicServiceAsyncStub:
 
     The pipeline is identified by its resource name, formed by its parent
     organization and ID.
-    """
-    WatchOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.pipeline_pb2.WatchOrganizationPipelineReleaseRequest,
-        vdp.pipeline.v1beta.pipeline_pb2.WatchOrganizationPipelineReleaseResponse,
-    ]
-    """Get the state of a release in a pipeline owned by an organization
-
-    Gets the state of a pipeline release, where the pipeline is identified by
-    its resource name, formed by the parent organization and ID of the pipeline.
     """
     RenameOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.RenameOrganizationPipelineReleaseRequest,
@@ -1421,17 +1385,6 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         perform this action.
         """
     @abc.abstractmethod
-    def WatchUserPipelineRelease(
-        self,
-        request: vdp.pipeline.v1beta.pipeline_pb2.WatchUserPipelineReleaseRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.WatchUserPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.WatchUserPipelineReleaseResponse]]:
-        """Get the state of a release in a pipeline owned by a user
-
-        Gets the state of a pipeline release, where the pipeline is identified by
-        its resource name, formed by the parent user and ID of the pipeline.
-        """
-    @abc.abstractmethod
     def RenameUserPipelineRelease(
         self,
         request: vdp.pipeline.v1beta.pipeline_pb2.RenameUserPipelineReleaseRequest,
@@ -1682,17 +1635,6 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
 
         The pipeline is identified by its resource name, formed by its parent
         organization and ID.
-        """
-    @abc.abstractmethod
-    def WatchOrganizationPipelineRelease(
-        self,
-        request: vdp.pipeline.v1beta.pipeline_pb2.WatchOrganizationPipelineReleaseRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.WatchOrganizationPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.WatchOrganizationPipelineReleaseResponse]]:
-        """Get the state of a release in a pipeline owned by an organization
-
-        Gets the state of a pipeline release, where the pipeline is identified by
-        its resource name, formed by the parent organization and ID of the pipeline.
         """
     @abc.abstractmethod
     def RenameOrganizationPipelineRelease(

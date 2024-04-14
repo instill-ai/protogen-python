@@ -120,11 +120,6 @@ class PipelinePublicServiceStub(object):
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RestoreUserPipelineReleaseRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RestoreUserPipelineReleaseResponse.FromString,
                 )
-        self.WatchUserPipelineRelease = channel.unary_unary(
-                '/vdp.pipeline.v1beta.PipelinePublicService/WatchUserPipelineRelease',
-                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.WatchUserPipelineReleaseRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.WatchUserPipelineReleaseResponse.FromString,
-                )
         self.RenameUserPipelineRelease = channel.unary_unary(
                 '/vdp.pipeline.v1beta.PipelinePublicService/RenameUserPipelineRelease',
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RenameUserPipelineReleaseRequest.SerializeToString,
@@ -219,11 +214,6 @@ class PipelinePublicServiceStub(object):
                 '/vdp.pipeline.v1beta.PipelinePublicService/RestoreOrganizationPipelineRelease',
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RestoreOrganizationPipelineReleaseRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RestoreOrganizationPipelineReleaseResponse.FromString,
-                )
-        self.WatchOrganizationPipelineRelease = channel.unary_unary(
-                '/vdp.pipeline.v1beta.PipelinePublicService/WatchOrganizationPipelineRelease',
-                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.WatchOrganizationPipelineReleaseRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.WatchOrganizationPipelineReleaseResponse.FromString,
                 )
         self.RenameOrganizationPipelineRelease = channel.unary_unary(
                 '/vdp.pipeline.v1beta.PipelinePublicService/RenameOrganizationPipelineRelease',
@@ -527,16 +517,6 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def WatchUserPipelineRelease(self, request, context):
-        """Get the state of a release in a pipeline owned by a user
-
-        Gets the state of a pipeline release, where the pipeline is identified by
-        its resource name, formed by the parent user and ID of the pipeline.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def RenameUserPipelineRelease(self, request, context):
         """Rename a release in a pipeline owned by a user
 
@@ -770,16 +750,6 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def WatchOrganizationPipelineRelease(self, request, context):
-        """Get the state of a release in a pipeline owned by an organization
-
-        Gets the state of a pipeline release, where the pipeline is identified by
-        its resource name, formed by the parent organization and ID of the pipeline.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def RenameOrganizationPipelineRelease(self, request, context):
         """Rename a release in a pipeline owned by an organization
 
@@ -995,11 +965,6 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RestoreUserPipelineReleaseRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RestoreUserPipelineReleaseResponse.SerializeToString,
             ),
-            'WatchUserPipelineRelease': grpc.unary_unary_rpc_method_handler(
-                    servicer.WatchUserPipelineRelease,
-                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.WatchUserPipelineReleaseRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.WatchUserPipelineReleaseResponse.SerializeToString,
-            ),
             'RenameUserPipelineRelease': grpc.unary_unary_rpc_method_handler(
                     servicer.RenameUserPipelineRelease,
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RenameUserPipelineReleaseRequest.FromString,
@@ -1094,11 +1059,6 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     servicer.RestoreOrganizationPipelineRelease,
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RestoreOrganizationPipelineReleaseRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RestoreOrganizationPipelineReleaseResponse.SerializeToString,
-            ),
-            'WatchOrganizationPipelineRelease': grpc.unary_unary_rpc_method_handler(
-                    servicer.WatchOrganizationPipelineRelease,
-                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.WatchOrganizationPipelineReleaseRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.WatchOrganizationPipelineReleaseResponse.SerializeToString,
             ),
             'RenameOrganizationPipelineRelease': grpc.unary_unary_rpc_method_handler(
                     servicer.RenameOrganizationPipelineRelease,
@@ -1505,23 +1465,6 @@ class PipelinePublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def WatchUserPipelineRelease(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/WatchUserPipelineRelease',
-            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.WatchUserPipelineReleaseRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.WatchUserPipelineReleaseResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def RenameUserPipelineRelease(request,
             target,
             options=(),
@@ -1841,23 +1784,6 @@ class PipelinePublicService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/RestoreOrganizationPipelineRelease',
             vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RestoreOrganizationPipelineReleaseRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RestoreOrganizationPipelineReleaseResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def WatchOrganizationPipelineRelease(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/WatchOrganizationPipelineRelease',
-            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.WatchOrganizationPipelineReleaseRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.WatchOrganizationPipelineReleaseResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
