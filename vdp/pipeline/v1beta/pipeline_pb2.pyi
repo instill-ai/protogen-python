@@ -137,9 +137,9 @@ class ReadinessResponse(google.protobuf.message.Message):
 global___ReadinessResponse = ReadinessResponse
 
 @typing_extensions.final
-class StartComponent(google.protobuf.message.Message):
-    """StartComponent
-    Configures the starting point for pipeline triggering.
+class TriggerByRequest(google.protobuf.message.Message):
+    """TriggerByRequest
+    Configures the payload format of request when triggered by a request.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -184,19 +184,19 @@ class StartComponent(google.protobuf.message.Message):
         VALUE_FIELD_NUMBER: builtins.int
         key: builtins.str
         @property
-        def value(self) -> global___StartComponent.Field: ...
+        def value(self) -> global___TriggerByRequest.Field: ...
         def __init__(
             self,
             *,
             key: builtins.str = ...,
-            value: global___StartComponent.Field | None = ...,
+            value: global___TriggerByRequest.Field | None = ...,
         ) -> None: ...
         def HasField(self, field_name: typing_extensions.Literal["value", b"value"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     FIELDS_FIELD_NUMBER: builtins.int
     @property
-    def fields(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___StartComponent.Field]:
+    def fields(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___TriggerByRequest.Field]:
         """Fields configuration.
         Key: Key of the input data.
         Field: Field settings of the value.
@@ -204,16 +204,16 @@ class StartComponent(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        fields: collections.abc.Mapping[builtins.str, global___StartComponent.Field] | None = ...,
+        fields: collections.abc.Mapping[builtins.str, global___TriggerByRequest.Field] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["fields", b"fields"]) -> None: ...
 
-global___StartComponent = StartComponent
+global___TriggerByRequest = TriggerByRequest
 
 @typing_extensions.final
-class EndComponent(google.protobuf.message.Message):
-    """EndComponent
-    Configures the ending point for pipeline triggering.
+class ResponseComponent(google.protobuf.message.Message):
+    """ResponseComponent
+    Configures the payload format of response when triggered by a request.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -254,19 +254,19 @@ class EndComponent(google.protobuf.message.Message):
         VALUE_FIELD_NUMBER: builtins.int
         key: builtins.str
         @property
-        def value(self) -> global___EndComponent.Field: ...
+        def value(self) -> global___ResponseComponent.Field: ...
         def __init__(
             self,
             *,
             key: builtins.str = ...,
-            value: global___EndComponent.Field | None = ...,
+            value: global___ResponseComponent.Field | None = ...,
         ) -> None: ...
         def HasField(self, field_name: typing_extensions.Literal["value", b"value"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     FIELDS_FIELD_NUMBER: builtins.int
     @property
-    def fields(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___EndComponent.Field]:
+    def fields(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___ResponseComponent.Field]:
         """Fields configuration.
         Key: Key of the output data.
         Field: Field settings of the value.
@@ -274,11 +274,11 @@ class EndComponent(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        fields: collections.abc.Mapping[builtins.str, global___EndComponent.Field] | None = ...,
+        fields: collections.abc.Mapping[builtins.str, global___ResponseComponent.Field] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["fields", b"fields"]) -> None: ...
 
-global___EndComponent = EndComponent
+global___ResponseComponent = ResponseComponent
 
 @typing_extensions.final
 class ConnectorComponent(google.protobuf.message.Message):
@@ -442,8 +442,7 @@ class Component(google.protobuf.message.Message):
 
     ID_FIELD_NUMBER: builtins.int
     METADATA_FIELD_NUMBER: builtins.int
-    START_COMPONENT_FIELD_NUMBER: builtins.int
-    END_COMPONENT_FIELD_NUMBER: builtins.int
+    RESPONSE_COMPONENT_FIELD_NUMBER: builtins.int
     CONNECTOR_COMPONENT_FIELD_NUMBER: builtins.int
     OPERATOR_COMPONENT_FIELD_NUMBER: builtins.int
     ITERATOR_COMPONENT_FIELD_NUMBER: builtins.int
@@ -453,11 +452,8 @@ class Component(google.protobuf.message.Message):
     def metadata(self) -> google.protobuf.struct_pb2.Struct:
         """Metadata of the component."""
     @property
-    def start_component(self) -> global___StartComponent:
-        """StartComponent"""
-    @property
-    def end_component(self) -> global___EndComponent:
-        """EndComponent"""
+    def response_component(self) -> global___ResponseComponent:
+        """ResponseComponent"""
     @property
     def connector_component(self) -> global___ConnectorComponent:
         """ConnectorComponent"""
@@ -472,15 +468,14 @@ class Component(google.protobuf.message.Message):
         *,
         id: builtins.str = ...,
         metadata: google.protobuf.struct_pb2.Struct | None = ...,
-        start_component: global___StartComponent | None = ...,
-        end_component: global___EndComponent | None = ...,
+        response_component: global___ResponseComponent | None = ...,
         connector_component: global___ConnectorComponent | None = ...,
         operator_component: global___OperatorComponent | None = ...,
         iterator_component: global___IteratorComponent | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["component", b"component", "connector_component", b"connector_component", "end_component", b"end_component", "iterator_component", b"iterator_component", "metadata", b"metadata", "operator_component", b"operator_component", "start_component", b"start_component"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["component", b"component", "connector_component", b"connector_component", "end_component", b"end_component", "id", b"id", "iterator_component", b"iterator_component", "metadata", b"metadata", "operator_component", b"operator_component", "start_component", b"start_component"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["component", b"component"]) -> typing_extensions.Literal["start_component", "end_component", "connector_component", "operator_component", "iterator_component"] | None: ...
+    def HasField(self, field_name: typing_extensions.Literal["component", b"component", "connector_component", b"connector_component", "iterator_component", b"iterator_component", "metadata", b"metadata", "operator_component", b"operator_component", "response_component", b"response_component"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["component", b"component", "connector_component", b"connector_component", "id", b"id", "iterator_component", b"iterator_component", "metadata", b"metadata", "operator_component", b"operator_component", "response_component", b"response_component"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["component", b"component"]) -> typing_extensions.Literal["response_component", "connector_component", "operator_component", "iterator_component"] | None: ...
 
 global___Component = Component
 
@@ -529,18 +524,25 @@ class Recipe(google.protobuf.message.Message):
 
     VERSION_FIELD_NUMBER: builtins.int
     COMPONENTS_FIELD_NUMBER: builtins.int
+    TRIGGER_BY_REQUEST_FIELD_NUMBER: builtins.int
     version: builtins.str
     """Recipe schema version."""
     @property
     def components(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Component]:
         """List of pipeline components."""
+    @property
+    def trigger_by_request(self) -> global___TriggerByRequest:
+        """Triggered by reqeust."""
     def __init__(
         self,
         *,
         version: builtins.str = ...,
         components: collections.abc.Iterable[global___Component] | None = ...,
+        trigger_by_request: global___TriggerByRequest | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["components", b"components", "version", b"version"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["trigger", b"trigger", "trigger_by_request", b"trigger_by_request"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["components", b"components", "trigger", b"trigger", "trigger_by_request", b"trigger_by_request", "version", b"version"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["trigger", b"trigger"]) -> typing_extensions.Literal["trigger_by_request"] | None: ...
 
 global___Recipe = Recipe
 
