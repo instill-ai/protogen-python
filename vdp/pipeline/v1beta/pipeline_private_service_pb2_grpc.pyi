@@ -7,7 +7,6 @@ import collections.abc
 import grpc
 import grpc.aio
 import typing
-import vdp.pipeline.v1beta.connector_pb2
 import vdp.pipeline.v1beta.pipeline_pb2
 
 _T = typing.TypeVar('_T')
@@ -51,32 +50,6 @@ class PipelinePrivateServiceStub:
     This is a *private* method that allows admin users to list *all* pipeline
     releases.
     """
-    ListConnectorsAdmin: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.connector_pb2.ListConnectorsAdminRequest,
-        vdp.pipeline.v1beta.connector_pb2.ListConnectorsAdminResponse,
-    ]
-    """List connectors (admin only)
-
-    This is a *private* method that allows admin users to list *all* connectors.
-    """
-    LookUpConnectorAdmin: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.connector_pb2.LookUpConnectorAdminRequest,
-        vdp.pipeline.v1beta.connector_pb2.LookUpConnectorAdminResponse,
-    ]
-    """Get a connector by UID (admin only)
-
-    This is a *private* method that allows admin users to access a connector
-    by its UID.
-    """
-    CheckConnector: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.connector_pb2.CheckConnectorRequest,
-        vdp.pipeline.v1beta.connector_pb2.CheckConnectorResponse,
-    ]
-    """Get a connector current state (admin only)
-
-    This is a *private* method that allows admin users to access the state of
-    a connector by its UID.
-    """
 
 class PipelinePrivateServiceAsyncStub:
     """PipelinePrivateService defines private methods to interact with Pipeline
@@ -109,32 +82,6 @@ class PipelinePrivateServiceAsyncStub:
 
     This is a *private* method that allows admin users to list *all* pipeline
     releases.
-    """
-    ListConnectorsAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.connector_pb2.ListConnectorsAdminRequest,
-        vdp.pipeline.v1beta.connector_pb2.ListConnectorsAdminResponse,
-    ]
-    """List connectors (admin only)
-
-    This is a *private* method that allows admin users to list *all* connectors.
-    """
-    LookUpConnectorAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.connector_pb2.LookUpConnectorAdminRequest,
-        vdp.pipeline.v1beta.connector_pb2.LookUpConnectorAdminResponse,
-    ]
-    """Get a connector by UID (admin only)
-
-    This is a *private* method that allows admin users to access a connector
-    by its UID.
-    """
-    CheckConnector: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.connector_pb2.CheckConnectorRequest,
-        vdp.pipeline.v1beta.connector_pb2.CheckConnectorResponse,
-    ]
-    """Get a connector current state (admin only)
-
-    This is a *private* method that allows admin users to access the state of
-    a connector by its UID.
     """
 
 class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
@@ -174,38 +121,6 @@ class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
 
         This is a *private* method that allows admin users to list *all* pipeline
         releases.
-        """
-    @abc.abstractmethod
-    def ListConnectorsAdmin(
-        self,
-        request: vdp.pipeline.v1beta.connector_pb2.ListConnectorsAdminRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.ListConnectorsAdminResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.ListConnectorsAdminResponse]]:
-        """List connectors (admin only)
-
-        This is a *private* method that allows admin users to list *all* connectors.
-        """
-    @abc.abstractmethod
-    def LookUpConnectorAdmin(
-        self,
-        request: vdp.pipeline.v1beta.connector_pb2.LookUpConnectorAdminRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.LookUpConnectorAdminResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.LookUpConnectorAdminResponse]]:
-        """Get a connector by UID (admin only)
-
-        This is a *private* method that allows admin users to access a connector
-        by its UID.
-        """
-    @abc.abstractmethod
-    def CheckConnector(
-        self,
-        request: vdp.pipeline.v1beta.connector_pb2.CheckConnectorRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.connector_pb2.CheckConnectorResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.connector_pb2.CheckConnectorResponse]]:
-        """Get a connector current state (admin only)
-
-        This is a *private* method that allows admin users to access the state of
-        a connector by its UID.
         """
 
 def add_PipelinePrivateServiceServicer_to_server(servicer: PipelinePrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

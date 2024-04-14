@@ -18,7 +18,6 @@ import sys
 import typing
 import vdp.pipeline.v1beta.common_pb2
 import vdp.pipeline.v1beta.component_definition_pb2
-import vdp.pipeline.v1beta.connector_pb2
 
 if sys.version_info >= (3, 10):
     import typing as typing_extensions
@@ -291,8 +290,6 @@ class ConnectorComponent(google.protobuf.message.Message):
 
     DEFINITION_NAME_FIELD_NUMBER: builtins.int
     DEFINITION_FIELD_NUMBER: builtins.int
-    CONNECTOR_NAME_FIELD_NUMBER: builtins.int
-    CONNECTOR_FIELD_NUMBER: builtins.int
     TASK_FIELD_NUMBER: builtins.int
     INPUT_FIELD_NUMBER: builtins.int
     CONDITION_FIELD_NUMBER: builtins.int
@@ -301,11 +298,6 @@ class ConnectorComponent(google.protobuf.message.Message):
     @property
     def definition(self) -> vdp.pipeline.v1beta.component_definition_pb2.ConnectorDefinition:
         """Connector definition."""
-    connector_name: builtins.str
-    """Connector name. Leave empty if not created."""
-    @property
-    def connector(self) -> vdp.pipeline.v1beta.connector_pb2.Connector:
-        """Describes the connector details (e.g., configuration to connect with the vendor service)."""
     task: builtins.str
     """Task."""
     @property
@@ -318,14 +310,12 @@ class ConnectorComponent(google.protobuf.message.Message):
         *,
         definition_name: builtins.str = ...,
         definition: vdp.pipeline.v1beta.component_definition_pb2.ConnectorDefinition | None = ...,
-        connector_name: builtins.str = ...,
-        connector: vdp.pipeline.v1beta.connector_pb2.Connector | None = ...,
         task: builtins.str = ...,
         input: google.protobuf.struct_pb2.Struct | None = ...,
         condition: builtins.str = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connector", b"connector", "definition", b"definition", "input", b"input"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["condition", b"condition", "connector", b"connector", "connector_name", b"connector_name", "definition", b"definition", "definition_name", b"definition_name", "input", b"input", "task", b"task"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["definition", b"definition", "input", b"input"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["condition", b"condition", "definition", b"definition", "definition_name", b"definition_name", "input", b"input", "task", b"task"]) -> None: ...
 
 global___ConnectorComponent = ConnectorComponent
 
