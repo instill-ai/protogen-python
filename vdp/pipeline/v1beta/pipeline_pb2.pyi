@@ -293,6 +293,7 @@ class ConnectorComponent(google.protobuf.message.Message):
     TASK_FIELD_NUMBER: builtins.int
     INPUT_FIELD_NUMBER: builtins.int
     CONDITION_FIELD_NUMBER: builtins.int
+    CONNECTION_FIELD_NUMBER: builtins.int
     definition_name: builtins.str
     """Definition name."""
     @property
@@ -305,6 +306,9 @@ class ConnectorComponent(google.protobuf.message.Message):
         """Input configuration of the component. JSON schema described in the connector definition."""
     condition: builtins.str
     """Condition statement determining whether the component is executed or not."""
+    @property
+    def connection(self) -> google.protobuf.struct_pb2.Struct:
+        """Connection configuration of the component. JSON schema described in the connector definition."""
     def __init__(
         self,
         *,
@@ -313,9 +317,10 @@ class ConnectorComponent(google.protobuf.message.Message):
         task: builtins.str = ...,
         input: google.protobuf.struct_pb2.Struct | None = ...,
         condition: builtins.str = ...,
+        connection: google.protobuf.struct_pb2.Struct | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["definition", b"definition", "input", b"input"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["condition", b"condition", "definition", b"definition", "definition_name", b"definition_name", "input", b"input", "task", b"task"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connection", b"connection", "definition", b"definition", "input", b"input"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["condition", b"condition", "connection", b"connection", "definition", b"definition", "definition_name", b"definition_name", "input", b"input", "task", b"task"]) -> None: ...
 
 global___ConnectorComponent = ConnectorComponent
 
