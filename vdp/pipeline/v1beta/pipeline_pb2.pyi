@@ -145,8 +145,8 @@ class TriggerByRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     @typing_extensions.final
-    class Field(google.protobuf.message.Message):
-        """Represents a field within the start component."""
+    class RequestField(google.protobuf.message.Message):
+        """Represents a field within the reqeuest."""
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -177,50 +177,8 @@ class TriggerByRequest(google.protobuf.message.Message):
         def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "instill_format", b"instill_format", "instill_ui_multiline", b"instill_ui_multiline", "instill_ui_order", b"instill_ui_order", "title", b"title"]) -> None: ...
 
     @typing_extensions.final
-    class FieldsEntry(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        KEY_FIELD_NUMBER: builtins.int
-        VALUE_FIELD_NUMBER: builtins.int
-        key: builtins.str
-        @property
-        def value(self) -> global___TriggerByRequest.Field: ...
-        def __init__(
-            self,
-            *,
-            key: builtins.str = ...,
-            value: global___TriggerByRequest.Field | None = ...,
-        ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["value", b"value"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
-
-    FIELDS_FIELD_NUMBER: builtins.int
-    @property
-    def fields(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___TriggerByRequest.Field]:
-        """Fields configuration.
-        Key: Key of the input data.
-        Field: Field settings of the value.
-        """
-    def __init__(
-        self,
-        *,
-        fields: collections.abc.Mapping[builtins.str, global___TriggerByRequest.Field] | None = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["fields", b"fields"]) -> None: ...
-
-global___TriggerByRequest = TriggerByRequest
-
-@typing_extensions.final
-class ResponseComponent(google.protobuf.message.Message):
-    """ResponseComponent
-    Configures the payload format of response when triggered by a request.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    @typing_extensions.final
-    class Field(google.protobuf.message.Message):
-        """Represents a field within the end component."""
+    class ResponseField(google.protobuf.message.Message):
+        """Represents a field within the response."""
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -247,38 +205,64 @@ class ResponseComponent(google.protobuf.message.Message):
         def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "instill_ui_order", b"instill_ui_order", "title", b"title", "value", b"value"]) -> None: ...
 
     @typing_extensions.final
-    class FieldsEntry(google.protobuf.message.Message):
+    class RequestFieldsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
         key: builtins.str
         @property
-        def value(self) -> global___ResponseComponent.Field: ...
+        def value(self) -> global___TriggerByRequest.RequestField: ...
         def __init__(
             self,
             *,
             key: builtins.str = ...,
-            value: global___ResponseComponent.Field | None = ...,
+            value: global___TriggerByRequest.RequestField | None = ...,
         ) -> None: ...
         def HasField(self, field_name: typing_extensions.Literal["value", b"value"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
-    FIELDS_FIELD_NUMBER: builtins.int
+    @typing_extensions.final
+    class ResponseFieldsEntry(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        KEY_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        key: builtins.str
+        @property
+        def value(self) -> global___TriggerByRequest.ResponseField: ...
+        def __init__(
+            self,
+            *,
+            key: builtins.str = ...,
+            value: global___TriggerByRequest.ResponseField | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["value", b"value"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
+
+    REQUEST_FIELDS_FIELD_NUMBER: builtins.int
+    RESPONSE_FIELDS_FIELD_NUMBER: builtins.int
     @property
-    def fields(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___ResponseComponent.Field]:
-        """Fields configuration.
-        Key: Key of the output data.
+    def request_fields(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___TriggerByRequest.RequestField]:
+        """Fields configuration of request.
+        Key: Key of the input data.
+        Field: Field settings of the value.
+        """
+    @property
+    def response_fields(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___TriggerByRequest.ResponseField]:
+        """Fields configuration of response.
+        Key: Key of the input data.
         Field: Field settings of the value.
         """
     def __init__(
         self,
         *,
-        fields: collections.abc.Mapping[builtins.str, global___ResponseComponent.Field] | None = ...,
+        request_fields: collections.abc.Mapping[builtins.str, global___TriggerByRequest.RequestField] | None = ...,
+        response_fields: collections.abc.Mapping[builtins.str, global___TriggerByRequest.ResponseField] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["fields", b"fields"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["request_fields", b"request_fields", "response_fields", b"response_fields"]) -> None: ...
 
-global___ResponseComponent = ResponseComponent
+global___TriggerByRequest = TriggerByRequest
 
 @typing_extensions.final
 class ConnectorComponent(google.protobuf.message.Message):
@@ -447,7 +431,6 @@ class Component(google.protobuf.message.Message):
 
     ID_FIELD_NUMBER: builtins.int
     METADATA_FIELD_NUMBER: builtins.int
-    RESPONSE_COMPONENT_FIELD_NUMBER: builtins.int
     CONNECTOR_COMPONENT_FIELD_NUMBER: builtins.int
     OPERATOR_COMPONENT_FIELD_NUMBER: builtins.int
     ITERATOR_COMPONENT_FIELD_NUMBER: builtins.int
@@ -456,9 +439,6 @@ class Component(google.protobuf.message.Message):
     @property
     def metadata(self) -> google.protobuf.struct_pb2.Struct:
         """Metadata of the component."""
-    @property
-    def response_component(self) -> global___ResponseComponent:
-        """ResponseComponent"""
     @property
     def connector_component(self) -> global___ConnectorComponent:
         """ConnectorComponent"""
@@ -473,14 +453,13 @@ class Component(google.protobuf.message.Message):
         *,
         id: builtins.str = ...,
         metadata: google.protobuf.struct_pb2.Struct | None = ...,
-        response_component: global___ResponseComponent | None = ...,
         connector_component: global___ConnectorComponent | None = ...,
         operator_component: global___OperatorComponent | None = ...,
         iterator_component: global___IteratorComponent | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["component", b"component", "connector_component", b"connector_component", "iterator_component", b"iterator_component", "metadata", b"metadata", "operator_component", b"operator_component", "response_component", b"response_component"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["component", b"component", "connector_component", b"connector_component", "id", b"id", "iterator_component", b"iterator_component", "metadata", b"metadata", "operator_component", b"operator_component", "response_component", b"response_component"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["component", b"component"]) -> typing_extensions.Literal["response_component", "connector_component", "operator_component", "iterator_component"] | None: ...
+    def HasField(self, field_name: typing_extensions.Literal["component", b"component", "connector_component", b"connector_component", "iterator_component", b"iterator_component", "metadata", b"metadata", "operator_component", b"operator_component"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["component", b"component", "connector_component", b"connector_component", "id", b"id", "iterator_component", b"iterator_component", "metadata", b"metadata", "operator_component", b"operator_component"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["component", b"component"]) -> typing_extensions.Literal["connector_component", "operator_component", "iterator_component"] | None: ...
 
 global___Component = Component
 
