@@ -10,6 +10,7 @@ import typing
 import vdp.pipeline.v1beta.common_pb2
 import vdp.pipeline.v1beta.component_definition_pb2
 import vdp.pipeline.v1beta.pipeline_pb2
+import vdp.pipeline.v1beta.secret_pb2
 
 _T = typing.TypeVar('_T')
 
@@ -566,6 +567,98 @@ class PipelinePublicServiceStub:
     Check whether a resource name is already in use. Currently this endpoint
     only supports pipeline and connector resource names.
     """
+    CreateUserSecret: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.CreateUserSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.CreateUserSecretResponse,
+    ]
+    """Create a new user secret
+
+    Creates a new secret under the parenthood of an user.
+    """
+    ListUserSecrets: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.ListUserSecretsRequest,
+        vdp.pipeline.v1beta.secret_pb2.ListUserSecretsResponse,
+    ]
+    """List user secrets
+
+    Returns a paginated list of secrets that belong to the specified
+    user.
+    """
+    GetUserSecret: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.GetUserSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.GetUserSecretResponse,
+    ]
+    """Get a secret owned by an user
+
+    Returns the details of an user-owned secret by its resource name,
+    which is defined by the parent user and the ID of the secret.
+    """
+    UpdateUserSecret: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.UpdateUserSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.UpdateUserSecretResponse,
+    ]
+    """Update a secret owned by an user
+
+    Udpates a secret, accessing it by its resource name, which is defined by
+
+    In REST requests, only the supplied secret fields will be taken into
+    account when updating the resource.
+    """
+    DeleteUserSecret: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.DeleteUserSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.DeleteUserSecretResponse,
+    ]
+    """Delete a secret owned by an user
+
+    Deletes a secret, accesing it by its resource name, which is defined by
+    the parent user and the ID of the secret.
+    """
+    CreateOrganizationSecret: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.CreateOrganizationSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.CreateOrganizationSecretResponse,
+    ]
+    """Create a new organization secret
+
+    Creates a new secret under the parenthood of an organization.
+    """
+    ListOrganizationSecrets: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.ListOrganizationSecretsRequest,
+        vdp.pipeline.v1beta.secret_pb2.ListOrganizationSecretsResponse,
+    ]
+    """List organization secrets
+
+    Returns a paginated list of secrets that belong to the specified
+    organization.
+    """
+    GetOrganizationSecret: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.GetOrganizationSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.GetOrganizationSecretResponse,
+    ]
+    """Get a secret owned by an organization
+
+    Returns the details of an organization-owned secret by its resource name,
+    which is defined by the parent organization and the ID of the secret.
+    """
+    UpdateOrganizationSecret: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.UpdateOrganizationSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.UpdateOrganizationSecretResponse,
+    ]
+    """Update a secret owned by an organization
+
+    Udpates a secret, accessing it by its resource name, which is defined by
+
+    In REST requests, only the supplied secret fields will be taken into
+    account when updating the resource.
+    """
+    DeleteOrganizationSecret: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.DeleteOrganizationSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.DeleteOrganizationSecretResponse,
+    ]
+    """Delete a secret owned by an organization
+
+    Deletes a secret, accesing it by its resource name, which is defined by
+    the parent organization and the ID of the secret.
+    """
 
 class PipelinePublicServiceAsyncStub:
     """VDP
@@ -1112,6 +1205,98 @@ class PipelinePublicServiceAsyncStub:
 
     Check whether a resource name is already in use. Currently this endpoint
     only supports pipeline and connector resource names.
+    """
+    CreateUserSecret: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.CreateUserSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.CreateUserSecretResponse,
+    ]
+    """Create a new user secret
+
+    Creates a new secret under the parenthood of an user.
+    """
+    ListUserSecrets: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.ListUserSecretsRequest,
+        vdp.pipeline.v1beta.secret_pb2.ListUserSecretsResponse,
+    ]
+    """List user secrets
+
+    Returns a paginated list of secrets that belong to the specified
+    user.
+    """
+    GetUserSecret: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.GetUserSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.GetUserSecretResponse,
+    ]
+    """Get a secret owned by an user
+
+    Returns the details of an user-owned secret by its resource name,
+    which is defined by the parent user and the ID of the secret.
+    """
+    UpdateUserSecret: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.UpdateUserSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.UpdateUserSecretResponse,
+    ]
+    """Update a secret owned by an user
+
+    Udpates a secret, accessing it by its resource name, which is defined by
+
+    In REST requests, only the supplied secret fields will be taken into
+    account when updating the resource.
+    """
+    DeleteUserSecret: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.DeleteUserSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.DeleteUserSecretResponse,
+    ]
+    """Delete a secret owned by an user
+
+    Deletes a secret, accesing it by its resource name, which is defined by
+    the parent user and the ID of the secret.
+    """
+    CreateOrganizationSecret: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.CreateOrganizationSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.CreateOrganizationSecretResponse,
+    ]
+    """Create a new organization secret
+
+    Creates a new secret under the parenthood of an organization.
+    """
+    ListOrganizationSecrets: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.ListOrganizationSecretsRequest,
+        vdp.pipeline.v1beta.secret_pb2.ListOrganizationSecretsResponse,
+    ]
+    """List organization secrets
+
+    Returns a paginated list of secrets that belong to the specified
+    organization.
+    """
+    GetOrganizationSecret: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.GetOrganizationSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.GetOrganizationSecretResponse,
+    ]
+    """Get a secret owned by an organization
+
+    Returns the details of an organization-owned secret by its resource name,
+    which is defined by the parent organization and the ID of the secret.
+    """
+    UpdateOrganizationSecret: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.UpdateOrganizationSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.UpdateOrganizationSecretResponse,
+    ]
+    """Update a secret owned by an organization
+
+    Udpates a secret, accessing it by its resource name, which is defined by
+
+    In REST requests, only the supplied secret fields will be taken into
+    account when updating the resource.
+    """
+    DeleteOrganizationSecret: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.DeleteOrganizationSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.DeleteOrganizationSecretResponse,
+    ]
+    """Delete a secret owned by an organization
+
+    Deletes a secret, accesing it by its resource name, which is defined by
+    the parent organization and the ID of the secret.
     """
 
 class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
@@ -1757,6 +1942,118 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
 
         Check whether a resource name is already in use. Currently this endpoint
         only supports pipeline and connector resource names.
+        """
+    @abc.abstractmethod
+    def CreateUserSecret(
+        self,
+        request: vdp.pipeline.v1beta.secret_pb2.CreateUserSecretRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.CreateUserSecretResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.CreateUserSecretResponse]]:
+        """Create a new user secret
+
+        Creates a new secret under the parenthood of an user.
+        """
+    @abc.abstractmethod
+    def ListUserSecrets(
+        self,
+        request: vdp.pipeline.v1beta.secret_pb2.ListUserSecretsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.ListUserSecretsResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.ListUserSecretsResponse]]:
+        """List user secrets
+
+        Returns a paginated list of secrets that belong to the specified
+        user.
+        """
+    @abc.abstractmethod
+    def GetUserSecret(
+        self,
+        request: vdp.pipeline.v1beta.secret_pb2.GetUserSecretRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.GetUserSecretResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.GetUserSecretResponse]]:
+        """Get a secret owned by an user
+
+        Returns the details of an user-owned secret by its resource name,
+        which is defined by the parent user and the ID of the secret.
+        """
+    @abc.abstractmethod
+    def UpdateUserSecret(
+        self,
+        request: vdp.pipeline.v1beta.secret_pb2.UpdateUserSecretRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.UpdateUserSecretResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.UpdateUserSecretResponse]]:
+        """Update a secret owned by an user
+
+        Udpates a secret, accessing it by its resource name, which is defined by
+
+        In REST requests, only the supplied secret fields will be taken into
+        account when updating the resource.
+        """
+    @abc.abstractmethod
+    def DeleteUserSecret(
+        self,
+        request: vdp.pipeline.v1beta.secret_pb2.DeleteUserSecretRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.DeleteUserSecretResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.DeleteUserSecretResponse]]:
+        """Delete a secret owned by an user
+
+        Deletes a secret, accesing it by its resource name, which is defined by
+        the parent user and the ID of the secret.
+        """
+    @abc.abstractmethod
+    def CreateOrganizationSecret(
+        self,
+        request: vdp.pipeline.v1beta.secret_pb2.CreateOrganizationSecretRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.CreateOrganizationSecretResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.CreateOrganizationSecretResponse]]:
+        """Create a new organization secret
+
+        Creates a new secret under the parenthood of an organization.
+        """
+    @abc.abstractmethod
+    def ListOrganizationSecrets(
+        self,
+        request: vdp.pipeline.v1beta.secret_pb2.ListOrganizationSecretsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.ListOrganizationSecretsResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.ListOrganizationSecretsResponse]]:
+        """List organization secrets
+
+        Returns a paginated list of secrets that belong to the specified
+        organization.
+        """
+    @abc.abstractmethod
+    def GetOrganizationSecret(
+        self,
+        request: vdp.pipeline.v1beta.secret_pb2.GetOrganizationSecretRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.GetOrganizationSecretResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.GetOrganizationSecretResponse]]:
+        """Get a secret owned by an organization
+
+        Returns the details of an organization-owned secret by its resource name,
+        which is defined by the parent organization and the ID of the secret.
+        """
+    @abc.abstractmethod
+    def UpdateOrganizationSecret(
+        self,
+        request: vdp.pipeline.v1beta.secret_pb2.UpdateOrganizationSecretRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.UpdateOrganizationSecretResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.UpdateOrganizationSecretResponse]]:
+        """Update a secret owned by an organization
+
+        Udpates a secret, accessing it by its resource name, which is defined by
+
+        In REST requests, only the supplied secret fields will be taken into
+        account when updating the resource.
+        """
+    @abc.abstractmethod
+    def DeleteOrganizationSecret(
+        self,
+        request: vdp.pipeline.v1beta.secret_pb2.DeleteOrganizationSecretRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.DeleteOrganizationSecretResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.DeleteOrganizationSecretResponse]]:
+        """Delete a secret owned by an organization
+
+        Deletes a secret, accesing it by its resource name, which is defined by
+        the parent organization and the ID of the secret.
         """
 
 def add_PipelinePublicServiceServicer_to_server(servicer: PipelinePublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

@@ -5,6 +5,7 @@ import grpc
 from vdp.pipeline.v1beta import common_pb2 as vdp_dot_pipeline_dot_v1beta_dot_common__pb2
 from vdp.pipeline.v1beta import component_definition_pb2 as vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2
 from vdp.pipeline.v1beta import pipeline_pb2 as vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2
+from vdp.pipeline.v1beta import secret_pb2 as vdp_dot_pipeline_dot_v1beta_dot_secret__pb2
 
 
 class PipelinePublicServiceStub(object):
@@ -264,6 +265,56 @@ class PipelinePublicServiceStub(object):
                 '/vdp.pipeline.v1beta.PipelinePublicService/CheckName',
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_common__pb2.CheckNameRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_common__pb2.CheckNameResponse.FromString,
+                )
+        self.CreateUserSecret = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/CreateUserSecret',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateUserSecretRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateUserSecretResponse.FromString,
+                )
+        self.ListUserSecrets = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/ListUserSecrets',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListUserSecretsRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListUserSecretsResponse.FromString,
+                )
+        self.GetUserSecret = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/GetUserSecret',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetUserSecretRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetUserSecretResponse.FromString,
+                )
+        self.UpdateUserSecret = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/UpdateUserSecret',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateUserSecretRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateUserSecretResponse.FromString,
+                )
+        self.DeleteUserSecret = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/DeleteUserSecret',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteUserSecretRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteUserSecretResponse.FromString,
+                )
+        self.CreateOrganizationSecret = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/CreateOrganizationSecret',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateOrganizationSecretRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateOrganizationSecretResponse.FromString,
+                )
+        self.ListOrganizationSecrets = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/ListOrganizationSecrets',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListOrganizationSecretsRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListOrganizationSecretsResponse.FromString,
+                )
+        self.GetOrganizationSecret = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/GetOrganizationSecret',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetOrganizationSecretRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetOrganizationSecretResponse.FromString,
+                )
+        self.UpdateOrganizationSecret = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/UpdateOrganizationSecret',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateOrganizationSecretRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateOrganizationSecretResponse.FromString,
+                )
+        self.DeleteOrganizationSecret = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/DeleteOrganizationSecret',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteOrganizationSecretRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteOrganizationSecretResponse.FromString,
                 )
 
 
@@ -862,6 +913,108 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateUserSecret(self, request, context):
+        """Create a new user secret
+
+        Creates a new secret under the parenthood of an user.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListUserSecrets(self, request, context):
+        """List user secrets
+
+        Returns a paginated list of secrets that belong to the specified
+        user.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetUserSecret(self, request, context):
+        """Get a secret owned by an user
+
+        Returns the details of an user-owned secret by its resource name,
+        which is defined by the parent user and the ID of the secret.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateUserSecret(self, request, context):
+        """Update a secret owned by an user
+
+        Udpates a secret, accessing it by its resource name, which is defined by
+
+        In REST requests, only the supplied secret fields will be taken into
+        account when updating the resource.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteUserSecret(self, request, context):
+        """Delete a secret owned by an user
+
+        Deletes a secret, accesing it by its resource name, which is defined by
+        the parent user and the ID of the secret.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateOrganizationSecret(self, request, context):
+        """Create a new organization secret
+
+        Creates a new secret under the parenthood of an organization.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListOrganizationSecrets(self, request, context):
+        """List organization secrets
+
+        Returns a paginated list of secrets that belong to the specified
+        organization.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetOrganizationSecret(self, request, context):
+        """Get a secret owned by an organization
+
+        Returns the details of an organization-owned secret by its resource name,
+        which is defined by the parent organization and the ID of the secret.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateOrganizationSecret(self, request, context):
+        """Update a secret owned by an organization
+
+        Udpates a secret, accessing it by its resource name, which is defined by
+
+        In REST requests, only the supplied secret fields will be taken into
+        account when updating the resource.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteOrganizationSecret(self, request, context):
+        """Delete a secret owned by an organization
+
+        Deletes a secret, accesing it by its resource name, which is defined by
+        the parent organization and the ID of the secret.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_PipelinePublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -1109,6 +1262,56 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     servicer.CheckName,
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_common__pb2.CheckNameRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1beta_dot_common__pb2.CheckNameResponse.SerializeToString,
+            ),
+            'CreateUserSecret': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateUserSecret,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateUserSecretRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateUserSecretResponse.SerializeToString,
+            ),
+            'ListUserSecrets': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListUserSecrets,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListUserSecretsRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListUserSecretsResponse.SerializeToString,
+            ),
+            'GetUserSecret': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetUserSecret,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetUserSecretRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetUserSecretResponse.SerializeToString,
+            ),
+            'UpdateUserSecret': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateUserSecret,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateUserSecretRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateUserSecretResponse.SerializeToString,
+            ),
+            'DeleteUserSecret': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteUserSecret,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteUserSecretRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteUserSecretResponse.SerializeToString,
+            ),
+            'CreateOrganizationSecret': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateOrganizationSecret,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateOrganizationSecretRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateOrganizationSecretResponse.SerializeToString,
+            ),
+            'ListOrganizationSecrets': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListOrganizationSecrets,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListOrganizationSecretsRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListOrganizationSecretsResponse.SerializeToString,
+            ),
+            'GetOrganizationSecret': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOrganizationSecret,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetOrganizationSecretRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetOrganizationSecretResponse.SerializeToString,
+            ),
+            'UpdateOrganizationSecret': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateOrganizationSecret,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateOrganizationSecretRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateOrganizationSecretResponse.SerializeToString,
+            ),
+            'DeleteOrganizationSecret': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteOrganizationSecret,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteOrganizationSecretRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteOrganizationSecretResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1954,5 +2157,175 @@ class PipelinePublicService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/CheckName',
             vdp_dot_pipeline_dot_v1beta_dot_common__pb2.CheckNameRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1beta_dot_common__pb2.CheckNameResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateUserSecret(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/CreateUserSecret',
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateUserSecretRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateUserSecretResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListUserSecrets(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/ListUserSecrets',
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListUserSecretsRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListUserSecretsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetUserSecret(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/GetUserSecret',
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetUserSecretRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetUserSecretResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateUserSecret(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/UpdateUserSecret',
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateUserSecretRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateUserSecretResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteUserSecret(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/DeleteUserSecret',
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteUserSecretRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteUserSecretResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateOrganizationSecret(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/CreateOrganizationSecret',
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateOrganizationSecretRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateOrganizationSecretResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListOrganizationSecrets(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/ListOrganizationSecrets',
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListOrganizationSecretsRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListOrganizationSecretsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetOrganizationSecret(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/GetOrganizationSecret',
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetOrganizationSecretRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetOrganizationSecretResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateOrganizationSecret(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/UpdateOrganizationSecret',
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateOrganizationSecretRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateOrganizationSecretResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteOrganizationSecret(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/DeleteOrganizationSecret',
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteOrganizationSecretRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteOrganizationSecretResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

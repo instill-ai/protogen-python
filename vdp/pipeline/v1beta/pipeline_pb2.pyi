@@ -522,32 +522,73 @@ class NestedComponent(google.protobuf.message.Message):
 global___NestedComponent = NestedComponent
 
 @typing_extensions.final
-class Recipe(google.protobuf.message.Message):
-    """Recipe describes the components of a Pipeline and how they are connected."""
+class Trigger(google.protobuf.message.Message):
+    """Trigger"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    VERSION_FIELD_NUMBER: builtins.int
-    COMPONENTS_FIELD_NUMBER: builtins.int
     TRIGGER_BY_REQUEST_FIELD_NUMBER: builtins.int
-    version: builtins.str
-    """Recipe schema version."""
-    @property
-    def components(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Component]:
-        """List of pipeline components."""
     @property
     def trigger_by_request(self) -> global___TriggerByRequest:
         """Triggered by reqeust."""
     def __init__(
         self,
         *,
-        version: builtins.str = ...,
-        components: collections.abc.Iterable[global___Component] | None = ...,
         trigger_by_request: global___TriggerByRequest | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["trigger", b"trigger", "trigger_by_request", b"trigger_by_request"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["components", b"components", "trigger", b"trigger", "trigger_by_request", b"trigger_by_request", "version", b"version"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["trigger", b"trigger", "trigger_by_request", b"trigger_by_request"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["trigger", b"trigger"]) -> typing_extensions.Literal["trigger_by_request"] | None: ...
+
+global___Trigger = Trigger
+
+@typing_extensions.final
+class Recipe(google.protobuf.message.Message):
+    """Recipe describes the components of a Pipeline and how they are connected."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    @typing_extensions.final
+    class SecretsEntry(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        KEY_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
+            *,
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
+
+    VERSION_FIELD_NUMBER: builtins.int
+    COMPONENTS_FIELD_NUMBER: builtins.int
+    TRIGGER_FIELD_NUMBER: builtins.int
+    SECRETS_FIELD_NUMBER: builtins.int
+    version: builtins.str
+    """Recipe schema version."""
+    @property
+    def components(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Component]:
+        """List of pipeline components."""
+    @property
+    def trigger(self) -> global___Trigger:
+        """The component trigger method."""
+    @property
+    def secrets(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
+        """Local secrets"""
+    def __init__(
+        self,
+        *,
+        version: builtins.str = ...,
+        components: collections.abc.Iterable[global___Component] | None = ...,
+        trigger: global___Trigger | None = ...,
+        secrets: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["trigger", b"trigger"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["components", b"components", "secrets", b"secrets", "trigger", b"trigger", "version", b"version"]) -> None: ...
 
 global___Recipe = Recipe
 
