@@ -1425,6 +1425,94 @@ class ValidateTokenResponse(google.protobuf.message.Message):
 global___ValidateTokenResponse = ValidateTokenResponse
 
 @typing_extensions.final
+class GetRemainingCreditRequest(google.protobuf.message.Message):
+    """GetRemainingCreditRequest represents a request to get the remaining credit
+    of a user or organization.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OWNER_FIELD_NUMBER: builtins.int
+    owner: builtins.str
+    """The user or organization to which the credit belongs.
+    Format: `{[users|organizations]}/{id}`.
+    """
+    def __init__(
+        self,
+        *,
+        owner: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["owner", b"owner"]) -> None: ...
+
+global___GetRemainingCreditRequest = GetRemainingCreditRequest
+
+@typing_extensions.final
+class GetRemainingCreditResponse(google.protobuf.message.Message):
+    """GetRemainingCreditResponse contains the remaining credit of a user or
+    organization.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    AMOUNT_FIELD_NUMBER: builtins.int
+    amount: builtins.float
+    """The requested credit."""
+    def __init__(
+        self,
+        *,
+        amount: builtins.float = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["amount", b"amount"]) -> None: ...
+
+global___GetRemainingCreditResponse = GetRemainingCreditResponse
+
+@typing_extensions.final
+class SubtractCreditRequest(google.protobuf.message.Message):
+    """SubtractCreditRequest represents a request to subtract Instill Credit from
+    an account.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OWNER_FIELD_NUMBER: builtins.int
+    AMOUNT_FIELD_NUMBER: builtins.int
+    owner: builtins.str
+    """The user or organization to which the credit belongs.
+    Format: `{[users|organizations]}/{id}`.
+    """
+    amount: builtins.float
+    """The credit amount to subtract."""
+    def __init__(
+        self,
+        *,
+        owner: builtins.str = ...,
+        amount: builtins.float = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["amount", b"amount", "owner", b"owner"]) -> None: ...
+
+global___SubtractCreditRequest = SubtractCreditRequest
+
+@typing_extensions.final
+class SubtractCreditResponse(google.protobuf.message.Message):
+    """SubtractCreditResponse contains the remaining credit of an account after the
+    subtraction.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    AMOUNT_FIELD_NUMBER: builtins.int
+    amount: builtins.float
+    """The remaining credit."""
+    def __init__(
+        self,
+        *,
+        amount: builtins.float = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["amount", b"amount"]) -> None: ...
+
+global___SubtractCreditResponse = SubtractCreditResponse
+
+@typing_extensions.final
 class AuthTokenIssuerRequest(google.protobuf.message.Message):
     """AuthTokenIssuerRequest represents a request to fetch the issuer details of a
     token.

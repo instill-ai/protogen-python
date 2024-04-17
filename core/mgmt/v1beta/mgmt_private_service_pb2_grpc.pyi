@@ -73,6 +73,21 @@ class MgmtPrivateServiceStub:
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminResponse,
     ]
     """GetOrganizationSubscriptionAdmin"""
+    SubtractCredit: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.SubtractCreditRequest,
+        core.mgmt.v1beta.mgmt_pb2.SubtractCreditResponse,
+    ]
+    """Subtract Instill Credit from a user or organization account.
+
+    This endpoint subtracts the specified amount of Instill Credit from an
+    account. This is intended for processes on Instill Cloud that consume
+    credit, such as the execution of pre-configured connectors.
+    Note that if the remaining credit in the account is less than the
+    requested amount, it will be subtracted anyways, leaving the account
+    credit at zero. A ResourceExhausted error will be returned in this case.
+
+    On Instill Core, this endpoint will return a 404 Not Found status.
+    """
 
 class MgmtPrivateServiceAsyncStub:
     """Mgmt service responds to internal access"""
@@ -129,6 +144,21 @@ class MgmtPrivateServiceAsyncStub:
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminResponse,
     ]
     """GetOrganizationSubscriptionAdmin"""
+    SubtractCredit: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.SubtractCreditRequest,
+        core.mgmt.v1beta.mgmt_pb2.SubtractCreditResponse,
+    ]
+    """Subtract Instill Credit from a user or organization account.
+
+    This endpoint subtracts the specified amount of Instill Credit from an
+    account. This is intended for processes on Instill Cloud that consume
+    credit, such as the execution of pre-configured connectors.
+    Note that if the remaining credit in the account is less than the
+    requested amount, it will be subtracted anyways, leaving the account
+    credit at zero. A ResourceExhausted error will be returned in this case.
+
+    On Instill Core, this endpoint will return a 404 Not Found status.
+    """
 
 class MgmtPrivateServiceServicer(metaclass=abc.ABCMeta):
     """Mgmt service responds to internal access"""
@@ -201,5 +231,22 @@ class MgmtPrivateServiceServicer(metaclass=abc.ABCMeta):
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminResponse]]:
         """GetOrganizationSubscriptionAdmin"""
+    @abc.abstractmethod
+    def SubtractCredit(
+        self,
+        request: core.mgmt.v1beta.mgmt_pb2.SubtractCreditRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.SubtractCreditResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.SubtractCreditResponse]]:
+        """Subtract Instill Credit from a user or organization account.
+
+        This endpoint subtracts the specified amount of Instill Credit from an
+        account. This is intended for processes on Instill Cloud that consume
+        credit, such as the execution of pre-configured connectors.
+        Note that if the remaining credit in the account is less than the
+        requested amount, it will be subtracted anyways, leaving the account
+        credit at zero. A ResourceExhausted error will be returned in this case.
+
+        On Instill Core, this endpoint will return a 404 Not Found status.
+        """
 
 def add_MgmtPrivateServiceServicer_to_server(servicer: MgmtPrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

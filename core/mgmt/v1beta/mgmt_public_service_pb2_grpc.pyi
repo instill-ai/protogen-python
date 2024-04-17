@@ -250,6 +250,20 @@ class MgmtPublicServiceStub:
 
     Validates an API token.
     """
+    GetRemainingCredit: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditRequest,
+        core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditResponse,
+    ]
+    """Get the remaining Instill Credit
+
+    On Instill Cloud, users can use Instill Credit to execute pre-configured
+    AI connectors. This simplifies the pipeline setup, removing the need to
+    subscribe to third-party AI services. This endpoint returns the remaining
+    Instill Credit of a given user or organization. The requested credit owner
+    must be either the authenticated user or an organization they belong to.
+
+    On Instill Core, this endpoint will return a 404 Not Found status.
+    """
     ListPipelineTriggerRecords: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsRequest,
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsResponse,
@@ -575,6 +589,20 @@ class MgmtPublicServiceAsyncStub:
     """Validate an API token.
 
     Validates an API token.
+    """
+    GetRemainingCredit: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditRequest,
+        core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditResponse,
+    ]
+    """Get the remaining Instill Credit
+
+    On Instill Cloud, users can use Instill Credit to execute pre-configured
+    AI connectors. This simplifies the pipeline setup, removing the need to
+    subscribe to third-party AI services. This endpoint returns the remaining
+    Instill Credit of a given user or organization. The requested credit owner
+    must be either the authenticated user or an organization they belong to.
+
+    On Instill Core, this endpoint will return a 404 Not Found status.
     """
     ListPipelineTriggerRecords: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsRequest,
@@ -955,6 +983,22 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         """Validate an API token.
 
         Validates an API token.
+        """
+    @abc.abstractmethod
+    def GetRemainingCredit(
+        self,
+        request: core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditResponse]]:
+        """Get the remaining Instill Credit
+
+        On Instill Cloud, users can use Instill Credit to execute pre-configured
+        AI connectors. This simplifies the pipeline setup, removing the need to
+        subscribe to third-party AI services. This endpoint returns the remaining
+        Instill Credit of a given user or organization. The requested credit owner
+        must be either the authenticated user or an organization they belong to.
+
+        On Instill Core, this endpoint will return a 404 Not Found status.
         """
     @abc.abstractmethod
     def ListPipelineTriggerRecords(

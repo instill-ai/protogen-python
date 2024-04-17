@@ -154,6 +154,11 @@ class MgmtPublicServiceStub(object):
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ValidateTokenRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ValidateTokenResponse.FromString,
                 )
+        self.GetRemainingCredit = channel.unary_unary(
+                '/core.mgmt.v1beta.MgmtPublicService/GetRemainingCredit',
+                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetRemainingCreditRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetRemainingCreditResponse.FromString,
+                )
         self.ListPipelineTriggerRecords = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerRecords',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerRecordsRequest.SerializeToString,
@@ -469,6 +474,21 @@ class MgmtPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetRemainingCredit(self, request, context):
+        """Get the remaining Instill Credit
+
+        On Instill Cloud, users can use Instill Credit to execute pre-configured
+        AI connectors. This simplifies the pipeline setup, removing the need to
+        subscribe to third-party AI services. This endpoint returns the remaining
+        Instill Credit of a given user or organization. The requested credit owner
+        must be either the authenticated user or an organization they belong to.
+
+        On Instill Core, this endpoint will return a 404 Not Found status.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListPipelineTriggerRecords(self, request, context):
         """List pipeline triggers
 
@@ -711,6 +731,11 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     servicer.ValidateToken,
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ValidateTokenRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ValidateTokenResponse.SerializeToString,
+            ),
+            'GetRemainingCredit': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetRemainingCredit,
+                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetRemainingCreditRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetRemainingCreditResponse.SerializeToString,
             ),
             'ListPipelineTriggerRecords': grpc.unary_unary_rpc_method_handler(
                     servicer.ListPipelineTriggerRecords,
@@ -1237,6 +1262,23 @@ class MgmtPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ValidateToken',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ValidateTokenRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ValidateTokenResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetRemainingCredit(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/GetRemainingCredit',
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetRemainingCreditRequest.SerializeToString,
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetRemainingCreditResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

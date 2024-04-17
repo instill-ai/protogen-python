@@ -55,6 +55,11 @@ class MgmtPrivateServiceStub(object):
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionAdminRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionAdminResponse.FromString,
                 )
+        self.SubtractCredit = channel.unary_unary(
+                '/core.mgmt.v1beta.MgmtPrivateService/SubtractCredit',
+                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditResponse.FromString,
+                )
 
 
 class MgmtPrivateServiceServicer(object):
@@ -123,6 +128,22 @@ class MgmtPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SubtractCredit(self, request, context):
+        """Subtract Instill Credit from a user or organization account.
+
+        This endpoint subtracts the specified amount of Instill Credit from an
+        account. This is intended for processes on Instill Cloud that consume
+        credit, such as the execution of pre-configured connectors.
+        Note that if the remaining credit in the account is less than the
+        requested amount, it will be subtracted anyways, leaving the account
+        credit at zero. A ResourceExhausted error will be returned in this case.
+
+        On Instill Core, this endpoint will return a 404 Not Found status.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_MgmtPrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -165,6 +186,11 @@ def add_MgmtPrivateServiceServicer_to_server(servicer, server):
                     servicer.GetOrganizationSubscriptionAdmin,
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionAdminRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionAdminResponse.SerializeToString,
+            ),
+            'SubtractCredit': grpc.unary_unary_rpc_method_handler(
+                    servicer.SubtractCredit,
+                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -310,5 +336,22 @@ class MgmtPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPrivateService/GetOrganizationSubscriptionAdmin',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionAdminRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SubtractCredit(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPrivateService/SubtractCredit',
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditRequest.SerializeToString,
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
