@@ -289,31 +289,6 @@ class MgmtPublicServiceStub:
     Returns a paginated list with pipeline trigger execution times, aggregated
     by pipeline and time frames.
     """
-    ListConnectorExecuteRecords: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.metric_pb2.ListConnectorExecuteRecordsRequest,
-        core.mgmt.v1beta.metric_pb2.ListConnectorExecuteRecordsResponse,
-    ]
-    """List connector executions
-
-    Returns a paginated list of connector executions.
-    """
-    ListConnectorExecuteTableRecords: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.metric_pb2.ListConnectorExecuteTableRecordsRequest,
-        core.mgmt.v1beta.metric_pb2.ListConnectorExecuteTableRecordsResponse,
-    ]
-    """List connector execution metrics
-
-    Returns a paginated list of connector executions aggregated by connector.
-    """
-    ListConnectorExecuteChartRecords: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.metric_pb2.ListConnectorExecuteChartRecordsRequest,
-        core.mgmt.v1beta.metric_pb2.ListConnectorExecuteChartRecordsResponse,
-    ]
-    """List connector execution computation time charts
-
-    Returns a paginated list with connector execution times, aggregated by
-    connector and time frames.
-    """
     AuthTokenIssuer: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.AuthTokenIssuerRequest,
         core.mgmt.v1beta.mgmt_pb2.AuthTokenIssuerResponse,
@@ -628,31 +603,6 @@ class MgmtPublicServiceAsyncStub:
 
     Returns a paginated list with pipeline trigger execution times, aggregated
     by pipeline and time frames.
-    """
-    ListConnectorExecuteRecords: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.metric_pb2.ListConnectorExecuteRecordsRequest,
-        core.mgmt.v1beta.metric_pb2.ListConnectorExecuteRecordsResponse,
-    ]
-    """List connector executions
-
-    Returns a paginated list of connector executions.
-    """
-    ListConnectorExecuteTableRecords: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.metric_pb2.ListConnectorExecuteTableRecordsRequest,
-        core.mgmt.v1beta.metric_pb2.ListConnectorExecuteTableRecordsResponse,
-    ]
-    """List connector execution metrics
-
-    Returns a paginated list of connector executions aggregated by connector.
-    """
-    ListConnectorExecuteChartRecords: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.metric_pb2.ListConnectorExecuteChartRecordsRequest,
-        core.mgmt.v1beta.metric_pb2.ListConnectorExecuteChartRecordsResponse,
-    ]
-    """List connector execution computation time charts
-
-    Returns a paginated list with connector execution times, aggregated by
-    connector and time frames.
     """
     AuthTokenIssuer: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.AuthTokenIssuerRequest,
@@ -1030,37 +980,6 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
 
         Returns a paginated list with pipeline trigger execution times, aggregated
         by pipeline and time frames.
-        """
-    @abc.abstractmethod
-    def ListConnectorExecuteRecords(
-        self,
-        request: core.mgmt.v1beta.metric_pb2.ListConnectorExecuteRecordsRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.metric_pb2.ListConnectorExecuteRecordsResponse, collections.abc.Awaitable[core.mgmt.v1beta.metric_pb2.ListConnectorExecuteRecordsResponse]]:
-        """List connector executions
-
-        Returns a paginated list of connector executions.
-        """
-    @abc.abstractmethod
-    def ListConnectorExecuteTableRecords(
-        self,
-        request: core.mgmt.v1beta.metric_pb2.ListConnectorExecuteTableRecordsRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.metric_pb2.ListConnectorExecuteTableRecordsResponse, collections.abc.Awaitable[core.mgmt.v1beta.metric_pb2.ListConnectorExecuteTableRecordsResponse]]:
-        """List connector execution metrics
-
-        Returns a paginated list of connector executions aggregated by connector.
-        """
-    @abc.abstractmethod
-    def ListConnectorExecuteChartRecords(
-        self,
-        request: core.mgmt.v1beta.metric_pb2.ListConnectorExecuteChartRecordsRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.metric_pb2.ListConnectorExecuteChartRecordsResponse, collections.abc.Awaitable[core.mgmt.v1beta.metric_pb2.ListConnectorExecuteChartRecordsResponse]]:
-        """List connector execution computation time charts
-
-        Returns a paginated list with connector execution times, aggregated by
-        connector and time frames.
         """
     @abc.abstractmethod
     def AuthTokenIssuer(

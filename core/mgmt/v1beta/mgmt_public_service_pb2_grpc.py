@@ -174,21 +174,6 @@ class MgmtPublicServiceStub(object):
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsResponse.FromString,
                 )
-        self.ListConnectorExecuteRecords = channel.unary_unary(
-                '/core.mgmt.v1beta.MgmtPublicService/ListConnectorExecuteRecords',
-                request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListConnectorExecuteRecordsRequest.SerializeToString,
-                response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListConnectorExecuteRecordsResponse.FromString,
-                )
-        self.ListConnectorExecuteTableRecords = channel.unary_unary(
-                '/core.mgmt.v1beta.MgmtPublicService/ListConnectorExecuteTableRecords',
-                request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListConnectorExecuteTableRecordsRequest.SerializeToString,
-                response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListConnectorExecuteTableRecordsResponse.FromString,
-                )
-        self.ListConnectorExecuteChartRecords = channel.unary_unary(
-                '/core.mgmt.v1beta.MgmtPublicService/ListConnectorExecuteChartRecords',
-                request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListConnectorExecuteChartRecordsRequest.SerializeToString,
-                response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListConnectorExecuteChartRecordsResponse.FromString,
-                )
         self.AuthTokenIssuer = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/AuthTokenIssuer',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthTokenIssuerRequest.SerializeToString,
@@ -517,34 +502,6 @@ class MgmtPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListConnectorExecuteRecords(self, request, context):
-        """List connector executions
-
-        Returns a paginated list of connector executions.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ListConnectorExecuteTableRecords(self, request, context):
-        """List connector execution metrics
-
-        Returns a paginated list of connector executions aggregated by connector.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ListConnectorExecuteChartRecords(self, request, context):
-        """List connector execution computation time charts
-
-        Returns a paginated list with connector execution times, aggregated by
-        connector and time frames.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def AuthTokenIssuer(self, request, context):
         """Auth endpoints are only used in the community edition and the OpenAPI
         documentation references Instill Cloud. Therefore, these endpoints are
@@ -751,21 +708,6 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     servicer.ListPipelineTriggerChartRecords,
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsResponse.SerializeToString,
-            ),
-            'ListConnectorExecuteRecords': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListConnectorExecuteRecords,
-                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListConnectorExecuteRecordsRequest.FromString,
-                    response_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListConnectorExecuteRecordsResponse.SerializeToString,
-            ),
-            'ListConnectorExecuteTableRecords': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListConnectorExecuteTableRecords,
-                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListConnectorExecuteTableRecordsRequest.FromString,
-                    response_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListConnectorExecuteTableRecordsResponse.SerializeToString,
-            ),
-            'ListConnectorExecuteChartRecords': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListConnectorExecuteChartRecords,
-                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListConnectorExecuteChartRecordsRequest.FromString,
-                    response_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListConnectorExecuteChartRecordsResponse.SerializeToString,
             ),
             'AuthTokenIssuer': grpc.unary_unary_rpc_method_handler(
                     servicer.AuthTokenIssuer,
@@ -1330,57 +1272,6 @@ class MgmtPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerChartRecords',
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ListConnectorExecuteRecords(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListConnectorExecuteRecords',
-            core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListConnectorExecuteRecordsRequest.SerializeToString,
-            core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListConnectorExecuteRecordsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ListConnectorExecuteTableRecords(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListConnectorExecuteTableRecords',
-            core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListConnectorExecuteTableRecordsRequest.SerializeToString,
-            core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListConnectorExecuteTableRecordsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ListConnectorExecuteChartRecords(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListConnectorExecuteChartRecords',
-            core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListConnectorExecuteChartRecordsRequest.SerializeToString,
-            core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListConnectorExecuteChartRecordsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
