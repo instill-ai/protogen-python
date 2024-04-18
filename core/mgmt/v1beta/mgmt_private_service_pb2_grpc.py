@@ -138,7 +138,7 @@ class MgmtPrivateServiceServicer(object):
         requested amount, it will be subtracted anyways, leaving the account
         credit at zero. A ResourceExhausted error will be returned in this case.
 
-        On Instill Core, this endpoint will return a 404 Not Found status.
+        On Instill Core, this endpoint will return an Unimplemented status.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

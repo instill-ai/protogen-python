@@ -1476,19 +1476,23 @@ class SubtractCreditRequest(google.protobuf.message.Message):
 
     OWNER_FIELD_NUMBER: builtins.int
     AMOUNT_FIELD_NUMBER: builtins.int
+    CONCEPT_FIELD_NUMBER: builtins.int
     owner: builtins.str
     """The user or organization to which the credit belongs.
     Format: `{[users|organizations]}/{id}`.
     """
     amount: builtins.float
     """The credit amount to subtract."""
+    concept: builtins.str
+    """The description of the entry, for traceability."""
     def __init__(
         self,
         *,
         owner: builtins.str = ...,
         amount: builtins.float = ...,
+        concept: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["amount", b"amount", "owner", b"owner"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["amount", b"amount", "concept", b"concept", "owner", b"owner"]) -> None: ...
 
 global___SubtractCreditRequest = SubtractCreditRequest
 

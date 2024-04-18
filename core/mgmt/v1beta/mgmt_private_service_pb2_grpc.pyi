@@ -86,7 +86,7 @@ class MgmtPrivateServiceStub:
     requested amount, it will be subtracted anyways, leaving the account
     credit at zero. A ResourceExhausted error will be returned in this case.
 
-    On Instill Core, this endpoint will return a 404 Not Found status.
+    On Instill Core, this endpoint will return an Unimplemented status.
     """
 
 class MgmtPrivateServiceAsyncStub:
@@ -157,7 +157,7 @@ class MgmtPrivateServiceAsyncStub:
     requested amount, it will be subtracted anyways, leaving the account
     credit at zero. A ResourceExhausted error will be returned in this case.
 
-    On Instill Core, this endpoint will return a 404 Not Found status.
+    On Instill Core, this endpoint will return an Unimplemented status.
     """
 
 class MgmtPrivateServiceServicer(metaclass=abc.ABCMeta):
@@ -246,7 +246,7 @@ class MgmtPrivateServiceServicer(metaclass=abc.ABCMeta):
         requested amount, it will be subtracted anyways, leaving the account
         credit at zero. A ResourceExhausted error will be returned in this case.
 
-        On Instill Core, this endpoint will return a 404 Not Found status.
+        On Instill Core, this endpoint will return an Unimplemented status.
         """
 
 def add_MgmtPrivateServiceServicer_to_server(servicer: MgmtPrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
