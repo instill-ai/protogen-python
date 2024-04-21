@@ -78,16 +78,22 @@ class CreateUserSecretRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     SECRET_FIELD_NUMBER: builtins.int
+    PARENT_FIELD_NUMBER: builtins.int
     @property
     def secret(self) -> global___Secret:
         """The properties of the secret to be created."""
+    parent: builtins.str
+    """The parent resource, i.e., the user that creates the secret.
+    - Format: `users/{user.id}`.
+    """
     def __init__(
         self,
         *,
         secret: global___Secret | None = ...,
+        parent: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["secret", b"secret"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["secret", b"secret"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["parent", b"parent", "secret", b"secret"]) -> None: ...
 
 global___CreateUserSecretRequest = CreateUserSecretRequest
 
@@ -119,6 +125,7 @@ class ListUserSecretsRequest(google.protobuf.message.Message):
 
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    PARENT_FIELD_NUMBER: builtins.int
     page_size: builtins.int
     """The maximum number of secrets to return. If this parameter is unspecified,
     at most 10 pipelines will be returned. The cap value for this parameter is
@@ -126,14 +133,19 @@ class ListUserSecretsRequest(google.protobuf.message.Message):
     """
     page_token: builtins.str
     """Page secret."""
+    parent: builtins.str
+    """The parent resource, i.e., the user that creates the secret.
+    - Format: `users/{user.id}`.
+    """
     def __init__(
         self,
         *,
         page_size: builtins.int | None = ...,
         page_token: builtins.str | None = ...,
+        parent: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_page_size", b"_page_size", "_page_token", b"_page_token", "page_size", b"page_size", "page_token", b"page_token"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_page_size", b"_page_size", "_page_token", b"_page_token", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_page_size", b"_page_size", "_page_token", b"_page_token", "page_size", b"page_size", "page_token", b"page_token", "parent", b"parent"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
     @typing.overload
@@ -177,7 +189,7 @@ class GetUserSecretRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the secret, which allows its access by ID.
-    - Format: `user/secrets/{secret.id}`.
+    - Format: `users/{user.id}/secrets/{secret.id}`.
     """
     def __init__(
         self,
@@ -266,7 +278,7 @@ class DeleteUserSecretRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the secret, which allows its access by ID.
-    - Format: `user/secrets/{secret.id}`.
+    - Format: `users/{user.id}/secrets/{secret.id}`.
     """
     def __init__(
         self,
