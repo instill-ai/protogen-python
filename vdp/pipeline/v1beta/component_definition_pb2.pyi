@@ -253,12 +253,8 @@ class ConnectorSpec(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["value", b"value"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
-    RESOURCE_SPECIFICATION_FIELD_NUMBER: builtins.int
     COMPONENT_SPECIFICATION_FIELD_NUMBER: builtins.int
     DATA_SPECIFICATIONS_FIELD_NUMBER: builtins.int
-    @property
-    def resource_specification(self) -> google.protobuf.struct_pb2.Struct:
-        """Resource specification."""
     @property
     def component_specification(self) -> google.protobuf.struct_pb2.Struct:
         """Component specification."""
@@ -270,12 +266,11 @@ class ConnectorSpec(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        resource_specification: google.protobuf.struct_pb2.Struct | None = ...,
         component_specification: google.protobuf.struct_pb2.Struct | None = ...,
         data_specifications: collections.abc.Mapping[builtins.str, global___DataSpecification] | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification", "resource_specification", b"resource_specification"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification", "data_specifications", b"data_specifications", "resource_specification", b"resource_specification"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification", "data_specifications", b"data_specifications"]) -> None: ...
 
 global___ConnectorSpec = ConnectorSpec
 
