@@ -214,6 +214,24 @@ class ReadinessResponse(google.protobuf.message.Message):
 global___ReadinessResponse = ReadinessResponse
 
 @typing_extensions.final
+class Permission(google.protobuf.message.Message):
+    """Permission defines how a resource can be used."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CAN_EDIT_FIELD_NUMBER: builtins.int
+    can_edit: builtins.bool
+    """Defines whether the resource can be modified."""
+    def __init__(
+        self,
+        *,
+        can_edit: builtins.bool = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["can_edit", b"can_edit"]) -> None: ...
+
+global___Permission = Permission
+
+@typing_extensions.final
 class UserProfile(google.protobuf.message.Message):
     """UserProfile describes the public data of a user."""
 
@@ -1729,6 +1747,7 @@ class Organization(google.protobuf.message.Message):
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     OWNER_FIELD_NUMBER: builtins.int
     PROFILE_FIELD_NUMBER: builtins.int
+    PERMISSION_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The name of the organization, defined by its ID.
     - Format: `organization/{organization.id}`.
@@ -1755,6 +1774,9 @@ class Organization(google.protobuf.message.Message):
     @property
     def profile(self) -> global___OrganizationProfile:
         """Profile."""
+    @property
+    def permission(self) -> global___Permission:
+        """Permission"""
     def __init__(
         self,
         *,
@@ -1765,9 +1787,10 @@ class Organization(google.protobuf.message.Message):
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         owner: global___User | None = ...,
         profile: global___OrganizationProfile | None = ...,
+        permission: global___Permission | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "owner", b"owner", "profile", b"profile", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "id", b"id", "name", b"name", "owner", b"owner", "profile", b"profile", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "owner", b"owner", "permission", b"permission", "profile", b"profile", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "id", b"id", "name", b"name", "owner", b"owner", "permission", b"permission", "profile", b"profile", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
 
 global___Organization = Organization
 
