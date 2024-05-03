@@ -98,6 +98,7 @@ class ModelDefinition(google.protobuf.message.Message):
     MODEL_SPEC_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
+    RESOURCE_SPEC_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the model, which allows its access by ID.
     - Format: `model-definitions/{id}`.
@@ -131,6 +132,11 @@ class ModelDefinition(google.protobuf.message.Message):
     @property
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Update time."""
+    @property
+    def resource_spec(self) -> google.protobuf.struct_pb2.Struct:
+        """The resource specification represented by a JSON schema. It is used to
+        validate the resource spec of a model that is intended to be created on
+        """
     def __init__(
         self,
         *,
@@ -144,9 +150,10 @@ class ModelDefinition(google.protobuf.message.Message):
         model_spec: google.protobuf.struct_pb2.Struct | None = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        resource_spec: google.protobuf.struct_pb2.Struct | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "model_spec", b"model_spec", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "documentation_url", b"documentation_url", "icon", b"icon", "id", b"id", "model_spec", b"model_spec", "name", b"name", "release_stage", b"release_stage", "title", b"title", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "model_spec", b"model_spec", "resource_spec", b"resource_spec", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "documentation_url", b"documentation_url", "icon", b"icon", "id", b"id", "model_spec", b"model_spec", "name", b"name", "release_stage", b"release_stage", "resource_spec", b"resource_spec", "title", b"title", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
 
 global___ModelDefinition = ModelDefinition
 
