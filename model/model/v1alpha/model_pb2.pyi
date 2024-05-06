@@ -399,6 +399,8 @@ class ListModelsRequest(google.protobuf.message.Message):
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     SHOW_DELETED_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
+    VISIBILITY_FIELD_NUMBER: builtins.int
     page_size: builtins.int
     """The maximum number of models to return. If this parameter is unspecified,
     at most 10 models will be returned. The cap value for this parameter is
@@ -410,6 +412,13 @@ class ListModelsRequest(google.protobuf.message.Message):
     """View allows clients to specify the desired model view in the response."""
     show_deleted: builtins.bool
     """Include soft-deleted models in the result."""
+    filter: builtins.str
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
+    visibility: global___Model.Visibility.ValueType
+    """Limit results to pipelines with the specified visibility."""
     def __init__(
         self,
         *,
@@ -417,9 +426,13 @@ class ListModelsRequest(google.protobuf.message.Message):
         page_token: builtins.str | None = ...,
         view: model.model.v1alpha.model_definition_pb2.View.ValueType | None = ...,
         show_deleted: builtins.bool | None = ...,
+        filter: builtins.str | None = ...,
+        visibility: global___Model.Visibility.ValueType | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
     @typing.overload
@@ -428,6 +441,8 @@ class ListModelsRequest(google.protobuf.message.Message):
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_show_deleted", b"_show_deleted"]) -> typing_extensions.Literal["show_deleted"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_visibility", b"_visibility"]) -> typing_extensions.Literal["visibility"] | None: ...
 
 global___ListModelsRequest = ListModelsRequest
 
@@ -561,6 +576,8 @@ class ListUserModelsRequest(google.protobuf.message.Message):
     VIEW_FIELD_NUMBER: builtins.int
     PARENT_FIELD_NUMBER: builtins.int
     SHOW_DELETED_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
+    VISIBILITY_FIELD_NUMBER: builtins.int
     page_size: builtins.int
     """The maximum number of models to return. If this parameter is unspecified,
     at most 10 models will be returned. The cap value for this parameter is
@@ -576,6 +593,13 @@ class ListUserModelsRequest(google.protobuf.message.Message):
     """
     show_deleted: builtins.bool
     """Include soft-deleted models in the result."""
+    filter: builtins.str
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
+    visibility: global___Model.Visibility.ValueType
+    """Limit results to pipelines with the specified visibility."""
     def __init__(
         self,
         *,
@@ -584,9 +608,13 @@ class ListUserModelsRequest(google.protobuf.message.Message):
         view: model.model.v1alpha.model_definition_pb2.View.ValueType | None = ...,
         parent: builtins.str = ...,
         show_deleted: builtins.bool | None = ...,
+        filter: builtins.str | None = ...,
+        visibility: global___Model.Visibility.ValueType | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "page_size", b"page_size", "page_token", b"page_token", "parent", b"parent", "show_deleted", b"show_deleted", "view", b"view"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "parent", b"parent", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
     @typing.overload
@@ -595,6 +623,8 @@ class ListUserModelsRequest(google.protobuf.message.Message):
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_show_deleted", b"_show_deleted"]) -> typing_extensions.Literal["show_deleted"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_visibility", b"_visibility"]) -> typing_extensions.Literal["visibility"] | None: ...
 
 global___ListUserModelsRequest = ListUserModelsRequest
 
@@ -1514,6 +1544,8 @@ class ListOrganizationModelsRequest(google.protobuf.message.Message):
     VIEW_FIELD_NUMBER: builtins.int
     PARENT_FIELD_NUMBER: builtins.int
     SHOW_DELETED_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
+    VISIBILITY_FIELD_NUMBER: builtins.int
     page_size: builtins.int
     """The maximum number of models to return. If this parameter is unspecified,
     at most 10 models will be returned. The cap value for this parameter is
@@ -1529,6 +1561,13 @@ class ListOrganizationModelsRequest(google.protobuf.message.Message):
     """
     show_deleted: builtins.bool
     """Include soft-deleted models in the result."""
+    filter: builtins.str
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
+    visibility: global___Model.Visibility.ValueType
+    """Limit results to pipelines with the specified visibility."""
     def __init__(
         self,
         *,
@@ -1537,9 +1576,13 @@ class ListOrganizationModelsRequest(google.protobuf.message.Message):
         view: model.model.v1alpha.model_definition_pb2.View.ValueType | None = ...,
         parent: builtins.str = ...,
         show_deleted: builtins.bool | None = ...,
+        filter: builtins.str | None = ...,
+        visibility: global___Model.Visibility.ValueType | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "page_size", b"page_size", "page_token", b"page_token", "parent", b"parent", "show_deleted", b"show_deleted", "view", b"view"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "parent", b"parent", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
     @typing.overload
@@ -1548,6 +1591,8 @@ class ListOrganizationModelsRequest(google.protobuf.message.Message):
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_show_deleted", b"_show_deleted"]) -> typing_extensions.Literal["show_deleted"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_visibility", b"_visibility"]) -> typing_extensions.Literal["visibility"] | None: ...
 
 global___ListOrganizationModelsRequest = ListOrganizationModelsRequest
 
@@ -2230,6 +2275,7 @@ class ListModelsAdminRequest(google.protobuf.message.Message):
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     SHOW_DELETED_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
     page_size: builtins.int
     """Page size: the maximum number of resources to return. The service may
     return fewer than this value. If unspecified, at most 10 models will be
@@ -2245,6 +2291,11 @@ class ListModelsAdminRequest(google.protobuf.message.Message):
     """
     show_deleted: builtins.bool
     """Return soft_deleted models"""
+    filter: builtins.str
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
     def __init__(
         self,
         *,
@@ -2252,9 +2303,12 @@ class ListModelsAdminRequest(google.protobuf.message.Message):
         page_token: builtins.str | None = ...,
         view: model.model.v1alpha.model_definition_pb2.View.ValueType | None = ...,
         show_deleted: builtins.bool | None = ...,
+        filter: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
     @typing.overload
