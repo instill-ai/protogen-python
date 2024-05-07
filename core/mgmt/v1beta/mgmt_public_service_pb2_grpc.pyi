@@ -26,14 +26,6 @@ class MgmtPublicServiceStub:
     """
 
     def __init__(self, channel: typing.Union[grpc.Channel, grpc.aio.Channel]) -> None: ...
-    DeleteOrganizationMembership: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipRequest,
-        core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipResponse,
-    ]
-    """Delete an organization membership
-
-    Deletes a user membership within an organization.
-    """
     Liveness: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.LivenessRequest,
         core.mgmt.v1beta.mgmt_pb2.LivenessResponse,
@@ -49,15 +41,6 @@ class MgmtPublicServiceStub:
     """Check if the pipeline server is ready
 
     See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
-    """
-    CheckNamespace: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.CheckNamespaceRequest,
-        core.mgmt.v1beta.mgmt_pb2.CheckNamespaceResponse,
-    ]
-    """Check if a namespace is in use
-
-    Returns the availability of a namespace or, alternatively, the type of
-    resource that is using it.
     """
     GetAuthenticatedUser: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserRequest,
@@ -94,6 +77,49 @@ class MgmtPublicServiceStub:
 
     Returns the details of a user by their ID.
     """
+    CreateOrganization: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.CreateOrganizationRequest,
+        core.mgmt.v1beta.mgmt_pb2.CreateOrganizationResponse,
+    ]
+    """Create an organization
+
+    Creates an organization.
+    """
+    ListOrganizations: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.ListOrganizationsRequest,
+        core.mgmt.v1beta.mgmt_pb2.ListOrganizationsResponse,
+    ]
+    """List organizations
+
+    Returns a paginated list of organizations.
+    """
+    GetOrganization: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.GetOrganizationRequest,
+        core.mgmt.v1beta.mgmt_pb2.GetOrganizationResponse,
+    ]
+    """Get an organization
+
+    Returns the organization details by its ID.
+    """
+    UpdateOrganization: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationRequest,
+        core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationResponse,
+    ]
+    """Update an organization
+
+    Accesses and updates an organization by ID.
+
+    In REST requests, only the supplied organization fields will be taken into
+    account when updating the resource.
+    """
+    DeleteOrganization: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationRequest,
+        core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationResponse,
+    ]
+    """Delete an organization
+
+    Accesses and deletes an organization by ID.
+    """
     ListUserMemberships: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.ListUserMembershipsRequest,
         core.mgmt.v1beta.mgmt_pb2.ListUserMembershipsResponse,
@@ -127,49 +153,6 @@ class MgmtPublicServiceStub:
 
     Accesses and deletes a user membership by parent and membership IDs.
     """
-    ListOrganizations: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.ListOrganizationsRequest,
-        core.mgmt.v1beta.mgmt_pb2.ListOrganizationsResponse,
-    ]
-    """List organizations
-
-    Returns a paginated list of organizations.
-    """
-    CreateOrganization: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.CreateOrganizationRequest,
-        core.mgmt.v1beta.mgmt_pb2.CreateOrganizationResponse,
-    ]
-    """Create an organization
-
-    Creates an organization.
-    """
-    GetOrganization: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.GetOrganizationRequest,
-        core.mgmt.v1beta.mgmt_pb2.GetOrganizationResponse,
-    ]
-    """Get an organization
-
-    Returns the organization details by its ID.
-    """
-    UpdateOrganization: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationRequest,
-        core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationResponse,
-    ]
-    """Update an organization
-
-    Accesses and updates an organization by ID.
-
-    In REST requests, only the supplied organization fields will be taken into
-    account when updating the resource.
-    """
-    DeleteOrganization: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationRequest,
-        core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationResponse,
-    ]
-    """Delete an organization
-
-    Accesses and deletes an organization by ID.
-    """
     ListOrganizationMemberships: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.ListOrganizationMembershipsRequest,
         core.mgmt.v1beta.mgmt_pb2.ListOrganizationMembershipsResponse,
@@ -193,6 +176,14 @@ class MgmtPublicServiceStub:
     """Uppdate an organization membership
 
     Updates a user membership within an organization.
+    """
+    DeleteOrganizationMembership: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipRequest,
+        core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipResponse,
+    ]
+    """Delete an organization membership
+
+    Deletes a user membership within an organization.
     """
     GetAuthenticatedUserSubscription: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserSubscriptionRequest,
@@ -263,6 +254,15 @@ class MgmtPublicServiceStub:
     must be either the authenticated user or an organization they belong to.
 
     On Instill Core, this endpoint will return a 404 Not Found status.
+    """
+    CheckNamespace: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.CheckNamespaceRequest,
+        core.mgmt.v1beta.mgmt_pb2.CheckNamespaceResponse,
+    ]
+    """Check if a namespace is in use
+
+    Returns the availability of a namespace or, alternatively, the type of
+    resource that is using it.
     """
     ListPipelineTriggerRecords: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsRequest,
@@ -341,14 +341,6 @@ class MgmtPublicServiceAsyncStub:
     manage user resources.
     """
 
-    DeleteOrganizationMembership: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipRequest,
-        core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipResponse,
-    ]
-    """Delete an organization membership
-
-    Deletes a user membership within an organization.
-    """
     Liveness: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.LivenessRequest,
         core.mgmt.v1beta.mgmt_pb2.LivenessResponse,
@@ -364,15 +356,6 @@ class MgmtPublicServiceAsyncStub:
     """Check if the pipeline server is ready
 
     See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
-    """
-    CheckNamespace: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.CheckNamespaceRequest,
-        core.mgmt.v1beta.mgmt_pb2.CheckNamespaceResponse,
-    ]
-    """Check if a namespace is in use
-
-    Returns the availability of a namespace or, alternatively, the type of
-    resource that is using it.
     """
     GetAuthenticatedUser: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserRequest,
@@ -409,6 +392,49 @@ class MgmtPublicServiceAsyncStub:
 
     Returns the details of a user by their ID.
     """
+    CreateOrganization: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.CreateOrganizationRequest,
+        core.mgmt.v1beta.mgmt_pb2.CreateOrganizationResponse,
+    ]
+    """Create an organization
+
+    Creates an organization.
+    """
+    ListOrganizations: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.ListOrganizationsRequest,
+        core.mgmt.v1beta.mgmt_pb2.ListOrganizationsResponse,
+    ]
+    """List organizations
+
+    Returns a paginated list of organizations.
+    """
+    GetOrganization: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.GetOrganizationRequest,
+        core.mgmt.v1beta.mgmt_pb2.GetOrganizationResponse,
+    ]
+    """Get an organization
+
+    Returns the organization details by its ID.
+    """
+    UpdateOrganization: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationRequest,
+        core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationResponse,
+    ]
+    """Update an organization
+
+    Accesses and updates an organization by ID.
+
+    In REST requests, only the supplied organization fields will be taken into
+    account when updating the resource.
+    """
+    DeleteOrganization: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationRequest,
+        core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationResponse,
+    ]
+    """Delete an organization
+
+    Accesses and deletes an organization by ID.
+    """
     ListUserMemberships: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.ListUserMembershipsRequest,
         core.mgmt.v1beta.mgmt_pb2.ListUserMembershipsResponse,
@@ -442,49 +468,6 @@ class MgmtPublicServiceAsyncStub:
 
     Accesses and deletes a user membership by parent and membership IDs.
     """
-    ListOrganizations: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.ListOrganizationsRequest,
-        core.mgmt.v1beta.mgmt_pb2.ListOrganizationsResponse,
-    ]
-    """List organizations
-
-    Returns a paginated list of organizations.
-    """
-    CreateOrganization: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.CreateOrganizationRequest,
-        core.mgmt.v1beta.mgmt_pb2.CreateOrganizationResponse,
-    ]
-    """Create an organization
-
-    Creates an organization.
-    """
-    GetOrganization: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.GetOrganizationRequest,
-        core.mgmt.v1beta.mgmt_pb2.GetOrganizationResponse,
-    ]
-    """Get an organization
-
-    Returns the organization details by its ID.
-    """
-    UpdateOrganization: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationRequest,
-        core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationResponse,
-    ]
-    """Update an organization
-
-    Accesses and updates an organization by ID.
-
-    In REST requests, only the supplied organization fields will be taken into
-    account when updating the resource.
-    """
-    DeleteOrganization: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationRequest,
-        core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationResponse,
-    ]
-    """Delete an organization
-
-    Accesses and deletes an organization by ID.
-    """
     ListOrganizationMemberships: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.ListOrganizationMembershipsRequest,
         core.mgmt.v1beta.mgmt_pb2.ListOrganizationMembershipsResponse,
@@ -508,6 +491,14 @@ class MgmtPublicServiceAsyncStub:
     """Uppdate an organization membership
 
     Updates a user membership within an organization.
+    """
+    DeleteOrganizationMembership: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipRequest,
+        core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipResponse,
+    ]
+    """Delete an organization membership
+
+    Deletes a user membership within an organization.
     """
     GetAuthenticatedUserSubscription: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserSubscriptionRequest,
@@ -578,6 +569,15 @@ class MgmtPublicServiceAsyncStub:
     must be either the authenticated user or an organization they belong to.
 
     On Instill Core, this endpoint will return a 404 Not Found status.
+    """
+    CheckNamespace: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.CheckNamespaceRequest,
+        core.mgmt.v1beta.mgmt_pb2.CheckNamespaceResponse,
+    ]
+    """Check if a namespace is in use
+
+    Returns the availability of a namespace or, alternatively, the type of
+    resource that is using it.
     """
     ListPipelineTriggerRecords: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsRequest,
@@ -657,16 +657,6 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
     """
 
     @abc.abstractmethod
-    def DeleteOrganizationMembership(
-        self,
-        request: core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipResponse]]:
-        """Delete an organization membership
-
-        Deletes a user membership within an organization.
-        """
-    @abc.abstractmethod
     def Liveness(
         self,
         request: core.mgmt.v1beta.mgmt_pb2.LivenessRequest,
@@ -685,17 +675,6 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         """Check if the pipeline server is ready
 
         See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
-        """
-    @abc.abstractmethod
-    def CheckNamespace(
-        self,
-        request: core.mgmt.v1beta.mgmt_pb2.CheckNamespaceRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.CheckNamespaceResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.CheckNamespaceResponse]]:
-        """Check if a namespace is in use
-
-        Returns the availability of a namespace or, alternatively, the type of
-        resource that is using it.
         """
     @abc.abstractmethod
     def GetAuthenticatedUser(
@@ -741,6 +720,59 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         Returns the details of a user by their ID.
         """
     @abc.abstractmethod
+    def CreateOrganization(
+        self,
+        request: core.mgmt.v1beta.mgmt_pb2.CreateOrganizationRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.CreateOrganizationResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.CreateOrganizationResponse]]:
+        """Create an organization
+
+        Creates an organization.
+        """
+    @abc.abstractmethod
+    def ListOrganizations(
+        self,
+        request: core.mgmt.v1beta.mgmt_pb2.ListOrganizationsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.ListOrganizationsResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.ListOrganizationsResponse]]:
+        """List organizations
+
+        Returns a paginated list of organizations.
+        """
+    @abc.abstractmethod
+    def GetOrganization(
+        self,
+        request: core.mgmt.v1beta.mgmt_pb2.GetOrganizationRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetOrganizationResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetOrganizationResponse]]:
+        """Get an organization
+
+        Returns the organization details by its ID.
+        """
+    @abc.abstractmethod
+    def UpdateOrganization(
+        self,
+        request: core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationResponse]]:
+        """Update an organization
+
+        Accesses and updates an organization by ID.
+
+        In REST requests, only the supplied organization fields will be taken into
+        account when updating the resource.
+        """
+    @abc.abstractmethod
+    def DeleteOrganization(
+        self,
+        request: core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationResponse]]:
+        """Delete an organization
+
+        Accesses and deletes an organization by ID.
+        """
+    @abc.abstractmethod
     def ListUserMemberships(
         self,
         request: core.mgmt.v1beta.mgmt_pb2.ListUserMembershipsRequest,
@@ -782,59 +814,6 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         Accesses and deletes a user membership by parent and membership IDs.
         """
     @abc.abstractmethod
-    def ListOrganizations(
-        self,
-        request: core.mgmt.v1beta.mgmt_pb2.ListOrganizationsRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.ListOrganizationsResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.ListOrganizationsResponse]]:
-        """List organizations
-
-        Returns a paginated list of organizations.
-        """
-    @abc.abstractmethod
-    def CreateOrganization(
-        self,
-        request: core.mgmt.v1beta.mgmt_pb2.CreateOrganizationRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.CreateOrganizationResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.CreateOrganizationResponse]]:
-        """Create an organization
-
-        Creates an organization.
-        """
-    @abc.abstractmethod
-    def GetOrganization(
-        self,
-        request: core.mgmt.v1beta.mgmt_pb2.GetOrganizationRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetOrganizationResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetOrganizationResponse]]:
-        """Get an organization
-
-        Returns the organization details by its ID.
-        """
-    @abc.abstractmethod
-    def UpdateOrganization(
-        self,
-        request: core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationResponse]]:
-        """Update an organization
-
-        Accesses and updates an organization by ID.
-
-        In REST requests, only the supplied organization fields will be taken into
-        account when updating the resource.
-        """
-    @abc.abstractmethod
-    def DeleteOrganization(
-        self,
-        request: core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationResponse]]:
-        """Delete an organization
-
-        Accesses and deletes an organization by ID.
-        """
-    @abc.abstractmethod
     def ListOrganizationMemberships(
         self,
         request: core.mgmt.v1beta.mgmt_pb2.ListOrganizationMembershipsRequest,
@@ -863,6 +842,16 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         """Uppdate an organization membership
 
         Updates a user membership within an organization.
+        """
+    @abc.abstractmethod
+    def DeleteOrganizationMembership(
+        self,
+        request: core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.DeleteOrganizationMembershipResponse]]:
+        """Delete an organization membership
+
+        Deletes a user membership within an organization.
         """
     @abc.abstractmethod
     def GetAuthenticatedUserSubscription(
@@ -949,6 +938,17 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         must be either the authenticated user or an organization they belong to.
 
         On Instill Core, this endpoint will return a 404 Not Found status.
+        """
+    @abc.abstractmethod
+    def CheckNamespace(
+        self,
+        request: core.mgmt.v1beta.mgmt_pb2.CheckNamespaceRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.CheckNamespaceResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.CheckNamespaceResponse]]:
+        """Check if a namespace is in use
+
+        Returns the availability of a namespace or, alternatively, the type of
+        resource that is using it.
         """
     @abc.abstractmethod
     def ListPipelineTriggerRecords(
