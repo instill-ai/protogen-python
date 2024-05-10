@@ -164,7 +164,7 @@ class ListModelDefinitionsRequest(google.protobuf.message.Message):
     VIEW_FIELD_NUMBER: builtins.int
     page_size: builtins.int
     """The maximum number of model definitions to return. If this parameter
-    is unspecified, at most 10 pipelines will be returned. The cap value for
+    is unspecified, at most 10 definitions will be returned. The cap value for
     this parameter is 100 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str

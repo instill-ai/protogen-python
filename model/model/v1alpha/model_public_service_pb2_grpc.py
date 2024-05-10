@@ -34,6 +34,11 @@ class ModelPublicServiceStub(object):
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionsRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionsResponse.FromString,
                 )
+        self.ListAvailableRegions = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/ListAvailableRegions',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListAvailableRegionsRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListAvailableRegionsResponse.FromString,
+                )
         self.GetModelDefinition = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/GetModelDefinition',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionRequest.SerializeToString,
@@ -225,6 +230,15 @@ class ModelPublicServiceServicer(object):
         """List model definitions
 
         Returns a paginated list of model definitions.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListAvailableRegions(self, request, context):
+        """List available regions
+
+        Returns a paginated list of available regions.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -583,6 +597,11 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionsRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionsResponse.SerializeToString,
             ),
+            'ListAvailableRegions': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListAvailableRegions,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListAvailableRegionsRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListAvailableRegionsResponse.SerializeToString,
+            ),
             'GetModelDefinition': grpc.unary_unary_rpc_method_handler(
                     servicer.GetModelDefinition,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionRequest.FromString,
@@ -805,6 +824,23 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/ListModelDefinitions',
             model_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionsRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListAvailableRegions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/ListAvailableRegions',
+            model_dot_model_dot_v1alpha_dot_model__pb2.ListAvailableRegionsRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.ListAvailableRegionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

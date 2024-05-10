@@ -160,6 +160,31 @@ class ReadinessResponse(google.protobuf.message.Message):
 global___ReadinessResponse = ReadinessResponse
 
 @typing_extensions.final
+class Region(google.protobuf.message.Message):
+    """Region describes the supported cloud provider and regions, with
+    their supported GPU respectively.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    REGION_NAME_FIELD_NUMBER: builtins.int
+    HARDWARE_FIELD_NUMBER: builtins.int
+    region_name: builtins.str
+    """Concate name of provider and region"""
+    @property
+    def hardware(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """Hardware describes the available hardware types in this region"""
+    def __init__(
+        self,
+        *,
+        region_name: builtins.str = ...,
+        hardware: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["hardware", b"hardware", "region_name", b"region_name"]) -> None: ...
+
+global___Region = Region
+
+@typing_extensions.final
 class ModelVersion(google.protobuf.message.Message):
     """ModelVersion contains information about the version of a model."""
 
@@ -2260,6 +2285,41 @@ class GetModelOperationResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> None: ...
 
 global___GetModelOperationResponse = GetModelOperationResponse
+
+@typing_extensions.final
+class ListAvailableRegionsRequest(google.protobuf.message.Message):
+    """ListAvailableRegionsRequest represents a request to fetch a list
+    of available regions and hardware types a model can be deployed on.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___ListAvailableRegionsRequest = ListAvailableRegionsRequest
+
+@typing_extensions.final
+class ListAvailableRegionsResponse(google.protobuf.message.Message):
+    """ListAvailableRegionsResponse contains a list of available
+    regions and hardware types a model can be deployed on.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    REGIONS_FIELD_NUMBER: builtins.int
+    @property
+    def regions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Region]:
+        """A list of available region"""
+    def __init__(
+        self,
+        *,
+        regions: collections.abc.Iterable[global___Region] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["regions", b"regions"]) -> None: ...
+
+global___ListAvailableRegionsResponse = ListAvailableRegionsResponse
 
 @typing_extensions.final
 class ListModelsAdminRequest(google.protobuf.message.Message):

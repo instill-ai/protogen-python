@@ -50,6 +50,14 @@ class ModelPublicServiceStub:
 
     Returns a paginated list of model definitions.
     """
+    ListAvailableRegions: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.ListAvailableRegionsRequest,
+        model.model.v1alpha.model_pb2.ListAvailableRegionsResponse,
+    ]
+    """List available regions
+
+    Returns a paginated list of available regions.
+    """
     GetModelDefinition: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_definition_pb2.GetModelDefinitionRequest,
         model.model.v1alpha.model_definition_pb2.GetModelDefinitionResponse,
@@ -384,6 +392,14 @@ class ModelPublicServiceAsyncStub:
     """List model definitions
 
     Returns a paginated list of model definitions.
+    """
+    ListAvailableRegions: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.ListAvailableRegionsRequest,
+        model.model.v1alpha.model_pb2.ListAvailableRegionsResponse,
+    ]
+    """List available regions
+
+    Returns a paginated list of available regions.
     """
     GetModelDefinition: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_definition_pb2.GetModelDefinitionRequest,
@@ -725,6 +741,16 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         """List model definitions
 
         Returns a paginated list of model definitions.
+        """
+    @abc.abstractmethod
+    def ListAvailableRegions(
+        self,
+        request: model.model.v1alpha.model_pb2.ListAvailableRegionsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.ListAvailableRegionsResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.ListAvailableRegionsResponse]]:
+        """List available regions
+
+        Returns a paginated list of available regions.
         """
     @abc.abstractmethod
     def GetModelDefinition(
