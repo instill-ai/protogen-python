@@ -182,23 +182,27 @@ global___Sharing = Sharing
 
 @typing_extensions.final
 class Permission(google.protobuf.message.Message):
-    """Permission defines how a resource can be used."""
+    """Permission defines how a pipeline can be used."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     CAN_EDIT_FIELD_NUMBER: builtins.int
     CAN_TRIGGER_FIELD_NUMBER: builtins.int
+    CAN_RELEASE_FIELD_NUMBER: builtins.int
     can_edit: builtins.bool
-    """Defines whether the resource can be modified."""
+    """Defines whether the pipeline can be modified."""
     can_trigger: builtins.bool
-    """Defines whether the resource can be executed."""
+    """Defines whether the pipeline can be executed."""
+    can_release: builtins.bool
+    """Defines whether the pipeline can be released."""
     def __init__(
         self,
         *,
         can_edit: builtins.bool = ...,
         can_trigger: builtins.bool = ...,
+        can_release: builtins.bool = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["can_edit", b"can_edit", "can_trigger", b"can_trigger"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["can_edit", b"can_edit", "can_release", b"can_release", "can_trigger", b"can_trigger"]) -> None: ...
 
 global___Permission = Permission
 

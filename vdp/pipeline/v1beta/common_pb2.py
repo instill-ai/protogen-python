@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n vdp/pipeline/v1beta/common.proto\x12\x13vdp.pipeline.v1beta\x1a\x1fgoogle/api/field_behavior.proto\"\xbb\x03\n\x07Sharing\x12=\n\x05users\x18\x01 \x03(\x0b\x32\'.vdp.pipeline.v1beta.Sharing.UsersEntryR\x05users\x12\x45\n\nshare_code\x18\x02 \x01(\x0b\x32&.vdp.pipeline.v1beta.Sharing.ShareCodeR\tshareCode\x1aO\n\x04User\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12-\n\x04role\x18\x04 \x01(\x0e\x32\x19.vdp.pipeline.v1beta.RoleR\x04role\x1a|\n\tShareCode\x12\x12\n\x04user\x18\x01 \x01(\tR\x04user\x12\x12\n\x04\x63ode\x18\x02 \x01(\tR\x04\x63ode\x12\x18\n\x07\x65nabled\x18\x03 \x01(\x08R\x07\x65nabled\x12-\n\x04role\x18\x04 \x01(\x0e\x32\x19.vdp.pipeline.v1beta.RoleR\x04role\x1a[\n\nUsersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x37\n\x05value\x18\x02 \x01(\x0b\x32!.vdp.pipeline.v1beta.Sharing.UserR\x05value:\x02\x38\x01\"H\n\nPermission\x12\x19\n\x08\x63\x61n_edit\x18\x01 \x01(\x08R\x07\x63\x61nEdit\x12\x1f\n\x0b\x63\x61n_trigger\x18\x02 \x01(\x08R\ncanTrigger\",\n\x10\x43heckNameRequest\x12\x18\n\x04name\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x04name\"\xac\x01\n\x11\x43heckNameResponse\x12O\n\x0c\x61vailability\x18\x01 \x01(\x0e\x32+.vdp.pipeline.v1beta.CheckNameResponse.NameR\x0c\x61vailability\"F\n\x04Name\x12\x14\n\x10NAME_UNSPECIFIED\x10\x00\x12\x12\n\x0eNAME_AVAILABLE\x10\x01\x12\x14\n\x10NAME_UNAVAILABLE\x10\x02\"m\n\rComponentTask\x12\x18\n\x04name\x18\x01 \x01(\tB\x04\xe2\x41\x01\x03R\x04name\x12\x1a\n\x05title\x18\x02 \x01(\tB\x04\xe2\x41\x01\x03R\x05title\x12&\n\x0b\x64\x65scription\x18\x03 \x01(\tB\x04\xe2\x41\x01\x03R\x0b\x64\x65scription*@\n\x04Role\x12\x14\n\x10ROLE_UNSPECIFIED\x10\x00\x12\x0f\n\x0bROLE_VIEWER\x10\x01\x12\x11\n\rROLE_EXECUTOR\x10\x02*\xc0\x01\n\rComponentType\x12\x1e\n\x1a\x43OMPONENT_TYPE_UNSPECIFIED\x10\x00\x12\x1f\n\x1b\x43OMPONENT_TYPE_CONNECTOR_AI\x10\x01\x12!\n\x1d\x43OMPONENT_TYPE_CONNECTOR_DATA\x10\x02\x12\x1b\n\x17\x43OMPONENT_TYPE_OPERATOR\x10\x04\x12(\n$COMPONENT_TYPE_CONNECTOR_APPLICATION\x10\x05\"\x04\x08\x03\x10\x03\x42\xda\x01\n\x17\x63om.vdp.pipeline.v1betaB\x0b\x43ommonProtoP\x01ZDgithub.com/instill-ai/protogen-go/vdp/pipeline/v1beta;pipelinev1beta\xa2\x02\x03VPX\xaa\x02\x13Vdp.Pipeline.V1beta\xca\x02\x13Vdp\\Pipeline\\V1beta\xe2\x02\x1fVdp\\Pipeline\\V1beta\\GPBMetadata\xea\x02\x15Vdp::Pipeline::V1betab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n vdp/pipeline/v1beta/common.proto\x12\x13vdp.pipeline.v1beta\x1a\x1fgoogle/api/field_behavior.proto\"\xbb\x03\n\x07Sharing\x12=\n\x05users\x18\x01 \x03(\x0b\x32\'.vdp.pipeline.v1beta.Sharing.UsersEntryR\x05users\x12\x45\n\nshare_code\x18\x02 \x01(\x0b\x32&.vdp.pipeline.v1beta.Sharing.ShareCodeR\tshareCode\x1aO\n\x04User\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12-\n\x04role\x18\x04 \x01(\x0e\x32\x19.vdp.pipeline.v1beta.RoleR\x04role\x1a|\n\tShareCode\x12\x12\n\x04user\x18\x01 \x01(\tR\x04user\x12\x12\n\x04\x63ode\x18\x02 \x01(\tR\x04\x63ode\x12\x18\n\x07\x65nabled\x18\x03 \x01(\x08R\x07\x65nabled\x12-\n\x04role\x18\x04 \x01(\x0e\x32\x19.vdp.pipeline.v1beta.RoleR\x04role\x1a[\n\nUsersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x37\n\x05value\x18\x02 \x01(\x0b\x32!.vdp.pipeline.v1beta.Sharing.UserR\x05value:\x02\x38\x01\"i\n\nPermission\x12\x19\n\x08\x63\x61n_edit\x18\x01 \x01(\x08R\x07\x63\x61nEdit\x12\x1f\n\x0b\x63\x61n_trigger\x18\x02 \x01(\x08R\ncanTrigger\x12\x1f\n\x0b\x63\x61n_release\x18\x03 \x01(\x08R\ncanRelease\",\n\x10\x43heckNameRequest\x12\x18\n\x04name\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x04name\"\xac\x01\n\x11\x43heckNameResponse\x12O\n\x0c\x61vailability\x18\x01 \x01(\x0e\x32+.vdp.pipeline.v1beta.CheckNameResponse.NameR\x0c\x61vailability\"F\n\x04Name\x12\x14\n\x10NAME_UNSPECIFIED\x10\x00\x12\x12\n\x0eNAME_AVAILABLE\x10\x01\x12\x14\n\x10NAME_UNAVAILABLE\x10\x02\"m\n\rComponentTask\x12\x18\n\x04name\x18\x01 \x01(\tB\x04\xe2\x41\x01\x03R\x04name\x12\x1a\n\x05title\x18\x02 \x01(\tB\x04\xe2\x41\x01\x03R\x05title\x12&\n\x0b\x64\x65scription\x18\x03 \x01(\tB\x04\xe2\x41\x01\x03R\x0b\x64\x65scription*@\n\x04Role\x12\x14\n\x10ROLE_UNSPECIFIED\x10\x00\x12\x0f\n\x0bROLE_VIEWER\x10\x01\x12\x11\n\rROLE_EXECUTOR\x10\x02*\xc0\x01\n\rComponentType\x12\x1e\n\x1a\x43OMPONENT_TYPE_UNSPECIFIED\x10\x00\x12\x1f\n\x1b\x43OMPONENT_TYPE_CONNECTOR_AI\x10\x01\x12!\n\x1d\x43OMPONENT_TYPE_CONNECTOR_DATA\x10\x02\x12\x1b\n\x17\x43OMPONENT_TYPE_OPERATOR\x10\x04\x12(\n$COMPONENT_TYPE_CONNECTOR_APPLICATION\x10\x05\"\x04\x08\x03\x10\x03\x42\xda\x01\n\x17\x63om.vdp.pipeline.v1betaB\x0b\x43ommonProtoP\x01ZDgithub.com/instill-ai/protogen-go/vdp/pipeline/v1beta;pipelinev1beta\xa2\x02\x03VPX\xaa\x02\x13Vdp.Pipeline.V1beta\xca\x02\x13Vdp\\Pipeline\\V1beta\xe2\x02\x1fVdp\\Pipeline\\V1beta\\GPBMetadata\xea\x02\x15Vdp::Pipeline::V1betab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,10 +33,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _COMPONENTTASK.fields_by_name['title']._serialized_options = b'\342A\001\003'
   _COMPONENTTASK.fields_by_name['description']._options = None
   _COMPONENTTASK.fields_by_name['description']._serialized_options = b'\342A\001\003'
-  _globals['_ROLE']._serialized_start=942
-  _globals['_ROLE']._serialized_end=1006
-  _globals['_COMPONENTTYPE']._serialized_start=1009
-  _globals['_COMPONENTTYPE']._serialized_end=1201
+  _globals['_ROLE']._serialized_start=975
+  _globals['_ROLE']._serialized_end=1039
+  _globals['_COMPONENTTYPE']._serialized_start=1042
+  _globals['_COMPONENTTYPE']._serialized_end=1234
   _globals['_SHARING']._serialized_start=91
   _globals['_SHARING']._serialized_end=534
   _globals['_SHARING_USER']._serialized_start=236
@@ -46,13 +46,13 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_SHARING_USERSENTRY']._serialized_start=443
   _globals['_SHARING_USERSENTRY']._serialized_end=534
   _globals['_PERMISSION']._serialized_start=536
-  _globals['_PERMISSION']._serialized_end=608
-  _globals['_CHECKNAMEREQUEST']._serialized_start=610
-  _globals['_CHECKNAMEREQUEST']._serialized_end=654
-  _globals['_CHECKNAMERESPONSE']._serialized_start=657
-  _globals['_CHECKNAMERESPONSE']._serialized_end=829
-  _globals['_CHECKNAMERESPONSE_NAME']._serialized_start=759
-  _globals['_CHECKNAMERESPONSE_NAME']._serialized_end=829
-  _globals['_COMPONENTTASK']._serialized_start=831
-  _globals['_COMPONENTTASK']._serialized_end=940
+  _globals['_PERMISSION']._serialized_end=641
+  _globals['_CHECKNAMEREQUEST']._serialized_start=643
+  _globals['_CHECKNAMEREQUEST']._serialized_end=687
+  _globals['_CHECKNAMERESPONSE']._serialized_start=690
+  _globals['_CHECKNAMERESPONSE']._serialized_end=862
+  _globals['_CHECKNAMERESPONSE_NAME']._serialized_start=792
+  _globals['_CHECKNAMERESPONSE_NAME']._serialized_end=862
+  _globals['_COMPONENTTASK']._serialized_start=864
+  _globals['_COMPONENTTASK']._serialized_end=973
 # @@protoc_insertion_point(module_scope)
