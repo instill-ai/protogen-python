@@ -2631,6 +2631,8 @@ class OrganizationSubscription(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         PLAN_UNSPECIFIED: OrganizationSubscription._Plan.ValueType  # 0
         """Unspecified plan."""
+        PLAN_NON_PAID: OrganizationSubscription._Plan.ValueType  # 1
+        """Non-paid"""
         PLAN_TEAM: OrganizationSubscription._Plan.ValueType  # 2
         """Team plan."""
         PLAN_ENTERPRISE: OrganizationSubscription._Plan.ValueType  # 3
@@ -2643,6 +2645,8 @@ class OrganizationSubscription(google.protobuf.message.Message):
 
     PLAN_UNSPECIFIED: OrganizationSubscription.Plan.ValueType  # 0
     """Unspecified plan."""
+    PLAN_NON_PAID: OrganizationSubscription.Plan.ValueType  # 1
+    """Non-paid"""
     PLAN_TEAM: OrganizationSubscription.Plan.ValueType  # 2
     """Team plan."""
     PLAN_ENTERPRISE: OrganizationSubscription.Plan.ValueType  # 3
