@@ -2584,20 +2584,20 @@ class UserSubscription(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         PLAN_UNSPECIFIED: UserSubscription._Plan.ValueType  # 0
         """Unspecified plan."""
-        PLAN_FREEMIUM: UserSubscription._Plan.ValueType  # 1
-        """Freemium plan."""
-        PLAN_PRO: UserSubscription._Plan.ValueType  # 2
-        """Pro plan."""
+        PLAN_FREE: UserSubscription._Plan.ValueType  # 1
+        """Free plan."""
+        PLAN_STARTER: UserSubscription._Plan.ValueType  # 2
+        """Starter plan."""
 
     class Plan(_Plan, metaclass=_PlanEnumTypeWrapper):
         """Enumerates the plan types for the user subscription."""
 
     PLAN_UNSPECIFIED: UserSubscription.Plan.ValueType  # 0
     """Unspecified plan."""
-    PLAN_FREEMIUM: UserSubscription.Plan.ValueType  # 1
-    """Freemium plan."""
-    PLAN_PRO: UserSubscription.Plan.ValueType  # 2
-    """Pro plan."""
+    PLAN_FREE: UserSubscription.Plan.ValueType  # 1
+    """Free plan."""
+    PLAN_STARTER: UserSubscription.Plan.ValueType  # 2
+    """Starter plan."""
 
     PLAN_FIELD_NUMBER: builtins.int
     DETAIL_FIELD_NUMBER: builtins.int
