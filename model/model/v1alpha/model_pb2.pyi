@@ -279,6 +279,7 @@ class Model(google.protobuf.message.Message):
     LICENSE_FIELD_NUMBER: builtins.int
     SAMPLE_INPUT_FIELD_NUMBER: builtins.int
     SAMPLE_OUTPUT_FIELD_NUMBER: builtins.int
+    PROFILE_IMAGE_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the model, which allows its access by owner and ID.
     - Format: `users/{user.id}/models/{model.id}`.
@@ -337,6 +338,8 @@ class Model(google.protobuf.message.Message):
     @property
     def sample_output(self) -> global___TaskOutput:
         """Sample output for this model"""
+    profile_image: builtins.str
+    """Model profile image in base64 format."""
     def __init__(
         self,
         *,
@@ -361,13 +364,16 @@ class Model(google.protobuf.message.Message):
         license: builtins.str = ...,
         sample_input: global___TaskInput | None = ...,
         sample_output: global___TaskOutput | None = ...,
+        profile_image: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "_owner", b"_owner", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "owner", b"owner", "sample_input", b"sample_input", "sample_output", b"sample_output", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "_owner", b"_owner", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "hardware", b"hardware", "id", b"id", "license", b"license", "model_definition", b"model_definition", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "readme", b"readme", "region", b"region", "sample_input", b"sample_input", "sample_output", b"sample_output", "source_url", b"source_url", "task", b"task", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "_owner", b"_owner", "_profile_image", b"_profile_image", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "owner", b"owner", "profile_image", b"profile_image", "sample_input", b"sample_input", "sample_output", b"sample_output", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "_owner", b"_owner", "_profile_image", b"_profile_image", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "hardware", b"hardware", "id", b"id", "license", b"license", "model_definition", b"model_definition", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "profile_image", b"profile_image", "readme", b"readme", "region", b"region", "sample_input", b"sample_input", "sample_output", b"sample_output", "source_url", b"source_url", "task", b"task", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_description", b"_description"]) -> typing_extensions.Literal["description"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_owner", b"_owner"]) -> typing_extensions.Literal["owner"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_profile_image", b"_profile_image"]) -> typing_extensions.Literal["profile_image"] | None: ...
 
 global___Model = Model
 
