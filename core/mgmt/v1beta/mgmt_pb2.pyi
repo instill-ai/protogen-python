@@ -2631,24 +2631,24 @@ class OrganizationSubscription(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         PLAN_UNSPECIFIED: OrganizationSubscription._Plan.ValueType  # 0
         """Unspecified plan."""
-        PLAN_FREEMIUM: OrganizationSubscription._Plan.ValueType  # 1
-        """Freemium plan."""
         PLAN_TEAM: OrganizationSubscription._Plan.ValueType  # 2
         """Team plan."""
         PLAN_ENTERPRISE: OrganizationSubscription._Plan.ValueType  # 3
         """Enterprise plan."""
+        PLAN_TEAM_PRO: OrganizationSubscription._Plan.ValueType  # 4
+        """Team pro plan."""
 
     class Plan(_Plan, metaclass=_PlanEnumTypeWrapper):
         """Enumerates the plan types for the organization subscription."""
 
     PLAN_UNSPECIFIED: OrganizationSubscription.Plan.ValueType  # 0
     """Unspecified plan."""
-    PLAN_FREEMIUM: OrganizationSubscription.Plan.ValueType  # 1
-    """Freemium plan."""
     PLAN_TEAM: OrganizationSubscription.Plan.ValueType  # 2
     """Team plan."""
     PLAN_ENTERPRISE: OrganizationSubscription.Plan.ValueType  # 3
     """Enterprise plan."""
+    PLAN_TEAM_PRO: OrganizationSubscription.Plan.ValueType  # 4
+    """Team pro plan."""
 
     PLAN_FIELD_NUMBER: builtins.int
     DETAIL_FIELD_NUMBER: builtins.int
