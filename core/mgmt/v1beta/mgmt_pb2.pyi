@@ -1452,9 +1452,8 @@ class GetRemainingCreditRequest(google.protobuf.message.Message):
 
     OWNER_FIELD_NUMBER: builtins.int
     owner: builtins.str
-    """The user or organization to which the credit belongs. Owners are
-    referenced by UID.
-    Format: `{[users|organizations]}/{uid}`.
+    """The user or organization to which the credit belongs.
+    Format: `{[users|organizations]}/{id}`.
     """
     def __init__(
         self,
@@ -1497,9 +1496,8 @@ class SubtractCreditRequest(google.protobuf.message.Message):
     AMOUNT_FIELD_NUMBER: builtins.int
     CONCEPT_FIELD_NUMBER: builtins.int
     owner: builtins.str
-    """The user or organization to which the credit belongs. Owners are
-    referenced by UID.
-    Format: `{[users|organizations]}/{uid}`.
+    """The user or organization to which the credit belongs.
+    Format: `{[users|organizations]}/{id}`.
     """
     amount: builtins.float
     """The credit amount to subtract."""
