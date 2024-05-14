@@ -73,9 +73,9 @@ class MgmtPrivateServiceStub:
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminResponse,
     ]
     """GetOrganizationSubscriptionAdmin"""
-    SubtractCreditAdmin: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.SubtractCreditAdminRequest,
-        core.mgmt.v1beta.mgmt_pb2.SubtractCreditAdminResponse,
+    SubtractCredit: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.SubtractCreditRequest,
+        core.mgmt.v1beta.mgmt_pb2.SubtractCreditResponse,
     ]
     """Subtract Instill Credit from a user or organization account.
 
@@ -155,9 +155,9 @@ class MgmtPrivateServiceAsyncStub:
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminResponse,
     ]
     """GetOrganizationSubscriptionAdmin"""
-    SubtractCreditAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.SubtractCreditAdminRequest,
-        core.mgmt.v1beta.mgmt_pb2.SubtractCreditAdminResponse,
+    SubtractCredit: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.SubtractCreditRequest,
+        core.mgmt.v1beta.mgmt_pb2.SubtractCreditResponse,
     ]
     """Subtract Instill Credit from a user or organization account.
 
@@ -254,11 +254,11 @@ class MgmtPrivateServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminResponse]]:
         """GetOrganizationSubscriptionAdmin"""
     @abc.abstractmethod
-    def SubtractCreditAdmin(
+    def SubtractCredit(
         self,
-        request: core.mgmt.v1beta.mgmt_pb2.SubtractCreditAdminRequest,
+        request: core.mgmt.v1beta.mgmt_pb2.SubtractCreditRequest,
         context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.SubtractCreditAdminResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.SubtractCreditAdminResponse]]:
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.SubtractCreditResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.SubtractCreditResponse]]:
         """Subtract Instill Credit from a user or organization account.
 
         This endpoint subtracts the specified amount of Instill Credit from an

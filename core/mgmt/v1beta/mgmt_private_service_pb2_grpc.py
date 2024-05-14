@@ -55,10 +55,10 @@ class MgmtPrivateServiceStub(object):
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionAdminRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionAdminResponse.FromString,
                 )
-        self.SubtractCreditAdmin = channel.unary_unary(
-                '/core.mgmt.v1beta.MgmtPrivateService/SubtractCreditAdmin',
-                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditAdminRequest.SerializeToString,
-                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditAdminResponse.FromString,
+        self.SubtractCredit = channel.unary_unary(
+                '/core.mgmt.v1beta.MgmtPrivateService/SubtractCredit',
+                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditResponse.FromString,
                 )
         self.GetRemainingCreditAdmin = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPrivateService/GetRemainingCreditAdmin',
@@ -133,7 +133,7 @@ class MgmtPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def SubtractCreditAdmin(self, request, context):
+    def SubtractCredit(self, request, context):
         """Subtract Instill Credit from a user or organization account.
 
         This endpoint subtracts the specified amount of Instill Credit from an
@@ -204,10 +204,10 @@ def add_MgmtPrivateServiceServicer_to_server(servicer, server):
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionAdminRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionAdminResponse.SerializeToString,
             ),
-            'SubtractCreditAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.SubtractCreditAdmin,
-                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditAdminRequest.FromString,
-                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditAdminResponse.SerializeToString,
+            'SubtractCredit': grpc.unary_unary_rpc_method_handler(
+                    servicer.SubtractCredit,
+                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditResponse.SerializeToString,
             ),
             'GetRemainingCreditAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.GetRemainingCreditAdmin,
@@ -362,7 +362,7 @@ class MgmtPrivateService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def SubtractCreditAdmin(request,
+    def SubtractCredit(request,
             target,
             options=(),
             channel_credentials=None,
@@ -372,9 +372,9 @@ class MgmtPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPrivateService/SubtractCreditAdmin',
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditAdminRequest.SerializeToString,
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditAdminResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPrivateService/SubtractCredit',
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditRequest.SerializeToString,
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
