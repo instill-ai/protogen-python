@@ -1527,8 +1527,8 @@ class GetRemainingCreditAdminResponse(google.protobuf.message.Message):
 global___GetRemainingCreditAdminResponse = GetRemainingCreditAdminResponse
 
 @typing_extensions.final
-class SubtractCreditRequest(google.protobuf.message.Message):
-    """SubtractCreditRequest represents a request to subtract Instill Credit from
+class SubtractCreditAdminRequest(google.protobuf.message.Message):
+    """SubtractCreditAdminRequest represents a request to subtract Instill Credit from
     an account.
     """
 
@@ -1539,7 +1539,7 @@ class SubtractCreditRequest(google.protobuf.message.Message):
     CONCEPT_FIELD_NUMBER: builtins.int
     owner: builtins.str
     """The user or organization to which the credit belongs.
-    Format: `{[users|organizations]}/{id}`.
+    Format: `{[users|organizations]}/{uid}`.
     """
     amount: builtins.float
     """The credit amount to subtract."""
@@ -1554,10 +1554,10 @@ class SubtractCreditRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["amount", b"amount", "concept", b"concept", "owner", b"owner"]) -> None: ...
 
-global___SubtractCreditRequest = SubtractCreditRequest
+global___SubtractCreditAdminRequest = SubtractCreditAdminRequest
 
 @typing_extensions.final
-class SubtractCreditResponse(google.protobuf.message.Message):
+class SubtractCreditAdminResponse(google.protobuf.message.Message):
     """SubtractCreditResponse contains the remaining credit of an account after the
     subtraction.
     """
@@ -1574,7 +1574,7 @@ class SubtractCreditResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["amount", b"amount"]) -> None: ...
 
-global___SubtractCreditResponse = SubtractCreditResponse
+global___SubtractCreditAdminResponse = SubtractCreditAdminResponse
 
 @typing_extensions.final
 class AuthTokenIssuerRequest(google.protobuf.message.Message):
