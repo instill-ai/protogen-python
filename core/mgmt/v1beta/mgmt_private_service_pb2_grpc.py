@@ -60,6 +60,11 @@ class MgmtPrivateServiceStub(object):
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditResponse.FromString,
                 )
+        self.GetRemainingCreditAdmin = channel.unary_unary(
+                '/core.mgmt.v1beta.MgmtPrivateService/GetRemainingCreditAdmin',
+                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetRemainingCreditAdminRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetRemainingCreditAdminResponse.FromString,
+                )
 
 
 class MgmtPrivateServiceServicer(object):
@@ -144,6 +149,18 @@ class MgmtPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetRemainingCreditAdmin(self, request, context):
+        """Get the remaining Instill Credit by owner UID
+
+        This endpoint fetches the remaining unexpired credit of a user or
+        organization, referenced by UID.
+
+        On Instill Core, this endpoint will return a 404 Not Found status.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_MgmtPrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -191,6 +208,11 @@ def add_MgmtPrivateServiceServicer_to_server(servicer, server):
                     servicer.SubtractCredit,
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditResponse.SerializeToString,
+            ),
+            'GetRemainingCreditAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetRemainingCreditAdmin,
+                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetRemainingCreditAdminRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetRemainingCreditAdminResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -353,5 +375,22 @@ class MgmtPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPrivateService/SubtractCredit',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetRemainingCreditAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPrivateService/GetRemainingCreditAdmin',
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetRemainingCreditAdminRequest.SerializeToString,
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetRemainingCreditAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

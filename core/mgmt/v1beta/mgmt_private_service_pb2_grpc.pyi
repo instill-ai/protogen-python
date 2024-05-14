@@ -88,6 +88,17 @@ class MgmtPrivateServiceStub:
 
     On Instill Core, this endpoint will return an Unimplemented status.
     """
+    GetRemainingCreditAdmin: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditAdminRequest,
+        core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditAdminResponse,
+    ]
+    """Get the remaining Instill Credit by owner UID
+
+    This endpoint fetches the remaining unexpired credit of a user or
+    organization, referenced by UID.
+
+    On Instill Core, this endpoint will return a 404 Not Found status.
+    """
 
 class MgmtPrivateServiceAsyncStub:
     """Mgmt service responds to internal access"""
@@ -158,6 +169,17 @@ class MgmtPrivateServiceAsyncStub:
     credit at zero. A ResourceExhausted error will be returned in this case.
 
     On Instill Core, this endpoint will return an Unimplemented status.
+    """
+    GetRemainingCreditAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditAdminRequest,
+        core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditAdminResponse,
+    ]
+    """Get the remaining Instill Credit by owner UID
+
+    This endpoint fetches the remaining unexpired credit of a user or
+    organization, referenced by UID.
+
+    On Instill Core, this endpoint will return a 404 Not Found status.
     """
 
 class MgmtPrivateServiceServicer(metaclass=abc.ABCMeta):
@@ -247,6 +269,19 @@ class MgmtPrivateServiceServicer(metaclass=abc.ABCMeta):
         credit at zero. A ResourceExhausted error will be returned in this case.
 
         On Instill Core, this endpoint will return an Unimplemented status.
+        """
+    @abc.abstractmethod
+    def GetRemainingCreditAdmin(
+        self,
+        request: core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditAdminResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditAdminResponse]]:
+        """Get the remaining Instill Credit by owner UID
+
+        This endpoint fetches the remaining unexpired credit of a user or
+        organization, referenced by UID.
+
+        On Instill Core, this endpoint will return a 404 Not Found status.
         """
 
 def add_MgmtPrivateServiceServicer_to_server(servicer: MgmtPrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
