@@ -925,6 +925,7 @@ class ListPipelinesRequest(google.protobuf.message.Message):
     FILTER_FIELD_NUMBER: builtins.int
     SHOW_DELETED_FIELD_NUMBER: builtins.int
     VISIBILITY_FIELD_NUMBER: builtins.int
+    ORDER_BY_FIELD_NUMBER: builtins.int
     page_size: builtins.int
     """The maximum number of pipelines to return. If this parameter is
     unspecified, at most 10 pipelines will be returned. The cap value for this
@@ -945,6 +946,8 @@ class ListPipelinesRequest(google.protobuf.message.Message):
     """Include soft-deleted pipelines in the result."""
     visibility: global___Pipeline.Visibility.ValueType
     """Limit results to pipelines with the specified visibility."""
+    order_by: builtins.str
+    """Order by field."""
     def __init__(
         self,
         *,
@@ -954,11 +957,14 @@ class ListPipelinesRequest(google.protobuf.message.Message):
         filter: builtins.str | None = ...,
         show_deleted: builtins.bool | None = ...,
         visibility: global___Pipeline.Visibility.ValueType | None = ...,
+        order_by: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "order_by", b"order_by", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "order_by", b"order_by", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_order_by", b"_order_by"]) -> typing_extensions.Literal["order_by"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
     @typing.overload
