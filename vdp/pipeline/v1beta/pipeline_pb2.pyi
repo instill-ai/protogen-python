@@ -947,8 +947,8 @@ class ListPipelinesRequest(google.protobuf.message.Message):
     visibility: global___Pipeline.Visibility.ValueType
     """Limit results to pipelines with the specified visibility."""
     order_by: builtins.str
-    """Order by field, with options for ordering by `id` or `create_time`.
-    Format: `order_by=id ASC` or `order_by=create_time DESC`.
+    """Order by field, with options for ordering by `id`, `create_time` or `update_time`.
+    Format: `order_by=id` or `order_by=create_time desc`, default is `asc`.
     """
     def __init__(
         self,
@@ -1142,8 +1142,8 @@ class ListUserPipelinesRequest(google.protobuf.message.Message):
     visibility: global___Pipeline.Visibility.ValueType
     """Limit results to pipelines with the specified visibility."""
     order_by: builtins.str
-    """Order by field, with options for ordering by `id` or `create_time`.
-    Format: `order_by=id ASC` or `order_by=create_time DESC`.
+    """Order by field, with options for ordering by `id`, `create_time` or `update_time`.
+    Format: `order_by=id` or `order_by=create_time desc`, default is `asc`.
     """
     def __init__(
         self,
@@ -2227,8 +2227,8 @@ class ListOrganizationPipelinesRequest(google.protobuf.message.Message):
     visibility: global___Pipeline.Visibility.ValueType
     """Limit results to pipelines with the specified visibility."""
     order_by: builtins.str
-    """Order by field, with options for ordering by `id` or `create_time`.
-    Format: `order_by=id ASC` or `order_by=create_time DESC`.
+    """Order by field, with options for ordering by `id`, `create_time` or `update_time`.
+    Format: `order_by=id` or `order_by=create_time desc`, default is `asc`.
     """
     def __init__(
         self,
