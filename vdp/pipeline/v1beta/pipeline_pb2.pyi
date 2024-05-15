@@ -841,6 +841,40 @@ class Trace(google.protobuf.message.Message):
 global___Trace = Trace
 
 @typing_extensions.final
+class GetHubStatsRequest(google.protobuf.message.Message):
+    """GetHubStatsRequest represents a request to get hub stats."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___GetHubStatsRequest = GetHubStatsRequest
+
+@typing_extensions.final
+class GetHubStatsResponse(google.protobuf.message.Message):
+    """GetHubStatsResponse represents a response to get hub stats."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NUMBER_OF_PUBLIC_PIPELINES_FIELD_NUMBER: builtins.int
+    NUMBER_OF_FEATURED_PIPELINES_FIELD_NUMBER: builtins.int
+    number_of_public_pipelines: builtins.int
+    """Total number of public pipelines."""
+    number_of_featured_pipelines: builtins.int
+    """Total number of featured pipelines."""
+    def __init__(
+        self,
+        *,
+        number_of_public_pipelines: builtins.int = ...,
+        number_of_featured_pipelines: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["number_of_featured_pipelines", b"number_of_featured_pipelines", "number_of_public_pipelines", b"number_of_public_pipelines"]) -> None: ...
+
+global___GetHubStatsResponse = GetHubStatsResponse
+
+@typing_extensions.final
 class PipelineRelease(google.protobuf.message.Message):
     """Pipeline releases contain the version control information of a pipeline.
     This allows users to track changes in the pipeline over time.

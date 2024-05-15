@@ -44,6 +44,14 @@ class PipelinePublicServiceStub:
 
     See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
     """
+    GetHubStats: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.GetHubStatsRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.GetHubStatsResponse,
+    ]
+    """Get hub status
+
+    Return the stats of the hub
+    """
     ListPipelines: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesRequest,
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesResponse,
@@ -682,6 +690,14 @@ class PipelinePublicServiceAsyncStub:
     """Check if the pipeline server is ready
 
     See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+    """
+    GetHubStats: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.GetHubStatsRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.GetHubStatsResponse,
+    ]
+    """Get hub status
+
+    Return the stats of the hub
     """
     ListPipelines: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesRequest,
@@ -1325,6 +1341,16 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         """Check if the pipeline server is ready
 
         See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+        """
+    @abc.abstractmethod
+    def GetHubStats(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.GetHubStatsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.GetHubStatsResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.GetHubStatsResponse]]:
+        """Get hub status
+
+        Return the stats of the hub
         """
     @abc.abstractmethod
     def ListPipelines(

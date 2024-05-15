@@ -31,6 +31,11 @@ class PipelinePublicServiceStub(object):
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ReadinessRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ReadinessResponse.FromString,
                 )
+        self.GetHubStats = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/GetHubStats',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetHubStatsRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetHubStatsResponse.FromString,
+                )
         self.ListPipelines = channel.unary_unary(
                 '/vdp.pipeline.v1beta.PipelinePublicService/ListPipelines',
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelinesRequest.SerializeToString,
@@ -338,6 +343,15 @@ class PipelinePublicServiceServicer(object):
         """Check if the pipeline server is ready
 
         See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetHubStats(self, request, context):
+        """Get hub status
+
+        Return the stats of the hub
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1028,6 +1042,11 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ReadinessRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ReadinessResponse.SerializeToString,
             ),
+            'GetHubStats': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetHubStats,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetHubStatsRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetHubStatsResponse.SerializeToString,
+            ),
             'ListPipelines': grpc.unary_unary_rpc_method_handler(
                     servicer.ListPipelines,
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelinesRequest.FromString,
@@ -1358,6 +1377,23 @@ class PipelinePublicService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/Readiness',
             vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ReadinessRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ReadinessResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetHubStats(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/GetHubStats',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetHubStatsRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetHubStatsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
