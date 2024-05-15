@@ -650,6 +650,7 @@ class Pipeline(google.protobuf.message.Message):
     VISIBILITY_FIELD_NUMBER: builtins.int
     OWNER_FIELD_NUMBER: builtins.int
     DATA_SPECIFICATION_FIELD_NUMBER: builtins.int
+    TAGS_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The name of the pipeline, defined by its parent and ID.
     - Format: `{parent_type}/{parent.id}/pipelines/{pipeline.id}`.
@@ -700,6 +701,9 @@ class Pipeline(google.protobuf.message.Message):
     @property
     def data_specification(self) -> vdp.pipeline.v1beta.component_definition_pb2.DataSpecification:
         """Data specifications."""
+    @property
+    def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """Tags."""
     def __init__(
         self,
         *,
@@ -720,9 +724,10 @@ class Pipeline(google.protobuf.message.Message):
         visibility: global___Pipeline.Visibility.ValueType = ...,
         owner: core.mgmt.v1beta.mgmt_pb2.Owner | None = ...,
         data_specification: vdp.pipeline.v1beta.component_definition_pb2.DataSpecification | None = ...,
+        tags: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "_owner", b"_owner", "create_time", b"create_time", "data_specification", b"data_specification", "delete_time", b"delete_time", "description", b"description", "metadata", b"metadata", "owner", b"owner", "permission", b"permission", "recipe", b"recipe", "sharing", b"sharing", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "_owner", b"_owner", "create_time", b"create_time", "data_specification", b"data_specification", "delete_time", b"delete_time", "description", b"description", "id", b"id", "metadata", b"metadata", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "permission", b"permission", "readme", b"readme", "recipe", b"recipe", "releases", b"releases", "sharing", b"sharing", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "_owner", b"_owner", "create_time", b"create_time", "data_specification", b"data_specification", "delete_time", b"delete_time", "description", b"description", "id", b"id", "metadata", b"metadata", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "permission", b"permission", "readme", b"readme", "recipe", b"recipe", "releases", b"releases", "sharing", b"sharing", "tags", b"tags", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_description", b"_description"]) -> typing_extensions.Literal["description"] | None: ...
     @typing.overload
