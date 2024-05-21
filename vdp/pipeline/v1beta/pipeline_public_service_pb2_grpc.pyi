@@ -174,6 +174,19 @@ class PipelinePublicServiceStub:
     For more information, see [Trigger
     Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
     """
+    TriggerUserPipelineWithStream: grpc.UnaryStreamMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineWithStreamRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineWithStreamResponse,
+    ]
+    """Trigger a pipeline owned by a user and stream back the response
+
+    Triggers the execution of a pipeline asynchronously and streams back the response.
+    This method is intended for real-time inference when low latency is of concern
+    and the response needs to be processed incrementally.
+
+    The pipeline is identified by its resource name, formed by the parent user
+    and ID of the pipeline.
+    """
     TriggerAsyncUserPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncUserPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncUserPipelineResponse,
@@ -820,6 +833,19 @@ class PipelinePublicServiceAsyncStub:
 
     For more information, see [Trigger
     Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+    """
+    TriggerUserPipelineWithStream: grpc.aio.UnaryStreamMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineWithStreamRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineWithStreamResponse,
+    ]
+    """Trigger a pipeline owned by a user and stream back the response
+
+    Triggers the execution of a pipeline asynchronously and streams back the response.
+    This method is intended for real-time inference when low latency is of concern
+    and the response needs to be processed incrementally.
+
+    The pipeline is identified by its resource name, formed by the parent user
+    and ID of the pipeline.
     """
     TriggerAsyncUserPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncUserPipelineRequest,
@@ -1495,6 +1521,21 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
 
         For more information, see [Trigger
         Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+        """
+    @abc.abstractmethod
+    def TriggerUserPipelineWithStream(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineWithStreamRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[collections.abc.Iterator[vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineWithStreamResponse], collections.abc.AsyncIterator[vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineWithStreamResponse]]:
+        """Trigger a pipeline owned by a user and stream back the response
+
+        Triggers the execution of a pipeline asynchronously and streams back the response.
+        This method is intended for real-time inference when low latency is of concern
+        and the response needs to be processed incrementally.
+
+        The pipeline is identified by its resource name, formed by the parent user
+        and ID of the pipeline.
         """
     @abc.abstractmethod
     def TriggerAsyncUserPipeline(

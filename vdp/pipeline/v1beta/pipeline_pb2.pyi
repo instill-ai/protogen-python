@@ -1597,6 +1597,82 @@ class TriggerUserPipelineResponse(google.protobuf.message.Message):
 global___TriggerUserPipelineResponse = TriggerUserPipelineResponse
 
 @typing_extensions.final
+class TriggerUserPipelineWithStreamRequest(google.protobuf.message.Message):
+    """TriggerUserPipelineWithStreamRequest represents a request to trigger a user-owned
+    pipeline synchronously and streams back the results.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    @typing_extensions.final
+    class SecretsEntry(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        KEY_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
+            *,
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
+
+    NAME_FIELD_NUMBER: builtins.int
+    INPUTS_FIELD_NUMBER: builtins.int
+    SECRETS_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the pipeline, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/pipelines/{pipeline.id}`.
+    """
+    @property
+    def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Pipeline input parameters."""
+    @property
+    def secrets(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
+        """Pipeline secrets parameters that will override the pipeline's or owner's secrets."""
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
+        secrets: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["inputs", b"inputs", "name", b"name", "secrets", b"secrets"]) -> None: ...
+
+global___TriggerUserPipelineWithStreamRequest = TriggerUserPipelineWithStreamRequest
+
+@typing_extensions.final
+class TriggerUserPipelineWithStreamResponse(google.protobuf.message.Message):
+    """TriggerUserPipelineWithStreamResponse contains the pipeline execution results, i.e.,
+    the multiple model inference outputs.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OUTPUTS_FIELD_NUMBER: builtins.int
+    METADATA_FIELD_NUMBER: builtins.int
+    @property
+    def outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Model inference outputs."""
+    @property
+    def metadata(self) -> global___TriggerMetadata:
+        """Traces of the pipeline inference."""
+    def __init__(
+        self,
+        *,
+        outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
+        metadata: global___TriggerMetadata | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["metadata", b"metadata"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["metadata", b"metadata", "outputs", b"outputs"]) -> None: ...
+
+global___TriggerUserPipelineWithStreamResponse = TriggerUserPipelineWithStreamResponse
+
+@typing_extensions.final
 class TriggerAsyncUserPipelineRequest(google.protobuf.message.Message):
     """TriggerUserPipelineRequest represents a request to trigger a user-owned
     pipeline synchronously.

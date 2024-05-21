@@ -91,6 +91,11 @@ class PipelinePublicServiceStub(object):
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerUserPipelineRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerUserPipelineResponse.FromString,
                 )
+        self.TriggerUserPipelineWithStream = channel.unary_stream(
+                '/vdp.pipeline.v1beta.PipelinePublicService/TriggerUserPipelineWithStream',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerUserPipelineWithStreamRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerUserPipelineWithStreamResponse.FromString,
+                )
         self.TriggerAsyncUserPipeline = channel.unary_unary(
                 '/vdp.pipeline.v1beta.PipelinePublicService/TriggerAsyncUserPipeline',
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerAsyncUserPipelineRequest.SerializeToString,
@@ -485,6 +490,20 @@ class PipelinePublicServiceServicer(object):
 
         For more information, see [Trigger
         Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TriggerUserPipelineWithStream(self, request, context):
+        """Trigger a pipeline owned by a user and stream back the response
+
+        Triggers the execution of a pipeline asynchronously and streams back the response.
+        This method is intended for real-time inference when low latency is of concern
+        and the response needs to be processed incrementally.
+
+        The pipeline is identified by its resource name, formed by the parent user
+        and ID of the pipeline.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1102,6 +1121,11 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerUserPipelineRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerUserPipelineResponse.SerializeToString,
             ),
+            'TriggerUserPipelineWithStream': grpc.unary_stream_rpc_method_handler(
+                    servicer.TriggerUserPipelineWithStream,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerUserPipelineWithStreamRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerUserPipelineWithStreamResponse.SerializeToString,
+            ),
             'TriggerAsyncUserPipeline': grpc.unary_unary_rpc_method_handler(
                     servicer.TriggerAsyncUserPipeline,
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerAsyncUserPipelineRequest.FromString,
@@ -1581,6 +1605,23 @@ class PipelinePublicService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/TriggerUserPipeline',
             vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerUserPipelineRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerUserPipelineResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TriggerUserPipelineWithStream(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/TriggerUserPipelineWithStream',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerUserPipelineWithStreamRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerUserPipelineWithStreamResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
