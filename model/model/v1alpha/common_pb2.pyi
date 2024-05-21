@@ -158,3 +158,25 @@ class Message(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["content", b"content", "role", b"role"]) -> None: ...
 
 global___Message = Message
+
+@typing_extensions.final
+class Permission(google.protobuf.message.Message):
+    """Permission defines how a pipeline can be used."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CAN_EDIT_FIELD_NUMBER: builtins.int
+    CAN_TRIGGER_FIELD_NUMBER: builtins.int
+    can_edit: builtins.bool
+    """Defines whether the pipeline can be modified."""
+    can_trigger: builtins.bool
+    """Defines whether the pipeline can be executed."""
+    def __init__(
+        self,
+        *,
+        can_edit: builtins.bool = ...,
+        can_trigger: builtins.bool = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["can_edit", b"can_edit", "can_trigger", b"can_trigger"]) -> None: ...
+
+global___Permission = Permission
