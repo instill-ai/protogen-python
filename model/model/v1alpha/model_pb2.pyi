@@ -282,6 +282,8 @@ class Model(google.protobuf.message.Message):
     SAMPLE_OUTPUT_FIELD_NUMBER: builtins.int
     PROFILE_IMAGE_FIELD_NUMBER: builtins.int
     PERMISSION_FIELD_NUMBER: builtins.int
+    INPUT_SCHEMA_FIELD_NUMBER: builtins.int
+    OUTPUT_SCHEMA_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the model, which allows its access by owner and ID.
     - Format: `users/{user.id}/models/{model.id}`.
@@ -345,6 +347,12 @@ class Model(google.protobuf.message.Message):
     @property
     def permission(self) -> model.model.v1alpha.common_pb2.Permission:
         """Permission defines how a pipeline can be used."""
+    @property
+    def input_schema(self) -> google.protobuf.struct_pb2.Struct:
+        """Input schema for the model"""
+    @property
+    def output_schema(self) -> google.protobuf.struct_pb2.Struct:
+        """Output schema for the model"""
     def __init__(
         self,
         *,
@@ -371,9 +379,11 @@ class Model(google.protobuf.message.Message):
         sample_output: global___TaskOutput | None = ...,
         profile_image: builtins.str | None = ...,
         permission: model.model.v1alpha.common_pb2.Permission | None = ...,
+        input_schema: google.protobuf.struct_pb2.Struct | None = ...,
+        output_schema: google.protobuf.struct_pb2.Struct | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_readme", b"_readme", "_source_url", b"_source_url", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "license", b"license", "owner", b"owner", "permission", b"permission", "profile_image", b"profile_image", "readme", b"readme", "sample_input", b"sample_input", "sample_output", b"sample_output", "source_url", b"source_url", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_readme", b"_readme", "_source_url", b"_source_url", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "hardware", b"hardware", "id", b"id", "license", b"license", "model_definition", b"model_definition", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "permission", b"permission", "profile_image", b"profile_image", "readme", b"readme", "region", b"region", "sample_input", b"sample_input", "sample_output", b"sample_output", "source_url", b"source_url", "task", b"task", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_readme", b"_readme", "_source_url", b"_source_url", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "input_schema", b"input_schema", "license", b"license", "output_schema", b"output_schema", "owner", b"owner", "permission", b"permission", "profile_image", b"profile_image", "readme", b"readme", "sample_input", b"sample_input", "sample_output", b"sample_output", "source_url", b"source_url", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_readme", b"_readme", "_source_url", b"_source_url", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "hardware", b"hardware", "id", b"id", "input_schema", b"input_schema", "license", b"license", "model_definition", b"model_definition", "name", b"name", "output_schema", b"output_schema", "owner", b"owner", "owner_name", b"owner_name", "permission", b"permission", "profile_image", b"profile_image", "readme", b"readme", "region", b"region", "sample_input", b"sample_input", "sample_output", b"sample_output", "source_url", b"source_url", "task", b"task", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_description", b"_description"]) -> typing_extensions.Literal["description"] | None: ...
     @typing.overload
