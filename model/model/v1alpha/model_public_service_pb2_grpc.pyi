@@ -208,6 +208,24 @@ class ModelPublicServiceStub:
     Triggers a deployed model to infer the result of a set of task or
     questions.
     """
+    TriggerUserLatestModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerUserLatestModelRequest,
+        model.model.v1alpha.model_pb2.TriggerUserLatestModelResponse,
+    ]
+    """Trigger model inference
+
+    Triggers the latest deployed model version to infer the result of a set of task or
+    questions.
+    """
+    TriggerAsyncUserLatestModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerAsyncUserLatestModelRequest,
+        model.model.v1alpha.model_pb2.TriggerAsyncUserLatestModelResponse,
+    ]
+    """Trigger model inference asynchronously
+
+    Triggers the latest deployed model version to infer the result of a set of task or
+    questions.
+    """
     TriggerUserModelBinaryFileUpload: grpc.StreamUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerUserModelBinaryFileUploadRequest,
         model.model.v1alpha.model_pb2.TriggerUserModelBinaryFileUploadResponse,
@@ -341,6 +359,24 @@ class ModelPublicServiceStub:
     """Trigger model inference asynchronously
 
     Triggers a deployed model to infer the result of a set of task or
+    questions.
+    """
+    TriggerOrganizationLatestModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerOrganizationLatestModelRequest,
+        model.model.v1alpha.model_pb2.TriggerOrganizationLatestModelResponse,
+    ]
+    """Trigger model inference
+
+    Triggers the latest deployed model version to infer the result of a set of task or
+    questions.
+    """
+    TriggerAsyncOrganizationLatestModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerAsyncOrganizationLatestModelRequest,
+        model.model.v1alpha.model_pb2.TriggerAsyncOrganizationLatestModelResponse,
+    ]
+    """Trigger model inference asynchronously
+
+    Triggers the latest deployed model version to infer the result of a set of task or
     questions.
     """
     TriggerOrganizationModelBinaryFileUpload: grpc.StreamUnaryMultiCallable[
@@ -551,6 +587,24 @@ class ModelPublicServiceAsyncStub:
     Triggers a deployed model to infer the result of a set of task or
     questions.
     """
+    TriggerUserLatestModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerUserLatestModelRequest,
+        model.model.v1alpha.model_pb2.TriggerUserLatestModelResponse,
+    ]
+    """Trigger model inference
+
+    Triggers the latest deployed model version to infer the result of a set of task or
+    questions.
+    """
+    TriggerAsyncUserLatestModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerAsyncUserLatestModelRequest,
+        model.model.v1alpha.model_pb2.TriggerAsyncUserLatestModelResponse,
+    ]
+    """Trigger model inference asynchronously
+
+    Triggers the latest deployed model version to infer the result of a set of task or
+    questions.
+    """
     TriggerUserModelBinaryFileUpload: grpc.aio.StreamUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerUserModelBinaryFileUploadRequest,
         model.model.v1alpha.model_pb2.TriggerUserModelBinaryFileUploadResponse,
@@ -684,6 +738,24 @@ class ModelPublicServiceAsyncStub:
     """Trigger model inference asynchronously
 
     Triggers a deployed model to infer the result of a set of task or
+    questions.
+    """
+    TriggerOrganizationLatestModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerOrganizationLatestModelRequest,
+        model.model.v1alpha.model_pb2.TriggerOrganizationLatestModelResponse,
+    ]
+    """Trigger model inference
+
+    Triggers the latest deployed model version to infer the result of a set of task or
+    questions.
+    """
+    TriggerAsyncOrganizationLatestModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerAsyncOrganizationLatestModelRequest,
+        model.model.v1alpha.model_pb2.TriggerAsyncOrganizationLatestModelResponse,
+    ]
+    """Trigger model inference asynchronously
+
+    Triggers the latest deployed model version to infer the result of a set of task or
     questions.
     """
     TriggerOrganizationModelBinaryFileUpload: grpc.aio.StreamUnaryMultiCallable[
@@ -935,6 +1007,28 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         questions.
         """
     @abc.abstractmethod
+    def TriggerUserLatestModel(
+        self,
+        request: model.model.v1alpha.model_pb2.TriggerUserLatestModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.TriggerUserLatestModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TriggerUserLatestModelResponse]]:
+        """Trigger model inference
+
+        Triggers the latest deployed model version to infer the result of a set of task or
+        questions.
+        """
+    @abc.abstractmethod
+    def TriggerAsyncUserLatestModel(
+        self,
+        request: model.model.v1alpha.model_pb2.TriggerAsyncUserLatestModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.TriggerAsyncUserLatestModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TriggerAsyncUserLatestModelResponse]]:
+        """Trigger model inference asynchronously
+
+        Triggers the latest deployed model version to infer the result of a set of task or
+        questions.
+        """
+    @abc.abstractmethod
     def TriggerUserModelBinaryFileUpload(
         self,
         request_iterator: _MaybeAsyncIterator[model.model.v1alpha.model_pb2.TriggerUserModelBinaryFileUploadRequest],
@@ -1095,6 +1189,28 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         """Trigger model inference asynchronously
 
         Triggers a deployed model to infer the result of a set of task or
+        questions.
+        """
+    @abc.abstractmethod
+    def TriggerOrganizationLatestModel(
+        self,
+        request: model.model.v1alpha.model_pb2.TriggerOrganizationLatestModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.TriggerOrganizationLatestModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TriggerOrganizationLatestModelResponse]]:
+        """Trigger model inference
+
+        Triggers the latest deployed model version to infer the result of a set of task or
+        questions.
+        """
+    @abc.abstractmethod
+    def TriggerAsyncOrganizationLatestModel(
+        self,
+        request: model.model.v1alpha.model_pb2.TriggerAsyncOrganizationLatestModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.TriggerAsyncOrganizationLatestModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TriggerAsyncOrganizationLatestModelResponse]]:
+        """Trigger model inference asynchronously
+
+        Triggers the latest deployed model version to infer the result of a set of task or
         questions.
         """
     @abc.abstractmethod

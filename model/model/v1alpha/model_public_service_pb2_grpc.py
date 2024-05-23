@@ -119,6 +119,16 @@ class ModelPublicServiceStub(object):
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncUserModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncUserModelResponse.FromString,
                 )
+        self.TriggerUserLatestModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/TriggerUserLatestModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserLatestModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserLatestModelResponse.FromString,
+                )
+        self.TriggerAsyncUserLatestModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/TriggerAsyncUserLatestModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncUserLatestModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncUserLatestModelResponse.FromString,
+                )
         self.TriggerUserModelBinaryFileUpload = channel.stream_unary(
                 '/model.model.v1alpha.ModelPublicService/TriggerUserModelBinaryFileUpload',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelBinaryFileUploadRequest.SerializeToString,
@@ -188,6 +198,16 @@ class ModelPublicServiceStub(object):
                 '/model.model.v1alpha.ModelPublicService/TriggerAsyncOrganizationModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationModelResponse.FromString,
+                )
+        self.TriggerOrganizationLatestModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/TriggerOrganizationLatestModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationLatestModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationLatestModelResponse.FromString,
+                )
+        self.TriggerAsyncOrganizationLatestModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/TriggerAsyncOrganizationLatestModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationLatestModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationLatestModelResponse.FromString,
                 )
         self.TriggerOrganizationModelBinaryFileUpload = channel.stream_unary(
                 '/model.model.v1alpha.ModelPublicService/TriggerOrganizationModelBinaryFileUpload',
@@ -410,6 +430,26 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def TriggerUserLatestModel(self, request, context):
+        """Trigger model inference
+
+        Triggers the latest deployed model version to infer the result of a set of task or
+        questions.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TriggerAsyncUserLatestModel(self, request, context):
+        """Trigger model inference asynchronously
+
+        Triggers the latest deployed model version to infer the result of a set of task or
+        questions.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def TriggerUserModelBinaryFileUpload(self, request_iterator, context):
         """Trigger model inference with a binary input
 
@@ -559,6 +599,26 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def TriggerOrganizationLatestModel(self, request, context):
+        """Trigger model inference
+
+        Triggers the latest deployed model version to infer the result of a set of task or
+        questions.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TriggerAsyncOrganizationLatestModel(self, request, context):
+        """Trigger model inference asynchronously
+
+        Triggers the latest deployed model version to infer the result of a set of task or
+        questions.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def TriggerOrganizationModelBinaryFileUpload(self, request_iterator, context):
         """Trigger model inference with a binary input
 
@@ -682,6 +742,16 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncUserModelRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncUserModelResponse.SerializeToString,
             ),
+            'TriggerUserLatestModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.TriggerUserLatestModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserLatestModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserLatestModelResponse.SerializeToString,
+            ),
+            'TriggerAsyncUserLatestModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.TriggerAsyncUserLatestModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncUserLatestModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncUserLatestModelResponse.SerializeToString,
+            ),
             'TriggerUserModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
                     servicer.TriggerUserModelBinaryFileUpload,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelBinaryFileUploadRequest.FromString,
@@ -751,6 +821,16 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     servicer.TriggerAsyncOrganizationModel,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationModelRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationModelResponse.SerializeToString,
+            ),
+            'TriggerOrganizationLatestModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.TriggerOrganizationLatestModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationLatestModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationLatestModelResponse.SerializeToString,
+            ),
+            'TriggerAsyncOrganizationLatestModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.TriggerAsyncOrganizationLatestModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationLatestModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationLatestModelResponse.SerializeToString,
             ),
             'TriggerOrganizationModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
                     servicer.TriggerOrganizationModelBinaryFileUpload,
@@ -1117,6 +1197,40 @@ class ModelPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def TriggerUserLatestModel(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TriggerUserLatestModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserLatestModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserLatestModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TriggerAsyncUserLatestModel(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TriggerAsyncUserLatestModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncUserLatestModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncUserLatestModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def TriggerUserModelBinaryFileUpload(request_iterator,
             target,
             options=(),
@@ -1351,6 +1465,40 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TriggerAsyncOrganizationModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TriggerOrganizationLatestModel(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TriggerOrganizationLatestModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationLatestModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationLatestModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TriggerAsyncOrganizationLatestModel(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TriggerAsyncOrganizationLatestModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationLatestModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationLatestModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

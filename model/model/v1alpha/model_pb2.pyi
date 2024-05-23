@@ -1476,6 +1476,107 @@ class TriggerAsyncUserModelResponse(google.protobuf.message.Message):
 global___TriggerAsyncUserModelResponse = TriggerAsyncUserModelResponse
 
 @typing_extensions.final
+class TriggerUserLatestModelRequest(google.protobuf.message.Message):
+    """TriggerUserLatestModelRequest represents a request to trigger a model inference
+    with the latest uploaded version.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    TASK_INPUTS_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the model , which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/models/{model.id}`.
+    """
+    @property
+    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
+        """Inference input parameters."""
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        task_inputs: collections.abc.Iterable[global___TaskInput] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "task_inputs", b"task_inputs"]) -> None: ...
+
+global___TriggerUserLatestModelRequest = TriggerUserLatestModelRequest
+
+@typing_extensions.final
+class TriggerUserLatestModelResponse(google.protobuf.message.Message):
+    """TriggerUserLatestModelResponse contains the model inference results."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TASK_FIELD_NUMBER: builtins.int
+    TASK_OUTPUTS_FIELD_NUMBER: builtins.int
+    task: common.task.v1alpha.task_pb2.Task.ValueType
+    """Task type."""
+    @property
+    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskOutput]:
+        """Model inference outputs."""
+    def __init__(
+        self,
+        *,
+        task: common.task.v1alpha.task_pb2.Task.ValueType = ...,
+        task_outputs: collections.abc.Iterable[global___TaskOutput] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["task", b"task", "task_outputs", b"task_outputs"]) -> None: ...
+
+global___TriggerUserLatestModelResponse = TriggerUserLatestModelResponse
+
+@typing_extensions.final
+class TriggerAsyncUserLatestModelRequest(google.protobuf.message.Message):
+    """TriggerAsyncUserLatestModelRequest represents a request to trigger a model inference
+    asynchronously with the latest uploaded version.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    TASK_INPUTS_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the model , which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/models/{model.id}`.
+    """
+    @property
+    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
+        """Inference input parameters."""
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        task_inputs: collections.abc.Iterable[global___TaskInput] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "task_inputs", b"task_inputs"]) -> None: ...
+
+global___TriggerAsyncUserLatestModelRequest = TriggerAsyncUserLatestModelRequest
+
+@typing_extensions.final
+class TriggerAsyncUserLatestModelResponse(google.protobuf.message.Message):
+    """TriggerAsyncUserLatestModelResponse contains the information to access the
+    status of an asynchronous model inference.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OPERATION_FIELD_NUMBER: builtins.int
+    @property
+    def operation(self) -> google.longrunning.operations_pb2.Operation:
+        """Long-running operation information."""
+    def __init__(
+        self,
+        *,
+        operation: google.longrunning.operations_pb2.Operation | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> None: ...
+
+global___TriggerAsyncUserLatestModelResponse = TriggerAsyncUserLatestModelResponse
+
+@typing_extensions.final
 class TriggerUserModelBinaryFileUploadRequest(google.protobuf.message.Message):
     """TriggerUserModelBinaryFileUploadRequest represents a request trigger a model
     inference by uploading a binary file as the input.
@@ -2209,6 +2310,105 @@ class TriggerAsyncOrganizationModelResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> None: ...
 
 global___TriggerAsyncOrganizationModelResponse = TriggerAsyncOrganizationModelResponse
+
+@typing_extensions.final
+class TriggerOrganizationLatestModelRequest(google.protobuf.message.Message):
+    """TriggerOrganizationLatestModelRequest represents a request to trigger a model inference."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    TASK_INPUTS_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the model , which allows its access by parent organization
+    and ID.
+    - Format: `organizations/{organization.id}/models/{model.id}`.
+    """
+    @property
+    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
+        """Inference input parameters."""
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        task_inputs: collections.abc.Iterable[global___TaskInput] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "task_inputs", b"task_inputs"]) -> None: ...
+
+global___TriggerOrganizationLatestModelRequest = TriggerOrganizationLatestModelRequest
+
+@typing_extensions.final
+class TriggerOrganizationLatestModelResponse(google.protobuf.message.Message):
+    """TriggerOrganizationLatestModelResponse contains the model inference results."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TASK_FIELD_NUMBER: builtins.int
+    TASK_OUTPUTS_FIELD_NUMBER: builtins.int
+    task: common.task.v1alpha.task_pb2.Task.ValueType
+    """Task type."""
+    @property
+    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskOutput]:
+        """Model inference outputs."""
+    def __init__(
+        self,
+        *,
+        task: common.task.v1alpha.task_pb2.Task.ValueType = ...,
+        task_outputs: collections.abc.Iterable[global___TaskOutput] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["task", b"task", "task_outputs", b"task_outputs"]) -> None: ...
+
+global___TriggerOrganizationLatestModelResponse = TriggerOrganizationLatestModelResponse
+
+@typing_extensions.final
+class TriggerAsyncOrganizationLatestModelRequest(google.protobuf.message.Message):
+    """TriggerAsyncOrganizationLatestModelRequest represents a request to trigger a model inference
+    asynchronously
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    TASK_INPUTS_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the model , which allows its access by parent organization
+    and ID.
+    - Format: `organizations/{organization.id}/models/{model.id}`.
+    """
+    @property
+    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
+        """Inference input parameters."""
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        task_inputs: collections.abc.Iterable[global___TaskInput] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "task_inputs", b"task_inputs"]) -> None: ...
+
+global___TriggerAsyncOrganizationLatestModelRequest = TriggerAsyncOrganizationLatestModelRequest
+
+@typing_extensions.final
+class TriggerAsyncOrganizationLatestModelResponse(google.protobuf.message.Message):
+    """TriggerAsyncOrganizationLatestModelResponse contains the information to access the
+    status of an asynchronous model inference.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OPERATION_FIELD_NUMBER: builtins.int
+    @property
+    def operation(self) -> google.longrunning.operations_pb2.Operation:
+        """Long-running operation information."""
+    def __init__(
+        self,
+        *,
+        operation: google.longrunning.operations_pb2.Operation | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> None: ...
+
+global___TriggerAsyncOrganizationLatestModelResponse = TriggerAsyncOrganizationLatestModelResponse
 
 @typing_extensions.final
 class TriggerOrganizationModelBinaryFileUploadRequest(google.protobuf.message.Message):
