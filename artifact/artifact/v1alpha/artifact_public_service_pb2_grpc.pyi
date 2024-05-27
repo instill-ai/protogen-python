@@ -39,6 +39,26 @@ class ArtifactPublicServiceStub:
 
     See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
     """
+    CreateKnowledgeBase: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.CreateKnowledgeBaseRequest,
+        artifact.artifact.v1alpha.artifact_pb2.CreateKnowledgeBaseResponse,
+    ]
+    """Create a knowledge base"""
+    GetKnowledgeBases: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.GetKnowledgeBasesRequest,
+        artifact.artifact.v1alpha.artifact_pb2.GetKnowledgeBasesResponse,
+    ]
+    """Get all knowledge bases info"""
+    UpdateKnowledgeBase: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.UpdateKnowledgeBaseRequest,
+        artifact.artifact.v1alpha.artifact_pb2.UpdateKnowledgeBaseResponse,
+    ]
+    """Update a knowledge base info"""
+    DeleteKnowledgeBase: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseRequest,
+        artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseResponse,
+    ]
+    """Delete a knowledge base"""
 
 class ArtifactPublicServiceAsyncStub:
     """ArtifactPublicService exposes the public endpoints that allow clients to
@@ -61,6 +81,26 @@ class ArtifactPublicServiceAsyncStub:
 
     See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
     """
+    CreateKnowledgeBase: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.CreateKnowledgeBaseRequest,
+        artifact.artifact.v1alpha.artifact_pb2.CreateKnowledgeBaseResponse,
+    ]
+    """Create a knowledge base"""
+    GetKnowledgeBases: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.GetKnowledgeBasesRequest,
+        artifact.artifact.v1alpha.artifact_pb2.GetKnowledgeBasesResponse,
+    ]
+    """Get all knowledge bases info"""
+    UpdateKnowledgeBase: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.UpdateKnowledgeBaseRequest,
+        artifact.artifact.v1alpha.artifact_pb2.UpdateKnowledgeBaseResponse,
+    ]
+    """Update a knowledge base info"""
+    DeleteKnowledgeBase: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseRequest,
+        artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseResponse,
+    ]
+    """Delete a knowledge base"""
 
 class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
     """ArtifactPublicService exposes the public endpoints that allow clients to
@@ -87,5 +127,33 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
 
         See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
         """
+    @abc.abstractmethod
+    def CreateKnowledgeBase(
+        self,
+        request: artifact.artifact.v1alpha.artifact_pb2.CreateKnowledgeBaseRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.CreateKnowledgeBaseResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.CreateKnowledgeBaseResponse]]:
+        """Create a knowledge base"""
+    @abc.abstractmethod
+    def GetKnowledgeBases(
+        self,
+        request: artifact.artifact.v1alpha.artifact_pb2.GetKnowledgeBasesRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.GetKnowledgeBasesResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.GetKnowledgeBasesResponse]]:
+        """Get all knowledge bases info"""
+    @abc.abstractmethod
+    def UpdateKnowledgeBase(
+        self,
+        request: artifact.artifact.v1alpha.artifact_pb2.UpdateKnowledgeBaseRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.UpdateKnowledgeBaseResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.UpdateKnowledgeBaseResponse]]:
+        """Update a knowledge base info"""
+    @abc.abstractmethod
+    def DeleteKnowledgeBase(
+        self,
+        request: artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseResponse]]:
+        """Delete a knowledge base"""
 
 def add_ArtifactPublicServiceServicer_to_server(servicer: ArtifactPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

@@ -289,3 +289,227 @@ class CreateRepositoryTagResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["tag", b"tag"]) -> None: ...
 
 global___CreateRepositoryTagResponse = CreateRepositoryTagResponse
+
+@typing_extensions.final
+class KnowledgeBase(google.protobuf.message.Message):
+    """KnowledgeBase represents a knowledge base."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    ID_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
+    TAGS_FIELD_NUMBER: builtins.int
+    id: builtins.str
+    """The knowledge base identifier."""
+    name: builtins.str
+    """The knowledge base name."""
+    description: builtins.str
+    """The knowledge base description."""
+    @property
+    def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """The knowledge base tags."""
+    def __init__(
+        self,
+        *,
+        id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        tags: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "id", b"id", "name", b"name", "tags", b"tags"]) -> None: ...
+
+global___KnowledgeBase = KnowledgeBase
+
+@typing_extensions.final
+class CreateKnowledgeBaseRequest(google.protobuf.message.Message):
+    """CreateKnowledgeBaseRequest represents a request to create a knowledge base."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
+    TAGS_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The knowledge base name."""
+    description: builtins.str
+    """The knowledge base description."""
+    @property
+    def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """The knowledge base tags."""
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        tags: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "name", b"name", "tags", b"tags"]) -> None: ...
+
+global___CreateKnowledgeBaseRequest = CreateKnowledgeBaseRequest
+
+@typing_extensions.final
+class CreateKnowledgeBaseResponse(google.protobuf.message.Message):
+    """CreateKnowledgeBaseResponse represents a response for creating a knowledge base."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    BODY_FIELD_NUMBER: builtins.int
+    ERROR_MSG_FIELD_NUMBER: builtins.int
+    STATUS_CODE_FIELD_NUMBER: builtins.int
+    @property
+    def body(self) -> global___KnowledgeBase:
+        """The created knowledge base."""
+    error_msg: builtins.str
+    """The error message."""
+    status_code: builtins.int
+    """The status code."""
+    def __init__(
+        self,
+        *,
+        body: global___KnowledgeBase | None = ...,
+        error_msg: builtins.str = ...,
+        status_code: builtins.int = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["body", b"body"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["body", b"body", "error_msg", b"error_msg", "status_code", b"status_code"]) -> None: ...
+
+global___CreateKnowledgeBaseResponse = CreateKnowledgeBaseResponse
+
+@typing_extensions.final
+class GetKnowledgeBasesRequest(google.protobuf.message.Message):
+    """GetKnowledgeBasesRequest represents a request to get all knowledge bases."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___GetKnowledgeBasesRequest = GetKnowledgeBasesRequest
+
+@typing_extensions.final
+class GetKnowledgeBasesResponse(google.protobuf.message.Message):
+    """GetKnowledgeBasesResponse represents a response for getting all knowledge bases."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    KNOWLEDGEBASES_FIELD_NUMBER: builtins.int
+    ERROR_MSG_FIELD_NUMBER: builtins.int
+    STATUS_CODE_FIELD_NUMBER: builtins.int
+    @property
+    def knowledgebases(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___KnowledgeBase]:
+        """The knowledge bases."""
+    error_msg: builtins.str
+    """The error message."""
+    status_code: builtins.int
+    """The status code."""
+    def __init__(
+        self,
+        *,
+        knowledgebases: collections.abc.Iterable[global___KnowledgeBase] | None = ...,
+        error_msg: builtins.str = ...,
+        status_code: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["error_msg", b"error_msg", "knowledgebases", b"knowledgebases", "status_code", b"status_code"]) -> None: ...
+
+global___GetKnowledgeBasesResponse = GetKnowledgeBasesResponse
+
+@typing_extensions.final
+class UpdateKnowledgeBaseRequest(google.protobuf.message.Message):
+    """UpdateKnowledgeBaseRequest represents a request to update a knowledge base."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    ID_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
+    TAGS_FIELD_NUMBER: builtins.int
+    id: builtins.str
+    """The knowledge base identifier."""
+    name: builtins.str
+    """The knowledge base name."""
+    description: builtins.str
+    """The knowledge base description."""
+    @property
+    def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """The knowledge base tags."""
+    def __init__(
+        self,
+        *,
+        id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        tags: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "id", b"id", "name", b"name", "tags", b"tags"]) -> None: ...
+
+global___UpdateKnowledgeBaseRequest = UpdateKnowledgeBaseRequest
+
+@typing_extensions.final
+class UpdateKnowledgeBaseResponse(google.protobuf.message.Message):
+    """UpdateKnowledgeBaseResponse represents a response for updating a knowledge base."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    BODY_FIELD_NUMBER: builtins.int
+    ERROR_MSG_FIELD_NUMBER: builtins.int
+    STATUS_CODE_FIELD_NUMBER: builtins.int
+    @property
+    def body(self) -> global___KnowledgeBase:
+        """The updated knowledge base."""
+    error_msg: builtins.str
+    """The error message."""
+    status_code: builtins.int
+    """The status code."""
+    def __init__(
+        self,
+        *,
+        body: global___KnowledgeBase | None = ...,
+        error_msg: builtins.str = ...,
+        status_code: builtins.int = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["body", b"body"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["body", b"body", "error_msg", b"error_msg", "status_code", b"status_code"]) -> None: ...
+
+global___UpdateKnowledgeBaseResponse = UpdateKnowledgeBaseResponse
+
+@typing_extensions.final
+class DeleteKnowledgeBaseRequest(google.protobuf.message.Message):
+    """DeleteKnowledgeBaseRequest represents a request to delete a knowledge base."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    ID_FIELD_NUMBER: builtins.int
+    id: builtins.str
+    """The knowledge base identifier."""
+    def __init__(
+        self,
+        *,
+        id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["id", b"id"]) -> None: ...
+
+global___DeleteKnowledgeBaseRequest = DeleteKnowledgeBaseRequest
+
+@typing_extensions.final
+class DeleteKnowledgeBaseResponse(google.protobuf.message.Message):
+    """DeleteKnowledgeBaseResponse represents a response for deleting a knowledge base."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    ERROR_MSG_FIELD_NUMBER: builtins.int
+    STATUS_CODE_FIELD_NUMBER: builtins.int
+    error_msg: builtins.str
+    """The error message."""
+    status_code: builtins.int
+    """The status code."""
+    def __init__(
+        self,
+        *,
+        error_msg: builtins.str = ...,
+        status_code: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["error_msg", b"error_msg", "status_code", b"status_code"]) -> None: ...
+
+global___DeleteKnowledgeBaseResponse = DeleteKnowledgeBaseResponse
