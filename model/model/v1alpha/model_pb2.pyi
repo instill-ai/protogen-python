@@ -456,6 +456,7 @@ class ListModelsRequest(google.protobuf.message.Message):
     SHOW_DELETED_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     VISIBILITY_FIELD_NUMBER: builtins.int
+    ORDER_BY_FIELD_NUMBER: builtins.int
     page_size: builtins.int
     """The maximum number of models to return. If this parameter is unspecified,
     at most 10 models will be returned. The cap value for this parameter is
@@ -474,6 +475,10 @@ class ListModelsRequest(google.protobuf.message.Message):
     """
     visibility: global___Model.Visibility.ValueType
     """Limit results to pipelines with the specified visibility."""
+    order_by: builtins.str
+    """Order by field, with options for ordering by `id`, `create_time` or `update_time`.
+    Format: `order_by=id` or `order_by=create_time desc`, default is `asc`.
+    """
     def __init__(
         self,
         *,
@@ -483,11 +488,14 @@ class ListModelsRequest(google.protobuf.message.Message):
         show_deleted: builtins.bool | None = ...,
         filter: builtins.str | None = ...,
         visibility: global___Model.Visibility.ValueType | None = ...,
+        order_by: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "order_by", b"order_by", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "order_by", b"order_by", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_order_by", b"_order_by"]) -> typing_extensions.Literal["order_by"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
     @typing.overload
@@ -633,6 +641,7 @@ class ListUserModelsRequest(google.protobuf.message.Message):
     SHOW_DELETED_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     VISIBILITY_FIELD_NUMBER: builtins.int
+    ORDER_BY_FIELD_NUMBER: builtins.int
     page_size: builtins.int
     """The maximum number of models to return. If this parameter is unspecified,
     at most 10 models will be returned. The cap value for this parameter is
@@ -655,6 +664,10 @@ class ListUserModelsRequest(google.protobuf.message.Message):
     """
     visibility: global___Model.Visibility.ValueType
     """Limit results to pipelines with the specified visibility."""
+    order_by: builtins.str
+    """Order by field, with options for ordering by `id`, `create_time` or `update_time`.
+    Format: `order_by=id` or `order_by=create_time desc`, default is `asc`.
+    """
     def __init__(
         self,
         *,
@@ -665,11 +678,14 @@ class ListUserModelsRequest(google.protobuf.message.Message):
         show_deleted: builtins.bool | None = ...,
         filter: builtins.str | None = ...,
         visibility: global___Model.Visibility.ValueType | None = ...,
+        order_by: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "parent", b"parent", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "order_by", b"order_by", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "order_by", b"order_by", "page_size", b"page_size", "page_token", b"page_token", "parent", b"parent", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_order_by", b"_order_by"]) -> typing_extensions.Literal["order_by"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
     @typing.overload
@@ -1063,6 +1079,51 @@ class WatchUserModelResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["message", b"message", "state", b"state"]) -> None: ...
 
 global___WatchUserModelResponse = WatchUserModelResponse
+
+@typing_extensions.final
+class WatchUserLatestModelRequest(google.protobuf.message.Message):
+    """WatchUserLatestModelRequest represents a request to fetch current state of
+    the latest model version.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the model, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/models/{model.id}`.
+    """
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
+
+global___WatchUserLatestModelRequest = WatchUserLatestModelRequest
+
+@typing_extensions.final
+class WatchUserLatestModelResponse(google.protobuf.message.Message):
+    """WatchUserLatestModelResponse contains the state of the latest model version."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    STATE_FIELD_NUMBER: builtins.int
+    MESSAGE_FIELD_NUMBER: builtins.int
+    state: global___State.ValueType
+    """State."""
+    message: builtins.str
+    """Detail description of the state"""
+    def __init__(
+        self,
+        *,
+        state: global___State.ValueType = ...,
+        message: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["message", b"message", "state", b"state"]) -> None: ...
+
+global___WatchUserLatestModelResponse = WatchUserLatestModelResponse
 
 @typing_extensions.final
 class ListUserModelVersionsRequest(google.protobuf.message.Message):
@@ -1702,6 +1763,7 @@ class ListOrganizationModelsRequest(google.protobuf.message.Message):
     SHOW_DELETED_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     VISIBILITY_FIELD_NUMBER: builtins.int
+    ORDER_BY_FIELD_NUMBER: builtins.int
     page_size: builtins.int
     """The maximum number of models to return. If this parameter is unspecified,
     at most 10 models will be returned. The cap value for this parameter is
@@ -1724,6 +1786,10 @@ class ListOrganizationModelsRequest(google.protobuf.message.Message):
     """
     visibility: global___Model.Visibility.ValueType
     """Limit results to pipelines with the specified visibility."""
+    order_by: builtins.str
+    """Order by field, with options for ordering by `id`, `create_time` or `update_time`.
+    Format: `order_by=id` or `order_by=create_time desc`, default is `asc`.
+    """
     def __init__(
         self,
         *,
@@ -1734,11 +1800,14 @@ class ListOrganizationModelsRequest(google.protobuf.message.Message):
         show_deleted: builtins.bool | None = ...,
         filter: builtins.str | None = ...,
         visibility: global___Model.Visibility.ValueType | None = ...,
+        order_by: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "parent", b"parent", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "order_by", b"order_by", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "order_by", b"order_by", "page_size", b"page_size", "page_token", b"page_token", "parent", b"parent", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_order_by", b"_order_by"]) -> typing_extensions.Literal["order_by"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
     @typing.overload
@@ -2132,6 +2201,51 @@ class WatchOrganizationModelResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["message", b"message", "state", b"state"]) -> None: ...
 
 global___WatchOrganizationModelResponse = WatchOrganizationModelResponse
+
+@typing_extensions.final
+class WatchOrganizationLatestModelRequest(google.protobuf.message.Message):
+    """WatchOrganizationLatestModelRequest represents a request to fetch current state of
+    the latest model version
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the model, which allows its access by parent organization
+    and ID.
+    - Format: `organizations/{organization.id}/models/{model.id}`.
+    """
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
+
+global___WatchOrganizationLatestModelRequest = WatchOrganizationLatestModelRequest
+
+@typing_extensions.final
+class WatchOrganizationLatestModelResponse(google.protobuf.message.Message):
+    """WatchOrganizationLatestModelResponse contains the state of the latest model version."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    STATE_FIELD_NUMBER: builtins.int
+    MESSAGE_FIELD_NUMBER: builtins.int
+    state: global___State.ValueType
+    """State."""
+    message: builtins.str
+    """Detail description of the state"""
+    def __init__(
+        self,
+        *,
+        state: global___State.ValueType = ...,
+        message: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["message", b"message", "state", b"state"]) -> None: ...
+
+global___WatchOrganizationLatestModelResponse = WatchOrganizationLatestModelResponse
 
 @typing_extensions.final
 class ListOrganizationModelVersionsRequest(google.protobuf.message.Message):

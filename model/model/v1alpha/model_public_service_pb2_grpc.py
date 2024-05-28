@@ -104,6 +104,11 @@ class ModelPublicServiceStub(object):
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserModelResponse.FromString,
                 )
+        self.WatchUserLatestModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/WatchUserLatestModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserLatestModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserLatestModelResponse.FromString,
+                )
         self.ListUserModelVersions = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/ListUserModelVersions',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelVersionsRequest.SerializeToString,
@@ -183,6 +188,11 @@ class ModelPublicServiceStub(object):
                 '/model.model.v1alpha.ModelPublicService/WatchOrganizationModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationModelResponse.FromString,
+                )
+        self.WatchOrganizationLatestModel = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/WatchOrganizationLatestModel',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationLatestModelRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationLatestModelResponse.FromString,
                 )
         self.ListOrganizationModelVersions = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/ListOrganizationModelVersions',
@@ -388,9 +398,20 @@ class ModelPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def WatchUserModel(self, request, context):
-        """Watch the state of a model
+        """Watch the state of a model version
 
         Returns the state of a model. The deploy / undeploy actions take some
+        time, during which a model will be in an UNSPECIFIED state. This endpoint
+        allows clients to track the state and progress of the model.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def WatchUserLatestModel(self, request, context):
+        """Watch the state of the latest model version
+
+        Returns the state of the latest model version. The deploy / undeploy actions take some
         time, during which a model will be in an UNSPECIFIED state. This endpoint
         allows clients to track the state and progress of the model.
         """
@@ -557,9 +578,20 @@ class ModelPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def WatchOrganizationModel(self, request, context):
-        """Watch the state of a model
+        """Watch the state of a model version
 
         Returns the state of a model. The deploy / undeploy actions take some
+        time, during which a model will be in an UNSPECIFIED state. This endpoint
+        allows clients to track the state and progress of the model.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def WatchOrganizationLatestModel(self, request, context):
+        """Watch the state of the latest model version
+
+        Returns the state of the latest model version. The deploy / undeploy actions take some
         time, during which a model will be in an UNSPECIFIED state. This endpoint
         allows clients to track the state and progress of the model.
         """
@@ -727,6 +759,11 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserModelRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserModelResponse.SerializeToString,
             ),
+            'WatchUserLatestModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.WatchUserLatestModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserLatestModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserLatestModelResponse.SerializeToString,
+            ),
             'ListUserModelVersions': grpc.unary_unary_rpc_method_handler(
                     servicer.ListUserModelVersions,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelVersionsRequest.FromString,
@@ -806,6 +843,11 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     servicer.WatchOrganizationModel,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationModelRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationModelResponse.SerializeToString,
+            ),
+            'WatchOrganizationLatestModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.WatchOrganizationLatestModel,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationLatestModelRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationLatestModelResponse.SerializeToString,
             ),
             'ListOrganizationModelVersions': grpc.unary_unary_rpc_method_handler(
                     servicer.ListOrganizationModelVersions,
@@ -1146,6 +1188,23 @@ class ModelPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def WatchUserLatestModel(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/WatchUserLatestModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserLatestModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserLatestModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def ListUserModelVersions(request,
             target,
             options=(),
@@ -1414,6 +1473,23 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/WatchOrganizationModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationModelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def WatchOrganizationLatestModel(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/WatchOrganizationLatestModel',
+            model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationLatestModelRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationLatestModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
