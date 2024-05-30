@@ -120,7 +120,7 @@ class ComponentDefinition(google.protobuf.message.Message):
         pre-release identifier, e.g., `0.1.0-alpha`, `0.1.3-alpha.1`.
         """
         RELEASE_STAGE_BETA: ComponentDefinition._ReleaseStage.ValueType  # 4
-        """The connector has reached stability and no backwards incompatible
+        """The component has reached stability and no backwards incompatible
         changes are expected. Before reaching general availability, it should be
         validated by a broader group of users. Some fixes might be added during
         this process.
@@ -167,7 +167,7 @@ class ComponentDefinition(google.protobuf.message.Message):
     pre-release identifier, e.g., `0.1.0-alpha`, `0.1.3-alpha.1`.
     """
     RELEASE_STAGE_BETA: ComponentDefinition.ReleaseStage.ValueType  # 4
-    """The connector has reached stability and no backwards incompatible
+    """The component has reached stability and no backwards incompatible
     changes are expected. Before reaching general availability, it should be
     validated by a broader group of users. Some fixes might be added during
     this process.
@@ -180,27 +180,149 @@ class ComponentDefinition(google.protobuf.message.Message):
     Instill AI.
     """
 
+    @typing_extensions.final
+    class Spec(google.protobuf.message.Message):
+        """Spec represents a specification data model."""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        @typing_extensions.final
+        class DataSpecificationsEntry(google.protobuf.message.Message):
+            DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+            KEY_FIELD_NUMBER: builtins.int
+            VALUE_FIELD_NUMBER: builtins.int
+            key: builtins.str
+            @property
+            def value(self) -> global___DataSpecification: ...
+            def __init__(
+                self,
+                *,
+                key: builtins.str = ...,
+                value: global___DataSpecification | None = ...,
+            ) -> None: ...
+            def HasField(self, field_name: typing_extensions.Literal["value", b"value"]) -> builtins.bool: ...
+            def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
+
+        COMPONENT_SPECIFICATION_FIELD_NUMBER: builtins.int
+        DATA_SPECIFICATIONS_FIELD_NUMBER: builtins.int
+        @property
+        def component_specification(self) -> google.protobuf.struct_pb2.Struct:
+            """Component specification."""
+        @property
+        def data_specifications(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___DataSpecification]:
+            """Data specifications.
+            The key represents the task, and the value is the corresponding data_specification.
+            """
+        def __init__(
+            self,
+            *,
+            component_specification: google.protobuf.struct_pb2.Struct | None = ...,
+            data_specifications: collections.abc.Mapping[builtins.str, global___DataSpecification] | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification", "data_specifications", b"data_specifications"]) -> None: ...
+
+    NAME_FIELD_NUMBER: builtins.int
+    UID_FIELD_NUMBER: builtins.int
+    ID_FIELD_NUMBER: builtins.int
+    TITLE_FIELD_NUMBER: builtins.int
+    DOCUMENTATION_URL_FIELD_NUMBER: builtins.int
+    ICON_FIELD_NUMBER: builtins.int
+    SPEC_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
-    OPERATOR_DEFINITION_FIELD_NUMBER: builtins.int
-    CONNECTOR_DEFINITION_FIELD_NUMBER: builtins.int
+    TOMBSTONE_FIELD_NUMBER: builtins.int
+    PUBLIC_FIELD_NUMBER: builtins.int
+    CUSTOM_FIELD_NUMBER: builtins.int
+    VENDOR_FIELD_NUMBER: builtins.int
+    VENDOR_ATTRIBUTES_FIELD_NUMBER: builtins.int
+    SOURCE_URL_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
+    TASKS_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
+    RELEASE_STAGE_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The name of the component definition, defined by its ID.
+    - Format: `component-definitions/{id}`
+    """
+    uid: builtins.str
+    """Component definition UUID."""
+    id: builtins.str
+    """Component definition resource ID (used in `name` as the last segment). This
+    conforms to RFC-1034, which restricts to letters, numbers, and hyphen,
+    with the first character a letter, the last a letter or a number, and a 63
+    character maximum.
+    """
+    title: builtins.str
+    """Component definition title."""
+    documentation_url: builtins.str
+    """Component definition documentation URL."""
+    icon: builtins.str
+    """Component definition icon. This is a path that's relative to the root of
+    the component implementation (see `source_url`) and that allows
+    frontend applications to pull and locate the icons.
+    """
+    @property
+    def spec(self) -> global___ComponentDefinition.Spec:
+        """Component definition specification."""
     type: vdp.pipeline.v1beta.common_pb2.ComponentType.ValueType
-    """Defines the type of task the component will perform."""
+    """Component definition type."""
+    tombstone: builtins.bool
+    """Component definition tombstone. If true, this configuration is permanently
+    off. Otherwise, the configuration is active.
+    """
+    public: builtins.bool
+    """The public flag determines whether this connector definition is available
+    to all workspaces.
+    """
+    custom: builtins.bool
+    """Component definition custom flag, i.e., whether this is a custom
+    component definition.
+    """
+    vendor: builtins.str
+    """Component definition vendor name."""
     @property
-    def operator_definition(self) -> global___OperatorDefinition:
-        """operator definition detail"""
+    def vendor_attributes(self) -> google.protobuf.struct_pb2.Struct:
+        """Vendor-specific attributes."""
+    source_url: builtins.str
+    """Source code URL. This points to the source code where the component is
+    implemented.
+    """
+    version: builtins.str
+    """Component definition version. This is a string that fulfills the SemVer
+    specification (e.g. `1.0.0-beta`).
+    """
     @property
-    def connector_definition(self) -> global___ConnectorDefinition:
-        """connector definition detail"""
+    def tasks(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[vdp.pipeline.v1beta.common_pb2.ComponentTask]:
+        """List of tasks that can be executed by the component."""
+    description: builtins.str
+    """Short description of the component."""
+    release_stage: global___ComponentDefinition.ReleaseStage.ValueType
+    """Release stage."""
     def __init__(
         self,
         *,
+        name: builtins.str = ...,
+        uid: builtins.str = ...,
+        id: builtins.str = ...,
+        title: builtins.str = ...,
+        documentation_url: builtins.str = ...,
+        icon: builtins.str = ...,
+        spec: global___ComponentDefinition.Spec | None = ...,
         type: vdp.pipeline.v1beta.common_pb2.ComponentType.ValueType = ...,
-        operator_definition: global___OperatorDefinition | None = ...,
-        connector_definition: global___ConnectorDefinition | None = ...,
+        tombstone: builtins.bool = ...,
+        public: builtins.bool = ...,
+        custom: builtins.bool = ...,
+        vendor: builtins.str = ...,
+        vendor_attributes: google.protobuf.struct_pb2.Struct | None = ...,
+        source_url: builtins.str = ...,
+        version: builtins.str = ...,
+        tasks: collections.abc.Iterable[vdp.pipeline.v1beta.common_pb2.ComponentTask] | None = ...,
+        description: builtins.str = ...,
+        release_stage: global___ComponentDefinition.ReleaseStage.ValueType = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connector_definition", b"connector_definition", "definition", b"definition", "operator_definition", b"operator_definition"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["connector_definition", b"connector_definition", "definition", b"definition", "operator_definition", b"operator_definition", "type", b"type"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["definition", b"definition"]) -> typing_extensions.Literal["operator_definition", "connector_definition"] | None: ...
+    def HasField(self, field_name: typing_extensions.Literal["spec", b"spec", "vendor_attributes", b"vendor_attributes"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["custom", b"custom", "description", b"description", "documentation_url", b"documentation_url", "icon", b"icon", "id", b"id", "name", b"name", "public", b"public", "release_stage", b"release_stage", "source_url", b"source_url", "spec", b"spec", "tasks", b"tasks", "title", b"title", "tombstone", b"tombstone", "type", b"type", "uid", b"uid", "vendor", b"vendor", "vendor_attributes", b"vendor_attributes", "version", b"version"]) -> None: ...
 
 global___ComponentDefinition = ComponentDefinition
 
@@ -562,7 +684,7 @@ class ListComponentDefinitionsRequest(google.protobuf.message.Message):
     filter: builtins.str
     """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
     expression.
-    - Example: `component_type="COMPONENT_TYPE_CONNECTOR_AI"`.
+    - Example: `component_type="COMPONENT_TYPE_AI"`.
     - Example: `tasks:"TASK_TEXT_GENERATION"`.
     """
     page: builtins.int
@@ -602,7 +724,7 @@ class ListComponentDefinitionsResponse(google.protobuf.message.Message):
     def component_definitions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ComponentDefinition]:
         """A list of component definition resources."""
     total_size: builtins.int
-    """Total number of connector definitions."""
+    """Total number of component definitions."""
     page_size: builtins.int
     """The requested page size."""
     page: builtins.int

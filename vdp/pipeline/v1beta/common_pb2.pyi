@@ -50,13 +50,13 @@ class _ComponentTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     COMPONENT_TYPE_UNSPECIFIED: _ComponentType.ValueType  # 0
     """Unspecified."""
-    COMPONENT_TYPE_CONNECTOR_AI: _ComponentType.ValueType  # 1
+    COMPONENT_TYPE_AI: _ComponentType.ValueType  # 1
     """Connect with an AI model."""
-    COMPONENT_TYPE_CONNECTOR_DATA: _ComponentType.ValueType  # 2
+    COMPONENT_TYPE_DATA: _ComponentType.ValueType  # 2
     """Connect with a remote data source."""
     COMPONENT_TYPE_OPERATOR: _ComponentType.ValueType  # 4
     """Manipulate data."""
-    COMPONENT_TYPE_CONNECTOR_APPLICATION: _ComponentType.ValueType  # 5
+    COMPONENT_TYPE_APPLICATION: _ComponentType.ValueType  # 5
     """Connect with an external application."""
 
 class ComponentType(_ComponentType, metaclass=_ComponentTypeEnumTypeWrapper):
@@ -64,13 +64,13 @@ class ComponentType(_ComponentType, metaclass=_ComponentTypeEnumTypeWrapper):
 
 COMPONENT_TYPE_UNSPECIFIED: ComponentType.ValueType  # 0
 """Unspecified."""
-COMPONENT_TYPE_CONNECTOR_AI: ComponentType.ValueType  # 1
+COMPONENT_TYPE_AI: ComponentType.ValueType  # 1
 """Connect with an AI model."""
-COMPONENT_TYPE_CONNECTOR_DATA: ComponentType.ValueType  # 2
+COMPONENT_TYPE_DATA: ComponentType.ValueType  # 2
 """Connect with a remote data source."""
 COMPONENT_TYPE_OPERATOR: ComponentType.ValueType  # 4
 """Manipulate data."""
-COMPONENT_TYPE_CONNECTOR_APPLICATION: ComponentType.ValueType  # 5
+COMPONENT_TYPE_APPLICATION: ComponentType.ValueType  # 5
 """Connect with an external application."""
 global___ComponentType = ComponentType
 
