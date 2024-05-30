@@ -137,441 +137,6 @@ class ReadinessResponse(google.protobuf.message.Message):
 global___ReadinessResponse = ReadinessResponse
 
 @typing_extensions.final
-class TriggerByRequest(google.protobuf.message.Message):
-    """TriggerByRequest
-    Configures the payload format of request when triggered by a request.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    @typing_extensions.final
-    class RequestField(google.protobuf.message.Message):
-        """Represents a field within the reqeuest."""
-
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        TITLE_FIELD_NUMBER: builtins.int
-        DESCRIPTION_FIELD_NUMBER: builtins.int
-        INSTILL_FORMAT_FIELD_NUMBER: builtins.int
-        INSTILL_UI_ORDER_FIELD_NUMBER: builtins.int
-        INSTILL_UI_MULTILINE_FIELD_NUMBER: builtins.int
-        title: builtins.str
-        """Title of the field."""
-        description: builtins.str
-        """Description of the field."""
-        instill_format: builtins.str
-        """Instill format."""
-        instill_ui_order: builtins.int
-        """Instill UI order."""
-        instill_ui_multiline: builtins.bool
-        """Instill UI Multiline."""
-        def __init__(
-            self,
-            *,
-            title: builtins.str = ...,
-            description: builtins.str = ...,
-            instill_format: builtins.str = ...,
-            instill_ui_order: builtins.int = ...,
-            instill_ui_multiline: builtins.bool = ...,
-        ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "instill_format", b"instill_format", "instill_ui_multiline", b"instill_ui_multiline", "instill_ui_order", b"instill_ui_order", "title", b"title"]) -> None: ...
-
-    @typing_extensions.final
-    class ResponseField(google.protobuf.message.Message):
-        """Represents a field within the response."""
-
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        TITLE_FIELD_NUMBER: builtins.int
-        DESCRIPTION_FIELD_NUMBER: builtins.int
-        VALUE_FIELD_NUMBER: builtins.int
-        INSTILL_UI_ORDER_FIELD_NUMBER: builtins.int
-        title: builtins.str
-        """Title of the field."""
-        description: builtins.str
-        """Description of the field."""
-        value: builtins.str
-        """Value of the field."""
-        instill_ui_order: builtins.int
-        """Instill UI order."""
-        def __init__(
-            self,
-            *,
-            title: builtins.str = ...,
-            description: builtins.str = ...,
-            value: builtins.str = ...,
-            instill_ui_order: builtins.int = ...,
-        ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "instill_ui_order", b"instill_ui_order", "title", b"title", "value", b"value"]) -> None: ...
-
-    @typing_extensions.final
-    class RequestFieldsEntry(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        KEY_FIELD_NUMBER: builtins.int
-        VALUE_FIELD_NUMBER: builtins.int
-        key: builtins.str
-        @property
-        def value(self) -> global___TriggerByRequest.RequestField: ...
-        def __init__(
-            self,
-            *,
-            key: builtins.str = ...,
-            value: global___TriggerByRequest.RequestField | None = ...,
-        ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["value", b"value"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
-
-    @typing_extensions.final
-    class ResponseFieldsEntry(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        KEY_FIELD_NUMBER: builtins.int
-        VALUE_FIELD_NUMBER: builtins.int
-        key: builtins.str
-        @property
-        def value(self) -> global___TriggerByRequest.ResponseField: ...
-        def __init__(
-            self,
-            *,
-            key: builtins.str = ...,
-            value: global___TriggerByRequest.ResponseField | None = ...,
-        ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["value", b"value"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
-
-    REQUEST_FIELDS_FIELD_NUMBER: builtins.int
-    RESPONSE_FIELDS_FIELD_NUMBER: builtins.int
-    @property
-    def request_fields(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___TriggerByRequest.RequestField]:
-        """Fields configuration of request.
-        Key: Key of the input data.
-        Field: Field settings of the value.
-        """
-    @property
-    def response_fields(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___TriggerByRequest.ResponseField]:
-        """Fields configuration of response.
-        Key: Key of the input data.
-        Field: Field settings of the value.
-        """
-    def __init__(
-        self,
-        *,
-        request_fields: collections.abc.Mapping[builtins.str, global___TriggerByRequest.RequestField] | None = ...,
-        response_fields: collections.abc.Mapping[builtins.str, global___TriggerByRequest.ResponseField] | None = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["request_fields", b"request_fields", "response_fields", b"response_fields"]) -> None: ...
-
-global___TriggerByRequest = TriggerByRequest
-
-@typing_extensions.final
-class ConnectorComponent(google.protobuf.message.Message):
-    """ConnectorComponent
-    Configures a connector component. Requires the creation of a connector resource first.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    DEFINITION_NAME_FIELD_NUMBER: builtins.int
-    DEFINITION_FIELD_NUMBER: builtins.int
-    TASK_FIELD_NUMBER: builtins.int
-    INPUT_FIELD_NUMBER: builtins.int
-    CONDITION_FIELD_NUMBER: builtins.int
-    CONNECTION_FIELD_NUMBER: builtins.int
-    definition_name: builtins.str
-    """Definition name."""
-    @property
-    def definition(self) -> vdp.pipeline.v1beta.component_definition_pb2.ConnectorDefinition:
-        """Connector definition."""
-    task: builtins.str
-    """Task."""
-    @property
-    def input(self) -> google.protobuf.struct_pb2.Struct:
-        """Input configuration of the component. JSON schema described in the connector definition."""
-    condition: builtins.str
-    """Condition statement determining whether the component is executed or not."""
-    @property
-    def connection(self) -> google.protobuf.struct_pb2.Struct:
-        """Connection configuration of the component. JSON schema described in the connector definition."""
-    def __init__(
-        self,
-        *,
-        definition_name: builtins.str = ...,
-        definition: vdp.pipeline.v1beta.component_definition_pb2.ConnectorDefinition | None = ...,
-        task: builtins.str = ...,
-        input: google.protobuf.struct_pb2.Struct | None = ...,
-        condition: builtins.str = ...,
-        connection: google.protobuf.struct_pb2.Struct | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connection", b"connection", "definition", b"definition", "input", b"input"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["condition", b"condition", "connection", b"connection", "definition", b"definition", "definition_name", b"definition_name", "input", b"input", "task", b"task"]) -> None: ...
-
-global___ConnectorComponent = ConnectorComponent
-
-@typing_extensions.final
-class OperatorComponent(google.protobuf.message.Message):
-    """OperatorComponent
-    Configures an operator component.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    DEFINITION_NAME_FIELD_NUMBER: builtins.int
-    DEFINITION_FIELD_NUMBER: builtins.int
-    TASK_FIELD_NUMBER: builtins.int
-    INPUT_FIELD_NUMBER: builtins.int
-    CONDITION_FIELD_NUMBER: builtins.int
-    definition_name: builtins.str
-    """Definition name."""
-    @property
-    def definition(self) -> vdp.pipeline.v1beta.component_definition_pb2.OperatorDefinition:
-        """Operator definition."""
-    task: builtins.str
-    """Task."""
-    @property
-    def input(self) -> google.protobuf.struct_pb2.Struct:
-        """Input configuration of the component. JSON schema described in the operator definition."""
-    condition: builtins.str
-    """Condition statement determining whether the component is executed or not."""
-    def __init__(
-        self,
-        *,
-        definition_name: builtins.str = ...,
-        definition: vdp.pipeline.v1beta.component_definition_pb2.OperatorDefinition | None = ...,
-        task: builtins.str = ...,
-        input: google.protobuf.struct_pb2.Struct | None = ...,
-        condition: builtins.str = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["definition", b"definition", "input", b"input"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["condition", b"condition", "definition", b"definition", "definition_name", b"definition_name", "input", b"input", "task", b"task"]) -> None: ...
-
-global___OperatorComponent = OperatorComponent
-
-@typing_extensions.final
-class IteratorComponent(google.protobuf.message.Message):
-    """IteratorComponent
-    Configures an iterator component. An iterator takes an array and executes an
-    operation (defined by a set of nested components) on each of its elements.
-    It can be regarded as triggering a sub-pipeline using the elements of an
-    array as input.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    @typing_extensions.final
-    class OutputElementsEntry(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        KEY_FIELD_NUMBER: builtins.int
-        VALUE_FIELD_NUMBER: builtins.int
-        key: builtins.str
-        value: builtins.str
-        def __init__(
-            self,
-            *,
-            key: builtins.str = ...,
-            value: builtins.str = ...,
-        ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
-
-    INPUT_FIELD_NUMBER: builtins.int
-    OUTPUT_ELEMENTS_FIELD_NUMBER: builtins.int
-    COMPONENTS_FIELD_NUMBER: builtins.int
-    CONDITION_FIELD_NUMBER: builtins.int
-    DATA_SPECIFICATION_FIELD_NUMBER: builtins.int
-    input: builtins.str
-    """Input: The iterator will iterate over the elements of the input (must be an array)."""
-    @property
-    def output_elements(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
-        """Output elements: Configure the output arrays of the iterator.
-        The key is the output element variable name, and the value is the data reference of the template.
-        Example:
-        output_elements: {
-          "key1": "${element.output.a}",
-          "key2": "${element.output.b}",
-        }
-        This will create the results:
-        output: {
-          "key1": [ ${element1.output.a},  ${element2.output.a} ... ],
-          "key2": [ ${element1.output.b},  ${element2.output.b} ... ],
-        }
-        """
-    @property
-    def components(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___NestedComponent]:
-        """Components: These components will be executed for each input element."""
-    condition: builtins.str
-    """Condition statement determining whether the component is executed or not."""
-    @property
-    def data_specification(self) -> vdp.pipeline.v1beta.component_definition_pb2.DataSpecification:
-        """DataSpecification returns the JSON schema for the iterator input and output."""
-    def __init__(
-        self,
-        *,
-        input: builtins.str = ...,
-        output_elements: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
-        components: collections.abc.Iterable[global___NestedComponent] | None = ...,
-        condition: builtins.str = ...,
-        data_specification: vdp.pipeline.v1beta.component_definition_pb2.DataSpecification | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["data_specification", b"data_specification"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["components", b"components", "condition", b"condition", "data_specification", b"data_specification", "input", b"input", "output_elements", b"output_elements"]) -> None: ...
-
-global___IteratorComponent = IteratorComponent
-
-@typing_extensions.final
-class Component(google.protobuf.message.Message):
-    """Component
-    Fundamental building block in pipelines.
-
-    For more information, see [Pipeline
-    Component](https://www.instill.tech/docs/latest/core/concepts/pipeline#pipeline-component)
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    ID_FIELD_NUMBER: builtins.int
-    METADATA_FIELD_NUMBER: builtins.int
-    CONNECTOR_COMPONENT_FIELD_NUMBER: builtins.int
-    OPERATOR_COMPONENT_FIELD_NUMBER: builtins.int
-    ITERATOR_COMPONENT_FIELD_NUMBER: builtins.int
-    id: builtins.str
-    """Component ID, provided by the user on creation."""
-    @property
-    def metadata(self) -> google.protobuf.struct_pb2.Struct:
-        """Metadata of the component."""
-    @property
-    def connector_component(self) -> global___ConnectorComponent:
-        """ConnectorComponent"""
-    @property
-    def operator_component(self) -> global___OperatorComponent:
-        """OperatorComponent"""
-    @property
-    def iterator_component(self) -> global___IteratorComponent:
-        """IteratorComponent"""
-    def __init__(
-        self,
-        *,
-        id: builtins.str = ...,
-        metadata: google.protobuf.struct_pb2.Struct | None = ...,
-        connector_component: global___ConnectorComponent | None = ...,
-        operator_component: global___OperatorComponent | None = ...,
-        iterator_component: global___IteratorComponent | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["component", b"component", "connector_component", b"connector_component", "iterator_component", b"iterator_component", "metadata", b"metadata", "operator_component", b"operator_component"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["component", b"component", "connector_component", b"connector_component", "id", b"id", "iterator_component", b"iterator_component", "metadata", b"metadata", "operator_component", b"operator_component"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["component", b"component"]) -> typing_extensions.Literal["connector_component", "operator_component", "iterator_component"] | None: ...
-
-global___Component = Component
-
-@typing_extensions.final
-class NestedComponent(google.protobuf.message.Message):
-    """NestedComponent
-    Fundamental building block in iterator component.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    ID_FIELD_NUMBER: builtins.int
-    METADATA_FIELD_NUMBER: builtins.int
-    CONNECTOR_COMPONENT_FIELD_NUMBER: builtins.int
-    OPERATOR_COMPONENT_FIELD_NUMBER: builtins.int
-    id: builtins.str
-    """Component ID, provided by the user on creation."""
-    @property
-    def metadata(self) -> google.protobuf.struct_pb2.Struct:
-        """Metadata of the component."""
-    @property
-    def connector_component(self) -> global___ConnectorComponent:
-        """ConnectorConfiguration"""
-    @property
-    def operator_component(self) -> global___OperatorComponent:
-        """OperatorConfiguration"""
-    def __init__(
-        self,
-        *,
-        id: builtins.str = ...,
-        metadata: google.protobuf.struct_pb2.Struct | None = ...,
-        connector_component: global___ConnectorComponent | None = ...,
-        operator_component: global___OperatorComponent | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["component", b"component", "connector_component", b"connector_component", "metadata", b"metadata", "operator_component", b"operator_component"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["component", b"component", "connector_component", b"connector_component", "id", b"id", "metadata", b"metadata", "operator_component", b"operator_component"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["component", b"component"]) -> typing_extensions.Literal["connector_component", "operator_component"] | None: ...
-
-global___NestedComponent = NestedComponent
-
-@typing_extensions.final
-class Trigger(google.protobuf.message.Message):
-    """Trigger"""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    TRIGGER_BY_REQUEST_FIELD_NUMBER: builtins.int
-    @property
-    def trigger_by_request(self) -> global___TriggerByRequest:
-        """Triggered by reqeust."""
-    def __init__(
-        self,
-        *,
-        trigger_by_request: global___TriggerByRequest | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["trigger", b"trigger", "trigger_by_request", b"trigger_by_request"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["trigger", b"trigger", "trigger_by_request", b"trigger_by_request"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["trigger", b"trigger"]) -> typing_extensions.Literal["trigger_by_request"] | None: ...
-
-global___Trigger = Trigger
-
-@typing_extensions.final
-class Recipe(google.protobuf.message.Message):
-    """Recipe describes the components of a Pipeline and how they are connected."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    @typing_extensions.final
-    class SecretsEntry(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        KEY_FIELD_NUMBER: builtins.int
-        VALUE_FIELD_NUMBER: builtins.int
-        key: builtins.str
-        value: builtins.str
-        def __init__(
-            self,
-            *,
-            key: builtins.str = ...,
-            value: builtins.str = ...,
-        ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
-
-    VERSION_FIELD_NUMBER: builtins.int
-    COMPONENTS_FIELD_NUMBER: builtins.int
-    TRIGGER_FIELD_NUMBER: builtins.int
-    SECRETS_FIELD_NUMBER: builtins.int
-    version: builtins.str
-    """Recipe schema version."""
-    @property
-    def components(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Component]:
-        """List of pipeline components."""
-    @property
-    def trigger(self) -> global___Trigger:
-        """The component trigger method."""
-    @property
-    def secrets(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
-        """Local secrets"""
-    def __init__(
-        self,
-        *,
-        version: builtins.str = ...,
-        components: collections.abc.Iterable[global___Component] | None = ...,
-        trigger: global___Trigger | None = ...,
-        secrets: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["trigger", b"trigger"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["components", b"components", "secrets", b"secrets", "trigger", b"trigger", "version", b"version"]) -> None: ...
-
-global___Recipe = Recipe
-
-@typing_extensions.final
 class Pipeline(google.protobuf.message.Message):
     """A Pipeline is an end-to-end workflow that automates a sequence of components
     to process data.
@@ -666,7 +231,7 @@ class Pipeline(google.protobuf.message.Message):
     description: builtins.str
     """Pipeline description."""
     @property
-    def recipe(self) -> global___Recipe:
+    def recipe(self) -> google.protobuf.struct_pb2.Struct:
         """Recipe describes the components of a Pipeline and how they are connected."""
     @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
@@ -711,7 +276,7 @@ class Pipeline(google.protobuf.message.Message):
         uid: builtins.str = ...,
         id: builtins.str = ...,
         description: builtins.str | None = ...,
-        recipe: global___Recipe | None = ...,
+        recipe: google.protobuf.struct_pb2.Struct | None = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
@@ -907,7 +472,7 @@ class PipelineRelease(google.protobuf.message.Message):
     description: builtins.str
     """Release description."""
     @property
-    def recipe(self) -> global___Recipe:
+    def recipe(self) -> google.protobuf.struct_pb2.Struct:
         """Recipe of the versioned pipeline."""
     @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
@@ -937,7 +502,7 @@ class PipelineRelease(google.protobuf.message.Message):
         uid: builtins.str = ...,
         id: builtins.str = ...,
         description: builtins.str | None = ...,
-        recipe: global___Recipe | None = ...,
+        recipe: google.protobuf.struct_pb2.Struct | None = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
@@ -1378,6 +943,28 @@ class DeleteUserPipelineResponse(google.protobuf.message.Message):
 global___DeleteUserPipelineResponse = DeleteUserPipelineResponse
 
 @typing_extensions.final
+class PipelineValidationError(google.protobuf.message.Message):
+    """PipelineValidation"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    LOCATION_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    location: builtins.str
+    """Location"""
+    error: builtins.str
+    """error"""
+    def __init__(
+        self,
+        *,
+        location: builtins.str = ...,
+        error: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["error", b"error", "location", b"location"]) -> None: ...
+
+global___PipelineValidationError = PipelineValidationError
+
+@typing_extensions.final
 class ValidateUserPipelineRequest(google.protobuf.message.Message):
     """ValidateUserPipelineRequest represents a request to validate a pipeline
     owned by a user.
@@ -1406,17 +993,20 @@ class ValidateUserPipelineResponse(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    PIPELINE_FIELD_NUMBER: builtins.int
+    SUCCESS_FIELD_NUMBER: builtins.int
+    ERRORS_FIELD_NUMBER: builtins.int
+    success: builtins.bool
+    """Success"""
     @property
-    def pipeline(self) -> global___Pipeline:
+    def errors(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PipelineValidationError]:
         """The validated pipeline resource."""
     def __init__(
         self,
         *,
-        pipeline: global___Pipeline | None = ...,
+        success: builtins.bool = ...,
+        errors: collections.abc.Iterable[global___PipelineValidationError] | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["errors", b"errors", "success", b"success"]) -> None: ...
 
 global___ValidateUserPipelineResponse = ValidateUserPipelineResponse
 
@@ -1528,25 +1118,9 @@ class TriggerUserPipelineRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    @typing_extensions.final
-    class SecretsEntry(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        KEY_FIELD_NUMBER: builtins.int
-        VALUE_FIELD_NUMBER: builtins.int
-        key: builtins.str
-        value: builtins.str
-        def __init__(
-            self,
-            *,
-            key: builtins.str = ...,
-            value: builtins.str = ...,
-        ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
-
     NAME_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
-    SECRETS_FIELD_NUMBER: builtins.int
+    DATA_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the pipeline, which allows its access by parent user
     and ID.
@@ -1554,18 +1128,18 @@ class TriggerUserPipelineRequest(google.protobuf.message.Message):
     """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """Pipeline input parameters."""
+        """Pipeline input parameters, it will be deprecated soon."""
     @property
-    def secrets(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
-        """Pipeline secrets parameters that will override the pipeline's or owner's secrets."""
+    def data(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TriggerData]:
+        """Data"""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
         inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
-        secrets: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        data: collections.abc.Iterable[global___TriggerData] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["inputs", b"inputs", "name", b"name", "secrets", b"secrets"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["data", b"data", "inputs", b"inputs", "name", b"name"]) -> None: ...
 
 global___TriggerUserPipelineRequest = TriggerUserPipelineRequest
 
@@ -1673,15 +1247,13 @@ class TriggerUserPipelineWithStreamResponse(google.protobuf.message.Message):
 global___TriggerUserPipelineWithStreamResponse = TriggerUserPipelineWithStreamResponse
 
 @typing_extensions.final
-class TriggerAsyncUserPipelineRequest(google.protobuf.message.Message):
-    """TriggerUserPipelineRequest represents a request to trigger a user-owned
-    pipeline synchronously.
-    """
+class TriggerData(google.protobuf.message.Message):
+    """Data"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     @typing_extensions.final
-    class SecretsEntry(google.protobuf.message.Message):
+    class SecretEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
         KEY_FIELD_NUMBER: builtins.int
@@ -1696,9 +1268,36 @@ class TriggerAsyncUserPipelineRequest(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
+    VARIABLE_FIELD_NUMBER: builtins.int
+    SECRET_FIELD_NUMBER: builtins.int
+    @property
+    def variable(self) -> google.protobuf.struct_pb2.Struct:
+        """Variables"""
+    @property
+    def secret(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
+        """Variables"""
+    def __init__(
+        self,
+        *,
+        variable: google.protobuf.struct_pb2.Struct | None = ...,
+        secret: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["variable", b"variable"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["secret", b"secret", "variable", b"variable"]) -> None: ...
+
+global___TriggerData = TriggerData
+
+@typing_extensions.final
+class TriggerAsyncUserPipelineRequest(google.protobuf.message.Message):
+    """TriggerUserPipelineRequest represents a request to trigger a user-owned
+    pipeline synchronously.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
-    SECRETS_FIELD_NUMBER: builtins.int
+    DATA_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the pipeline, which allows its access by parent user
     and ID.
@@ -1706,18 +1305,18 @@ class TriggerAsyncUserPipelineRequest(google.protobuf.message.Message):
     """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """Pipeline input parameters."""
+        """Pipeline input parameters, it will be deprecated soon."""
     @property
-    def secrets(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
-        """Pipeline secrets parameters that will override the pipeline's or owner's secrets."""
+    def data(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TriggerData]:
+        """Data"""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
         inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
-        secrets: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        data: collections.abc.Iterable[global___TriggerData] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["inputs", b"inputs", "name", b"name", "secrets", b"secrets"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["data", b"data", "inputs", b"inputs", "name", b"name"]) -> None: ...
 
 global___TriggerAsyncUserPipelineRequest = TriggerAsyncUserPipelineRequest
 
@@ -2114,25 +1713,9 @@ class TriggerUserPipelineReleaseRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    @typing_extensions.final
-    class SecretsEntry(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        KEY_FIELD_NUMBER: builtins.int
-        VALUE_FIELD_NUMBER: builtins.int
-        key: builtins.str
-        value: builtins.str
-        def __init__(
-            self,
-            *,
-            key: builtins.str = ...,
-            value: builtins.str = ...,
-        ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
-
     NAME_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
-    SECRETS_FIELD_NUMBER: builtins.int
+    DATA_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the pipeline release, which allows its access by
     parent pipeline and ID.
@@ -2140,18 +1723,18 @@ class TriggerUserPipelineReleaseRequest(google.protobuf.message.Message):
     """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """Pipeline input parameters."""
+        """Pipeline input parameters, it will be deprecated soon."""
     @property
-    def secrets(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
-        """Pipeline secrets parameters that will override the pipeline's or owner's secrets."""
+    def data(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TriggerData]:
+        """Data"""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
         inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
-        secrets: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        data: collections.abc.Iterable[global___TriggerData] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["inputs", b"inputs", "name", b"name", "secrets", b"secrets"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["data", b"data", "inputs", b"inputs", "name", b"name"]) -> None: ...
 
 global___TriggerUserPipelineReleaseRequest = TriggerUserPipelineReleaseRequest
 
@@ -2190,25 +1773,9 @@ class TriggerAsyncUserPipelineReleaseRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    @typing_extensions.final
-    class SecretsEntry(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        KEY_FIELD_NUMBER: builtins.int
-        VALUE_FIELD_NUMBER: builtins.int
-        key: builtins.str
-        value: builtins.str
-        def __init__(
-            self,
-            *,
-            key: builtins.str = ...,
-            value: builtins.str = ...,
-        ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
-
     NAME_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
-    SECRETS_FIELD_NUMBER: builtins.int
+    DATA_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the pipeline release, which allows its access by
     parent pipeline and ID.
@@ -2216,18 +1783,18 @@ class TriggerAsyncUserPipelineReleaseRequest(google.protobuf.message.Message):
     """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """Pipeline input parameters."""
+        """Pipeline input parameters, it will be deprecated soon."""
     @property
-    def secrets(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
-        """Pipeline secrets parameters that will override the pipeline's or owner's secrets."""
+    def data(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TriggerData]:
+        """Data"""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
         inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
-        secrets: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        data: collections.abc.Iterable[global___TriggerData] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["inputs", b"inputs", "name", b"name", "secrets", b"secrets"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["data", b"data", "inputs", b"inputs", "name", b"name"]) -> None: ...
 
 global___TriggerAsyncUserPipelineReleaseRequest = TriggerAsyncUserPipelineReleaseRequest
 
@@ -2567,17 +2134,20 @@ class ValidateOrganizationPipelineResponse(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    PIPELINE_FIELD_NUMBER: builtins.int
+    SUCCESS_FIELD_NUMBER: builtins.int
+    ERRORS_FIELD_NUMBER: builtins.int
+    success: builtins.bool
+    """Success"""
     @property
-    def pipeline(self) -> global___Pipeline:
+    def errors(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PipelineValidationError]:
         """The validated pipeline resource."""
     def __init__(
         self,
         *,
-        pipeline: global___Pipeline | None = ...,
+        success: builtins.bool = ...,
+        errors: collections.abc.Iterable[global___PipelineValidationError] | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["errors", b"errors", "success", b"success"]) -> None: ...
 
 global___ValidateOrganizationPipelineResponse = ValidateOrganizationPipelineResponse
 
@@ -2689,25 +2259,9 @@ class TriggerOrganizationPipelineRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    @typing_extensions.final
-    class SecretsEntry(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        KEY_FIELD_NUMBER: builtins.int
-        VALUE_FIELD_NUMBER: builtins.int
-        key: builtins.str
-        value: builtins.str
-        def __init__(
-            self,
-            *,
-            key: builtins.str = ...,
-            value: builtins.str = ...,
-        ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
-
     NAME_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
-    SECRETS_FIELD_NUMBER: builtins.int
+    DATA_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the pipeline, which allows its access by parent
     organization and ID.
@@ -2715,18 +2269,18 @@ class TriggerOrganizationPipelineRequest(google.protobuf.message.Message):
     """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """Pipeline input parameters."""
+        """Pipeline input parameters, it will be deprecated soon."""
     @property
-    def secrets(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
-        """Pipeline secrets parameters that will override the pipeline's or owner's secrets."""
+    def data(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TriggerData]:
+        """Data"""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
         inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
-        secrets: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        data: collections.abc.Iterable[global___TriggerData] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["inputs", b"inputs", "name", b"name", "secrets", b"secrets"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["data", b"data", "inputs", b"inputs", "name", b"name"]) -> None: ...
 
 global___TriggerOrganizationPipelineRequest = TriggerOrganizationPipelineRequest
 
@@ -2765,25 +2319,9 @@ class TriggerAsyncOrganizationPipelineRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    @typing_extensions.final
-    class SecretsEntry(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        KEY_FIELD_NUMBER: builtins.int
-        VALUE_FIELD_NUMBER: builtins.int
-        key: builtins.str
-        value: builtins.str
-        def __init__(
-            self,
-            *,
-            key: builtins.str = ...,
-            value: builtins.str = ...,
-        ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
-
     NAME_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
-    SECRETS_FIELD_NUMBER: builtins.int
+    DATA_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the pipeline, which allows its access by parent
     organization and ID.
@@ -2791,18 +2329,18 @@ class TriggerAsyncOrganizationPipelineRequest(google.protobuf.message.Message):
     """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """Pipeline input parameters."""
+        """Pipeline input parameters, it will be deprecated soon."""
     @property
-    def secrets(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
-        """Pipeline secrets parameters that will override the pipeline's or owner's secrets."""
+    def data(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TriggerData]:
+        """Data"""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
         inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
-        secrets: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        data: collections.abc.Iterable[global___TriggerData] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["inputs", b"inputs", "name", b"name", "secrets", b"secrets"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["data", b"data", "inputs", b"inputs", "name", b"name"]) -> None: ...
 
 global___TriggerAsyncOrganizationPipelineRequest = TriggerAsyncOrganizationPipelineRequest
 
@@ -3207,25 +2745,9 @@ class TriggerOrganizationPipelineReleaseRequest(google.protobuf.message.Message)
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    @typing_extensions.final
-    class SecretsEntry(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        KEY_FIELD_NUMBER: builtins.int
-        VALUE_FIELD_NUMBER: builtins.int
-        key: builtins.str
-        value: builtins.str
-        def __init__(
-            self,
-            *,
-            key: builtins.str = ...,
-            value: builtins.str = ...,
-        ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
-
     NAME_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
-    SECRETS_FIELD_NUMBER: builtins.int
+    DATA_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the pipeline release, which allows its access by
     parent pipeline and ID.
@@ -3234,18 +2756,18 @@ class TriggerOrganizationPipelineReleaseRequest(google.protobuf.message.Message)
     """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """Pipeline input parameters."""
+        """Pipeline input parameters, it will be deprecated soon."""
     @property
-    def secrets(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
-        """Pipeline secrets parameters that will override the pipeline's or owner's secrets."""
+    def data(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TriggerData]:
+        """Data"""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
         inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
-        secrets: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        data: collections.abc.Iterable[global___TriggerData] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["inputs", b"inputs", "name", b"name", "secrets", b"secrets"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["data", b"data", "inputs", b"inputs", "name", b"name"]) -> None: ...
 
 global___TriggerOrganizationPipelineReleaseRequest = TriggerOrganizationPipelineReleaseRequest
 
@@ -3284,25 +2806,9 @@ class TriggerAsyncOrganizationPipelineReleaseRequest(google.protobuf.message.Mes
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    @typing_extensions.final
-    class SecretsEntry(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        KEY_FIELD_NUMBER: builtins.int
-        VALUE_FIELD_NUMBER: builtins.int
-        key: builtins.str
-        value: builtins.str
-        def __init__(
-            self,
-            *,
-            key: builtins.str = ...,
-            value: builtins.str = ...,
-        ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
-
     NAME_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
-    SECRETS_FIELD_NUMBER: builtins.int
+    DATA_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the pipeline release, which allows its access by
     parent pipeline and ID.
@@ -3311,18 +2817,18 @@ class TriggerAsyncOrganizationPipelineReleaseRequest(google.protobuf.message.Mes
     """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """Pipeline input parameters."""
+        """Pipeline input parameters, it will be deprecated soon."""
     @property
-    def secrets(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
-        """Pipeline secrets parameters that will override the pipeline's or owner's secrets."""
+    def data(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TriggerData]:
+        """Data"""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
         inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
-        secrets: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        data: collections.abc.Iterable[global___TriggerData] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["inputs", b"inputs", "name", b"name", "secrets", b"secrets"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["data", b"data", "inputs", b"inputs", "name", b"name"]) -> None: ...
 
 global___TriggerAsyncOrganizationPipelineReleaseRequest = TriggerAsyncOrganizationPipelineReleaseRequest
 
