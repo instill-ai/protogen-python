@@ -31,10 +31,10 @@ class ArtifactPublicServiceStub(object):
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.CreateKnowledgeBaseRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.CreateKnowledgeBaseResponse.FromString,
                 )
-        self.GetKnowledgeBases = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/GetKnowledgeBases',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetKnowledgeBasesRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetKnowledgeBasesResponse.FromString,
+        self.ListKnowledgeBases = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/ListKnowledgeBases',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBasesRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBasesResponse.FromString,
                 )
         self.UpdateKnowledgeBase = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateKnowledgeBase',
@@ -78,7 +78,7 @@ class ArtifactPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetKnowledgeBases(self, request, context):
+    def ListKnowledgeBases(self, request, context):
         """Get all knowledge bases info
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -117,10 +117,10 @@ def add_ArtifactPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.CreateKnowledgeBaseRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.CreateKnowledgeBaseResponse.SerializeToString,
             ),
-            'GetKnowledgeBases': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetKnowledgeBases,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetKnowledgeBasesRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetKnowledgeBasesResponse.SerializeToString,
+            'ListKnowledgeBases': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListKnowledgeBases,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBasesRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBasesResponse.SerializeToString,
             ),
             'UpdateKnowledgeBase': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateKnowledgeBase,
@@ -196,7 +196,7 @@ class ArtifactPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetKnowledgeBases(request,
+    def ListKnowledgeBases(request,
             target,
             options=(),
             channel_credentials=None,
@@ -206,9 +206,9 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/GetKnowledgeBases',
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetKnowledgeBasesRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetKnowledgeBasesResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ListKnowledgeBases',
+            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBasesRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBasesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

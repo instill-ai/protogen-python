@@ -44,9 +44,9 @@ class ArtifactPublicServiceStub:
         artifact.artifact.v1alpha.artifact_pb2.CreateKnowledgeBaseResponse,
     ]
     """Create a knowledge base"""
-    GetKnowledgeBases: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.GetKnowledgeBasesRequest,
-        artifact.artifact.v1alpha.artifact_pb2.GetKnowledgeBasesResponse,
+    ListKnowledgeBases: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBasesRequest,
+        artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBasesResponse,
     ]
     """Get all knowledge bases info"""
     UpdateKnowledgeBase: grpc.UnaryUnaryMultiCallable[
@@ -86,9 +86,9 @@ class ArtifactPublicServiceAsyncStub:
         artifact.artifact.v1alpha.artifact_pb2.CreateKnowledgeBaseResponse,
     ]
     """Create a knowledge base"""
-    GetKnowledgeBases: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.GetKnowledgeBasesRequest,
-        artifact.artifact.v1alpha.artifact_pb2.GetKnowledgeBasesResponse,
+    ListKnowledgeBases: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBasesRequest,
+        artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBasesResponse,
     ]
     """Get all knowledge bases info"""
     UpdateKnowledgeBase: grpc.aio.UnaryUnaryMultiCallable[
@@ -135,11 +135,11 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.CreateKnowledgeBaseResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.CreateKnowledgeBaseResponse]]:
         """Create a knowledge base"""
     @abc.abstractmethod
-    def GetKnowledgeBases(
+    def ListKnowledgeBases(
         self,
-        request: artifact.artifact.v1alpha.artifact_pb2.GetKnowledgeBasesRequest,
+        request: artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBasesRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.GetKnowledgeBasesResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.GetKnowledgeBasesResponse]]:
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBasesResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBasesResponse]]:
         """Get all knowledge bases info"""
     @abc.abstractmethod
     def UpdateKnowledgeBase(
