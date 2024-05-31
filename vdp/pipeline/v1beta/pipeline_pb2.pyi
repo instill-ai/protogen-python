@@ -198,6 +198,28 @@ class Pipeline(google.protobuf.message.Message):
     VISIBILITY_PUBLIC: Pipeline.Visibility.ValueType  # 2
     """Other users can see the pipeline."""
 
+    @typing_extensions.final
+    class Stats(google.protobuf.message.Message):
+        """Statistic data"""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        NUMBER_OF_RUNS_FIELD_NUMBER: builtins.int
+        LAST_RUN_TIME_FIELD_NUMBER: builtins.int
+        number_of_runs: builtins.int
+        """Number of pipeline runs."""
+        @property
+        def last_run_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+            """Last run time."""
+        def __init__(
+            self,
+            *,
+            number_of_runs: builtins.int = ...,
+            last_run_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["last_run_time", b"last_run_time"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["last_run_time", b"last_run_time", "number_of_runs", b"number_of_runs"]) -> None: ...
+
     NAME_FIELD_NUMBER: builtins.int
     UID_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
@@ -216,6 +238,7 @@ class Pipeline(google.protobuf.message.Message):
     OWNER_FIELD_NUMBER: builtins.int
     DATA_SPECIFICATION_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
+    STATS_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The name of the pipeline, defined by its parent and ID.
     - Format: `{parent_type}/{parent.id}/pipelines/{pipeline.id}`.
@@ -269,6 +292,9 @@ class Pipeline(google.protobuf.message.Message):
     @property
     def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Tags."""
+    @property
+    def stats(self) -> global___Pipeline.Stats:
+        """Statistic data."""
     def __init__(
         self,
         *,
@@ -290,9 +316,10 @@ class Pipeline(google.protobuf.message.Message):
         owner: core.mgmt.v1beta.mgmt_pb2.Owner | None = ...,
         data_specification: vdp.pipeline.v1beta.component_definition_pb2.DataSpecification | None = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
+        stats: global___Pipeline.Stats | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "_owner", b"_owner", "create_time", b"create_time", "data_specification", b"data_specification", "delete_time", b"delete_time", "description", b"description", "metadata", b"metadata", "owner", b"owner", "permission", b"permission", "recipe", b"recipe", "sharing", b"sharing", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "_owner", b"_owner", "create_time", b"create_time", "data_specification", b"data_specification", "delete_time", b"delete_time", "description", b"description", "id", b"id", "metadata", b"metadata", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "permission", b"permission", "readme", b"readme", "recipe", b"recipe", "releases", b"releases", "sharing", b"sharing", "tags", b"tags", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "_owner", b"_owner", "create_time", b"create_time", "data_specification", b"data_specification", "delete_time", b"delete_time", "description", b"description", "metadata", b"metadata", "owner", b"owner", "permission", b"permission", "recipe", b"recipe", "sharing", b"sharing", "stats", b"stats", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "_owner", b"_owner", "create_time", b"create_time", "data_specification", b"data_specification", "delete_time", b"delete_time", "description", b"description", "id", b"id", "metadata", b"metadata", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "permission", b"permission", "readme", b"readme", "recipe", b"recipe", "releases", b"releases", "sharing", b"sharing", "stats", b"stats", "tags", b"tags", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_description", b"_description"]) -> typing_extensions.Literal["description"] | None: ...
     @typing.overload
