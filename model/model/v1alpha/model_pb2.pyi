@@ -2582,7 +2582,7 @@ global___TriggerOrganizationModelBinaryFileUploadResponse = TriggerOrganizationM
 
 @typing_extensions.final
 class GetModelOperationRequest(google.protobuf.message.Message):
-    """GerModelOperationRequest represents a request to fetch a long-running
+    """GetModelOperationRequest represents a request to fetch a long-running
     operation performed on a model.
     """
 
@@ -2629,6 +2629,133 @@ class GetModelOperationResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> None: ...
 
 global___GetModelOperationResponse = GetModelOperationResponse
+
+@typing_extensions.final
+class LatestOperation(google.protobuf.message.Message):
+    """LatestOperation represents an internal message for GetLatestModelOperation Response"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    REQUEST_FIELD_NUMBER: builtins.int
+    RESPONSE_FIELD_NUMBER: builtins.int
+    @property
+    def request(self) -> global___TriggerUserModelRequest:
+        """Input request"""
+    @property
+    def response(self) -> global___TriggerUserModelResponse:
+        """Output response"""
+    def __init__(
+        self,
+        *,
+        request: global___TriggerUserModelRequest | None = ...,
+        response: global___TriggerUserModelResponse | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["request", b"request", "response", b"response"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["request", b"request", "response", b"response"]) -> None: ...
+
+global___LatestOperation = LatestOperation
+
+@typing_extensions.final
+class GetUserLatestModelOperationRequest(google.protobuf.message.Message):
+    """GetUserLatestModelOperationRequest represents a request to fetch the latest long-running
+    operation performed on a model for a user.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    VIEW_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the model, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/models/{model.id}`.
+    """
+    view: model.model.v1alpha.model_definition_pb2.View.ValueType
+    """View allows clients to specify the desired operation result in the response."""
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        view: model.model.v1alpha.model_definition_pb2.View.ValueType | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "name", b"name", "view", b"view"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+
+global___GetUserLatestModelOperationRequest = GetUserLatestModelOperationRequest
+
+@typing_extensions.final
+class GetUserLatestModelOperationResponse(google.protobuf.message.Message):
+    """GetUserLatestModelOperationRequest represents a request to query a long-running
+    operation.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OPERATION_FIELD_NUMBER: builtins.int
+    @property
+    def operation(self) -> google.longrunning.operations_pb2.Operation:
+        """The long-running operation."""
+    def __init__(
+        self,
+        *,
+        operation: google.longrunning.operations_pb2.Operation | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> None: ...
+
+global___GetUserLatestModelOperationResponse = GetUserLatestModelOperationResponse
+
+@typing_extensions.final
+class GetOrganizationLatestModelOperationRequest(google.protobuf.message.Message):
+    """GetOrganizationLatestModelOperationRequest represents a request to fetch the latest long-running
+    operation performed on a model for a user.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    VIEW_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the model, which allows its access by parent organization
+    and ID.
+    - Format: `organizations/{organization.id}/models/{model.id}`.
+    """
+    view: model.model.v1alpha.model_definition_pb2.View.ValueType
+    """View allows clients to specify the desired operation result in the response."""
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        view: model.model.v1alpha.model_definition_pb2.View.ValueType | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "name", b"name", "view", b"view"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+
+global___GetOrganizationLatestModelOperationRequest = GetOrganizationLatestModelOperationRequest
+
+@typing_extensions.final
+class GetOrganizationLatestModelOperationResponse(google.protobuf.message.Message):
+    """GetOrganizationLatestModelOperationRequest represents a request to query a long-running
+    operation.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OPERATION_FIELD_NUMBER: builtins.int
+    @property
+    def operation(self) -> google.longrunning.operations_pb2.Operation:
+        """The long-running operation."""
+    def __init__(
+        self,
+        *,
+        operation: google.longrunning.operations_pb2.Operation | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> None: ...
+
+global___GetOrganizationLatestModelOperationResponse = GetOrganizationLatestModelOperationResponse
 
 @typing_extensions.final
 class ListAvailableRegionsRequest(google.protobuf.message.Message):

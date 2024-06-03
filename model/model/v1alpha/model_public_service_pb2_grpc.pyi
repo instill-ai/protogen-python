@@ -417,6 +417,24 @@ class ModelPublicServiceStub:
     This method allows requesters to request the status and outcome of
     long-running operations in a model, such as deployment.
     """
+    GetUserLatestModelOperation: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.GetUserLatestModelOperationRequest,
+        model.model.v1alpha.model_pb2.GetUserLatestModelOperationResponse,
+    ]
+    """Get the details of the latest long-running operation from a user model
+
+    This method allows requesters to request the status and outcome of
+    long-running operations in a model, such as deployment.
+    """
+    GetOrganizationLatestModelOperation: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.GetOrganizationLatestModelOperationRequest,
+        model.model.v1alpha.model_pb2.GetOrganizationLatestModelOperationResponse,
+    ]
+    """Get the details of the latest long-running operation from a organization model
+
+    This method allows requesters to request the status and outcome of
+    long-running operations in a model, such as deployment.
+    """
 
 class ModelPublicServiceAsyncStub:
     """Model
@@ -812,6 +830,24 @@ class ModelPublicServiceAsyncStub:
         model.model.v1alpha.model_pb2.GetModelOperationResponse,
     ]
     """Get the details of a long-running operation
+
+    This method allows requesters to request the status and outcome of
+    long-running operations in a model, such as deployment.
+    """
+    GetUserLatestModelOperation: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.GetUserLatestModelOperationRequest,
+        model.model.v1alpha.model_pb2.GetUserLatestModelOperationResponse,
+    ]
+    """Get the details of the latest long-running operation from a user model
+
+    This method allows requesters to request the status and outcome of
+    long-running operations in a model, such as deployment.
+    """
+    GetOrganizationLatestModelOperation: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.GetOrganizationLatestModelOperationRequest,
+        model.model.v1alpha.model_pb2.GetOrganizationLatestModelOperationResponse,
+    ]
+    """Get the details of the latest long-running operation from a organization model
 
     This method allows requesters to request the status and outcome of
     long-running operations in a model, such as deployment.
@@ -1295,6 +1331,28 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.GetModelOperationResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.GetModelOperationResponse]]:
         """Get the details of a long-running operation
+
+        This method allows requesters to request the status and outcome of
+        long-running operations in a model, such as deployment.
+        """
+    @abc.abstractmethod
+    def GetUserLatestModelOperation(
+        self,
+        request: model.model.v1alpha.model_pb2.GetUserLatestModelOperationRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.GetUserLatestModelOperationResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.GetUserLatestModelOperationResponse]]:
+        """Get the details of the latest long-running operation from a user model
+
+        This method allows requesters to request the status and outcome of
+        long-running operations in a model, such as deployment.
+        """
+    @abc.abstractmethod
+    def GetOrganizationLatestModelOperation(
+        self,
+        request: model.model.v1alpha.model_pb2.GetOrganizationLatestModelOperationRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.GetOrganizationLatestModelOperationResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.GetOrganizationLatestModelOperationResponse]]:
+        """Get the details of the latest long-running operation from a organization model
 
         This method allows requesters to request the status and outcome of
         long-running operations in a model, such as deployment.

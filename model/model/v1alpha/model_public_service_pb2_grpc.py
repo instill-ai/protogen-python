@@ -229,6 +229,16 @@ class ModelPublicServiceStub(object):
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationResponse.FromString,
                 )
+        self.GetUserLatestModelOperation = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/GetUserLatestModelOperation',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetUserLatestModelOperationRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetUserLatestModelOperationResponse.FromString,
+                )
+        self.GetOrganizationLatestModelOperation = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/GetOrganizationLatestModelOperation',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationLatestModelOperationRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationLatestModelOperationResponse.FromString,
+                )
 
 
 class ModelPublicServiceServicer(object):
@@ -671,6 +681,26 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetUserLatestModelOperation(self, request, context):
+        """Get the details of the latest long-running operation from a user model
+
+        This method allows requesters to request the status and outcome of
+        long-running operations in a model, such as deployment.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetOrganizationLatestModelOperation(self, request, context):
+        """Get the details of the latest long-running operation from a organization model
+
+        This method allows requesters to request the status and outcome of
+        long-running operations in a model, such as deployment.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ModelPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -883,6 +913,16 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     servicer.GetModelOperation,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationResponse.SerializeToString,
+            ),
+            'GetUserLatestModelOperation': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetUserLatestModelOperation,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetUserLatestModelOperationRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetUserLatestModelOperationResponse.SerializeToString,
+            ),
+            'GetOrganizationLatestModelOperation': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOrganizationLatestModelOperation,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationLatestModelOperationRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationLatestModelOperationResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1609,5 +1649,39 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/GetModelOperation',
             model_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetUserLatestModelOperation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/GetUserLatestModelOperation',
+            model_dot_model_dot_v1alpha_dot_model__pb2.GetUserLatestModelOperationRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.GetUserLatestModelOperationResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetOrganizationLatestModelOperation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/GetOrganizationLatestModelOperation',
+            model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationLatestModelOperationRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationLatestModelOperationResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
