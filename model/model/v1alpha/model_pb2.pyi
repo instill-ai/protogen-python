@@ -57,6 +57,10 @@ class _StateEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumType
     """Idle is the state when a model is alive but not processing requests."""
     STATE_ERROR: _State.ValueType  # 5
     """Error is the state when the model is undeployable."""
+    STATE_STARTING: _State.ValueType  # 6
+    """Starting is the state when the system is provisioning the necessary
+    resources for the model
+    """
 
 class State(_State, metaclass=_StateEnumTypeWrapper):
     """State describes the state of a model. See [Deploy
@@ -76,6 +80,10 @@ STATE_IDLE: State.ValueType  # 4
 """Idle is the state when a model is alive but not processing requests."""
 STATE_ERROR: State.ValueType  # 5
 """Error is the state when the model is undeployable."""
+STATE_STARTING: State.ValueType  # 6
+"""Starting is the state when the system is provisioning the necessary
+resources for the model
+"""
 global___State = State
 
 @typing_extensions.final
