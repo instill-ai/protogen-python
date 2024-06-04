@@ -1178,6 +1178,7 @@ class ApiToken(google.protobuf.message.Message):
     STATE_EXPIRED: ApiToken.State.ValueType  # 3
     """Expired."""
 
+    LAST_USE_TIME_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     UID_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
@@ -1188,6 +1189,12 @@ class ApiToken(google.protobuf.message.Message):
     TOKEN_TYPE_FIELD_NUMBER: builtins.int
     TTL_FIELD_NUMBER: builtins.int
     EXPIRE_TIME_FIELD_NUMBER: builtins.int
+    @property
+    def last_use_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """When users trigger a pipeline which uses an API token, the token is
+        updated with the current time. This field is used to track the last time
+        the token was used.
+        """
     name: builtins.str
     """The name of the token, define by its ID.
     - Format: `tokens/{token.id}`.
@@ -1226,6 +1233,7 @@ class ApiToken(google.protobuf.message.Message):
     def __init__(
         self,
         *,
+        last_use_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         name: builtins.str = ...,
         uid: builtins.str = ...,
         id: builtins.str = ...,
@@ -1237,8 +1245,8 @@ class ApiToken(google.protobuf.message.Message):
         ttl: builtins.int = ...,
         expire_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "expiration", b"expiration", "expire_time", b"expire_time", "ttl", b"ttl", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["access_token", b"access_token", "create_time", b"create_time", "expiration", b"expiration", "expire_time", b"expire_time", "id", b"id", "name", b"name", "state", b"state", "token_type", b"token_type", "ttl", b"ttl", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "expiration", b"expiration", "expire_time", b"expire_time", "last_use_time", b"last_use_time", "ttl", b"ttl", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["access_token", b"access_token", "create_time", b"create_time", "expiration", b"expiration", "expire_time", b"expire_time", "id", b"id", "last_use_time", b"last_use_time", "name", b"name", "state", b"state", "token_type", b"token_type", "ttl", b"ttl", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["expiration", b"expiration"]) -> typing_extensions.Literal["ttl", "expire_time"] | None: ...
 
 global___ApiToken = ApiToken
