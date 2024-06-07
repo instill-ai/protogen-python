@@ -1205,25 +1205,9 @@ class TriggerUserPipelineWithStreamRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    @typing_extensions.final
-    class SecretsEntry(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        KEY_FIELD_NUMBER: builtins.int
-        VALUE_FIELD_NUMBER: builtins.int
-        key: builtins.str
-        value: builtins.str
-        def __init__(
-            self,
-            *,
-            key: builtins.str = ...,
-            value: builtins.str = ...,
-        ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
-
     NAME_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
-    SECRETS_FIELD_NUMBER: builtins.int
+    DATA_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the pipeline, which allows its access by parent user
     and ID.
@@ -1231,18 +1215,18 @@ class TriggerUserPipelineWithStreamRequest(google.protobuf.message.Message):
     """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
-        """Pipeline input parameters."""
+        """Pipeline input parameters, it will be deprecated soon."""
     @property
-    def secrets(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
-        """Pipeline secrets parameters that will override the pipeline's or owner's secrets."""
+    def data(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TriggerData]:
+        """Data"""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
         inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
-        secrets: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        data: collections.abc.Iterable[global___TriggerData] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["inputs", b"inputs", "name", b"name", "secrets", b"secrets"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["data", b"data", "inputs", b"inputs", "name", b"name"]) -> None: ...
 
 global___TriggerUserPipelineWithStreamRequest = TriggerUserPipelineWithStreamRequest
 
