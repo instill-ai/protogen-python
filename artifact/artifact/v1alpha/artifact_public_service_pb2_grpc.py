@@ -46,6 +46,26 @@ class ArtifactPublicServiceStub(object):
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteKnowledgeBaseRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteKnowledgeBaseResponse.FromString,
                 )
+        self.UploadKnowledgeBaseFile = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/UploadKnowledgeBaseFile',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UploadKnowledgeBaseFileRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UploadKnowledgeBaseFileResponse.FromString,
+                )
+        self.DeleteKnowledgeBaseFile = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/DeleteKnowledgeBaseFile',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteKnowledgeBaseFileRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteKnowledgeBaseFileResponse.FromString,
+                )
+        self.ProcessKnowledgeBaseFiles = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/ProcessKnowledgeBaseFiles',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ProcessKnowledgeBaseFilesRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ProcessKnowledgeBaseFilesResponse.FromString,
+                )
+        self.ListKnowledgeBaseFiles = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/ListKnowledgeBaseFiles',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseFilesRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseFilesResponse.FromString,
+                )
 
 
 class ArtifactPublicServiceServicer(object):
@@ -99,6 +119,34 @@ class ArtifactPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UploadKnowledgeBaseFile(self, request, context):
+        """Create a file
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteKnowledgeBaseFile(self, request, context):
+        """Delete a file
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ProcessKnowledgeBaseFiles(self, request, context):
+        """process file
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListKnowledgeBaseFiles(self, request, context):
+        """list files
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ArtifactPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -131,6 +179,26 @@ def add_ArtifactPublicServiceServicer_to_server(servicer, server):
                     servicer.DeleteKnowledgeBase,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteKnowledgeBaseRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteKnowledgeBaseResponse.SerializeToString,
+            ),
+            'UploadKnowledgeBaseFile': grpc.unary_unary_rpc_method_handler(
+                    servicer.UploadKnowledgeBaseFile,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UploadKnowledgeBaseFileRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UploadKnowledgeBaseFileResponse.SerializeToString,
+            ),
+            'DeleteKnowledgeBaseFile': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteKnowledgeBaseFile,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteKnowledgeBaseFileRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteKnowledgeBaseFileResponse.SerializeToString,
+            ),
+            'ProcessKnowledgeBaseFiles': grpc.unary_unary_rpc_method_handler(
+                    servicer.ProcessKnowledgeBaseFiles,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ProcessKnowledgeBaseFilesRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ProcessKnowledgeBaseFilesResponse.SerializeToString,
+            ),
+            'ListKnowledgeBaseFiles': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListKnowledgeBaseFiles,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseFilesRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseFilesResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -243,5 +311,73 @@ class ArtifactPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/DeleteKnowledgeBase',
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteKnowledgeBaseRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteKnowledgeBaseResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UploadKnowledgeBaseFile(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/UploadKnowledgeBaseFile',
+            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UploadKnowledgeBaseFileRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UploadKnowledgeBaseFileResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteKnowledgeBaseFile(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/DeleteKnowledgeBaseFile',
+            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteKnowledgeBaseFileRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteKnowledgeBaseFileResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ProcessKnowledgeBaseFiles(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ProcessKnowledgeBaseFiles',
+            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ProcessKnowledgeBaseFilesRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ProcessKnowledgeBaseFilesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListKnowledgeBaseFiles(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ListKnowledgeBaseFiles',
+            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseFilesRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseFilesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

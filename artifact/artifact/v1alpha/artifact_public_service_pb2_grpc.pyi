@@ -59,6 +59,26 @@ class ArtifactPublicServiceStub:
         artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseResponse,
     ]
     """Delete a knowledge base"""
+    UploadKnowledgeBaseFile: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.UploadKnowledgeBaseFileRequest,
+        artifact.artifact.v1alpha.artifact_pb2.UploadKnowledgeBaseFileResponse,
+    ]
+    """Create a file"""
+    DeleteKnowledgeBaseFile: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseFileRequest,
+        artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseFileResponse,
+    ]
+    """Delete a file"""
+    ProcessKnowledgeBaseFiles: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.ProcessKnowledgeBaseFilesRequest,
+        artifact.artifact.v1alpha.artifact_pb2.ProcessKnowledgeBaseFilesResponse,
+    ]
+    """process file"""
+    ListKnowledgeBaseFiles: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseFilesRequest,
+        artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseFilesResponse,
+    ]
+    """list files"""
 
 class ArtifactPublicServiceAsyncStub:
     """ArtifactPublicService exposes the public endpoints that allow clients to
@@ -101,6 +121,26 @@ class ArtifactPublicServiceAsyncStub:
         artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseResponse,
     ]
     """Delete a knowledge base"""
+    UploadKnowledgeBaseFile: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.UploadKnowledgeBaseFileRequest,
+        artifact.artifact.v1alpha.artifact_pb2.UploadKnowledgeBaseFileResponse,
+    ]
+    """Create a file"""
+    DeleteKnowledgeBaseFile: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseFileRequest,
+        artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseFileResponse,
+    ]
+    """Delete a file"""
+    ProcessKnowledgeBaseFiles: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.ProcessKnowledgeBaseFilesRequest,
+        artifact.artifact.v1alpha.artifact_pb2.ProcessKnowledgeBaseFilesResponse,
+    ]
+    """process file"""
+    ListKnowledgeBaseFiles: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseFilesRequest,
+        artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseFilesResponse,
+    ]
+    """list files"""
 
 class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
     """ArtifactPublicService exposes the public endpoints that allow clients to
@@ -155,5 +195,33 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseResponse]]:
         """Delete a knowledge base"""
+    @abc.abstractmethod
+    def UploadKnowledgeBaseFile(
+        self,
+        request: artifact.artifact.v1alpha.artifact_pb2.UploadKnowledgeBaseFileRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.UploadKnowledgeBaseFileResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.UploadKnowledgeBaseFileResponse]]:
+        """Create a file"""
+    @abc.abstractmethod
+    def DeleteKnowledgeBaseFile(
+        self,
+        request: artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseFileRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseFileResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseFileResponse]]:
+        """Delete a file"""
+    @abc.abstractmethod
+    def ProcessKnowledgeBaseFiles(
+        self,
+        request: artifact.artifact.v1alpha.artifact_pb2.ProcessKnowledgeBaseFilesRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.ProcessKnowledgeBaseFilesResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.ProcessKnowledgeBaseFilesResponse]]:
+        """process file"""
+    @abc.abstractmethod
+    def ListKnowledgeBaseFiles(
+        self,
+        request: artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseFilesRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseFilesResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseFilesResponse]]:
+        """list files"""
 
 def add_ArtifactPublicServiceServicer_to_server(servicer: ArtifactPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

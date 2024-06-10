@@ -7,17 +7,98 @@ import collections.abc
 import common.healthcheck.v1beta.healthcheck_pb2
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
+import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
 import sys
 import typing
 
-if sys.version_info >= (3, 8):
+if sys.version_info >= (3, 10):
     import typing as typing_extensions
 else:
     import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
+
+class _FileProcessStatus:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _FileProcessStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_FileProcessStatus.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    FILE_PROCESS_STATUS_UNSPECIFIED: _FileProcessStatus.ValueType  # 0
+    """UNSPECIFIED"""
+    FILE_PROCESS_STATUS_NOTSTARTED: _FileProcessStatus.ValueType  # 1
+    """NOTSTARTED"""
+    FILE_PROCESS_STATUS_WAITING: _FileProcessStatus.ValueType  # 2
+    """waiting"""
+    FILE_PROCESS_STATUS_CONVERTING: _FileProcessStatus.ValueType  # 3
+    """embedding process is running"""
+    FILE_PROCESS_STATUS_CHUNKING: _FileProcessStatus.ValueType  # 4
+    """embedding process is done"""
+    FILE_PROCESS_STATUS_EMBEDDING: _FileProcessStatus.ValueType  # 5
+    """embedding process is failed"""
+    FILE_PROCESS_STATUS_COMPLETED: _FileProcessStatus.ValueType  # 6
+    """COMPLETED"""
+
+class FileProcessStatus(_FileProcessStatus, metaclass=_FileProcessStatusEnumTypeWrapper):
+    """file embedding process status"""
+
+FILE_PROCESS_STATUS_UNSPECIFIED: FileProcessStatus.ValueType  # 0
+"""UNSPECIFIED"""
+FILE_PROCESS_STATUS_NOTSTARTED: FileProcessStatus.ValueType  # 1
+"""NOTSTARTED"""
+FILE_PROCESS_STATUS_WAITING: FileProcessStatus.ValueType  # 2
+"""waiting"""
+FILE_PROCESS_STATUS_CONVERTING: FileProcessStatus.ValueType  # 3
+"""embedding process is running"""
+FILE_PROCESS_STATUS_CHUNKING: FileProcessStatus.ValueType  # 4
+"""embedding process is done"""
+FILE_PROCESS_STATUS_EMBEDDING: FileProcessStatus.ValueType  # 5
+"""embedding process is failed"""
+FILE_PROCESS_STATUS_COMPLETED: FileProcessStatus.ValueType  # 6
+"""COMPLETED"""
+global___FileProcessStatus = FileProcessStatus
+
+class _FileType:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _FileTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_FileType.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    FILE_TYPE_UNSPECIFIED: _FileType.ValueType  # 0
+    """upsecifid"""
+    FILE_TYPE_TEXT: _FileType.ValueType  # 1
+    """text"""
+    FILE_TYPE_PDF: _FileType.ValueType  # 2
+    """PDF"""
+    FILE_TYPE_MARKDOWN: _FileType.ValueType  # 3
+    """MARKDOWN"""
+    FILE_TYPE_PNG: _FileType.ValueType  # 4
+    """PNG"""
+    FILE_TYPE_JPEG: _FileType.ValueType  # 5
+    """JPEG"""
+    FILE_TYPE_JPG: _FileType.ValueType  # 6
+    """JPG"""
+
+class FileType(_FileType, metaclass=_FileTypeEnumTypeWrapper):
+    """file type"""
+
+FILE_TYPE_UNSPECIFIED: FileType.ValueType  # 0
+"""upsecifid"""
+FILE_TYPE_TEXT: FileType.ValueType  # 1
+"""text"""
+FILE_TYPE_PDF: FileType.ValueType  # 2
+"""PDF"""
+FILE_TYPE_MARKDOWN: FileType.ValueType  # 3
+"""MARKDOWN"""
+FILE_TYPE_PNG: FileType.ValueType  # 4
+"""PNG"""
+FILE_TYPE_JPEG: FileType.ValueType  # 5
+"""JPEG"""
+FILE_TYPE_JPG: FileType.ValueType  # 6
+"""JPG"""
+global___FileType = FileType
 
 @typing_extensions.final
 class LivenessRequest(google.protobuf.message.Message):
@@ -555,3 +636,289 @@ class DeleteKnowledgeBaseResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["error_msg", b"error_msg", "status_code", b"status_code"]) -> None: ...
 
 global___DeleteKnowledgeBaseResponse = DeleteKnowledgeBaseResponse
+
+@typing_extensions.final
+class File(google.protobuf.message.Message):
+    """file mata data"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_UID_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
+    TYPE_FIELD_NUMBER: builtins.int
+    PROCESS_STATUS_FIELD_NUMBER: builtins.int
+    PROCESS_OUTCOME_FIELD_NUMBER: builtins.int
+    RETRIEVABLE_FIELD_NUMBER: builtins.int
+    CONTENT_FIELD_NUMBER: builtins.int
+    OWNER_UID_FIELD_NUMBER: builtins.int
+    CREATOR_UID_FIELD_NUMBER: builtins.int
+    KB_UID_FIELD_NUMBER: builtins.int
+    CREATE_TIME_FIELD_NUMBER: builtins.int
+    UPDATE_TIME_FIELD_NUMBER: builtins.int
+    DELETE_TIME_FIELD_NUMBER: builtins.int
+    file_uid: builtins.str
+    """file uid"""
+    name: builtins.str
+    """file name"""
+    type: global___FileType.ValueType
+    """file type"""
+    process_status: global___FileProcessStatus.ValueType
+    """file process status"""
+    process_outcome: builtins.str
+    """file process message"""
+    retrievable: builtins.bool
+    """retrievable(this is reserved for future use)"""
+    content: builtins.str
+    """contect(this is reserved for future use)"""
+    owner_uid: builtins.str
+    """owner uid"""
+    creator_uid: builtins.str
+    """cretor uid from authn token"""
+    kb_uid: builtins.str
+    """knowledge base uid"""
+    @property
+    def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """create time"""
+    @property
+    def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """update time"""
+    @property
+    def delete_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """delete time"""
+    def __init__(
+        self,
+        *,
+        file_uid: builtins.str = ...,
+        name: builtins.str = ...,
+        type: global___FileType.ValueType = ...,
+        process_status: global___FileProcessStatus.ValueType = ...,
+        process_outcome: builtins.str = ...,
+        retrievable: builtins.bool = ...,
+        content: builtins.str = ...,
+        owner_uid: builtins.str = ...,
+        creator_uid: builtins.str = ...,
+        kb_uid: builtins.str = ...,
+        create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "delete_time", b"delete_time", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["content", b"content", "create_time", b"create_time", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "file_uid", b"file_uid", "kb_uid", b"kb_uid", "name", b"name", "owner_uid", b"owner_uid", "process_outcome", b"process_outcome", "process_status", b"process_status", "retrievable", b"retrievable", "type", b"type", "update_time", b"update_time"]) -> None: ...
+
+global___File = File
+
+@typing_extensions.final
+class UploadKnowledgeBaseFileRequest(google.protobuf.message.Message):
+    """upload file request"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OWNER_UID_FIELD_NUMBER: builtins.int
+    KB_UID_FIELD_NUMBER: builtins.int
+    FILE_FIELD_NUMBER: builtins.int
+    owner_uid: builtins.str
+    """owenr uid"""
+    kb_uid: builtins.str
+    """knowledge base uid"""
+    @property
+    def file(self) -> global___File:
+        """file"""
+    def __init__(
+        self,
+        *,
+        owner_uid: builtins.str = ...,
+        kb_uid: builtins.str = ...,
+        file: global___File | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["file", b"file"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file", b"file", "kb_uid", b"kb_uid", "owner_uid", b"owner_uid"]) -> None: ...
+
+global___UploadKnowledgeBaseFileRequest = UploadKnowledgeBaseFileRequest
+
+@typing_extensions.final
+class UploadKnowledgeBaseFileResponse(google.protobuf.message.Message):
+    """upload file response"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_FIELD_NUMBER: builtins.int
+    @property
+    def file(self) -> global___File:
+        """file"""
+    def __init__(
+        self,
+        *,
+        file: global___File | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["file", b"file"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file", b"file"]) -> None: ...
+
+global___UploadKnowledgeBaseFileResponse = UploadKnowledgeBaseFileResponse
+
+@typing_extensions.final
+class DeleteKnowledgeBaseFileRequest(google.protobuf.message.Message):
+    """delete file request"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_UID_FIELD_NUMBER: builtins.int
+    file_uid: builtins.str
+    """The file uid."""
+    def __init__(
+        self,
+        *,
+        file_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file_uid", b"file_uid"]) -> None: ...
+
+global___DeleteKnowledgeBaseFileRequest = DeleteKnowledgeBaseFileRequest
+
+@typing_extensions.final
+class DeleteKnowledgeBaseFileResponse(google.protobuf.message.Message):
+    """delete file response"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_UID_FIELD_NUMBER: builtins.int
+    file_uid: builtins.str
+    """The file uid."""
+    def __init__(
+        self,
+        *,
+        file_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file_uid", b"file_uid"]) -> None: ...
+
+global___DeleteKnowledgeBaseFileResponse = DeleteKnowledgeBaseFileResponse
+
+@typing_extensions.final
+class ProcessKnowledgeBaseFilesRequest(google.protobuf.message.Message):
+    """Process KnowledgeBase File Request"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_UIDS_FIELD_NUMBER: builtins.int
+    @property
+    def file_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """The file uid."""
+    def __init__(
+        self,
+        *,
+        file_uids: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file_uids", b"file_uids"]) -> None: ...
+
+global___ProcessKnowledgeBaseFilesRequest = ProcessKnowledgeBaseFilesRequest
+
+@typing_extensions.final
+class ProcessKnowledgeBaseFilesResponse(google.protobuf.message.Message):
+    """Process KnowledgeBase File Response"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILES_FIELD_NUMBER: builtins.int
+    @property
+    def files(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___File]:
+        """The file uid."""
+    def __init__(
+        self,
+        *,
+        files: collections.abc.Iterable[global___File] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["files", b"files"]) -> None: ...
+
+global___ProcessKnowledgeBaseFilesResponse = ProcessKnowledgeBaseFilesResponse
+
+@typing_extensions.final
+class ListKnowledgeBaseFilesFilter(google.protobuf.message.Message):
+    """list file filter
+    todo: support more parameters
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_UIDS_FIELD_NUMBER: builtins.int
+    @property
+    def file_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """The file uids."""
+    def __init__(
+        self,
+        *,
+        file_uids: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file_uids", b"file_uids"]) -> None: ...
+
+global___ListKnowledgeBaseFilesFilter = ListKnowledgeBaseFilesFilter
+
+@typing_extensions.final
+class ListKnowledgeBaseFilesRequest(google.protobuf.message.Message):
+    """list files request"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OWNER_UID_FIELD_NUMBER: builtins.int
+    KB_UID_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
+    owner_uid: builtins.str
+    """The owner uid."""
+    kb_uid: builtins.str
+    """The knowledge base uid."""
+    page_size: builtins.int
+    """The page size (default:10; max 100)."""
+    page_token: builtins.str
+    """The next page token(default from first file's token)."""
+    @property
+    def filter(self) -> global___ListKnowledgeBaseFilesFilter:
+        """The filter."""
+    def __init__(
+        self,
+        *,
+        owner_uid: builtins.str = ...,
+        kb_uid: builtins.str = ...,
+        page_size: builtins.int = ...,
+        page_token: builtins.str = ...,
+        filter: global___ListKnowledgeBaseFilesFilter | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["filter", b"filter"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "kb_uid", b"kb_uid", "owner_uid", b"owner_uid", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
+global___ListKnowledgeBaseFilesRequest = ListKnowledgeBaseFilesRequest
+
+@typing_extensions.final
+class ListKnowledgeBaseFilesResponse(google.protobuf.message.Message):
+    """list files response"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILES_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
+    @property
+    def files(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___File]:
+        """The list of files."""
+    total_size: builtins.int
+    """The total number of files."""
+    page_size: builtins.int
+    """The requested page size."""
+    next_page_token: builtins.str
+    """next page token"""
+    @property
+    def filter(self) -> global___ListKnowledgeBaseFilesFilter:
+        """The filter."""
+    def __init__(
+        self,
+        *,
+        files: collections.abc.Iterable[global___File] | None = ...,
+        total_size: builtins.int = ...,
+        page_size: builtins.int = ...,
+        next_page_token: builtins.str = ...,
+        filter: global___ListKnowledgeBaseFilesFilter | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["filter", b"filter"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["files", b"files", "filter", b"filter", "next_page_token", b"next_page_token", "page_size", b"page_size", "total_size", b"total_size"]) -> None: ...
+
+global___ListKnowledgeBaseFilesResponse = ListKnowledgeBaseFilesResponse
