@@ -713,12 +713,12 @@ class UploadKnowledgeBaseFileRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    OWNER_UID_FIELD_NUMBER: builtins.int
-    KB_UID_FIELD_NUMBER: builtins.int
+    OWNER_ID_FIELD_NUMBER: builtins.int
+    KB_ID_FIELD_NUMBER: builtins.int
     FILE_FIELD_NUMBER: builtins.int
-    owner_uid: builtins.str
+    owner_id: builtins.str
     """owenr uid"""
-    kb_uid: builtins.str
+    kb_id: builtins.str
     """knowledge base uid"""
     @property
     def file(self) -> global___File:
@@ -726,12 +726,12 @@ class UploadKnowledgeBaseFileRequest(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        owner_uid: builtins.str = ...,
-        kb_uid: builtins.str = ...,
+        owner_id: builtins.str = ...,
+        kb_id: builtins.str = ...,
         file: global___File | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["file", b"file"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["file", b"file", "kb_uid", b"kb_uid", "owner_uid", b"owner_uid"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file", b"file", "kb_id", b"kb_id", "owner_id", b"owner_id"]) -> None: ...
 
 global___UploadKnowledgeBaseFileRequest = UploadKnowledgeBaseFileRequest
 
@@ -856,14 +856,14 @@ class ListKnowledgeBaseFilesRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    OWNER_UID_FIELD_NUMBER: builtins.int
-    KB_UID_FIELD_NUMBER: builtins.int
+    OWNER_ID_FIELD_NUMBER: builtins.int
+    KB_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    owner_uid: builtins.str
+    owner_id: builtins.str
     """The owner uid."""
-    kb_uid: builtins.str
+    kb_id: builtins.str
     """The knowledge base uid."""
     page_size: builtins.int
     """The page size (default:10; max 100)."""
@@ -875,14 +875,14 @@ class ListKnowledgeBaseFilesRequest(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        owner_uid: builtins.str = ...,
-        kb_uid: builtins.str = ...,
+        owner_id: builtins.str = ...,
+        kb_id: builtins.str = ...,
         page_size: builtins.int = ...,
         page_token: builtins.str = ...,
         filter: global___ListKnowledgeBaseFilesFilter | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["filter", b"filter"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "kb_uid", b"kb_uid", "owner_uid", b"owner_uid", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "kb_id", b"kb_id", "owner_id", b"owner_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
 
 global___ListKnowledgeBaseFilesRequest = ListKnowledgeBaseFilesRequest
 
