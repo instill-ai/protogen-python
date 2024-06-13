@@ -289,6 +289,16 @@ class MgmtPublicServiceStub:
     Returns a paginated list with pipeline trigger execution times, aggregated
     by pipeline and time frames.
     """
+    ListCreditConsumptionChartRecords: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.metric_pb2.ListCreditConsumptionChartRecordsRequest,
+        core.mgmt.v1beta.metric_pb2.ListCreditConsumptionChartRecordsResponse,
+    ]
+    """List Instill Credit consumption time charts
+
+    Returns a timeline of Instill Credit consumption for a given owner. The
+    timeline consists of a list of time frames that contain the aggregated
+    credit consumption.
+    """
     AuthTokenIssuer: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.AuthTokenIssuerRequest,
         core.mgmt.v1beta.mgmt_pb2.AuthTokenIssuerResponse,
@@ -603,6 +613,16 @@ class MgmtPublicServiceAsyncStub:
 
     Returns a paginated list with pipeline trigger execution times, aggregated
     by pipeline and time frames.
+    """
+    ListCreditConsumptionChartRecords: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.metric_pb2.ListCreditConsumptionChartRecordsRequest,
+        core.mgmt.v1beta.metric_pb2.ListCreditConsumptionChartRecordsResponse,
+    ]
+    """List Instill Credit consumption time charts
+
+    Returns a timeline of Instill Credit consumption for a given owner. The
+    timeline consists of a list of time frames that contain the aggregated
+    credit consumption.
     """
     AuthTokenIssuer: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.AuthTokenIssuerRequest,
@@ -980,6 +1000,18 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
 
         Returns a paginated list with pipeline trigger execution times, aggregated
         by pipeline and time frames.
+        """
+    @abc.abstractmethod
+    def ListCreditConsumptionChartRecords(
+        self,
+        request: core.mgmt.v1beta.metric_pb2.ListCreditConsumptionChartRecordsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.metric_pb2.ListCreditConsumptionChartRecordsResponse, collections.abc.Awaitable[core.mgmt.v1beta.metric_pb2.ListCreditConsumptionChartRecordsResponse]]:
+        """List Instill Credit consumption time charts
+
+        Returns a timeline of Instill Credit consumption for a given owner. The
+        timeline consists of a list of time frames that contain the aggregated
+        credit consumption.
         """
     @abc.abstractmethod
     def AuthTokenIssuer(

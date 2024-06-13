@@ -402,3 +402,105 @@ class ListPipelineTriggerChartRecordsResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["pipeline_trigger_chart_records", b"pipeline_trigger_chart_records"]) -> None: ...
 
 global___ListPipelineTriggerChartRecordsResponse = ListPipelineTriggerChartRecordsResponse
+
+@typing_extensions.final
+class CreditConsumptionChartRecord(google.protobuf.message.Message):
+    """CreditConsumptionChartRecord contains credit consumption metrics, aggregated
+    by owner and time frame.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CREDIT_OWNER_FIELD_NUMBER: builtins.int
+    TIME_BUCKETS_FIELD_NUMBER: builtins.int
+    AMOUNT_FIELD_NUMBER: builtins.int
+    credit_owner: builtins.str
+    """Credit owner ID, e.g. `users/chef-wombat`."""
+    @property
+    def time_buckets(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.timestamp_pb2.Timestamp]:
+        """Time buckets."""
+    @property
+    def amount(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.float]:
+        """Total credit consumed in each time bucket."""
+    def __init__(
+        self,
+        *,
+        credit_owner: builtins.str = ...,
+        time_buckets: collections.abc.Iterable[google.protobuf.timestamp_pb2.Timestamp] | None = ...,
+        amount: collections.abc.Iterable[builtins.float] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["amount", b"amount", "credit_owner", b"credit_owner", "time_buckets", b"time_buckets"]) -> None: ...
+
+global___CreditConsumptionChartRecord = CreditConsumptionChartRecord
+
+@typing_extensions.final
+class ListCreditConsumptionChartRecordsRequest(google.protobuf.message.Message):
+    """ListCreditConsumptionChartRecordsRequest represents a request to list pipeline
+    trigger metrics, aggregated by pipeline ID and time frame.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OWNER_FIELD_NUMBER: builtins.int
+    AGGREGATION_WINDOW_FIELD_NUMBER: builtins.int
+    START_FIELD_NUMBER: builtins.int
+    STOP_FIELD_NUMBER: builtins.int
+    owner: builtins.str
+    """The user or organization to which the credit belongs.
+    Format: `{[users|organizations]}/{id}`.
+    """
+    aggregation_window: builtins.str
+    """Aggregation window. The value is a positive duration string, i.e. a
+    sequence of decimal numbers, each with optional fraction and a unit
+    suffix, such as "300ms", "1.5h" or "2h45m".
+    The minimum (and default) window is 1h.
+    """
+    @property
+    def start(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Beginning of the time range from which the records will be fetched."""
+    @property
+    def stop(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """End of the time range from which the records will be fetched."""
+    def __init__(
+        self,
+        *,
+        owner: builtins.str = ...,
+        aggregation_window: builtins.str | None = ...,
+        start: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        stop: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_aggregation_window", b"_aggregation_window", "_start", b"_start", "_stop", b"_stop", "aggregation_window", b"aggregation_window", "start", b"start", "stop", b"stop"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_aggregation_window", b"_aggregation_window", "_start", b"_start", "_stop", b"_stop", "aggregation_window", b"aggregation_window", "owner", b"owner", "start", b"start", "stop", b"stop"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_aggregation_window", b"_aggregation_window"]) -> typing_extensions.Literal["aggregation_window"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_start", b"_start"]) -> typing_extensions.Literal["start"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_stop", b"_stop"]) -> typing_extensions.Literal["stop"] | None: ...
+
+global___ListCreditConsumptionChartRecordsRequest = ListCreditConsumptionChartRecordsRequest
+
+@typing_extensions.final
+class ListCreditConsumptionChartRecordsResponse(google.protobuf.message.Message):
+    """ListCreditConsumptionChartRecordsResponse contains a list of pipeline trigger
+    chart records.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CREDIT_CONSUMPTION_CHART_RECORDS_FIELD_NUMBER: builtins.int
+    TOTAL_AMOUNT_FIELD_NUMBER: builtins.int
+    @property
+    def credit_consumption_chart_records(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CreditConsumptionChartRecord]:
+        """A list of pipeline trigger records."""
+    total_amount: builtins.float
+    """Sum of the total credit consumed within the time range."""
+    def __init__(
+        self,
+        *,
+        credit_consumption_chart_records: collections.abc.Iterable[global___CreditConsumptionChartRecord] | None = ...,
+        total_amount: builtins.float = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["credit_consumption_chart_records", b"credit_consumption_chart_records", "total_amount", b"total_amount"]) -> None: ...
+
+global___ListCreditConsumptionChartRecordsResponse = ListCreditConsumptionChartRecordsResponse

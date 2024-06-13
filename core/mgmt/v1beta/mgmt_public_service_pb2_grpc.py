@@ -174,6 +174,11 @@ class MgmtPublicServiceStub(object):
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsResponse.FromString,
                 )
+        self.ListCreditConsumptionChartRecords = channel.unary_unary(
+                '/core.mgmt.v1beta.MgmtPublicService/ListCreditConsumptionChartRecords',
+                request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListCreditConsumptionChartRecordsRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListCreditConsumptionChartRecordsResponse.FromString,
+                )
         self.AuthTokenIssuer = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/AuthTokenIssuer',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthTokenIssuerRequest.SerializeToString,
@@ -502,6 +507,17 @@ class MgmtPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListCreditConsumptionChartRecords(self, request, context):
+        """List Instill Credit consumption time charts
+
+        Returns a timeline of Instill Credit consumption for a given owner. The
+        timeline consists of a list of time frames that contain the aggregated
+        credit consumption.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def AuthTokenIssuer(self, request, context):
         """Auth endpoints are only used in the community edition and the OpenAPI
         documentation references Instill Cloud. Therefore, these endpoints are
@@ -708,6 +724,11 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     servicer.ListPipelineTriggerChartRecords,
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsResponse.SerializeToString,
+            ),
+            'ListCreditConsumptionChartRecords': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListCreditConsumptionChartRecords,
+                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListCreditConsumptionChartRecordsRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListCreditConsumptionChartRecordsResponse.SerializeToString,
             ),
             'AuthTokenIssuer': grpc.unary_unary_rpc_method_handler(
                     servicer.AuthTokenIssuer,
@@ -1272,6 +1293,23 @@ class MgmtPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerChartRecords',
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListCreditConsumptionChartRecords(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListCreditConsumptionChartRecords',
+            core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListCreditConsumptionChartRecordsRequest.SerializeToString,
+            core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListCreditConsumptionChartRecordsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
