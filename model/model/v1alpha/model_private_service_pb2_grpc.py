@@ -26,15 +26,25 @@ class ModelPrivateServiceStub(object):
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminResponse.FromString,
                 )
-        self.DeployModelAdmin = channel.unary_unary(
-                '/model.model.v1alpha.ModelPrivateService/DeployModelAdmin',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployModelAdminRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployModelAdminResponse.FromString,
+        self.DeployUserModelAdmin = channel.unary_unary(
+                '/model.model.v1alpha.ModelPrivateService/DeployUserModelAdmin',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployUserModelAdminRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployUserModelAdminResponse.FromString,
                 )
-        self.UndeployModelAdmin = channel.unary_unary(
-                '/model.model.v1alpha.ModelPrivateService/UndeployModelAdmin',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelAdminRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelAdminResponse.FromString,
+        self.DeployOrganizationModelAdmin = channel.unary_unary(
+                '/model.model.v1alpha.ModelPrivateService/DeployOrganizationModelAdmin',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployOrganizationModelAdminRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployOrganizationModelAdminResponse.FromString,
+                )
+        self.UndeployUserModelAdmin = channel.unary_unary(
+                '/model.model.v1alpha.ModelPrivateService/UndeployUserModelAdmin',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelAdminRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelAdminResponse.FromString,
+                )
+        self.UndeployOrganizationModelAdmin = channel.unary_unary(
+                '/model.model.v1alpha.ModelPrivateService/UndeployOrganizationModelAdmin',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelAdminRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelAdminResponse.FromString,
                 )
 
 
@@ -59,15 +69,29 @@ class ModelPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def DeployModelAdmin(self, request, context):
-        """DeployModelAdmin deploy a model to online state
+    def DeployUserModelAdmin(self, request, context):
+        """DeployUserModelAdmin deploy a model to online state
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UndeployModelAdmin(self, request, context):
-        """UndeployModelAdmin undeploy a model to offline state
+    def DeployOrganizationModelAdmin(self, request, context):
+        """DeployOrganizationModelAdmin deploy a model to online state
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UndeployUserModelAdmin(self, request, context):
+        """UndeployUserModelAdmin undeploy a model to offline state
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UndeployOrganizationModelAdmin(self, request, context):
+        """UndeployOrganizationModelAdmin undeploy a model to offline state
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -86,15 +110,25 @@ def add_ModelPrivateServiceServicer_to_server(servicer, server):
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminResponse.SerializeToString,
             ),
-            'DeployModelAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeployModelAdmin,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployModelAdminRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployModelAdminResponse.SerializeToString,
+            'DeployUserModelAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeployUserModelAdmin,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployUserModelAdminRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployUserModelAdminResponse.SerializeToString,
             ),
-            'UndeployModelAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.UndeployModelAdmin,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelAdminRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelAdminResponse.SerializeToString,
+            'DeployOrganizationModelAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeployOrganizationModelAdmin,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployOrganizationModelAdminRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployOrganizationModelAdminResponse.SerializeToString,
+            ),
+            'UndeployUserModelAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.UndeployUserModelAdmin,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelAdminRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelAdminResponse.SerializeToString,
+            ),
+            'UndeployOrganizationModelAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.UndeployOrganizationModelAdmin,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelAdminRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelAdminResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -143,7 +177,7 @@ class ModelPrivateService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def DeployModelAdmin(request,
+    def DeployUserModelAdmin(request,
             target,
             options=(),
             channel_credentials=None,
@@ -153,14 +187,14 @@ class ModelPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/DeployModelAdmin',
-            model_dot_model_dot_v1alpha_dot_model__pb2.DeployModelAdminRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.DeployModelAdminResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/DeployUserModelAdmin',
+            model_dot_model_dot_v1alpha_dot_model__pb2.DeployUserModelAdminRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.DeployUserModelAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UndeployModelAdmin(request,
+    def DeployOrganizationModelAdmin(request,
             target,
             options=(),
             channel_credentials=None,
@@ -170,8 +204,42 @@ class ModelPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/UndeployModelAdmin',
-            model_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelAdminRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.UndeployModelAdminResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/DeployOrganizationModelAdmin',
+            model_dot_model_dot_v1alpha_dot_model__pb2.DeployOrganizationModelAdminRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.DeployOrganizationModelAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UndeployUserModelAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/UndeployUserModelAdmin',
+            model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelAdminRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UndeployOrganizationModelAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/UndeployOrganizationModelAdmin',
+            model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelAdminRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

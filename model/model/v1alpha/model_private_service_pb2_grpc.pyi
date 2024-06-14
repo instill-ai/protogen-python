@@ -37,16 +37,26 @@ class ModelPrivateServiceStub:
     """LookUpModelAdmin method receives a LookUpModelAdminRequest message and
     returns a LookUpModelAdminResponse
     """
-    DeployModelAdmin: grpc.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.DeployModelAdminRequest,
-        model.model.v1alpha.model_pb2.DeployModelAdminResponse,
+    DeployUserModelAdmin: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.DeployUserModelAdminRequest,
+        model.model.v1alpha.model_pb2.DeployUserModelAdminResponse,
     ]
-    """DeployModelAdmin deploy a model to online state"""
-    UndeployModelAdmin: grpc.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.UndeployModelAdminRequest,
-        model.model.v1alpha.model_pb2.UndeployModelAdminResponse,
+    """DeployUserModelAdmin deploy a model to online state"""
+    DeployOrganizationModelAdmin: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.DeployOrganizationModelAdminRequest,
+        model.model.v1alpha.model_pb2.DeployOrganizationModelAdminResponse,
     ]
-    """UndeployModelAdmin undeploy a model to offline state"""
+    """DeployOrganizationModelAdmin deploy a model to online state"""
+    UndeployUserModelAdmin: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.UndeployUserModelAdminRequest,
+        model.model.v1alpha.model_pb2.UndeployUserModelAdminResponse,
+    ]
+    """UndeployUserModelAdmin undeploy a model to offline state"""
+    UndeployOrganizationModelAdmin: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.UndeployOrganizationModelAdminRequest,
+        model.model.v1alpha.model_pb2.UndeployOrganizationModelAdminResponse,
+    ]
+    """UndeployOrganizationModelAdmin undeploy a model to offline state"""
 
 class ModelPrivateServiceAsyncStub:
     """Model service responds to internal access
@@ -67,16 +77,26 @@ class ModelPrivateServiceAsyncStub:
     """LookUpModelAdmin method receives a LookUpModelAdminRequest message and
     returns a LookUpModelAdminResponse
     """
-    DeployModelAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.DeployModelAdminRequest,
-        model.model.v1alpha.model_pb2.DeployModelAdminResponse,
+    DeployUserModelAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.DeployUserModelAdminRequest,
+        model.model.v1alpha.model_pb2.DeployUserModelAdminResponse,
     ]
-    """DeployModelAdmin deploy a model to online state"""
-    UndeployModelAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.UndeployModelAdminRequest,
-        model.model.v1alpha.model_pb2.UndeployModelAdminResponse,
+    """DeployUserModelAdmin deploy a model to online state"""
+    DeployOrganizationModelAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.DeployOrganizationModelAdminRequest,
+        model.model.v1alpha.model_pb2.DeployOrganizationModelAdminResponse,
     ]
-    """UndeployModelAdmin undeploy a model to offline state"""
+    """DeployOrganizationModelAdmin deploy a model to online state"""
+    UndeployUserModelAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.UndeployUserModelAdminRequest,
+        model.model.v1alpha.model_pb2.UndeployUserModelAdminResponse,
+    ]
+    """UndeployUserModelAdmin undeploy a model to offline state"""
+    UndeployOrganizationModelAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.UndeployOrganizationModelAdminRequest,
+        model.model.v1alpha.model_pb2.UndeployOrganizationModelAdminResponse,
+    ]
+    """UndeployOrganizationModelAdmin undeploy a model to offline state"""
 
 class ModelPrivateServiceServicer(metaclass=abc.ABCMeta):
     """Model service responds to internal access
@@ -102,18 +122,32 @@ class ModelPrivateServiceServicer(metaclass=abc.ABCMeta):
         returns a LookUpModelAdminResponse
         """
     @abc.abstractmethod
-    def DeployModelAdmin(
+    def DeployUserModelAdmin(
         self,
-        request: model.model.v1alpha.model_pb2.DeployModelAdminRequest,
+        request: model.model.v1alpha.model_pb2.DeployUserModelAdminRequest,
         context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_pb2.DeployModelAdminResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.DeployModelAdminResponse]]:
-        """DeployModelAdmin deploy a model to online state"""
+    ) -> typing.Union[model.model.v1alpha.model_pb2.DeployUserModelAdminResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.DeployUserModelAdminResponse]]:
+        """DeployUserModelAdmin deploy a model to online state"""
     @abc.abstractmethod
-    def UndeployModelAdmin(
+    def DeployOrganizationModelAdmin(
         self,
-        request: model.model.v1alpha.model_pb2.UndeployModelAdminRequest,
+        request: model.model.v1alpha.model_pb2.DeployOrganizationModelAdminRequest,
         context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_pb2.UndeployModelAdminResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.UndeployModelAdminResponse]]:
-        """UndeployModelAdmin undeploy a model to offline state"""
+    ) -> typing.Union[model.model.v1alpha.model_pb2.DeployOrganizationModelAdminResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.DeployOrganizationModelAdminResponse]]:
+        """DeployOrganizationModelAdmin deploy a model to online state"""
+    @abc.abstractmethod
+    def UndeployUserModelAdmin(
+        self,
+        request: model.model.v1alpha.model_pb2.UndeployUserModelAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.UndeployUserModelAdminResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.UndeployUserModelAdminResponse]]:
+        """UndeployUserModelAdmin undeploy a model to offline state"""
+    @abc.abstractmethod
+    def UndeployOrganizationModelAdmin(
+        self,
+        request: model.model.v1alpha.model_pb2.UndeployOrganizationModelAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.UndeployOrganizationModelAdminResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.UndeployOrganizationModelAdminResponse]]:
+        """UndeployOrganizationModelAdmin undeploy a model to offline state"""
 
 def add_ModelPrivateServiceServicer_to_server(servicer: ModelPrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

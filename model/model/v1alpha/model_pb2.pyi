@@ -2943,8 +2943,8 @@ class LookUpModelAdminResponse(google.protobuf.message.Message):
 global___LookUpModelAdminResponse = LookUpModelAdminResponse
 
 @typing_extensions.final
-class DeployModelAdminRequest(google.protobuf.message.Message):
-    """DeployModelAdminRequest represents a request to deploy a model to online state"""
+class DeployUserModelAdminRequest(google.protobuf.message.Message):
+    """DeployUserModelAdminRequest represents a request to deploy a model to online state"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2969,11 +2969,11 @@ class DeployModelAdminRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["digest", b"digest", "name", b"name", "version", b"version"]) -> None: ...
 
-global___DeployModelAdminRequest = DeployModelAdminRequest
+global___DeployUserModelAdminRequest = DeployUserModelAdminRequest
 
 @typing_extensions.final
-class DeployModelAdminResponse(google.protobuf.message.Message):
-    """DeployModelAdminResponse represents a response for a deployed model"""
+class DeployUserModelAdminResponse(google.protobuf.message.Message):
+    """DeployUserModelAdminResponse represents a response for a deployed model"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2981,11 +2981,52 @@ class DeployModelAdminResponse(google.protobuf.message.Message):
         self,
     ) -> None: ...
 
-global___DeployModelAdminResponse = DeployModelAdminResponse
+global___DeployUserModelAdminResponse = DeployUserModelAdminResponse
 
 @typing_extensions.final
-class UndeployModelAdminRequest(google.protobuf.message.Message):
-    """UndeployModelAdminRequest represents a request to undeploy a model to offline
+class DeployOrganizationModelAdminRequest(google.protobuf.message.Message):
+    """DeployOrganizationModelAdminRequest represents a request to deploy a model to online state"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
+    DIGEST_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the model, which allows its access by parent user
+    and ID.
+    - Format: `organizations/{user.id}/models/{model.id}`.
+    """
+    version: builtins.str
+    """Model version tag"""
+    digest: builtins.str
+    """Model image digest"""
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        version: builtins.str = ...,
+        digest: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["digest", b"digest", "name", b"name", "version", b"version"]) -> None: ...
+
+global___DeployOrganizationModelAdminRequest = DeployOrganizationModelAdminRequest
+
+@typing_extensions.final
+class DeployOrganizationModelAdminResponse(google.protobuf.message.Message):
+    """DeployOrganizationModelAdminResponse represents a response for a deployed model"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___DeployOrganizationModelAdminResponse = DeployOrganizationModelAdminResponse
+
+@typing_extensions.final
+class UndeployUserModelAdminRequest(google.protobuf.message.Message):
+    """UndeployUserModelAdminRequest represents a request to undeploy a model to offline
     state
     """
 
@@ -3012,11 +3053,11 @@ class UndeployModelAdminRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["digest", b"digest", "name", b"name", "version", b"version"]) -> None: ...
 
-global___UndeployModelAdminRequest = UndeployModelAdminRequest
+global___UndeployUserModelAdminRequest = UndeployUserModelAdminRequest
 
 @typing_extensions.final
-class UndeployModelAdminResponse(google.protobuf.message.Message):
-    """UndeployModelAdminResponse represents a response for a undeployed model"""
+class UndeployUserModelAdminResponse(google.protobuf.message.Message):
+    """UndeployUserModelAdminResponse represents a response for a undeployed model"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -3024,4 +3065,47 @@ class UndeployModelAdminResponse(google.protobuf.message.Message):
         self,
     ) -> None: ...
 
-global___UndeployModelAdminResponse = UndeployModelAdminResponse
+global___UndeployUserModelAdminResponse = UndeployUserModelAdminResponse
+
+@typing_extensions.final
+class UndeployOrganizationModelAdminRequest(google.protobuf.message.Message):
+    """UndeployOrganizationModelAdminRequest represents a request to undeploy a model to offline
+    state
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
+    DIGEST_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the model, which allows its access by parent user
+    and ID.
+    - Format: `organizations/{organization.id}/models/{model.id}`.
+    """
+    version: builtins.str
+    """Model version tag"""
+    digest: builtins.str
+    """Model image digest"""
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        version: builtins.str = ...,
+        digest: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["digest", b"digest", "name", b"name", "version", b"version"]) -> None: ...
+
+global___UndeployOrganizationModelAdminRequest = UndeployOrganizationModelAdminRequest
+
+@typing_extensions.final
+class UndeployOrganizationModelAdminResponse(google.protobuf.message.Message):
+    """UndeployOrganizationModelAdminResponse represents a response for a undeployed model"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___UndeployOrganizationModelAdminResponse = UndeployOrganizationModelAdminResponse
