@@ -1480,15 +1480,25 @@ class GetRemainingCreditResponse(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    AMOUNT_FIELD_NUMBER: builtins.int
-    amount: builtins.float
-    """The requested credit."""
+    PERISHABLE_FIELD_NUMBER: builtins.int
+    IMPERISHABLE_FIELD_NUMBER: builtins.int
+    TOTAL_FIELD_NUMBER: builtins.int
+    perishable: builtins.float
+    """Amount of perishable credit, i.e. credit with an expiration date."""
+    imperishable: builtins.float
+    """Amount of imperishable credit, e.g. purchased credit, which doesn't
+    expire.
+    """
+    total: builtins.float
+    """Total remaining credit."""
     def __init__(
         self,
         *,
-        amount: builtins.float = ...,
+        perishable: builtins.float = ...,
+        imperishable: builtins.float = ...,
+        total: builtins.float = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["amount", b"amount"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["imperishable", b"imperishable", "perishable", b"perishable", "total", b"total"]) -> None: ...
 
 global___GetRemainingCreditResponse = GetRemainingCreditResponse
 

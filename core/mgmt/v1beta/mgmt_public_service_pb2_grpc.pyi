@@ -247,11 +247,9 @@ class MgmtPublicServiceStub:
     ]
     """Get the remaining Instill Credit
 
-    On Instill Cloud, users can use Instill Credit to execute pre-configured
-    AI connectors. This simplifies the pipeline setup, removing the need to
-    subscribe to third-party AI services. This endpoint returns the remaining
-    Instill Credit of a given user or organization. The requested credit owner
-    must be either the authenticated user or an organization they belong to.
+    This endpoint returns the remaining [Instill Credit](https://www.instill.tech/docs/vdp/credit) of a given user or
+    organization. The requested credit owner must be either the authenticated
+    user or an organization they belong to.
 
     On Instill Core, this endpoint will return a 404 Not Found status.
     """
@@ -572,11 +570,9 @@ class MgmtPublicServiceAsyncStub:
     ]
     """Get the remaining Instill Credit
 
-    On Instill Cloud, users can use Instill Credit to execute pre-configured
-    AI connectors. This simplifies the pipeline setup, removing the need to
-    subscribe to third-party AI services. This endpoint returns the remaining
-    Instill Credit of a given user or organization. The requested credit owner
-    must be either the authenticated user or an organization they belong to.
+    This endpoint returns the remaining [Instill Credit](https://www.instill.tech/docs/vdp/credit) of a given user or
+    organization. The requested credit owner must be either the authenticated
+    user or an organization they belong to.
 
     On Instill Core, this endpoint will return a 404 Not Found status.
     """
@@ -951,11 +947,9 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditResponse]]:
         """Get the remaining Instill Credit
 
-        On Instill Cloud, users can use Instill Credit to execute pre-configured
-        AI connectors. This simplifies the pipeline setup, removing the need to
-        subscribe to third-party AI services. This endpoint returns the remaining
-        Instill Credit of a given user or organization. The requested credit owner
-        must be either the authenticated user or an organization they belong to.
+        This endpoint returns the remaining [Instill Credit](https://www.instill.tech/docs/vdp/credit) of a given user or
+        organization. The requested credit owner must be either the authenticated
+        user or an organization they belong to.
 
         On Instill Core, this endpoint will return a 404 Not Found status.
         """
