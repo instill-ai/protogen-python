@@ -397,6 +397,22 @@ class PipelinePublicServiceStub:
     Clones a pipeline owned by an organization. The new pipeline may have a
     different parent, and this can be either a user or an organization.
     """
+    TriggerOrganizationPipelineStream: grpc.UnaryStreamMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineStreamRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineStreamResponse,
+    ]
+    """Trigger a pipeline owned by an organization
+
+    Triggers the execution of a pipeline synchronously, i.e., the result is sent
+    back to the organization right after the data is processed. This method is
+    intended for real-time inference when low latency is of concern.
+
+    The pipeline is identified by its resource name, formed by the parent
+    organization and ID of the pipeline.
+
+    For more information, see [Trigger
+    Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+    """
     TriggerOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineResponse,
@@ -1056,6 +1072,22 @@ class PipelinePublicServiceAsyncStub:
 
     Clones a pipeline owned by an organization. The new pipeline may have a
     different parent, and this can be either a user or an organization.
+    """
+    TriggerOrganizationPipelineStream: grpc.aio.UnaryStreamMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineStreamRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineStreamResponse,
+    ]
+    """Trigger a pipeline owned by an organization
+
+    Triggers the execution of a pipeline synchronously, i.e., the result is sent
+    back to the organization right after the data is processed. This method is
+    intended for real-time inference when low latency is of concern.
+
+    The pipeline is identified by its resource name, formed by the parent
+    organization and ID of the pipeline.
+
+    For more information, see [Trigger
+    Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
     """
     TriggerOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineRequest,
@@ -1782,6 +1814,24 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
 
         Clones a pipeline owned by an organization. The new pipeline may have a
         different parent, and this can be either a user or an organization.
+        """
+    @abc.abstractmethod
+    def TriggerOrganizationPipelineStream(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineStreamRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[collections.abc.Iterator[vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineStreamResponse], collections.abc.AsyncIterator[vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineStreamResponse]]:
+        """Trigger a pipeline owned by an organization
+
+        Triggers the execution of a pipeline synchronously, i.e., the result is sent
+        back to the organization right after the data is processed. This method is
+        intended for real-time inference when low latency is of concern.
+
+        The pipeline is identified by its resource name, formed by the parent
+        organization and ID of the pipeline.
+
+        For more information, see [Trigger
+        Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
         """
     @abc.abstractmethod
     def TriggerOrganizationPipeline(

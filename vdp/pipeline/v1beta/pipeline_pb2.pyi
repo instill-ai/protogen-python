@@ -2323,6 +2323,66 @@ class TriggerOrganizationPipelineResponse(google.protobuf.message.Message):
 global___TriggerOrganizationPipelineResponse = TriggerOrganizationPipelineResponse
 
 @typing_extensions.final
+class TriggerOrganizationPipelineStreamRequest(google.protobuf.message.Message):
+    """TriggerOrganizationPipelineRequest represents a request to trigger an
+    organization-owned pipeline synchronously.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    INPUTS_FIELD_NUMBER: builtins.int
+    DATA_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the pipeline, which allows its access by parent
+    organization and ID.
+    - Format: `organizations/{organization.id}/pipelines/{pipeline.id}`.
+    """
+    @property
+    def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Pipeline input parameters, it will be deprecated soon."""
+    @property
+    def data(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TriggerData]:
+        """Data"""
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
+        data: collections.abc.Iterable[global___TriggerData] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["data", b"data", "inputs", b"inputs", "name", b"name"]) -> None: ...
+
+global___TriggerOrganizationPipelineStreamRequest = TriggerOrganizationPipelineStreamRequest
+
+@typing_extensions.final
+class TriggerOrganizationPipelineStreamResponse(google.protobuf.message.Message):
+    """TriggerOrganizationPipelineResponse contains the pipeline execution results,
+    i.e., the multiple model inference outputs.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OUTPUTS_FIELD_NUMBER: builtins.int
+    METADATA_FIELD_NUMBER: builtins.int
+    @property
+    def outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Model inference outputs."""
+    @property
+    def metadata(self) -> global___TriggerMetadata:
+        """Traces of the pipeline inference."""
+    def __init__(
+        self,
+        *,
+        outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
+        metadata: global___TriggerMetadata | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["metadata", b"metadata"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["metadata", b"metadata", "outputs", b"outputs"]) -> None: ...
+
+global___TriggerOrganizationPipelineStreamResponse = TriggerOrganizationPipelineStreamResponse
+
+@typing_extensions.final
 class TriggerAsyncOrganizationPipelineRequest(google.protobuf.message.Message):
     """TriggerOrganizationPipelineRequest represents a request to trigger an
     organization-owned pipeline synchronously.

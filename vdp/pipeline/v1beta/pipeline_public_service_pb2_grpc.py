@@ -186,6 +186,11 @@ class PipelinePublicServiceStub(object):
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneOrganizationPipelineRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneOrganizationPipelineResponse.FromString,
                 )
+        self.TriggerOrganizationPipelineStream = channel.unary_stream(
+                '/vdp.pipeline.v1beta.PipelinePublicService/TriggerOrganizationPipelineStream',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerOrganizationPipelineStreamRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerOrganizationPipelineStreamResponse.FromString,
+                )
         self.TriggerOrganizationPipeline = channel.unary_unary(
                 '/vdp.pipeline.v1beta.PipelinePublicService/TriggerOrganizationPipeline',
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerOrganizationPipelineRequest.SerializeToString,
@@ -737,6 +742,23 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def TriggerOrganizationPipelineStream(self, request, context):
+        """Trigger a pipeline owned by an organization
+
+        Triggers the execution of a pipeline synchronously, i.e., the result is sent
+        back to the organization right after the data is processed. This method is
+        intended for real-time inference when low latency is of concern.
+
+        The pipeline is identified by its resource name, formed by the parent
+        organization and ID of the pipeline.
+
+        For more information, see [Trigger
+        Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def TriggerOrganizationPipeline(self, request, context):
         """Trigger a pipeline owned by an organization
 
@@ -1215,6 +1237,11 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     servicer.CloneOrganizationPipeline,
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneOrganizationPipelineRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneOrganizationPipelineResponse.SerializeToString,
+            ),
+            'TriggerOrganizationPipelineStream': grpc.unary_stream_rpc_method_handler(
+                    servicer.TriggerOrganizationPipelineStream,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerOrganizationPipelineStreamRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerOrganizationPipelineStreamResponse.SerializeToString,
             ),
             'TriggerOrganizationPipeline': grpc.unary_unary_rpc_method_handler(
                     servicer.TriggerOrganizationPipeline,
@@ -1928,6 +1955,23 @@ class PipelinePublicService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/CloneOrganizationPipeline',
             vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneOrganizationPipelineRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneOrganizationPipelineResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TriggerOrganizationPipelineStream(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/TriggerOrganizationPipelineStream',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerOrganizationPipelineStreamRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerOrganizationPipelineStreamResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
