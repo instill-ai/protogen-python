@@ -175,9 +175,9 @@ class ModelPublicServiceStub:
     ]
     """Watch the state of a model version
 
-    Returns the state of a model. The deploy / undeploy actions take some
-    time, during which a model will be in an UNSPECIFIED state. This endpoint
-    allows clients to track the state and progress of the model.
+    Returns the state of a model. The model resource allocation and scaling actions take some
+    time, during which a model will be in various state. This endpoint
+    allows clients to track the state.
     """
     WatchUserLatestModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.WatchUserLatestModelRequest,
@@ -185,9 +185,9 @@ class ModelPublicServiceStub:
     ]
     """Watch the state of the latest model version
 
-    Returns the state of the latest model version. The deploy / undeploy actions take some
-    time, during which a model will be in an UNSPECIFIED state. This endpoint
-    allows clients to track the state and progress of the model.
+    Returns the state of the latest model version. The model resource allocation and scaling actions
+    take some time, during which a model will be in various state. This endpoint
+    allows clients to track the state.
     """
     ListUserModelVersions: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.ListUserModelVersionsRequest,
@@ -338,9 +338,9 @@ class ModelPublicServiceStub:
     ]
     """Watch the state of a model version
 
-    Returns the state of a model. The deploy / undeploy actions take some
-    time, during which a model will be in an UNSPECIFIED state. This endpoint
-    allows clients to track the state and progress of the model.
+    Returns the state of a model.  The model resource allocation and scaling actions
+    take some time, during which a model will be in various state. This endpoint
+    allows clients to track the state.
     """
     WatchOrganizationLatestModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.WatchOrganizationLatestModelRequest,
@@ -348,9 +348,9 @@ class ModelPublicServiceStub:
     ]
     """Watch the state of the latest model version
 
-    Returns the state of the latest model version. The deploy / undeploy actions take some
-    time, during which a model will be in an UNSPECIFIED state. This endpoint
-    allows clients to track the state and progress of the model.
+    Returns the state of the latest model version.  The model resource allocation and scaling actions
+    take some time, during which a model will be in various state. This endpoint
+    allows clients to track the state.
     """
     ListOrganizationModelVersions: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.ListOrganizationModelVersionsRequest,
@@ -592,9 +592,9 @@ class ModelPublicServiceAsyncStub:
     ]
     """Watch the state of a model version
 
-    Returns the state of a model. The deploy / undeploy actions take some
-    time, during which a model will be in an UNSPECIFIED state. This endpoint
-    allows clients to track the state and progress of the model.
+    Returns the state of a model. The model resource allocation and scaling actions take some
+    time, during which a model will be in various state. This endpoint
+    allows clients to track the state.
     """
     WatchUserLatestModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.WatchUserLatestModelRequest,
@@ -602,9 +602,9 @@ class ModelPublicServiceAsyncStub:
     ]
     """Watch the state of the latest model version
 
-    Returns the state of the latest model version. The deploy / undeploy actions take some
-    time, during which a model will be in an UNSPECIFIED state. This endpoint
-    allows clients to track the state and progress of the model.
+    Returns the state of the latest model version. The model resource allocation and scaling actions
+    take some time, during which a model will be in various state. This endpoint
+    allows clients to track the state.
     """
     ListUserModelVersions: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.ListUserModelVersionsRequest,
@@ -755,9 +755,9 @@ class ModelPublicServiceAsyncStub:
     ]
     """Watch the state of a model version
 
-    Returns the state of a model. The deploy / undeploy actions take some
-    time, during which a model will be in an UNSPECIFIED state. This endpoint
-    allows clients to track the state and progress of the model.
+    Returns the state of a model.  The model resource allocation and scaling actions
+    take some time, during which a model will be in various state. This endpoint
+    allows clients to track the state.
     """
     WatchOrganizationLatestModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.WatchOrganizationLatestModelRequest,
@@ -765,9 +765,9 @@ class ModelPublicServiceAsyncStub:
     ]
     """Watch the state of the latest model version
 
-    Returns the state of the latest model version. The deploy / undeploy actions take some
-    time, during which a model will be in an UNSPECIFIED state. This endpoint
-    allows clients to track the state and progress of the model.
+    Returns the state of the latest model version.  The model resource allocation and scaling actions
+    take some time, during which a model will be in various state. This endpoint
+    allows clients to track the state.
     """
     ListOrganizationModelVersions: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.ListOrganizationModelVersionsRequest,
@@ -1043,9 +1043,9 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.WatchUserModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.WatchUserModelResponse]]:
         """Watch the state of a model version
 
-        Returns the state of a model. The deploy / undeploy actions take some
-        time, during which a model will be in an UNSPECIFIED state. This endpoint
-        allows clients to track the state and progress of the model.
+        Returns the state of a model. The model resource allocation and scaling actions take some
+        time, during which a model will be in various state. This endpoint
+        allows clients to track the state.
         """
     @abc.abstractmethod
     def WatchUserLatestModel(
@@ -1055,9 +1055,9 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.WatchUserLatestModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.WatchUserLatestModelResponse]]:
         """Watch the state of the latest model version
 
-        Returns the state of the latest model version. The deploy / undeploy actions take some
-        time, during which a model will be in an UNSPECIFIED state. This endpoint
-        allows clients to track the state and progress of the model.
+        Returns the state of the latest model version. The model resource allocation and scaling actions
+        take some time, during which a model will be in various state. This endpoint
+        allows clients to track the state.
         """
     @abc.abstractmethod
     def ListUserModelVersions(
@@ -1240,9 +1240,9 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.WatchOrganizationModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.WatchOrganizationModelResponse]]:
         """Watch the state of a model version
 
-        Returns the state of a model. The deploy / undeploy actions take some
-        time, during which a model will be in an UNSPECIFIED state. This endpoint
-        allows clients to track the state and progress of the model.
+        Returns the state of a model.  The model resource allocation and scaling actions
+        take some time, during which a model will be in various state. This endpoint
+        allows clients to track the state.
         """
     @abc.abstractmethod
     def WatchOrganizationLatestModel(
@@ -1252,9 +1252,9 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.WatchOrganizationLatestModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.WatchOrganizationLatestModelResponse]]:
         """Watch the state of the latest model version
 
-        Returns the state of the latest model version. The deploy / undeploy actions take some
-        time, during which a model will be in an UNSPECIFIED state. This endpoint
-        allows clients to track the state and progress of the model.
+        Returns the state of the latest model version.  The model resource allocation and scaling actions
+        take some time, during which a model will be in various state. This endpoint
+        allows clients to track the state.
         """
     @abc.abstractmethod
     def ListOrganizationModelVersions(

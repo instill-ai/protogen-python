@@ -410,9 +410,9 @@ class ModelPublicServiceServicer(object):
     def WatchUserModel(self, request, context):
         """Watch the state of a model version
 
-        Returns the state of a model. The deploy / undeploy actions take some
-        time, during which a model will be in an UNSPECIFIED state. This endpoint
-        allows clients to track the state and progress of the model.
+        Returns the state of a model. The model resource allocation and scaling actions take some
+        time, during which a model will be in various state. This endpoint
+        allows clients to track the state.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -421,9 +421,9 @@ class ModelPublicServiceServicer(object):
     def WatchUserLatestModel(self, request, context):
         """Watch the state of the latest model version
 
-        Returns the state of the latest model version. The deploy / undeploy actions take some
-        time, during which a model will be in an UNSPECIFIED state. This endpoint
-        allows clients to track the state and progress of the model.
+        Returns the state of the latest model version. The model resource allocation and scaling actions
+        take some time, during which a model will be in various state. This endpoint
+        allows clients to track the state.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -590,9 +590,9 @@ class ModelPublicServiceServicer(object):
     def WatchOrganizationModel(self, request, context):
         """Watch the state of a model version
 
-        Returns the state of a model. The deploy / undeploy actions take some
-        time, during which a model will be in an UNSPECIFIED state. This endpoint
-        allows clients to track the state and progress of the model.
+        Returns the state of a model.  The model resource allocation and scaling actions
+        take some time, during which a model will be in various state. This endpoint
+        allows clients to track the state.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -601,9 +601,9 @@ class ModelPublicServiceServicer(object):
     def WatchOrganizationLatestModel(self, request, context):
         """Watch the state of the latest model version
 
-        Returns the state of the latest model version. The deploy / undeploy actions take some
-        time, during which a model will be in an UNSPECIFIED state. This endpoint
-        allows clients to track the state and progress of the model.
+        Returns the state of the latest model version.  The model resource allocation and scaling actions
+        take some time, during which a model will be in various state. This endpoint
+        allows clients to track the state.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

@@ -200,7 +200,7 @@ class ModelVersion(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
-    ID_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
     DIGEST_FIELD_NUMBER: builtins.int
     STATE_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
@@ -213,8 +213,8 @@ class ModelVersion(google.protobuf.message.Message):
     The name of the tag.
     - Format: `users/{user.id}/models/{model.id}/versions/{version.id}`.
     """
-    id: builtins.str
-    """The tag identifier."""
+    version: builtins.str
+    """The model version identifier, which is equal to image tag."""
     digest: builtins.str
     """Unique identifier, computed from the manifest the tag refers to."""
     state: global___State.ValueType
@@ -226,13 +226,13 @@ class ModelVersion(google.protobuf.message.Message):
         self,
         *,
         name: builtins.str = ...,
-        id: builtins.str = ...,
+        version: builtins.str = ...,
         digest: builtins.str = ...,
         state: global___State.ValueType = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["digest", b"digest", "id", b"id", "name", b"name", "state", b"state", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["digest", b"digest", "name", b"name", "state", b"state", "update_time", b"update_time", "version", b"version"]) -> None: ...
 
 global___ModelVersion = ModelVersion
 
