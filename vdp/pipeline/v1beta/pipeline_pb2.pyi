@@ -239,6 +239,7 @@ class Pipeline(google.protobuf.message.Message):
     DATA_SPECIFICATION_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
     STATS_FIELD_NUMBER: builtins.int
+    RAW_RECIPE_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The name of the pipeline, defined by its parent and ID.
     - Format: `{parent_type}/{parent.id}/pipelines/{pipeline.id}`.
@@ -295,6 +296,10 @@ class Pipeline(google.protobuf.message.Message):
     @property
     def stats(self) -> global___Pipeline.Stats:
         """Statistic data."""
+    raw_recipe: builtins.str
+    """Recipe in YAML format describes the components of a pipeline and how they
+    are connected.
+    """
     def __init__(
         self,
         *,
@@ -317,9 +322,10 @@ class Pipeline(google.protobuf.message.Message):
         data_specification: vdp.pipeline.v1beta.component_definition_pb2.DataSpecification | None = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
         stats: global___Pipeline.Stats | None = ...,
+        raw_recipe: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "_owner", b"_owner", "create_time", b"create_time", "data_specification", b"data_specification", "delete_time", b"delete_time", "description", b"description", "metadata", b"metadata", "owner", b"owner", "permission", b"permission", "recipe", b"recipe", "sharing", b"sharing", "stats", b"stats", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "_owner", b"_owner", "create_time", b"create_time", "data_specification", b"data_specification", "delete_time", b"delete_time", "description", b"description", "id", b"id", "metadata", b"metadata", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "permission", b"permission", "readme", b"readme", "recipe", b"recipe", "releases", b"releases", "sharing", b"sharing", "stats", b"stats", "tags", b"tags", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "_owner", b"_owner", "create_time", b"create_time", "data_specification", b"data_specification", "delete_time", b"delete_time", "description", b"description", "id", b"id", "metadata", b"metadata", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "permission", b"permission", "raw_recipe", b"raw_recipe", "readme", b"readme", "recipe", b"recipe", "releases", b"releases", "sharing", b"sharing", "stats", b"stats", "tags", b"tags", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_description", b"_description"]) -> typing_extensions.Literal["description"] | None: ...
     @typing.overload
@@ -486,6 +492,7 @@ class PipelineRelease(google.protobuf.message.Message):
     METADATA_FIELD_NUMBER: builtins.int
     README_FIELD_NUMBER: builtins.int
     DATA_SPECIFICATION_FIELD_NUMBER: builtins.int
+    RAW_RECIPE_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The name of the release, defined by its parent and ID.
     - Format: `{parent_type}/{parent.id}/pipelines/{pipeline.id}/releases/{release.id}`.
@@ -522,6 +529,10 @@ class PipelineRelease(google.protobuf.message.Message):
     @property
     def data_specification(self) -> vdp.pipeline.v1beta.component_definition_pb2.DataSpecification:
         """Data specifications."""
+    raw_recipe: builtins.str
+    """Recipe in YAML format describes the components of a pipeline and how they
+    are connected.
+    """
     def __init__(
         self,
         *,
@@ -537,9 +548,10 @@ class PipelineRelease(google.protobuf.message.Message):
         metadata: google.protobuf.struct_pb2.Struct | None = ...,
         readme: builtins.str = ...,
         data_specification: vdp.pipeline.v1beta.component_definition_pb2.DataSpecification | None = ...,
+        raw_recipe: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "create_time", b"create_time", "data_specification", b"data_specification", "delete_time", b"delete_time", "description", b"description", "metadata", b"metadata", "recipe", b"recipe", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "alias", b"alias", "create_time", b"create_time", "data_specification", b"data_specification", "delete_time", b"delete_time", "description", b"description", "id", b"id", "metadata", b"metadata", "name", b"name", "readme", b"readme", "recipe", b"recipe", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "alias", b"alias", "create_time", b"create_time", "data_specification", b"data_specification", "delete_time", b"delete_time", "description", b"description", "id", b"id", "metadata", b"metadata", "name", b"name", "raw_recipe", b"raw_recipe", "readme", b"readme", "recipe", b"recipe", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_description", b"_description"]) -> typing_extensions.Literal["description"] | None: ...
 
 global___PipelineRelease = PipelineRelease
