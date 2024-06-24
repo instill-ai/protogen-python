@@ -1210,6 +1210,45 @@ class ListUserModelVersionsResponse(google.protobuf.message.Message):
 global___ListUserModelVersionsResponse = ListUserModelVersionsResponse
 
 @typing_extensions.final
+class DeleteUserModelVersionRequest(google.protobuf.message.Message):
+    """DeleteUserModelVersionRequest represents a request to delete a model version
+     owned by a user.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the model, which allows its access by parent user
+    and ID.
+    - Format: `users/{user.id}/models/{model.id}`.
+    """
+    version: builtins.str
+    """Model version tag"""
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        version: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "version", b"version"]) -> None: ...
+
+global___DeleteUserModelVersionRequest = DeleteUserModelVersionRequest
+
+@typing_extensions.final
+class DeleteUserModelVersionResponse(google.protobuf.message.Message):
+    """DeleteUserModelVersionResponse is an empty response."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___DeleteUserModelVersionResponse = DeleteUserModelVersionResponse
+
+@typing_extensions.final
 class TaskInput(google.protobuf.message.Message):
     """//////////////////////////////////
      Trigger methods
@@ -2330,6 +2369,47 @@ class ListOrganizationModelVersionsResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["page", b"page", "page_size", b"page_size", "total_size", b"total_size", "versions", b"versions"]) -> None: ...
 
 global___ListOrganizationModelVersionsResponse = ListOrganizationModelVersionsResponse
+
+@typing_extensions.final
+class DeleteOrganizationModelVersionRequest(google.protobuf.message.Message):
+    """DeleteOrganizationModelVersionRequest represents a request to delete a model version
+     owned by an organization.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The parent resource, i.e., the user that created the models.
+    - Format: `organizations/{organization.id}`.
+    The resource name of the model, which allows its access by parent user
+    and ID.
+    - Format: `organizations/{organization.id}/models/{model.id}`.
+    """
+    version: builtins.str
+    """Model version tag"""
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        version: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "version", b"version"]) -> None: ...
+
+global___DeleteOrganizationModelVersionRequest = DeleteOrganizationModelVersionRequest
+
+@typing_extensions.final
+class DeleteOrganizationModelVersionResponse(google.protobuf.message.Message):
+    """DeleteOrganizationModelVersionResponse is an empty response."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___DeleteOrganizationModelVersionResponse = DeleteOrganizationModelVersionResponse
 
 @typing_extensions.final
 class TriggerOrganizationModelRequest(google.protobuf.message.Message):

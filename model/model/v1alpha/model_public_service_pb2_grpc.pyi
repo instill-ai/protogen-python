@@ -198,6 +198,15 @@ class ModelPublicServiceStub:
     Returns a paginated list of version of a model namespace that belong to the specified user.
     Contains model version and digest.
     """
+    DeleteUserModelVersion: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.DeleteUserModelVersionRequest,
+        model.model.v1alpha.model_pb2.DeleteUserModelVersionResponse,
+    ]
+    """Delete a model version
+
+    Deletes a model version, accesing it by its resource name, which is defined by the
+    parent user and the ID of the model, and version.
+    """
     TriggerUserModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerUserModelRequest,
         model.model.v1alpha.model_pb2.TriggerUserModelResponse,
@@ -360,6 +369,15 @@ class ModelPublicServiceStub:
 
     Returns a paginated list of version of a model namespace that belong to the specified organization.
     Contains model version and digest.
+    """
+    DeleteOrganizationModelVersion: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.DeleteOrganizationModelVersionRequest,
+        model.model.v1alpha.model_pb2.DeleteOrganizationModelVersionResponse,
+    ]
+    """Delete a model version
+
+    Deletes a model version, accesing it by its resource name, which is defined by the
+    parent organization and the ID of the model, and version.
     """
     TriggerOrganizationModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerOrganizationModelRequest,
@@ -615,6 +633,15 @@ class ModelPublicServiceAsyncStub:
     Returns a paginated list of version of a model namespace that belong to the specified user.
     Contains model version and digest.
     """
+    DeleteUserModelVersion: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.DeleteUserModelVersionRequest,
+        model.model.v1alpha.model_pb2.DeleteUserModelVersionResponse,
+    ]
+    """Delete a model version
+
+    Deletes a model version, accesing it by its resource name, which is defined by the
+    parent user and the ID of the model, and version.
+    """
     TriggerUserModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerUserModelRequest,
         model.model.v1alpha.model_pb2.TriggerUserModelResponse,
@@ -777,6 +804,15 @@ class ModelPublicServiceAsyncStub:
 
     Returns a paginated list of version of a model namespace that belong to the specified organization.
     Contains model version and digest.
+    """
+    DeleteOrganizationModelVersion: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.DeleteOrganizationModelVersionRequest,
+        model.model.v1alpha.model_pb2.DeleteOrganizationModelVersionResponse,
+    ]
+    """Delete a model version
+
+    Deletes a model version, accesing it by its resource name, which is defined by the
+    parent organization and the ID of the model, and version.
     """
     TriggerOrganizationModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerOrganizationModelRequest,
@@ -1071,6 +1107,17 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         Contains model version and digest.
         """
     @abc.abstractmethod
+    def DeleteUserModelVersion(
+        self,
+        request: model.model.v1alpha.model_pb2.DeleteUserModelVersionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.DeleteUserModelVersionResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.DeleteUserModelVersionResponse]]:
+        """Delete a model version
+
+        Deletes a model version, accesing it by its resource name, which is defined by the
+        parent user and the ID of the model, and version.
+        """
+    @abc.abstractmethod
     def TriggerUserModel(
         self,
         request: model.model.v1alpha.model_pb2.TriggerUserModelRequest,
@@ -1266,6 +1313,17 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
 
         Returns a paginated list of version of a model namespace that belong to the specified organization.
         Contains model version and digest.
+        """
+    @abc.abstractmethod
+    def DeleteOrganizationModelVersion(
+        self,
+        request: model.model.v1alpha.model_pb2.DeleteOrganizationModelVersionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.DeleteOrganizationModelVersionResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.DeleteOrganizationModelVersionResponse]]:
+        """Delete a model version
+
+        Deletes a model version, accesing it by its resource name, which is defined by the
+        parent organization and the ID of the model, and version.
         """
     @abc.abstractmethod
     def TriggerOrganizationModel(

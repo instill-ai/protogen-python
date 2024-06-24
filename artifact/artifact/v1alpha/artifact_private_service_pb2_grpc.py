@@ -26,6 +26,11 @@ class ArtifactPrivateServiceStub(object):
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.CreateRepositoryTagRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.CreateRepositoryTagResponse.FromString,
                 )
+        self.DeleteRepositoryTag = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPrivateService/DeleteRepositoryTag',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteRepositoryTagRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteRepositoryTagResponse.FromString,
+                )
 
 
 class ArtifactPrivateServiceServicer(object):
@@ -56,6 +61,13 @@ class ArtifactPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteRepositoryTag(self, request, context):
+        """Delete a repository tag.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -68,6 +80,11 @@ def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
                     servicer.CreateRepositoryTag,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.CreateRepositoryTagRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.CreateRepositoryTagResponse.SerializeToString,
+            ),
+            'DeleteRepositoryTag': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteRepositoryTag,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteRepositoryTagRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteRepositoryTagResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -112,5 +129,22 @@ class ArtifactPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/CreateRepositoryTag',
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.CreateRepositoryTagRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.CreateRepositoryTagResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteRepositoryTag(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/DeleteRepositoryTag',
+            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteRepositoryTagRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteRepositoryTagResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -44,6 +44,11 @@ class ArtifactPrivateServiceStub:
     succeeded. The distribution registry won't hold data such as the push time
     or the tag digest, so `artifact-backend` will hold this information locally.
     """
+    DeleteRepositoryTag: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagRequest,
+        artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagResponse,
+    ]
+    """Delete a repository tag."""
 
 class ArtifactPrivateServiceAsyncStub:
     """ArtifactPrivateService exposes the private endpoints that allow clients to
@@ -71,6 +76,11 @@ class ArtifactPrivateServiceAsyncStub:
     succeeded. The distribution registry won't hold data such as the push time
     or the tag digest, so `artifact-backend` will hold this information locally.
     """
+    DeleteRepositoryTag: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagRequest,
+        artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagResponse,
+    ]
+    """Delete a repository tag."""
 
 class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
     """ArtifactPrivateService exposes the private endpoints that allow clients to
@@ -102,5 +112,12 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
         succeeded. The distribution registry won't hold data such as the push time
         or the tag digest, so `artifact-backend` will hold this information locally.
         """
+    @abc.abstractmethod
+    def DeleteRepositoryTag(
+        self,
+        request: artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagResponse]]:
+        """Delete a repository tag."""
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer: ArtifactPrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

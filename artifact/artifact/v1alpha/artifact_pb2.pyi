@@ -372,6 +372,40 @@ class CreateRepositoryTagResponse(google.protobuf.message.Message):
 global___CreateRepositoryTagResponse = CreateRepositoryTagResponse
 
 @typing_extensions.final
+class DeleteRepositoryTagRequest(google.protobuf.message.Message):
+    """DeleteRepositoryTagRequest represents a request to delete a tag to a given
+    repository.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The name of the tag, defined by its parent repository and ID.
+    - Format: `repositories/{repository.id}/tags/{tag.id}`.
+    """
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
+
+global___DeleteRepositoryTagRequest = DeleteRepositoryTagRequest
+
+@typing_extensions.final
+class DeleteRepositoryTagResponse(google.protobuf.message.Message):
+    """DeleteRepositoryTagResponse represent an empty response."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___DeleteRepositoryTagResponse = DeleteRepositoryTagResponse
+
+@typing_extensions.final
 class KnowledgeBase(google.protobuf.message.Message):
     """KnowledgeBase represents a knowledge base."""
 

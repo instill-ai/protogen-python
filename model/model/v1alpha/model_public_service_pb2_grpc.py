@@ -114,6 +114,11 @@ class ModelPublicServiceStub(object):
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelVersionsRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelVersionsResponse.FromString,
                 )
+        self.DeleteUserModelVersion = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/DeleteUserModelVersion',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelVersionRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelVersionResponse.FromString,
+                )
         self.TriggerUserModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/TriggerUserModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelRequest.SerializeToString,
@@ -198,6 +203,11 @@ class ModelPublicServiceStub(object):
                 '/model.model.v1alpha.ModelPublicService/ListOrganizationModelVersions',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelVersionsRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelVersionsResponse.FromString,
+                )
+        self.DeleteOrganizationModelVersion = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/DeleteOrganizationModelVersion',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteOrganizationModelVersionRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteOrganizationModelVersionResponse.FromString,
                 )
         self.TriggerOrganizationModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/TriggerOrganizationModel',
@@ -439,6 +449,16 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteUserModelVersion(self, request, context):
+        """Delete a model version
+
+        Deletes a model version, accesing it by its resource name, which is defined by the
+        parent user and the ID of the model, and version.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def TriggerUserModel(self, request, context):
         """/////////////////////////////////////////////////////
 
@@ -614,6 +634,16 @@ class ModelPublicServiceServicer(object):
 
         Returns a paginated list of version of a model namespace that belong to the specified organization.
         Contains model version and digest.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteOrganizationModelVersion(self, request, context):
+        """Delete a model version
+
+        Deletes a model version, accesing it by its resource name, which is defined by the
+        parent organization and the ID of the model, and version.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -799,6 +829,11 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelVersionsRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelVersionsResponse.SerializeToString,
             ),
+            'DeleteUserModelVersion': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteUserModelVersion,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelVersionRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelVersionResponse.SerializeToString,
+            ),
             'TriggerUserModel': grpc.unary_unary_rpc_method_handler(
                     servicer.TriggerUserModel,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelRequest.FromString,
@@ -883,6 +918,11 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     servicer.ListOrganizationModelVersions,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelVersionsRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelVersionsResponse.SerializeToString,
+            ),
+            'DeleteOrganizationModelVersion': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteOrganizationModelVersion,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteOrganizationModelVersionRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteOrganizationModelVersionResponse.SerializeToString,
             ),
             'TriggerOrganizationModel': grpc.unary_unary_rpc_method_handler(
                     servicer.TriggerOrganizationModel,
@@ -1262,6 +1302,23 @@ class ModelPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def DeleteUserModelVersion(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/DeleteUserModelVersion',
+            model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelVersionRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelVersionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def TriggerUserModel(request,
             target,
             options=(),
@@ -1547,6 +1604,23 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/ListOrganizationModelVersions',
             model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelVersionsRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelVersionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteOrganizationModelVersion(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/DeleteOrganizationModelVersion',
+            model_dot_model_dot_v1alpha_dot_model__pb2.DeleteOrganizationModelVersionRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.DeleteOrganizationModelVersionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
