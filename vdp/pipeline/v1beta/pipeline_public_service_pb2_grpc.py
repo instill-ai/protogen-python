@@ -86,6 +86,11 @@ class PipelinePublicServiceStub(object):
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneUserPipelineRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneUserPipelineResponse.FromString,
                 )
+        self.CloneUserPipelineRelease = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/CloneUserPipelineRelease',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneUserPipelineReleaseRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneUserPipelineReleaseResponse.FromString,
+                )
         self.TriggerUserPipeline = channel.unary_unary(
                 '/vdp.pipeline.v1beta.PipelinePublicService/TriggerUserPipeline',
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerUserPipelineRequest.SerializeToString,
@@ -185,6 +190,11 @@ class PipelinePublicServiceStub(object):
                 '/vdp.pipeline.v1beta.PipelinePublicService/CloneOrganizationPipeline',
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneOrganizationPipelineRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneOrganizationPipelineResponse.FromString,
+                )
+        self.CloneOrganizationPipelineRelease = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/CloneOrganizationPipelineRelease',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneOrganizationPipelineReleaseRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneOrganizationPipelineReleaseResponse.FromString,
                 )
         self.TriggerOrganizationPipelineStream = channel.unary_stream(
                 '/vdp.pipeline.v1beta.PipelinePublicService/TriggerOrganizationPipelineStream',
@@ -483,6 +493,16 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CloneUserPipelineRelease(self, request, context):
+        """Clone a pipeline release owned by a user
+
+        Clones a pipeline release owned by a user. The new pipeline may have a different
+        parent, and this can be either a user or an organization.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def TriggerUserPipeline(self, request, context):
         """Trigger a pipeline owned by a user
 
@@ -737,6 +757,16 @@ class PipelinePublicServiceServicer(object):
 
         Clones a pipeline owned by an organization. The new pipeline may have a
         different parent, and this can be either a user or an organization.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CloneOrganizationPipelineRelease(self, request, context):
+        """Clone a pipeline release owned by an organization
+
+        Clones a pipeline release owned by an organization. The new pipeline may
+        have a different parent, and this can be either a user or an organization.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1138,6 +1168,11 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneUserPipelineRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneUserPipelineResponse.SerializeToString,
             ),
+            'CloneUserPipelineRelease': grpc.unary_unary_rpc_method_handler(
+                    servicer.CloneUserPipelineRelease,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneUserPipelineReleaseRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneUserPipelineReleaseResponse.SerializeToString,
+            ),
             'TriggerUserPipeline': grpc.unary_unary_rpc_method_handler(
                     servicer.TriggerUserPipeline,
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerUserPipelineRequest.FromString,
@@ -1237,6 +1272,11 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     servicer.CloneOrganizationPipeline,
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneOrganizationPipelineRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneOrganizationPipelineResponse.SerializeToString,
+            ),
+            'CloneOrganizationPipelineRelease': grpc.unary_unary_rpc_method_handler(
+                    servicer.CloneOrganizationPipelineRelease,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneOrganizationPipelineReleaseRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneOrganizationPipelineReleaseResponse.SerializeToString,
             ),
             'TriggerOrganizationPipelineStream': grpc.unary_stream_rpc_method_handler(
                     servicer.TriggerOrganizationPipelineStream,
@@ -1619,6 +1659,23 @@ class PipelinePublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def CloneUserPipelineRelease(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/CloneUserPipelineRelease',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneUserPipelineReleaseRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneUserPipelineReleaseResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def TriggerUserPipeline(request,
             target,
             options=(),
@@ -1955,6 +2012,23 @@ class PipelinePublicService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/CloneOrganizationPipeline',
             vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneOrganizationPipelineRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneOrganizationPipelineResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CloneOrganizationPipelineRelease(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/CloneOrganizationPipelineRelease',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneOrganizationPipelineReleaseRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneOrganizationPipelineReleaseResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

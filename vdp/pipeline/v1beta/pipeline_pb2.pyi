@@ -1149,19 +1149,63 @@ class CloneUserPipelineResponse(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    PIPELINE_FIELD_NUMBER: builtins.int
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___CloneUserPipelineResponse = CloneUserPipelineResponse
+
+@typing_extensions.final
+class CloneUserPipelineReleaseRequest(google.protobuf.message.Message):
+    """CloneUserPipelineReleaseRequest represents a request to clone a pipeline
+    release owned by a user.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    TARGET_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
+    SHARING_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the pipeline release.
+    - Format: `users/{user.id}/pipelines/{pipeline.id}/releases/{version}`.
+    """
+    target: builtins.str
+    """The target pipeline. It can be under a user or an organization
+    namespace, so the following formats are accepted:
+    - `{user.id}/{pipeline.id}`
+    - `{organization.id}/{pipeline.id}`
+    """
+    description: builtins.str
+    """Pipeline description."""
     @property
-    def pipeline(self) -> global___Pipeline:
-        """The cloned pipeline resource."""
+    def sharing(self) -> vdp.pipeline.v1beta.common_pb2.Sharing:
+        """Pipeline sharing information."""
     def __init__(
         self,
         *,
-        pipeline: global___Pipeline | None = ...,
+        name: builtins.str = ...,
+        target: builtins.str = ...,
+        description: builtins.str = ...,
+        sharing: vdp.pipeline.v1beta.common_pb2.Sharing | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["sharing", b"sharing"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "name", b"name", "sharing", b"sharing", "target", b"target"]) -> None: ...
 
-global___CloneUserPipelineResponse = CloneUserPipelineResponse
+global___CloneUserPipelineReleaseRequest = CloneUserPipelineReleaseRequest
+
+@typing_extensions.final
+class CloneUserPipelineReleaseResponse(google.protobuf.message.Message):
+    """CloneUserPipelineReleaseResponse contains a cloned pipeline."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___CloneUserPipelineReleaseResponse = CloneUserPipelineReleaseResponse
 
 @typing_extensions.final
 class TriggerUserPipelineRequest(google.protobuf.message.Message):
@@ -2284,19 +2328,63 @@ class CloneOrganizationPipelineResponse(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    PIPELINE_FIELD_NUMBER: builtins.int
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___CloneOrganizationPipelineResponse = CloneOrganizationPipelineResponse
+
+@typing_extensions.final
+class CloneOrganizationPipelineReleaseRequest(google.protobuf.message.Message):
+    """CloneOrganizationPipelineReleaseRequest represents a request to clone a pipeline
+    release owned by an organization.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    TARGET_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
+    SHARING_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the pipeline release
+    - Format: `organizations/{org.id}/pipelines/{pipeline.id}/releases/{version}`.
+    """
+    target: builtins.str
+    """The target pipeline. It can be under a user or an organization
+    namespace, so the following formats are accepted:
+    - `{user.id}/{pipeline.id}`
+    - `{organization.id}/{pipeline.id}`
+    """
+    description: builtins.str
+    """Pipeline description."""
     @property
-    def pipeline(self) -> global___Pipeline:
-        """The cloned pipeline resource."""
+    def sharing(self) -> vdp.pipeline.v1beta.common_pb2.Sharing:
+        """Pipeline sharing information."""
     def __init__(
         self,
         *,
-        pipeline: global___Pipeline | None = ...,
+        name: builtins.str = ...,
+        target: builtins.str = ...,
+        description: builtins.str = ...,
+        sharing: vdp.pipeline.v1beta.common_pb2.Sharing | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["sharing", b"sharing"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "name", b"name", "sharing", b"sharing", "target", b"target"]) -> None: ...
 
-global___CloneOrganizationPipelineResponse = CloneOrganizationPipelineResponse
+global___CloneOrganizationPipelineReleaseRequest = CloneOrganizationPipelineReleaseRequest
+
+@typing_extensions.final
+class CloneOrganizationPipelineReleaseResponse(google.protobuf.message.Message):
+    """CloneOrganizationPipelineReleaseResponse contains a cloned pipeline."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___CloneOrganizationPipelineReleaseResponse = CloneOrganizationPipelineReleaseResponse
 
 @typing_extensions.final
 class TriggerOrganizationPipelineRequest(google.protobuf.message.Message):

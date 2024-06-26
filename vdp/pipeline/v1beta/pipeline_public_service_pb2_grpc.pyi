@@ -158,6 +158,15 @@ class PipelinePublicServiceStub:
     Clones a pipeline owned by a user. The new pipeline may have a different
     parent, and this can be either a user or an organization.
     """
+    CloneUserPipelineRelease: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.CloneUserPipelineReleaseRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.CloneUserPipelineReleaseResponse,
+    ]
+    """Clone a pipeline release owned by a user
+
+    Clones a pipeline release owned by a user. The new pipeline may have a different
+    parent, and this can be either a user or an organization.
+    """
     TriggerUserPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineResponse,
@@ -396,6 +405,15 @@ class PipelinePublicServiceStub:
 
     Clones a pipeline owned by an organization. The new pipeline may have a
     different parent, and this can be either a user or an organization.
+    """
+    CloneOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.CloneOrganizationPipelineReleaseRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.CloneOrganizationPipelineReleaseResponse,
+    ]
+    """Clone a pipeline release owned by an organization
+
+    Clones a pipeline release owned by an organization. The new pipeline may
+    have a different parent, and this can be either a user or an organization.
     """
     TriggerOrganizationPipelineStream: grpc.UnaryStreamMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineStreamRequest,
@@ -834,6 +852,15 @@ class PipelinePublicServiceAsyncStub:
     Clones a pipeline owned by a user. The new pipeline may have a different
     parent, and this can be either a user or an organization.
     """
+    CloneUserPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.CloneUserPipelineReleaseRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.CloneUserPipelineReleaseResponse,
+    ]
+    """Clone a pipeline release owned by a user
+
+    Clones a pipeline release owned by a user. The new pipeline may have a different
+    parent, and this can be either a user or an organization.
+    """
     TriggerUserPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineResponse,
@@ -1072,6 +1099,15 @@ class PipelinePublicServiceAsyncStub:
 
     Clones a pipeline owned by an organization. The new pipeline may have a
     different parent, and this can be either a user or an organization.
+    """
+    CloneOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.CloneOrganizationPipelineReleaseRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.CloneOrganizationPipelineReleaseResponse,
+    ]
+    """Clone a pipeline release owned by an organization
+
+    Clones a pipeline release owned by an organization. The new pipeline may
+    have a different parent, and this can be either a user or an organization.
     """
     TriggerOrganizationPipelineStream: grpc.aio.UnaryStreamMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineStreamRequest,
@@ -1537,6 +1573,17 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         parent, and this can be either a user or an organization.
         """
     @abc.abstractmethod
+    def CloneUserPipelineRelease(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.CloneUserPipelineReleaseRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.CloneUserPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.CloneUserPipelineReleaseResponse]]:
+        """Clone a pipeline release owned by a user
+
+        Clones a pipeline release owned by a user. The new pipeline may have a different
+        parent, and this can be either a user or an organization.
+        """
+    @abc.abstractmethod
     def TriggerUserPipeline(
         self,
         request: vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineRequest,
@@ -1814,6 +1861,17 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
 
         Clones a pipeline owned by an organization. The new pipeline may have a
         different parent, and this can be either a user or an organization.
+        """
+    @abc.abstractmethod
+    def CloneOrganizationPipelineRelease(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.CloneOrganizationPipelineReleaseRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.CloneOrganizationPipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.CloneOrganizationPipelineReleaseResponse]]:
+        """Clone a pipeline release owned by an organization
+
+        Clones a pipeline release owned by an organization. The new pipeline may
+        have a different parent, and this can be either a user or an organization.
         """
     @abc.abstractmethod
     def TriggerOrganizationPipelineStream(
