@@ -206,19 +206,23 @@ class Pipeline(google.protobuf.message.Message):
 
         NUMBER_OF_RUNS_FIELD_NUMBER: builtins.int
         LAST_RUN_TIME_FIELD_NUMBER: builtins.int
+        NUMBER_OF_CLONES_FIELD_NUMBER: builtins.int
         number_of_runs: builtins.int
         """Number of pipeline runs."""
         @property
         def last_run_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
             """Last run time."""
+        number_of_clones: builtins.int
+        """Number of times this pipeline has been cloned."""
         def __init__(
             self,
             *,
             number_of_runs: builtins.int = ...,
             last_run_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+            number_of_clones: builtins.int = ...,
         ) -> None: ...
         def HasField(self, field_name: typing_extensions.Literal["last_run_time", b"last_run_time"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["last_run_time", b"last_run_time", "number_of_runs", b"number_of_runs"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["last_run_time", b"last_run_time", "number_of_clones", b"number_of_clones", "number_of_runs", b"number_of_runs"]) -> None: ...
 
     NAME_FIELD_NUMBER: builtins.int
     UID_FIELD_NUMBER: builtins.int
@@ -1108,24 +1112,34 @@ class CloneUserPipelineRequest(google.protobuf.message.Message):
 
     NAME_FIELD_NUMBER: builtins.int
     TARGET_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
+    SHARING_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the pipeline, which allows its access by parent user
     and ID.
     - Format: `users/{user.id}/pipelines/{pipeline.id}`.
     """
     target: builtins.str
-    """The target pipeline name. It can be under a user or an organization
+    """The target pipeline. It can be under a user or an organization
     namespace, so the following formats are accepted:
-    - `users/{user.id}/pipelines/{pipeline.id}`
-    - `organizations/{organization.id}/pipelines/{pipeline.id}`
+    - `{user.id}/{pipeline.id}`
+    - `{organization.id}/{pipeline.id}`
     """
+    description: builtins.str
+    """Pipeline description."""
+    @property
+    def sharing(self) -> vdp.pipeline.v1beta.common_pb2.Sharing:
+        """Pipeline sharing information."""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
         target: builtins.str = ...,
+        description: builtins.str = ...,
+        sharing: vdp.pipeline.v1beta.common_pb2.Sharing | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "target", b"target"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["sharing", b"sharing"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "name", b"name", "sharing", b"sharing", "target", b"target"]) -> None: ...
 
 global___CloneUserPipelineRequest = CloneUserPipelineRequest
 
@@ -2233,24 +2247,34 @@ class CloneOrganizationPipelineRequest(google.protobuf.message.Message):
 
     NAME_FIELD_NUMBER: builtins.int
     TARGET_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
+    SHARING_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the pipeline, which allows its access by parent
     organization and ID.
     - Format: `organizations/{organization.id}/pipelines/{pipeline.id}`.
     """
     target: builtins.str
-    """The target pipeline name. It can be under a user or an organization
+    """The target pipeline. It can be under a user or an organization
     namespace, so the following formats are accepted:
-    - `users/{user.id}/pipelines/{pipeline.id}`
-    - `organizations/{organization.id}/pipelines/{pipeline.id}`
+    - `{user.id}/{pipeline.id}`
+    - `{organization.id}/{pipeline.id}`
     """
+    description: builtins.str
+    """Pipeline description."""
+    @property
+    def sharing(self) -> vdp.pipeline.v1beta.common_pb2.Sharing:
+        """Pipeline sharing information."""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
         target: builtins.str = ...,
+        description: builtins.str = ...,
+        sharing: vdp.pipeline.v1beta.common_pb2.Sharing | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "target", b"target"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["sharing", b"sharing"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "name", b"name", "sharing", b"sharing", "target", b"target"]) -> None: ...
 
 global___CloneOrganizationPipelineRequest = CloneOrganizationPipelineRequest
 
