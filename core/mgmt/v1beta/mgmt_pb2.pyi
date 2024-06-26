@@ -1205,14 +1205,18 @@ class CheckNamespaceAdminResponse(google.protobuf.message.Message):
     """Reserved."""
 
     TYPE_FIELD_NUMBER: builtins.int
+    UID_FIELD_NUMBER: builtins.int
     type: global___CheckNamespaceAdminResponse.Namespace.ValueType
     """Namespace type."""
+    uid: builtins.str
+    """Namespace UID."""
     def __init__(
         self,
         *,
         type: global___CheckNamespaceAdminResponse.Namespace.ValueType = ...,
+        uid: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["type", b"type"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["type", b"type", "uid", b"uid"]) -> None: ...
 
 global___CheckNamespaceAdminResponse = CheckNamespaceAdminResponse
 
