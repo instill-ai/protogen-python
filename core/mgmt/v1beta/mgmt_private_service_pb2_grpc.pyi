@@ -99,6 +99,15 @@ class MgmtPrivateServiceStub:
 
     On Instill Core, this endpoint will return a 404 Not Found status.
     """
+    CheckNamespaceAdmin: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.CheckNamespaceAdminRequest,
+        core.mgmt.v1beta.mgmt_pb2.CheckNamespaceAdminResponse,
+    ]
+    """Check if a namespace is in use
+
+    Returns the availability of a namespace or, alternatively, the type of
+    resource that is using it.
+    """
 
 class MgmtPrivateServiceAsyncStub:
     """Mgmt service responds to internal access"""
@@ -180,6 +189,15 @@ class MgmtPrivateServiceAsyncStub:
     organization, referenced by UID.
 
     On Instill Core, this endpoint will return a 404 Not Found status.
+    """
+    CheckNamespaceAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.CheckNamespaceAdminRequest,
+        core.mgmt.v1beta.mgmt_pb2.CheckNamespaceAdminResponse,
+    ]
+    """Check if a namespace is in use
+
+    Returns the availability of a namespace or, alternatively, the type of
+    resource that is using it.
     """
 
 class MgmtPrivateServiceServicer(metaclass=abc.ABCMeta):
@@ -282,6 +300,17 @@ class MgmtPrivateServiceServicer(metaclass=abc.ABCMeta):
         organization, referenced by UID.
 
         On Instill Core, this endpoint will return a 404 Not Found status.
+        """
+    @abc.abstractmethod
+    def CheckNamespaceAdmin(
+        self,
+        request: core.mgmt.v1beta.mgmt_pb2.CheckNamespaceAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.CheckNamespaceAdminResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.CheckNamespaceAdminResponse]]:
+        """Check if a namespace is in use
+
+        Returns the availability of a namespace or, alternatively, the type of
+        resource that is using it.
         """
 
 def add_MgmtPrivateServiceServicer_to_server(servicer: MgmtPrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

@@ -1146,6 +1146,77 @@ class CheckNamespaceResponse(google.protobuf.message.Message):
 global___CheckNamespaceResponse = CheckNamespaceResponse
 
 @typing_extensions.final
+class CheckNamespaceAdminRequest(google.protobuf.message.Message):
+    """CheckNamespaceAdminRequest represents a request to verify if a namespace is
+    available.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    ID_FIELD_NUMBER: builtins.int
+    id: builtins.str
+    """The namespace ID to be checked."""
+    def __init__(
+        self,
+        *,
+        id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["id", b"id"]) -> None: ...
+
+global___CheckNamespaceAdminRequest = CheckNamespaceAdminRequest
+
+@typing_extensions.final
+class CheckNamespaceAdminResponse(google.protobuf.message.Message):
+    """CheckNamespaceAdminResponse contains the availability of a namespace or the type
+    of resource that's using it.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    class _Namespace:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _NamespaceEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[CheckNamespaceAdminResponse._Namespace.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        NAMESPACE_UNSPECIFIED: CheckNamespaceAdminResponse._Namespace.ValueType  # 0
+        """Unspecified."""
+        NAMESPACE_AVAILABLE: CheckNamespaceAdminResponse._Namespace.ValueType  # 1
+        """Available."""
+        NAMESPACE_USER: CheckNamespaceAdminResponse._Namespace.ValueType  # 2
+        """Namespace belongs to a user."""
+        NAMESPACE_ORGANIZATION: CheckNamespaceAdminResponse._Namespace.ValueType  # 3
+        """Namespace belongs to an organization."""
+        NAMESPACE_RESERVED: CheckNamespaceAdminResponse._Namespace.ValueType  # 4
+        """Reserved."""
+
+    class Namespace(_Namespace, metaclass=_NamespaceEnumTypeWrapper):
+        """Namespace contains information about the availability of a namespace."""
+
+    NAMESPACE_UNSPECIFIED: CheckNamespaceAdminResponse.Namespace.ValueType  # 0
+    """Unspecified."""
+    NAMESPACE_AVAILABLE: CheckNamespaceAdminResponse.Namespace.ValueType  # 1
+    """Available."""
+    NAMESPACE_USER: CheckNamespaceAdminResponse.Namespace.ValueType  # 2
+    """Namespace belongs to a user."""
+    NAMESPACE_ORGANIZATION: CheckNamespaceAdminResponse.Namespace.ValueType  # 3
+    """Namespace belongs to an organization."""
+    NAMESPACE_RESERVED: CheckNamespaceAdminResponse.Namespace.ValueType  # 4
+    """Reserved."""
+
+    TYPE_FIELD_NUMBER: builtins.int
+    type: global___CheckNamespaceAdminResponse.Namespace.ValueType
+    """Namespace type."""
+    def __init__(
+        self,
+        *,
+        type: global___CheckNamespaceAdminResponse.Namespace.ValueType = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["type", b"type"]) -> None: ...
+
+global___CheckNamespaceAdminResponse = CheckNamespaceAdminResponse
+
+@typing_extensions.final
 class ApiToken(google.protobuf.message.Message):
     """API tokens allow users to make requests to the Instill AI API."""
 
