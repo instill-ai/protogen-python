@@ -31,6 +31,11 @@ class ArtifactPrivateServiceStub:
 
     Returns a portion of the versions that the specified repository holds.
     """
+    GetRepositoryTag: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagRequest,
+        artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagResponse,
+    ]
+    """Get details of repository tag."""
     CreateRepositoryTag: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagRequest,
         artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagResponse,
@@ -63,6 +68,11 @@ class ArtifactPrivateServiceAsyncStub:
 
     Returns a portion of the versions that the specified repository holds.
     """
+    GetRepositoryTag: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagRequest,
+        artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagResponse,
+    ]
+    """Get details of repository tag."""
     CreateRepositoryTag: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagRequest,
         artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagResponse,
@@ -97,6 +107,13 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
 
         Returns a portion of the versions that the specified repository holds.
         """
+    @abc.abstractmethod
+    def GetRepositoryTag(
+        self,
+        request: artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagResponse]]:
+        """Get details of repository tag."""
     @abc.abstractmethod
     def CreateRepositoryTag(
         self,

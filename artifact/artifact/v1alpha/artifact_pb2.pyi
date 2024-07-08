@@ -372,6 +372,48 @@ class CreateRepositoryTagResponse(google.protobuf.message.Message):
 global___CreateRepositoryTagResponse = CreateRepositoryTagResponse
 
 @typing_extensions.final
+class GetRepositoryTagRequest(google.protobuf.message.Message):
+    """GetRepositoryTagRequest represents a request to add a tag to a given
+    repository.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The name of the tag, defined by its parent repository and ID.
+    - Format: `repositories/{repository.id}/tags/{tag.id}`.
+    """
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
+
+global___GetRepositoryTagRequest = GetRepositoryTagRequest
+
+@typing_extensions.final
+class GetRepositoryTagResponse(google.protobuf.message.Message):
+    """GetRepositoryTagResponse contains the created tag."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TAG_FIELD_NUMBER: builtins.int
+    @property
+    def tag(self) -> global___RepositoryTag:
+        """The created tag."""
+    def __init__(
+        self,
+        *,
+        tag: global___RepositoryTag | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["tag", b"tag"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["tag", b"tag"]) -> None: ...
+
+global___GetRepositoryTagResponse = GetRepositoryTagResponse
+
+@typing_extensions.final
 class DeleteRepositoryTagRequest(google.protobuf.message.Message):
     """DeleteRepositoryTagRequest represents a request to delete a tag to a given
     repository.

@@ -21,6 +21,11 @@ class ArtifactPrivateServiceStub(object):
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListRepositoryTagsRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListRepositoryTagsResponse.FromString,
                 )
+        self.GetRepositoryTag = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPrivateService/GetRepositoryTag',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetRepositoryTagRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetRepositoryTagResponse.FromString,
+                )
         self.CreateRepositoryTag = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/CreateRepositoryTag',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.CreateRepositoryTagRequest.SerializeToString,
@@ -42,6 +47,13 @@ class ArtifactPrivateServiceServicer(object):
         """List the tags in a repository.
 
         Returns a portion of the versions that the specified repository holds.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetRepositoryTag(self, request, context):
+        """Get details of repository tag.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -75,6 +87,11 @@ def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
                     servicer.ListRepositoryTags,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListRepositoryTagsRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListRepositoryTagsResponse.SerializeToString,
+            ),
+            'GetRepositoryTag': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetRepositoryTag,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetRepositoryTagRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetRepositoryTagResponse.SerializeToString,
             ),
             'CreateRepositoryTag': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateRepositoryTag,
@@ -112,6 +129,23 @@ class ArtifactPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/ListRepositoryTags',
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListRepositoryTagsRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListRepositoryTagsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetRepositoryTag(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/GetRepositoryTag',
+            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetRepositoryTagRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetRepositoryTagResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
