@@ -244,6 +244,10 @@ class Pipeline(google.protobuf.message.Message):
     TAGS_FIELD_NUMBER: builtins.int
     STATS_FIELD_NUMBER: builtins.int
     RAW_RECIPE_FIELD_NUMBER: builtins.int
+    SOURCE_URL_FIELD_NUMBER: builtins.int
+    DOCUMENTATION_URL_FIELD_NUMBER: builtins.int
+    LICENSE_FIELD_NUMBER: builtins.int
+    PROFILE_IMAGE_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The name of the pipeline, defined by its parent and ID.
     - Format: `{parent_type}/{parent.id}/pipelines/{pipeline.id}`.
@@ -304,6 +308,14 @@ class Pipeline(google.protobuf.message.Message):
     """Recipe in YAML format describes the components of a pipeline and how they
     are connected.
     """
+    source_url: builtins.str
+    """A link to the source code of the pipeline (e.g. to a GitHub repository)."""
+    documentation_url: builtins.str
+    """A link to any extra information."""
+    license: builtins.str
+    """License under which the pipeline is distributed."""
+    profile_image: builtins.str
+    """Pipeline profile image in base64 format."""
     def __init__(
         self,
         *,
@@ -327,13 +339,25 @@ class Pipeline(google.protobuf.message.Message):
         tags: collections.abc.Iterable[builtins.str] | None = ...,
         stats: global___Pipeline.Stats | None = ...,
         raw_recipe: builtins.str = ...,
+        source_url: builtins.str | None = ...,
+        documentation_url: builtins.str | None = ...,
+        license: builtins.str | None = ...,
+        profile_image: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "_owner", b"_owner", "create_time", b"create_time", "data_specification", b"data_specification", "delete_time", b"delete_time", "description", b"description", "metadata", b"metadata", "owner", b"owner", "permission", b"permission", "recipe", b"recipe", "sharing", b"sharing", "stats", b"stats", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "_owner", b"_owner", "create_time", b"create_time", "data_specification", b"data_specification", "delete_time", b"delete_time", "description", b"description", "id", b"id", "metadata", b"metadata", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "permission", b"permission", "raw_recipe", b"raw_recipe", "readme", b"readme", "recipe", b"recipe", "releases", b"releases", "sharing", b"sharing", "stats", b"stats", "tags", b"tags", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_source_url", b"_source_url", "create_time", b"create_time", "data_specification", b"data_specification", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "license", b"license", "metadata", b"metadata", "owner", b"owner", "permission", b"permission", "profile_image", b"profile_image", "recipe", b"recipe", "sharing", b"sharing", "source_url", b"source_url", "stats", b"stats", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_source_url", b"_source_url", "create_time", b"create_time", "data_specification", b"data_specification", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "id", b"id", "license", b"license", "metadata", b"metadata", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "permission", b"permission", "profile_image", b"profile_image", "raw_recipe", b"raw_recipe", "readme", b"readme", "recipe", b"recipe", "releases", b"releases", "sharing", b"sharing", "source_url", b"source_url", "stats", b"stats", "tags", b"tags", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_description", b"_description"]) -> typing_extensions.Literal["description"] | None: ...
     @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_documentation_url", b"_documentation_url"]) -> typing_extensions.Literal["documentation_url"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_license", b"_license"]) -> typing_extensions.Literal["license"] | None: ...
+    @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_owner", b"_owner"]) -> typing_extensions.Literal["owner"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_profile_image", b"_profile_image"]) -> typing_extensions.Literal["profile_image"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_source_url", b"_source_url"]) -> typing_extensions.Literal["source_url"] | None: ...
 
 global___Pipeline = Pipeline
 
