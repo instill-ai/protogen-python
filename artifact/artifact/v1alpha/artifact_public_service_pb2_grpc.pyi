@@ -4,6 +4,7 @@ isort:skip_file
 """
 import abc
 import artifact.artifact.v1alpha.artifact_pb2
+import artifact.artifact.v1alpha.chunk_pb2
 import collections.abc
 import grpc
 import grpc.aio
@@ -79,6 +80,21 @@ class ArtifactPublicServiceStub:
         artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseFilesResponse,
     ]
     """list files"""
+    ListChunks: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.chunk_pb2.ListChunksRequest,
+        artifact.artifact.v1alpha.chunk_pb2.ListChunksResponse,
+    ]
+    """List chunks"""
+    GetSourceFile: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.chunk_pb2.GetSourceFileRequest,
+        artifact.artifact.v1alpha.chunk_pb2.GetSourceFileResponse,
+    ]
+    """Get source file"""
+    UpdateChunk: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.chunk_pb2.UpdateChunkRequest,
+        artifact.artifact.v1alpha.chunk_pb2.UpdateChunkResponse,
+    ]
+    """Update chunk"""
 
 class ArtifactPublicServiceAsyncStub:
     """ArtifactPublicService exposes the public endpoints that allow clients to
@@ -141,6 +157,21 @@ class ArtifactPublicServiceAsyncStub:
         artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseFilesResponse,
     ]
     """list files"""
+    ListChunks: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.chunk_pb2.ListChunksRequest,
+        artifact.artifact.v1alpha.chunk_pb2.ListChunksResponse,
+    ]
+    """List chunks"""
+    GetSourceFile: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.chunk_pb2.GetSourceFileRequest,
+        artifact.artifact.v1alpha.chunk_pb2.GetSourceFileResponse,
+    ]
+    """Get source file"""
+    UpdateChunk: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.chunk_pb2.UpdateChunkRequest,
+        artifact.artifact.v1alpha.chunk_pb2.UpdateChunkResponse,
+    ]
+    """Update chunk"""
 
 class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
     """ArtifactPublicService exposes the public endpoints that allow clients to
@@ -223,5 +254,26 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseFilesResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseFilesResponse]]:
         """list files"""
+    @abc.abstractmethod
+    def ListChunks(
+        self,
+        request: artifact.artifact.v1alpha.chunk_pb2.ListChunksRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.chunk_pb2.ListChunksResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.chunk_pb2.ListChunksResponse]]:
+        """List chunks"""
+    @abc.abstractmethod
+    def GetSourceFile(
+        self,
+        request: artifact.artifact.v1alpha.chunk_pb2.GetSourceFileRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.chunk_pb2.GetSourceFileResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.chunk_pb2.GetSourceFileResponse]]:
+        """Get source file"""
+    @abc.abstractmethod
+    def UpdateChunk(
+        self,
+        request: artifact.artifact.v1alpha.chunk_pb2.UpdateChunkRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.chunk_pb2.UpdateChunkResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.chunk_pb2.UpdateChunkResponse]]:
+        """Update chunk"""
 
 def add_ArtifactPublicServiceServicer_to_server(servicer: ArtifactPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

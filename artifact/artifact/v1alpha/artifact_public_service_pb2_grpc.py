@@ -3,6 +3,7 @@
 import grpc
 
 from artifact.artifact.v1alpha import artifact_pb2 as artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2
+from artifact.artifact.v1alpha import chunk_pb2 as artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2
 
 
 class ArtifactPublicServiceStub(object):
@@ -65,6 +66,21 @@ class ArtifactPublicServiceStub(object):
                 '/artifact.artifact.v1alpha.ArtifactPublicService/ListKnowledgeBaseFiles',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseFilesRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseFilesResponse.FromString,
+                )
+        self.ListChunks = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/ListChunks',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ListChunksRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ListChunksResponse.FromString,
+                )
+        self.GetSourceFile = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/GetSourceFile',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetSourceFileRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetSourceFileResponse.FromString,
+                )
+        self.UpdateChunk = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateChunk',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.UpdateChunkRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.UpdateChunkResponse.FromString,
                 )
 
 
@@ -147,6 +163,27 @@ class ArtifactPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListChunks(self, request, context):
+        """List chunks
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSourceFile(self, request, context):
+        """Get source file
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateChunk(self, request, context):
+        """Update chunk
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ArtifactPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -199,6 +236,21 @@ def add_ArtifactPublicServiceServicer_to_server(servicer, server):
                     servicer.ListKnowledgeBaseFiles,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseFilesRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseFilesResponse.SerializeToString,
+            ),
+            'ListChunks': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListChunks,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ListChunksRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ListChunksResponse.SerializeToString,
+            ),
+            'GetSourceFile': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetSourceFile,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetSourceFileRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetSourceFileResponse.SerializeToString,
+            ),
+            'UpdateChunk': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateChunk,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.UpdateChunkRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.UpdateChunkResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -379,5 +431,56 @@ class ArtifactPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ListKnowledgeBaseFiles',
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseFilesRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseFilesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListChunks(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ListChunks',
+            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ListChunksRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ListChunksResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSourceFile(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/GetSourceFile',
+            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetSourceFileRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetSourceFileResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateChunk(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateChunk',
+            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.UpdateChunkRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.UpdateChunkResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

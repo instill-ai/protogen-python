@@ -40,6 +40,8 @@ class _FileProcessStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapp
     """embedding process is failed"""
     FILE_PROCESS_STATUS_COMPLETED: _FileProcessStatus.ValueType  # 6
     """COMPLETED"""
+    FILE_PROCESS_STATUS_FAILED: _FileProcessStatus.ValueType  # 7
+    """Failed"""
 
 class FileProcessStatus(_FileProcessStatus, metaclass=_FileProcessStatusEnumTypeWrapper):
     """file embedding process status"""
@@ -58,6 +60,8 @@ FILE_PROCESS_STATUS_EMBEDDING: FileProcessStatus.ValueType  # 5
 """embedding process is failed"""
 FILE_PROCESS_STATUS_COMPLETED: FileProcessStatus.ValueType  # 6
 """COMPLETED"""
+FILE_PROCESS_STATUS_FAILED: FileProcessStatus.ValueType  # 7
+"""Failed"""
 global___FileProcessStatus = FileProcessStatus
 
 class _FileType:
@@ -464,6 +468,9 @@ class KnowledgeBase(google.protobuf.message.Message):
     SPLITTING_PIPELINES_FIELD_NUMBER: builtins.int
     EMBEDDING_PIPELINES_FIELD_NUMBER: builtins.int
     DOWNSTREAM_APPS_FIELD_NUMBER: builtins.int
+    TOTAL_FILES_FIELD_NUMBER: builtins.int
+    TOTAL_TOKENS_FIELD_NUMBER: builtins.int
+    USED_STORAGE_FIELD_NUMBER: builtins.int
     kb_id: builtins.str
     """The knowledge base identifier."""
     name: builtins.str
@@ -491,6 +498,12 @@ class KnowledgeBase(google.protobuf.message.Message):
     @property
     def downstream_apps(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """The downstream apps"""
+    total_files: builtins.int
+    """The total files in knowledge base."""
+    total_tokens: builtins.int
+    """The total tokens in knowledge base."""
+    used_storage: builtins.int
+    """The current used storage in knowledge base."""
     def __init__(
         self,
         *,
@@ -505,8 +518,11 @@ class KnowledgeBase(google.protobuf.message.Message):
         splitting_pipelines: collections.abc.Iterable[builtins.str] | None = ...,
         embedding_pipelines: collections.abc.Iterable[builtins.str] | None = ...,
         downstream_apps: collections.abc.Iterable[builtins.str] | None = ...,
+        total_files: builtins.int = ...,
+        total_tokens: builtins.int = ...,
+        used_storage: builtins.int = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["converting_pipelines", b"converting_pipelines", "create_time", b"create_time", "description", b"description", "downstream_apps", b"downstream_apps", "embedding_pipelines", b"embedding_pipelines", "kb_id", b"kb_id", "name", b"name", "owner_name", b"owner_name", "splitting_pipelines", b"splitting_pipelines", "tags", b"tags", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["converting_pipelines", b"converting_pipelines", "create_time", b"create_time", "description", b"description", "downstream_apps", b"downstream_apps", "embedding_pipelines", b"embedding_pipelines", "kb_id", b"kb_id", "name", b"name", "owner_name", b"owner_name", "splitting_pipelines", b"splitting_pipelines", "tags", b"tags", "total_files", b"total_files", "total_tokens", b"total_tokens", "update_time", b"update_time", "used_storage", b"used_storage"]) -> None: ...
 
 global___KnowledgeBase = KnowledgeBase
 
@@ -710,6 +726,7 @@ class File(google.protobuf.message.Message):
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     DELETE_TIME_FIELD_NUMBER: builtins.int
+    SIZE_FIELD_NUMBER: builtins.int
     file_uid: builtins.str
     """file uid"""
     name: builtins.str
@@ -739,6 +756,8 @@ class File(google.protobuf.message.Message):
     @property
     def delete_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """delete time"""
+    size: builtins.int
+    """file size in bytes"""
     def __init__(
         self,
         *,
@@ -755,9 +774,10 @@ class File(google.protobuf.message.Message):
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        size: builtins.int = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "delete_time", b"delete_time", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["content", b"content", "create_time", b"create_time", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "file_uid", b"file_uid", "kb_uid", b"kb_uid", "name", b"name", "owner_uid", b"owner_uid", "process_outcome", b"process_outcome", "process_status", b"process_status", "retrievable", b"retrievable", "type", b"type", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["content", b"content", "create_time", b"create_time", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "file_uid", b"file_uid", "kb_uid", b"kb_uid", "name", b"name", "owner_uid", b"owner_uid", "process_outcome", b"process_outcome", "process_status", b"process_status", "retrievable", b"retrievable", "size", b"size", "type", b"type", "update_time", b"update_time"]) -> None: ...
 
 global___File = File
 
