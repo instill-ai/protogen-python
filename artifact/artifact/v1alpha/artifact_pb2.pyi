@@ -727,6 +727,8 @@ class File(google.protobuf.message.Message):
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     DELETE_TIME_FIELD_NUMBER: builtins.int
     SIZE_FIELD_NUMBER: builtins.int
+    TOTAL_CHUNKS_FIELD_NUMBER: builtins.int
+    TOTAL_TOKENS_FIELD_NUMBER: builtins.int
     file_uid: builtins.str
     """file uid"""
     name: builtins.str
@@ -758,6 +760,10 @@ class File(google.protobuf.message.Message):
         """delete time"""
     size: builtins.int
     """file size in bytes"""
+    total_chunks: builtins.int
+    """total chunks"""
+    total_tokens: builtins.int
+    """total tokens"""
     def __init__(
         self,
         *,
@@ -775,9 +781,11 @@ class File(google.protobuf.message.Message):
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         size: builtins.int = ...,
+        total_chunks: builtins.int = ...,
+        total_tokens: builtins.int = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "delete_time", b"delete_time", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["content", b"content", "create_time", b"create_time", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "file_uid", b"file_uid", "kb_uid", b"kb_uid", "name", b"name", "owner_uid", b"owner_uid", "process_outcome", b"process_outcome", "process_status", b"process_status", "retrievable", b"retrievable", "size", b"size", "type", b"type", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["content", b"content", "create_time", b"create_time", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "file_uid", b"file_uid", "kb_uid", b"kb_uid", "name", b"name", "owner_uid", b"owner_uid", "process_outcome", b"process_outcome", "process_status", b"process_status", "retrievable", b"retrievable", "size", b"size", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time"]) -> None: ...
 
 global___File = File
 
