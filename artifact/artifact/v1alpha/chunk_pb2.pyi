@@ -226,3 +226,82 @@ class UpdateChunkResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["chunk", b"chunk"]) -> None: ...
 
 global___UpdateChunkResponse = UpdateChunkResponse
+
+@typing_extensions.final
+class SimilarityChunksSearchRequest(google.protobuf.message.Message):
+    """Similar chunnk search request"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OWNER_ID_FIELD_NUMBER: builtins.int
+    KB_ID_FIELD_NUMBER: builtins.int
+    TEXT_PROMPT_FIELD_NUMBER: builtins.int
+    TOPK_FIELD_NUMBER: builtins.int
+    owner_id: builtins.str
+    """owner id"""
+    kb_id: builtins.str
+    """knowledge base name"""
+    text_prompt: builtins.str
+    """text prompt"""
+    topk: builtins.int
+    """topk"""
+    def __init__(
+        self,
+        *,
+        owner_id: builtins.str = ...,
+        kb_id: builtins.str = ...,
+        text_prompt: builtins.str = ...,
+        topk: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["kb_id", b"kb_id", "owner_id", b"owner_id", "text_prompt", b"text_prompt", "topk", b"topk"]) -> None: ...
+
+global___SimilarityChunksSearchRequest = SimilarityChunksSearchRequest
+
+@typing_extensions.final
+class SimilarityChunksSearchResponse(google.protobuf.message.Message):
+    """Similar chunnk search response"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    SIMILAR_CHUNKS_FIELD_NUMBER: builtins.int
+    @property
+    def similar_chunks(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___SimilarityChunk]:
+        """chunks"""
+    def __init__(
+        self,
+        *,
+        similar_chunks: collections.abc.Iterable[global___SimilarityChunk] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["similar_chunks", b"similar_chunks"]) -> None: ...
+
+global___SimilarityChunksSearchResponse = SimilarityChunksSearchResponse
+
+@typing_extensions.final
+class SimilarityChunk(google.protobuf.message.Message):
+    """similarity chunks"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CHUNK_UID_FIELD_NUMBER: builtins.int
+    SIMILARITY_SCORE_FIELD_NUMBER: builtins.int
+    TEXT_CONTENT_FIELD_NUMBER: builtins.int
+    SOURCE_FILE_FIELD_NUMBER: builtins.int
+    chunk_uid: builtins.str
+    """chunk uid"""
+    similarity_score: builtins.float
+    """similarity score"""
+    text_content: builtins.str
+    """chunk"""
+    source_file: builtins.str
+    """source file"""
+    def __init__(
+        self,
+        *,
+        chunk_uid: builtins.str = ...,
+        similarity_score: builtins.float = ...,
+        text_content: builtins.str = ...,
+        source_file: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chunk_uid", b"chunk_uid", "similarity_score", b"similarity_score", "source_file", b"source_file", "text_content", b"text_content"]) -> None: ...
+
+global___SimilarityChunk = SimilarityChunk

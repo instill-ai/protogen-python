@@ -82,6 +82,11 @@ class ArtifactPublicServiceStub(object):
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.UpdateChunkRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.UpdateChunkResponse.FromString,
                 )
+        self.SimilarityChunksSearch = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/SimilarityChunksSearch',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SimilarityChunksSearchRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SimilarityChunksSearchResponse.FromString,
+                )
 
 
 class ArtifactPublicServiceServicer(object):
@@ -184,6 +189,13 @@ class ArtifactPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SimilarityChunksSearch(self, request, context):
+        """Similarity chunks search
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ArtifactPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -251,6 +263,11 @@ def add_ArtifactPublicServiceServicer_to_server(servicer, server):
                     servicer.UpdateChunk,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.UpdateChunkRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.UpdateChunkResponse.SerializeToString,
+            ),
+            'SimilarityChunksSearch': grpc.unary_unary_rpc_method_handler(
+                    servicer.SimilarityChunksSearch,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SimilarityChunksSearchRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SimilarityChunksSearchResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -482,5 +499,22 @@ class ArtifactPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateChunk',
             artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.UpdateChunkRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.UpdateChunkResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SimilarityChunksSearch(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/SimilarityChunksSearch',
+            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SimilarityChunksSearchRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SimilarityChunksSearchResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

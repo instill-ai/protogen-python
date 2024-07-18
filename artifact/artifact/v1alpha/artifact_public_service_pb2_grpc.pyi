@@ -95,6 +95,11 @@ class ArtifactPublicServiceStub:
         artifact.artifact.v1alpha.chunk_pb2.UpdateChunkResponse,
     ]
     """Update chunk"""
+    SimilarityChunksSearch: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchRequest,
+        artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchResponse,
+    ]
+    """Similarity chunks search"""
 
 class ArtifactPublicServiceAsyncStub:
     """ArtifactPublicService exposes the public endpoints that allow clients to
@@ -172,6 +177,11 @@ class ArtifactPublicServiceAsyncStub:
         artifact.artifact.v1alpha.chunk_pb2.UpdateChunkResponse,
     ]
     """Update chunk"""
+    SimilarityChunksSearch: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchRequest,
+        artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchResponse,
+    ]
+    """Similarity chunks search"""
 
 class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
     """ArtifactPublicService exposes the public endpoints that allow clients to
@@ -275,5 +285,12 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.chunk_pb2.UpdateChunkResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.chunk_pb2.UpdateChunkResponse]]:
         """Update chunk"""
+    @abc.abstractmethod
+    def SimilarityChunksSearch(
+        self,
+        request: artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchResponse]]:
+        """Similarity chunks search"""
 
 def add_ArtifactPublicServiceServicer_to_server(servicer: ArtifactPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
