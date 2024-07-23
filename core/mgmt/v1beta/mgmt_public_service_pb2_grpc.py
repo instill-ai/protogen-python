@@ -509,8 +509,9 @@ class MgmtPublicServiceServicer(object):
         """List Instill Credit consumption time charts
 
         Returns a timeline of Instill Credit consumption for a given owner. The
-        timeline consists of a list of time frames that contain the aggregated
-        credit consumption.
+        response will contain one set of records (datapoints) per consumption
+        source (e.g. "pipeline", "model"). Each datapoint represents the amount
+        consumed in a time bucket.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

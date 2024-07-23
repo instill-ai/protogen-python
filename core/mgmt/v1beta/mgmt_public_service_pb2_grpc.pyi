@@ -294,8 +294,9 @@ class MgmtPublicServiceStub:
     """List Instill Credit consumption time charts
 
     Returns a timeline of Instill Credit consumption for a given owner. The
-    timeline consists of a list of time frames that contain the aggregated
-    credit consumption.
+    response will contain one set of records (datapoints) per consumption
+    source (e.g. "pipeline", "model"). Each datapoint represents the amount
+    consumed in a time bucket.
     """
     AuthTokenIssuer: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.AuthTokenIssuerRequest,
@@ -617,8 +618,9 @@ class MgmtPublicServiceAsyncStub:
     """List Instill Credit consumption time charts
 
     Returns a timeline of Instill Credit consumption for a given owner. The
-    timeline consists of a list of time frames that contain the aggregated
-    credit consumption.
+    response will contain one set of records (datapoints) per consumption
+    source (e.g. "pipeline", "model"). Each datapoint represents the amount
+    consumed in a time bucket.
     """
     AuthTokenIssuer: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.AuthTokenIssuerRequest,
@@ -1004,8 +1006,9 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         """List Instill Credit consumption time charts
 
         Returns a timeline of Instill Credit consumption for a given owner. The
-        timeline consists of a list of time frames that contain the aggregated
-        credit consumption.
+        response will contain one set of records (datapoints) per consumption
+        source (e.g. "pipeline", "model"). Each datapoint represents the amount
+        consumed in a time bucket.
         """
     @abc.abstractmethod
     def AuthTokenIssuer(

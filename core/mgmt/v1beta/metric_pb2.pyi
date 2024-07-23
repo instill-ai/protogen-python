@@ -405,8 +405,9 @@ global___ListPipelineTriggerChartRecordsResponse = ListPipelineTriggerChartRecor
 
 @typing_extensions.final
 class CreditConsumptionChartRecord(google.protobuf.message.Message):
-    """CreditConsumptionChartRecord contains credit consumption metrics, aggregated
-    by owner and time frame.
+    """CreditConsumptionChartRecord represents a timeline of Instill Credit
+    consumption. It contains a collection of (timestamp, amount) pairs that
+    represent the total credit consumption in a given time bucket.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -414,6 +415,7 @@ class CreditConsumptionChartRecord(google.protobuf.message.Message):
     CREDIT_OWNER_FIELD_NUMBER: builtins.int
     TIME_BUCKETS_FIELD_NUMBER: builtins.int
     AMOUNT_FIELD_NUMBER: builtins.int
+    SOURCE_FIELD_NUMBER: builtins.int
     credit_owner: builtins.str
     """Credit owner ID, e.g. `users/chef-wombat`."""
     @property
@@ -422,21 +424,25 @@ class CreditConsumptionChartRecord(google.protobuf.message.Message):
     @property
     def amount(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.float]:
         """Total credit consumed in each time bucket."""
+    source: builtins.str
+    """Credit consumption source (e.g. "pipeline", "model")."""
     def __init__(
         self,
         *,
         credit_owner: builtins.str = ...,
         time_buckets: collections.abc.Iterable[google.protobuf.timestamp_pb2.Timestamp] | None = ...,
         amount: collections.abc.Iterable[builtins.float] | None = ...,
+        source: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["amount", b"amount", "credit_owner", b"credit_owner", "time_buckets", b"time_buckets"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["amount", b"amount", "credit_owner", b"credit_owner", "source", b"source", "time_buckets", b"time_buckets"]) -> None: ...
 
 global___CreditConsumptionChartRecord = CreditConsumptionChartRecord
 
 @typing_extensions.final
 class ListCreditConsumptionChartRecordsRequest(google.protobuf.message.Message):
-    """ListCreditConsumptionChartRecordsRequest represents a request to list pipeline
-    trigger metrics, aggregated by pipeline ID and time frame.
+    """ListCreditConsumptionChartRecordsRequest represents a request to list credit
+    consumption chart records for a given owner, grouped by time buckets and
+    consumption sources.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -457,10 +463,14 @@ class ListCreditConsumptionChartRecordsRequest(google.protobuf.message.Message):
     """
     @property
     def start(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Beginning of the time range from which the records will be fetched."""
+        """Beginning of the time range from which the records will be fetched.
+        The default value is the beginning of the current day, in UTC.
+        """
     @property
     def stop(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """End of the time range from which the records will be fetched."""
+        """End of the time range from which the records will be fetched.
+        The default value is the current timestamp.
+        """
     def __init__(
         self,
         *,
@@ -482,25 +492,21 @@ global___ListCreditConsumptionChartRecordsRequest = ListCreditConsumptionChartRe
 
 @typing_extensions.final
 class ListCreditConsumptionChartRecordsResponse(google.protobuf.message.Message):
-    """ListCreditConsumptionChartRecordsResponse contains a list of pipeline trigger
+    """ListCreditConsumptionChartRecordsResponse contains a list of credit consumption
     chart records.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     CREDIT_CONSUMPTION_CHART_RECORDS_FIELD_NUMBER: builtins.int
-    TOTAL_AMOUNT_FIELD_NUMBER: builtins.int
     @property
     def credit_consumption_chart_records(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CreditConsumptionChartRecord]:
-        """A list of pipeline trigger records."""
-    total_amount: builtins.float
-    """Sum of the total credit consumed within the time range."""
+        """Credit consumption timelines, aggregated by source."""
     def __init__(
         self,
         *,
         credit_consumption_chart_records: collections.abc.Iterable[global___CreditConsumptionChartRecord] | None = ...,
-        total_amount: builtins.float = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["credit_consumption_chart_records", b"credit_consumption_chart_records", "total_amount", b"total_amount"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["credit_consumption_chart_records", b"credit_consumption_chart_records"]) -> None: ...
 
 global___ListCreditConsumptionChartRecordsResponse = ListCreditConsumptionChartRecordsResponse
