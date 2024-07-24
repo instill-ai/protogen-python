@@ -80,9 +80,9 @@ class PipelineTriggerCount(google.protobuf.message.Message):
     TRIGGER_COUNT_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
     trigger_count: builtins.int
-    """Number og triggers"""
+    """Number of triggers."""
     status: global___Status.ValueType
-    """This field will be present when results are grouped by trigger status;"""
+    """This field will be present when results are grouped by trigger status."""
     def __init__(
         self,
         *,
@@ -94,46 +94,6 @@ class PipelineTriggerCount(google.protobuf.message.Message):
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_status", b"_status"]) -> typing_extensions.Literal["status"] | None: ...
 
 global___PipelineTriggerCount = PipelineTriggerCount
-
-@typing_extensions.final
-class PipelineTriggerTableRecord(google.protobuf.message.Message):
-    """PipelineTriggerTableRecord contains pipeline trigger metrics, aggregated by
-    pipeline ID.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    PIPELINE_ID_FIELD_NUMBER: builtins.int
-    PIPELINE_UID_FIELD_NUMBER: builtins.int
-    TRIGGER_COUNT_COMPLETED_FIELD_NUMBER: builtins.int
-    TRIGGER_COUNT_ERRORED_FIELD_NUMBER: builtins.int
-    PIPELINE_RELEASE_ID_FIELD_NUMBER: builtins.int
-    PIPELINE_RELEASE_UID_FIELD_NUMBER: builtins.int
-    pipeline_id: builtins.str
-    """Pipeline ID."""
-    pipeline_uid: builtins.str
-    """Pipeline UUID."""
-    trigger_count_completed: builtins.int
-    """Number of triggers with `STATUS_COMPLETED`."""
-    trigger_count_errored: builtins.int
-    """Number of triggers with `STATUS_ERRORED`."""
-    pipeline_release_id: builtins.str
-    """Version for the triggered pipeline if it is a release pipeline."""
-    pipeline_release_uid: builtins.str
-    """Release UUID for the triggered pipeline if it is a release pipeline."""
-    def __init__(
-        self,
-        *,
-        pipeline_id: builtins.str = ...,
-        pipeline_uid: builtins.str = ...,
-        trigger_count_completed: builtins.int = ...,
-        trigger_count_errored: builtins.int = ...,
-        pipeline_release_id: builtins.str = ...,
-        pipeline_release_uid: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["pipeline_id", b"pipeline_id", "pipeline_release_id", b"pipeline_release_id", "pipeline_release_uid", b"pipeline_release_uid", "pipeline_uid", b"pipeline_uid", "trigger_count_completed", b"trigger_count_completed", "trigger_count_errored", b"trigger_count_errored"]) -> None: ...
-
-global___PipelineTriggerTableRecord = PipelineTriggerTableRecord
 
 @typing_extensions.final
 class PipelineTriggerChartRecord(google.protobuf.message.Message):
@@ -148,7 +108,7 @@ class PipelineTriggerChartRecord(google.protobuf.message.Message):
     PIPELINE_ID_FIELD_NUMBER: builtins.int
     TIME_BUCKETS_FIELD_NUMBER: builtins.int
     TRIGGER_COUNTS_FIELD_NUMBER: builtins.int
-    REQUESTER_FIELD_NUMBER: builtins.int
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
     pipeline_id: builtins.str
     """This field will be present present when the information is grouped by pipeline."""
     @property
@@ -157,18 +117,18 @@ class PipelineTriggerChartRecord(google.protobuf.message.Message):
     @property
     def trigger_counts(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.int]:
         """Aggregated trigger count in each time bucket."""
-    requester: builtins.str
-    """Trigger requester ID, e.g. `users/specialist-wombat`."""
+    namespace_id: builtins.str
+    """The ID of the namespace that requested the pipeline triggers."""
     def __init__(
         self,
         *,
         pipeline_id: builtins.str | None = ...,
         time_buckets: collections.abc.Iterable[google.protobuf.timestamp_pb2.Timestamp] | None = ...,
         trigger_counts: collections.abc.Iterable[builtins.int] | None = ...,
-        requester: builtins.str = ...,
+        namespace_id: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_pipeline_id", b"_pipeline_id", "pipeline_id", b"pipeline_id"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_pipeline_id", b"_pipeline_id", "pipeline_id", b"pipeline_id", "requester", b"requester", "time_buckets", b"time_buckets", "trigger_counts", b"trigger_counts"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_pipeline_id", b"_pipeline_id", "namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id", "time_buckets", b"time_buckets", "trigger_counts", b"trigger_counts"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_pipeline_id", b"_pipeline_id"]) -> typing_extensions.Literal["pipeline_id"] | None: ...
 
 global___PipelineTriggerChartRecord = PipelineTriggerChartRecord
@@ -181,14 +141,12 @@ class GetPipelineTriggerCountRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    REQUESTER_FIELD_NUMBER: builtins.int
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
     AGGREGATION_WINDOW_FIELD_NUMBER: builtins.int
     START_FIELD_NUMBER: builtins.int
     STOP_FIELD_NUMBER: builtins.int
-    requester: builtins.str
-    """The ID of the pipeline trigger requester.
-    Format: `{[users|organizations]}/{id}`.
-    """
+    namespace_id: builtins.str
+    """The ID of the namespace that requested the pipeline triggers."""
     aggregation_window: builtins.str
     """Aggregation window. The value is a positive duration string, i.e. a
     sequence of decimal numbers, each with optional fraction and a unit
@@ -208,13 +166,13 @@ class GetPipelineTriggerCountRequest(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        requester: builtins.str = ...,
+        namespace_id: builtins.str = ...,
         aggregation_window: builtins.str | None = ...,
         start: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         stop: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_aggregation_window", b"_aggregation_window", "_start", b"_start", "_stop", b"_stop", "aggregation_window", b"aggregation_window", "start", b"start", "stop", b"stop"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_aggregation_window", b"_aggregation_window", "_start", b"_start", "_stop", b"_stop", "aggregation_window", b"aggregation_window", "requester", b"requester", "start", b"start", "stop", b"stop"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_aggregation_window", b"_aggregation_window", "_start", b"_start", "_stop", b"_stop", "aggregation_window", b"aggregation_window", "namespace_id", b"namespace_id", "start", b"start", "stop", b"stop"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_aggregation_window", b"_aggregation_window"]) -> typing_extensions.Literal["aggregation_window"] | None: ...
     @typing.overload
@@ -253,14 +211,12 @@ class ListPipelineTriggerChartRecordsRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    REQUESTER_FIELD_NUMBER: builtins.int
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
     AGGREGATION_WINDOW_FIELD_NUMBER: builtins.int
     START_FIELD_NUMBER: builtins.int
     STOP_FIELD_NUMBER: builtins.int
-    requester: builtins.str
-    """The ID of the pipeline trigger requester.
-    Format: `{[users|organizations]}/{id}`.
-    """
+    namespace_id: builtins.str
+    """The ID of the namespace that requested the pipeline triggers."""
     aggregation_window: builtins.str
     """Aggregation window. The value is a positive duration string, i.e. a
     sequence of decimal numbers, each with optional fraction and a unit
@@ -280,13 +236,13 @@ class ListPipelineTriggerChartRecordsRequest(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        requester: builtins.str = ...,
+        namespace_id: builtins.str = ...,
         aggregation_window: builtins.str | None = ...,
         start: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         stop: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_aggregation_window", b"_aggregation_window", "_start", b"_start", "_stop", b"_stop", "aggregation_window", b"aggregation_window", "start", b"start", "stop", b"stop"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_aggregation_window", b"_aggregation_window", "_start", b"_start", "_stop", b"_stop", "aggregation_window", b"aggregation_window", "requester", b"requester", "start", b"start", "stop", b"stop"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_aggregation_window", b"_aggregation_window", "_start", b"_start", "_stop", b"_stop", "aggregation_window", b"aggregation_window", "namespace_id", b"namespace_id", "start", b"start", "stop", b"stop"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_aggregation_window", b"_aggregation_window"]) -> typing_extensions.Literal["aggregation_window"] | None: ...
     @typing.overload
@@ -330,12 +286,12 @@ class CreditConsumptionChartRecord(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    CREDIT_OWNER_FIELD_NUMBER: builtins.int
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
     TIME_BUCKETS_FIELD_NUMBER: builtins.int
     AMOUNT_FIELD_NUMBER: builtins.int
     SOURCE_FIELD_NUMBER: builtins.int
-    credit_owner: builtins.str
-    """Credit owner ID, e.g. `users/chef-wombat`."""
+    namespace_id: builtins.str
+    """The ID of the namespace that owns the credit."""
     @property
     def time_buckets(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.timestamp_pb2.Timestamp]:
         """Time buckets."""
@@ -347,12 +303,12 @@ class CreditConsumptionChartRecord(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        credit_owner: builtins.str = ...,
+        namespace_id: builtins.str = ...,
         time_buckets: collections.abc.Iterable[google.protobuf.timestamp_pb2.Timestamp] | None = ...,
         amount: collections.abc.Iterable[builtins.float] | None = ...,
         source: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["amount", b"amount", "credit_owner", b"credit_owner", "source", b"source", "time_buckets", b"time_buckets"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["amount", b"amount", "namespace_id", b"namespace_id", "source", b"source", "time_buckets", b"time_buckets"]) -> None: ...
 
 global___CreditConsumptionChartRecord = CreditConsumptionChartRecord
 
@@ -365,14 +321,12 @@ class ListCreditConsumptionChartRecordsRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    OWNER_FIELD_NUMBER: builtins.int
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
     AGGREGATION_WINDOW_FIELD_NUMBER: builtins.int
     START_FIELD_NUMBER: builtins.int
     STOP_FIELD_NUMBER: builtins.int
-    owner: builtins.str
-    """The user or organization to which the credit belongs.
-    Format: `{[users|organizations]}/{id}`.
-    """
+    namespace_id: builtins.str
+    """The ID of the namespace that owns the credit."""
     aggregation_window: builtins.str
     """Aggregation window. The value is a positive duration string, i.e. a
     sequence of decimal numbers, each with optional fraction and a unit
@@ -392,13 +346,13 @@ class ListCreditConsumptionChartRecordsRequest(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        owner: builtins.str = ...,
+        namespace_id: builtins.str = ...,
         aggregation_window: builtins.str | None = ...,
         start: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         stop: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_aggregation_window", b"_aggregation_window", "_start", b"_start", "_stop", b"_stop", "aggregation_window", b"aggregation_window", "start", b"start", "stop", b"stop"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_aggregation_window", b"_aggregation_window", "_start", b"_start", "_stop", b"_stop", "aggregation_window", b"aggregation_window", "owner", b"owner", "start", b"start", "stop", b"stop"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_aggregation_window", b"_aggregation_window", "_start", b"_start", "_stop", b"_stop", "aggregation_window", b"aggregation_window", "namespace_id", b"namespace_id", "start", b"start", "stop", b"stop"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_aggregation_window", b"_aggregation_window"]) -> typing_extensions.Literal["aggregation_window"] | None: ...
     @typing.overload

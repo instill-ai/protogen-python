@@ -15,7 +15,7 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1d\x63ore/mgmt/v1beta/metric.proto\x12\x10\x63ore.mgmt.v1beta\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x89\x01\n\x14PipelineTriggerCount\x12)\n\rtrigger_count\x18\x01 \x01(\x05\x42\x04\xe2\x41\x01\x03R\x0ctriggerCount\x12;\n\x06status\x18\x02 \x01(\x0e\x32\x18.core.mgmt.v1beta.StatusB\x04\xe2\x41\x01\x03H\x00R\x06status\x88\x01\x01\x42\t\n\x07_status\"\xc6\x02\n\x1aPipelineTriggerTableRecord\x12\x1f\n\x0bpipeline_id\x18\x01 \x01(\tR\npipelineId\x12!\n\x0cpipeline_uid\x18\x02 \x01(\tR\x0bpipelineUid\x12<\n\x17trigger_count_completed\x18\x03 \x01(\x05\x42\x04\xe2\x41\x01\x03R\x15triggerCountCompleted\x12\x38\n\x15trigger_count_errored\x18\x04 \x01(\x05\x42\x04\xe2\x41\x01\x03R\x13triggerCountErrored\x12\x34\n\x13pipeline_release_id\x18\x05 \x01(\tB\x04\xe2\x41\x01\x03R\x11pipelineReleaseId\x12\x36\n\x14pipeline_release_uid\x18\x06 \x01(\tB\x04\xe2\x41\x01\x03R\x12pipelineReleaseUid\"\x92\x02\n\x1aPipelineTriggerChartRecord\x12*\n\x0bpipeline_id\x18\x01 \x01(\tB\x04\xe2\x41\x01\x03H\x00R\npipelineId\x88\x01\x01\x12\x43\n\x0ctime_buckets\x18\x05 \x03(\x0b\x32\x1a.google.protobuf.TimestampB\x04\xe2\x41\x01\x03R\x0btimeBuckets\x12+\n\x0etrigger_counts\x18\x06 \x03(\x05\x42\x04\xe2\x41\x01\x03R\rtriggerCounts\x12\"\n\trequester\x18\n \x01(\tB\x04\xe2\x41\x01\x03R\trequesterB\x0e\n\x0c_pipeline_idJ\x04\x08\x02\x10\x03J\x04\x08\x03\x10\x04J\x04\x08\x04\x10\x05J\x04\x08\x07\x10\x08J\x04\x08\x08\x10\tJ\x04\x08\t\x10\n\"\x8e\x02\n\x1eGetPipelineTriggerCountRequest\x12\"\n\trequester\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\trequester\x12\x32\n\x12\x61ggregation_window\x18\x02 \x01(\tH\x00R\x11\x61ggregationWindow\x88\x01\x01\x12\x35\n\x05start\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x01R\x05start\x88\x01\x01\x12\x33\n\x04stop\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x02R\x04stop\x88\x01\x01\x42\x15\n\x13_aggregation_windowB\x08\n\x06_startB\x07\n\x05_stop\"\x81\x01\n\x1fGetPipelineTriggerCountResponse\x12^\n\x17pipeline_trigger_counts\x18\x01 \x03(\x0b\x32&.core.mgmt.v1beta.PipelineTriggerCountR\x15pipelineTriggerCounts\"\xa2\x02\n&ListPipelineTriggerChartRecordsRequest\x12\"\n\trequester\x18\x03 \x01(\tB\x04\xe2\x41\x01\x02R\trequester\x12\x32\n\x12\x61ggregation_window\x18\x04 \x01(\tH\x00R\x11\x61ggregationWindow\x88\x01\x01\x12\x35\n\x05start\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x01R\x05start\x88\x01\x01\x12\x33\n\x04stop\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x02R\x04stop\x88\x01\x01\x42\x15\n\x13_aggregation_windowB\x08\n\x06_startB\x07\n\x05_stopJ\x04\x08\x01\x10\x02J\x04\x08\x02\x10\x03\"\x9c\x01\n\'ListPipelineTriggerChartRecordsResponse\x12q\n\x1epipeline_trigger_chart_records\x18\x01 \x03(\x0b\x32,.core.mgmt.v1beta.PipelineTriggerChartRecordR\x1bpipelineTriggerChartRecords\"\xc8\x01\n\x1c\x43reditConsumptionChartRecord\x12\'\n\x0c\x63redit_owner\x18\x01 \x01(\tB\x04\xe2\x41\x01\x03R\x0b\x63reditOwner\x12\x43\n\x0ctime_buckets\x18\x02 \x03(\x0b\x32\x1a.google.protobuf.TimestampB\x04\xe2\x41\x01\x03R\x0btimeBuckets\x12\x1c\n\x06\x61mount\x18\x03 \x03(\x02\x42\x04\xe2\x41\x01\x03R\x06\x61mount\x12\x1c\n\x06source\x18\x04 \x01(\tB\x04\xe2\x41\x01\x03R\x06source\"\x90\x02\n(ListCreditConsumptionChartRecordsRequest\x12\x1a\n\x05owner\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x05owner\x12\x32\n\x12\x61ggregation_window\x18\x02 \x01(\tH\x00R\x11\x61ggregationWindow\x88\x01\x01\x12\x35\n\x05start\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x01R\x05start\x88\x01\x01\x12\x33\n\x04stop\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x02R\x04stop\x88\x01\x01\x42\x15\n\x13_aggregation_windowB\x08\n\x06_startB\x07\n\x05_stop\"\xaa\x01\n)ListCreditConsumptionChartRecordsResponse\x12w\n credit_consumption_chart_records\x18\x01 \x03(\x0b\x32..core.mgmt.v1beta.CreditConsumptionChartRecordR\x1d\x63reditConsumptionChartRecordsJ\x04\x08\x02\x10\x03*;\n\x04Mode\x12\x14\n\x10MODE_UNSPECIFIED\x10\x00\x12\r\n\tMODE_SYNC\x10\x01\x12\x0e\n\nMODE_ASYNC\x10\x02*J\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x14\n\x10STATUS_COMPLETED\x10\x01\x12\x12\n\x0eSTATUS_ERRORED\x10\x02\x42\xc4\x01\n\x14\x63om.core.mgmt.v1betaB\x0bMetricProtoP\x01Z=github.com/instill-ai/protogen-go/core/mgmt/v1beta;mgmtv1beta\xa2\x02\x03\x43MX\xaa\x02\x10\x43ore.Mgmt.V1beta\xca\x02\x10\x43ore\\Mgmt\\V1beta\xe2\x02\x1c\x43ore\\Mgmt\\V1beta\\GPBMetadata\xea\x02\x12\x43ore::Mgmt::V1betab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1d\x63ore/mgmt/v1beta/metric.proto\x12\x10\x63ore.mgmt.v1beta\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x89\x01\n\x14PipelineTriggerCount\x12)\n\rtrigger_count\x18\x01 \x01(\x05\x42\x04\xe2\x41\x01\x03R\x0ctriggerCount\x12;\n\x06status\x18\x02 \x01(\x0e\x32\x18.core.mgmt.v1beta.StatusB\x04\xe2\x41\x01\x03H\x00R\x06status\x88\x01\x01\x42\t\n\x07_status\"\x97\x02\n\x1aPipelineTriggerChartRecord\x12*\n\x0bpipeline_id\x18\x01 \x01(\tB\x04\xe2\x41\x01\x03H\x00R\npipelineId\x88\x01\x01\x12\x43\n\x0ctime_buckets\x18\x05 \x03(\x0b\x32\x1a.google.protobuf.TimestampB\x04\xe2\x41\x01\x03R\x0btimeBuckets\x12+\n\x0etrigger_counts\x18\x06 \x03(\x05\x42\x04\xe2\x41\x01\x03R\rtriggerCounts\x12\'\n\x0cnamespace_id\x18\n \x01(\tB\x04\xe2\x41\x01\x03R\x0bnamespaceIdB\x0e\n\x0c_pipeline_idJ\x04\x08\x02\x10\x03J\x04\x08\x03\x10\x04J\x04\x08\x04\x10\x05J\x04\x08\x07\x10\x08J\x04\x08\x08\x10\tJ\x04\x08\t\x10\n\"\x93\x02\n\x1eGetPipelineTriggerCountRequest\x12\'\n\x0cnamespace_id\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x0bnamespaceId\x12\x32\n\x12\x61ggregation_window\x18\x02 \x01(\tH\x00R\x11\x61ggregationWindow\x88\x01\x01\x12\x35\n\x05start\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x01R\x05start\x88\x01\x01\x12\x33\n\x04stop\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x02R\x04stop\x88\x01\x01\x42\x15\n\x13_aggregation_windowB\x08\n\x06_startB\x07\n\x05_stop\"\x81\x01\n\x1fGetPipelineTriggerCountResponse\x12^\n\x17pipeline_trigger_counts\x18\x01 \x03(\x0b\x32&.core.mgmt.v1beta.PipelineTriggerCountR\x15pipelineTriggerCounts\"\xa7\x02\n&ListPipelineTriggerChartRecordsRequest\x12\'\n\x0cnamespace_id\x18\x03 \x01(\tB\x04\xe2\x41\x01\x02R\x0bnamespaceId\x12\x32\n\x12\x61ggregation_window\x18\x04 \x01(\tH\x00R\x11\x61ggregationWindow\x88\x01\x01\x12\x35\n\x05start\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x01R\x05start\x88\x01\x01\x12\x33\n\x04stop\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x02R\x04stop\x88\x01\x01\x42\x15\n\x13_aggregation_windowB\x08\n\x06_startB\x07\n\x05_stopJ\x04\x08\x01\x10\x02J\x04\x08\x02\x10\x03\"\x9c\x01\n\'ListPipelineTriggerChartRecordsResponse\x12q\n\x1epipeline_trigger_chart_records\x18\x01 \x03(\x0b\x32,.core.mgmt.v1beta.PipelineTriggerChartRecordR\x1bpipelineTriggerChartRecords\"\xc8\x01\n\x1c\x43reditConsumptionChartRecord\x12\'\n\x0cnamespace_id\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x0bnamespaceId\x12\x43\n\x0ctime_buckets\x18\x02 \x03(\x0b\x32\x1a.google.protobuf.TimestampB\x04\xe2\x41\x01\x03R\x0btimeBuckets\x12\x1c\n\x06\x61mount\x18\x03 \x03(\x02\x42\x04\xe2\x41\x01\x03R\x06\x61mount\x12\x1c\n\x06source\x18\x04 \x01(\tB\x04\xe2\x41\x01\x03R\x06source\"\x9d\x02\n(ListCreditConsumptionChartRecordsRequest\x12\'\n\x0cnamespace_id\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x0bnamespaceId\x12\x32\n\x12\x61ggregation_window\x18\x02 \x01(\tH\x00R\x11\x61ggregationWindow\x88\x01\x01\x12\x35\n\x05start\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x01R\x05start\x88\x01\x01\x12\x33\n\x04stop\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x02R\x04stop\x88\x01\x01\x42\x15\n\x13_aggregation_windowB\x08\n\x06_startB\x07\n\x05_stop\"\xaa\x01\n)ListCreditConsumptionChartRecordsResponse\x12w\n credit_consumption_chart_records\x18\x01 \x03(\x0b\x32..core.mgmt.v1beta.CreditConsumptionChartRecordR\x1d\x63reditConsumptionChartRecordsJ\x04\x08\x02\x10\x03*;\n\x04Mode\x12\x14\n\x10MODE_UNSPECIFIED\x10\x00\x12\r\n\tMODE_SYNC\x10\x01\x12\x0e\n\nMODE_ASYNC\x10\x02*J\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x14\n\x10STATUS_COMPLETED\x10\x01\x12\x12\n\x0eSTATUS_ERRORED\x10\x02\x42\xc4\x01\n\x14\x63om.core.mgmt.v1betaB\x0bMetricProtoP\x01Z=github.com/instill-ai/protogen-go/core/mgmt/v1beta;mgmtv1beta\xa2\x02\x03\x43MX\xaa\x02\x10\x43ore.Mgmt.V1beta\xca\x02\x10\x43ore\\Mgmt\\V1beta\xe2\x02\x1c\x43ore\\Mgmt\\V1beta\\GPBMetadata\xea\x02\x12\x43ore::Mgmt::V1betab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -28,58 +28,48 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _PIPELINETRIGGERCOUNT.fields_by_name['trigger_count']._serialized_options = b'\342A\001\003'
   _PIPELINETRIGGERCOUNT.fields_by_name['status']._options = None
   _PIPELINETRIGGERCOUNT.fields_by_name['status']._serialized_options = b'\342A\001\003'
-  _PIPELINETRIGGERTABLERECORD.fields_by_name['trigger_count_completed']._options = None
-  _PIPELINETRIGGERTABLERECORD.fields_by_name['trigger_count_completed']._serialized_options = b'\342A\001\003'
-  _PIPELINETRIGGERTABLERECORD.fields_by_name['trigger_count_errored']._options = None
-  _PIPELINETRIGGERTABLERECORD.fields_by_name['trigger_count_errored']._serialized_options = b'\342A\001\003'
-  _PIPELINETRIGGERTABLERECORD.fields_by_name['pipeline_release_id']._options = None
-  _PIPELINETRIGGERTABLERECORD.fields_by_name['pipeline_release_id']._serialized_options = b'\342A\001\003'
-  _PIPELINETRIGGERTABLERECORD.fields_by_name['pipeline_release_uid']._options = None
-  _PIPELINETRIGGERTABLERECORD.fields_by_name['pipeline_release_uid']._serialized_options = b'\342A\001\003'
   _PIPELINETRIGGERCHARTRECORD.fields_by_name['pipeline_id']._options = None
   _PIPELINETRIGGERCHARTRECORD.fields_by_name['pipeline_id']._serialized_options = b'\342A\001\003'
   _PIPELINETRIGGERCHARTRECORD.fields_by_name['time_buckets']._options = None
   _PIPELINETRIGGERCHARTRECORD.fields_by_name['time_buckets']._serialized_options = b'\342A\001\003'
   _PIPELINETRIGGERCHARTRECORD.fields_by_name['trigger_counts']._options = None
   _PIPELINETRIGGERCHARTRECORD.fields_by_name['trigger_counts']._serialized_options = b'\342A\001\003'
-  _PIPELINETRIGGERCHARTRECORD.fields_by_name['requester']._options = None
-  _PIPELINETRIGGERCHARTRECORD.fields_by_name['requester']._serialized_options = b'\342A\001\003'
-  _GETPIPELINETRIGGERCOUNTREQUEST.fields_by_name['requester']._options = None
-  _GETPIPELINETRIGGERCOUNTREQUEST.fields_by_name['requester']._serialized_options = b'\342A\001\002'
-  _LISTPIPELINETRIGGERCHARTRECORDSREQUEST.fields_by_name['requester']._options = None
-  _LISTPIPELINETRIGGERCHARTRECORDSREQUEST.fields_by_name['requester']._serialized_options = b'\342A\001\002'
-  _CREDITCONSUMPTIONCHARTRECORD.fields_by_name['credit_owner']._options = None
-  _CREDITCONSUMPTIONCHARTRECORD.fields_by_name['credit_owner']._serialized_options = b'\342A\001\003'
+  _PIPELINETRIGGERCHARTRECORD.fields_by_name['namespace_id']._options = None
+  _PIPELINETRIGGERCHARTRECORD.fields_by_name['namespace_id']._serialized_options = b'\342A\001\003'
+  _GETPIPELINETRIGGERCOUNTREQUEST.fields_by_name['namespace_id']._options = None
+  _GETPIPELINETRIGGERCOUNTREQUEST.fields_by_name['namespace_id']._serialized_options = b'\342A\001\002'
+  _LISTPIPELINETRIGGERCHARTRECORDSREQUEST.fields_by_name['namespace_id']._options = None
+  _LISTPIPELINETRIGGERCHARTRECORDSREQUEST.fields_by_name['namespace_id']._serialized_options = b'\342A\001\002'
+  _CREDITCONSUMPTIONCHARTRECORD.fields_by_name['namespace_id']._options = None
+  _CREDITCONSUMPTIONCHARTRECORD.fields_by_name['namespace_id']._serialized_options = b'\342A\001\002'
   _CREDITCONSUMPTIONCHARTRECORD.fields_by_name['time_buckets']._options = None
   _CREDITCONSUMPTIONCHARTRECORD.fields_by_name['time_buckets']._serialized_options = b'\342A\001\003'
   _CREDITCONSUMPTIONCHARTRECORD.fields_by_name['amount']._options = None
   _CREDITCONSUMPTIONCHARTRECORD.fields_by_name['amount']._serialized_options = b'\342A\001\003'
   _CREDITCONSUMPTIONCHARTRECORD.fields_by_name['source']._options = None
   _CREDITCONSUMPTIONCHARTRECORD.fields_by_name['source']._serialized_options = b'\342A\001\003'
-  _LISTCREDITCONSUMPTIONCHARTRECORDSREQUEST.fields_by_name['owner']._options = None
-  _LISTCREDITCONSUMPTIONCHARTRECORDSREQUEST.fields_by_name['owner']._serialized_options = b'\342A\001\002'
-  _globals['_MODE']._serialized_start=2371
-  _globals['_MODE']._serialized_end=2430
-  _globals['_STATUS']._serialized_start=2432
-  _globals['_STATUS']._serialized_end=2506
+  _LISTCREDITCONSUMPTIONCHARTRECORDSREQUEST.fields_by_name['namespace_id']._options = None
+  _LISTCREDITCONSUMPTIONCHARTRECORDSREQUEST.fields_by_name['namespace_id']._serialized_options = b'\342A\001\002'
+  _globals['_MODE']._serialized_start=2070
+  _globals['_MODE']._serialized_end=2129
+  _globals['_STATUS']._serialized_start=2131
+  _globals['_STATUS']._serialized_end=2205
   _globals['_PIPELINETRIGGERCOUNT']._serialized_start=118
   _globals['_PIPELINETRIGGERCOUNT']._serialized_end=255
-  _globals['_PIPELINETRIGGERTABLERECORD']._serialized_start=258
-  _globals['_PIPELINETRIGGERTABLERECORD']._serialized_end=584
-  _globals['_PIPELINETRIGGERCHARTRECORD']._serialized_start=587
-  _globals['_PIPELINETRIGGERCHARTRECORD']._serialized_end=861
-  _globals['_GETPIPELINETRIGGERCOUNTREQUEST']._serialized_start=864
-  _globals['_GETPIPELINETRIGGERCOUNTREQUEST']._serialized_end=1134
-  _globals['_GETPIPELINETRIGGERCOUNTRESPONSE']._serialized_start=1137
-  _globals['_GETPIPELINETRIGGERCOUNTRESPONSE']._serialized_end=1266
-  _globals['_LISTPIPELINETRIGGERCHARTRECORDSREQUEST']._serialized_start=1269
-  _globals['_LISTPIPELINETRIGGERCHARTRECORDSREQUEST']._serialized_end=1559
-  _globals['_LISTPIPELINETRIGGERCHARTRECORDSRESPONSE']._serialized_start=1562
-  _globals['_LISTPIPELINETRIGGERCHARTRECORDSRESPONSE']._serialized_end=1718
-  _globals['_CREDITCONSUMPTIONCHARTRECORD']._serialized_start=1721
-  _globals['_CREDITCONSUMPTIONCHARTRECORD']._serialized_end=1921
-  _globals['_LISTCREDITCONSUMPTIONCHARTRECORDSREQUEST']._serialized_start=1924
-  _globals['_LISTCREDITCONSUMPTIONCHARTRECORDSREQUEST']._serialized_end=2196
-  _globals['_LISTCREDITCONSUMPTIONCHARTRECORDSRESPONSE']._serialized_start=2199
-  _globals['_LISTCREDITCONSUMPTIONCHARTRECORDSRESPONSE']._serialized_end=2369
+  _globals['_PIPELINETRIGGERCHARTRECORD']._serialized_start=258
+  _globals['_PIPELINETRIGGERCHARTRECORD']._serialized_end=537
+  _globals['_GETPIPELINETRIGGERCOUNTREQUEST']._serialized_start=540
+  _globals['_GETPIPELINETRIGGERCOUNTREQUEST']._serialized_end=815
+  _globals['_GETPIPELINETRIGGERCOUNTRESPONSE']._serialized_start=818
+  _globals['_GETPIPELINETRIGGERCOUNTRESPONSE']._serialized_end=947
+  _globals['_LISTPIPELINETRIGGERCHARTRECORDSREQUEST']._serialized_start=950
+  _globals['_LISTPIPELINETRIGGERCHARTRECORDSREQUEST']._serialized_end=1245
+  _globals['_LISTPIPELINETRIGGERCHARTRECORDSRESPONSE']._serialized_start=1248
+  _globals['_LISTPIPELINETRIGGERCHARTRECORDSRESPONSE']._serialized_end=1404
+  _globals['_CREDITCONSUMPTIONCHARTRECORD']._serialized_start=1407
+  _globals['_CREDITCONSUMPTIONCHARTRECORD']._serialized_end=1607
+  _globals['_LISTCREDITCONSUMPTIONCHARTRECORDSREQUEST']._serialized_start=1610
+  _globals['_LISTCREDITCONSUMPTIONCHARTRECORDSREQUEST']._serialized_end=1895
+  _globals['_LISTCREDITCONSUMPTIONCHARTRECORDSRESPONSE']._serialized_start=1898
+  _globals['_LISTCREDITCONSUMPTIONCHARTRECORDSRESPONSE']._serialized_end=2068
 # @@protoc_insertion_point(module_scope)
