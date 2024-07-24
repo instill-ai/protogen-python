@@ -12,11 +12,9 @@ _sym_db = _symbol_database.Default()
 
 
 from core.mgmt.v1beta import mgmt_pb2 as core_dot_mgmt_dot_v1beta_dot_mgmt__pb2
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
-from google.api import visibility_pb2 as google_dot_api_dot_visibility__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+core/mgmt/v1beta/mgmt_private_service.proto\x12\x10\x63ore.mgmt.v1beta\x1a\x1b\x63ore/mgmt/v1beta/mgmt.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x1bgoogle/api/visibility.proto2\xcf\r\n\x12MgmtPrivateService\x12\x80\x01\n\x0eListUsersAdmin\x12\'.core.mgmt.v1beta.ListUsersAdminRequest\x1a(.core.mgmt.v1beta.ListUsersAdminResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\x12\x13/v1beta/admin/users\x12\x83\x01\n\x0cGetUserAdmin\x12%.core.mgmt.v1beta.GetUserAdminRequest\x1a&.core.mgmt.v1beta.GetUserAdminResponse\"$\x82\xd3\xe4\x93\x02\x1e\x12\x1c/v1beta/admin/{name=users/*}\x12\x98\x01\n\x0fLookUpUserAdmin\x12(.core.mgmt.v1beta.LookUpUserAdminRequest\x1a).core.mgmt.v1beta.LookUpUserAdminResponse\"0\x82\xd3\xe4\x93\x02*\x12(/v1beta/admin/{permalink=users/*}/lookUp\x12\xa0\x01\n\x16ListOrganizationsAdmin\x12/.core.mgmt.v1beta.ListOrganizationsAdminRequest\x1a\x30.core.mgmt.v1beta.ListOrganizationsAdminResponse\"#\x82\xd3\xe4\x93\x02\x1d\x12\x1b/v1beta/admin/organizations\x12\xa3\x01\n\x14GetOrganizationAdmin\x12-.core.mgmt.v1beta.GetOrganizationAdminRequest\x1a..core.mgmt.v1beta.GetOrganizationAdminResponse\",\x82\xd3\xe4\x93\x02&\x12$/v1beta/admin/{name=organizations/*}\x12\xb8\x01\n\x17LookUpOrganizationAdmin\x12\x30.core.mgmt.v1beta.LookUpOrganizationAdminRequest\x1a\x31.core.mgmt.v1beta.LookUpOrganizationAdminResponse\"8\x82\xd3\xe4\x93\x02\x32\x12\x30/v1beta/admin/{permalink=organizations/*}/lookUp\x12\xb6\x01\n\x18GetUserSubscriptionAdmin\x12\x31.core.mgmt.v1beta.GetUserSubscriptionAdminRequest\x1a\x32.core.mgmt.v1beta.GetUserSubscriptionAdminResponse\"3\x82\xd3\xe4\x93\x02-\x12+/v1beta/admin/{parent=users/*}/subscription\x12\xd6\x01\n GetOrganizationSubscriptionAdmin\x12\x39.core.mgmt.v1beta.GetOrganizationSubscriptionAdminRequest\x1a:.core.mgmt.v1beta.GetOrganizationSubscriptionAdminResponse\";\x82\xd3\xe4\x93\x02\x35\x12\x33/v1beta/admin/{parent=organizations/*}/subscription\x12t\n\x13SubtractCreditAdmin\x12,.core.mgmt.v1beta.SubtractCreditAdminRequest\x1a-.core.mgmt.v1beta.SubtractCreditAdminResponse\"\x00\x12\x80\x01\n\x17GetRemainingCreditAdmin\x12\x30.core.mgmt.v1beta.GetRemainingCreditAdminRequest\x1a\x31.core.mgmt.v1beta.GetRemainingCreditAdminResponse\"\x00\x12t\n\x13\x43heckNamespaceAdmin\x12,.core.mgmt.v1beta.CheckNamespaceAdminRequest\x1a-.core.mgmt.v1beta.CheckNamespaceAdminResponse\"\x00\x1a\x10\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNALB\xd0\x01\n\x14\x63om.core.mgmt.v1betaB\x17MgmtPrivateServiceProtoP\x01Z=github.com/instill-ai/protogen-go/core/mgmt/v1beta;mgmtv1beta\xa2\x02\x03\x43MX\xaa\x02\x10\x43ore.Mgmt.V1beta\xca\x02\x10\x43ore\\Mgmt\\V1beta\xe2\x02\x1c\x43ore\\Mgmt\\V1beta\\GPBMetadata\xea\x02\x12\x43ore::Mgmt::V1betab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+core/mgmt/v1beta/mgmt_private_service.proto\x12\x10\x63ore.mgmt.v1beta\x1a\x1b\x63ore/mgmt/v1beta/mgmt.proto2\xd4\n\n\x12MgmtPrivateService\x12\x65\n\x0eListUsersAdmin\x12\'.core.mgmt.v1beta.ListUsersAdminRequest\x1a(.core.mgmt.v1beta.ListUsersAdminResponse\"\x00\x12_\n\x0cGetUserAdmin\x12%.core.mgmt.v1beta.GetUserAdminRequest\x1a&.core.mgmt.v1beta.GetUserAdminResponse\"\x00\x12h\n\x0fLookUpUserAdmin\x12(.core.mgmt.v1beta.LookUpUserAdminRequest\x1a).core.mgmt.v1beta.LookUpUserAdminResponse\"\x00\x12}\n\x16ListOrganizationsAdmin\x12/.core.mgmt.v1beta.ListOrganizationsAdminRequest\x1a\x30.core.mgmt.v1beta.ListOrganizationsAdminResponse\"\x00\x12w\n\x14GetOrganizationAdmin\x12-.core.mgmt.v1beta.GetOrganizationAdminRequest\x1a..core.mgmt.v1beta.GetOrganizationAdminResponse\"\x00\x12\x80\x01\n\x17LookUpOrganizationAdmin\x12\x30.core.mgmt.v1beta.LookUpOrganizationAdminRequest\x1a\x31.core.mgmt.v1beta.LookUpOrganizationAdminResponse\"\x00\x12\x83\x01\n\x18GetUserSubscriptionAdmin\x12\x31.core.mgmt.v1beta.GetUserSubscriptionAdminRequest\x1a\x32.core.mgmt.v1beta.GetUserSubscriptionAdminResponse\"\x00\x12\x9b\x01\n GetOrganizationSubscriptionAdmin\x12\x39.core.mgmt.v1beta.GetOrganizationSubscriptionAdminRequest\x1a:.core.mgmt.v1beta.GetOrganizationSubscriptionAdminResponse\"\x00\x12t\n\x13SubtractCreditAdmin\x12,.core.mgmt.v1beta.SubtractCreditAdminRequest\x1a-.core.mgmt.v1beta.SubtractCreditAdminResponse\"\x00\x12\x80\x01\n\x17GetRemainingCreditAdmin\x12\x30.core.mgmt.v1beta.GetRemainingCreditAdminRequest\x1a\x31.core.mgmt.v1beta.GetRemainingCreditAdminResponse\"\x00\x12t\n\x13\x43heckNamespaceAdmin\x12,.core.mgmt.v1beta.CheckNamespaceAdminRequest\x1a-.core.mgmt.v1beta.CheckNamespaceAdminResponse\"\x00\x42\xd0\x01\n\x14\x63om.core.mgmt.v1betaB\x17MgmtPrivateServiceProtoP\x01Z=github.com/instill-ai/protogen-go/core/mgmt/v1beta;mgmtv1beta\xa2\x02\x03\x43MX\xaa\x02\x10\x43ore.Mgmt.V1beta\xca\x02\x10\x43ore\\Mgmt\\V1beta\xe2\x02\x1c\x43ore\\Mgmt\\V1beta\\GPBMetadata\xea\x02\x12\x43ore::Mgmt::V1betab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -25,24 +23,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\024com.core.mgmt.v1betaB\027MgmtPrivateServiceProtoP\001Z=github.com/instill-ai/protogen-go/core/mgmt/v1beta;mgmtv1beta\242\002\003CMX\252\002\020Core.Mgmt.V1beta\312\002\020Core\\Mgmt\\V1beta\342\002\034Core\\Mgmt\\V1beta\\GPBMetadata\352\002\022Core::Mgmt::V1beta'
-  _MGMTPRIVATESERVICE._options = None
-  _MGMTPRIVATESERVICE._serialized_options = b'\372\322\344\223\002\n\022\010INTERNAL'
-  _MGMTPRIVATESERVICE.methods_by_name['ListUsersAdmin']._options = None
-  _MGMTPRIVATESERVICE.methods_by_name['ListUsersAdmin']._serialized_options = b'\202\323\344\223\002\025\022\023/v1beta/admin/users'
-  _MGMTPRIVATESERVICE.methods_by_name['GetUserAdmin']._options = None
-  _MGMTPRIVATESERVICE.methods_by_name['GetUserAdmin']._serialized_options = b'\202\323\344\223\002\036\022\034/v1beta/admin/{name=users/*}'
-  _MGMTPRIVATESERVICE.methods_by_name['LookUpUserAdmin']._options = None
-  _MGMTPRIVATESERVICE.methods_by_name['LookUpUserAdmin']._serialized_options = b'\202\323\344\223\002*\022(/v1beta/admin/{permalink=users/*}/lookUp'
-  _MGMTPRIVATESERVICE.methods_by_name['ListOrganizationsAdmin']._options = None
-  _MGMTPRIVATESERVICE.methods_by_name['ListOrganizationsAdmin']._serialized_options = b'\202\323\344\223\002\035\022\033/v1beta/admin/organizations'
-  _MGMTPRIVATESERVICE.methods_by_name['GetOrganizationAdmin']._options = None
-  _MGMTPRIVATESERVICE.methods_by_name['GetOrganizationAdmin']._serialized_options = b'\202\323\344\223\002&\022$/v1beta/admin/{name=organizations/*}'
-  _MGMTPRIVATESERVICE.methods_by_name['LookUpOrganizationAdmin']._options = None
-  _MGMTPRIVATESERVICE.methods_by_name['LookUpOrganizationAdmin']._serialized_options = b'\202\323\344\223\0022\0220/v1beta/admin/{permalink=organizations/*}/lookUp'
-  _MGMTPRIVATESERVICE.methods_by_name['GetUserSubscriptionAdmin']._options = None
-  _MGMTPRIVATESERVICE.methods_by_name['GetUserSubscriptionAdmin']._serialized_options = b'\202\323\344\223\002-\022+/v1beta/admin/{parent=users/*}/subscription'
-  _MGMTPRIVATESERVICE.methods_by_name['GetOrganizationSubscriptionAdmin']._options = None
-  _MGMTPRIVATESERVICE.methods_by_name['GetOrganizationSubscriptionAdmin']._serialized_options = b'\202\323\344\223\0025\0223/v1beta/admin/{parent=organizations/*}/subscription'
-  _globals['_MGMTPRIVATESERVICE']._serialized_start=154
-  _globals['_MGMTPRIVATESERVICE']._serialized_end=1897
+  _globals['_MGMTPRIVATESERVICE']._serialized_start=95
+  _globals['_MGMTPRIVATESERVICE']._serialized_end=1459
 # @@protoc_insertion_point(module_scope)

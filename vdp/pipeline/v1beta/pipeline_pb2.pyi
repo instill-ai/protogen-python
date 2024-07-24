@@ -141,8 +141,7 @@ class Pipeline(google.protobuf.message.Message):
     """A Pipeline is an end-to-end workflow that automates a sequence of components
     to process data.
 
-    For more information, see
-    [Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline) in
+    For more information, see [Pipeline](https://www.instill.tech/docs/vdp/introduction) in
     the official documentation.
     """
 
@@ -679,6 +678,104 @@ class ListPipelinesResponse(google.protobuf.message.Message):
 global___ListPipelinesResponse = ListPipelinesResponse
 
 @typing_extensions.final
+class ListNamespacePipelinesRequest(google.protobuf.message.Message):
+    """ListNamespacePipelinesRequest represents a request to list pipelines."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    VIEW_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
+    SHOW_DELETED_FIELD_NUMBER: builtins.int
+    VISIBILITY_FIELD_NUMBER: builtins.int
+    ORDER_BY_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    page_size: builtins.int
+    """The maximum number of pipelines to return. If this parameter is
+    unspecified, at most 10 pipelines will be returned. The cap value for this
+    parameter is 100 (i.e. any value above that will be coerced to 100).
+    """
+    page_token: builtins.str
+    """Page token."""
+    view: global___Pipeline.View.ValueType
+    """View allows clients to specify the desired pipeline view in the response."""
+    filter: builtins.str
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    - Example:
+    `recipe.components.definition_name:"operator-definitions/2ac8be70-0f7a-4b61-a33d-098b8acfa6f3"`.
+    """
+    show_deleted: builtins.bool
+    """Include soft-deleted pipelines in the result."""
+    visibility: global___Pipeline.Visibility.ValueType
+    """Limit results to pipelines with the specified visibility."""
+    order_by: builtins.str
+    """Order by field, with options for ordering by `id`, `create_time` or `update_time`.
+    Format: `order_by=id` or `order_by=create_time desc`, default is `asc`.
+    """
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        page_size: builtins.int | None = ...,
+        page_token: builtins.str | None = ...,
+        view: global___Pipeline.View.ValueType | None = ...,
+        filter: builtins.str | None = ...,
+        show_deleted: builtins.bool | None = ...,
+        visibility: global___Pipeline.Visibility.ValueType | None = ...,
+        order_by: builtins.str | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "order_by", b"order_by", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "namespace_id", b"namespace_id", "order_by", b"order_by", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_order_by", b"_order_by"]) -> typing_extensions.Literal["order_by"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_token", b"_page_token"]) -> typing_extensions.Literal["page_token"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_show_deleted", b"_show_deleted"]) -> typing_extensions.Literal["show_deleted"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_visibility", b"_visibility"]) -> typing_extensions.Literal["visibility"] | None: ...
+
+global___ListNamespacePipelinesRequest = ListNamespacePipelinesRequest
+
+@typing_extensions.final
+class ListNamespacePipelinesResponse(google.protobuf.message.Message):
+    """ListNamespacePipelinesResponse contains a list of pipelines."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PIPELINES_FIELD_NUMBER: builtins.int
+    NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    @property
+    def pipelines(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Pipeline]:
+        """A list of pipeline resources."""
+    next_page_token: builtins.str
+    """Next page token."""
+    total_size: builtins.int
+    """Total number of pipelines."""
+    def __init__(
+        self,
+        *,
+        pipelines: collections.abc.Iterable[global___Pipeline] | None = ...,
+        next_page_token: builtins.str = ...,
+        total_size: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "pipelines", b"pipelines", "total_size", b"total_size"]) -> None: ...
+
+global___ListNamespacePipelinesResponse = ListNamespacePipelinesResponse
+
+@typing_extensions.final
 class LookUpPipelineRequest(google.protobuf.message.Message):
     """LookUpPipelineRequest represents a request to query a pipeline by its UID."""
 
@@ -723,6 +820,1006 @@ class LookUpPipelineResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline"]) -> None: ...
 
 global___LookUpPipelineResponse = LookUpPipelineResponse
+
+@typing_extensions.final
+class CreateNamespacePipelineRequest(google.protobuf.message.Message):
+    """CreateNamespacePipelineRequest represents a request from a namespace to create a
+    pipeline.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The namespace that creates the pipeline."""
+    @property
+    def pipeline(self) -> global___Pipeline:
+        """The properties of the pipeline to be created."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        pipeline: global___Pipeline | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "pipeline", b"pipeline"]) -> None: ...
+
+global___CreateNamespacePipelineRequest = CreateNamespacePipelineRequest
+
+@typing_extensions.final
+class CreateNamespacePipelineResponse(google.protobuf.message.Message):
+    """CreateNamespacePipelineResponse contains the created pipeline."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PIPELINE_FIELD_NUMBER: builtins.int
+    @property
+    def pipeline(self) -> global___Pipeline:
+        """The created pipeline resource."""
+    def __init__(
+        self,
+        *,
+        pipeline: global___Pipeline | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline"]) -> None: ...
+
+global___CreateNamespacePipelineResponse = CreateNamespacePipelineResponse
+
+@typing_extensions.final
+class GetNamespacePipelineRequest(google.protobuf.message.Message):
+    """GetNamespacePipelineRequest represents a request to fetch the details of a
+    pipeline owned by a namespace.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    VIEW_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    pipeline_id: builtins.str
+    """Pipeline ID"""
+    view: global___Pipeline.View.ValueType
+    """View allows clients to specify the desired pipeline view in the response."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        pipeline_id: builtins.str = ...,
+        view: global___Pipeline.View.ValueType | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id", "view", b"view"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+
+global___GetNamespacePipelineRequest = GetNamespacePipelineRequest
+
+@typing_extensions.final
+class GetNamespacePipelineResponse(google.protobuf.message.Message):
+    """GetNamespacePipelineResponse contains the requested pipeline."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PIPELINE_FIELD_NUMBER: builtins.int
+    @property
+    def pipeline(self) -> global___Pipeline:
+        """The pipeline resource."""
+    def __init__(
+        self,
+        *,
+        pipeline: global___Pipeline | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline"]) -> None: ...
+
+global___GetNamespacePipelineResponse = GetNamespacePipelineResponse
+
+@typing_extensions.final
+class UpdateNamespacePipelineRequest(google.protobuf.message.Message):
+    """UpdateNamespacePipelineRequest represents a request to update a pipeline owned by
+    a namespace.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_FIELD_NUMBER: builtins.int
+    UPDATE_MASK_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    pipeline_id: builtins.str
+    """Pipeline ID"""
+    @property
+    def pipeline(self) -> global___Pipeline:
+        """The pipeline fields that will replace the existing ones."""
+    @property
+    def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
+        """The update mask specifies the subset of fields that should be modified.
+
+        For more information about this field, see
+        https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#field-mask.
+        """
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        pipeline_id: builtins.str = ...,
+        pipeline: global___Pipeline | None = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline", "update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "pipeline", b"pipeline", "pipeline_id", b"pipeline_id", "update_mask", b"update_mask"]) -> None: ...
+
+global___UpdateNamespacePipelineRequest = UpdateNamespacePipelineRequest
+
+@typing_extensions.final
+class UpdateNamespacePipelineResponse(google.protobuf.message.Message):
+    """UpdateNamespacePipelineResponse contains the updated pipeline."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PIPELINE_FIELD_NUMBER: builtins.int
+    @property
+    def pipeline(self) -> global___Pipeline:
+        """The updated pipeline resource."""
+    def __init__(
+        self,
+        *,
+        pipeline: global___Pipeline | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline"]) -> None: ...
+
+global___UpdateNamespacePipelineResponse = UpdateNamespacePipelineResponse
+
+@typing_extensions.final
+class DeleteNamespacePipelineRequest(google.protobuf.message.Message):
+    """DeleteNamespacePipelineRequest represents a request to delete a pipeline owned by
+    a namespace.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    pipeline_id: builtins.str
+    """Pipeline ID"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        pipeline_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id"]) -> None: ...
+
+global___DeleteNamespacePipelineRequest = DeleteNamespacePipelineRequest
+
+@typing_extensions.final
+class DeleteNamespacePipelineResponse(google.protobuf.message.Message):
+    """DeleteNamespacePipelineResponse is an empty response."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___DeleteNamespacePipelineResponse = DeleteNamespacePipelineResponse
+
+@typing_extensions.final
+class ValidateNamespacePipelineRequest(google.protobuf.message.Message):
+    """ValidateNamespacePipelineRequest represents a request to validate a pipeline
+    owned by a user.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    pipeline_id: builtins.str
+    """Pipeline ID"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        pipeline_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id"]) -> None: ...
+
+global___ValidateNamespacePipelineRequest = ValidateNamespacePipelineRequest
+
+@typing_extensions.final
+class ValidateNamespacePipelineResponse(google.protobuf.message.Message):
+    """ValidateNamespacePipelineResponse contains a validated pipeline."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    SUCCESS_FIELD_NUMBER: builtins.int
+    ERRORS_FIELD_NUMBER: builtins.int
+    success: builtins.bool
+    """Success"""
+    @property
+    def errors(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PipelineValidationError]:
+        """The validated pipeline resource."""
+    def __init__(
+        self,
+        *,
+        success: builtins.bool = ...,
+        errors: collections.abc.Iterable[global___PipelineValidationError] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["errors", b"errors", "success", b"success"]) -> None: ...
+
+global___ValidateNamespacePipelineResponse = ValidateNamespacePipelineResponse
+
+@typing_extensions.final
+class RenameNamespacePipelineRequest(google.protobuf.message.Message):
+    """RenameNamespacePipelineRequest represents a request to rename the name of a
+    pipeline owned by a namespace.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    NEW_PIPELINE_ID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    pipeline_id: builtins.str
+    """Pipeline ID"""
+    new_pipeline_id: builtins.str
+    """The new resource ID. This will transform the resource name into
+    `namespaces/{namespace.id}/pipelines/{new_pipeline_id}`.
+    """
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        pipeline_id: builtins.str = ...,
+        new_pipeline_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "new_pipeline_id", b"new_pipeline_id", "pipeline_id", b"pipeline_id"]) -> None: ...
+
+global___RenameNamespacePipelineRequest = RenameNamespacePipelineRequest
+
+@typing_extensions.final
+class RenameNamespacePipelineResponse(google.protobuf.message.Message):
+    """RenameNamespacePipelineResponse contains a renamed pipeline."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PIPELINE_FIELD_NUMBER: builtins.int
+    @property
+    def pipeline(self) -> global___Pipeline:
+        """The renamed pipeline resource."""
+    def __init__(
+        self,
+        *,
+        pipeline: global___Pipeline | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline"]) -> None: ...
+
+global___RenameNamespacePipelineResponse = RenameNamespacePipelineResponse
+
+@typing_extensions.final
+class CloneNamespacePipelineRequest(google.protobuf.message.Message):
+    """CloneNamespacePipelineRequest represents a request to clone a pipeline owned by a
+    user.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    TARGET_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
+    SHARING_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    pipeline_id: builtins.str
+    """Pipeline ID"""
+    target: builtins.str
+    """The target pipeline. It can be under a user or an organization
+    namespace, so the following formats are accepted:
+    - `{user.id}/{pipeline.id}`
+    - `{organization.id}/{pipeline.id}`
+    """
+    description: builtins.str
+    """Pipeline description."""
+    @property
+    def sharing(self) -> vdp.pipeline.v1beta.common_pb2.Sharing:
+        """Pipeline sharing information."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        pipeline_id: builtins.str = ...,
+        target: builtins.str = ...,
+        description: builtins.str = ...,
+        sharing: vdp.pipeline.v1beta.common_pb2.Sharing | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["sharing", b"sharing"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id", "sharing", b"sharing", "target", b"target"]) -> None: ...
+
+global___CloneNamespacePipelineRequest = CloneNamespacePipelineRequest
+
+@typing_extensions.final
+class CloneNamespacePipelineResponse(google.protobuf.message.Message):
+    """CloneNamespacePipelineResponse contains a cloned pipeline."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___CloneNamespacePipelineResponse = CloneNamespacePipelineResponse
+
+@typing_extensions.final
+class CloneNamespacePipelineReleaseRequest(google.protobuf.message.Message):
+    """CloneNamespacePipelineReleaseRequest represents a request to clone a pipeline
+    release owned by a user.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    RELEASE_ID_FIELD_NUMBER: builtins.int
+    TARGET_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
+    SHARING_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    pipeline_id: builtins.str
+    """Pipeline ID"""
+    release_id: builtins.str
+    """Release ID"""
+    target: builtins.str
+    """The target pipeline. It can be under a user or an organization
+    namespace, so the following formats are accepted:
+    - `{user.id}/{pipeline.id}`
+    - `{organization.id}/{pipeline.id}`
+    """
+    description: builtins.str
+    """Pipeline description."""
+    @property
+    def sharing(self) -> vdp.pipeline.v1beta.common_pb2.Sharing:
+        """Pipeline sharing information."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        pipeline_id: builtins.str = ...,
+        release_id: builtins.str = ...,
+        target: builtins.str = ...,
+        description: builtins.str = ...,
+        sharing: vdp.pipeline.v1beta.common_pb2.Sharing | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["sharing", b"sharing"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id", "release_id", b"release_id", "sharing", b"sharing", "target", b"target"]) -> None: ...
+
+global___CloneNamespacePipelineReleaseRequest = CloneNamespacePipelineReleaseRequest
+
+@typing_extensions.final
+class CloneNamespacePipelineReleaseResponse(google.protobuf.message.Message):
+    """CloneNamespacePipelineReleaseResponse contains a cloned pipeline."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___CloneNamespacePipelineReleaseResponse = CloneNamespacePipelineReleaseResponse
+
+@typing_extensions.final
+class TriggerNamespacePipelineRequest(google.protobuf.message.Message):
+    """TriggerNamespacePipelineRequest represents a request to trigger a user-owned
+    pipeline synchronously.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    INPUTS_FIELD_NUMBER: builtins.int
+    DATA_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    pipeline_id: builtins.str
+    """Pipeline ID"""
+    @property
+    def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Pipeline input parameters, it will be deprecated soon."""
+    @property
+    def data(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TriggerData]:
+        """Data"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        pipeline_id: builtins.str = ...,
+        inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
+        data: collections.abc.Iterable[global___TriggerData] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["data", b"data", "inputs", b"inputs", "namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id"]) -> None: ...
+
+global___TriggerNamespacePipelineRequest = TriggerNamespacePipelineRequest
+
+@typing_extensions.final
+class TriggerNamespacePipelineResponse(google.protobuf.message.Message):
+    """TriggerNamespacePipelineResponse contains the pipeline execution results, i.e.,
+    the multiple model inference outputs.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OUTPUTS_FIELD_NUMBER: builtins.int
+    METADATA_FIELD_NUMBER: builtins.int
+    @property
+    def outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Model inference outputs."""
+    @property
+    def metadata(self) -> global___TriggerMetadata:
+        """Traces of the pipeline inference."""
+    def __init__(
+        self,
+        *,
+        outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
+        metadata: global___TriggerMetadata | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["metadata", b"metadata"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["metadata", b"metadata", "outputs", b"outputs"]) -> None: ...
+
+global___TriggerNamespacePipelineResponse = TriggerNamespacePipelineResponse
+
+@typing_extensions.final
+class TriggerNamespacePipelineWithStreamRequest(google.protobuf.message.Message):
+    """TriggerNamespacePipelineWithStreamRequest represents a request to trigger a user-owned
+    pipeline synchronously and streams back the results.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    INPUTS_FIELD_NUMBER: builtins.int
+    DATA_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    pipeline_id: builtins.str
+    """Pipeline ID"""
+    @property
+    def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Pipeline input parameters, it will be deprecated soon."""
+    @property
+    def data(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TriggerData]:
+        """Data"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        pipeline_id: builtins.str = ...,
+        inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
+        data: collections.abc.Iterable[global___TriggerData] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["data", b"data", "inputs", b"inputs", "namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id"]) -> None: ...
+
+global___TriggerNamespacePipelineWithStreamRequest = TriggerNamespacePipelineWithStreamRequest
+
+@typing_extensions.final
+class TriggerNamespacePipelineWithStreamResponse(google.protobuf.message.Message):
+    """TriggerNamespacePipelineWithStreamResponse contains the pipeline execution results, i.e.,
+    the multiple model inference outputs.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OUTPUTS_FIELD_NUMBER: builtins.int
+    METADATA_FIELD_NUMBER: builtins.int
+    @property
+    def outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Model inference outputs."""
+    @property
+    def metadata(self) -> global___TriggerMetadata:
+        """Traces of the pipeline inference."""
+    def __init__(
+        self,
+        *,
+        outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
+        metadata: global___TriggerMetadata | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["metadata", b"metadata"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["metadata", b"metadata", "outputs", b"outputs"]) -> None: ...
+
+global___TriggerNamespacePipelineWithStreamResponse = TriggerNamespacePipelineWithStreamResponse
+
+@typing_extensions.final
+class TriggerAsyncNamespacePipelineRequest(google.protobuf.message.Message):
+    """TriggerNamespacePipelineRequest represents a request to trigger a user-owned
+    pipeline synchronously.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    INPUTS_FIELD_NUMBER: builtins.int
+    DATA_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    pipeline_id: builtins.str
+    """Pipeline ID"""
+    @property
+    def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Pipeline input parameters, it will be deprecated soon."""
+    @property
+    def data(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TriggerData]:
+        """Data"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        pipeline_id: builtins.str = ...,
+        inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
+        data: collections.abc.Iterable[global___TriggerData] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["data", b"data", "inputs", b"inputs", "namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id"]) -> None: ...
+
+global___TriggerAsyncNamespacePipelineRequest = TriggerAsyncNamespacePipelineRequest
+
+@typing_extensions.final
+class TriggerAsyncNamespacePipelineResponse(google.protobuf.message.Message):
+    """TriggerAsyncNamespacePipelineResponse contains the information to access the
+    status of an asynchronous pipeline execution.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OPERATION_FIELD_NUMBER: builtins.int
+    @property
+    def operation(self) -> google.longrunning.operations_pb2.Operation:
+        """Long-running operation information."""
+    def __init__(
+        self,
+        *,
+        operation: google.longrunning.operations_pb2.Operation | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> None: ...
+
+global___TriggerAsyncNamespacePipelineResponse = TriggerAsyncNamespacePipelineResponse
+
+@typing_extensions.final
+class CreateNamespacePipelineReleaseRequest(google.protobuf.message.Message):
+    """CreateNamespacePipelineReleaseRequest represents a request to release a version
+    in a user-owned pipeline.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    RELEASE_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    pipeline_id: builtins.str
+    """Pipeline ID"""
+    @property
+    def release(self) -> global___PipelineRelease:
+        """The release information."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        pipeline_id: builtins.str = ...,
+        release: global___PipelineRelease | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["release", b"release"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id", "release", b"release"]) -> None: ...
+
+global___CreateNamespacePipelineReleaseRequest = CreateNamespacePipelineReleaseRequest
+
+@typing_extensions.final
+class CreateNamespacePipelineReleaseResponse(google.protobuf.message.Message):
+    """CreateNamespacePipelineReleaseResponse contains the created release."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    RELEASE_FIELD_NUMBER: builtins.int
+    @property
+    def release(self) -> global___PipelineRelease:
+        """The created pipeline release object."""
+    def __init__(
+        self,
+        *,
+        release: global___PipelineRelease | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["release", b"release"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["release", b"release"]) -> None: ...
+
+global___CreateNamespacePipelineReleaseResponse = CreateNamespacePipelineReleaseResponse
+
+@typing_extensions.final
+class ListNamespacePipelineReleasesRequest(google.protobuf.message.Message):
+    """ListNamespacePipelineReleasesRequest represents a request to list the releases in
+    a user-owned pipeline.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    VIEW_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
+    SHOW_DELETED_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    pipeline_id: builtins.str
+    """Pipeline ID"""
+    page_size: builtins.int
+    """The maximum number of releases to return. If this parameter is
+    unspecified, at most 10 pipelines will be returned. The cap value for this
+    parameter is 100 (i.e. any value above that will be coerced to 100).
+    """
+    page_token: builtins.str
+    """Page token."""
+    view: global___Pipeline.View.ValueType
+    """View allows clients to specify the desired pipeline view in the response."""
+    filter: builtins.str
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
+    show_deleted: builtins.bool
+    """Include soft-deleted pipelines in the result."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        pipeline_id: builtins.str = ...,
+        page_size: builtins.int | None = ...,
+        page_token: builtins.str | None = ...,
+        view: global___Pipeline.View.ValueType | None = ...,
+        filter: builtins.str | None = ...,
+        show_deleted: builtins.bool | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "filter", b"filter", "namespace_id", b"namespace_id", "page_size", b"page_size", "page_token", b"page_token", "pipeline_id", b"pipeline_id", "show_deleted", b"show_deleted", "view", b"view"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_token", b"_page_token"]) -> typing_extensions.Literal["page_token"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_show_deleted", b"_show_deleted"]) -> typing_extensions.Literal["show_deleted"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+
+global___ListNamespacePipelineReleasesRequest = ListNamespacePipelineReleasesRequest
+
+@typing_extensions.final
+class ListNamespacePipelineReleasesResponse(google.protobuf.message.Message):
+    """ListNamespacePipelineReleasesResponse contains a list of pipeline releases."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    RELEASES_FIELD_NUMBER: builtins.int
+    NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    @property
+    def releases(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PipelineRelease]:
+        """A list of pipeline release resources."""
+    next_page_token: builtins.str
+    """Next page token."""
+    total_size: builtins.int
+    """Total number of pipeline releases."""
+    def __init__(
+        self,
+        *,
+        releases: collections.abc.Iterable[global___PipelineRelease] | None = ...,
+        next_page_token: builtins.str = ...,
+        total_size: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "releases", b"releases", "total_size", b"total_size"]) -> None: ...
+
+global___ListNamespacePipelineReleasesResponse = ListNamespacePipelineReleasesResponse
+
+@typing_extensions.final
+class GetNamespacePipelineReleaseRequest(google.protobuf.message.Message):
+    """GetNamespacePipelineReleaseRequest represents a request to fetchthe details of a
+    release in a user-owned pipeline.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    RELEASE_ID_FIELD_NUMBER: builtins.int
+    VIEW_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    pipeline_id: builtins.str
+    """Pipeline ID"""
+    release_id: builtins.str
+    """Release ID"""
+    view: global___Pipeline.View.ValueType
+    """View allows clients to specify the desired pipeline view in the response."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        pipeline_id: builtins.str = ...,
+        release_id: builtins.str = ...,
+        view: global___Pipeline.View.ValueType | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id", "release_id", b"release_id", "view", b"view"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+
+global___GetNamespacePipelineReleaseRequest = GetNamespacePipelineReleaseRequest
+
+@typing_extensions.final
+class GetNamespacePipelineReleaseResponse(google.protobuf.message.Message):
+    """GetNamespacePipelineReleaseResponse contains the requested pipeline release."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    RELEASE_FIELD_NUMBER: builtins.int
+    @property
+    def release(self) -> global___PipelineRelease:
+        """The pipeline release resource."""
+    def __init__(
+        self,
+        *,
+        release: global___PipelineRelease | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["release", b"release"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["release", b"release"]) -> None: ...
+
+global___GetNamespacePipelineReleaseResponse = GetNamespacePipelineReleaseResponse
+
+@typing_extensions.final
+class UpdateNamespacePipelineReleaseRequest(google.protobuf.message.Message):
+    """UpdateNamespacePipelineReleaseRequest represents a request to update a user-owned
+    pipeline release.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    RELEASE_ID_FIELD_NUMBER: builtins.int
+    RELEASE_FIELD_NUMBER: builtins.int
+    UPDATE_MASK_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    pipeline_id: builtins.str
+    """Pipeline ID"""
+    release_id: builtins.str
+    """Release ID"""
+    @property
+    def release(self) -> global___PipelineRelease:
+        """The pipeline release fields that will replace the existing ones.
+        A pipeline release resource to update
+        """
+    @property
+    def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
+        """The update mask specifies the subset of fields that should be modified.
+
+        For more information about this field, see
+        https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#field-mask.
+        """
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        pipeline_id: builtins.str = ...,
+        release_id: builtins.str = ...,
+        release: global___PipelineRelease | None = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["release", b"release", "update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id", "release", b"release", "release_id", b"release_id", "update_mask", b"update_mask"]) -> None: ...
+
+global___UpdateNamespacePipelineReleaseRequest = UpdateNamespacePipelineReleaseRequest
+
+@typing_extensions.final
+class UpdateNamespacePipelineReleaseResponse(google.protobuf.message.Message):
+    """UpdateNamespacePipelineReleaseResponse contains the updated pipeline release."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    RELEASE_FIELD_NUMBER: builtins.int
+    @property
+    def release(self) -> global___PipelineRelease:
+        """The updated pipeline release resource."""
+    def __init__(
+        self,
+        *,
+        release: global___PipelineRelease | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["release", b"release"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["release", b"release"]) -> None: ...
+
+global___UpdateNamespacePipelineReleaseResponse = UpdateNamespacePipelineReleaseResponse
+
+@typing_extensions.final
+class DeleteNamespacePipelineReleaseRequest(google.protobuf.message.Message):
+    """DeleteNamespacePipelineReleaseRequest represents a request to delete a release in
+    a user-owned pipeline.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    RELEASE_ID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    pipeline_id: builtins.str
+    """Pipeline ID"""
+    release_id: builtins.str
+    """Release ID"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        pipeline_id: builtins.str = ...,
+        release_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id", "release_id", b"release_id"]) -> None: ...
+
+global___DeleteNamespacePipelineReleaseRequest = DeleteNamespacePipelineReleaseRequest
+
+@typing_extensions.final
+class DeleteNamespacePipelineReleaseResponse(google.protobuf.message.Message):
+    """DeleteNamespacePipelineReleaseResponse is an empty response."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___DeleteNamespacePipelineReleaseResponse = DeleteNamespacePipelineReleaseResponse
+
+@typing_extensions.final
+class TriggerNamespacePipelineReleaseRequest(google.protobuf.message.Message):
+    """TriggerNamespacePipelineReleaseRequest represents a request to trigger a pinned
+    release of a user-owned pipeline.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    RELEASE_ID_FIELD_NUMBER: builtins.int
+    INPUTS_FIELD_NUMBER: builtins.int
+    DATA_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    pipeline_id: builtins.str
+    """Pipeline ID"""
+    release_id: builtins.str
+    """Release ID"""
+    @property
+    def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Pipeline input parameters, it will be deprecated soon."""
+    @property
+    def data(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TriggerData]:
+        """Data"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        pipeline_id: builtins.str = ...,
+        release_id: builtins.str = ...,
+        inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
+        data: collections.abc.Iterable[global___TriggerData] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["data", b"data", "inputs", b"inputs", "namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id", "release_id", b"release_id"]) -> None: ...
+
+global___TriggerNamespacePipelineReleaseRequest = TriggerNamespacePipelineReleaseRequest
+
+@typing_extensions.final
+class TriggerNamespacePipelineReleaseResponse(google.protobuf.message.Message):
+    """TriggerNamespacePipelineReleaseResponse contains the pipeline execution results,
+    i.e., the multiple model inference outputs.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OUTPUTS_FIELD_NUMBER: builtins.int
+    METADATA_FIELD_NUMBER: builtins.int
+    @property
+    def outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Model inference outputs."""
+    @property
+    def metadata(self) -> global___TriggerMetadata:
+        """Traces of the pipeline inference."""
+    def __init__(
+        self,
+        *,
+        outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
+        metadata: global___TriggerMetadata | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["metadata", b"metadata"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["metadata", b"metadata", "outputs", b"outputs"]) -> None: ...
+
+global___TriggerNamespacePipelineReleaseResponse = TriggerNamespacePipelineReleaseResponse
+
+@typing_extensions.final
+class TriggerAsyncNamespacePipelineReleaseRequest(google.protobuf.message.Message):
+    """TriggerNamespacePipelineReleaseRequest represents a request to trigger a pinned
+    release of a user-owned pipeline asynchronously.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    RELEASE_ID_FIELD_NUMBER: builtins.int
+    INPUTS_FIELD_NUMBER: builtins.int
+    DATA_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    pipeline_id: builtins.str
+    """Pipeline ID"""
+    release_id: builtins.str
+    """Release ID"""
+    @property
+    def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Pipeline input parameters, it will be deprecated soon."""
+    @property
+    def data(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TriggerData]:
+        """Data"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        pipeline_id: builtins.str = ...,
+        release_id: builtins.str = ...,
+        inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
+        data: collections.abc.Iterable[global___TriggerData] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["data", b"data", "inputs", b"inputs", "namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id", "release_id", b"release_id"]) -> None: ...
+
+global___TriggerAsyncNamespacePipelineReleaseRequest = TriggerAsyncNamespacePipelineReleaseRequest
+
+@typing_extensions.final
+class TriggerAsyncNamespacePipelineReleaseResponse(google.protobuf.message.Message):
+    """TriggerAsyncNamespacePipelineReleaseResponse contains the information to access
+    the status of an asynchronous pipeline execution.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OPERATION_FIELD_NUMBER: builtins.int
+    @property
+    def operation(self) -> google.longrunning.operations_pb2.Operation:
+        """Long-running operation information."""
+    def __init__(
+        self,
+        *,
+        operation: google.longrunning.operations_pb2.Operation | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> None: ...
+
+global___TriggerAsyncNamespacePipelineReleaseResponse = TriggerAsyncNamespacePipelineReleaseResponse
 
 @typing_extensions.final
 class CreateUserPipelineRequest(google.protobuf.message.Message):

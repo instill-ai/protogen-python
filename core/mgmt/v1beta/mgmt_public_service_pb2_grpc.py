@@ -396,7 +396,7 @@ class MgmtPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetOrganizationSubscription(self, request, context):
-        """Get an organization subscription
+        """Get the subscription of an organization
 
         Returns the subscription details of an organization.
         """
@@ -441,7 +441,7 @@ class MgmtPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ValidateToken(self, request, context):
-        """Validate an API token.
+        """Validate an API token
 
         Validates an API token.
         """

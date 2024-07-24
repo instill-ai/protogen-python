@@ -197,7 +197,7 @@ class MgmtPublicServiceStub:
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionRequest,
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionResponse,
     ]
-    """Get an organization subscription
+    """Get the subscription of an organization
 
     Returns the subscription details of an organization.
     """
@@ -237,7 +237,7 @@ class MgmtPublicServiceStub:
         core.mgmt.v1beta.mgmt_pb2.ValidateTokenRequest,
         core.mgmt.v1beta.mgmt_pb2.ValidateTokenResponse,
     ]
-    """Validate an API token.
+    """Validate an API token
 
     Validates an API token.
     """
@@ -515,7 +515,7 @@ class MgmtPublicServiceAsyncStub:
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionRequest,
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionResponse,
     ]
-    """Get an organization subscription
+    """Get the subscription of an organization
 
     Returns the subscription details of an organization.
     """
@@ -555,7 +555,7 @@ class MgmtPublicServiceAsyncStub:
         core.mgmt.v1beta.mgmt_pb2.ValidateTokenRequest,
         core.mgmt.v1beta.mgmt_pb2.ValidateTokenResponse,
     ]
-    """Validate an API token.
+    """Validate an API token
 
     Validates an API token.
     """
@@ -875,7 +875,7 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionResponse]]:
-        """Get an organization subscription
+        """Get the subscription of an organization
 
         Returns the subscription details of an organization.
         """
@@ -925,7 +925,7 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.ValidateTokenRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.ValidateTokenResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.ValidateTokenResponse]]:
-        """Validate an API token.
+        """Validate an API token
 
         Validates an API token.
         """

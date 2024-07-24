@@ -46,6 +46,136 @@ class PipelinePublicServiceStub(object):
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.LookUpPipelineRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.LookUpPipelineResponse.FromString,
                 )
+        self.ListNamespacePipelines = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/ListNamespacePipelines',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListNamespacePipelinesRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListNamespacePipelinesResponse.FromString,
+                )
+        self.CreateNamespacePipeline = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/CreateNamespacePipeline',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CreateNamespacePipelineRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CreateNamespacePipelineResponse.FromString,
+                )
+        self.GetNamespacePipeline = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/GetNamespacePipeline',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetNamespacePipelineRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetNamespacePipelineResponse.FromString,
+                )
+        self.UpdateNamespacePipeline = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/UpdateNamespacePipeline',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.UpdateNamespacePipelineRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.UpdateNamespacePipelineResponse.FromString,
+                )
+        self.DeleteNamespacePipeline = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/DeleteNamespacePipeline',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.DeleteNamespacePipelineRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.DeleteNamespacePipelineResponse.FromString,
+                )
+        self.ValidateNamespacePipeline = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/ValidateNamespacePipeline',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ValidateNamespacePipelineRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ValidateNamespacePipelineResponse.FromString,
+                )
+        self.RenameNamespacePipeline = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/RenameNamespacePipeline',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RenameNamespacePipelineRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RenameNamespacePipelineResponse.FromString,
+                )
+        self.CloneNamespacePipeline = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/CloneNamespacePipeline',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneNamespacePipelineRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneNamespacePipelineResponse.FromString,
+                )
+        self.TriggerNamespacePipeline = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/TriggerNamespacePipeline',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerNamespacePipelineRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerNamespacePipelineResponse.FromString,
+                )
+        self.TriggerNamespacePipelineWithStream = channel.unary_stream(
+                '/vdp.pipeline.v1beta.PipelinePublicService/TriggerNamespacePipelineWithStream',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerNamespacePipelineWithStreamRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerNamespacePipelineWithStreamResponse.FromString,
+                )
+        self.TriggerAsyncNamespacePipeline = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/TriggerAsyncNamespacePipeline',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerAsyncNamespacePipelineRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerAsyncNamespacePipelineResponse.FromString,
+                )
+        self.CreateNamespacePipelineRelease = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/CreateNamespacePipelineRelease',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CreateNamespacePipelineReleaseRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CreateNamespacePipelineReleaseResponse.FromString,
+                )
+        self.ListNamespacePipelineReleases = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/ListNamespacePipelineReleases',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListNamespacePipelineReleasesRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListNamespacePipelineReleasesResponse.FromString,
+                )
+        self.GetNamespacePipelineRelease = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/GetNamespacePipelineRelease',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetNamespacePipelineReleaseRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetNamespacePipelineReleaseResponse.FromString,
+                )
+        self.UpdateNamespacePipelineRelease = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/UpdateNamespacePipelineRelease',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.UpdateNamespacePipelineReleaseRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.UpdateNamespacePipelineReleaseResponse.FromString,
+                )
+        self.DeleteNamespacePipelineRelease = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/DeleteNamespacePipelineRelease',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.DeleteNamespacePipelineReleaseRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.DeleteNamespacePipelineReleaseResponse.FromString,
+                )
+        self.CloneNamespacePipelineRelease = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/CloneNamespacePipelineRelease',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneNamespacePipelineReleaseRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneNamespacePipelineReleaseResponse.FromString,
+                )
+        self.TriggerNamespacePipelineRelease = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/TriggerNamespacePipelineRelease',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerNamespacePipelineReleaseRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerNamespacePipelineReleaseResponse.FromString,
+                )
+        self.TriggerAsyncNamespacePipelineRelease = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/TriggerAsyncNamespacePipelineRelease',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerAsyncNamespacePipelineReleaseRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerAsyncNamespacePipelineReleaseResponse.FromString,
+                )
+        self.CreateSecret = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/CreateSecret',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateSecretRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateSecretResponse.FromString,
+                )
+        self.ListSecrets = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/ListSecrets',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListSecretsRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListSecretsResponse.FromString,
+                )
+        self.GetSecret = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/GetSecret',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetSecretRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetSecretResponse.FromString,
+                )
+        self.UpdateSecret = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/UpdateSecret',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateSecretRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateSecretResponse.FromString,
+                )
+        self.DeleteSecret = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/DeleteSecret',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteSecretRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteSecretResponse.FromString,
+                )
+        self.ListComponentDefinitions = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/ListComponentDefinitions',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListComponentDefinitionsRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListComponentDefinitionsResponse.FromString,
+                )
+        self.GetOperation = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/GetOperation',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetOperationRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetOperationResponse.FromString,
+                )
         self.CreateUserPipeline = channel.unary_unary(
                 '/vdp.pipeline.v1beta.PipelinePublicService/CreateUserPipeline',
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CreateUserPipelineRequest.SerializeToString,
@@ -256,11 +386,6 @@ class PipelinePublicServiceStub(object):
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerAsyncOrganizationPipelineReleaseRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerAsyncOrganizationPipelineReleaseResponse.FromString,
                 )
-        self.GetOperation = channel.unary_unary(
-                '/vdp.pipeline.v1beta.PipelinePublicService/GetOperation',
-                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetOperationRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetOperationResponse.FromString,
-                )
         self.ListConnectorDefinitions = channel.unary_unary(
                 '/vdp.pipeline.v1beta.PipelinePublicService/ListConnectorDefinitions',
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListConnectorDefinitionsRequest.SerializeToString,
@@ -275,11 +400,6 @@ class PipelinePublicServiceStub(object):
                 '/vdp.pipeline.v1beta.PipelinePublicService/ListOperatorDefinitions',
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListOperatorDefinitionsRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListOperatorDefinitionsResponse.FromString,
-                )
-        self.ListComponentDefinitions = channel.unary_unary(
-                '/vdp.pipeline.v1beta.PipelinePublicService/ListComponentDefinitions',
-                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListComponentDefinitionsRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListComponentDefinitionsResponse.FromString,
                 )
         self.GetOperatorDefinition = channel.unary_unary(
                 '/vdp.pipeline.v1beta.PipelinePublicService/GetOperatorDefinition',
@@ -396,8 +516,319 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListNamespacePipelines(self, request, context):
+        """List namespace pipelines
+
+        Returns a paginated list of pipelines of a namespace
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateNamespacePipeline(self, request, context):
+        """Create a new pipeline
+
+        Creates a new pipeline under a namespace.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetNamespacePipeline(self, request, context):
+        """Get a pipeline
+
+        Returns the details of a pipeline.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateNamespacePipeline(self, request, context):
+        """Update a pipeline
+
+        Udpates a pipeline, accessing it by its resource name, which is defined by
+        the parent namespace and the ID of the pipeline. The authenticated namespace must be
+        the parent of the pipeline in order to modify it.
+
+        In REST requests, only the supplied pipeline fields will be taken into
+        account when updating the resource.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteNamespacePipeline(self, request, context):
+        """Delete a pipeline
+
+        Deletes a pipeline, accesing it by its resource name, which is defined by
+        the parent namespace and the ID of the pipeline. The authenticated namespace must be
+        the parent of the pipeline in order to delete it.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ValidateNamespacePipeline(self, request, context):
+        """Validate a pipeline
+
+        Validates a pipeline by its resource name, which is defined by the parent
+        namespace and the ID of the pipeline.
+
+        Validation checks the recipe of the pipeline and the status of its components.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RenameNamespacePipeline(self, request, context):
+        """Rename a pipeline
+
+        Updates the ID of a pipeline. Since this is an output-only field, a custom
+        method is required to modify it.
+
+        The pipeline name will be updated accordingly, as it is  composed by the
+        parent namespace and ID of the pipeline (e.g.
+        `namespaces/luigi/pipelines/pizza-recipe-generator`).
+
+        The authenticated namespace must be the parent of the pipeline in order to
+        perform this action.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CloneNamespacePipeline(self, request, context):
+        """Clone a pipeline
+
+        Clones a pipeline owned by a namespace. The new pipeline may have a different
+        parent, and this can be either a namespace or an organization.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TriggerNamespacePipeline(self, request, context):
+        """Trigger a pipeline
+
+        Triggers the execution of a pipeline synchronously, i.e., the result is
+        sent back to the namespace right after the data is processed. This method is
+        intended for real-time inference when low latency is of concern.
+
+        The pipeline is identified by its resource name, formed by the parent namespace
+        and ID of the pipeline.
+
+        For more information, see [Run NamespacePipeline](https://www.instill.tech/docs/vdp/run).
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TriggerNamespacePipelineWithStream(self, request, context):
+        """Trigger a pipeline via streaming
+
+        Triggers the execution of a pipeline asynchronously and streams back the response.
+        This method is intended for real-time inference when low latency is of concern
+        and the response needs to be processed incrementally.
+
+        The pipeline is identified by its resource name, formed by the parent namespace
+        and ID of the pipeline.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TriggerAsyncNamespacePipeline(self, request, context):
+        """Trigger a pipeline asynchronously
+
+        Triggers the execution of a pipeline asynchronously, i.e., the result
+        contains the necessary information to access the result and status of the
+        operation. This method is intended for cases that require long-running
+        workloads.
+
+        The pipeline is identified by its resource name, formed by the parent namespace
+        and ID of the pipeline.
+
+        For more information, see [Run NamespacePipeline](https://www.instill.tech/docs/vdp/run).
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateNamespacePipelineRelease(self, request, context):
+        """Create a pipeline release
+
+        Commits the version of a pipeline, identified by its resource name, which
+        is formed by the parent namespace and ID of the pipeline.
+
+        The authenticated namespace must be the parent of the pipeline in order to
+        perform this action.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListNamespacePipelineReleases(self, request, context):
+        """List the releases in a pipeline
+
+        Lists the commited versions of a pipeline, identified by its resource
+        name, which is formed by the parent namespace and ID of the pipeline.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetNamespacePipelineRelease(self, request, context):
+        """Get a pipeline release
+
+        Gets the details of a pipeline release, where the pipeline is identified
+        by its resource name, formed by its parent namespace and ID.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateNamespacePipelineRelease(self, request, context):
+        """Update a pipeline release
+
+        Updates the details of a pipeline release, where the pipeline is
+        identified by its resource name, formed by its parent namespace and ID.
+
+        The authenticated namespace must be the parent of the pipeline in order to
+        perform this action.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteNamespacePipelineRelease(self, request, context):
+        """Delete a pipeline release
+
+        Deletes a pipeline release, where the pipeline is identified by its
+        resource name, formed by its parent namespace and ID.
+
+        The authenticated namespace must be the parent of the pipeline in order to
+        perform this action.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CloneNamespacePipelineRelease(self, request, context):
+        """Clone a pipeline release
+
+        Clones a pipeline release owned by a namespace. The new pipeline may have a different
+        parent, and this can be either a namespace or an organization.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TriggerNamespacePipelineRelease(self, request, context):
+        """Trigger a pipeline release
+
+        Triggers the synchronous execution of of a pipeline. While the trigger
+        endpoint (where the release version isn't specified) triggers the pipeline
+        at its latest release, this method allows the client to specified any
+        committed release.
+
+        The pipeline is identified by its resource name, formed by its parent namespace
+        and ID.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TriggerAsyncNamespacePipelineRelease(self, request, context):
+        """Trigger a pipeline release asynchronously
+
+        Triggers the asynchronous execution of of a pipeline. While the trigger
+        endpoint (where the release version isn't specified) triggers the pipeline
+        at its latest release, this method allows the client to specified any
+        committed release.
+
+        The pipeline is identified by its resource name, formed by its parent namespace
+        and ID.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateSecret(self, request, context):
+        """Create a secret
+
+        Creates a new secret under the parenthood of an namespace.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListSecrets(self, request, context):
+        """List secrets
+
+        Returns a paginated list of secrets that belong to the specified
+        namespace.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSecret(self, request, context):
+        """Get a secret
+
+        Returns the details of an namespace-owned secret by its resource name,
+        which is defined by the parent namespace and the ID of the secret.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateSecret(self, request, context):
+        """Update a secret
+
+        Udpates a secret, accessing it by its resource name, which is defined by
+
+        In REST requests, only the supplied secret fields will be taken into
+        account when updating the resource.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteSecret(self, request, context):
+        """Delete a secret
+
+        Deletes a secret, accesing it by its resource name, which is defined by
+        the parent namespace and the ID of the secret.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListComponentDefinitions(self, request, context):
+        """List component definitions
+
+        Returns a paginated list of component definitions, regardless their type.
+        This offers a single source of truth, with pagination and filter
+        capabilities, for the components that might be used in a VDP pipeline.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetOperation(self, request, context):
+        """Get the details of a long-running operation
+
+        This method allows requesters to request the status and outcome of
+        long-running operations such as asynchronous pipeline triggers.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CreateUserPipeline(self, request, context):
-        """Create a new user pipeline
+        """The following endpoints are all deprecated
+
+        Create a new user pipeline
 
         Creates a new pipeline under the parenthood of a user. Users can only
         create a pipeline as the parent of that resource (i.e. the authenticated
@@ -513,8 +944,7 @@ class PipelinePublicServiceServicer(object):
         The pipeline is identified by its resource name, formed by the parent user
         and ID of the pipeline.
 
-        For more information, see [Trigger
-        Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+        For more information, see [Run Pipeline](https://www.instill.tech/docs/vdp/run).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -545,8 +975,7 @@ class PipelinePublicServiceServicer(object):
         The pipeline is identified by its resource name, formed by the parent user
         and ID of the pipeline.
 
-        For more information, see [Trigger
-        Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+        For more information, see [Run Pipeline](https://www.instill.tech/docs/vdp/run).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -782,8 +1211,7 @@ class PipelinePublicServiceServicer(object):
         The pipeline is identified by its resource name, formed by the parent
         organization and ID of the pipeline.
 
-        For more information, see [Trigger
-        Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+        For more information, see [Run Pipeline](https://www.instill.tech/docs/vdp/run).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -799,8 +1227,7 @@ class PipelinePublicServiceServicer(object):
         The pipeline is identified by its resource name, formed by the parent
         organization and ID of the pipeline.
 
-        For more information, see [Trigger
-        Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+        For more information, see [Run Pipeline](https://www.instill.tech/docs/vdp/run).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -817,8 +1244,7 @@ class PipelinePublicServiceServicer(object):
         The pipeline is identified by its resource name, formed by the parent
         organization and ID of the pipeline.
 
-        For more information, see [Trigger
-        Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+        For more information, see [Run Pipeline](https://www.instill.tech/docs/vdp/run).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -931,16 +1357,6 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetOperation(self, request, context):
-        """Get the details of a long-running operation
-
-        This method allows requesters to request the status and outcome of
-        long-running operations such as asynchronous pipeline triggers.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def ListConnectorDefinitions(self, request, context):
         """List connector definitions
 
@@ -963,17 +1379,6 @@ class PipelinePublicServiceServicer(object):
         """List operator definitions
 
         Returns a paginated list of operator definitions.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ListComponentDefinitions(self, request, context):
-        """List component definitions
-
-        Returns a paginated list of component definitions, regardless their type.
-        This offers a single source of truth, with pagination and filter
-        capabilities, for the components that might be used in a VDP pipeline.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1127,6 +1532,136 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     servicer.LookUpPipeline,
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.LookUpPipelineRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.LookUpPipelineResponse.SerializeToString,
+            ),
+            'ListNamespacePipelines': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListNamespacePipelines,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListNamespacePipelinesRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListNamespacePipelinesResponse.SerializeToString,
+            ),
+            'CreateNamespacePipeline': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateNamespacePipeline,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CreateNamespacePipelineRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CreateNamespacePipelineResponse.SerializeToString,
+            ),
+            'GetNamespacePipeline': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetNamespacePipeline,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetNamespacePipelineRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetNamespacePipelineResponse.SerializeToString,
+            ),
+            'UpdateNamespacePipeline': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateNamespacePipeline,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.UpdateNamespacePipelineRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.UpdateNamespacePipelineResponse.SerializeToString,
+            ),
+            'DeleteNamespacePipeline': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteNamespacePipeline,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.DeleteNamespacePipelineRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.DeleteNamespacePipelineResponse.SerializeToString,
+            ),
+            'ValidateNamespacePipeline': grpc.unary_unary_rpc_method_handler(
+                    servicer.ValidateNamespacePipeline,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ValidateNamespacePipelineRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ValidateNamespacePipelineResponse.SerializeToString,
+            ),
+            'RenameNamespacePipeline': grpc.unary_unary_rpc_method_handler(
+                    servicer.RenameNamespacePipeline,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RenameNamespacePipelineRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RenameNamespacePipelineResponse.SerializeToString,
+            ),
+            'CloneNamespacePipeline': grpc.unary_unary_rpc_method_handler(
+                    servicer.CloneNamespacePipeline,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneNamespacePipelineRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneNamespacePipelineResponse.SerializeToString,
+            ),
+            'TriggerNamespacePipeline': grpc.unary_unary_rpc_method_handler(
+                    servicer.TriggerNamespacePipeline,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerNamespacePipelineRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerNamespacePipelineResponse.SerializeToString,
+            ),
+            'TriggerNamespacePipelineWithStream': grpc.unary_stream_rpc_method_handler(
+                    servicer.TriggerNamespacePipelineWithStream,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerNamespacePipelineWithStreamRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerNamespacePipelineWithStreamResponse.SerializeToString,
+            ),
+            'TriggerAsyncNamespacePipeline': grpc.unary_unary_rpc_method_handler(
+                    servicer.TriggerAsyncNamespacePipeline,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerAsyncNamespacePipelineRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerAsyncNamespacePipelineResponse.SerializeToString,
+            ),
+            'CreateNamespacePipelineRelease': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateNamespacePipelineRelease,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CreateNamespacePipelineReleaseRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CreateNamespacePipelineReleaseResponse.SerializeToString,
+            ),
+            'ListNamespacePipelineReleases': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListNamespacePipelineReleases,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListNamespacePipelineReleasesRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListNamespacePipelineReleasesResponse.SerializeToString,
+            ),
+            'GetNamespacePipelineRelease': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetNamespacePipelineRelease,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetNamespacePipelineReleaseRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetNamespacePipelineReleaseResponse.SerializeToString,
+            ),
+            'UpdateNamespacePipelineRelease': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateNamespacePipelineRelease,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.UpdateNamespacePipelineReleaseRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.UpdateNamespacePipelineReleaseResponse.SerializeToString,
+            ),
+            'DeleteNamespacePipelineRelease': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteNamespacePipelineRelease,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.DeleteNamespacePipelineReleaseRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.DeleteNamespacePipelineReleaseResponse.SerializeToString,
+            ),
+            'CloneNamespacePipelineRelease': grpc.unary_unary_rpc_method_handler(
+                    servicer.CloneNamespacePipelineRelease,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneNamespacePipelineReleaseRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneNamespacePipelineReleaseResponse.SerializeToString,
+            ),
+            'TriggerNamespacePipelineRelease': grpc.unary_unary_rpc_method_handler(
+                    servicer.TriggerNamespacePipelineRelease,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerNamespacePipelineReleaseRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerNamespacePipelineReleaseResponse.SerializeToString,
+            ),
+            'TriggerAsyncNamespacePipelineRelease': grpc.unary_unary_rpc_method_handler(
+                    servicer.TriggerAsyncNamespacePipelineRelease,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerAsyncNamespacePipelineReleaseRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerAsyncNamespacePipelineReleaseResponse.SerializeToString,
+            ),
+            'CreateSecret': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateSecret,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateSecretRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateSecretResponse.SerializeToString,
+            ),
+            'ListSecrets': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListSecrets,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListSecretsRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListSecretsResponse.SerializeToString,
+            ),
+            'GetSecret': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetSecret,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetSecretRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetSecretResponse.SerializeToString,
+            ),
+            'UpdateSecret': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateSecret,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateSecretRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateSecretResponse.SerializeToString,
+            ),
+            'DeleteSecret': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteSecret,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteSecretRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteSecretResponse.SerializeToString,
+            ),
+            'ListComponentDefinitions': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListComponentDefinitions,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListComponentDefinitionsRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListComponentDefinitionsResponse.SerializeToString,
+            ),
+            'GetOperation': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOperation,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetOperationRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetOperationResponse.SerializeToString,
             ),
             'CreateUserPipeline': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateUserPipeline,
@@ -1338,11 +1873,6 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerAsyncOrganizationPipelineReleaseRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerAsyncOrganizationPipelineReleaseResponse.SerializeToString,
             ),
-            'GetOperation': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetOperation,
-                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetOperationRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetOperationResponse.SerializeToString,
-            ),
             'ListConnectorDefinitions': grpc.unary_unary_rpc_method_handler(
                     servicer.ListConnectorDefinitions,
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListConnectorDefinitionsRequest.FromString,
@@ -1357,11 +1887,6 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     servicer.ListOperatorDefinitions,
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListOperatorDefinitionsRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListOperatorDefinitionsResponse.SerializeToString,
-            ),
-            'ListComponentDefinitions': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListComponentDefinitions,
-                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListComponentDefinitionsRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListComponentDefinitionsResponse.SerializeToString,
             ),
             'GetOperatorDefinition': grpc.unary_unary_rpc_method_handler(
                     servicer.GetOperatorDefinition,
@@ -1519,6 +2044,448 @@ class PipelinePublicService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/LookUpPipeline',
             vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.LookUpPipelineRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.LookUpPipelineResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListNamespacePipelines(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/ListNamespacePipelines',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListNamespacePipelinesRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListNamespacePipelinesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateNamespacePipeline(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/CreateNamespacePipeline',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CreateNamespacePipelineRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CreateNamespacePipelineResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetNamespacePipeline(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/GetNamespacePipeline',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetNamespacePipelineRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetNamespacePipelineResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateNamespacePipeline(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/UpdateNamespacePipeline',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.UpdateNamespacePipelineRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.UpdateNamespacePipelineResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteNamespacePipeline(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/DeleteNamespacePipeline',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.DeleteNamespacePipelineRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.DeleteNamespacePipelineResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ValidateNamespacePipeline(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/ValidateNamespacePipeline',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ValidateNamespacePipelineRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ValidateNamespacePipelineResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RenameNamespacePipeline(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/RenameNamespacePipeline',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RenameNamespacePipelineRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.RenameNamespacePipelineResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CloneNamespacePipeline(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/CloneNamespacePipeline',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneNamespacePipelineRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneNamespacePipelineResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TriggerNamespacePipeline(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/TriggerNamespacePipeline',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerNamespacePipelineRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerNamespacePipelineResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TriggerNamespacePipelineWithStream(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/TriggerNamespacePipelineWithStream',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerNamespacePipelineWithStreamRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerNamespacePipelineWithStreamResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TriggerAsyncNamespacePipeline(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/TriggerAsyncNamespacePipeline',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerAsyncNamespacePipelineRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerAsyncNamespacePipelineResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateNamespacePipelineRelease(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/CreateNamespacePipelineRelease',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CreateNamespacePipelineReleaseRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CreateNamespacePipelineReleaseResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListNamespacePipelineReleases(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/ListNamespacePipelineReleases',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListNamespacePipelineReleasesRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListNamespacePipelineReleasesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetNamespacePipelineRelease(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/GetNamespacePipelineRelease',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetNamespacePipelineReleaseRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetNamespacePipelineReleaseResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateNamespacePipelineRelease(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/UpdateNamespacePipelineRelease',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.UpdateNamespacePipelineReleaseRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.UpdateNamespacePipelineReleaseResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteNamespacePipelineRelease(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/DeleteNamespacePipelineRelease',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.DeleteNamespacePipelineReleaseRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.DeleteNamespacePipelineReleaseResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CloneNamespacePipelineRelease(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/CloneNamespacePipelineRelease',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneNamespacePipelineReleaseRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneNamespacePipelineReleaseResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TriggerNamespacePipelineRelease(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/TriggerNamespacePipelineRelease',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerNamespacePipelineReleaseRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerNamespacePipelineReleaseResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TriggerAsyncNamespacePipelineRelease(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/TriggerAsyncNamespacePipelineRelease',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerAsyncNamespacePipelineReleaseRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerAsyncNamespacePipelineReleaseResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateSecret(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/CreateSecret',
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateSecretRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateSecretResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListSecrets(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/ListSecrets',
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListSecretsRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListSecretsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSecret(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/GetSecret',
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetSecretRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetSecretResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateSecret(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/UpdateSecret',
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateSecretRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateSecretResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteSecret(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/DeleteSecret',
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteSecretRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteSecretResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListComponentDefinitions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/ListComponentDefinitions',
+            vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListComponentDefinitionsRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListComponentDefinitionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetOperation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/GetOperation',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetOperationRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetOperationResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -2237,23 +3204,6 @@ class PipelinePublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetOperation(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/GetOperation',
-            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetOperationRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.GetOperationResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def ListConnectorDefinitions(request,
             target,
             options=(),
@@ -2301,23 +3251,6 @@ class PipelinePublicService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/ListOperatorDefinitions',
             vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListOperatorDefinitionsRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListOperatorDefinitionsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ListComponentDefinitions(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/ListComponentDefinitions',
-            vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListComponentDefinitionsRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1beta_dot_component__definition__pb2.ListComponentDefinitionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

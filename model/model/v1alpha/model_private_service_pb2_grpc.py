@@ -26,6 +26,11 @@ class ModelPrivateServiceStub(object):
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminResponse.FromString,
                 )
+        self.DeployNamespaceModelAdmin = channel.unary_unary(
+                '/model.model.v1alpha.ModelPrivateService/DeployNamespaceModelAdmin',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployNamespaceModelAdminRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployNamespaceModelAdminResponse.FromString,
+                )
         self.DeployUserModelAdmin = channel.unary_unary(
                 '/model.model.v1alpha.ModelPrivateService/DeployUserModelAdmin',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployUserModelAdminRequest.SerializeToString,
@@ -40,6 +45,11 @@ class ModelPrivateServiceStub(object):
                 '/model.model.v1alpha.ModelPrivateService/UndeployUserModelAdmin',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelAdminRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelAdminResponse.FromString,
+                )
+        self.UndeployNamespaceModelAdmin = channel.unary_unary(
+                '/model.model.v1alpha.ModelPrivateService/UndeployNamespaceModelAdmin',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployNamespaceModelAdminRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployNamespaceModelAdminResponse.FromString,
                 )
         self.UndeployOrganizationModelAdmin = channel.unary_unary(
                 '/model.model.v1alpha.ModelPrivateService/UndeployOrganizationModelAdmin',
@@ -69,6 +79,13 @@ class ModelPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeployNamespaceModelAdmin(self, request, context):
+        """DeployNamespaceModelAdmin deploy a model to online state
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def DeployUserModelAdmin(self, request, context):
         """DeployUserModelAdmin deploy a model to online state
         """
@@ -85,6 +102,13 @@ class ModelPrivateServiceServicer(object):
 
     def UndeployUserModelAdmin(self, request, context):
         """UndeployUserModelAdmin undeploy a model to offline state
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UndeployNamespaceModelAdmin(self, request, context):
+        """UndeployNamespaceModelAdmin undeploy a model to offline state
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -110,6 +134,11 @@ def add_ModelPrivateServiceServicer_to_server(servicer, server):
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminResponse.SerializeToString,
             ),
+            'DeployNamespaceModelAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeployNamespaceModelAdmin,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployNamespaceModelAdminRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployNamespaceModelAdminResponse.SerializeToString,
+            ),
             'DeployUserModelAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.DeployUserModelAdmin,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployUserModelAdminRequest.FromString,
@@ -124,6 +153,11 @@ def add_ModelPrivateServiceServicer_to_server(servicer, server):
                     servicer.UndeployUserModelAdmin,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelAdminRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelAdminResponse.SerializeToString,
+            ),
+            'UndeployNamespaceModelAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.UndeployNamespaceModelAdmin,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployNamespaceModelAdminRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployNamespaceModelAdminResponse.SerializeToString,
             ),
             'UndeployOrganizationModelAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.UndeployOrganizationModelAdmin,
@@ -177,6 +211,23 @@ class ModelPrivateService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def DeployNamespaceModelAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/DeployNamespaceModelAdmin',
+            model_dot_model_dot_v1alpha_dot_model__pb2.DeployNamespaceModelAdminRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.DeployNamespaceModelAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def DeployUserModelAdmin(request,
             target,
             options=(),
@@ -224,6 +275,23 @@ class ModelPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/UndeployUserModelAdmin',
             model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelAdminRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UndeployNamespaceModelAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/UndeployNamespaceModelAdmin',
+            model_dot_model_dot_v1alpha_dot_model__pb2.UndeployNamespaceModelAdminRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.UndeployNamespaceModelAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

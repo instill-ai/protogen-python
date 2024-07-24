@@ -11,12 +11,10 @@ from google.protobuf.internal import builder as _builder
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
-from google.api import visibility_pb2 as google_dot_api_dot_visibility__pb2
 from model.model.v1alpha import model_pb2 as model_dot_model_dot_v1alpha_dot_model__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/model/model/v1alpha/model_private_service.proto\x12\x13model.model.v1alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x1bgoogle/api/visibility.proto\x1a\x1fmodel/model/v1alpha/model.proto2\xbb\t\n\x13ModelPrivateService\x12\x8b\x01\n\x0fListModelsAdmin\x12+.model.model.v1alpha.ListModelsAdminRequest\x1a,.model.model.v1alpha.ListModelsAdminResponse\"\x1d\x82\xd3\xe4\x93\x02\x17\x12\x15/v1alpha/admin/models\x12\xa3\x01\n\x10LookUpModelAdmin\x12,.model.model.v1alpha.LookUpModelAdminRequest\x1a-.model.model.v1alpha.LookUpModelAdminResponse\"2\x82\xd3\xe4\x93\x02,\x12*/v1alpha/admin/{permalink=models/*}/lookUp\x12\xc1\x01\n\x14\x44\x65ployUserModelAdmin\x12\x30.model.model.v1alpha.DeployUserModelAdminRequest\x1a\x31.model.model.v1alpha.DeployUserModelAdminResponse\"D\x82\xd3\xe4\x93\x02>\"9/v1alpha/admin/{name=users/*/models/*}/{version=*}/deploy:\x01*\x12\xe1\x01\n\x1c\x44\x65ployOrganizationModelAdmin\x12\x38.model.model.v1alpha.DeployOrganizationModelAdminRequest\x1a\x39.model.model.v1alpha.DeployOrganizationModelAdminResponse\"L\x82\xd3\xe4\x93\x02\x46\"A/v1alpha/admin/{name=organizations/*/models/*}/{version=*}/deploy:\x01*\x12\xc9\x01\n\x16UndeployUserModelAdmin\x12\x32.model.model.v1alpha.UndeployUserModelAdminRequest\x1a\x33.model.model.v1alpha.UndeployUserModelAdminResponse\"F\x82\xd3\xe4\x93\x02@\";/v1alpha/admin/{name=users/*/models/*}/{version=*}/undeploy:\x01*\x12\xe9\x01\n\x1eUndeployOrganizationModelAdmin\x12:.model.model.v1alpha.UndeployOrganizationModelAdminRequest\x1a;.model.model.v1alpha.UndeployOrganizationModelAdminResponse\"N\x82\xd3\xe4\x93\x02H\"C/v1alpha/admin/{name=organizations/*/models/*}/{version=*}/undeploy:\x01*\x1a\x10\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNALB\xe5\x01\n\x17\x63om.model.model.v1alphaB\x18ModelPrivateServiceProtoP\x01ZBgithub.com/instill-ai/protogen-go/model/model/v1alpha;modelv1alpha\xa2\x02\x03MMX\xaa\x02\x13Model.Model.V1alpha\xca\x02\x13Model\\Model\\V1alpha\xe2\x02\x1fModel\\Model\\V1alpha\\GPBMetadata\xea\x02\x15Model::Model::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/model/model/v1alpha/model_private_service.proto\x12\x13model.model.v1alpha\x1a\x1fmodel/model/v1alpha/model.proto2\xd7\x08\n\x13ModelPrivateService\x12n\n\x0fListModelsAdmin\x12+.model.model.v1alpha.ListModelsAdminRequest\x1a,.model.model.v1alpha.ListModelsAdminResponse\"\x00\x12q\n\x10LookUpModelAdmin\x12,.model.model.v1alpha.LookUpModelAdminRequest\x1a-.model.model.v1alpha.LookUpModelAdminResponse\"\x00\x12\x8c\x01\n\x19\x44\x65ployNamespaceModelAdmin\x12\x35.model.model.v1alpha.DeployNamespaceModelAdminRequest\x1a\x36.model.model.v1alpha.DeployNamespaceModelAdminResponse\"\x00\x12}\n\x14\x44\x65ployUserModelAdmin\x12\x30.model.model.v1alpha.DeployUserModelAdminRequest\x1a\x31.model.model.v1alpha.DeployUserModelAdminResponse\"\x00\x12\x95\x01\n\x1c\x44\x65ployOrganizationModelAdmin\x12\x38.model.model.v1alpha.DeployOrganizationModelAdminRequest\x1a\x39.model.model.v1alpha.DeployOrganizationModelAdminResponse\"\x00\x12\x83\x01\n\x16UndeployUserModelAdmin\x12\x32.model.model.v1alpha.UndeployUserModelAdminRequest\x1a\x33.model.model.v1alpha.UndeployUserModelAdminResponse\"\x00\x12\x92\x01\n\x1bUndeployNamespaceModelAdmin\x12\x37.model.model.v1alpha.UndeployNamespaceModelAdminRequest\x1a\x38.model.model.v1alpha.UndeployNamespaceModelAdminResponse\"\x00\x12\x9b\x01\n\x1eUndeployOrganizationModelAdmin\x12:.model.model.v1alpha.UndeployOrganizationModelAdminRequest\x1a;.model.model.v1alpha.UndeployOrganizationModelAdminResponse\"\x00\x42\xe5\x01\n\x17\x63om.model.model.v1alphaB\x18ModelPrivateServiceProtoP\x01ZBgithub.com/instill-ai/protogen-go/model/model/v1alpha;modelv1alpha\xa2\x02\x03MMX\xaa\x02\x13Model.Model.V1alpha\xca\x02\x13Model\\Model\\V1alpha\xe2\x02\x1fModel\\Model\\V1alpha\\GPBMetadata\xea\x02\x15Model::Model::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -25,20 +23,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\027com.model.model.v1alphaB\030ModelPrivateServiceProtoP\001ZBgithub.com/instill-ai/protogen-go/model/model/v1alpha;modelv1alpha\242\002\003MMX\252\002\023Model.Model.V1alpha\312\002\023Model\\Model\\V1alpha\342\002\037Model\\Model\\V1alpha\\GPBMetadata\352\002\025Model::Model::V1alpha'
-  _MODELPRIVATESERVICE._options = None
-  _MODELPRIVATESERVICE._serialized_options = b'\372\322\344\223\002\n\022\010INTERNAL'
-  _MODELPRIVATESERVICE.methods_by_name['ListModelsAdmin']._options = None
-  _MODELPRIVATESERVICE.methods_by_name['ListModelsAdmin']._serialized_options = b'\202\323\344\223\002\027\022\025/v1alpha/admin/models'
-  _MODELPRIVATESERVICE.methods_by_name['LookUpModelAdmin']._options = None
-  _MODELPRIVATESERVICE.methods_by_name['LookUpModelAdmin']._serialized_options = b'\202\323\344\223\002,\022*/v1alpha/admin/{permalink=models/*}/lookUp'
-  _MODELPRIVATESERVICE.methods_by_name['DeployUserModelAdmin']._options = None
-  _MODELPRIVATESERVICE.methods_by_name['DeployUserModelAdmin']._serialized_options = b'\202\323\344\223\002>\"9/v1alpha/admin/{name=users/*/models/*}/{version=*}/deploy:\001*'
-  _MODELPRIVATESERVICE.methods_by_name['DeployOrganizationModelAdmin']._options = None
-  _MODELPRIVATESERVICE.methods_by_name['DeployOrganizationModelAdmin']._serialized_options = b'\202\323\344\223\002F\"A/v1alpha/admin/{name=organizations/*/models/*}/{version=*}/deploy:\001*'
-  _MODELPRIVATESERVICE.methods_by_name['UndeployUserModelAdmin']._options = None
-  _MODELPRIVATESERVICE.methods_by_name['UndeployUserModelAdmin']._serialized_options = b'\202\323\344\223\002@\";/v1alpha/admin/{name=users/*/models/*}/{version=*}/undeploy:\001*'
-  _MODELPRIVATESERVICE.methods_by_name['UndeployOrganizationModelAdmin']._options = None
-  _MODELPRIVATESERVICE.methods_by_name['UndeployOrganizationModelAdmin']._serialized_options = b'\202\323\344\223\002H\"C/v1alpha/admin/{name=organizations/*/models/*}/{version=*}/undeploy:\001*'
-  _globals['_MODELPRIVATESERVICE']._serialized_start=165
-  _globals['_MODELPRIVATESERVICE']._serialized_end=1376
+  _globals['_MODELPRIVATESERVICE']._serialized_start=106
+  _globals['_MODELPRIVATESERVICE']._serialized_end=1217
 # @@protoc_insertion_point(module_scope)

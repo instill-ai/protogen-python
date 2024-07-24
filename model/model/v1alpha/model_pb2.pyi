@@ -596,6 +596,1082 @@ class LookUpModelResponse(google.protobuf.message.Message):
 global___LookUpModelResponse = LookUpModelResponse
 
 @typing_extensions.final
+class ListNamespaceModelsRequest(google.protobuf.message.Message):
+    """ListNamespaceModelsRequest represents a request to list namepsace models."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    VIEW_FIELD_NUMBER: builtins.int
+    SHOW_DELETED_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
+    VISIBILITY_FIELD_NUMBER: builtins.int
+    ORDER_BY_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    page_size: builtins.int
+    """The maximum number of models to return. If this parameter is unspecified,
+    at most 10 models will be returned. The cap value for this parameter is
+    100 (i.e. any value above that will be coerced to 100).
+    """
+    page_token: builtins.str
+    """Page token."""
+    view: model.model.v1alpha.model_definition_pb2.View.ValueType
+    """View allows clients to specify the desired model view in the response."""
+    show_deleted: builtins.bool
+    """Include soft-deleted models in the result."""
+    filter: builtins.str
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
+    visibility: global___Model.Visibility.ValueType
+    """Limit results to pipelines with the specified visibility."""
+    order_by: builtins.str
+    """Order by field, with options for ordering by `id`, `create_time` or `update_time`.
+    Format: `order_by=id` or `order_by=create_time desc`, default is `asc`.
+    """
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        page_size: builtins.int | None = ...,
+        page_token: builtins.str | None = ...,
+        view: model.model.v1alpha.model_definition_pb2.View.ValueType | None = ...,
+        show_deleted: builtins.bool | None = ...,
+        filter: builtins.str | None = ...,
+        visibility: global___Model.Visibility.ValueType | None = ...,
+        order_by: builtins.str | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "order_by", b"order_by", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page_size", b"_page_size", "_page_token", b"_page_token", "_show_deleted", b"_show_deleted", "_view", b"_view", "_visibility", b"_visibility", "filter", b"filter", "namespace_id", b"namespace_id", "order_by", b"order_by", "page_size", b"page_size", "page_token", b"page_token", "show_deleted", b"show_deleted", "view", b"view", "visibility", b"visibility"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_order_by", b"_order_by"]) -> typing_extensions.Literal["order_by"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_token", b"_page_token"]) -> typing_extensions.Literal["page_token"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_show_deleted", b"_show_deleted"]) -> typing_extensions.Literal["show_deleted"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_visibility", b"_visibility"]) -> typing_extensions.Literal["visibility"] | None: ...
+
+global___ListNamespaceModelsRequest = ListNamespaceModelsRequest
+
+@typing_extensions.final
+class ListNamespaceModelsResponse(google.protobuf.message.Message):
+    """ListNamespaceModelsResponse contains a list of models."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    MODELS_FIELD_NUMBER: builtins.int
+    NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    @property
+    def models(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Model]:
+        """A list of model resources."""
+    next_page_token: builtins.str
+    """Next page token."""
+    total_size: builtins.int
+    """Total number of models."""
+    def __init__(
+        self,
+        *,
+        models: collections.abc.Iterable[global___Model] | None = ...,
+        next_page_token: builtins.str = ...,
+        total_size: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["models", b"models", "next_page_token", b"next_page_token", "total_size", b"total_size"]) -> None: ...
+
+global___ListNamespaceModelsResponse = ListNamespaceModelsResponse
+
+@typing_extensions.final
+class CreateNamespaceModelRequest(google.protobuf.message.Message):
+    """CreateNamespaceModelRequest represents a request from a namespace to create a model."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    MODEL_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    @property
+    def model(self) -> global___Model:
+        """The properties of the model to be created."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        model: global___Model | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["model", b"model"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model", b"model", "namespace_id", b"namespace_id"]) -> None: ...
+
+global___CreateNamespaceModelRequest = CreateNamespaceModelRequest
+
+@typing_extensions.final
+class CreateNamespaceModelResponse(google.protobuf.message.Message):
+    """CreateNamespaceModelResponse contains the created model."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    MODEL_FIELD_NUMBER: builtins.int
+    @property
+    def model(self) -> global___Model:
+        """The created model resource."""
+    def __init__(
+        self,
+        *,
+        model: global___Model | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["model", b"model"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model", b"model"]) -> None: ...
+
+global___CreateNamespaceModelResponse = CreateNamespaceModelResponse
+
+@typing_extensions.final
+class GetNamespaceModelRequest(google.protobuf.message.Message):
+    """GetNamespaceModelRequest represents a request to fetch the details of a model
+    owned by a namespace.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    MODEL_ID_FIELD_NUMBER: builtins.int
+    VIEW_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    model_id: builtins.str
+    """Model ID"""
+    view: model.model.v1alpha.model_definition_pb2.View.ValueType
+    """View allows clients to specify the desired model view in the response."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        model_id: builtins.str = ...,
+        view: model.model.v1alpha.model_definition_pb2.View.ValueType | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "model_id", b"model_id", "namespace_id", b"namespace_id", "view", b"view"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+
+global___GetNamespaceModelRequest = GetNamespaceModelRequest
+
+@typing_extensions.final
+class GetNamespaceModelResponse(google.protobuf.message.Message):
+    """GetNamespaceModelResponse contains the requested model."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    MODEL_FIELD_NUMBER: builtins.int
+    @property
+    def model(self) -> global___Model:
+        """The model resource."""
+    def __init__(
+        self,
+        *,
+        model: global___Model | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["model", b"model"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model", b"model"]) -> None: ...
+
+global___GetNamespaceModelResponse = GetNamespaceModelResponse
+
+@typing_extensions.final
+class UpdateNamespaceModelRequest(google.protobuf.message.Message):
+    """UpdateNamespaceModelRequest represents a request to update a model owned by a
+    namespace.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    MODEL_ID_FIELD_NUMBER: builtins.int
+    MODEL_FIELD_NUMBER: builtins.int
+    UPDATE_MASK_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    model_id: builtins.str
+    """Model ID"""
+    @property
+    def model(self) -> global___Model:
+        """The model to update"""
+    @property
+    def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
+        """The update mask specifies the subset of fields that should be modified.
+
+        For more information about this field, see
+        https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#field-mask.
+        """
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        model_id: builtins.str = ...,
+        model: global___Model | None = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["model", b"model", "update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model", b"model", "model_id", b"model_id", "namespace_id", b"namespace_id", "update_mask", b"update_mask"]) -> None: ...
+
+global___UpdateNamespaceModelRequest = UpdateNamespaceModelRequest
+
+@typing_extensions.final
+class UpdateNamespaceModelResponse(google.protobuf.message.Message):
+    """UpdateNamespaceModelResponse contains the updated model."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    MODEL_FIELD_NUMBER: builtins.int
+    @property
+    def model(self) -> global___Model:
+        """The updated model resource."""
+    def __init__(
+        self,
+        *,
+        model: global___Model | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["model", b"model"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model", b"model"]) -> None: ...
+
+global___UpdateNamespaceModelResponse = UpdateNamespaceModelResponse
+
+@typing_extensions.final
+class DeleteNamespaceModelRequest(google.protobuf.message.Message):
+    """DeleteNamespaceModelRequest represents a request to delete a model owned by a
+    namespace.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    MODEL_ID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    model_id: builtins.str
+    """Model ID"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        model_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id", "namespace_id", b"namespace_id"]) -> None: ...
+
+global___DeleteNamespaceModelRequest = DeleteNamespaceModelRequest
+
+@typing_extensions.final
+class DeleteNamespaceModelResponse(google.protobuf.message.Message):
+    """DeleteNamespaceModelResponse is an empty response."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___DeleteNamespaceModelResponse = DeleteNamespaceModelResponse
+
+@typing_extensions.final
+class RenameNamespaceModelRequest(google.protobuf.message.Message):
+    """RenameNamespaceModelRequest represents a request to rename a model"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    MODEL_ID_FIELD_NUMBER: builtins.int
+    NEW_MODEL_ID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    model_id: builtins.str
+    """Model ID"""
+    new_model_id: builtins.str
+    """The new resource ID. This will transform the resource name into
+    `namespaces/{namespace.id}/models/{new_model_id}`.
+    """
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        model_id: builtins.str = ...,
+        new_model_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id", "namespace_id", b"namespace_id", "new_model_id", b"new_model_id"]) -> None: ...
+
+global___RenameNamespaceModelRequest = RenameNamespaceModelRequest
+
+@typing_extensions.final
+class RenameNamespaceModelResponse(google.protobuf.message.Message):
+    """RenameNamespaceModelResponse contains a renamed model."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    MODEL_FIELD_NUMBER: builtins.int
+    @property
+    def model(self) -> global___Model:
+        """The renamed model resource."""
+    def __init__(
+        self,
+        *,
+        model: global___Model | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["model", b"model"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model", b"model"]) -> None: ...
+
+global___RenameNamespaceModelResponse = RenameNamespaceModelResponse
+
+@typing_extensions.final
+class PublishNamespaceModelRequest(google.protobuf.message.Message):
+    """PublishNamespacehModelRequest represents a request to publish a model."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    MODEL_ID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    model_id: builtins.str
+    """Model ID"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        model_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id", "namespace_id", b"namespace_id"]) -> None: ...
+
+global___PublishNamespaceModelRequest = PublishNamespaceModelRequest
+
+@typing_extensions.final
+class PublishNamespaceModelResponse(google.protobuf.message.Message):
+    """PublishNamespaceModelResponse contains a published model."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    MODEL_FIELD_NUMBER: builtins.int
+    @property
+    def model(self) -> global___Model:
+        """The published model resource."""
+    def __init__(
+        self,
+        *,
+        model: global___Model | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["model", b"model"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model", b"model"]) -> None: ...
+
+global___PublishNamespaceModelResponse = PublishNamespaceModelResponse
+
+@typing_extensions.final
+class UnpublishNamespaceModelRequest(google.protobuf.message.Message):
+    """UnpublishNamespaceModelRequest represents a request to unpublish a model."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    MODEL_ID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    model_id: builtins.str
+    """Model ID"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        model_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id", "namespace_id", b"namespace_id"]) -> None: ...
+
+global___UnpublishNamespaceModelRequest = UnpublishNamespaceModelRequest
+
+@typing_extensions.final
+class UnpublishNamespaceModelResponse(google.protobuf.message.Message):
+    """UnpublishNamespaceModelResponse contains an unpublished model."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    MODEL_FIELD_NUMBER: builtins.int
+    @property
+    def model(self) -> global___Model:
+        """The unpublished model resource."""
+    def __init__(
+        self,
+        *,
+        model: global___Model | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["model", b"model"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model", b"model"]) -> None: ...
+
+global___UnpublishNamespaceModelResponse = UnpublishNamespaceModelResponse
+
+@typing_extensions.final
+class GetNamespaceModelCardRequest(google.protobuf.message.Message):
+    """GetNamespaceModelCardRequest represents a request to fetch the README card of a
+    model.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    MODEL_ID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    model_id: builtins.str
+    """Model ID"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        model_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id", "namespace_id", b"namespace_id"]) -> None: ...
+
+global___GetNamespaceModelCardRequest = GetNamespaceModelCardRequest
+
+@typing_extensions.final
+class GetNamespaceModelCardResponse(google.protobuf.message.Message):
+    """GetNamespaceModelCardResponse contains the model's README card."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    README_FIELD_NUMBER: builtins.int
+    @property
+    def readme(self) -> global___ModelCard:
+        """A model card resource."""
+    def __init__(
+        self,
+        *,
+        readme: global___ModelCard | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["readme", b"readme"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["readme", b"readme"]) -> None: ...
+
+global___GetNamespaceModelCardResponse = GetNamespaceModelCardResponse
+
+@typing_extensions.final
+class WatchNamespaceModelRequest(google.protobuf.message.Message):
+    """WatchNamespaceModelRequest represents a request to fetch current state of a model"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    MODEL_ID_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    model_id: builtins.str
+    """Model ID"""
+    version: builtins.str
+    """Model version tag"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        model_id: builtins.str = ...,
+        version: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id", "namespace_id", b"namespace_id", "version", b"version"]) -> None: ...
+
+global___WatchNamespaceModelRequest = WatchNamespaceModelRequest
+
+@typing_extensions.final
+class WatchNamespaceModelResponse(google.protobuf.message.Message):
+    """WatchNamespaceModelResponse contains the state of a model."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    STATE_FIELD_NUMBER: builtins.int
+    MESSAGE_FIELD_NUMBER: builtins.int
+    state: global___State.ValueType
+    """State."""
+    message: builtins.str
+    """Detail description of the state"""
+    def __init__(
+        self,
+        *,
+        state: global___State.ValueType = ...,
+        message: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["message", b"message", "state", b"state"]) -> None: ...
+
+global___WatchNamespaceModelResponse = WatchNamespaceModelResponse
+
+@typing_extensions.final
+class WatchNamespaceLatestModelRequest(google.protobuf.message.Message):
+    """WatchNamespaceNamespaceLatestModelRequest represents a request to fetch current state of
+    the latest model version.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    MODEL_ID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    model_id: builtins.str
+    """Model ID"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        model_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id", "namespace_id", b"namespace_id"]) -> None: ...
+
+global___WatchNamespaceLatestModelRequest = WatchNamespaceLatestModelRequest
+
+@typing_extensions.final
+class WatchNamespaceLatestModelResponse(google.protobuf.message.Message):
+    """WatchNamespaceLatestModelResponse contains the state of the latest model version."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    STATE_FIELD_NUMBER: builtins.int
+    MESSAGE_FIELD_NUMBER: builtins.int
+    state: global___State.ValueType
+    """State."""
+    message: builtins.str
+    """Detail description of the state"""
+    def __init__(
+        self,
+        *,
+        state: global___State.ValueType = ...,
+        message: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["message", b"message", "state", b"state"]) -> None: ...
+
+global___WatchNamespaceLatestModelResponse = WatchNamespaceLatestModelResponse
+
+@typing_extensions.final
+class ListNamespaceModelVersionsRequest(google.protobuf.message.Message):
+    """ListNamespaceModelVersionsRequest represents a request to list all the versions
+    of a model namespace of a namespace.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    MODEL_ID_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    model_id: builtins.str
+    """Model ID"""
+    page_size: builtins.int
+    """The maximum number of tags to return. The default and cap values are 10
+    and 100, respectively.
+    """
+    page: builtins.int
+    """Page number."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        model_id: builtins.str = ...,
+        page_size: builtins.int | None = ...,
+        page: builtins.int | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_page", b"_page", "_page_size", b"_page_size", "page", b"page", "page_size", b"page_size"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_page", b"_page", "_page_size", b"_page_size", "model_id", b"model_id", "namespace_id", b"namespace_id", "page", b"page", "page_size", b"page_size"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page", b"_page"]) -> typing_extensions.Literal["page"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
+
+global___ListNamespaceModelVersionsRequest = ListNamespaceModelVersionsRequest
+
+@typing_extensions.final
+class ListNamespaceModelVersionsResponse(google.protobuf.message.Message):
+    """ListNamespaceModelVersionsResponse contains a list of models."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    VERSIONS_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_FIELD_NUMBER: builtins.int
+    @property
+    def versions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ModelVersion]:
+        """A list of model resources."""
+    total_size: builtins.int
+    """Total number of tags."""
+    page_size: builtins.int
+    """The requested page size."""
+    page: builtins.int
+    """The requested page offset."""
+    def __init__(
+        self,
+        *,
+        versions: collections.abc.Iterable[global___ModelVersion] | None = ...,
+        total_size: builtins.int = ...,
+        page_size: builtins.int = ...,
+        page: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["page", b"page", "page_size", b"page_size", "total_size", b"total_size", "versions", b"versions"]) -> None: ...
+
+global___ListNamespaceModelVersionsResponse = ListNamespaceModelVersionsResponse
+
+@typing_extensions.final
+class DeleteNamespaceModelVersionRequest(google.protobuf.message.Message):
+    """DeleteNamespaceModelVersionRequest represents a request to delete a model version
+     owned by a namespace.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    MODEL_ID_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    model_id: builtins.str
+    """Model ID"""
+    version: builtins.str
+    """Model version tag"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        model_id: builtins.str = ...,
+        version: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id", "namespace_id", b"namespace_id", "version", b"version"]) -> None: ...
+
+global___DeleteNamespaceModelVersionRequest = DeleteNamespaceModelVersionRequest
+
+@typing_extensions.final
+class DeleteNamespaceModelVersionResponse(google.protobuf.message.Message):
+    """DeleteNamespaceModelVersionResponse is an empty response."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___DeleteNamespaceModelVersionResponse = DeleteNamespaceModelVersionResponse
+
+@typing_extensions.final
+class TriggerNamespaceModelRequest(google.protobuf.message.Message):
+    """TriggerNamespaceModelRequest represents a request to trigger a model inference."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    MODEL_ID_FIELD_NUMBER: builtins.int
+    TASK_INPUTS_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    model_id: builtins.str
+    """Model ID"""
+    @property
+    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
+        """Inference input parameters."""
+    version: builtins.str
+    """Model version tag"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        model_id: builtins.str = ...,
+        task_inputs: collections.abc.Iterable[global___TaskInput] | None = ...,
+        version: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id", "namespace_id", b"namespace_id", "task_inputs", b"task_inputs", "version", b"version"]) -> None: ...
+
+global___TriggerNamespaceModelRequest = TriggerNamespaceModelRequest
+
+@typing_extensions.final
+class TriggerNamespaceModelResponse(google.protobuf.message.Message):
+    """TriggerNamespaceModelResponse contains the model inference results."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TASK_FIELD_NUMBER: builtins.int
+    TASK_OUTPUTS_FIELD_NUMBER: builtins.int
+    task: common.task.v1alpha.task_pb2.Task.ValueType
+    """Task type."""
+    @property
+    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskOutput]:
+        """Model inference outputs."""
+    def __init__(
+        self,
+        *,
+        task: common.task.v1alpha.task_pb2.Task.ValueType = ...,
+        task_outputs: collections.abc.Iterable[global___TaskOutput] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["task", b"task", "task_outputs", b"task_outputs"]) -> None: ...
+
+global___TriggerNamespaceModelResponse = TriggerNamespaceModelResponse
+
+@typing_extensions.final
+class TriggerAsyncNamespaceModelRequest(google.protobuf.message.Message):
+    """TriggerAsyncNamespaceModelRequest represents a request to trigger a model inference
+    asynchronously.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    MODEL_ID_FIELD_NUMBER: builtins.int
+    TASK_INPUTS_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    model_id: builtins.str
+    """Model ID"""
+    @property
+    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
+        """Inference input parameters."""
+    version: builtins.str
+    """Model version tag"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        model_id: builtins.str = ...,
+        task_inputs: collections.abc.Iterable[global___TaskInput] | None = ...,
+        version: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id", "namespace_id", b"namespace_id", "task_inputs", b"task_inputs", "version", b"version"]) -> None: ...
+
+global___TriggerAsyncNamespaceModelRequest = TriggerAsyncNamespaceModelRequest
+
+@typing_extensions.final
+class TriggerAsyncNamespaceModelResponse(google.protobuf.message.Message):
+    """TriggerAsyncNamespaceModelResponse contains the information to access the
+    status of an asynchronous model inference.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OPERATION_FIELD_NUMBER: builtins.int
+    @property
+    def operation(self) -> google.longrunning.operations_pb2.Operation:
+        """Long-running operation information."""
+    def __init__(
+        self,
+        *,
+        operation: google.longrunning.operations_pb2.Operation | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> None: ...
+
+global___TriggerAsyncNamespaceModelResponse = TriggerAsyncNamespaceModelResponse
+
+@typing_extensions.final
+class TriggerNamespaceLatestModelRequest(google.protobuf.message.Message):
+    """TriggerNamespaceLatestModelRequest represents a request to trigger a model inference
+    with the latest uploaded version.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    MODEL_ID_FIELD_NUMBER: builtins.int
+    TASK_INPUTS_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    model_id: builtins.str
+    """Model ID"""
+    @property
+    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
+        """Inference input parameters."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        model_id: builtins.str = ...,
+        task_inputs: collections.abc.Iterable[global___TaskInput] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id", "namespace_id", b"namespace_id", "task_inputs", b"task_inputs"]) -> None: ...
+
+global___TriggerNamespaceLatestModelRequest = TriggerNamespaceLatestModelRequest
+
+@typing_extensions.final
+class TriggerNamespaceLatestModelResponse(google.protobuf.message.Message):
+    """TriggerNamespaceLatestModelResponse contains the model inference results."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TASK_FIELD_NUMBER: builtins.int
+    TASK_OUTPUTS_FIELD_NUMBER: builtins.int
+    task: common.task.v1alpha.task_pb2.Task.ValueType
+    """Task type."""
+    @property
+    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskOutput]:
+        """Model inference outputs."""
+    def __init__(
+        self,
+        *,
+        task: common.task.v1alpha.task_pb2.Task.ValueType = ...,
+        task_outputs: collections.abc.Iterable[global___TaskOutput] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["task", b"task", "task_outputs", b"task_outputs"]) -> None: ...
+
+global___TriggerNamespaceLatestModelResponse = TriggerNamespaceLatestModelResponse
+
+@typing_extensions.final
+class TriggerAsyncNamespaceLatestModelRequest(google.protobuf.message.Message):
+    """TriggerAsyncNamespaceLatestModelRequest represents a request to trigger a model inference
+    asynchronously with the latest uploaded version.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    MODEL_ID_FIELD_NUMBER: builtins.int
+    TASK_INPUTS_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    model_id: builtins.str
+    """Model ID"""
+    @property
+    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
+        """Inference input parameters."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        model_id: builtins.str = ...,
+        task_inputs: collections.abc.Iterable[global___TaskInput] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id", "namespace_id", b"namespace_id", "task_inputs", b"task_inputs"]) -> None: ...
+
+global___TriggerAsyncNamespaceLatestModelRequest = TriggerAsyncNamespaceLatestModelRequest
+
+@typing_extensions.final
+class TriggerAsyncNamespaceLatestModelResponse(google.protobuf.message.Message):
+    """TriggerAsyncNamespaceLatestModelResponse contains the information to access the
+    status of an asynchronous model inference.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OPERATION_FIELD_NUMBER: builtins.int
+    @property
+    def operation(self) -> google.longrunning.operations_pb2.Operation:
+        """Long-running operation information."""
+    def __init__(
+        self,
+        *,
+        operation: google.longrunning.operations_pb2.Operation | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> None: ...
+
+global___TriggerAsyncNamespaceLatestModelResponse = TriggerAsyncNamespaceLatestModelResponse
+
+@typing_extensions.final
+class TriggerNamespaceModelBinaryFileUploadRequest(google.protobuf.message.Message):
+    """TriggerNamespaceModelBinaryFileUploadRequest represents a request trigger a model
+    inference by uploading a binary file as the input.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    MODEL_ID_FIELD_NUMBER: builtins.int
+    TASK_INPUT_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    model_id: builtins.str
+    """Model ID"""
+    @property
+    def task_input(self) -> global___TaskInputStream:
+        """Inference input as a binary file."""
+    version: builtins.str
+    """Model version tag"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        model_id: builtins.str = ...,
+        task_input: global___TaskInputStream | None = ...,
+        version: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["task_input", b"task_input"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id", "namespace_id", b"namespace_id", "task_input", b"task_input", "version", b"version"]) -> None: ...
+
+global___TriggerNamespaceModelBinaryFileUploadRequest = TriggerNamespaceModelBinaryFileUploadRequest
+
+@typing_extensions.final
+class TriggerNamespaceModelBinaryFileUploadResponse(google.protobuf.message.Message):
+    """TriggerNamespaceModelBinaryFileUploadResponse contains the model inference results."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TASK_FIELD_NUMBER: builtins.int
+    TASK_OUTPUTS_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
+    task: common.task.v1alpha.task_pb2.Task.ValueType
+    """Task type."""
+    @property
+    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskOutput]:
+        """Model inference outputs."""
+    version: builtins.str
+    """Model version tag"""
+    def __init__(
+        self,
+        *,
+        task: common.task.v1alpha.task_pb2.Task.ValueType = ...,
+        task_outputs: collections.abc.Iterable[global___TaskOutput] | None = ...,
+        version: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["task", b"task", "task_outputs", b"task_outputs", "version", b"version"]) -> None: ...
+
+global___TriggerNamespaceModelBinaryFileUploadResponse = TriggerNamespaceModelBinaryFileUploadResponse
+
+@typing_extensions.final
+class GetNamespaceLatestModelOperationRequest(google.protobuf.message.Message):
+    """GetNamespaceLatestModelOperationRequest represents a request to fetch the latest long-running
+    operation performed on a model for a namespace.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    MODEL_ID_FIELD_NUMBER: builtins.int
+    VIEW_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    model_id: builtins.str
+    """Model ID"""
+    view: model.model.v1alpha.model_definition_pb2.View.ValueType
+    """View allows clients to specify the desired operation result in the response."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        model_id: builtins.str = ...,
+        view: model.model.v1alpha.model_definition_pb2.View.ValueType | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "model_id", b"model_id", "namespace_id", b"namespace_id", "view", b"view"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+
+global___GetNamespaceLatestModelOperationRequest = GetNamespaceLatestModelOperationRequest
+
+@typing_extensions.final
+class GetNamespaceLatestModelOperationResponse(google.protobuf.message.Message):
+    """GetNamespaceLatestModelOperationRequest represents a request to query a long-running
+    operation.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OPERATION_FIELD_NUMBER: builtins.int
+    @property
+    def operation(self) -> google.longrunning.operations_pb2.Operation:
+        """The long-running operation."""
+    def __init__(
+        self,
+        *,
+        operation: google.longrunning.operations_pb2.Operation | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> None: ...
+
+global___GetNamespaceLatestModelOperationResponse = GetNamespaceLatestModelOperationResponse
+
+@typing_extensions.final
+class DeployNamespaceModelAdminRequest(google.protobuf.message.Message):
+    """DeployNamespaceModelAdminRequest represents a request to deploy a model to online state"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    MODEL_ID_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
+    DIGEST_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    model_id: builtins.str
+    """Model ID"""
+    version: builtins.str
+    """Model version tag"""
+    digest: builtins.str
+    """Model image digest"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        model_id: builtins.str = ...,
+        version: builtins.str = ...,
+        digest: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["digest", b"digest", "model_id", b"model_id", "namespace_id", b"namespace_id", "version", b"version"]) -> None: ...
+
+global___DeployNamespaceModelAdminRequest = DeployNamespaceModelAdminRequest
+
+@typing_extensions.final
+class DeployNamespaceModelAdminResponse(google.protobuf.message.Message):
+    """DeployNamespaceModelAdminResponse represents a response for a deployed model"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___DeployNamespaceModelAdminResponse = DeployNamespaceModelAdminResponse
+
+@typing_extensions.final
+class UndeployNamespaceModelAdminRequest(google.protobuf.message.Message):
+    """UndeployNamespaceModelAdminRequest represents a request to undeploy a model to offline
+    state
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    MODEL_ID_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
+    DIGEST_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    model_id: builtins.str
+    """Model ID"""
+    version: builtins.str
+    """Model version tag"""
+    digest: builtins.str
+    """Model image digest"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        model_id: builtins.str = ...,
+        version: builtins.str = ...,
+        digest: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["digest", b"digest", "model_id", b"model_id", "namespace_id", b"namespace_id", "version", b"version"]) -> None: ...
+
+global___UndeployNamespaceModelAdminRequest = UndeployNamespaceModelAdminRequest
+
+@typing_extensions.final
+class UndeployNamespaceModelAdminResponse(google.protobuf.message.Message):
+    """UndeployNamespaceModelAdminResponse represents a response for a undeployed model"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___UndeployNamespaceModelAdminResponse = UndeployNamespaceModelAdminResponse
+
+@typing_extensions.final
 class CreateUserModelRequest(google.protobuf.message.Message):
     """CreateUserModelRequest represents a request from a user to create a model."""
 

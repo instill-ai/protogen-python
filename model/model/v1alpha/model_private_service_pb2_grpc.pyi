@@ -37,6 +37,11 @@ class ModelPrivateServiceStub:
     """LookUpModelAdmin method receives a LookUpModelAdminRequest message and
     returns a LookUpModelAdminResponse
     """
+    DeployNamespaceModelAdmin: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.DeployNamespaceModelAdminRequest,
+        model.model.v1alpha.model_pb2.DeployNamespaceModelAdminResponse,
+    ]
+    """DeployNamespaceModelAdmin deploy a model to online state"""
     DeployUserModelAdmin: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.DeployUserModelAdminRequest,
         model.model.v1alpha.model_pb2.DeployUserModelAdminResponse,
@@ -52,6 +57,11 @@ class ModelPrivateServiceStub:
         model.model.v1alpha.model_pb2.UndeployUserModelAdminResponse,
     ]
     """UndeployUserModelAdmin undeploy a model to offline state"""
+    UndeployNamespaceModelAdmin: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.UndeployNamespaceModelAdminRequest,
+        model.model.v1alpha.model_pb2.UndeployNamespaceModelAdminResponse,
+    ]
+    """UndeployNamespaceModelAdmin undeploy a model to offline state"""
     UndeployOrganizationModelAdmin: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.UndeployOrganizationModelAdminRequest,
         model.model.v1alpha.model_pb2.UndeployOrganizationModelAdminResponse,
@@ -77,6 +87,11 @@ class ModelPrivateServiceAsyncStub:
     """LookUpModelAdmin method receives a LookUpModelAdminRequest message and
     returns a LookUpModelAdminResponse
     """
+    DeployNamespaceModelAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.DeployNamespaceModelAdminRequest,
+        model.model.v1alpha.model_pb2.DeployNamespaceModelAdminResponse,
+    ]
+    """DeployNamespaceModelAdmin deploy a model to online state"""
     DeployUserModelAdmin: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.DeployUserModelAdminRequest,
         model.model.v1alpha.model_pb2.DeployUserModelAdminResponse,
@@ -92,6 +107,11 @@ class ModelPrivateServiceAsyncStub:
         model.model.v1alpha.model_pb2.UndeployUserModelAdminResponse,
     ]
     """UndeployUserModelAdmin undeploy a model to offline state"""
+    UndeployNamespaceModelAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.UndeployNamespaceModelAdminRequest,
+        model.model.v1alpha.model_pb2.UndeployNamespaceModelAdminResponse,
+    ]
+    """UndeployNamespaceModelAdmin undeploy a model to offline state"""
     UndeployOrganizationModelAdmin: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.UndeployOrganizationModelAdminRequest,
         model.model.v1alpha.model_pb2.UndeployOrganizationModelAdminResponse,
@@ -122,6 +142,13 @@ class ModelPrivateServiceServicer(metaclass=abc.ABCMeta):
         returns a LookUpModelAdminResponse
         """
     @abc.abstractmethod
+    def DeployNamespaceModelAdmin(
+        self,
+        request: model.model.v1alpha.model_pb2.DeployNamespaceModelAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.DeployNamespaceModelAdminResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.DeployNamespaceModelAdminResponse]]:
+        """DeployNamespaceModelAdmin deploy a model to online state"""
+    @abc.abstractmethod
     def DeployUserModelAdmin(
         self,
         request: model.model.v1alpha.model_pb2.DeployUserModelAdminRequest,
@@ -142,6 +169,13 @@ class ModelPrivateServiceServicer(metaclass=abc.ABCMeta):
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.UndeployUserModelAdminResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.UndeployUserModelAdminResponse]]:
         """UndeployUserModelAdmin undeploy a model to offline state"""
+    @abc.abstractmethod
+    def UndeployNamespaceModelAdmin(
+        self,
+        request: model.model.v1alpha.model_pb2.UndeployNamespaceModelAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.UndeployNamespaceModelAdminResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.UndeployNamespaceModelAdminResponse]]:
+        """UndeployNamespaceModelAdmin undeploy a model to offline state"""
     @abc.abstractmethod
     def UndeployOrganizationModelAdmin(
         self,

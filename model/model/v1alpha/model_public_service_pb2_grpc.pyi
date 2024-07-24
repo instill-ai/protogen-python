@@ -82,11 +82,190 @@ class ModelPublicServiceStub:
 
     Returns the details of a model by a permalink defined by the resource UID.
     """
+    ListNamespaceModels: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.ListNamespaceModelsRequest,
+        model.model.v1alpha.model_pb2.ListNamespaceModelsResponse,
+    ]
+    """List namespace models
+
+    Returns a paginated list of models.
+    """
+    CreateNamespaceModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.CreateNamespaceModelRequest,
+        model.model.v1alpha.model_pb2.CreateNamespaceModelResponse,
+    ]
+    """Create a new model
+
+    Creates a new model under the parenthood of a namespace. This is an
+    asynchronous endpoint, i.e., the server will not wait for the model to be
+    created in order to respond. Instead, it will return a response with the
+    necessary information to access the result and status of the creation
+    operation.
+    """
+    GetNamespaceModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.GetNamespaceModelRequest,
+        model.model.v1alpha.model_pb2.GetNamespaceModelResponse,
+    ]
+    """Get a model
+
+    Returns the detail of a model, accessing it by the model ID and its parent namespace.
+    """
+    UpdateNamespaceModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.UpdateNamespaceModelRequest,
+        model.model.v1alpha.model_pb2.UpdateNamespaceModelResponse,
+    ]
+    """Update a model
+
+    Updates a model, accessing it by its resource name, which is defined by
+    the parent namespace and the ID of the model.
+
+    In REST requests, only the supplied model fields will be taken into
+    account when updating the resource.
+    """
+    DeleteNamespaceModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.DeleteNamespaceModelRequest,
+        model.model.v1alpha.model_pb2.DeleteNamespaceModelResponse,
+    ]
+    """Delete a model
+
+    Deletes a model, accesing it by its resource name, which is defined by the
+    parent namespace and the ID of the model.
+    """
+    RenameNamespaceModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.RenameNamespaceModelRequest,
+        model.model.v1alpha.model_pb2.RenameNamespaceModelResponse,
+    ]
+    """Rename a model
+
+    Renames a model, accesing it by its resource name, which is defined by the
+    parent namespace and the ID of the model.
+    """
+    PublishNamespaceModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.PublishNamespaceModelRequest,
+        model.model.v1alpha.model_pb2.PublishNamespaceModelResponse,
+    ]
+    """Publish a model
+
+    Updates the visibility in a model to PUBLIC. The model is accessed by its
+    resource name, defined by the model ID and its parent namespace.
+    """
+    UnpublishNamespaceModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.UnpublishNamespaceModelRequest,
+        model.model.v1alpha.model_pb2.UnpublishNamespaceModelResponse,
+    ]
+    """Unpublish a model
+
+    Updates the visibility in a model to PRIVATE. The model is accessed by its
+    resource name, defined by the model ID and its parent namespace.
+    """
+    GetNamespaceModelCard: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.GetNamespaceModelCardRequest,
+        model.model.v1alpha.model_pb2.GetNamespaceModelCardResponse,
+    ]
+    """Get a model card
+
+    Returns the README file that accompanies a model, describing it and
+    enhancing it with metadata. The model is accessed by its resource name.
+    """
+    WatchNamespaceModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.WatchNamespaceModelRequest,
+        model.model.v1alpha.model_pb2.WatchNamespaceModelResponse,
+    ]
+    """Watch the state of a model version
+
+    Returns the state of a model. The model resource allocation and scaling actions take some
+    time, during which a model will be in various state. This endpoint
+    allows clients to track the state.
+    """
+    WatchNamespaceLatestModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.WatchNamespaceLatestModelRequest,
+        model.model.v1alpha.model_pb2.WatchNamespaceLatestModelResponse,
+    ]
+    """Watch the state of the latest model version
+
+    Returns the state of the latest model version. The model resource allocation and scaling actions
+    take some time, during which a model will be in various state. This endpoint
+    allows clients to track the state.
+    """
+    ListNamespaceModelVersions: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.ListNamespaceModelVersionsRequest,
+        model.model.v1alpha.model_pb2.ListNamespaceModelVersionsResponse,
+    ]
+    """List namespace model versions
+
+    Returns a paginated list of version of a model namespace that belong to the specified namespace.
+    Contains model version and digest.
+    """
+    DeleteNamespaceModelVersion: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.DeleteNamespaceModelVersionRequest,
+        model.model.v1alpha.model_pb2.DeleteNamespaceModelVersionResponse,
+    ]
+    """Delete a model version
+
+    Deletes a model version, accesing it by its resource name, which is defined by the
+    parent namespace and the ID of the model, and version.
+    """
+    TriggerNamespaceModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerNamespaceModelRequest,
+        model.model.v1alpha.model_pb2.TriggerNamespaceModelResponse,
+    ]
+    """Trigger model inference
+
+    Triggers a deployed model to infer the result of a set of task or
+    questions.
+    """
+    TriggerAsyncNamespaceModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerAsyncNamespaceModelRequest,
+        model.model.v1alpha.model_pb2.TriggerAsyncNamespaceModelResponse,
+    ]
+    """Trigger model inference asynchronously
+
+    Triggers a deployed model to infer the result of a set of task or
+    questions.
+    """
+    TriggerNamespaceLatestModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerNamespaceLatestModelRequest,
+        model.model.v1alpha.model_pb2.TriggerNamespaceLatestModelResponse,
+    ]
+    """Trigger model inference
+
+    Triggers the latest deployed model version to infer the result of a set of task or
+    questions.
+    """
+    TriggerAsyncNamespaceLatestModel: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerAsyncNamespaceLatestModelRequest,
+        model.model.v1alpha.model_pb2.TriggerAsyncNamespaceLatestModelResponse,
+    ]
+    """Trigger model inference asynchronously
+
+    Triggers the latest deployed model version to infer the result of a set of task or
+    questions.
+    """
+    GetNamespaceLatestModelOperation: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.GetNamespaceLatestModelOperationRequest,
+        model.model.v1alpha.model_pb2.GetNamespaceLatestModelOperationResponse,
+    ]
+    """Get the details of the latest long-running operation from a namespace model
+
+    This method allows requesters to request the status and outcome of
+    long-running operations in a model, such as deployment.
+    """
+    GetModelOperation: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.GetModelOperationRequest,
+        model.model.v1alpha.model_pb2.GetModelOperationResponse,
+    ]
+    """Get the details of a long-running operation
+
+    This method allows requesters to request the status and outcome of
+    long-running operations in a model, such as deployment.
+    """
     ListUserModels: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.ListUserModelsRequest,
         model.model.v1alpha.model_pb2.ListUserModelsResponse,
     ]
-    """List user models
+    """The following endpoints are all deprecated
+
+    List user models
 
     Returns a paginated list of models that belong to the specified user. The
     parent user may be different from the authenticated user, in which case
@@ -426,15 +605,6 @@ class ModelPublicServiceStub:
     Triggers a deployed model to infer the result of a task or question,
     submitted as a binary file.
     """
-    GetModelOperation: grpc.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.GetModelOperationRequest,
-        model.model.v1alpha.model_pb2.GetModelOperationResponse,
-    ]
-    """Get the details of a long-running operation
-
-    This method allows requesters to request the status and outcome of
-    long-running operations in a model, such as deployment.
-    """
     GetUserLatestModelOperation: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetUserLatestModelOperationRequest,
         model.model.v1alpha.model_pb2.GetUserLatestModelOperationResponse,
@@ -517,11 +687,190 @@ class ModelPublicServiceAsyncStub:
 
     Returns the details of a model by a permalink defined by the resource UID.
     """
+    ListNamespaceModels: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.ListNamespaceModelsRequest,
+        model.model.v1alpha.model_pb2.ListNamespaceModelsResponse,
+    ]
+    """List namespace models
+
+    Returns a paginated list of models.
+    """
+    CreateNamespaceModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.CreateNamespaceModelRequest,
+        model.model.v1alpha.model_pb2.CreateNamespaceModelResponse,
+    ]
+    """Create a new model
+
+    Creates a new model under the parenthood of a namespace. This is an
+    asynchronous endpoint, i.e., the server will not wait for the model to be
+    created in order to respond. Instead, it will return a response with the
+    necessary information to access the result and status of the creation
+    operation.
+    """
+    GetNamespaceModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.GetNamespaceModelRequest,
+        model.model.v1alpha.model_pb2.GetNamespaceModelResponse,
+    ]
+    """Get a model
+
+    Returns the detail of a model, accessing it by the model ID and its parent namespace.
+    """
+    UpdateNamespaceModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.UpdateNamespaceModelRequest,
+        model.model.v1alpha.model_pb2.UpdateNamespaceModelResponse,
+    ]
+    """Update a model
+
+    Updates a model, accessing it by its resource name, which is defined by
+    the parent namespace and the ID of the model.
+
+    In REST requests, only the supplied model fields will be taken into
+    account when updating the resource.
+    """
+    DeleteNamespaceModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.DeleteNamespaceModelRequest,
+        model.model.v1alpha.model_pb2.DeleteNamespaceModelResponse,
+    ]
+    """Delete a model
+
+    Deletes a model, accesing it by its resource name, which is defined by the
+    parent namespace and the ID of the model.
+    """
+    RenameNamespaceModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.RenameNamespaceModelRequest,
+        model.model.v1alpha.model_pb2.RenameNamespaceModelResponse,
+    ]
+    """Rename a model
+
+    Renames a model, accesing it by its resource name, which is defined by the
+    parent namespace and the ID of the model.
+    """
+    PublishNamespaceModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.PublishNamespaceModelRequest,
+        model.model.v1alpha.model_pb2.PublishNamespaceModelResponse,
+    ]
+    """Publish a model
+
+    Updates the visibility in a model to PUBLIC. The model is accessed by its
+    resource name, defined by the model ID and its parent namespace.
+    """
+    UnpublishNamespaceModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.UnpublishNamespaceModelRequest,
+        model.model.v1alpha.model_pb2.UnpublishNamespaceModelResponse,
+    ]
+    """Unpublish a model
+
+    Updates the visibility in a model to PRIVATE. The model is accessed by its
+    resource name, defined by the model ID and its parent namespace.
+    """
+    GetNamespaceModelCard: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.GetNamespaceModelCardRequest,
+        model.model.v1alpha.model_pb2.GetNamespaceModelCardResponse,
+    ]
+    """Get a model card
+
+    Returns the README file that accompanies a model, describing it and
+    enhancing it with metadata. The model is accessed by its resource name.
+    """
+    WatchNamespaceModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.WatchNamespaceModelRequest,
+        model.model.v1alpha.model_pb2.WatchNamespaceModelResponse,
+    ]
+    """Watch the state of a model version
+
+    Returns the state of a model. The model resource allocation and scaling actions take some
+    time, during which a model will be in various state. This endpoint
+    allows clients to track the state.
+    """
+    WatchNamespaceLatestModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.WatchNamespaceLatestModelRequest,
+        model.model.v1alpha.model_pb2.WatchNamespaceLatestModelResponse,
+    ]
+    """Watch the state of the latest model version
+
+    Returns the state of the latest model version. The model resource allocation and scaling actions
+    take some time, during which a model will be in various state. This endpoint
+    allows clients to track the state.
+    """
+    ListNamespaceModelVersions: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.ListNamespaceModelVersionsRequest,
+        model.model.v1alpha.model_pb2.ListNamespaceModelVersionsResponse,
+    ]
+    """List namespace model versions
+
+    Returns a paginated list of version of a model namespace that belong to the specified namespace.
+    Contains model version and digest.
+    """
+    DeleteNamespaceModelVersion: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.DeleteNamespaceModelVersionRequest,
+        model.model.v1alpha.model_pb2.DeleteNamespaceModelVersionResponse,
+    ]
+    """Delete a model version
+
+    Deletes a model version, accesing it by its resource name, which is defined by the
+    parent namespace and the ID of the model, and version.
+    """
+    TriggerNamespaceModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerNamespaceModelRequest,
+        model.model.v1alpha.model_pb2.TriggerNamespaceModelResponse,
+    ]
+    """Trigger model inference
+
+    Triggers a deployed model to infer the result of a set of task or
+    questions.
+    """
+    TriggerAsyncNamespaceModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerAsyncNamespaceModelRequest,
+        model.model.v1alpha.model_pb2.TriggerAsyncNamespaceModelResponse,
+    ]
+    """Trigger model inference asynchronously
+
+    Triggers a deployed model to infer the result of a set of task or
+    questions.
+    """
+    TriggerNamespaceLatestModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerNamespaceLatestModelRequest,
+        model.model.v1alpha.model_pb2.TriggerNamespaceLatestModelResponse,
+    ]
+    """Trigger model inference
+
+    Triggers the latest deployed model version to infer the result of a set of task or
+    questions.
+    """
+    TriggerAsyncNamespaceLatestModel: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerAsyncNamespaceLatestModelRequest,
+        model.model.v1alpha.model_pb2.TriggerAsyncNamespaceLatestModelResponse,
+    ]
+    """Trigger model inference asynchronously
+
+    Triggers the latest deployed model version to infer the result of a set of task or
+    questions.
+    """
+    GetNamespaceLatestModelOperation: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.GetNamespaceLatestModelOperationRequest,
+        model.model.v1alpha.model_pb2.GetNamespaceLatestModelOperationResponse,
+    ]
+    """Get the details of the latest long-running operation from a namespace model
+
+    This method allows requesters to request the status and outcome of
+    long-running operations in a model, such as deployment.
+    """
+    GetModelOperation: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.GetModelOperationRequest,
+        model.model.v1alpha.model_pb2.GetModelOperationResponse,
+    ]
+    """Get the details of a long-running operation
+
+    This method allows requesters to request the status and outcome of
+    long-running operations in a model, such as deployment.
+    """
     ListUserModels: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.ListUserModelsRequest,
         model.model.v1alpha.model_pb2.ListUserModelsResponse,
     ]
-    """List user models
+    """The following endpoints are all deprecated
+
+    List user models
 
     Returns a paginated list of models that belong to the specified user. The
     parent user may be different from the authenticated user, in which case
@@ -861,15 +1210,6 @@ class ModelPublicServiceAsyncStub:
     Triggers a deployed model to infer the result of a task or question,
     submitted as a binary file.
     """
-    GetModelOperation: grpc.aio.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.GetModelOperationRequest,
-        model.model.v1alpha.model_pb2.GetModelOperationResponse,
-    ]
-    """Get the details of a long-running operation
-
-    This method allows requesters to request the status and outcome of
-    long-running operations in a model, such as deployment.
-    """
     GetUserLatestModelOperation: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetUserLatestModelOperationRequest,
         model.model.v1alpha.model_pb2.GetUserLatestModelOperationResponse,
@@ -967,12 +1307,229 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         Returns the details of a model by a permalink defined by the resource UID.
         """
     @abc.abstractmethod
+    def ListNamespaceModels(
+        self,
+        request: model.model.v1alpha.model_pb2.ListNamespaceModelsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.ListNamespaceModelsResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.ListNamespaceModelsResponse]]:
+        """List namespace models
+
+        Returns a paginated list of models.
+        """
+    @abc.abstractmethod
+    def CreateNamespaceModel(
+        self,
+        request: model.model.v1alpha.model_pb2.CreateNamespaceModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.CreateNamespaceModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.CreateNamespaceModelResponse]]:
+        """Create a new model
+
+        Creates a new model under the parenthood of a namespace. This is an
+        asynchronous endpoint, i.e., the server will not wait for the model to be
+        created in order to respond. Instead, it will return a response with the
+        necessary information to access the result and status of the creation
+        operation.
+        """
+    @abc.abstractmethod
+    def GetNamespaceModel(
+        self,
+        request: model.model.v1alpha.model_pb2.GetNamespaceModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.GetNamespaceModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.GetNamespaceModelResponse]]:
+        """Get a model
+
+        Returns the detail of a model, accessing it by the model ID and its parent namespace.
+        """
+    @abc.abstractmethod
+    def UpdateNamespaceModel(
+        self,
+        request: model.model.v1alpha.model_pb2.UpdateNamespaceModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.UpdateNamespaceModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.UpdateNamespaceModelResponse]]:
+        """Update a model
+
+        Updates a model, accessing it by its resource name, which is defined by
+        the parent namespace and the ID of the model.
+
+        In REST requests, only the supplied model fields will be taken into
+        account when updating the resource.
+        """
+    @abc.abstractmethod
+    def DeleteNamespaceModel(
+        self,
+        request: model.model.v1alpha.model_pb2.DeleteNamespaceModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.DeleteNamespaceModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.DeleteNamespaceModelResponse]]:
+        """Delete a model
+
+        Deletes a model, accesing it by its resource name, which is defined by the
+        parent namespace and the ID of the model.
+        """
+    @abc.abstractmethod
+    def RenameNamespaceModel(
+        self,
+        request: model.model.v1alpha.model_pb2.RenameNamespaceModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.RenameNamespaceModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.RenameNamespaceModelResponse]]:
+        """Rename a model
+
+        Renames a model, accesing it by its resource name, which is defined by the
+        parent namespace and the ID of the model.
+        """
+    @abc.abstractmethod
+    def PublishNamespaceModel(
+        self,
+        request: model.model.v1alpha.model_pb2.PublishNamespaceModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.PublishNamespaceModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.PublishNamespaceModelResponse]]:
+        """Publish a model
+
+        Updates the visibility in a model to PUBLIC. The model is accessed by its
+        resource name, defined by the model ID and its parent namespace.
+        """
+    @abc.abstractmethod
+    def UnpublishNamespaceModel(
+        self,
+        request: model.model.v1alpha.model_pb2.UnpublishNamespaceModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.UnpublishNamespaceModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.UnpublishNamespaceModelResponse]]:
+        """Unpublish a model
+
+        Updates the visibility in a model to PRIVATE. The model is accessed by its
+        resource name, defined by the model ID and its parent namespace.
+        """
+    @abc.abstractmethod
+    def GetNamespaceModelCard(
+        self,
+        request: model.model.v1alpha.model_pb2.GetNamespaceModelCardRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.GetNamespaceModelCardResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.GetNamespaceModelCardResponse]]:
+        """Get a model card
+
+        Returns the README file that accompanies a model, describing it and
+        enhancing it with metadata. The model is accessed by its resource name.
+        """
+    @abc.abstractmethod
+    def WatchNamespaceModel(
+        self,
+        request: model.model.v1alpha.model_pb2.WatchNamespaceModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.WatchNamespaceModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.WatchNamespaceModelResponse]]:
+        """Watch the state of a model version
+
+        Returns the state of a model. The model resource allocation and scaling actions take some
+        time, during which a model will be in various state. This endpoint
+        allows clients to track the state.
+        """
+    @abc.abstractmethod
+    def WatchNamespaceLatestModel(
+        self,
+        request: model.model.v1alpha.model_pb2.WatchNamespaceLatestModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.WatchNamespaceLatestModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.WatchNamespaceLatestModelResponse]]:
+        """Watch the state of the latest model version
+
+        Returns the state of the latest model version. The model resource allocation and scaling actions
+        take some time, during which a model will be in various state. This endpoint
+        allows clients to track the state.
+        """
+    @abc.abstractmethod
+    def ListNamespaceModelVersions(
+        self,
+        request: model.model.v1alpha.model_pb2.ListNamespaceModelVersionsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.ListNamespaceModelVersionsResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.ListNamespaceModelVersionsResponse]]:
+        """List namespace model versions
+
+        Returns a paginated list of version of a model namespace that belong to the specified namespace.
+        Contains model version and digest.
+        """
+    @abc.abstractmethod
+    def DeleteNamespaceModelVersion(
+        self,
+        request: model.model.v1alpha.model_pb2.DeleteNamespaceModelVersionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.DeleteNamespaceModelVersionResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.DeleteNamespaceModelVersionResponse]]:
+        """Delete a model version
+
+        Deletes a model version, accesing it by its resource name, which is defined by the
+        parent namespace and the ID of the model, and version.
+        """
+    @abc.abstractmethod
+    def TriggerNamespaceModel(
+        self,
+        request: model.model.v1alpha.model_pb2.TriggerNamespaceModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.TriggerNamespaceModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TriggerNamespaceModelResponse]]:
+        """Trigger model inference
+
+        Triggers a deployed model to infer the result of a set of task or
+        questions.
+        """
+    @abc.abstractmethod
+    def TriggerAsyncNamespaceModel(
+        self,
+        request: model.model.v1alpha.model_pb2.TriggerAsyncNamespaceModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.TriggerAsyncNamespaceModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TriggerAsyncNamespaceModelResponse]]:
+        """Trigger model inference asynchronously
+
+        Triggers a deployed model to infer the result of a set of task or
+        questions.
+        """
+    @abc.abstractmethod
+    def TriggerNamespaceLatestModel(
+        self,
+        request: model.model.v1alpha.model_pb2.TriggerNamespaceLatestModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.TriggerNamespaceLatestModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TriggerNamespaceLatestModelResponse]]:
+        """Trigger model inference
+
+        Triggers the latest deployed model version to infer the result of a set of task or
+        questions.
+        """
+    @abc.abstractmethod
+    def TriggerAsyncNamespaceLatestModel(
+        self,
+        request: model.model.v1alpha.model_pb2.TriggerAsyncNamespaceLatestModelRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.TriggerAsyncNamespaceLatestModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TriggerAsyncNamespaceLatestModelResponse]]:
+        """Trigger model inference asynchronously
+
+        Triggers the latest deployed model version to infer the result of a set of task or
+        questions.
+        """
+    @abc.abstractmethod
+    def GetNamespaceLatestModelOperation(
+        self,
+        request: model.model.v1alpha.model_pb2.GetNamespaceLatestModelOperationRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.GetNamespaceLatestModelOperationResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.GetNamespaceLatestModelOperationResponse]]:
+        """Get the details of the latest long-running operation from a namespace model
+
+        This method allows requesters to request the status and outcome of
+        long-running operations in a model, such as deployment.
+        """
+    @abc.abstractmethod
+    def GetModelOperation(
+        self,
+        request: model.model.v1alpha.model_pb2.GetModelOperationRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.GetModelOperationResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.GetModelOperationResponse]]:
+        """Get the details of a long-running operation
+
+        This method allows requesters to request the status and outcome of
+        long-running operations in a model, such as deployment.
+        """
+    @abc.abstractmethod
     def ListUserModels(
         self,
         request: model.model.v1alpha.model_pb2.ListUserModelsRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.ListUserModelsResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.ListUserModelsResponse]]:
-        """List user models
+        """The following endpoints are all deprecated
+
+        List user models
 
         Returns a paginated list of models that belong to the specified user. The
         parent user may be different from the authenticated user, in which case
@@ -1381,17 +1938,6 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
 
         Triggers a deployed model to infer the result of a task or question,
         submitted as a binary file.
-        """
-    @abc.abstractmethod
-    def GetModelOperation(
-        self,
-        request: model.model.v1alpha.model_pb2.GetModelOperationRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_pb2.GetModelOperationResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.GetModelOperationResponse]]:
-        """Get the details of a long-running operation
-
-        This method allows requesters to request the status and outcome of
-        long-running operations in a model, such as deployment.
         """
     @abc.abstractmethod
     def GetUserLatestModelOperation(

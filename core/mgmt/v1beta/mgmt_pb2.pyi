@@ -615,22 +615,20 @@ class GetUserAdminRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """Resource name of a user. For example:
-    "users/local-user"
-    """
+    USER_ID_FIELD_NUMBER: builtins.int
     view: global___View.ValueType
     """View allows clients to specify the desired resource view in the response."""
+    user_id: builtins.str
+    """User ID"""
     def __init__(
         self,
         *,
-        name: builtins.str = ...,
         view: global___View.ValueType | None = ...,
+        user_id: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "name", b"name", "view", b"view"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "user_id", b"user_id", "view", b"view"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
 
 global___GetUserAdminRequest = GetUserAdminRequest
@@ -663,22 +661,20 @@ class LookUpUserAdminRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    PERMALINK_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
-    permalink: builtins.str
-    """Permalink of a user. For example:
-    "users/{uid}"
-    """
+    USER_UID_FIELD_NUMBER: builtins.int
     view: global___View.ValueType
     """View allows clients to specify the desired resource view in the response."""
+    user_uid: builtins.str
+    """User UUID"""
     def __init__(
         self,
         *,
-        permalink: builtins.str = ...,
         view: global___View.ValueType | None = ...,
+        user_uid: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "permalink", b"permalink", "view", b"view"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "user_uid", b"user_uid", "view", b"view"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
 
 global___LookUpUserAdminRequest = LookUpUserAdminRequest
@@ -781,22 +777,20 @@ class GetOrganizationAdminRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """Resource name of a organization. For example:
-    "organizations/local-organization"
-    """
+    ORGANIZATION_ID_FIELD_NUMBER: builtins.int
     view: global___View.ValueType
     """View allows clients to specify the desired resource view in the response."""
+    organization_id: builtins.str
+    """Organization ID"""
     def __init__(
         self,
         *,
-        name: builtins.str = ...,
         view: global___View.ValueType | None = ...,
+        organization_id: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "name", b"name", "view", b"view"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "organization_id", b"organization_id", "view", b"view"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
 
 global___GetOrganizationAdminRequest = GetOrganizationAdminRequest
@@ -829,22 +823,20 @@ class LookUpOrganizationAdminRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    PERMALINK_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
-    permalink: builtins.str
-    """Permalink of a organization. For example:
-    "organizations/{uid}"
-    """
+    ORGANIZATION_UID_FIELD_NUMBER: builtins.int
     view: global___View.ValueType
     """View allows clients to specify the desired resource view in the response."""
+    organization_uid: builtins.str
+    """Organization UID"""
     def __init__(
         self,
         *,
-        permalink: builtins.str = ...,
         view: global___View.ValueType | None = ...,
+        organization_uid: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "permalink", b"permalink", "view", b"view"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "organization_uid", b"organization_uid", "view", b"view"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
 
 global___LookUpOrganizationAdminRequest = LookUpOrganizationAdminRequest
@@ -947,22 +939,20 @@ class GetUserRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the user, which allows its access by ID.
-    - Format: `users/{user.id}`.
-    """
+    USER_ID_FIELD_NUMBER: builtins.int
     view: global___View.ValueType
     """View allows clients to specify the desired resource view in the response."""
+    user_id: builtins.str
+    """User ID"""
     def __init__(
         self,
         *,
-        name: builtins.str = ...,
         view: global___View.ValueType | None = ...,
+        user_id: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "name", b"name", "view", b"view"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "user_id", b"user_id", "view", b"view"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
 
 global___GetUserRequest = GetUserRequest
@@ -1429,17 +1419,15 @@ class GetTokenRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAME_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the token, which allows its access by ID.
-    - Format: `tokens/{token.id}`.
-    """
+    TOKEN_ID_FIELD_NUMBER: builtins.int
+    token_id: builtins.str
+    """Token ID"""
     def __init__(
         self,
         *,
-        name: builtins.str = ...,
+        token_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["token_id", b"token_id"]) -> None: ...
 
 global___GetTokenRequest = GetTokenRequest
 
@@ -1469,17 +1457,15 @@ class DeleteTokenRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAME_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the token, which allows its access by ID.
-    - Format: `tokens/{token.id}`.
-    """
+    TOKEN_ID_FIELD_NUMBER: builtins.int
+    token_id: builtins.str
+    """Token ID"""
     def __init__(
         self,
         *,
-        name: builtins.str = ...,
+        token_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["token_id", b"token_id"]) -> None: ...
 
 global___DeleteTokenRequest = DeleteTokenRequest
 
@@ -1533,17 +1519,15 @@ class GetRemainingCreditRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    OWNER_FIELD_NUMBER: builtins.int
-    owner: builtins.str
-    """The user or organization to which the credit belongs.
-    Format: `{[users|organizations]}/{id}`.
-    """
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
     def __init__(
         self,
         *,
-        owner: builtins.str = ...,
+        namespace_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["owner", b"owner"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id"]) -> None: ...
 
 global___GetRemainingCreditRequest = GetRemainingCreditRequest
 
@@ -1585,17 +1569,15 @@ class GetRemainingCreditAdminRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    OWNER_FIELD_NUMBER: builtins.int
-    owner: builtins.str
-    """The user or organization to which the credit belongs.
-    Format: `{[users|organizations]}/{uid}`.
-    """
+    NAMESPACE_UID_FIELD_NUMBER: builtins.int
+    namespace_uid: builtins.str
+    """Namespace UID"""
     def __init__(
         self,
         *,
-        owner: builtins.str = ...,
+        namespace_uid: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["owner", b"owner"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["namespace_uid", b"namespace_uid"]) -> None: ...
 
 global___GetRemainingCreditAdminRequest = GetRemainingCreditAdminRequest
 
@@ -1627,25 +1609,23 @@ class SubtractCreditAdminRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    OWNER_FIELD_NUMBER: builtins.int
     AMOUNT_FIELD_NUMBER: builtins.int
     CONCEPT_FIELD_NUMBER: builtins.int
-    owner: builtins.str
-    """The user or organization to which the credit belongs.
-    Format: `{[users|organizations]}/{uid}`.
-    """
+    NAMESPACE_UID_FIELD_NUMBER: builtins.int
     amount: builtins.float
     """The credit amount to subtract."""
     concept: builtins.str
     """The description of the entry, for traceability."""
+    namespace_uid: builtins.str
+    """Namespace UID"""
     def __init__(
         self,
         *,
-        owner: builtins.str = ...,
         amount: builtins.float = ...,
         concept: builtins.str = ...,
+        namespace_uid: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["amount", b"amount", "concept", b"concept", "owner", b"owner"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["amount", b"amount", "concept", b"concept", "namespace_uid", b"namespace_uid"]) -> None: ...
 
 global___SubtractCreditAdminRequest = SubtractCreditAdminRequest
 
@@ -2049,22 +2029,20 @@ class GetOrganizationRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the organization, which allows its access by ID.
-    - Format: `organizations/{organization.id}`.
-    """
+    ORGANIZATION_ID_FIELD_NUMBER: builtins.int
     view: global___View.ValueType
     """View allows clients to specify the desired resource view in the response."""
+    organization_id: builtins.str
+    """Organization ID"""
     def __init__(
         self,
         *,
-        name: builtins.str = ...,
         view: global___View.ValueType | None = ...,
+        organization_id: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "name", b"name", "view", b"view"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "organization_id", b"organization_id", "view", b"view"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
 
 global___GetOrganizationRequest = GetOrganizationRequest
@@ -2097,6 +2075,7 @@ class UpdateOrganizationRequest(google.protobuf.message.Message):
 
     ORGANIZATION_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
+    ORGANIZATION_ID_FIELD_NUMBER: builtins.int
     @property
     def organization(self) -> global___Organization:
         """The organization fields that will replace the existing ones."""
@@ -2107,14 +2086,17 @@ class UpdateOrganizationRequest(google.protobuf.message.Message):
         For more information about this field, see
         https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#field-mask.
         """
+    organization_id: builtins.str
+    """Organization ID"""
     def __init__(
         self,
         *,
         organization: global___Organization | None = ...,
         update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        organization_id: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["organization", b"organization", "update_mask", b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["organization", b"organization", "update_mask", b"update_mask"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["organization", b"organization", "organization_id", b"organization_id", "update_mask", b"update_mask"]) -> None: ...
 
 global___UpdateOrganizationRequest = UpdateOrganizationRequest
 
@@ -2144,17 +2126,15 @@ class DeleteOrganizationRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAME_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the organization, which allows its access by ID.
-    - Format: `organizations/{organization.id}`.
-    """
+    ORGANIZATION_ID_FIELD_NUMBER: builtins.int
+    organization_id: builtins.str
+    """Organization ID"""
     def __init__(
         self,
         *,
-        name: builtins.str = ...,
+        organization_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["organization_id", b"organization_id"]) -> None: ...
 
 global___DeleteOrganizationRequest = DeleteOrganizationRequest
 
@@ -2262,17 +2242,15 @@ class ListUserMembershipsRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    PARENT_FIELD_NUMBER: builtins.int
-    parent: builtins.str
-    """The parent resource, i.e., the user to which the memberships belong.
-    Format: `users/{user.id}`.
-    """
+    USER_ID_FIELD_NUMBER: builtins.int
+    user_id: builtins.str
+    """User ID"""
     def __init__(
         self,
         *,
-        parent: builtins.str = ...,
+        user_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["parent", b"parent"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["user_id", b"user_id"]) -> None: ...
 
 global___ListUserMembershipsRequest = ListUserMembershipsRequest
 
@@ -2301,23 +2279,24 @@ class GetUserMembershipRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the membership, which allows its access by user and
-    organization ID.
-    - Format: `users/{user.id}/memberships/{organization.id}`.
-    """
+    USER_ID_FIELD_NUMBER: builtins.int
+    ORGANIZATION_ID_FIELD_NUMBER: builtins.int
     view: global___View.ValueType
     """View allows clients to specify the desired resource view in the response."""
+    user_id: builtins.str
+    """User ID"""
+    organization_id: builtins.str
+    """Organization ID"""
     def __init__(
         self,
         *,
-        name: builtins.str = ...,
         view: global___View.ValueType | None = ...,
+        user_id: builtins.str = ...,
+        organization_id: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "name", b"name", "view", b"view"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "organization_id", b"organization_id", "user_id", b"user_id", "view", b"view"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
 
 global___GetUserMembershipRequest = GetUserMembershipRequest
@@ -2350,6 +2329,8 @@ class UpdateUserMembershipRequest(google.protobuf.message.Message):
 
     MEMBERSHIP_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
+    USER_ID_FIELD_NUMBER: builtins.int
+    ORGANIZATION_ID_FIELD_NUMBER: builtins.int
     @property
     def membership(self) -> global___UserMembership:
         """The membership fields to update."""
@@ -2360,14 +2341,20 @@ class UpdateUserMembershipRequest(google.protobuf.message.Message):
         For more information about this field, see
         https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#field-mask.
         """
+    user_id: builtins.str
+    """User ID"""
+    organization_id: builtins.str
+    """Organization ID"""
     def __init__(
         self,
         *,
         membership: global___UserMembership | None = ...,
         update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        user_id: builtins.str = ...,
+        organization_id: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["membership", b"membership", "update_mask", b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["membership", b"membership", "update_mask", b"update_mask"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["membership", b"membership", "organization_id", b"organization_id", "update_mask", b"update_mask", "user_id", b"user_id"]) -> None: ...
 
 global___UpdateUserMembershipRequest = UpdateUserMembershipRequest
 
@@ -2399,18 +2386,19 @@ class DeleteUserMembershipRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAME_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the membership, which allows its access by user and
-    organization ID.
-    - Format: `users/{user.id}/memberships/{organization.id}`.
-    """
+    USER_ID_FIELD_NUMBER: builtins.int
+    ORGANIZATION_ID_FIELD_NUMBER: builtins.int
+    user_id: builtins.str
+    """User ID"""
+    organization_id: builtins.str
+    """Organization ID"""
     def __init__(
         self,
         *,
-        name: builtins.str = ...,
+        user_id: builtins.str = ...,
+        organization_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["organization_id", b"organization_id", "user_id", b"user_id"]) -> None: ...
 
 global___DeleteUserMembershipRequest = DeleteUserMembershipRequest
 
@@ -2434,18 +2422,15 @@ class ListOrganizationMembershipsRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    PARENT_FIELD_NUMBER: builtins.int
-    parent: builtins.str
-    """The parent resource, i.e., the organization to which the memberships
-    belong.
-    Format: `organizations/{organization.id}`.
-    """
+    ORGANIZATION_ID_FIELD_NUMBER: builtins.int
+    organization_id: builtins.str
+    """Organization ID"""
     def __init__(
         self,
         *,
-        parent: builtins.str = ...,
+        organization_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["parent", b"parent"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["organization_id", b"organization_id"]) -> None: ...
 
 global___ListOrganizationMembershipsRequest = ListOrganizationMembershipsRequest
 
@@ -2478,23 +2463,24 @@ class GetOrganizationMembershipRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the membership, which allows its access by
-    organization and user ID.
-    - Format: `organizations/{organization.id}/memberships/{user.id}`.
-    """
+    ORGANIZATION_ID_FIELD_NUMBER: builtins.int
+    USER_ID_FIELD_NUMBER: builtins.int
     view: global___View.ValueType
     """View allows clients to specify the desired resource view in the response."""
+    organization_id: builtins.str
+    """Organization ID"""
+    user_id: builtins.str
+    """User ID"""
     def __init__(
         self,
         *,
-        name: builtins.str = ...,
         view: global___View.ValueType | None = ...,
+        organization_id: builtins.str = ...,
+        user_id: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "name", b"name", "view", b"view"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "organization_id", b"organization_id", "user_id", b"user_id", "view", b"view"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
 
 global___GetOrganizationMembershipRequest = GetOrganizationMembershipRequest
@@ -2529,6 +2515,8 @@ class UpdateOrganizationMembershipRequest(google.protobuf.message.Message):
 
     MEMBERSHIP_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
+    ORGANIZATION_ID_FIELD_NUMBER: builtins.int
+    USER_ID_FIELD_NUMBER: builtins.int
     @property
     def membership(self) -> global___OrganizationMembership:
         """The membership fields to update."""
@@ -2539,14 +2527,20 @@ class UpdateOrganizationMembershipRequest(google.protobuf.message.Message):
         For more information about this field, see
         https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#field-mask.
         """
+    organization_id: builtins.str
+    """Organization ID"""
+    user_id: builtins.str
+    """User ID"""
     def __init__(
         self,
         *,
         membership: global___OrganizationMembership | None = ...,
         update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        organization_id: builtins.str = ...,
+        user_id: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["membership", b"membership", "update_mask", b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["membership", b"membership", "update_mask", b"update_mask"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["membership", b"membership", "organization_id", b"organization_id", "update_mask", b"update_mask", "user_id", b"user_id"]) -> None: ...
 
 global___UpdateOrganizationMembershipRequest = UpdateOrganizationMembershipRequest
 
@@ -2578,18 +2572,19 @@ class DeleteOrganizationMembershipRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAME_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the membership, which allows its access by
-    organization and user ID.
-    - Format: `organizations/{organization.id}/memberships/{user.id}`.
-    """
+    ORGANIZATION_ID_FIELD_NUMBER: builtins.int
+    USER_ID_FIELD_NUMBER: builtins.int
+    organization_id: builtins.str
+    """Organization ID"""
+    user_id: builtins.str
+    """User ID"""
     def __init__(
         self,
         *,
-        name: builtins.str = ...,
+        organization_id: builtins.str = ...,
+        user_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["organization_id", b"organization_id", "user_id", b"user_id"]) -> None: ...
 
 global___DeleteOrganizationMembershipRequest = DeleteOrganizationMembershipRequest
 
@@ -2855,18 +2850,15 @@ class GetOrganizationSubscriptionRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    PARENT_FIELD_NUMBER: builtins.int
-    parent: builtins.str
-    """The parent resource, i.e., the organization to which the subscription
-    refers.
-    Format: `organizations/{organization.id}`.
-    """
+    ORGANIZATION_ID_FIELD_NUMBER: builtins.int
+    organization_id: builtins.str
+    """Oragnization ID"""
     def __init__(
         self,
         *,
-        parent: builtins.str = ...,
+        organization_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["parent", b"parent"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["organization_id", b"organization_id"]) -> None: ...
 
 global___GetOrganizationSubscriptionRequest = GetOrganizationSubscriptionRequest
 
@@ -2896,15 +2888,15 @@ class GetUserSubscriptionAdminRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    PARENT_FIELD_NUMBER: builtins.int
-    parent: builtins.str
-    """parent"""
+    USER_ID_FIELD_NUMBER: builtins.int
+    user_id: builtins.str
+    """User ID"""
     def __init__(
         self,
         *,
-        parent: builtins.str = ...,
+        user_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["parent", b"parent"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["user_id", b"user_id"]) -> None: ...
 
 global___GetUserSubscriptionAdminRequest = GetUserSubscriptionAdminRequest
 
@@ -2934,15 +2926,15 @@ class GetOrganizationSubscriptionAdminRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    PARENT_FIELD_NUMBER: builtins.int
-    parent: builtins.str
-    """parent"""
+    ORGANIZATION_ID_FIELD_NUMBER: builtins.int
+    organization_id: builtins.str
+    """Oragnization ID"""
     def __init__(
         self,
         *,
-        parent: builtins.str = ...,
+        organization_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["parent", b"parent"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["organization_id", b"organization_id"]) -> None: ...
 
 global___GetOrganizationSubscriptionAdminRequest = GetOrganizationSubscriptionAdminRequest
 

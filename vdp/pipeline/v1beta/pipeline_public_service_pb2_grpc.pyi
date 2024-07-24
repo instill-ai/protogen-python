@@ -69,11 +69,296 @@ class PipelinePublicServiceStub:
     Returns the details of a pipeline by a permalink defined by the resource
     UID.
     """
+    ListNamespacePipelines: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.ListNamespacePipelinesRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.ListNamespacePipelinesResponse,
+    ]
+    """List namespace pipelines
+
+    Returns a paginated list of pipelines of a namespace
+    """
+    CreateNamespacePipeline: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineResponse,
+    ]
+    """Create a new pipeline
+
+    Creates a new pipeline under a namespace.
+    """
+    GetNamespacePipeline: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.GetNamespacePipelineRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.GetNamespacePipelineResponse,
+    ]
+    """Get a pipeline
+
+    Returns the details of a pipeline.
+    """
+    UpdateNamespacePipeline: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineResponse,
+    ]
+    """Update a pipeline
+
+    Udpates a pipeline, accessing it by its resource name, which is defined by
+    the parent namespace and the ID of the pipeline. The authenticated namespace must be
+    the parent of the pipeline in order to modify it.
+
+    In REST requests, only the supplied pipeline fields will be taken into
+    account when updating the resource.
+    """
+    DeleteNamespacePipeline: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineResponse,
+    ]
+    """Delete a pipeline
+
+    Deletes a pipeline, accesing it by its resource name, which is defined by
+    the parent namespace and the ID of the pipeline. The authenticated namespace must be
+    the parent of the pipeline in order to delete it.
+    """
+    ValidateNamespacePipeline: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.ValidateNamespacePipelineRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.ValidateNamespacePipelineResponse,
+    ]
+    """Validate a pipeline
+
+    Validates a pipeline by its resource name, which is defined by the parent
+    namespace and the ID of the pipeline.
+
+    Validation checks the recipe of the pipeline and the status of its components.
+    """
+    RenameNamespacePipeline: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.RenameNamespacePipelineRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.RenameNamespacePipelineResponse,
+    ]
+    """Rename a pipeline
+
+    Updates the ID of a pipeline. Since this is an output-only field, a custom
+    method is required to modify it.
+
+    The pipeline name will be updated accordingly, as it is  composed by the
+    parent namespace and ID of the pipeline (e.g.
+    `namespaces/luigi/pipelines/pizza-recipe-generator`).
+
+    The authenticated namespace must be the parent of the pipeline in order to
+    perform this action.
+    """
+    CloneNamespacePipeline: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineResponse,
+    ]
+    """Clone a pipeline
+
+    Clones a pipeline owned by a namespace. The new pipeline may have a different
+    parent, and this can be either a namespace or an organization.
+    """
+    TriggerNamespacePipeline: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineResponse,
+    ]
+    """Trigger a pipeline
+
+    Triggers the execution of a pipeline synchronously, i.e., the result is
+    sent back to the namespace right after the data is processed. This method is
+    intended for real-time inference when low latency is of concern.
+
+    The pipeline is identified by its resource name, formed by the parent namespace
+    and ID of the pipeline.
+
+    For more information, see [Run NamespacePipeline](https://www.instill.tech/docs/vdp/run).
+    """
+    TriggerNamespacePipelineWithStream: grpc.UnaryStreamMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineWithStreamRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineWithStreamResponse,
+    ]
+    """Trigger a pipeline via streaming
+
+    Triggers the execution of a pipeline asynchronously and streams back the response.
+    This method is intended for real-time inference when low latency is of concern
+    and the response needs to be processed incrementally.
+
+    The pipeline is identified by its resource name, formed by the parent namespace
+    and ID of the pipeline.
+    """
+    TriggerAsyncNamespacePipeline: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineResponse,
+    ]
+    """Trigger a pipeline asynchronously
+
+    Triggers the execution of a pipeline asynchronously, i.e., the result
+    contains the necessary information to access the result and status of the
+    operation. This method is intended for cases that require long-running
+    workloads.
+
+    The pipeline is identified by its resource name, formed by the parent namespace
+    and ID of the pipeline.
+
+    For more information, see [Run NamespacePipeline](https://www.instill.tech/docs/vdp/run).
+    """
+    CreateNamespacePipelineRelease: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineReleaseRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineReleaseResponse,
+    ]
+    """Create a pipeline release
+
+    Commits the version of a pipeline, identified by its resource name, which
+    is formed by the parent namespace and ID of the pipeline.
+
+    The authenticated namespace must be the parent of the pipeline in order to
+    perform this action.
+    """
+    ListNamespacePipelineReleases: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.ListNamespacePipelineReleasesRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.ListNamespacePipelineReleasesResponse,
+    ]
+    """List the releases in a pipeline
+
+    Lists the commited versions of a pipeline, identified by its resource
+    name, which is formed by the parent namespace and ID of the pipeline.
+    """
+    GetNamespacePipelineRelease: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.GetNamespacePipelineReleaseRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.GetNamespacePipelineReleaseResponse,
+    ]
+    """Get a pipeline release
+
+    Gets the details of a pipeline release, where the pipeline is identified
+    by its resource name, formed by its parent namespace and ID.
+    """
+    UpdateNamespacePipelineRelease: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineReleaseRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineReleaseResponse,
+    ]
+    """Update a pipeline release
+
+    Updates the details of a pipeline release, where the pipeline is
+    identified by its resource name, formed by its parent namespace and ID.
+
+    The authenticated namespace must be the parent of the pipeline in order to
+    perform this action.
+    """
+    DeleteNamespacePipelineRelease: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineReleaseRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineReleaseResponse,
+    ]
+    """Delete a pipeline release
+
+    Deletes a pipeline release, where the pipeline is identified by its
+    resource name, formed by its parent namespace and ID.
+
+    The authenticated namespace must be the parent of the pipeline in order to
+    perform this action.
+    """
+    CloneNamespacePipelineRelease: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineReleaseRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineReleaseResponse,
+    ]
+    """Clone a pipeline release
+
+    Clones a pipeline release owned by a namespace. The new pipeline may have a different
+    parent, and this can be either a namespace or an organization.
+    """
+    TriggerNamespacePipelineRelease: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineReleaseRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineReleaseResponse,
+    ]
+    """Trigger a pipeline release
+
+    Triggers the synchronous execution of of a pipeline. While the trigger
+    endpoint (where the release version isn't specified) triggers the pipeline
+    at its latest release, this method allows the client to specified any
+    committed release.
+
+    The pipeline is identified by its resource name, formed by its parent namespace
+    and ID.
+    """
+    TriggerAsyncNamespacePipelineRelease: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineReleaseRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineReleaseResponse,
+    ]
+    """Trigger a pipeline release asynchronously
+
+    Triggers the asynchronous execution of of a pipeline. While the trigger
+    endpoint (where the release version isn't specified) triggers the pipeline
+    at its latest release, this method allows the client to specified any
+    committed release.
+
+    The pipeline is identified by its resource name, formed by its parent namespace
+    and ID.
+    """
+    CreateSecret: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.CreateSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.CreateSecretResponse,
+    ]
+    """Create a secret
+
+    Creates a new secret under the parenthood of an namespace.
+    """
+    ListSecrets: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.ListSecretsRequest,
+        vdp.pipeline.v1beta.secret_pb2.ListSecretsResponse,
+    ]
+    """List secrets
+
+    Returns a paginated list of secrets that belong to the specified
+    namespace.
+    """
+    GetSecret: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.GetSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.GetSecretResponse,
+    ]
+    """Get a secret
+
+    Returns the details of an namespace-owned secret by its resource name,
+    which is defined by the parent namespace and the ID of the secret.
+    """
+    UpdateSecret: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.UpdateSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.UpdateSecretResponse,
+    ]
+    """Update a secret
+
+    Udpates a secret, accessing it by its resource name, which is defined by
+
+    In REST requests, only the supplied secret fields will be taken into
+    account when updating the resource.
+    """
+    DeleteSecret: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.DeleteSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.DeleteSecretResponse,
+    ]
+    """Delete a secret
+
+    Deletes a secret, accesing it by its resource name, which is defined by
+    the parent namespace and the ID of the secret.
+    """
+    ListComponentDefinitions: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.component_definition_pb2.ListComponentDefinitionsRequest,
+        vdp.pipeline.v1beta.component_definition_pb2.ListComponentDefinitionsResponse,
+    ]
+    """List component definitions
+
+    Returns a paginated list of component definitions, regardless their type.
+    This offers a single source of truth, with pagination and filter
+    capabilities, for the components that might be used in a VDP pipeline.
+    """
+    GetOperation: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.GetOperationRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.GetOperationResponse,
+    ]
+    """Get the details of a long-running operation
+
+    This method allows requesters to request the status and outcome of
+    long-running operations such as asynchronous pipeline triggers.
+    """
     CreateUserPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.CreateUserPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.CreateUserPipelineResponse,
     ]
-    """Create a new user pipeline
+    """The following endpoints are all deprecated
+
+    Create a new user pipeline
 
     Creates a new pipeline under the parenthood of a user. Users can only
     create a pipeline as the parent of that resource (i.e. the authenticated
@@ -180,8 +465,7 @@ class PipelinePublicServiceStub:
     The pipeline is identified by its resource name, formed by the parent user
     and ID of the pipeline.
 
-    For more information, see [Trigger
-    Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+    For more information, see [Run Pipeline](https://www.instill.tech/docs/vdp/run).
     """
     TriggerUserPipelineWithStream: grpc.UnaryStreamMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineWithStreamRequest,
@@ -210,8 +494,7 @@ class PipelinePublicServiceStub:
     The pipeline is identified by its resource name, formed by the parent user
     and ID of the pipeline.
 
-    For more information, see [Trigger
-    Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+    For more information, see [Run Pipeline](https://www.instill.tech/docs/vdp/run).
     """
     CreateUserPipelineRelease: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.CreateUserPipelineReleaseRequest,
@@ -428,8 +711,7 @@ class PipelinePublicServiceStub:
     The pipeline is identified by its resource name, formed by the parent
     organization and ID of the pipeline.
 
-    For more information, see [Trigger
-    Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+    For more information, see [Run Pipeline](https://www.instill.tech/docs/vdp/run).
     """
     TriggerOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineRequest,
@@ -444,8 +726,7 @@ class PipelinePublicServiceStub:
     The pipeline is identified by its resource name, formed by the parent
     organization and ID of the pipeline.
 
-    For more information, see [Trigger
-    Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+    For more information, see [Run Pipeline](https://www.instill.tech/docs/vdp/run).
     """
     TriggerAsyncOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncOrganizationPipelineRequest,
@@ -461,8 +742,7 @@ class PipelinePublicServiceStub:
     The pipeline is identified by its resource name, formed by the parent
     organization and ID of the pipeline.
 
-    For more information, see [Trigger
-    Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+    For more information, see [Run Pipeline](https://www.instill.tech/docs/vdp/run).
     """
     CreateOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.CreateOrganizationPipelineReleaseRequest,
@@ -562,15 +842,6 @@ class PipelinePublicServiceStub:
     The pipeline is identified by its resource name, formed by its parent
     organization and ID.
     """
-    GetOperation: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.pipeline_pb2.GetOperationRequest,
-        vdp.pipeline.v1beta.pipeline_pb2.GetOperationResponse,
-    ]
-    """Get the details of a long-running operation
-
-    This method allows requesters to request the status and outcome of
-    long-running operations such as asynchronous pipeline triggers.
-    """
     ListConnectorDefinitions: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.component_definition_pb2.ListConnectorDefinitionsRequest,
         vdp.pipeline.v1beta.component_definition_pb2.ListConnectorDefinitionsResponse,
@@ -594,16 +865,6 @@ class PipelinePublicServiceStub:
     """List operator definitions
 
     Returns a paginated list of operator definitions.
-    """
-    ListComponentDefinitions: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.component_definition_pb2.ListComponentDefinitionsRequest,
-        vdp.pipeline.v1beta.component_definition_pb2.ListComponentDefinitionsResponse,
-    ]
-    """List component definitions
-
-    Returns a paginated list of component definitions, regardless their type.
-    This offers a single source of truth, with pagination and filter
-    capabilities, for the components that might be used in a VDP pipeline.
     """
     GetOperatorDefinition: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.component_definition_pb2.GetOperatorDefinitionRequest,
@@ -763,11 +1024,296 @@ class PipelinePublicServiceAsyncStub:
     Returns the details of a pipeline by a permalink defined by the resource
     UID.
     """
+    ListNamespacePipelines: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.ListNamespacePipelinesRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.ListNamespacePipelinesResponse,
+    ]
+    """List namespace pipelines
+
+    Returns a paginated list of pipelines of a namespace
+    """
+    CreateNamespacePipeline: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineResponse,
+    ]
+    """Create a new pipeline
+
+    Creates a new pipeline under a namespace.
+    """
+    GetNamespacePipeline: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.GetNamespacePipelineRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.GetNamespacePipelineResponse,
+    ]
+    """Get a pipeline
+
+    Returns the details of a pipeline.
+    """
+    UpdateNamespacePipeline: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineResponse,
+    ]
+    """Update a pipeline
+
+    Udpates a pipeline, accessing it by its resource name, which is defined by
+    the parent namespace and the ID of the pipeline. The authenticated namespace must be
+    the parent of the pipeline in order to modify it.
+
+    In REST requests, only the supplied pipeline fields will be taken into
+    account when updating the resource.
+    """
+    DeleteNamespacePipeline: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineResponse,
+    ]
+    """Delete a pipeline
+
+    Deletes a pipeline, accesing it by its resource name, which is defined by
+    the parent namespace and the ID of the pipeline. The authenticated namespace must be
+    the parent of the pipeline in order to delete it.
+    """
+    ValidateNamespacePipeline: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.ValidateNamespacePipelineRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.ValidateNamespacePipelineResponse,
+    ]
+    """Validate a pipeline
+
+    Validates a pipeline by its resource name, which is defined by the parent
+    namespace and the ID of the pipeline.
+
+    Validation checks the recipe of the pipeline and the status of its components.
+    """
+    RenameNamespacePipeline: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.RenameNamespacePipelineRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.RenameNamespacePipelineResponse,
+    ]
+    """Rename a pipeline
+
+    Updates the ID of a pipeline. Since this is an output-only field, a custom
+    method is required to modify it.
+
+    The pipeline name will be updated accordingly, as it is  composed by the
+    parent namespace and ID of the pipeline (e.g.
+    `namespaces/luigi/pipelines/pizza-recipe-generator`).
+
+    The authenticated namespace must be the parent of the pipeline in order to
+    perform this action.
+    """
+    CloneNamespacePipeline: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineResponse,
+    ]
+    """Clone a pipeline
+
+    Clones a pipeline owned by a namespace. The new pipeline may have a different
+    parent, and this can be either a namespace or an organization.
+    """
+    TriggerNamespacePipeline: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineResponse,
+    ]
+    """Trigger a pipeline
+
+    Triggers the execution of a pipeline synchronously, i.e., the result is
+    sent back to the namespace right after the data is processed. This method is
+    intended for real-time inference when low latency is of concern.
+
+    The pipeline is identified by its resource name, formed by the parent namespace
+    and ID of the pipeline.
+
+    For more information, see [Run NamespacePipeline](https://www.instill.tech/docs/vdp/run).
+    """
+    TriggerNamespacePipelineWithStream: grpc.aio.UnaryStreamMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineWithStreamRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineWithStreamResponse,
+    ]
+    """Trigger a pipeline via streaming
+
+    Triggers the execution of a pipeline asynchronously and streams back the response.
+    This method is intended for real-time inference when low latency is of concern
+    and the response needs to be processed incrementally.
+
+    The pipeline is identified by its resource name, formed by the parent namespace
+    and ID of the pipeline.
+    """
+    TriggerAsyncNamespacePipeline: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineResponse,
+    ]
+    """Trigger a pipeline asynchronously
+
+    Triggers the execution of a pipeline asynchronously, i.e., the result
+    contains the necessary information to access the result and status of the
+    operation. This method is intended for cases that require long-running
+    workloads.
+
+    The pipeline is identified by its resource name, formed by the parent namespace
+    and ID of the pipeline.
+
+    For more information, see [Run NamespacePipeline](https://www.instill.tech/docs/vdp/run).
+    """
+    CreateNamespacePipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineReleaseRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineReleaseResponse,
+    ]
+    """Create a pipeline release
+
+    Commits the version of a pipeline, identified by its resource name, which
+    is formed by the parent namespace and ID of the pipeline.
+
+    The authenticated namespace must be the parent of the pipeline in order to
+    perform this action.
+    """
+    ListNamespacePipelineReleases: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.ListNamespacePipelineReleasesRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.ListNamespacePipelineReleasesResponse,
+    ]
+    """List the releases in a pipeline
+
+    Lists the commited versions of a pipeline, identified by its resource
+    name, which is formed by the parent namespace and ID of the pipeline.
+    """
+    GetNamespacePipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.GetNamespacePipelineReleaseRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.GetNamespacePipelineReleaseResponse,
+    ]
+    """Get a pipeline release
+
+    Gets the details of a pipeline release, where the pipeline is identified
+    by its resource name, formed by its parent namespace and ID.
+    """
+    UpdateNamespacePipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineReleaseRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineReleaseResponse,
+    ]
+    """Update a pipeline release
+
+    Updates the details of a pipeline release, where the pipeline is
+    identified by its resource name, formed by its parent namespace and ID.
+
+    The authenticated namespace must be the parent of the pipeline in order to
+    perform this action.
+    """
+    DeleteNamespacePipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineReleaseRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineReleaseResponse,
+    ]
+    """Delete a pipeline release
+
+    Deletes a pipeline release, where the pipeline is identified by its
+    resource name, formed by its parent namespace and ID.
+
+    The authenticated namespace must be the parent of the pipeline in order to
+    perform this action.
+    """
+    CloneNamespacePipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineReleaseRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineReleaseResponse,
+    ]
+    """Clone a pipeline release
+
+    Clones a pipeline release owned by a namespace. The new pipeline may have a different
+    parent, and this can be either a namespace or an organization.
+    """
+    TriggerNamespacePipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineReleaseRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineReleaseResponse,
+    ]
+    """Trigger a pipeline release
+
+    Triggers the synchronous execution of of a pipeline. While the trigger
+    endpoint (where the release version isn't specified) triggers the pipeline
+    at its latest release, this method allows the client to specified any
+    committed release.
+
+    The pipeline is identified by its resource name, formed by its parent namespace
+    and ID.
+    """
+    TriggerAsyncNamespacePipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineReleaseRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineReleaseResponse,
+    ]
+    """Trigger a pipeline release asynchronously
+
+    Triggers the asynchronous execution of of a pipeline. While the trigger
+    endpoint (where the release version isn't specified) triggers the pipeline
+    at its latest release, this method allows the client to specified any
+    committed release.
+
+    The pipeline is identified by its resource name, formed by its parent namespace
+    and ID.
+    """
+    CreateSecret: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.CreateSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.CreateSecretResponse,
+    ]
+    """Create a secret
+
+    Creates a new secret under the parenthood of an namespace.
+    """
+    ListSecrets: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.ListSecretsRequest,
+        vdp.pipeline.v1beta.secret_pb2.ListSecretsResponse,
+    ]
+    """List secrets
+
+    Returns a paginated list of secrets that belong to the specified
+    namespace.
+    """
+    GetSecret: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.GetSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.GetSecretResponse,
+    ]
+    """Get a secret
+
+    Returns the details of an namespace-owned secret by its resource name,
+    which is defined by the parent namespace and the ID of the secret.
+    """
+    UpdateSecret: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.UpdateSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.UpdateSecretResponse,
+    ]
+    """Update a secret
+
+    Udpates a secret, accessing it by its resource name, which is defined by
+
+    In REST requests, only the supplied secret fields will be taken into
+    account when updating the resource.
+    """
+    DeleteSecret: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.DeleteSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.DeleteSecretResponse,
+    ]
+    """Delete a secret
+
+    Deletes a secret, accesing it by its resource name, which is defined by
+    the parent namespace and the ID of the secret.
+    """
+    ListComponentDefinitions: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.component_definition_pb2.ListComponentDefinitionsRequest,
+        vdp.pipeline.v1beta.component_definition_pb2.ListComponentDefinitionsResponse,
+    ]
+    """List component definitions
+
+    Returns a paginated list of component definitions, regardless their type.
+    This offers a single source of truth, with pagination and filter
+    capabilities, for the components that might be used in a VDP pipeline.
+    """
+    GetOperation: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.GetOperationRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.GetOperationResponse,
+    ]
+    """Get the details of a long-running operation
+
+    This method allows requesters to request the status and outcome of
+    long-running operations such as asynchronous pipeline triggers.
+    """
     CreateUserPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.CreateUserPipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.CreateUserPipelineResponse,
     ]
-    """Create a new user pipeline
+    """The following endpoints are all deprecated
+
+    Create a new user pipeline
 
     Creates a new pipeline under the parenthood of a user. Users can only
     create a pipeline as the parent of that resource (i.e. the authenticated
@@ -874,8 +1420,7 @@ class PipelinePublicServiceAsyncStub:
     The pipeline is identified by its resource name, formed by the parent user
     and ID of the pipeline.
 
-    For more information, see [Trigger
-    Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+    For more information, see [Run Pipeline](https://www.instill.tech/docs/vdp/run).
     """
     TriggerUserPipelineWithStream: grpc.aio.UnaryStreamMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineWithStreamRequest,
@@ -904,8 +1449,7 @@ class PipelinePublicServiceAsyncStub:
     The pipeline is identified by its resource name, formed by the parent user
     and ID of the pipeline.
 
-    For more information, see [Trigger
-    Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+    For more information, see [Run Pipeline](https://www.instill.tech/docs/vdp/run).
     """
     CreateUserPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.CreateUserPipelineReleaseRequest,
@@ -1122,8 +1666,7 @@ class PipelinePublicServiceAsyncStub:
     The pipeline is identified by its resource name, formed by the parent
     organization and ID of the pipeline.
 
-    For more information, see [Trigger
-    Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+    For more information, see [Run Pipeline](https://www.instill.tech/docs/vdp/run).
     """
     TriggerOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineRequest,
@@ -1138,8 +1681,7 @@ class PipelinePublicServiceAsyncStub:
     The pipeline is identified by its resource name, formed by the parent
     organization and ID of the pipeline.
 
-    For more information, see [Trigger
-    Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+    For more information, see [Run Pipeline](https://www.instill.tech/docs/vdp/run).
     """
     TriggerAsyncOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncOrganizationPipelineRequest,
@@ -1155,8 +1697,7 @@ class PipelinePublicServiceAsyncStub:
     The pipeline is identified by its resource name, formed by the parent
     organization and ID of the pipeline.
 
-    For more information, see [Trigger
-    Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+    For more information, see [Run Pipeline](https://www.instill.tech/docs/vdp/run).
     """
     CreateOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.CreateOrganizationPipelineReleaseRequest,
@@ -1256,15 +1797,6 @@ class PipelinePublicServiceAsyncStub:
     The pipeline is identified by its resource name, formed by its parent
     organization and ID.
     """
-    GetOperation: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.pipeline_pb2.GetOperationRequest,
-        vdp.pipeline.v1beta.pipeline_pb2.GetOperationResponse,
-    ]
-    """Get the details of a long-running operation
-
-    This method allows requesters to request the status and outcome of
-    long-running operations such as asynchronous pipeline triggers.
-    """
     ListConnectorDefinitions: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.component_definition_pb2.ListConnectorDefinitionsRequest,
         vdp.pipeline.v1beta.component_definition_pb2.ListConnectorDefinitionsResponse,
@@ -1288,16 +1820,6 @@ class PipelinePublicServiceAsyncStub:
     """List operator definitions
 
     Returns a paginated list of operator definitions.
-    """
-    ListComponentDefinitions: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.component_definition_pb2.ListComponentDefinitionsRequest,
-        vdp.pipeline.v1beta.component_definition_pb2.ListComponentDefinitionsResponse,
-    ]
-    """List component definitions
-
-    Returns a paginated list of component definitions, regardless their type.
-    This offers a single source of truth, with pagination and filter
-    capabilities, for the components that might be used in a VDP pipeline.
     """
     GetOperatorDefinition: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.component_definition_pb2.GetOperatorDefinitionRequest,
@@ -1468,12 +1990,349 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         UID.
         """
     @abc.abstractmethod
+    def ListNamespacePipelines(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.ListNamespacePipelinesRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.ListNamespacePipelinesResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.ListNamespacePipelinesResponse]]:
+        """List namespace pipelines
+
+        Returns a paginated list of pipelines of a namespace
+        """
+    @abc.abstractmethod
+    def CreateNamespacePipeline(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineResponse]]:
+        """Create a new pipeline
+
+        Creates a new pipeline under a namespace.
+        """
+    @abc.abstractmethod
+    def GetNamespacePipeline(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.GetNamespacePipelineRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.GetNamespacePipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.GetNamespacePipelineResponse]]:
+        """Get a pipeline
+
+        Returns the details of a pipeline.
+        """
+    @abc.abstractmethod
+    def UpdateNamespacePipeline(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineResponse]]:
+        """Update a pipeline
+
+        Udpates a pipeline, accessing it by its resource name, which is defined by
+        the parent namespace and the ID of the pipeline. The authenticated namespace must be
+        the parent of the pipeline in order to modify it.
+
+        In REST requests, only the supplied pipeline fields will be taken into
+        account when updating the resource.
+        """
+    @abc.abstractmethod
+    def DeleteNamespacePipeline(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineResponse]]:
+        """Delete a pipeline
+
+        Deletes a pipeline, accesing it by its resource name, which is defined by
+        the parent namespace and the ID of the pipeline. The authenticated namespace must be
+        the parent of the pipeline in order to delete it.
+        """
+    @abc.abstractmethod
+    def ValidateNamespacePipeline(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.ValidateNamespacePipelineRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.ValidateNamespacePipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.ValidateNamespacePipelineResponse]]:
+        """Validate a pipeline
+
+        Validates a pipeline by its resource name, which is defined by the parent
+        namespace and the ID of the pipeline.
+
+        Validation checks the recipe of the pipeline and the status of its components.
+        """
+    @abc.abstractmethod
+    def RenameNamespacePipeline(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.RenameNamespacePipelineRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.RenameNamespacePipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.RenameNamespacePipelineResponse]]:
+        """Rename a pipeline
+
+        Updates the ID of a pipeline. Since this is an output-only field, a custom
+        method is required to modify it.
+
+        The pipeline name will be updated accordingly, as it is  composed by the
+        parent namespace and ID of the pipeline (e.g.
+        `namespaces/luigi/pipelines/pizza-recipe-generator`).
+
+        The authenticated namespace must be the parent of the pipeline in order to
+        perform this action.
+        """
+    @abc.abstractmethod
+    def CloneNamespacePipeline(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineResponse]]:
+        """Clone a pipeline
+
+        Clones a pipeline owned by a namespace. The new pipeline may have a different
+        parent, and this can be either a namespace or an organization.
+        """
+    @abc.abstractmethod
+    def TriggerNamespacePipeline(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineResponse]]:
+        """Trigger a pipeline
+
+        Triggers the execution of a pipeline synchronously, i.e., the result is
+        sent back to the namespace right after the data is processed. This method is
+        intended for real-time inference when low latency is of concern.
+
+        The pipeline is identified by its resource name, formed by the parent namespace
+        and ID of the pipeline.
+
+        For more information, see [Run NamespacePipeline](https://www.instill.tech/docs/vdp/run).
+        """
+    @abc.abstractmethod
+    def TriggerNamespacePipelineWithStream(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineWithStreamRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[collections.abc.Iterator[vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineWithStreamResponse], collections.abc.AsyncIterator[vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineWithStreamResponse]]:
+        """Trigger a pipeline via streaming
+
+        Triggers the execution of a pipeline asynchronously and streams back the response.
+        This method is intended for real-time inference when low latency is of concern
+        and the response needs to be processed incrementally.
+
+        The pipeline is identified by its resource name, formed by the parent namespace
+        and ID of the pipeline.
+        """
+    @abc.abstractmethod
+    def TriggerAsyncNamespacePipeline(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineResponse]]:
+        """Trigger a pipeline asynchronously
+
+        Triggers the execution of a pipeline asynchronously, i.e., the result
+        contains the necessary information to access the result and status of the
+        operation. This method is intended for cases that require long-running
+        workloads.
+
+        The pipeline is identified by its resource name, formed by the parent namespace
+        and ID of the pipeline.
+
+        For more information, see [Run NamespacePipeline](https://www.instill.tech/docs/vdp/run).
+        """
+    @abc.abstractmethod
+    def CreateNamespacePipelineRelease(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineReleaseRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineReleaseResponse]]:
+        """Create a pipeline release
+
+        Commits the version of a pipeline, identified by its resource name, which
+        is formed by the parent namespace and ID of the pipeline.
+
+        The authenticated namespace must be the parent of the pipeline in order to
+        perform this action.
+        """
+    @abc.abstractmethod
+    def ListNamespacePipelineReleases(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.ListNamespacePipelineReleasesRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.ListNamespacePipelineReleasesResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.ListNamespacePipelineReleasesResponse]]:
+        """List the releases in a pipeline
+
+        Lists the commited versions of a pipeline, identified by its resource
+        name, which is formed by the parent namespace and ID of the pipeline.
+        """
+    @abc.abstractmethod
+    def GetNamespacePipelineRelease(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.GetNamespacePipelineReleaseRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.GetNamespacePipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.GetNamespacePipelineReleaseResponse]]:
+        """Get a pipeline release
+
+        Gets the details of a pipeline release, where the pipeline is identified
+        by its resource name, formed by its parent namespace and ID.
+        """
+    @abc.abstractmethod
+    def UpdateNamespacePipelineRelease(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineReleaseRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineReleaseResponse]]:
+        """Update a pipeline release
+
+        Updates the details of a pipeline release, where the pipeline is
+        identified by its resource name, formed by its parent namespace and ID.
+
+        The authenticated namespace must be the parent of the pipeline in order to
+        perform this action.
+        """
+    @abc.abstractmethod
+    def DeleteNamespacePipelineRelease(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineReleaseRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineReleaseResponse]]:
+        """Delete a pipeline release
+
+        Deletes a pipeline release, where the pipeline is identified by its
+        resource name, formed by its parent namespace and ID.
+
+        The authenticated namespace must be the parent of the pipeline in order to
+        perform this action.
+        """
+    @abc.abstractmethod
+    def CloneNamespacePipelineRelease(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineReleaseRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineReleaseResponse]]:
+        """Clone a pipeline release
+
+        Clones a pipeline release owned by a namespace. The new pipeline may have a different
+        parent, and this can be either a namespace or an organization.
+        """
+    @abc.abstractmethod
+    def TriggerNamespacePipelineRelease(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineReleaseRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineReleaseResponse]]:
+        """Trigger a pipeline release
+
+        Triggers the synchronous execution of of a pipeline. While the trigger
+        endpoint (where the release version isn't specified) triggers the pipeline
+        at its latest release, this method allows the client to specified any
+        committed release.
+
+        The pipeline is identified by its resource name, formed by its parent namespace
+        and ID.
+        """
+    @abc.abstractmethod
+    def TriggerAsyncNamespacePipelineRelease(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineReleaseRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineReleaseResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineReleaseResponse]]:
+        """Trigger a pipeline release asynchronously
+
+        Triggers the asynchronous execution of of a pipeline. While the trigger
+        endpoint (where the release version isn't specified) triggers the pipeline
+        at its latest release, this method allows the client to specified any
+        committed release.
+
+        The pipeline is identified by its resource name, formed by its parent namespace
+        and ID.
+        """
+    @abc.abstractmethod
+    def CreateSecret(
+        self,
+        request: vdp.pipeline.v1beta.secret_pb2.CreateSecretRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.CreateSecretResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.CreateSecretResponse]]:
+        """Create a secret
+
+        Creates a new secret under the parenthood of an namespace.
+        """
+    @abc.abstractmethod
+    def ListSecrets(
+        self,
+        request: vdp.pipeline.v1beta.secret_pb2.ListSecretsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.ListSecretsResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.ListSecretsResponse]]:
+        """List secrets
+
+        Returns a paginated list of secrets that belong to the specified
+        namespace.
+        """
+    @abc.abstractmethod
+    def GetSecret(
+        self,
+        request: vdp.pipeline.v1beta.secret_pb2.GetSecretRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.GetSecretResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.GetSecretResponse]]:
+        """Get a secret
+
+        Returns the details of an namespace-owned secret by its resource name,
+        which is defined by the parent namespace and the ID of the secret.
+        """
+    @abc.abstractmethod
+    def UpdateSecret(
+        self,
+        request: vdp.pipeline.v1beta.secret_pb2.UpdateSecretRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.UpdateSecretResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.UpdateSecretResponse]]:
+        """Update a secret
+
+        Udpates a secret, accessing it by its resource name, which is defined by
+
+        In REST requests, only the supplied secret fields will be taken into
+        account when updating the resource.
+        """
+    @abc.abstractmethod
+    def DeleteSecret(
+        self,
+        request: vdp.pipeline.v1beta.secret_pb2.DeleteSecretRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.DeleteSecretResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.DeleteSecretResponse]]:
+        """Delete a secret
+
+        Deletes a secret, accesing it by its resource name, which is defined by
+        the parent namespace and the ID of the secret.
+        """
+    @abc.abstractmethod
+    def ListComponentDefinitions(
+        self,
+        request: vdp.pipeline.v1beta.component_definition_pb2.ListComponentDefinitionsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.component_definition_pb2.ListComponentDefinitionsResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.component_definition_pb2.ListComponentDefinitionsResponse]]:
+        """List component definitions
+
+        Returns a paginated list of component definitions, regardless their type.
+        This offers a single source of truth, with pagination and filter
+        capabilities, for the components that might be used in a VDP pipeline.
+        """
+    @abc.abstractmethod
+    def GetOperation(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.GetOperationRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.GetOperationResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.GetOperationResponse]]:
+        """Get the details of a long-running operation
+
+        This method allows requesters to request the status and outcome of
+        long-running operations such as asynchronous pipeline triggers.
+        """
+    @abc.abstractmethod
     def CreateUserPipeline(
         self,
         request: vdp.pipeline.v1beta.pipeline_pb2.CreateUserPipelineRequest,
         context: _ServicerContext,
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.CreateUserPipelineResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.CreateUserPipelineResponse]]:
-        """Create a new user pipeline
+        """The following endpoints are all deprecated
+
+        Create a new user pipeline
 
         Creates a new pipeline under the parenthood of a user. Users can only
         create a pipeline as the parent of that resource (i.e. the authenticated
@@ -1598,8 +2457,7 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         The pipeline is identified by its resource name, formed by the parent user
         and ID of the pipeline.
 
-        For more information, see [Trigger
-        Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+        For more information, see [Run Pipeline](https://www.instill.tech/docs/vdp/run).
         """
     @abc.abstractmethod
     def TriggerUserPipelineWithStream(
@@ -1632,8 +2490,7 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         The pipeline is identified by its resource name, formed by the parent user
         and ID of the pipeline.
 
-        For more information, see [Trigger
-        Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+        For more information, see [Run Pipeline](https://www.instill.tech/docs/vdp/run).
         """
     @abc.abstractmethod
     def CreateUserPipelineRelease(
@@ -1888,8 +2745,7 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         The pipeline is identified by its resource name, formed by the parent
         organization and ID of the pipeline.
 
-        For more information, see [Trigger
-        Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+        For more information, see [Run Pipeline](https://www.instill.tech/docs/vdp/run).
         """
     @abc.abstractmethod
     def TriggerOrganizationPipeline(
@@ -1906,8 +2762,7 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         The pipeline is identified by its resource name, formed by the parent
         organization and ID of the pipeline.
 
-        For more information, see [Trigger
-        Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+        For more information, see [Run Pipeline](https://www.instill.tech/docs/vdp/run).
         """
     @abc.abstractmethod
     def TriggerAsyncOrganizationPipeline(
@@ -1925,8 +2780,7 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         The pipeline is identified by its resource name, formed by the parent
         organization and ID of the pipeline.
 
-        For more information, see [Trigger
-        Pipeline](https://www.instill.tech/docs/latest/core/concepts/pipeline#trigger-pipeline).
+        For more information, see [Run Pipeline](https://www.instill.tech/docs/vdp/run).
         """
     @abc.abstractmethod
     def CreateOrganizationPipelineRelease(
@@ -2045,17 +2899,6 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         organization and ID.
         """
     @abc.abstractmethod
-    def GetOperation(
-        self,
-        request: vdp.pipeline.v1beta.pipeline_pb2.GetOperationRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.GetOperationResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.GetOperationResponse]]:
-        """Get the details of a long-running operation
-
-        This method allows requesters to request the status and outcome of
-        long-running operations such as asynchronous pipeline triggers.
-        """
-    @abc.abstractmethod
     def ListConnectorDefinitions(
         self,
         request: vdp.pipeline.v1beta.component_definition_pb2.ListConnectorDefinitionsRequest,
@@ -2084,18 +2927,6 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         """List operator definitions
 
         Returns a paginated list of operator definitions.
-        """
-    @abc.abstractmethod
-    def ListComponentDefinitions(
-        self,
-        request: vdp.pipeline.v1beta.component_definition_pb2.ListComponentDefinitionsRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.component_definition_pb2.ListComponentDefinitionsResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.component_definition_pb2.ListComponentDefinitionsResponse]]:
-        """List component definitions
-
-        Returns a paginated list of component definitions, regardless their type.
-        This offers a single source of truth, with pagination and filter
-        capabilities, for the components that might be used in a VDP pipeline.
         """
     @abc.abstractmethod
     def GetOperatorDefinition(

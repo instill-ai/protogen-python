@@ -78,7 +78,7 @@ global___ComponentType = ComponentType
 class Sharing(google.protobuf.message.Message):
     """Sharing contains the information to share a resource with other users.
 
-    For more information, see [Share Pipelines](https://www.instill.tech/docs/latest/vdp/share).
+    For more information, see [Share Pipelines](https://www.instill.tech/docs/vdp/share).
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor

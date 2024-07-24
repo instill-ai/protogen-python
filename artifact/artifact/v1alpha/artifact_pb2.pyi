@@ -532,11 +532,11 @@ class CreateKnowledgeBaseRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    OWNER_ID_FIELD_NUMBER: builtins.int
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
-    owner_id: builtins.str
+    namespace_id: builtins.str
     """The knowledge base owner(nammespace)."""
     name: builtins.str
     """The knowledge base name."""
@@ -548,12 +548,12 @@ class CreateKnowledgeBaseRequest(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        owner_id: builtins.str = ...,
+        namespace_id: builtins.str = ...,
         name: builtins.str = ...,
         description: builtins.str = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "name", b"name", "owner_id", b"owner_id", "tags", b"tags"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "name", b"name", "namespace_id", b"namespace_id", "tags", b"tags"]) -> None: ...
 
 global___CreateKnowledgeBaseRequest = CreateKnowledgeBaseRequest
 
@@ -583,15 +583,15 @@ class ListKnowledgeBasesRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    OWNER_ID_FIELD_NUMBER: builtins.int
-    owner_id: builtins.str
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
     """User ID for which to list the knowledge bases"""
     def __init__(
         self,
         *,
-        owner_id: builtins.str = ...,
+        namespace_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["owner_id", b"owner_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id"]) -> None: ...
 
 global___ListKnowledgeBasesRequest = ListKnowledgeBasesRequest
 
@@ -623,7 +623,7 @@ class UpdateKnowledgeBaseRequest(google.protobuf.message.Message):
     KB_ID_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
-    OWNER_ID_FIELD_NUMBER: builtins.int
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
     kb_id: builtins.str
     """The knowledge base id."""
     description: builtins.str
@@ -631,7 +631,7 @@ class UpdateKnowledgeBaseRequest(google.protobuf.message.Message):
     @property
     def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """The knowledge base tags."""
-    owner_id: builtins.str
+    namespace_id: builtins.str
     """The knowledge base owner(namespace)."""
     def __init__(
         self,
@@ -639,9 +639,9 @@ class UpdateKnowledgeBaseRequest(google.protobuf.message.Message):
         kb_id: builtins.str = ...,
         description: builtins.str = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
-        owner_id: builtins.str = ...,
+        namespace_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "kb_id", b"kb_id", "owner_id", b"owner_id", "tags", b"tags"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "kb_id", b"kb_id", "namespace_id", b"namespace_id", "tags", b"tags"]) -> None: ...
 
 global___UpdateKnowledgeBaseRequest = UpdateKnowledgeBaseRequest
 
@@ -671,19 +671,19 @@ class DeleteKnowledgeBaseRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    OWNER_ID_FIELD_NUMBER: builtins.int
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
     KB_ID_FIELD_NUMBER: builtins.int
-    owner_id: builtins.str
+    namespace_id: builtins.str
     """The owner's id. i.e. namespace."""
     kb_id: builtins.str
     """The knowledge base identifier."""
     def __init__(
         self,
         *,
-        owner_id: builtins.str = ...,
+        namespace_id: builtins.str = ...,
         kb_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["kb_id", b"kb_id", "owner_id", b"owner_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["kb_id", b"kb_id", "namespace_id", b"namespace_id"]) -> None: ...
 
 global___DeleteKnowledgeBaseRequest = DeleteKnowledgeBaseRequest
 
@@ -795,10 +795,10 @@ class UploadKnowledgeBaseFileRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    OWNER_ID_FIELD_NUMBER: builtins.int
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
     KB_ID_FIELD_NUMBER: builtins.int
     FILE_FIELD_NUMBER: builtins.int
-    owner_id: builtins.str
+    namespace_id: builtins.str
     """owenr uid"""
     kb_id: builtins.str
     """knowledge base uid"""
@@ -808,12 +808,12 @@ class UploadKnowledgeBaseFileRequest(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        owner_id: builtins.str = ...,
+        namespace_id: builtins.str = ...,
         kb_id: builtins.str = ...,
         file: global___File | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["file", b"file"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["file", b"file", "kb_id", b"kb_id", "owner_id", b"owner_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file", b"file", "kb_id", b"kb_id", "namespace_id", b"namespace_id"]) -> None: ...
 
 global___UploadKnowledgeBaseFileRequest = UploadKnowledgeBaseFileRequest
 
@@ -938,12 +938,12 @@ class ListKnowledgeBaseFilesRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    OWNER_ID_FIELD_NUMBER: builtins.int
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
     KB_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    owner_id: builtins.str
+    namespace_id: builtins.str
     """The owner uid."""
     kb_id: builtins.str
     """The knowledge base uid."""
@@ -957,14 +957,14 @@ class ListKnowledgeBaseFilesRequest(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        owner_id: builtins.str = ...,
+        namespace_id: builtins.str = ...,
         kb_id: builtins.str = ...,
         page_size: builtins.int = ...,
         page_token: builtins.str = ...,
         filter: global___ListKnowledgeBaseFilesFilter | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["filter", b"filter"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "kb_id", b"kb_id", "owner_id", b"owner_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "kb_id", b"kb_id", "namespace_id", b"namespace_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
 
 global___ListKnowledgeBaseFilesRequest = ListKnowledgeBaseFilesRequest
 

@@ -224,22 +224,22 @@ class GetModelDefinitionRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
-    name: builtins.str
+    MODEL_DEFINITION_ID_FIELD_NUMBER: builtins.int
+    view: global___View.ValueType
+    """View allows clients to specify the desired resource view in the response."""
+    model_definition_id: builtins.str
     """The resource name of the model definition, which allows its access by ID.
     - Format: `model-definitions/{id}`.
     """
-    view: global___View.ValueType
-    """View allows clients to specify the desired resource view in the response."""
     def __init__(
         self,
         *,
-        name: builtins.str = ...,
         view: global___View.ValueType | None = ...,
+        model_definition_id: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "name", b"name", "view", b"view"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "model_definition_id", b"model_definition_id", "view", b"view"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
 
 global___GetModelDefinitionRequest = GetModelDefinitionRequest

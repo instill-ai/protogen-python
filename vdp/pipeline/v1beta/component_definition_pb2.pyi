@@ -404,7 +404,7 @@ class ConnectorDefinition(google.protobuf.message.Message):
     ConnectorDefinition describes a certain type of Connector.
 
     For more information, see
-    [Component](https://www.instill.tech/docs/latest/core/concepts/pipeline#pipeline-component)
+    [Component](https://www.instill.tech/docs/component/introduction)
     in the official documentation.
     """
 
@@ -564,7 +564,7 @@ class OperatorDefinition(google.protobuf.message.Message):
     manipulation. OperatorDefinition describes a certain type of operator.
 
     For more information, see
-    [Component](https://www.instill.tech/docs/latest/core/concepts/pipeline#pipeline-component)
+    [Component](https://www.instill.tech/docs/component/introduction)
     in the official documentation.
     """
 
