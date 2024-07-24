@@ -12,13 +12,12 @@ _sym_db = _symbol_database.Default()
 
 
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
-from google.api import client_pb2 as google_dot_api_dot_client__pb2
 from google.api import visibility_pb2 as google_dot_api_dot_visibility__pb2
 from protoc_gen_openapiv2.options import annotations_pb2 as protoc__gen__openapiv2_dot_options_dot_annotations__pb2
 from vdp.pipeline.v1beta import pipeline_pb2 as vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2vdp/pipeline/v1beta/pipeline_private_service.proto\x12\x13vdp.pipeline.v1beta\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1bgoogle/api/visibility.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\"vdp/pipeline/v1beta/pipeline.proto2\xe6\x04\n\x16PipelinePrivateService\x12\x96\x01\n\x12ListPipelinesAdmin\x12..vdp.pipeline.v1beta.ListPipelinesAdminRequest\x1a/.vdp.pipeline.v1beta.ListPipelinesAdminResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\x12\x17/v1beta/admin/pipelines\x12\xba\x01\n\x13LookUpPipelineAdmin\x12/.vdp.pipeline.v1beta.LookUpPipelineAdminRequest\x1a\x30.vdp.pipeline.v1beta.LookUpPipelineAdminResponse\"@\xda\x41\tpermalink\x82\xd3\xe4\x93\x02.\x12,/v1beta/admin/{permalink=pipelines/*}/lookUp\x12\xaa\x01\n\x19ListPipelineReleasesAdmin\x12\x35.vdp.pipeline.v1beta.ListPipelineReleasesAdminRequest\x1a\x36.vdp.pipeline.v1beta.ListPipelineReleasesAdminResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\x12\x16/v1beta/admin/releases\x1aI\x92\x41\x36\x12\x34Private methods to interact with Pipeline resources.\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNALB\xea\x01\n\x17\x63om.vdp.pipeline.v1betaB\x1bPipelinePrivateServiceProtoP\x01ZDgithub.com/instill-ai/protogen-go/vdp/pipeline/v1beta;pipelinev1beta\xa2\x02\x03VPX\xaa\x02\x13Vdp.Pipeline.V1beta\xca\x02\x13Vdp\\Pipeline\\V1beta\xe2\x02\x1fVdp\\Pipeline\\V1beta\\GPBMetadata\xea\x02\x15Vdp::Pipeline::V1betab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2vdp/pipeline/v1beta/pipeline_private_service.proto\x12\x13vdp.pipeline.v1beta\x1a\x1cgoogle/api/annotations.proto\x1a\x1bgoogle/api/visibility.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\"vdp/pipeline/v1beta/pipeline.proto2\xda\x04\n\x16PipelinePrivateService\x12\x96\x01\n\x12ListPipelinesAdmin\x12..vdp.pipeline.v1beta.ListPipelinesAdminRequest\x1a/.vdp.pipeline.v1beta.ListPipelinesAdminResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\x12\x17/v1beta/admin/pipelines\x12\xae\x01\n\x13LookUpPipelineAdmin\x12/.vdp.pipeline.v1beta.LookUpPipelineAdminRequest\x1a\x30.vdp.pipeline.v1beta.LookUpPipelineAdminResponse\"4\x82\xd3\xe4\x93\x02.\x12,/v1beta/admin/{permalink=pipelines/*}/lookUp\x12\xaa\x01\n\x19ListPipelineReleasesAdmin\x12\x35.vdp.pipeline.v1beta.ListPipelineReleasesAdminRequest\x1a\x36.vdp.pipeline.v1beta.ListPipelineReleasesAdminResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\x12\x16/v1beta/admin/releases\x1aI\x92\x41\x36\x12\x34Private methods to interact with Pipeline resources.\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNALB\xea\x01\n\x17\x63om.vdp.pipeline.v1betaB\x1bPipelinePrivateServiceProtoP\x01ZDgithub.com/instill-ai/protogen-go/vdp/pipeline/v1beta;pipelinev1beta\xa2\x02\x03VPX\xaa\x02\x13Vdp.Pipeline.V1beta\xca\x02\x13Vdp\\Pipeline\\V1beta\xe2\x02\x1fVdp\\Pipeline\\V1beta\\GPBMetadata\xea\x02\x15Vdp::Pipeline::V1betab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -32,9 +31,9 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _PIPELINEPRIVATESERVICE.methods_by_name['ListPipelinesAdmin']._options = None
   _PIPELINEPRIVATESERVICE.methods_by_name['ListPipelinesAdmin']._serialized_options = b'\202\323\344\223\002\031\022\027/v1beta/admin/pipelines'
   _PIPELINEPRIVATESERVICE.methods_by_name['LookUpPipelineAdmin']._options = None
-  _PIPELINEPRIVATESERVICE.methods_by_name['LookUpPipelineAdmin']._serialized_options = b'\332A\tpermalink\202\323\344\223\002.\022,/v1beta/admin/{permalink=pipelines/*}/lookUp'
+  _PIPELINEPRIVATESERVICE.methods_by_name['LookUpPipelineAdmin']._serialized_options = b'\202\323\344\223\002.\022,/v1beta/admin/{permalink=pipelines/*}/lookUp'
   _PIPELINEPRIVATESERVICE.methods_by_name['ListPipelineReleasesAdmin']._options = None
   _PIPELINEPRIVATESERVICE.methods_by_name['ListPipelineReleasesAdmin']._serialized_options = b'\202\323\344\223\002\030\022\026/v1beta/admin/releases'
-  _globals['_PIPELINEPRIVATESERVICE']._serialized_start=244
-  _globals['_PIPELINEPRIVATESERVICE']._serialized_end=858
+  _globals['_PIPELINEPRIVATESERVICE']._serialized_start=219
+  _globals['_PIPELINEPRIVATESERVICE']._serialized_end=821
 # @@protoc_insertion_point(module_scope)

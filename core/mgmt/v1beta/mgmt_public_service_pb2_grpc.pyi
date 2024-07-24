@@ -262,30 +262,24 @@ class MgmtPublicServiceStub:
     Returns the availability of a namespace or, alternatively, the type of
     resource that is using it.
     """
-    ListPipelineTriggerRecords: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsRequest,
-        core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsResponse,
+    GetPipelineTriggerCount: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.metric_pb2.GetPipelineTriggerCountRequest,
+        core.mgmt.v1beta.metric_pb2.GetPipelineTriggerCountResponse,
     ]
-    """List pipeline triggers
+    """Get pipeline trigger count
 
-    Returns a paginated list of pipeline executions.
-    """
-    ListPipelineTriggerTableRecords: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsRequest,
-        core.mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsResponse,
-    ]
-    """List pipeline trigger metrics
-
-    Returns a paginated list of pipeline executions aggregated by pipeline ID.
+    Returns the pipeline trigger count of a given requester within a timespan.
+    Results are grouped by trigger status.
     """
     ListPipelineTriggerChartRecords: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsRequest,
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsResponse,
     ]
-    """List pipeline trigger computation time charts
+    """List pipeline trigger time charts
 
-    Returns a paginated list with pipeline trigger execution times, aggregated
-    by pipeline and time frames.
+    Returns a timeline of pipline trigger counts for a given requester. The
+    response will contain one set of records (datapoints), representing the
+    amount of triggers in a time bucket.
     """
     ListCreditConsumptionChartRecords: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListCreditConsumptionChartRecordsRequest,
@@ -586,30 +580,24 @@ class MgmtPublicServiceAsyncStub:
     Returns the availability of a namespace or, alternatively, the type of
     resource that is using it.
     """
-    ListPipelineTriggerRecords: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsRequest,
-        core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsResponse,
+    GetPipelineTriggerCount: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.metric_pb2.GetPipelineTriggerCountRequest,
+        core.mgmt.v1beta.metric_pb2.GetPipelineTriggerCountResponse,
     ]
-    """List pipeline triggers
+    """Get pipeline trigger count
 
-    Returns a paginated list of pipeline executions.
-    """
-    ListPipelineTriggerTableRecords: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsRequest,
-        core.mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsResponse,
-    ]
-    """List pipeline trigger metrics
-
-    Returns a paginated list of pipeline executions aggregated by pipeline ID.
+    Returns the pipeline trigger count of a given requester within a timespan.
+    Results are grouped by trigger status.
     """
     ListPipelineTriggerChartRecords: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsRequest,
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsResponse,
     ]
-    """List pipeline trigger computation time charts
+    """List pipeline trigger time charts
 
-    Returns a paginated list with pipeline trigger execution times, aggregated
-    by pipeline and time frames.
+    Returns a timeline of pipline trigger counts for a given requester. The
+    response will contain one set of records (datapoints), representing the
+    amount of triggers in a time bucket.
     """
     ListCreditConsumptionChartRecords: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListCreditConsumptionChartRecordsRequest,
@@ -967,24 +955,15 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         resource that is using it.
         """
     @abc.abstractmethod
-    def ListPipelineTriggerRecords(
+    def GetPipelineTriggerCount(
         self,
-        request: core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsRequest,
+        request: core.mgmt.v1beta.metric_pb2.GetPipelineTriggerCountRequest,
         context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsResponse, collections.abc.Awaitable[core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsResponse]]:
-        """List pipeline triggers
+    ) -> typing.Union[core.mgmt.v1beta.metric_pb2.GetPipelineTriggerCountResponse, collections.abc.Awaitable[core.mgmt.v1beta.metric_pb2.GetPipelineTriggerCountResponse]]:
+        """Get pipeline trigger count
 
-        Returns a paginated list of pipeline executions.
-        """
-    @abc.abstractmethod
-    def ListPipelineTriggerTableRecords(
-        self,
-        request: core.mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsResponse, collections.abc.Awaitable[core.mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsResponse]]:
-        """List pipeline trigger metrics
-
-        Returns a paginated list of pipeline executions aggregated by pipeline ID.
+        Returns the pipeline trigger count of a given requester within a timespan.
+        Results are grouped by trigger status.
         """
     @abc.abstractmethod
     def ListPipelineTriggerChartRecords(
@@ -992,10 +971,11 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsResponse, collections.abc.Awaitable[core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsResponse]]:
-        """List pipeline trigger computation time charts
+        """List pipeline trigger time charts
 
-        Returns a paginated list with pipeline trigger execution times, aggregated
-        by pipeline and time frames.
+        Returns a timeline of pipline trigger counts for a given requester. The
+        response will contain one set of records (datapoints), representing the
+        amount of triggers in a time bucket.
         """
     @abc.abstractmethod
     def ListCreditConsumptionChartRecords(
