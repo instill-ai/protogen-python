@@ -72,18 +72,15 @@ class Secret(google.protobuf.message.Message):
 global___Secret = Secret
 
 @typing_extensions.final
-class CreateSecretRequest(google.protobuf.message.Message):
-    """CreateSecretRequest represents a request to create a secret."""
+class CreateNamespaceSecretRequest(google.protobuf.message.Message):
+    """CreateamespaceSecretRequest represents a request to create a secret."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    SECRET_ID_FIELD_NUMBER: builtins.int
     SECRET_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """Namespace ID"""
-    secret_id: builtins.str
-    """Secret ID"""
     @property
     def secret(self) -> global___Secret:
         """The properties of the secret to be created."""
@@ -91,17 +88,16 @@ class CreateSecretRequest(google.protobuf.message.Message):
         self,
         *,
         namespace_id: builtins.str = ...,
-        secret_id: builtins.str = ...,
         secret: global___Secret | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["secret", b"secret"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "secret", b"secret", "secret_id", b"secret_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "secret", b"secret"]) -> None: ...
 
-global___CreateSecretRequest = CreateSecretRequest
+global___CreateNamespaceSecretRequest = CreateNamespaceSecretRequest
 
 @typing_extensions.final
-class CreateSecretResponse(google.protobuf.message.Message):
-    """CreateSecretResponse contains the created secret."""
+class CreateNamespaceSecretResponse(google.protobuf.message.Message):
+    """CreateNamespaceSecretResponse contains the created secret."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -117,11 +113,11 @@ class CreateSecretResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing_extensions.Literal["secret", b"secret"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["secret", b"secret"]) -> None: ...
 
-global___CreateSecretResponse = CreateSecretResponse
+global___CreateNamespaceSecretResponse = CreateNamespaceSecretResponse
 
 @typing_extensions.final
-class ListSecretsRequest(google.protobuf.message.Message):
-    """ListSecretsRequest represents a request to list the secrets of a namespace."""
+class ListNamespaceSecretsRequest(google.protobuf.message.Message):
+    """ListNamespaceSecretsRequest represents a request to list the secrets of a namespace."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -151,11 +147,11 @@ class ListSecretsRequest(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_token", b"_page_token"]) -> typing_extensions.Literal["page_token"] | None: ...
 
-global___ListSecretsRequest = ListSecretsRequest
+global___ListNamespaceSecretsRequest = ListNamespaceSecretsRequest
 
 @typing_extensions.final
-class ListSecretsResponse(google.protobuf.message.Message):
-    """ListSecretsResponse contains a list of secrets."""
+class ListNamespaceSecretsResponse(google.protobuf.message.Message):
+    """ListNamespaceSecretsResponse contains a list of secrets."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -178,11 +174,11 @@ class ListSecretsResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "secrets", b"secrets", "total_size", b"total_size"]) -> None: ...
 
-global___ListSecretsResponse = ListSecretsResponse
+global___ListNamespaceSecretsResponse = ListNamespaceSecretsResponse
 
 @typing_extensions.final
-class GetSecretRequest(google.protobuf.message.Message):
-    """GetSecretRequest represents a request to fetch the details of a secret"""
+class GetNamespaceSecretRequest(google.protobuf.message.Message):
+    """GetNamespaceSecretRequest represents a request to fetch the details of a secret"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -200,11 +196,11 @@ class GetSecretRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "secret_id", b"secret_id"]) -> None: ...
 
-global___GetSecretRequest = GetSecretRequest
+global___GetNamespaceSecretRequest = GetNamespaceSecretRequest
 
 @typing_extensions.final
-class GetSecretResponse(google.protobuf.message.Message):
-    """GetSecretResponse contains the requested secret."""
+class GetNamespaceSecretResponse(google.protobuf.message.Message):
+    """GetNamespaceSecretResponse contains the requested secret."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -220,11 +216,11 @@ class GetSecretResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing_extensions.Literal["secret", b"secret"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["secret", b"secret"]) -> None: ...
 
-global___GetSecretResponse = GetSecretResponse
+global___GetNamespaceSecretResponse = GetNamespaceSecretResponse
 
 @typing_extensions.final
-class UpdateSecretRequest(google.protobuf.message.Message):
-    """UpdateSecretRequest represents a request to update a namespace secret."""
+class UpdateNamespaceSecretRequest(google.protobuf.message.Message):
+    """UpdateNamespaceSecretRequest represents a request to update a namespace secret."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -257,11 +253,11 @@ class UpdateSecretRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing_extensions.Literal["secret", b"secret", "update_mask", b"update_mask"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "secret", b"secret", "secret_id", b"secret_id", "update_mask", b"update_mask"]) -> None: ...
 
-global___UpdateSecretRequest = UpdateSecretRequest
+global___UpdateNamespaceSecretRequest = UpdateNamespaceSecretRequest
 
 @typing_extensions.final
-class UpdateSecretResponse(google.protobuf.message.Message):
-    """UpdateSecretResponse contains the updated secret."""
+class UpdateNamespaceSecretResponse(google.protobuf.message.Message):
+    """UpdateNamespaceSecretResponse contains the updated secret."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -277,11 +273,11 @@ class UpdateSecretResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing_extensions.Literal["secret", b"secret"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["secret", b"secret"]) -> None: ...
 
-global___UpdateSecretResponse = UpdateSecretResponse
+global___UpdateNamespaceSecretResponse = UpdateNamespaceSecretResponse
 
 @typing_extensions.final
-class DeleteSecretRequest(google.protobuf.message.Message):
-    """DeleteSecretRequest represents a request to delete a secret resource."""
+class DeleteNamespaceSecretRequest(google.protobuf.message.Message):
+    """DeleteNamespaceSecretRequest represents a request to delete a secret resource."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -299,11 +295,11 @@ class DeleteSecretRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "secret_id", b"secret_id"]) -> None: ...
 
-global___DeleteSecretRequest = DeleteSecretRequest
+global___DeleteNamespaceSecretRequest = DeleteNamespaceSecretRequest
 
 @typing_extensions.final
-class DeleteSecretResponse(google.protobuf.message.Message):
-    """DeleteSecretResponse is an empty response."""
+class DeleteNamespaceSecretResponse(google.protobuf.message.Message):
+    """DeleteNamespaceSecretResponse is an empty response."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -311,7 +307,7 @@ class DeleteSecretResponse(google.protobuf.message.Message):
         self,
     ) -> None: ...
 
-global___DeleteSecretResponse = DeleteSecretResponse
+global___DeleteNamespaceSecretResponse = DeleteNamespaceSecretResponse
 
 @typing_extensions.final
 class CreateUserSecretRequest(google.protobuf.message.Message):

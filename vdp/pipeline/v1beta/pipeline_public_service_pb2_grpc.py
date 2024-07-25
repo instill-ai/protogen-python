@@ -141,30 +141,30 @@ class PipelinePublicServiceStub(object):
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerAsyncNamespacePipelineReleaseRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerAsyncNamespacePipelineReleaseResponse.FromString,
                 )
-        self.CreateSecret = channel.unary_unary(
-                '/vdp.pipeline.v1beta.PipelinePublicService/CreateSecret',
-                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateSecretRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateSecretResponse.FromString,
+        self.CreateNamespaceSecret = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/CreateNamespaceSecret',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateNamespaceSecretRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateNamespaceSecretResponse.FromString,
                 )
-        self.ListSecrets = channel.unary_unary(
-                '/vdp.pipeline.v1beta.PipelinePublicService/ListSecrets',
-                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListSecretsRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListSecretsResponse.FromString,
+        self.ListNamespaceSecrets = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/ListNamespaceSecrets',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListNamespaceSecretsRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListNamespaceSecretsResponse.FromString,
                 )
-        self.GetSecret = channel.unary_unary(
-                '/vdp.pipeline.v1beta.PipelinePublicService/GetSecret',
-                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetSecretRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetSecretResponse.FromString,
+        self.GetNamespaceSecret = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/GetNamespaceSecret',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetNamespaceSecretRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetNamespaceSecretResponse.FromString,
                 )
-        self.UpdateSecret = channel.unary_unary(
-                '/vdp.pipeline.v1beta.PipelinePublicService/UpdateSecret',
-                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateSecretRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateSecretResponse.FromString,
+        self.UpdateNamespaceSecret = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/UpdateNamespaceSecret',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateNamespaceSecretRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateNamespaceSecretResponse.FromString,
                 )
-        self.DeleteSecret = channel.unary_unary(
-                '/vdp.pipeline.v1beta.PipelinePublicService/DeleteSecret',
-                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteSecretRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteSecretResponse.FromString,
+        self.DeleteNamespaceSecret = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/DeleteNamespaceSecret',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteNamespaceSecretRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteNamespaceSecretResponse.FromString,
                 )
         self.ListComponentDefinitions = channel.unary_unary(
                 '/vdp.pipeline.v1beta.PipelinePublicService/ListComponentDefinitions',
@@ -753,7 +753,7 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def CreateSecret(self, request, context):
+    def CreateNamespaceSecret(self, request, context):
         """Create a secret
 
         Creates a new secret under the parenthood of an namespace.
@@ -762,7 +762,7 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListSecrets(self, request, context):
+    def ListNamespaceSecrets(self, request, context):
         """List secrets
 
         Returns a paginated list of secrets that belong to the specified
@@ -772,7 +772,7 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetSecret(self, request, context):
+    def GetNamespaceSecret(self, request, context):
         """Get a secret
 
         Returns the details of an namespace-owned secret by its resource name,
@@ -782,7 +782,7 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UpdateSecret(self, request, context):
+    def UpdateNamespaceSecret(self, request, context):
         """Update a secret
 
         Udpates a secret, accessing it by its resource name, which is defined by
@@ -794,7 +794,7 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def DeleteSecret(self, request, context):
+    def DeleteNamespaceSecret(self, request, context):
         """Delete a secret
 
         Deletes a secret, accesing it by its resource name, which is defined by
@@ -1628,30 +1628,30 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerAsyncNamespacePipelineReleaseRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerAsyncNamespacePipelineReleaseResponse.SerializeToString,
             ),
-            'CreateSecret': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreateSecret,
-                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateSecretRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateSecretResponse.SerializeToString,
+            'CreateNamespaceSecret': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateNamespaceSecret,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateNamespaceSecretRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateNamespaceSecretResponse.SerializeToString,
             ),
-            'ListSecrets': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListSecrets,
-                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListSecretsRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListSecretsResponse.SerializeToString,
+            'ListNamespaceSecrets': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListNamespaceSecrets,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListNamespaceSecretsRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListNamespaceSecretsResponse.SerializeToString,
             ),
-            'GetSecret': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetSecret,
-                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetSecretRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetSecretResponse.SerializeToString,
+            'GetNamespaceSecret': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetNamespaceSecret,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetNamespaceSecretRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetNamespaceSecretResponse.SerializeToString,
             ),
-            'UpdateSecret': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateSecret,
-                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateSecretRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateSecretResponse.SerializeToString,
+            'UpdateNamespaceSecret': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateNamespaceSecret,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateNamespaceSecretRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateNamespaceSecretResponse.SerializeToString,
             ),
-            'DeleteSecret': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteSecret,
-                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteSecretRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteSecretResponse.SerializeToString,
+            'DeleteNamespaceSecret': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteNamespaceSecret,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteNamespaceSecretRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteNamespaceSecretResponse.SerializeToString,
             ),
             'ListComponentDefinitions': grpc.unary_unary_rpc_method_handler(
                     servicer.ListComponentDefinitions,
@@ -2371,7 +2371,7 @@ class PipelinePublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def CreateSecret(request,
+    def CreateNamespaceSecret(request,
             target,
             options=(),
             channel_credentials=None,
@@ -2381,14 +2381,14 @@ class PipelinePublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/CreateSecret',
-            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateSecretRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateSecretResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/CreateNamespaceSecret',
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateNamespaceSecretRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.CreateNamespaceSecretResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ListSecrets(request,
+    def ListNamespaceSecrets(request,
             target,
             options=(),
             channel_credentials=None,
@@ -2398,14 +2398,14 @@ class PipelinePublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/ListSecrets',
-            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListSecretsRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListSecretsResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/ListNamespaceSecrets',
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListNamespaceSecretsRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.ListNamespaceSecretsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetSecret(request,
+    def GetNamespaceSecret(request,
             target,
             options=(),
             channel_credentials=None,
@@ -2415,14 +2415,14 @@ class PipelinePublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/GetSecret',
-            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetSecretRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetSecretResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/GetNamespaceSecret',
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetNamespaceSecretRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.GetNamespaceSecretResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UpdateSecret(request,
+    def UpdateNamespaceSecret(request,
             target,
             options=(),
             channel_credentials=None,
@@ -2432,14 +2432,14 @@ class PipelinePublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/UpdateSecret',
-            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateSecretRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateSecretResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/UpdateNamespaceSecret',
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateNamespaceSecretRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.UpdateNamespaceSecretResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def DeleteSecret(request,
+    def DeleteNamespaceSecret(request,
             target,
             options=(),
             channel_credentials=None,
@@ -2449,9 +2449,9 @@ class PipelinePublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/DeleteSecret',
-            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteSecretRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteSecretResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/DeleteNamespaceSecret',
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteNamespaceSecretRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteNamespaceSecretResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

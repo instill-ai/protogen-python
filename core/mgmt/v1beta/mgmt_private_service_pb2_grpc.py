@@ -70,6 +70,11 @@ class MgmtPrivateServiceStub(object):
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceAdminRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceAdminResponse.FromString,
                 )
+        self.CheckNamespaceByUIDAdmin = channel.unary_unary(
+                '/core.mgmt.v1beta.MgmtPrivateService/CheckNamespaceByUIDAdmin',
+                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceByUIDAdminRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceByUIDAdminResponse.FromString,
+                )
 
 
 class MgmtPrivateServiceServicer(object):
@@ -176,6 +181,16 @@ class MgmtPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CheckNamespaceByUIDAdmin(self, request, context):
+        """Check if a namespace is in use by UID
+
+        Returns the availability of a namespace or, alternatively, the type of
+        resource that is using it.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_MgmtPrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -233,6 +248,11 @@ def add_MgmtPrivateServiceServicer_to_server(servicer, server):
                     servicer.CheckNamespaceAdmin,
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceAdminRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceAdminResponse.SerializeToString,
+            ),
+            'CheckNamespaceByUIDAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.CheckNamespaceByUIDAdmin,
+                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceByUIDAdminRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceByUIDAdminResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -429,5 +449,22 @@ class MgmtPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPrivateService/CheckNamespaceAdmin',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceAdminRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CheckNamespaceByUIDAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPrivateService/CheckNamespaceByUIDAdmin',
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceByUIDAdminRequest.SerializeToString,
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceByUIDAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

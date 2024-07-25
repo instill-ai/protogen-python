@@ -108,6 +108,15 @@ class MgmtPrivateServiceStub:
     Returns the availability of a namespace or, alternatively, the type of
     resource that is using it.
     """
+    CheckNamespaceByUIDAdmin: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.CheckNamespaceByUIDAdminRequest,
+        core.mgmt.v1beta.mgmt_pb2.CheckNamespaceByUIDAdminResponse,
+    ]
+    """Check if a namespace is in use by UID
+
+    Returns the availability of a namespace or, alternatively, the type of
+    resource that is using it.
+    """
 
 class MgmtPrivateServiceAsyncStub:
     """Mgmt service responds to internal access"""
@@ -195,6 +204,15 @@ class MgmtPrivateServiceAsyncStub:
         core.mgmt.v1beta.mgmt_pb2.CheckNamespaceAdminResponse,
     ]
     """Check if a namespace is in use
+
+    Returns the availability of a namespace or, alternatively, the type of
+    resource that is using it.
+    """
+    CheckNamespaceByUIDAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.CheckNamespaceByUIDAdminRequest,
+        core.mgmt.v1beta.mgmt_pb2.CheckNamespaceByUIDAdminResponse,
+    ]
+    """Check if a namespace is in use by UID
 
     Returns the availability of a namespace or, alternatively, the type of
     resource that is using it.
@@ -308,6 +326,17 @@ class MgmtPrivateServiceServicer(metaclass=abc.ABCMeta):
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.CheckNamespaceAdminResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.CheckNamespaceAdminResponse]]:
         """Check if a namespace is in use
+
+        Returns the availability of a namespace or, alternatively, the type of
+        resource that is using it.
+        """
+    @abc.abstractmethod
+    def CheckNamespaceByUIDAdmin(
+        self,
+        request: core.mgmt.v1beta.mgmt_pb2.CheckNamespaceByUIDAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.CheckNamespaceByUIDAdminResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.CheckNamespaceByUIDAdminResponse]]:
+        """Check if a namespace is in use by UID
 
         Returns the availability of a namespace or, alternatively, the type of
         resource that is using it.

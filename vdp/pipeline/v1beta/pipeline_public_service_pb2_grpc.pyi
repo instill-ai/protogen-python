@@ -287,35 +287,35 @@ class PipelinePublicServiceStub:
     The pipeline is identified by its resource name, formed by its parent namespace
     and ID.
     """
-    CreateSecret: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.secret_pb2.CreateSecretRequest,
-        vdp.pipeline.v1beta.secret_pb2.CreateSecretResponse,
+    CreateNamespaceSecret: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.CreateNamespaceSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.CreateNamespaceSecretResponse,
     ]
     """Create a secret
 
     Creates a new secret under the parenthood of an namespace.
     """
-    ListSecrets: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.secret_pb2.ListSecretsRequest,
-        vdp.pipeline.v1beta.secret_pb2.ListSecretsResponse,
+    ListNamespaceSecrets: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.ListNamespaceSecretsRequest,
+        vdp.pipeline.v1beta.secret_pb2.ListNamespaceSecretsResponse,
     ]
     """List secrets
 
     Returns a paginated list of secrets that belong to the specified
     namespace.
     """
-    GetSecret: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.secret_pb2.GetSecretRequest,
-        vdp.pipeline.v1beta.secret_pb2.GetSecretResponse,
+    GetNamespaceSecret: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.GetNamespaceSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.GetNamespaceSecretResponse,
     ]
     """Get a secret
 
     Returns the details of an namespace-owned secret by its resource name,
     which is defined by the parent namespace and the ID of the secret.
     """
-    UpdateSecret: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.secret_pb2.UpdateSecretRequest,
-        vdp.pipeline.v1beta.secret_pb2.UpdateSecretResponse,
+    UpdateNamespaceSecret: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.UpdateNamespaceSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.UpdateNamespaceSecretResponse,
     ]
     """Update a secret
 
@@ -324,9 +324,9 @@ class PipelinePublicServiceStub:
     In REST requests, only the supplied secret fields will be taken into
     account when updating the resource.
     """
-    DeleteSecret: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.secret_pb2.DeleteSecretRequest,
-        vdp.pipeline.v1beta.secret_pb2.DeleteSecretResponse,
+    DeleteNamespaceSecret: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.DeleteNamespaceSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.DeleteNamespaceSecretResponse,
     ]
     """Delete a secret
 
@@ -1242,35 +1242,35 @@ class PipelinePublicServiceAsyncStub:
     The pipeline is identified by its resource name, formed by its parent namespace
     and ID.
     """
-    CreateSecret: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.secret_pb2.CreateSecretRequest,
-        vdp.pipeline.v1beta.secret_pb2.CreateSecretResponse,
+    CreateNamespaceSecret: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.CreateNamespaceSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.CreateNamespaceSecretResponse,
     ]
     """Create a secret
 
     Creates a new secret under the parenthood of an namespace.
     """
-    ListSecrets: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.secret_pb2.ListSecretsRequest,
-        vdp.pipeline.v1beta.secret_pb2.ListSecretsResponse,
+    ListNamespaceSecrets: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.ListNamespaceSecretsRequest,
+        vdp.pipeline.v1beta.secret_pb2.ListNamespaceSecretsResponse,
     ]
     """List secrets
 
     Returns a paginated list of secrets that belong to the specified
     namespace.
     """
-    GetSecret: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.secret_pb2.GetSecretRequest,
-        vdp.pipeline.v1beta.secret_pb2.GetSecretResponse,
+    GetNamespaceSecret: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.GetNamespaceSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.GetNamespaceSecretResponse,
     ]
     """Get a secret
 
     Returns the details of an namespace-owned secret by its resource name,
     which is defined by the parent namespace and the ID of the secret.
     """
-    UpdateSecret: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.secret_pb2.UpdateSecretRequest,
-        vdp.pipeline.v1beta.secret_pb2.UpdateSecretResponse,
+    UpdateNamespaceSecret: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.UpdateNamespaceSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.UpdateNamespaceSecretResponse,
     ]
     """Update a secret
 
@@ -1279,9 +1279,9 @@ class PipelinePublicServiceAsyncStub:
     In REST requests, only the supplied secret fields will be taken into
     account when updating the resource.
     """
-    DeleteSecret: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.secret_pb2.DeleteSecretRequest,
-        vdp.pipeline.v1beta.secret_pb2.DeleteSecretResponse,
+    DeleteNamespaceSecret: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.secret_pb2.DeleteNamespaceSecretRequest,
+        vdp.pipeline.v1beta.secret_pb2.DeleteNamespaceSecretResponse,
     ]
     """Delete a secret
 
@@ -2246,43 +2246,43 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         and ID.
         """
     @abc.abstractmethod
-    def CreateSecret(
+    def CreateNamespaceSecret(
         self,
-        request: vdp.pipeline.v1beta.secret_pb2.CreateSecretRequest,
+        request: vdp.pipeline.v1beta.secret_pb2.CreateNamespaceSecretRequest,
         context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.CreateSecretResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.CreateSecretResponse]]:
+    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.CreateNamespaceSecretResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.CreateNamespaceSecretResponse]]:
         """Create a secret
 
         Creates a new secret under the parenthood of an namespace.
         """
     @abc.abstractmethod
-    def ListSecrets(
+    def ListNamespaceSecrets(
         self,
-        request: vdp.pipeline.v1beta.secret_pb2.ListSecretsRequest,
+        request: vdp.pipeline.v1beta.secret_pb2.ListNamespaceSecretsRequest,
         context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.ListSecretsResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.ListSecretsResponse]]:
+    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.ListNamespaceSecretsResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.ListNamespaceSecretsResponse]]:
         """List secrets
 
         Returns a paginated list of secrets that belong to the specified
         namespace.
         """
     @abc.abstractmethod
-    def GetSecret(
+    def GetNamespaceSecret(
         self,
-        request: vdp.pipeline.v1beta.secret_pb2.GetSecretRequest,
+        request: vdp.pipeline.v1beta.secret_pb2.GetNamespaceSecretRequest,
         context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.GetSecretResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.GetSecretResponse]]:
+    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.GetNamespaceSecretResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.GetNamespaceSecretResponse]]:
         """Get a secret
 
         Returns the details of an namespace-owned secret by its resource name,
         which is defined by the parent namespace and the ID of the secret.
         """
     @abc.abstractmethod
-    def UpdateSecret(
+    def UpdateNamespaceSecret(
         self,
-        request: vdp.pipeline.v1beta.secret_pb2.UpdateSecretRequest,
+        request: vdp.pipeline.v1beta.secret_pb2.UpdateNamespaceSecretRequest,
         context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.UpdateSecretResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.UpdateSecretResponse]]:
+    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.UpdateNamespaceSecretResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.UpdateNamespaceSecretResponse]]:
         """Update a secret
 
         Udpates a secret, accessing it by its resource name, which is defined by
@@ -2291,11 +2291,11 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         account when updating the resource.
         """
     @abc.abstractmethod
-    def DeleteSecret(
+    def DeleteNamespaceSecret(
         self,
-        request: vdp.pipeline.v1beta.secret_pb2.DeleteSecretRequest,
+        request: vdp.pipeline.v1beta.secret_pb2.DeleteNamespaceSecretRequest,
         context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.DeleteSecretResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.DeleteSecretResponse]]:
+    ) -> typing.Union[vdp.pipeline.v1beta.secret_pb2.DeleteNamespaceSecretResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.secret_pb2.DeleteNamespaceSecretResponse]]:
         """Delete a secret
 
         Deletes a secret, accesing it by its resource name, which is defined by

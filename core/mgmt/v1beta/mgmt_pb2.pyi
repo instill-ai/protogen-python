@@ -1196,19 +1196,118 @@ class CheckNamespaceAdminResponse(google.protobuf.message.Message):
 
     TYPE_FIELD_NUMBER: builtins.int
     UID_FIELD_NUMBER: builtins.int
+    USER_FIELD_NUMBER: builtins.int
+    ORGANIZATION_FIELD_NUMBER: builtins.int
     type: global___CheckNamespaceAdminResponse.Namespace.ValueType
     """Namespace type."""
     uid: builtins.str
     """Namespace UID."""
+    @property
+    def user(self) -> global___User:
+        """User."""
+    @property
+    def organization(self) -> global___Organization:
+        """Organization."""
     def __init__(
         self,
         *,
         type: global___CheckNamespaceAdminResponse.Namespace.ValueType = ...,
         uid: builtins.str = ...,
+        user: global___User | None = ...,
+        organization: global___Organization | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["type", b"type", "uid", b"uid"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["organization", b"organization", "owner", b"owner", "user", b"user"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["organization", b"organization", "owner", b"owner", "type", b"type", "uid", b"uid", "user", b"user"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["owner", b"owner"]) -> typing_extensions.Literal["user", "organization"] | None: ...
 
 global___CheckNamespaceAdminResponse = CheckNamespaceAdminResponse
+
+@typing_extensions.final
+class CheckNamespaceByUIDAdminRequest(google.protobuf.message.Message):
+    """CheckNamespaceByUIDAdminRequest represents a request to verify if a namespace is
+    available.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    UID_FIELD_NUMBER: builtins.int
+    uid: builtins.str
+    """The namespace UID to be checked."""
+    def __init__(
+        self,
+        *,
+        uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["uid", b"uid"]) -> None: ...
+
+global___CheckNamespaceByUIDAdminRequest = CheckNamespaceByUIDAdminRequest
+
+@typing_extensions.final
+class CheckNamespaceByUIDAdminResponse(google.protobuf.message.Message):
+    """CheckNamespaceByUIDAdminResponse contains the availability of a namespace or the type
+    of resource that's using it.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    class _Namespace:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _NamespaceEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[CheckNamespaceByUIDAdminResponse._Namespace.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        NAMESPACE_UNSPECIFIED: CheckNamespaceByUIDAdminResponse._Namespace.ValueType  # 0
+        """Unspecified."""
+        NAMESPACE_AVAILABLE: CheckNamespaceByUIDAdminResponse._Namespace.ValueType  # 1
+        """Available."""
+        NAMESPACE_USER: CheckNamespaceByUIDAdminResponse._Namespace.ValueType  # 2
+        """Namespace belongs to a user."""
+        NAMESPACE_ORGANIZATION: CheckNamespaceByUIDAdminResponse._Namespace.ValueType  # 3
+        """Namespace belongs to an organization."""
+        NAMESPACE_RESERVED: CheckNamespaceByUIDAdminResponse._Namespace.ValueType  # 4
+        """Reserved."""
+
+    class Namespace(_Namespace, metaclass=_NamespaceEnumTypeWrapper):
+        """Namespace contains information about the availability of a namespace."""
+
+    NAMESPACE_UNSPECIFIED: CheckNamespaceByUIDAdminResponse.Namespace.ValueType  # 0
+    """Unspecified."""
+    NAMESPACE_AVAILABLE: CheckNamespaceByUIDAdminResponse.Namespace.ValueType  # 1
+    """Available."""
+    NAMESPACE_USER: CheckNamespaceByUIDAdminResponse.Namespace.ValueType  # 2
+    """Namespace belongs to a user."""
+    NAMESPACE_ORGANIZATION: CheckNamespaceByUIDAdminResponse.Namespace.ValueType  # 3
+    """Namespace belongs to an organization."""
+    NAMESPACE_RESERVED: CheckNamespaceByUIDAdminResponse.Namespace.ValueType  # 4
+    """Reserved."""
+
+    TYPE_FIELD_NUMBER: builtins.int
+    ID_FIELD_NUMBER: builtins.int
+    USER_FIELD_NUMBER: builtins.int
+    ORGANIZATION_FIELD_NUMBER: builtins.int
+    type: global___CheckNamespaceByUIDAdminResponse.Namespace.ValueType
+    """Namespace type."""
+    id: builtins.str
+    """Namespace ID."""
+    @property
+    def user(self) -> global___User:
+        """User."""
+    @property
+    def organization(self) -> global___Organization:
+        """Organization."""
+    def __init__(
+        self,
+        *,
+        type: global___CheckNamespaceByUIDAdminResponse.Namespace.ValueType = ...,
+        id: builtins.str = ...,
+        user: global___User | None = ...,
+        organization: global___Organization | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["organization", b"organization", "owner", b"owner", "user", b"user"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["id", b"id", "organization", b"organization", "owner", b"owner", "type", b"type", "user", b"user"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["owner", b"owner"]) -> typing_extensions.Literal["user", "organization"] | None: ...
+
+global___CheckNamespaceByUIDAdminResponse = CheckNamespaceByUIDAdminResponse
 
 @typing_extensions.final
 class ApiToken(google.protobuf.message.Message):
