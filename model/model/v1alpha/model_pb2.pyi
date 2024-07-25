@@ -3438,16 +3438,16 @@ class LatestOperation(google.protobuf.message.Message):
     REQUEST_FIELD_NUMBER: builtins.int
     RESPONSE_FIELD_NUMBER: builtins.int
     @property
-    def request(self) -> global___TriggerUserModelRequest:
+    def request(self) -> global___TriggerNamespaceModelRequest:
         """Input request"""
     @property
-    def response(self) -> global___TriggerUserModelResponse:
+    def response(self) -> global___TriggerNamespaceModelResponse:
         """Output response"""
     def __init__(
         self,
         *,
-        request: global___TriggerUserModelRequest | None = ...,
-        response: global___TriggerUserModelResponse | None = ...,
+        request: global___TriggerNamespaceModelRequest | None = ...,
+        response: global___TriggerNamespaceModelResponse | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["request", b"request", "response", b"response"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["request", b"request", "response", b"response"]) -> None: ...
