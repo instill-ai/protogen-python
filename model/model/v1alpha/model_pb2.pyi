@@ -3757,22 +3757,20 @@ class GetModelOperationRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAME_FIELD_NUMBER: builtins.int
+    OPERATION_ID_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the model, which allows its access ID.
-    - Format: `operations/{operation.id}`.
-    """
+    operation_id: builtins.str
+    """The resource name of the model, which allows its access ID."""
     view: model.model.v1alpha.model_definition_pb2.View.ValueType
     """View allows clients to specify the desired model view in the response."""
     def __init__(
         self,
         *,
-        name: builtins.str = ...,
+        operation_id: builtins.str = ...,
         view: model.model.v1alpha.model_definition_pb2.View.ValueType | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "name", b"name", "view", b"view"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "operation_id", b"operation_id", "view", b"view"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
 
 global___GetModelOperationRequest = GetModelOperationRequest

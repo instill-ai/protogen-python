@@ -4176,17 +4176,17 @@ class GetOperationRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAME_FIELD_NUMBER: builtins.int
-    name: builtins.str
+    OPERATION_ID_FIELD_NUMBER: builtins.int
+    operation_id: builtins.str
     """The name of the operation resource. Asynchronous methods will contain this
     information in their response.
     """
     def __init__(
         self,
         *,
-        name: builtins.str = ...,
+        operation_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["operation_id", b"operation_id"]) -> None: ...
 
 global___GetOperationRequest = GetOperationRequest
 
