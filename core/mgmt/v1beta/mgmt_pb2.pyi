@@ -2879,15 +2879,12 @@ class OrganizationSubscription(google.protobuf.message.Message):
 
     PLAN_FIELD_NUMBER: builtins.int
     DETAIL_FIELD_NUMBER: builtins.int
-    MAX_SEATS_FIELD_NUMBER: builtins.int
     USED_SEATS_FIELD_NUMBER: builtins.int
     plan: global___OrganizationSubscription.Plan.ValueType
     """Plan identifier."""
     @property
     def detail(self) -> global___StripeSubscriptionDetail:
         """Details of the associated Stripe subscription."""
-    max_seats: builtins.int
-    """Maximum number of seats allowed."""
     used_seats: builtins.int
     """Number of used seats within the organization subscription."""
     def __init__(
@@ -2895,11 +2892,10 @@ class OrganizationSubscription(google.protobuf.message.Message):
         *,
         plan: global___OrganizationSubscription.Plan.ValueType = ...,
         detail: global___StripeSubscriptionDetail | None = ...,
-        max_seats: builtins.int = ...,
         used_seats: builtins.int = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["detail", b"detail"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["detail", b"detail", "max_seats", b"max_seats", "plan", b"plan", "used_seats", b"used_seats"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["detail", b"detail", "plan", b"plan", "used_seats", b"used_seats"]) -> None: ...
 
 global___OrganizationSubscription = OrganizationSubscription
 
