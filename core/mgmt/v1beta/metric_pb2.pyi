@@ -142,17 +142,10 @@ class GetPipelineTriggerCountRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    AGGREGATION_WINDOW_FIELD_NUMBER: builtins.int
     START_FIELD_NUMBER: builtins.int
     STOP_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """The ID of the namespace that requested the pipeline triggers."""
-    aggregation_window: builtins.str
-    """Aggregation window. The value is a positive duration string, i.e. a
-    sequence of decimal numbers, each with optional fraction and a unit
-    suffix, such as "300ms", "1.5h" or "2h45m".
-    The minimum (and default) window is 1h.
-    """
     @property
     def start(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Beginning of the time range from which the records will be fetched.
@@ -167,14 +160,11 @@ class GetPipelineTriggerCountRequest(google.protobuf.message.Message):
         self,
         *,
         namespace_id: builtins.str = ...,
-        aggregation_window: builtins.str | None = ...,
         start: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         stop: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_aggregation_window", b"_aggregation_window", "_start", b"_start", "_stop", b"_stop", "aggregation_window", b"aggregation_window", "start", b"start", "stop", b"stop"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_aggregation_window", b"_aggregation_window", "_start", b"_start", "_stop", b"_stop", "aggregation_window", b"aggregation_window", "namespace_id", b"namespace_id", "start", b"start", "stop", b"stop"]) -> None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_aggregation_window", b"_aggregation_window"]) -> typing_extensions.Literal["aggregation_window"] | None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_start", b"_start", "_stop", b"_stop", "start", b"start", "stop", b"stop"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_start", b"_start", "_stop", b"_stop", "namespace_id", b"namespace_id", "start", b"start", "stop", b"stop"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_start", b"_start"]) -> typing_extensions.Literal["start"] | None: ...
     @typing.overload
