@@ -84,21 +84,6 @@ class ModelPublicServiceStub(object):
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameNamespaceModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameNamespaceModelResponse.FromString,
                 )
-        self.PublishNamespaceModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/PublishNamespaceModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.PublishNamespaceModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.PublishNamespaceModelResponse.FromString,
-                )
-        self.UnpublishNamespaceModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/UnpublishNamespaceModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishNamespaceModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishNamespaceModelResponse.FromString,
-                )
-        self.GetNamespaceModelCard = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/GetNamespaceModelCard',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceModelCardRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceModelCardResponse.FromString,
-                )
         self.WatchNamespaceModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/WatchNamespaceModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchNamespaceModelRequest.SerializeToString,
@@ -139,6 +124,16 @@ class ModelPublicServiceStub(object):
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncNamespaceLatestModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncNamespaceLatestModelResponse.FromString,
                 )
+        self.TriggerNamespaceModelBinaryFileUpload = channel.stream_unary(
+                '/model.model.v1alpha.ModelPublicService/TriggerNamespaceModelBinaryFileUpload',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelBinaryFileUploadRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelBinaryFileUploadResponse.FromString,
+                )
+        self.TriggerNamespaceLatestModelBinaryFileUpload = channel.stream_unary(
+                '/model.model.v1alpha.ModelPublicService/TriggerNamespaceLatestModelBinaryFileUpload',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelBinaryFileUploadRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelBinaryFileUploadResponse.FromString,
+                )
         self.GetNamespaceLatestModelOperation = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/GetNamespaceLatestModelOperation',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceLatestModelOperationRequest.SerializeToString,
@@ -178,21 +173,6 @@ class ModelPublicServiceStub(object):
                 '/model.model.v1alpha.ModelPublicService/RenameUserModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameUserModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameUserModelResponse.FromString,
-                )
-        self.PublishUserModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/PublishUserModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.PublishUserModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.PublishUserModelResponse.FromString,
-                )
-        self.UnpublishUserModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/UnpublishUserModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishUserModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishUserModelResponse.FromString,
-                )
-        self.GetUserModelCard = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/GetUserModelCard',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetUserModelCardRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetUserModelCardResponse.FromString,
                 )
         self.WatchUserModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/WatchUserModel',
@@ -268,21 +248,6 @@ class ModelPublicServiceStub(object):
                 '/model.model.v1alpha.ModelPublicService/RenameOrganizationModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameOrganizationModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameOrganizationModelResponse.FromString,
-                )
-        self.PublishOrganizationModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/PublishOrganizationModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.PublishOrganizationModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.PublishOrganizationModelResponse.FromString,
-                )
-        self.UnpublishOrganizationModel = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/UnpublishOrganizationModel',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishOrganizationModelRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishOrganizationModelResponse.FromString,
-                )
-        self.GetOrganizationModelCard = channel.unary_unary(
-                '/model.model.v1alpha.ModelPublicService/GetOrganizationModelCard',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationModelCardRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationModelCardResponse.FromString,
                 )
         self.WatchOrganizationModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/WatchOrganizationModel',
@@ -475,36 +440,6 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def PublishNamespaceModel(self, request, context):
-        """Publish a model
-
-        Updates the visibility in a model to PUBLIC. The model is accessed by its
-        resource name, defined by the model ID and its parent namespace.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def UnpublishNamespaceModel(self, request, context):
-        """Unpublish a model
-
-        Updates the visibility in a model to PRIVATE. The model is accessed by its
-        resource name, defined by the model ID and its parent namespace.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetNamespaceModelCard(self, request, context):
-        """Get a model card
-
-        Returns the README file that accompanies a model, describing it and
-        enhancing it with metadata. The model is accessed by its resource name.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def WatchNamespaceModel(self, request, context):
         """Watch the state of a model version
 
@@ -582,6 +517,26 @@ class ModelPublicServiceServicer(object):
 
         Triggers the latest deployed model version to infer the result of a set of task or
         questions.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TriggerNamespaceModelBinaryFileUpload(self, request_iterator, context):
+        """Trigger model inference with a binary input
+
+        Triggers a deployed model to infer the result of a task or question,
+        submitted as a binary file.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TriggerNamespaceLatestModelBinaryFileUpload(self, request_iterator, context):
+        """Trigger model inference with a binary input
+
+        Triggers the latest deployed model version to infer the result of a set of task or
+        questions, submitted as a binary file.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -670,36 +625,6 @@ class ModelPublicServiceServicer(object):
 
         Renames a model, accesing it by its resource name, which is defined by the
         parent user and the ID of the model.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def PublishUserModel(self, request, context):
-        """Publish a model
-
-        Updates the visibility in a model to PUBLIC. The model is accessed by its
-        resource name, defined by the model ID and its parent user.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def UnpublishUserModel(self, request, context):
-        """Unpublish a model
-
-        Updates the visibility in a model to PRIVATE. The model is accessed by its
-        resource name, defined by the model ID and its parent user.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetUserModelCard(self, request, context):
-        """Get a model card
-
-        Returns the README file that accompanies a model, describing it and
-        enhancing it with metadata. The model is accessed by its resource name.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -860,36 +785,6 @@ class ModelPublicServiceServicer(object):
 
         Renames a model, accesing it by its resource name, which is defined by the
         parent organization and the ID of the model.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def PublishOrganizationModel(self, request, context):
-        """Publish a model
-
-        Updates the visibility in a model to PUBLIC. The model is accessed by its
-        resource name, defined by the model ID and its parent organization.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def UnpublishOrganizationModel(self, request, context):
-        """Unpublish a model
-
-        Updates the visibility in a model to PRIVATE. The model is accessed by its
-        resource name, defined by the model ID and its parent organization.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetOrganizationModelCard(self, request, context):
-        """Get a model card
-
-        Returns the README file that accompanies a model, describing it and
-        enhancing it with metadata. The model is accessed by its resource name.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1077,21 +972,6 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameNamespaceModelRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameNamespaceModelResponse.SerializeToString,
             ),
-            'PublishNamespaceModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.PublishNamespaceModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.PublishNamespaceModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.PublishNamespaceModelResponse.SerializeToString,
-            ),
-            'UnpublishNamespaceModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.UnpublishNamespaceModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishNamespaceModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishNamespaceModelResponse.SerializeToString,
-            ),
-            'GetNamespaceModelCard': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetNamespaceModelCard,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceModelCardRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceModelCardResponse.SerializeToString,
-            ),
             'WatchNamespaceModel': grpc.unary_unary_rpc_method_handler(
                     servicer.WatchNamespaceModel,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchNamespaceModelRequest.FromString,
@@ -1132,6 +1012,16 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncNamespaceLatestModelRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncNamespaceLatestModelResponse.SerializeToString,
             ),
+            'TriggerNamespaceModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
+                    servicer.TriggerNamespaceModelBinaryFileUpload,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelBinaryFileUploadRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelBinaryFileUploadResponse.SerializeToString,
+            ),
+            'TriggerNamespaceLatestModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
+                    servicer.TriggerNamespaceLatestModelBinaryFileUpload,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelBinaryFileUploadRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelBinaryFileUploadResponse.SerializeToString,
+            ),
             'GetNamespaceLatestModelOperation': grpc.unary_unary_rpc_method_handler(
                     servicer.GetNamespaceLatestModelOperation,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceLatestModelOperationRequest.FromString,
@@ -1171,21 +1061,6 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     servicer.RenameUserModel,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameUserModelRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameUserModelResponse.SerializeToString,
-            ),
-            'PublishUserModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.PublishUserModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.PublishUserModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.PublishUserModelResponse.SerializeToString,
-            ),
-            'UnpublishUserModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.UnpublishUserModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishUserModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishUserModelResponse.SerializeToString,
-            ),
-            'GetUserModelCard': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetUserModelCard,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetUserModelCardRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetUserModelCardResponse.SerializeToString,
             ),
             'WatchUserModel': grpc.unary_unary_rpc_method_handler(
                     servicer.WatchUserModel,
@@ -1261,21 +1136,6 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     servicer.RenameOrganizationModel,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameOrganizationModelRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameOrganizationModelResponse.SerializeToString,
-            ),
-            'PublishOrganizationModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.PublishOrganizationModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.PublishOrganizationModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.PublishOrganizationModelResponse.SerializeToString,
-            ),
-            'UnpublishOrganizationModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.UnpublishOrganizationModel,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishOrganizationModelRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishOrganizationModelResponse.SerializeToString,
-            ),
-            'GetOrganizationModelCard': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetOrganizationModelCard,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationModelCardRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationModelCardResponse.SerializeToString,
             ),
             'WatchOrganizationModel': grpc.unary_unary_rpc_method_handler(
                     servicer.WatchOrganizationModel,
@@ -1568,57 +1428,6 @@ class ModelPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def PublishNamespaceModel(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/PublishNamespaceModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.PublishNamespaceModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.PublishNamespaceModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def UnpublishNamespaceModel(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/UnpublishNamespaceModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishNamespaceModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishNamespaceModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetNamespaceModelCard(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/GetNamespaceModelCard',
-            model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceModelCardRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceModelCardResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def WatchNamespaceModel(request,
             target,
             options=(),
@@ -1755,6 +1564,40 @@ class ModelPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def TriggerNamespaceModelBinaryFileUpload(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_unary(request_iterator, target, '/model.model.v1alpha.ModelPublicService/TriggerNamespaceModelBinaryFileUpload',
+            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelBinaryFileUploadRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelBinaryFileUploadResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TriggerNamespaceLatestModelBinaryFileUpload(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_unary(request_iterator, target, '/model.model.v1alpha.ModelPublicService/TriggerNamespaceLatestModelBinaryFileUpload',
+            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelBinaryFileUploadRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelBinaryFileUploadResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def GetNamespaceLatestModelOperation(request,
             target,
             options=(),
@@ -1887,57 +1730,6 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/RenameUserModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.RenameUserModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.RenameUserModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def PublishUserModel(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/PublishUserModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.PublishUserModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.PublishUserModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def UnpublishUserModel(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/UnpublishUserModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishUserModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishUserModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetUserModelCard(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/GetUserModelCard',
-            model_dot_model_dot_v1alpha_dot_model__pb2.GetUserModelCardRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.GetUserModelCardResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -2193,57 +1985,6 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/RenameOrganizationModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.RenameOrganizationModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.RenameOrganizationModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def PublishOrganizationModel(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/PublishOrganizationModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.PublishOrganizationModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.PublishOrganizationModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def UnpublishOrganizationModel(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/UnpublishOrganizationModel',
-            model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishOrganizationModelRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.UnpublishOrganizationModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetOrganizationModelCard(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/GetOrganizationModelCard',
-            model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationModelCardRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationModelCardResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

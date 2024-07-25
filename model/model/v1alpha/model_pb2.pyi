@@ -415,49 +415,6 @@ class Model(google.protobuf.message.Message):
 global___Model = Model
 
 @typing_extensions.final
-class ModelCard(google.protobuf.message.Message):
-    """ModelCard represents a README.md file that accompanies the model to describe
-    handy information with additional model metadata. Under the hood, a model
-    card is associated with a specific model. It is an crucial for
-    reproducibility, sharing and discoverability.
-
-    Each model has exactly one README card.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAME_FIELD_NUMBER: builtins.int
-    SIZE_FIELD_NUMBER: builtins.int
-    TYPE_FIELD_NUMBER: builtins.int
-    CONTENT_FIELD_NUMBER: builtins.int
-    ENCODING_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the model card, which allows its access by parent
-    user and model ID.
-    - Format: `users/{user.id}/models/{model.id}/readme`.
-    """
-    size: builtins.int
-    """Size of the file in bytes."""
-    type: builtins.str
-    """Type of the resource. Its value is fixed to `file`."""
-    content: builtins.bytes
-    """Content of the README file in bytes and base64 format."""
-    encoding: builtins.str
-    """Encoding type of the content. Its value is fixed to `base64`."""
-    def __init__(
-        self,
-        *,
-        name: builtins.str = ...,
-        size: builtins.int = ...,
-        type: builtins.str = ...,
-        content: builtins.bytes = ...,
-        encoding: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["content", b"content", "encoding", b"encoding", "name", b"name", "size", b"size", "type", b"type"]) -> None: ...
-
-global___ModelCard = ModelCard
-
-@typing_extensions.final
 class ListModelsRequest(google.protobuf.message.Message):
     """ListModelsRequest represents a request to list  models."""
 
@@ -927,134 +884,6 @@ class RenameNamespaceModelResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["model", b"model"]) -> None: ...
 
 global___RenameNamespaceModelResponse = RenameNamespaceModelResponse
-
-@typing_extensions.final
-class PublishNamespaceModelRequest(google.protobuf.message.Message):
-    """PublishNamespacehModelRequest represents a request to publish a model."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    MODEL_ID_FIELD_NUMBER: builtins.int
-    namespace_id: builtins.str
-    """Namespace ID"""
-    model_id: builtins.str
-    """Model ID"""
-    def __init__(
-        self,
-        *,
-        namespace_id: builtins.str = ...,
-        model_id: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id", "namespace_id", b"namespace_id"]) -> None: ...
-
-global___PublishNamespaceModelRequest = PublishNamespaceModelRequest
-
-@typing_extensions.final
-class PublishNamespaceModelResponse(google.protobuf.message.Message):
-    """PublishNamespaceModelResponse contains a published model."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    MODEL_FIELD_NUMBER: builtins.int
-    @property
-    def model(self) -> global___Model:
-        """The published model resource."""
-    def __init__(
-        self,
-        *,
-        model: global___Model | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["model", b"model"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["model", b"model"]) -> None: ...
-
-global___PublishNamespaceModelResponse = PublishNamespaceModelResponse
-
-@typing_extensions.final
-class UnpublishNamespaceModelRequest(google.protobuf.message.Message):
-    """UnpublishNamespaceModelRequest represents a request to unpublish a model."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    MODEL_ID_FIELD_NUMBER: builtins.int
-    namespace_id: builtins.str
-    """Namespace ID"""
-    model_id: builtins.str
-    """Model ID"""
-    def __init__(
-        self,
-        *,
-        namespace_id: builtins.str = ...,
-        model_id: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id", "namespace_id", b"namespace_id"]) -> None: ...
-
-global___UnpublishNamespaceModelRequest = UnpublishNamespaceModelRequest
-
-@typing_extensions.final
-class UnpublishNamespaceModelResponse(google.protobuf.message.Message):
-    """UnpublishNamespaceModelResponse contains an unpublished model."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    MODEL_FIELD_NUMBER: builtins.int
-    @property
-    def model(self) -> global___Model:
-        """The unpublished model resource."""
-    def __init__(
-        self,
-        *,
-        model: global___Model | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["model", b"model"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["model", b"model"]) -> None: ...
-
-global___UnpublishNamespaceModelResponse = UnpublishNamespaceModelResponse
-
-@typing_extensions.final
-class GetNamespaceModelCardRequest(google.protobuf.message.Message):
-    """GetNamespaceModelCardRequest represents a request to fetch the README card of a
-    model.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    MODEL_ID_FIELD_NUMBER: builtins.int
-    namespace_id: builtins.str
-    """Namespace ID"""
-    model_id: builtins.str
-    """Model ID"""
-    def __init__(
-        self,
-        *,
-        namespace_id: builtins.str = ...,
-        model_id: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id", "namespace_id", b"namespace_id"]) -> None: ...
-
-global___GetNamespaceModelCardRequest = GetNamespaceModelCardRequest
-
-@typing_extensions.final
-class GetNamespaceModelCardResponse(google.protobuf.message.Message):
-    """GetNamespaceModelCardResponse contains the model's README card."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    README_FIELD_NUMBER: builtins.int
-    @property
-    def readme(self) -> global___ModelCard:
-        """A model card resource."""
-    def __init__(
-        self,
-        *,
-        readme: global___ModelCard | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["readme", b"readme"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["readme", b"readme"]) -> None: ...
-
-global___GetNamespaceModelCardResponse = GetNamespaceModelCardResponse
 
 @typing_extensions.final
 class WatchNamespaceModelRequest(google.protobuf.message.Message):
@@ -1534,6 +1363,59 @@ class TriggerNamespaceModelBinaryFileUploadResponse(google.protobuf.message.Mess
 global___TriggerNamespaceModelBinaryFileUploadResponse = TriggerNamespaceModelBinaryFileUploadResponse
 
 @typing_extensions.final
+class TriggerNamespaceLatestModelBinaryFileUploadRequest(google.protobuf.message.Message):
+    """TriggerNamespaceModelLatestBinaryFileUploadRequest represents a request trigger a model
+    inference by uploading a binary file as the input.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    MODEL_ID_FIELD_NUMBER: builtins.int
+    TASK_INPUT_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    model_id: builtins.str
+    """Model ID"""
+    @property
+    def task_input(self) -> global___TaskInputStream:
+        """Inference input as a binary file."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        model_id: builtins.str = ...,
+        task_input: global___TaskInputStream | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["task_input", b"task_input"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id", "namespace_id", b"namespace_id", "task_input", b"task_input"]) -> None: ...
+
+global___TriggerNamespaceLatestModelBinaryFileUploadRequest = TriggerNamespaceLatestModelBinaryFileUploadRequest
+
+@typing_extensions.final
+class TriggerNamespaceLatestModelBinaryFileUploadResponse(google.protobuf.message.Message):
+    """TriggerNamespaceLatestModelBinaryFileUploadResponse contains the model inference results."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TASK_FIELD_NUMBER: builtins.int
+    TASK_OUTPUTS_FIELD_NUMBER: builtins.int
+    task: common.task.v1alpha.task_pb2.Task.ValueType
+    """Task type."""
+    @property
+    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskOutput]:
+        """Model inference outputs."""
+    def __init__(
+        self,
+        *,
+        task: common.task.v1alpha.task_pb2.Task.ValueType = ...,
+        task_outputs: collections.abc.Iterable[global___TaskOutput] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["task", b"task", "task_outputs", b"task_outputs"]) -> None: ...
+
+global___TriggerNamespaceLatestModelBinaryFileUploadResponse = TriggerNamespaceLatestModelBinaryFileUploadResponse
+
+@typing_extensions.final
 class GetNamespaceLatestModelOperationRequest(google.protobuf.message.Message):
     """GetNamespaceLatestModelOperationRequest represents a request to fetch the latest long-running
     operation performed on a model for a namespace.
@@ -1996,131 +1878,6 @@ class RenameUserModelResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["model", b"model"]) -> None: ...
 
 global___RenameUserModelResponse = RenameUserModelResponse
-
-@typing_extensions.final
-class PublishUserModelRequest(google.protobuf.message.Message):
-    """PublisUserhModelRequest represents a request to publish a model."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAME_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the model, which allows its access by parent user
-    and ID.
-    - Format: `users/{user.id}/models/{model.id}`.
-    """
-    def __init__(
-        self,
-        *,
-        name: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
-
-global___PublishUserModelRequest = PublishUserModelRequest
-
-@typing_extensions.final
-class PublishUserModelResponse(google.protobuf.message.Message):
-    """PublishUserModelResponse contains a published model."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    MODEL_FIELD_NUMBER: builtins.int
-    @property
-    def model(self) -> global___Model:
-        """The published model resource."""
-    def __init__(
-        self,
-        *,
-        model: global___Model | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["model", b"model"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["model", b"model"]) -> None: ...
-
-global___PublishUserModelResponse = PublishUserModelResponse
-
-@typing_extensions.final
-class UnpublishUserModelRequest(google.protobuf.message.Message):
-    """UnpublishUserModelRequest represents a request to unpublish a model."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAME_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the model, which allows its access by parent user
-    and ID.
-    - Format: `users/{user.id}/models/{model.id}`.
-    """
-    def __init__(
-        self,
-        *,
-        name: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
-
-global___UnpublishUserModelRequest = UnpublishUserModelRequest
-
-@typing_extensions.final
-class UnpublishUserModelResponse(google.protobuf.message.Message):
-    """UnpublishUserModelResponse contains an unpublished model."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    MODEL_FIELD_NUMBER: builtins.int
-    @property
-    def model(self) -> global___Model:
-        """The unpublished model resource."""
-    def __init__(
-        self,
-        *,
-        model: global___Model | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["model", b"model"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["model", b"model"]) -> None: ...
-
-global___UnpublishUserModelResponse = UnpublishUserModelResponse
-
-@typing_extensions.final
-class GetUserModelCardRequest(google.protobuf.message.Message):
-    """GetUserModelCardRequest represents a request to fetch the README card of a
-    model.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAME_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the model card, which allows its access by parent
-    user and model ID.
-    - Format: `users/{user.id}/models/{model.id}/readme`.
-    """
-    def __init__(
-        self,
-        *,
-        name: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
-
-global___GetUserModelCardRequest = GetUserModelCardRequest
-
-@typing_extensions.final
-class GetUserModelCardResponse(google.protobuf.message.Message):
-    """GetUserModelCardResponse contains the model's README card."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    README_FIELD_NUMBER: builtins.int
-    @property
-    def readme(self) -> global___ModelCard:
-        """A model card resource."""
-    def __init__(
-        self,
-        *,
-        readme: global___ModelCard | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["readme", b"readme"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["readme", b"readme"]) -> None: ...
-
-global___GetUserModelCardResponse = GetUserModelCardResponse
 
 @typing_extensions.final
 class WatchUserModelRequest(google.protobuf.message.Message):
@@ -3157,131 +2914,6 @@ class RenameOrganizationModelResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["model", b"model"]) -> None: ...
 
 global___RenameOrganizationModelResponse = RenameOrganizationModelResponse
-
-@typing_extensions.final
-class PublishOrganizationModelRequest(google.protobuf.message.Message):
-    """PublisOrganizationhModelRequest represents a request to publish a model."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAME_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the model, which allows its access by parent organization
-    and ID.
-    - Format: `organizations/{organization.id}/models/{model.id}`.
-    """
-    def __init__(
-        self,
-        *,
-        name: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
-
-global___PublishOrganizationModelRequest = PublishOrganizationModelRequest
-
-@typing_extensions.final
-class PublishOrganizationModelResponse(google.protobuf.message.Message):
-    """PublishOrganizationModelResponse contains a published model."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    MODEL_FIELD_NUMBER: builtins.int
-    @property
-    def model(self) -> global___Model:
-        """The published model resource."""
-    def __init__(
-        self,
-        *,
-        model: global___Model | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["model", b"model"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["model", b"model"]) -> None: ...
-
-global___PublishOrganizationModelResponse = PublishOrganizationModelResponse
-
-@typing_extensions.final
-class UnpublishOrganizationModelRequest(google.protobuf.message.Message):
-    """UnpublishOrganizationModelRequest represents a request to unpublish a model."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAME_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the model, which allows its access by parent organization
-    and ID.
-    - Format: `organizations/{organization.id}/models/{model.id}`.
-    """
-    def __init__(
-        self,
-        *,
-        name: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
-
-global___UnpublishOrganizationModelRequest = UnpublishOrganizationModelRequest
-
-@typing_extensions.final
-class UnpublishOrganizationModelResponse(google.protobuf.message.Message):
-    """UnpublishOrganizationModelResponse contains an unpublished model."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    MODEL_FIELD_NUMBER: builtins.int
-    @property
-    def model(self) -> global___Model:
-        """The unpublished model resource."""
-    def __init__(
-        self,
-        *,
-        model: global___Model | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["model", b"model"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["model", b"model"]) -> None: ...
-
-global___UnpublishOrganizationModelResponse = UnpublishOrganizationModelResponse
-
-@typing_extensions.final
-class GetOrganizationModelCardRequest(google.protobuf.message.Message):
-    """GetOrganizationModelCardRequest represents a request to fetch the README card of a
-    model.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAME_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the model card, which allows its access by parent
-    organization and model ID.
-    - Format: `organizations/{organization.id}/models/{model.id}/readme`.
-    """
-    def __init__(
-        self,
-        *,
-        name: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
-
-global___GetOrganizationModelCardRequest = GetOrganizationModelCardRequest
-
-@typing_extensions.final
-class GetOrganizationModelCardResponse(google.protobuf.message.Message):
-    """GetOrganizationModelCardResponse contains the model's README card."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    README_FIELD_NUMBER: builtins.int
-    @property
-    def readme(self) -> global___ModelCard:
-        """A model card resource."""
-    def __init__(
-        self,
-        *,
-        readme: global___ModelCard | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["readme", b"readme"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["readme", b"readme"]) -> None: ...
-
-global___GetOrganizationModelCardResponse = GetOrganizationModelCardResponse
 
 @typing_extensions.final
 class WatchOrganizationModelRequest(google.protobuf.message.Message):

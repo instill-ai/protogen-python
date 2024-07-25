@@ -140,33 +140,6 @@ class ModelPublicServiceStub:
     Renames a model, accesing it by its resource name, which is defined by the
     parent namespace and the ID of the model.
     """
-    PublishNamespaceModel: grpc.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.PublishNamespaceModelRequest,
-        model.model.v1alpha.model_pb2.PublishNamespaceModelResponse,
-    ]
-    """Publish a model
-
-    Updates the visibility in a model to PUBLIC. The model is accessed by its
-    resource name, defined by the model ID and its parent namespace.
-    """
-    UnpublishNamespaceModel: grpc.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.UnpublishNamespaceModelRequest,
-        model.model.v1alpha.model_pb2.UnpublishNamespaceModelResponse,
-    ]
-    """Unpublish a model
-
-    Updates the visibility in a model to PRIVATE. The model is accessed by its
-    resource name, defined by the model ID and its parent namespace.
-    """
-    GetNamespaceModelCard: grpc.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.GetNamespaceModelCardRequest,
-        model.model.v1alpha.model_pb2.GetNamespaceModelCardResponse,
-    ]
-    """Get a model card
-
-    Returns the README file that accompanies a model, describing it and
-    enhancing it with metadata. The model is accessed by its resource name.
-    """
     WatchNamespaceModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.WatchNamespaceModelRequest,
         model.model.v1alpha.model_pb2.WatchNamespaceModelResponse,
@@ -240,6 +213,24 @@ class ModelPublicServiceStub:
 
     Triggers the latest deployed model version to infer the result of a set of task or
     questions.
+    """
+    TriggerNamespaceModelBinaryFileUpload: grpc.StreamUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerNamespaceModelBinaryFileUploadRequest,
+        model.model.v1alpha.model_pb2.TriggerNamespaceModelBinaryFileUploadResponse,
+    ]
+    """Trigger model inference with a binary input
+
+    Triggers a deployed model to infer the result of a task or question,
+    submitted as a binary file.
+    """
+    TriggerNamespaceLatestModelBinaryFileUpload: grpc.StreamUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerNamespaceLatestModelBinaryFileUploadRequest,
+        model.model.v1alpha.model_pb2.TriggerNamespaceLatestModelBinaryFileUploadResponse,
+    ]
+    """Trigger model inference with a binary input
+
+    Triggers the latest deployed model version to infer the result of a set of task or
+    questions, submitted as a binary file.
     """
     GetNamespaceLatestModelOperation: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetNamespaceLatestModelOperationRequest,
@@ -320,33 +311,6 @@ class ModelPublicServiceStub:
 
     Renames a model, accesing it by its resource name, which is defined by the
     parent user and the ID of the model.
-    """
-    PublishUserModel: grpc.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.PublishUserModelRequest,
-        model.model.v1alpha.model_pb2.PublishUserModelResponse,
-    ]
-    """Publish a model
-
-    Updates the visibility in a model to PUBLIC. The model is accessed by its
-    resource name, defined by the model ID and its parent user.
-    """
-    UnpublishUserModel: grpc.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.UnpublishUserModelRequest,
-        model.model.v1alpha.model_pb2.UnpublishUserModelResponse,
-    ]
-    """Unpublish a model
-
-    Updates the visibility in a model to PRIVATE. The model is accessed by its
-    resource name, defined by the model ID and its parent user.
-    """
-    GetUserModelCard: grpc.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.GetUserModelCardRequest,
-        model.model.v1alpha.model_pb2.GetUserModelCardResponse,
-    ]
-    """Get a model card
-
-    Returns the README file that accompanies a model, describing it and
-    enhancing it with metadata. The model is accessed by its resource name.
     """
     WatchUserModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.WatchUserModelRequest,
@@ -492,33 +456,6 @@ class ModelPublicServiceStub:
 
     Renames a model, accesing it by its resource name, which is defined by the
     parent organization and the ID of the model.
-    """
-    PublishOrganizationModel: grpc.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.PublishOrganizationModelRequest,
-        model.model.v1alpha.model_pb2.PublishOrganizationModelResponse,
-    ]
-    """Publish a model
-
-    Updates the visibility in a model to PUBLIC. The model is accessed by its
-    resource name, defined by the model ID and its parent organization.
-    """
-    UnpublishOrganizationModel: grpc.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.UnpublishOrganizationModelRequest,
-        model.model.v1alpha.model_pb2.UnpublishOrganizationModelResponse,
-    ]
-    """Unpublish a model
-
-    Updates the visibility in a model to PRIVATE. The model is accessed by its
-    resource name, defined by the model ID and its parent organization.
-    """
-    GetOrganizationModelCard: grpc.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.GetOrganizationModelCardRequest,
-        model.model.v1alpha.model_pb2.GetOrganizationModelCardResponse,
-    ]
-    """Get a model card
-
-    Returns the README file that accompanies a model, describing it and
-    enhancing it with metadata. The model is accessed by its resource name.
     """
     WatchOrganizationModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.WatchOrganizationModelRequest,
@@ -745,33 +682,6 @@ class ModelPublicServiceAsyncStub:
     Renames a model, accesing it by its resource name, which is defined by the
     parent namespace and the ID of the model.
     """
-    PublishNamespaceModel: grpc.aio.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.PublishNamespaceModelRequest,
-        model.model.v1alpha.model_pb2.PublishNamespaceModelResponse,
-    ]
-    """Publish a model
-
-    Updates the visibility in a model to PUBLIC. The model is accessed by its
-    resource name, defined by the model ID and its parent namespace.
-    """
-    UnpublishNamespaceModel: grpc.aio.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.UnpublishNamespaceModelRequest,
-        model.model.v1alpha.model_pb2.UnpublishNamespaceModelResponse,
-    ]
-    """Unpublish a model
-
-    Updates the visibility in a model to PRIVATE. The model is accessed by its
-    resource name, defined by the model ID and its parent namespace.
-    """
-    GetNamespaceModelCard: grpc.aio.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.GetNamespaceModelCardRequest,
-        model.model.v1alpha.model_pb2.GetNamespaceModelCardResponse,
-    ]
-    """Get a model card
-
-    Returns the README file that accompanies a model, describing it and
-    enhancing it with metadata. The model is accessed by its resource name.
-    """
     WatchNamespaceModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.WatchNamespaceModelRequest,
         model.model.v1alpha.model_pb2.WatchNamespaceModelResponse,
@@ -845,6 +755,24 @@ class ModelPublicServiceAsyncStub:
 
     Triggers the latest deployed model version to infer the result of a set of task or
     questions.
+    """
+    TriggerNamespaceModelBinaryFileUpload: grpc.aio.StreamUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerNamespaceModelBinaryFileUploadRequest,
+        model.model.v1alpha.model_pb2.TriggerNamespaceModelBinaryFileUploadResponse,
+    ]
+    """Trigger model inference with a binary input
+
+    Triggers a deployed model to infer the result of a task or question,
+    submitted as a binary file.
+    """
+    TriggerNamespaceLatestModelBinaryFileUpload: grpc.aio.StreamUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.TriggerNamespaceLatestModelBinaryFileUploadRequest,
+        model.model.v1alpha.model_pb2.TriggerNamespaceLatestModelBinaryFileUploadResponse,
+    ]
+    """Trigger model inference with a binary input
+
+    Triggers the latest deployed model version to infer the result of a set of task or
+    questions, submitted as a binary file.
     """
     GetNamespaceLatestModelOperation: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetNamespaceLatestModelOperationRequest,
@@ -925,33 +853,6 @@ class ModelPublicServiceAsyncStub:
 
     Renames a model, accesing it by its resource name, which is defined by the
     parent user and the ID of the model.
-    """
-    PublishUserModel: grpc.aio.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.PublishUserModelRequest,
-        model.model.v1alpha.model_pb2.PublishUserModelResponse,
-    ]
-    """Publish a model
-
-    Updates the visibility in a model to PUBLIC. The model is accessed by its
-    resource name, defined by the model ID and its parent user.
-    """
-    UnpublishUserModel: grpc.aio.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.UnpublishUserModelRequest,
-        model.model.v1alpha.model_pb2.UnpublishUserModelResponse,
-    ]
-    """Unpublish a model
-
-    Updates the visibility in a model to PRIVATE. The model is accessed by its
-    resource name, defined by the model ID and its parent user.
-    """
-    GetUserModelCard: grpc.aio.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.GetUserModelCardRequest,
-        model.model.v1alpha.model_pb2.GetUserModelCardResponse,
-    ]
-    """Get a model card
-
-    Returns the README file that accompanies a model, describing it and
-    enhancing it with metadata. The model is accessed by its resource name.
     """
     WatchUserModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.WatchUserModelRequest,
@@ -1097,33 +998,6 @@ class ModelPublicServiceAsyncStub:
 
     Renames a model, accesing it by its resource name, which is defined by the
     parent organization and the ID of the model.
-    """
-    PublishOrganizationModel: grpc.aio.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.PublishOrganizationModelRequest,
-        model.model.v1alpha.model_pb2.PublishOrganizationModelResponse,
-    ]
-    """Publish a model
-
-    Updates the visibility in a model to PUBLIC. The model is accessed by its
-    resource name, defined by the model ID and its parent organization.
-    """
-    UnpublishOrganizationModel: grpc.aio.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.UnpublishOrganizationModelRequest,
-        model.model.v1alpha.model_pb2.UnpublishOrganizationModelResponse,
-    ]
-    """Unpublish a model
-
-    Updates the visibility in a model to PRIVATE. The model is accessed by its
-    resource name, defined by the model ID and its parent organization.
-    """
-    GetOrganizationModelCard: grpc.aio.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.GetOrganizationModelCardRequest,
-        model.model.v1alpha.model_pb2.GetOrganizationModelCardResponse,
-    ]
-    """Get a model card
-
-    Returns the README file that accompanies a model, describing it and
-    enhancing it with metadata. The model is accessed by its resource name.
     """
     WatchOrganizationModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.WatchOrganizationModelRequest,
@@ -1377,39 +1251,6 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         parent namespace and the ID of the model.
         """
     @abc.abstractmethod
-    def PublishNamespaceModel(
-        self,
-        request: model.model.v1alpha.model_pb2.PublishNamespaceModelRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_pb2.PublishNamespaceModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.PublishNamespaceModelResponse]]:
-        """Publish a model
-
-        Updates the visibility in a model to PUBLIC. The model is accessed by its
-        resource name, defined by the model ID and its parent namespace.
-        """
-    @abc.abstractmethod
-    def UnpublishNamespaceModel(
-        self,
-        request: model.model.v1alpha.model_pb2.UnpublishNamespaceModelRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_pb2.UnpublishNamespaceModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.UnpublishNamespaceModelResponse]]:
-        """Unpublish a model
-
-        Updates the visibility in a model to PRIVATE. The model is accessed by its
-        resource name, defined by the model ID and its parent namespace.
-        """
-    @abc.abstractmethod
-    def GetNamespaceModelCard(
-        self,
-        request: model.model.v1alpha.model_pb2.GetNamespaceModelCardRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_pb2.GetNamespaceModelCardResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.GetNamespaceModelCardResponse]]:
-        """Get a model card
-
-        Returns the README file that accompanies a model, describing it and
-        enhancing it with metadata. The model is accessed by its resource name.
-        """
-    @abc.abstractmethod
     def WatchNamespaceModel(
         self,
         request: model.model.v1alpha.model_pb2.WatchNamespaceModelRequest,
@@ -1498,6 +1339,28 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
 
         Triggers the latest deployed model version to infer the result of a set of task or
         questions.
+        """
+    @abc.abstractmethod
+    def TriggerNamespaceModelBinaryFileUpload(
+        self,
+        request_iterator: _MaybeAsyncIterator[model.model.v1alpha.model_pb2.TriggerNamespaceModelBinaryFileUploadRequest],
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.TriggerNamespaceModelBinaryFileUploadResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TriggerNamespaceModelBinaryFileUploadResponse]]:
+        """Trigger model inference with a binary input
+
+        Triggers a deployed model to infer the result of a task or question,
+        submitted as a binary file.
+        """
+    @abc.abstractmethod
+    def TriggerNamespaceLatestModelBinaryFileUpload(
+        self,
+        request_iterator: _MaybeAsyncIterator[model.model.v1alpha.model_pb2.TriggerNamespaceLatestModelBinaryFileUploadRequest],
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.TriggerNamespaceLatestModelBinaryFileUploadResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TriggerNamespaceLatestModelBinaryFileUploadResponse]]:
+        """Trigger model inference with a binary input
+
+        Triggers the latest deployed model version to infer the result of a set of task or
+        questions, submitted as a binary file.
         """
     @abc.abstractmethod
     def GetNamespaceLatestModelOperation(
@@ -1594,39 +1457,6 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
 
         Renames a model, accesing it by its resource name, which is defined by the
         parent user and the ID of the model.
-        """
-    @abc.abstractmethod
-    def PublishUserModel(
-        self,
-        request: model.model.v1alpha.model_pb2.PublishUserModelRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_pb2.PublishUserModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.PublishUserModelResponse]]:
-        """Publish a model
-
-        Updates the visibility in a model to PUBLIC. The model is accessed by its
-        resource name, defined by the model ID and its parent user.
-        """
-    @abc.abstractmethod
-    def UnpublishUserModel(
-        self,
-        request: model.model.v1alpha.model_pb2.UnpublishUserModelRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_pb2.UnpublishUserModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.UnpublishUserModelResponse]]:
-        """Unpublish a model
-
-        Updates the visibility in a model to PRIVATE. The model is accessed by its
-        resource name, defined by the model ID and its parent user.
-        """
-    @abc.abstractmethod
-    def GetUserModelCard(
-        self,
-        request: model.model.v1alpha.model_pb2.GetUserModelCardRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_pb2.GetUserModelCardResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.GetUserModelCardResponse]]:
-        """Get a model card
-
-        Returns the README file that accompanies a model, describing it and
-        enhancing it with metadata. The model is accessed by its resource name.
         """
     @abc.abstractmethod
     def WatchUserModel(
@@ -1802,39 +1632,6 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
 
         Renames a model, accesing it by its resource name, which is defined by the
         parent organization and the ID of the model.
-        """
-    @abc.abstractmethod
-    def PublishOrganizationModel(
-        self,
-        request: model.model.v1alpha.model_pb2.PublishOrganizationModelRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_pb2.PublishOrganizationModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.PublishOrganizationModelResponse]]:
-        """Publish a model
-
-        Updates the visibility in a model to PUBLIC. The model is accessed by its
-        resource name, defined by the model ID and its parent organization.
-        """
-    @abc.abstractmethod
-    def UnpublishOrganizationModel(
-        self,
-        request: model.model.v1alpha.model_pb2.UnpublishOrganizationModelRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_pb2.UnpublishOrganizationModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.UnpublishOrganizationModelResponse]]:
-        """Unpublish a model
-
-        Updates the visibility in a model to PRIVATE. The model is accessed by its
-        resource name, defined by the model ID and its parent organization.
-        """
-    @abc.abstractmethod
-    def GetOrganizationModelCard(
-        self,
-        request: model.model.v1alpha.model_pb2.GetOrganizationModelCardRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_pb2.GetOrganizationModelCardResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.GetOrganizationModelCardResponse]]:
-        """Get a model card
-
-        Returns the README file that accompanies a model, describing it and
-        enhancing it with metadata. The model is accessed by its resource name.
         """
     @abc.abstractmethod
     def WatchOrganizationModel(
