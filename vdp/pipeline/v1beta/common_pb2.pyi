@@ -58,6 +58,8 @@ class _ComponentTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._
     """Manipulate data."""
     COMPONENT_TYPE_APPLICATION: _ComponentType.ValueType  # 5
     """Connect with an external application."""
+    COMPONENT_TYPE_GENERIC: _ComponentType.ValueType  # 6
+    """Generic."""
 
 class ComponentType(_ComponentType, metaclass=_ComponentTypeEnumTypeWrapper):
     """ComponentType defines the component type based on its task features."""
@@ -72,6 +74,8 @@ COMPONENT_TYPE_OPERATOR: ComponentType.ValueType  # 4
 """Manipulate data."""
 COMPONENT_TYPE_APPLICATION: ComponentType.ValueType  # 5
 """Connect with an external application."""
+COMPONENT_TYPE_GENERIC: ComponentType.ValueType  # 6
+"""Generic."""
 global___ComponentType = ComponentType
 
 @typing_extensions.final
