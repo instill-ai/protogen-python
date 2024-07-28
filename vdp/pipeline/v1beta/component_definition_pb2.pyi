@@ -36,6 +36,8 @@ class _ConnectorTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._
     """Operator connector."""
     CONNECTOR_TYPE_APPLICATION: _ConnectorType.ValueType  # 7
     """Application connector."""
+    CONNECTOR_TYPE_GENERIC: _ConnectorType.ValueType  # 8
+    """Generic."""
 
 class ConnectorType(_ConnectorType, metaclass=_ConnectorTypeEnumTypeWrapper):
     """ConnectorType defines the connector type based on its task features."""
@@ -50,6 +52,8 @@ CONNECTOR_TYPE_OPERATOR: ConnectorType.ValueType  # 6
 """Operator connector."""
 CONNECTOR_TYPE_APPLICATION: ConnectorType.ValueType  # 7
 """Application connector."""
+CONNECTOR_TYPE_GENERIC: ConnectorType.ValueType  # 8
+"""Generic."""
 global___ConnectorType = ConnectorType
 
 @typing_extensions.final
