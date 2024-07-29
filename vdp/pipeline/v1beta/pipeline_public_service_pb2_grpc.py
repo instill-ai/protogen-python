@@ -86,6 +86,16 @@ class PipelinePublicServiceStub(object):
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneNamespacePipelineRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneNamespacePipelineResponse.FromString,
                 )
+        self.SendNamespacePipelineEvent = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/SendNamespacePipelineEvent',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.SendNamespacePipelineEventRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.SendNamespacePipelineEventResponse.FromString,
+                )
+        self.SendNamespacePipelineReleaseEvent = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/SendNamespacePipelineReleaseEvent',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.SendNamespacePipelineReleaseEventRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.SendNamespacePipelineReleaseEventResponse.FromString,
+                )
         self.TriggerNamespacePipeline = channel.unary_unary(
                 '/vdp.pipeline.v1beta.PipelinePublicService/TriggerNamespacePipeline',
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerNamespacePipelineRequest.SerializeToString,
@@ -602,6 +612,20 @@ class PipelinePublicServiceServicer(object):
 
         Clones a pipeline owned by a namespace. The new pipeline may have a different
         parent, and this can be either a namespace or an organization.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SendNamespacePipelineEvent(self, request, context):
+        """SendNamespacePipelineEvent
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SendNamespacePipelineReleaseEvent(self, request, context):
+        """SendNamespacePipelineReleaseEvent
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1573,6 +1597,16 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneNamespacePipelineRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneNamespacePipelineResponse.SerializeToString,
             ),
+            'SendNamespacePipelineEvent': grpc.unary_unary_rpc_method_handler(
+                    servicer.SendNamespacePipelineEvent,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.SendNamespacePipelineEventRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.SendNamespacePipelineEventResponse.SerializeToString,
+            ),
+            'SendNamespacePipelineReleaseEvent': grpc.unary_unary_rpc_method_handler(
+                    servicer.SendNamespacePipelineReleaseEvent,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.SendNamespacePipelineReleaseEventRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.SendNamespacePipelineReleaseEventResponse.SerializeToString,
+            ),
             'TriggerNamespacePipeline': grpc.unary_unary_rpc_method_handler(
                     servicer.TriggerNamespacePipeline,
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.TriggerNamespacePipelineRequest.FromString,
@@ -2180,6 +2214,40 @@ class PipelinePublicService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/CloneNamespacePipeline',
             vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneNamespacePipelineRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneNamespacePipelineResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SendNamespacePipelineEvent(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/SendNamespacePipelineEvent',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.SendNamespacePipelineEventRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.SendNamespacePipelineEventResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SendNamespacePipelineReleaseEvent(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/SendNamespacePipelineReleaseEvent',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.SendNamespacePipelineReleaseEventRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.SendNamespacePipelineReleaseEventResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

@@ -1222,6 +1222,122 @@ class CloneNamespacePipelineReleaseResponse(google.protobuf.message.Message):
 global___CloneNamespacePipelineReleaseResponse = CloneNamespacePipelineReleaseResponse
 
 @typing_extensions.final
+class SendNamespacePipelineEventRequest(google.protobuf.message.Message):
+    """SendNamespacePipelineEventRequest"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    EVENT_FIELD_NUMBER: builtins.int
+    CODE_FIELD_NUMBER: builtins.int
+    DATA_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    pipeline_id: builtins.str
+    """Pipeline ID"""
+    event: builtins.str
+    """Event"""
+    code: builtins.str
+    """Code"""
+    @property
+    def data(self) -> google.protobuf.struct_pb2.Struct:
+        """Input data"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        pipeline_id: builtins.str = ...,
+        event: builtins.str = ...,
+        code: builtins.str = ...,
+        data: google.protobuf.struct_pb2.Struct | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["data", b"data"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["code", b"code", "data", b"data", "event", b"event", "namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id"]) -> None: ...
+
+global___SendNamespacePipelineEventRequest = SendNamespacePipelineEventRequest
+
+@typing_extensions.final
+class SendNamespacePipelineEventResponse(google.protobuf.message.Message):
+    """SendNamespacePipelineEventResponse"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    DATA_FIELD_NUMBER: builtins.int
+    @property
+    def data(self) -> google.protobuf.struct_pb2.Struct:
+        """data"""
+    def __init__(
+        self,
+        *,
+        data: google.protobuf.struct_pb2.Struct | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["data", b"data"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["data", b"data"]) -> None: ...
+
+global___SendNamespacePipelineEventResponse = SendNamespacePipelineEventResponse
+
+@typing_extensions.final
+class SendNamespacePipelineReleaseEventRequest(google.protobuf.message.Message):
+    """SendNamespacePipelineReleaseEventRequest"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    RELEASE_ID_FIELD_NUMBER: builtins.int
+    EVENT_FIELD_NUMBER: builtins.int
+    CODE_FIELD_NUMBER: builtins.int
+    DATA_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    pipeline_id: builtins.str
+    """Pipeline ID"""
+    release_id: builtins.str
+    """Pipeline ID"""
+    event: builtins.str
+    """Event"""
+    code: builtins.str
+    """Code"""
+    @property
+    def data(self) -> google.protobuf.struct_pb2.Struct:
+        """Input data"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        pipeline_id: builtins.str = ...,
+        release_id: builtins.str = ...,
+        event: builtins.str = ...,
+        code: builtins.str = ...,
+        data: google.protobuf.struct_pb2.Struct | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["data", b"data"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["code", b"code", "data", b"data", "event", b"event", "namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id", "release_id", b"release_id"]) -> None: ...
+
+global___SendNamespacePipelineReleaseEventRequest = SendNamespacePipelineReleaseEventRequest
+
+@typing_extensions.final
+class SendNamespacePipelineReleaseEventResponse(google.protobuf.message.Message):
+    """SendNamespacePipelineReleaseEventResponse"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    DATA_FIELD_NUMBER: builtins.int
+    @property
+    def data(self) -> google.protobuf.struct_pb2.Struct:
+        """data"""
+    def __init__(
+        self,
+        *,
+        data: google.protobuf.struct_pb2.Struct | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["data", b"data"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["data", b"data"]) -> None: ...
+
+global___SendNamespacePipelineReleaseEventResponse = SendNamespacePipelineReleaseEventResponse
+
+@typing_extensions.final
 class TriggerNamespacePipelineRequest(google.protobuf.message.Message):
     """TriggerNamespacePipelineRequest represents a request to trigger a user-owned
     pipeline synchronously.

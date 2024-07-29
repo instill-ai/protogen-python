@@ -152,6 +152,16 @@ class PipelinePublicServiceStub:
     Clones a pipeline owned by a namespace. The new pipeline may have a different
     parent, and this can be either a namespace or an organization.
     """
+    SendNamespacePipelineEvent: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineEventRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineEventResponse,
+    ]
+    """SendNamespacePipelineEvent"""
+    SendNamespacePipelineReleaseEvent: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineReleaseEventRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineReleaseEventResponse,
+    ]
+    """SendNamespacePipelineReleaseEvent"""
     TriggerNamespacePipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineResponse,
@@ -1107,6 +1117,16 @@ class PipelinePublicServiceAsyncStub:
     Clones a pipeline owned by a namespace. The new pipeline may have a different
     parent, and this can be either a namespace or an organization.
     """
+    SendNamespacePipelineEvent: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineEventRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineEventResponse,
+    ]
+    """SendNamespacePipelineEvent"""
+    SendNamespacePipelineReleaseEvent: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineReleaseEventRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineReleaseEventResponse,
+    ]
+    """SendNamespacePipelineReleaseEvent"""
     TriggerNamespacePipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineResponse,
@@ -2088,6 +2108,20 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         Clones a pipeline owned by a namespace. The new pipeline may have a different
         parent, and this can be either a namespace or an organization.
         """
+    @abc.abstractmethod
+    def SendNamespacePipelineEvent(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineEventRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineEventResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineEventResponse]]:
+        """SendNamespacePipelineEvent"""
+    @abc.abstractmethod
+    def SendNamespacePipelineReleaseEvent(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineReleaseEventRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineReleaseEventResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineReleaseEventResponse]]:
+        """SendNamespacePipelineReleaseEvent"""
     @abc.abstractmethod
     def TriggerNamespacePipeline(
         self,
