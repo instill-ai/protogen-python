@@ -210,18 +210,18 @@ class ModelVersion(google.protobuf.message.Message):
     The resource name of the model, which allows its access by parent user
     and ID.
     - Format: `users/{user.id}/models/{model.id}`.
-    The name of the tag.
+    The name of the Version.
     - Format: `users/{user.id}/models/{model.id}/versions/{version.id}`.
     """
     version: builtins.str
     """The model version identifier, which is equal to image tag."""
     digest: builtins.str
-    """Unique identifier, computed from the manifest the tag refers to."""
+    """Unique identifier, computed from the manifest the Version refers to."""
     state: global___State.ValueType
     """Current state of this model version."""
     @property
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Tag update time, i.e. timestamp of the last push."""
+        """Version update time, i.e. timestamp of the last push."""
     def __init__(
         self,
         *,
@@ -293,6 +293,7 @@ class Model(google.protobuf.message.Message):
     INPUT_SCHEMA_FIELD_NUMBER: builtins.int
     OUTPUT_SCHEMA_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
+    VERSIONS_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the model, which allows its access by owner and ID.
     - Format: `users/{user.id}/models/{model.id}`.
@@ -365,6 +366,9 @@ class Model(google.protobuf.message.Message):
     @property
     def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Tags."""
+    @property
+    def versions(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """Version names."""
     def __init__(
         self,
         *,
@@ -394,9 +398,10 @@ class Model(google.protobuf.message.Message):
         input_schema: google.protobuf.struct_pb2.Struct | None = ...,
         output_schema: google.protobuf.struct_pb2.Struct | None = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
+        versions: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_readme", b"_readme", "_source_url", b"_source_url", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "input_schema", b"input_schema", "license", b"license", "output_schema", b"output_schema", "owner", b"owner", "permission", b"permission", "profile_image", b"profile_image", "readme", b"readme", "sample_input", b"sample_input", "sample_output", b"sample_output", "source_url", b"source_url", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_readme", b"_readme", "_source_url", b"_source_url", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "hardware", b"hardware", "id", b"id", "input_schema", b"input_schema", "license", b"license", "model_definition", b"model_definition", "name", b"name", "output_schema", b"output_schema", "owner", b"owner", "owner_name", b"owner_name", "permission", b"permission", "profile_image", b"profile_image", "readme", b"readme", "region", b"region", "sample_input", b"sample_input", "sample_output", b"sample_output", "source_url", b"source_url", "tags", b"tags", "task", b"task", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_readme", b"_readme", "_source_url", b"_source_url", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "hardware", b"hardware", "id", b"id", "input_schema", b"input_schema", "license", b"license", "model_definition", b"model_definition", "name", b"name", "output_schema", b"output_schema", "owner", b"owner", "owner_name", b"owner_name", "permission", b"permission", "profile_image", b"profile_image", "readme", b"readme", "region", b"region", "sample_input", b"sample_input", "sample_output", b"sample_output", "source_url", b"source_url", "tags", b"tags", "task", b"task", "uid", b"uid", "update_time", b"update_time", "versions", b"versions", "visibility", b"visibility"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_description", b"_description"]) -> typing_extensions.Literal["description"] | None: ...
     @typing.overload
@@ -899,7 +904,7 @@ class WatchNamespaceModelRequest(google.protobuf.message.Message):
     model_id: builtins.str
     """Model ID"""
     version: builtins.str
-    """Model version tag"""
+    """Model version"""
     def __init__(
         self,
         *,
@@ -996,7 +1001,7 @@ class ListNamespaceModelVersionsRequest(google.protobuf.message.Message):
     model_id: builtins.str
     """Model ID"""
     page_size: builtins.int
-    """The maximum number of tags to return. The default and cap values are 10
+    """The maximum number of versions to return. The default and cap values are 10
     and 100, respectively.
     """
     page: builtins.int
@@ -1032,7 +1037,7 @@ class ListNamespaceModelVersionsResponse(google.protobuf.message.Message):
     def versions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ModelVersion]:
         """A list of model resources."""
     total_size: builtins.int
-    """Total number of tags."""
+    """Total number of versions."""
     page_size: builtins.int
     """The requested page size."""
     page: builtins.int
@@ -1065,7 +1070,7 @@ class DeleteNamespaceModelVersionRequest(google.protobuf.message.Message):
     model_id: builtins.str
     """Model ID"""
     version: builtins.str
-    """Model version tag"""
+    """Model version"""
     def __init__(
         self,
         *,
@@ -1107,7 +1112,7 @@ class TriggerNamespaceModelRequest(google.protobuf.message.Message):
     def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
         """Inference input parameters."""
     version: builtins.str
-    """Model version tag"""
+    """Model version"""
     def __init__(
         self,
         *,
@@ -1163,7 +1168,7 @@ class TriggerAsyncNamespaceModelRequest(google.protobuf.message.Message):
     def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
         """Inference input parameters."""
     version: builtins.str
-    """Model version tag"""
+    """Model version"""
     def __init__(
         self,
         *,
@@ -1321,7 +1326,7 @@ class TriggerNamespaceModelBinaryFileUploadRequest(google.protobuf.message.Messa
     def task_input(self) -> global___TaskInputStream:
         """Inference input as a binary file."""
     version: builtins.str
-    """Model version tag"""
+    """Model version"""
     def __init__(
         self,
         *,
@@ -1350,7 +1355,7 @@ class TriggerNamespaceModelBinaryFileUploadResponse(google.protobuf.message.Mess
     def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskOutput]:
         """Model inference outputs."""
     version: builtins.str
-    """Model version tag"""
+    """Model version"""
     def __init__(
         self,
         *,
@@ -1482,7 +1487,7 @@ class DeployNamespaceModelAdminRequest(google.protobuf.message.Message):
     model_id: builtins.str
     """Model ID"""
     version: builtins.str
-    """Model version tag"""
+    """Model version"""
     digest: builtins.str
     """Model image digest"""
     def __init__(
@@ -1526,7 +1531,7 @@ class UndeployNamespaceModelAdminRequest(google.protobuf.message.Message):
     model_id: builtins.str
     """Model ID"""
     version: builtins.str
-    """Model version tag"""
+    """Model version"""
     digest: builtins.str
     """Model image digest"""
     def __init__(
@@ -1893,7 +1898,7 @@ class WatchUserModelRequest(google.protobuf.message.Message):
     - Format: `users/{user.id}/models/{model.id}`.
     """
     version: builtins.str
-    """Model version tag"""
+    """Model version"""
     def __init__(
         self,
         *,
@@ -1983,7 +1988,7 @@ class ListUserModelVersionsRequest(google.protobuf.message.Message):
     PAGE_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """The maximum number of tags to return. The default and cap values are 10
+    """The maximum number of versions to return. The default and cap values are 10
     and 100, respectively.
     """
     page: builtins.int
@@ -2025,7 +2030,7 @@ class ListUserModelVersionsResponse(google.protobuf.message.Message):
     def versions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ModelVersion]:
         """A list of model resources."""
     total_size: builtins.int
-    """Total number of tags."""
+    """Total number of versions."""
     page_size: builtins.int
     """The requested page size."""
     page: builtins.int
@@ -2058,7 +2063,7 @@ class DeleteUserModelVersionRequest(google.protobuf.message.Message):
     - Format: `users/{user.id}/models/{model.id}`.
     """
     version: builtins.str
-    """Model version tag"""
+    """Model version"""
     def __init__(
         self,
         *,
@@ -2332,7 +2337,7 @@ class TriggerUserModelRequest(google.protobuf.message.Message):
     def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
         """Inference input parameters."""
     version: builtins.str
-    """Model version tag"""
+    """Model version"""
     def __init__(
         self,
         *,
@@ -2387,7 +2392,7 @@ class TriggerAsyncUserModelRequest(google.protobuf.message.Message):
     def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
         """Inference input parameters."""
     version: builtins.str
-    """Model version tag"""
+    """Model version"""
     def __init__(
         self,
         *,
@@ -2542,7 +2547,7 @@ class TriggerUserModelBinaryFileUploadRequest(google.protobuf.message.Message):
     def task_input(self) -> global___TaskInputStream:
         """Inference input as a binary file."""
     version: builtins.str
-    """Model version tag"""
+    """Model version"""
     def __init__(
         self,
         *,
@@ -2570,7 +2575,7 @@ class TriggerUserModelBinaryFileUploadResponse(google.protobuf.message.Message):
     def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskOutput]:
         """Model inference outputs."""
     version: builtins.str
-    """Model version tag"""
+    """Model version"""
     def __init__(
         self,
         *,
@@ -2929,7 +2934,7 @@ class WatchOrganizationModelRequest(google.protobuf.message.Message):
     - Format: `organizations/{organization.id}/models/{model.id}`.
     """
     version: builtins.str
-    """Model version tag"""
+    """Model version"""
     def __init__(
         self,
         *,
@@ -3019,7 +3024,7 @@ class ListOrganizationModelVersionsRequest(google.protobuf.message.Message):
     PAGE_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """The maximum number of tags to return. The default and cap values are 10
+    """The maximum number of versions to return. The default and cap values are 10
     and 100, respectively.
     """
     page: builtins.int
@@ -3061,7 +3066,7 @@ class ListOrganizationModelVersionsResponse(google.protobuf.message.Message):
     def versions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ModelVersion]:
         """A list of model resources."""
     total_size: builtins.int
-    """Total number of tags."""
+    """Total number of versions."""
     page_size: builtins.int
     """The requested page size."""
     page: builtins.int
@@ -3096,7 +3101,7 @@ class DeleteOrganizationModelVersionRequest(google.protobuf.message.Message):
     - Format: `organizations/{organization.id}/models/{model.id}`.
     """
     version: builtins.str
-    """Model version tag"""
+    """Model version"""
     def __init__(
         self,
         *,
@@ -3137,7 +3142,7 @@ class TriggerOrganizationModelRequest(google.protobuf.message.Message):
     def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
         """Inference input parameters."""
     version: builtins.str
-    """Model version tag"""
+    """Model version"""
     def __init__(
         self,
         *,
@@ -3192,7 +3197,7 @@ class TriggerAsyncOrganizationModelRequest(google.protobuf.message.Message):
     def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
         """Inference input parameters."""
     version: builtins.str
-    """Model version tag"""
+    """Model version"""
     def __init__(
         self,
         *,
@@ -3345,7 +3350,7 @@ class TriggerOrganizationModelBinaryFileUploadRequest(google.protobuf.message.Me
     def task_input(self) -> global___TaskInputStream:
         """Inference input as a binary file."""
     version: builtins.str
-    """Model version tag"""
+    """Model version"""
     def __init__(
         self,
         *,
@@ -3743,7 +3748,7 @@ class DeployUserModelAdminRequest(google.protobuf.message.Message):
     - Format: `users/{user.id}/models/{model.id}`.
     """
     version: builtins.str
-    """Model version tag"""
+    """Model version"""
     digest: builtins.str
     """Model image digest"""
     def __init__(
@@ -3784,7 +3789,7 @@ class DeployOrganizationModelAdminRequest(google.protobuf.message.Message):
     - Format: `organizations/{user.id}/models/{model.id}`.
     """
     version: builtins.str
-    """Model version tag"""
+    """Model version"""
     digest: builtins.str
     """Model image digest"""
     def __init__(
@@ -3827,7 +3832,7 @@ class UndeployUserModelAdminRequest(google.protobuf.message.Message):
     - Format: `users/{user.id}/models/{model.id}`.
     """
     version: builtins.str
-    """Model version tag"""
+    """Model version"""
     digest: builtins.str
     """Model image digest"""
     def __init__(
@@ -3870,7 +3875,7 @@ class UndeployOrganizationModelAdminRequest(google.protobuf.message.Message):
     - Format: `organizations/{organization.id}/models/{model.id}`.
     """
     version: builtins.str
-    """Model version tag"""
+    """Model version"""
     digest: builtins.str
     """Model image digest"""
     def __init__(
