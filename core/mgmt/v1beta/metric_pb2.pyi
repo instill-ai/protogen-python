@@ -96,46 +96,40 @@ class PipelineTriggerCount(google.protobuf.message.Message):
 global___PipelineTriggerCount = PipelineTriggerCount
 
 @typing_extensions.final
-class PipelineTriggerChartRecord(google.protobuf.message.Message):
-    """PipelineTriggerChartRecord represents a timeline of pipeline triggers. It
-    contains a collection of (timestamp, count) pairs that represent the total
-    pipeline triggers in a given time bucket.
-    pipeline ID and time frame.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    PIPELINE_ID_FIELD_NUMBER: builtins.int
-    TIME_BUCKETS_FIELD_NUMBER: builtins.int
-    TRIGGER_COUNTS_FIELD_NUMBER: builtins.int
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    pipeline_id: builtins.str
-    """This field will be present present when the information is grouped by pipeline."""
-    @property
-    def time_buckets(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.timestamp_pb2.Timestamp]:
-        """Time buckets."""
-    @property
-    def trigger_counts(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.int]:
-        """Aggregated trigger count in each time bucket."""
-    namespace_id: builtins.str
-    """The ID of the namespace that requested the pipeline triggers."""
-    def __init__(
-        self,
-        *,
-        pipeline_id: builtins.str | None = ...,
-        time_buckets: collections.abc.Iterable[google.protobuf.timestamp_pb2.Timestamp] | None = ...,
-        trigger_counts: collections.abc.Iterable[builtins.int] | None = ...,
-        namespace_id: builtins.str = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_pipeline_id", b"_pipeline_id", "pipeline_id", b"pipeline_id"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_pipeline_id", b"_pipeline_id", "namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id", "time_buckets", b"time_buckets", "trigger_counts", b"trigger_counts"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_pipeline_id", b"_pipeline_id"]) -> typing_extensions.Literal["pipeline_id"] | None: ...
-
-global___PipelineTriggerChartRecord = PipelineTriggerChartRecord
-
-@typing_extensions.final
 class GetPipelineTriggerCountRequest(google.protobuf.message.Message):
-    """GetPipelineTriggerCountRequest represents a request to fetch the trigger
+    """
+    // PipelineTriggerChartRecord represents a timeline of pipeline triggers. It
+    // contains a collection of (timestamp, count) pairs that represent the total
+    // pipeline triggers in a given time bucket.
+    // pipeline ID and time frame.
+    message PipelineTriggerChartRecord {
+    // This field will be present present when the information is grouped by pipeline.
+    optional string pipeline_id = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
+    // 2 is reserved for the pipeline UUID.
+    reserved 2;
+    // 3 is reserved for the trigger mode. The server wasn't grouping results by this
+    // field.
+    reserved 3;
+    // 4 is reserved for the trigger status. The server wasn't grouping results
+    // by this field.
+    reserved 4;
+    // Time buckets.
+    repeated google.protobuf.Timestamp time_buckets = 5 [(google.api.field_behavior) = OUTPUT_ONLY];
+    // Aggregated trigger count in each time bucket.
+    repeated int32 trigger_counts = 6 [(google.api.field_behavior) = OUTPUT_ONLY];
+    // 7 is reserved for the trigger execution duration.
+    reserved 7;
+    // 8 is reserved for the pipeline release ID. The server wasn't grouping
+    // results by this field.
+    reserved 8;
+    // 9 is reserved for the pipeline release UUID. The server wasn't grouping
+    // results by this field.
+    reserved 9;
+    // The ID of the namespace that requested the pipeline triggers.
+    string namespace_id = 10 [(google.api.field_behavior) = OUTPUT_ONLY];
+    }
+
+    GetPipelineTriggerCountRequest represents a request to fetch the trigger
     count of a requester over a time period.
     """
 
@@ -194,82 +188,46 @@ class GetPipelineTriggerCountResponse(google.protobuf.message.Message):
 global___GetPipelineTriggerCountResponse = GetPipelineTriggerCountResponse
 
 @typing_extensions.final
-class ListPipelineTriggerChartRecordsRequest(google.protobuf.message.Message):
-    """ListPipelineTriggerChartRecordsRequest represents a request to list pipeline
-    trigger chart records for a given requester, grouped by time buckets.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    AGGREGATION_WINDOW_FIELD_NUMBER: builtins.int
-    START_FIELD_NUMBER: builtins.int
-    STOP_FIELD_NUMBER: builtins.int
-    namespace_id: builtins.str
-    """The ID of the namespace that requested the pipeline triggers."""
-    aggregation_window: builtins.str
-    """Aggregation window. The value is a positive duration string, i.e. a
-    sequence of decimal numbers, each with optional fraction and a unit
-    suffix, such as "300ms", "1.5h" or "2h45m".
-    The minimum (and default) window is 1h.
-    """
-    @property
-    def start(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Beginning of the time range from which the records will be fetched.
-        The default value is the beginning of the current day, in UTC.
-        """
-    @property
-    def stop(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """End of the time range from which the records will be fetched.
-        The default value is the current timestamp.
-        """
-    def __init__(
-        self,
-        *,
-        namespace_id: builtins.str = ...,
-        aggregation_window: builtins.str | None = ...,
-        start: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        stop: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_aggregation_window", b"_aggregation_window", "_start", b"_start", "_stop", b"_stop", "aggregation_window", b"aggregation_window", "start", b"start", "stop", b"stop"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_aggregation_window", b"_aggregation_window", "_start", b"_start", "_stop", b"_stop", "aggregation_window", b"aggregation_window", "namespace_id", b"namespace_id", "start", b"start", "stop", b"stop"]) -> None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_aggregation_window", b"_aggregation_window"]) -> typing_extensions.Literal["aggregation_window"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_start", b"_start"]) -> typing_extensions.Literal["start"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_stop", b"_stop"]) -> typing_extensions.Literal["stop"] | None: ...
-
-global___ListPipelineTriggerChartRecordsRequest = ListPipelineTriggerChartRecordsRequest
-
-@typing_extensions.final
-class ListPipelineTriggerChartRecordsResponse(google.protobuf.message.Message):
-    """ListPipelineTriggerChartRecordsResponse contains a list of pipeline trigger
-    chart records.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    PIPELINE_TRIGGER_CHART_RECORDS_FIELD_NUMBER: builtins.int
-    @property
-    def pipeline_trigger_chart_records(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PipelineTriggerChartRecord]:
-        """Pipeline trigger counts. Until we allow filtering or grouping by fields
-        like pipeline ID, this list will contain only one element with the
-        timeline of trigger counts for a given requester, regardless the pipeline
-        ID, trigger mode, final status or other fields.
-        """
-    def __init__(
-        self,
-        *,
-        pipeline_trigger_chart_records: collections.abc.Iterable[global___PipelineTriggerChartRecord] | None = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["pipeline_trigger_chart_records", b"pipeline_trigger_chart_records"]) -> None: ...
-
-global___ListPipelineTriggerChartRecordsResponse = ListPipelineTriggerChartRecordsResponse
-
-@typing_extensions.final
 class CreditConsumptionChartRecord(google.protobuf.message.Message):
-    """CreditConsumptionChartRecord represents a timeline of Instill Credit
+    """
+    // ListPipelineTriggerChartRecordsRequest represents a request to list pipeline
+    // trigger chart records for a given requester, grouped by time buckets.
+    message ListPipelineTriggerChartRecordsRequest {
+    // 1 is reserved for the aggregation window in nanoseconds. This is
+    // deprecated in favour of an aggregation window string that represents a
+    // duration.
+    reserved 1;
+    // 2 is reserved for the filter. For now, this endpoint won't allow filtering
+    // but in the future we might implement a filter to show the trigger count of
+    // only certain pipelines and to group by the pipeline ID.
+    reserved 2;
+
+    // The ID of the namespace that requested the pipeline triggers.
+    string namespace_id = 3 [(google.api.field_behavior) = REQUIRED];
+    // Aggregation window. The value is a positive duration string, i.e. a
+    // sequence of decimal numbers, each with optional fraction and a unit
+    // suffix, such as "300ms", "1.5h" or "2h45m".
+    // The minimum (and default) window is 1h.
+    optional string aggregation_window = 4;
+    // Beginning of the time range from which the records will be fetched.
+    // The default value is the beginning of the current day, in UTC.
+    optional google.protobuf.Timestamp start = 5;
+    // End of the time range from which the records will be fetched.
+    // The default value is the current timestamp.
+    optional google.protobuf.Timestamp stop = 6;
+    }
+
+    // ListPipelineTriggerChartRecordsResponse contains a list of pipeline trigger
+    // chart records.
+    message ListPipelineTriggerChartRecordsResponse {
+    // Pipeline trigger counts. Until we allow filtering or grouping by fields
+    // like pipeline ID, this list will contain only one element with the
+    // timeline of trigger counts for a given requester, regardless the pipeline
+    // ID, trigger mode, final status or other fields.
+    repeated PipelineTriggerChartRecord pipeline_trigger_chart_records = 1;
+    }
+
+    CreditConsumptionChartRecord represents a timeline of Instill Credit
     consumption. It contains a collection of (timestamp, amount) pairs that
     represent the total credit consumption in a given time bucket.
     """
@@ -372,3 +330,218 @@ class ListCreditConsumptionChartRecordsResponse(google.protobuf.message.Message)
     def ClearField(self, field_name: typing_extensions.Literal["credit_consumption_chart_records", b"credit_consumption_chart_records"]) -> None: ...
 
 global___ListCreditConsumptionChartRecordsResponse = ListCreditConsumptionChartRecordsResponse
+
+@typing_extensions.final
+class PipelineTriggerTableRecord(google.protobuf.message.Message):
+    """Deprecated messages, to be removed with the new dashboard implementation.
+
+    PipelineTriggerTableRecord contains pipeline trigger metrics, aggregated by
+    pipeline ID.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_UID_FIELD_NUMBER: builtins.int
+    TRIGGER_COUNT_COMPLETED_FIELD_NUMBER: builtins.int
+    TRIGGER_COUNT_ERRORED_FIELD_NUMBER: builtins.int
+    PIPELINE_RELEASE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_RELEASE_UID_FIELD_NUMBER: builtins.int
+    pipeline_id: builtins.str
+    """Pipeline ID."""
+    pipeline_uid: builtins.str
+    """Pipeline UUID."""
+    trigger_count_completed: builtins.int
+    """Number of triggers with `STATUS_COMPLETED`."""
+    trigger_count_errored: builtins.int
+    """Number of triggers with `STATUS_ERRORED`."""
+    pipeline_release_id: builtins.str
+    """Version for the triggered pipeline if it is a release pipeline."""
+    pipeline_release_uid: builtins.str
+    """Release UUID for the triggered pipeline if it is a release pipeline."""
+    def __init__(
+        self,
+        *,
+        pipeline_id: builtins.str = ...,
+        pipeline_uid: builtins.str = ...,
+        trigger_count_completed: builtins.int = ...,
+        trigger_count_errored: builtins.int = ...,
+        pipeline_release_id: builtins.str = ...,
+        pipeline_release_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["pipeline_id", b"pipeline_id", "pipeline_release_id", b"pipeline_release_id", "pipeline_release_uid", b"pipeline_release_uid", "pipeline_uid", b"pipeline_uid", "trigger_count_completed", b"trigger_count_completed", "trigger_count_errored", b"trigger_count_errored"]) -> None: ...
+
+global___PipelineTriggerTableRecord = PipelineTriggerTableRecord
+
+@typing_extensions.final
+class ListPipelineTriggerTableRecordsRequest(google.protobuf.message.Message):
+    """ListPipelineTriggerTableRecordsRequest represents a request to list the
+    pipeline triggers metrics, aggregated by pipeline ID.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
+    page_size: builtins.int
+    """The maximum number of results to return. If this parameter is unspecified,
+    at most 100 pipelines will be returned. The cap value for this parameter
+    is 1000 (i.e. any value above that will be coerced to 1000).
+    """
+    page_token: builtins.str
+    """Page token."""
+    filter: builtins.str
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
+    def __init__(
+        self,
+        *,
+        page_size: builtins.int | None = ...,
+        page_token: builtins.str | None = ...,
+        filter: builtins.str | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_token", b"_page_token"]) -> typing_extensions.Literal["page_token"] | None: ...
+
+global___ListPipelineTriggerTableRecordsRequest = ListPipelineTriggerTableRecordsRequest
+
+@typing_extensions.final
+class ListPipelineTriggerTableRecordsResponse(google.protobuf.message.Message):
+    """ListPipelineTriggerTableRecordsResponse contains the pipeline metrics."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PIPELINE_TRIGGER_TABLE_RECORDS_FIELD_NUMBER: builtins.int
+    NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    @property
+    def pipeline_trigger_table_records(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PipelineTriggerTableRecord]:
+        """A list of pipeline trigger tables."""
+    next_page_token: builtins.str
+    """Next page token."""
+    total_size: builtins.int
+    """Total number of pipeline trigger records"""
+    def __init__(
+        self,
+        *,
+        pipeline_trigger_table_records: collections.abc.Iterable[global___PipelineTriggerTableRecord] | None = ...,
+        next_page_token: builtins.str = ...,
+        total_size: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "pipeline_trigger_table_records", b"pipeline_trigger_table_records", "total_size", b"total_size"]) -> None: ...
+
+global___ListPipelineTriggerTableRecordsResponse = ListPipelineTriggerTableRecordsResponse
+
+@typing_extensions.final
+class ListPipelineTriggerChartRecordsRequest(google.protobuf.message.Message):
+    """ListPipelineTriggerChartRecordsRequest represents a request to list pipeline
+    trigger metrics, aggregated by pipeline ID and time frame.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    AGGREGATION_WINDOW_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
+    aggregation_window: builtins.int
+    """Aggregation window in nanoseconds."""
+    filter: builtins.str
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
+    def __init__(
+        self,
+        *,
+        aggregation_window: builtins.int = ...,
+        filter: builtins.str | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "filter", b"filter"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "aggregation_window", b"aggregation_window", "filter", b"filter"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
+
+global___ListPipelineTriggerChartRecordsRequest = ListPipelineTriggerChartRecordsRequest
+
+@typing_extensions.final
+class ListPipelineTriggerChartRecordsResponse(google.protobuf.message.Message):
+    """ListPipelineTriggerChartRecordsResponse contains a list of pipeline trigger
+    chart records.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PIPELINE_TRIGGER_CHART_RECORDS_FIELD_NUMBER: builtins.int
+    @property
+    def pipeline_trigger_chart_records(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PipelineTriggerChartRecord]:
+        """A list of pipeline trigger records."""
+    def __init__(
+        self,
+        *,
+        pipeline_trigger_chart_records: collections.abc.Iterable[global___PipelineTriggerChartRecord] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["pipeline_trigger_chart_records", b"pipeline_trigger_chart_records"]) -> None: ...
+
+global___ListPipelineTriggerChartRecordsResponse = ListPipelineTriggerChartRecordsResponse
+
+@typing_extensions.final
+class PipelineTriggerChartRecord(google.protobuf.message.Message):
+    """PipelineTriggerChartRecord contains pipeline trigger metrics, aggregated by
+    pipeline ID and time frame.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_UID_FIELD_NUMBER: builtins.int
+    TRIGGER_MODE_FIELD_NUMBER: builtins.int
+    STATUS_FIELD_NUMBER: builtins.int
+    TIME_BUCKETS_FIELD_NUMBER: builtins.int
+    TRIGGER_COUNTS_FIELD_NUMBER: builtins.int
+    COMPUTE_TIME_DURATION_FIELD_NUMBER: builtins.int
+    PIPELINE_RELEASE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_RELEASE_UID_FIELD_NUMBER: builtins.int
+    pipeline_id: builtins.str
+    """Pipeline ID."""
+    pipeline_uid: builtins.str
+    """Pipeline UUID."""
+    trigger_mode: global___Mode.ValueType
+    """Trigger mode."""
+    status: global___Status.ValueType
+    """Final status."""
+    @property
+    def time_buckets(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.timestamp_pb2.Timestamp]:
+        """Time buckets."""
+    @property
+    def trigger_counts(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.int]:
+        """Aggregated trigger count in each time bucket."""
+    @property
+    def compute_time_duration(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.float]:
+        """Total computation time duration in each time bucket."""
+    pipeline_release_id: builtins.str
+    """Version for the triggered pipeline if it is a release pipeline."""
+    pipeline_release_uid: builtins.str
+    """Release UUID for the triggered pipeline if it is a release pipeline."""
+    def __init__(
+        self,
+        *,
+        pipeline_id: builtins.str = ...,
+        pipeline_uid: builtins.str = ...,
+        trigger_mode: global___Mode.ValueType = ...,
+        status: global___Status.ValueType = ...,
+        time_buckets: collections.abc.Iterable[google.protobuf.timestamp_pb2.Timestamp] | None = ...,
+        trigger_counts: collections.abc.Iterable[builtins.int] | None = ...,
+        compute_time_duration: collections.abc.Iterable[builtins.float] | None = ...,
+        pipeline_release_id: builtins.str = ...,
+        pipeline_release_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["compute_time_duration", b"compute_time_duration", "pipeline_id", b"pipeline_id", "pipeline_release_id", b"pipeline_release_id", "pipeline_release_uid", b"pipeline_release_uid", "pipeline_uid", b"pipeline_uid", "status", b"status", "time_buckets", b"time_buckets", "trigger_counts", b"trigger_counts", "trigger_mode", b"trigger_mode"]) -> None: ...
+
+global___PipelineTriggerChartRecord = PipelineTriggerChartRecord

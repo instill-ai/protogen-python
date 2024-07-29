@@ -271,15 +271,24 @@ class MgmtPublicServiceStub:
     Returns the pipeline trigger count of a given requester within a timespan.
     Results are grouped by trigger status.
     """
+    ListPipelineTriggerTableRecords: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsRequest,
+        core.mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsResponse,
+    ]
+    """List pipeline trigger metrics
+
+    Returns a paginated list of pipeline executions aggregated by pipeline ID.
+    NOTE: This method is deprecated and will be retired soon.
+    """
     ListPipelineTriggerChartRecords: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsRequest,
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsResponse,
     ]
     """List pipeline trigger time charts
 
-    Returns a timeline of pipline trigger counts for a given requester. The
-    response will contain one set of records (datapoints), representing the
-    amount of triggers in a time bucket.
+    Returns a timeline of pipline trigger counts for the pipelines of a given
+    owner.
+    NOTE: This method will soon return the trigger counts of a given requester.
     """
     ListCreditConsumptionChartRecords: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListCreditConsumptionChartRecordsRequest,
@@ -589,15 +598,24 @@ class MgmtPublicServiceAsyncStub:
     Returns the pipeline trigger count of a given requester within a timespan.
     Results are grouped by trigger status.
     """
+    ListPipelineTriggerTableRecords: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsRequest,
+        core.mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsResponse,
+    ]
+    """List pipeline trigger metrics
+
+    Returns a paginated list of pipeline executions aggregated by pipeline ID.
+    NOTE: This method is deprecated and will be retired soon.
+    """
     ListPipelineTriggerChartRecords: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsRequest,
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsResponse,
     ]
     """List pipeline trigger time charts
 
-    Returns a timeline of pipline trigger counts for a given requester. The
-    response will contain one set of records (datapoints), representing the
-    amount of triggers in a time bucket.
+    Returns a timeline of pipline trigger counts for the pipelines of a given
+    owner.
+    NOTE: This method will soon return the trigger counts of a given requester.
     """
     ListCreditConsumptionChartRecords: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListCreditConsumptionChartRecordsRequest,
@@ -966,6 +984,17 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         Results are grouped by trigger status.
         """
     @abc.abstractmethod
+    def ListPipelineTriggerTableRecords(
+        self,
+        request: core.mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsResponse, collections.abc.Awaitable[core.mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsResponse]]:
+        """List pipeline trigger metrics
+
+        Returns a paginated list of pipeline executions aggregated by pipeline ID.
+        NOTE: This method is deprecated and will be retired soon.
+        """
+    @abc.abstractmethod
     def ListPipelineTriggerChartRecords(
         self,
         request: core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsRequest,
@@ -973,9 +1002,9 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsResponse, collections.abc.Awaitable[core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsResponse]]:
         """List pipeline trigger time charts
 
-        Returns a timeline of pipline trigger counts for a given requester. The
-        response will contain one set of records (datapoints), representing the
-        amount of triggers in a time bucket.
+        Returns a timeline of pipline trigger counts for the pipelines of a given
+        owner.
+        NOTE: This method will soon return the trigger counts of a given requester.
         """
     @abc.abstractmethod
     def ListCreditConsumptionChartRecords(
