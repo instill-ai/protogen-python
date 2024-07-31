@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%artifact/artifact/v1alpha/chunk.proto\x12\x19\x61rtifact.artifact.v1alpha\x1a\x1fgoogle/protobuf/timestamp.proto\"\xfd\x01\n\x05\x43hunk\x12\x1b\n\tchunk_uid\x18\x01 \x01(\tR\x08\x63hunkUid\x12 \n\x0bretrievable\x18\x02 \x01(\x08R\x0bretrievable\x12\x1b\n\tstart_pos\x18\x04 \x01(\rR\x08startPos\x12\x17\n\x07\x65nd_pos\x18\x05 \x01(\rR\x06\x65ndPos\x12\x16\n\x06tokens\x18\x06 \x01(\rR\x06tokens\x12;\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ncreateTime\x12*\n\x11original_file_uid\x18\x08 \x01(\tR\x0foriginalFileUid\"f\n\x11ListChunksRequest\x12!\n\x0cnamespace_id\x18\x01 \x01(\tR\x0bnamespaceId\x12\x13\n\x05kb_id\x18\x02 \x01(\tR\x04kbId\x12\x19\n\x08\x66ile_uid\x18\x03 \x01(\tR\x07\x66ileUid\"N\n\x12ListChunksResponse\x12\x38\n\x06\x63hunks\x18\x01 \x03(\x0b\x32 .artifact.artifact.v1alpha.ChunkR\x06\x63hunks\"\xcc\x01\n\nSourceFile\x12*\n\x11original_file_uid\x18\x01 \x01(\tR\x0foriginalFileUid\x12\x18\n\x07\x63ontent\x18\x03 \x01(\tR\x07\x63ontent\x12;\n\x0b\x63reate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ncreateTime\x12;\n\x0bupdate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\nupdateTime\"i\n\x14GetSourceFileRequest\x12!\n\x0cnamespace_id\x18\x01 \x01(\tR\x0bnamespaceId\x12\x13\n\x05kb_id\x18\x02 \x01(\tR\x04kbId\x12\x19\n\x08\x66ile_uid\x18\x03 \x01(\tR\x07\x66ileUid\"_\n\x15GetSourceFileResponse\x12\x46\n\x0bsource_file\x18\x01 \x01(\x0b\x32%.artifact.artifact.v1alpha.SourceFileR\nsourceFile\"S\n\x12UpdateChunkRequest\x12\x1b\n\tchunk_uid\x18\x01 \x01(\tR\x08\x63hunkUid\x12 \n\x0bretrievable\x18\x02 \x01(\x08R\x0bretrievable\"M\n\x13UpdateChunkResponse\x12\x36\n\x05\x63hunk\x18\x01 \x01(\x0b\x32 .artifact.artifact.v1alpha.ChunkR\x05\x63hunk\"\x8c\x01\n\x1dSimilarityChunksSearchRequest\x12!\n\x0cnamespace_id\x18\x01 \x01(\tR\x0bnamespaceId\x12\x13\n\x05kb_id\x18\x02 \x01(\tR\x04kbId\x12\x1f\n\x0btext_prompt\x18\x03 \x01(\tR\ntextPrompt\x12\x12\n\x04topk\x18\x04 \x01(\rR\x04topk\"s\n\x1eSimilarityChunksSearchResponse\x12Q\n\x0esimilar_chunks\x18\x01 \x03(\x0b\x32*.artifact.artifact.v1alpha.SimilarityChunkR\rsimilarChunks\"\x9d\x01\n\x0fSimilarityChunk\x12\x1b\n\tchunk_uid\x18\x01 \x01(\tR\x08\x63hunkUid\x12)\n\x10similarity_score\x18\x02 \x01(\x02R\x0fsimilarityScore\x12!\n\x0ctext_content\x18\x03 \x01(\tR\x0btextContent\x12\x1f\n\x0bsource_file\x18\x04 \x01(\tR\nsourceFileB\xfe\x01\n\x1d\x63om.artifact.artifact.v1alphaB\nChunkProtoP\x01ZKgithub.com/instill-ai/protogen-go/artifact/artifact/v1alpha;artifactv1alpha\xa2\x02\x03\x41\x41X\xaa\x02\x19\x41rtifact.Artifact.V1alpha\xca\x02\x19\x41rtifact\\Artifact\\V1alpha\xe2\x02%Artifact\\Artifact\\V1alpha\\GPBMetadata\xea\x02\x1b\x41rtifact::Artifact::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%artifact/artifact/v1alpha/chunk.proto\x12\x19\x61rtifact.artifact.v1alpha\x1a\x1fgoogle/protobuf/timestamp.proto\"\xfd\x01\n\x05\x43hunk\x12\x1b\n\tchunk_uid\x18\x01 \x01(\tR\x08\x63hunkUid\x12 \n\x0bretrievable\x18\x02 \x01(\x08R\x0bretrievable\x12\x1b\n\tstart_pos\x18\x04 \x01(\rR\x08startPos\x12\x17\n\x07\x65nd_pos\x18\x05 \x01(\rR\x06\x65ndPos\x12\x16\n\x06tokens\x18\x06 \x01(\rR\x06tokens\x12;\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ncreateTime\x12*\n\x11original_file_uid\x18\x08 \x01(\tR\x0foriginalFileUid\"p\n\x11ListChunksRequest\x12!\n\x0cnamespace_id\x18\x01 \x01(\tR\x0bnamespaceId\x12\x1d\n\ncatalog_id\x18\x02 \x01(\tR\tcatalogId\x12\x19\n\x08\x66ile_uid\x18\x03 \x01(\tR\x07\x66ileUid\"N\n\x12ListChunksResponse\x12\x38\n\x06\x63hunks\x18\x01 \x03(\x0b\x32 .artifact.artifact.v1alpha.ChunkR\x06\x63hunks\"\xcc\x01\n\nSourceFile\x12*\n\x11original_file_uid\x18\x01 \x01(\tR\x0foriginalFileUid\x12\x18\n\x07\x63ontent\x18\x03 \x01(\tR\x07\x63ontent\x12;\n\x0b\x63reate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ncreateTime\x12;\n\x0bupdate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\nupdateTime\"s\n\x14GetSourceFileRequest\x12!\n\x0cnamespace_id\x18\x01 \x01(\tR\x0bnamespaceId\x12\x1d\n\ncatalog_id\x18\x02 \x01(\tR\tcatalogId\x12\x19\n\x08\x66ile_uid\x18\x03 \x01(\tR\x07\x66ileUid\"_\n\x15GetSourceFileResponse\x12\x46\n\x0bsource_file\x18\x01 \x01(\x0b\x32%.artifact.artifact.v1alpha.SourceFileR\nsourceFile\"S\n\x12UpdateChunkRequest\x12\x1b\n\tchunk_uid\x18\x01 \x01(\tR\x08\x63hunkUid\x12 \n\x0bretrievable\x18\x02 \x01(\x08R\x0bretrievable\"M\n\x13UpdateChunkResponse\x12\x36\n\x05\x63hunk\x18\x01 \x01(\x0b\x32 .artifact.artifact.v1alpha.ChunkR\x05\x63hunk\"\x96\x01\n\x1dSimilarityChunksSearchRequest\x12!\n\x0cnamespace_id\x18\x01 \x01(\tR\x0bnamespaceId\x12\x1d\n\ncatalog_id\x18\x02 \x01(\tR\tcatalogId\x12\x1f\n\x0btext_prompt\x18\x03 \x01(\tR\ntextPrompt\x12\x12\n\x04topk\x18\x04 \x01(\rR\x04topk\"s\n\x1eSimilarityChunksSearchResponse\x12Q\n\x0esimilar_chunks\x18\x01 \x03(\x0b\x32*.artifact.artifact.v1alpha.SimilarityChunkR\rsimilarChunks\"\x9d\x01\n\x0fSimilarityChunk\x12\x1b\n\tchunk_uid\x18\x01 \x01(\tR\x08\x63hunkUid\x12)\n\x10similarity_score\x18\x02 \x01(\x02R\x0fsimilarityScore\x12!\n\x0ctext_content\x18\x03 \x01(\tR\x0btextContent\x12\x1f\n\x0bsource_file\x18\x04 \x01(\tR\nsourceFileB\xfe\x01\n\x1d\x63om.artifact.artifact.v1alphaB\nChunkProtoP\x01ZKgithub.com/instill-ai/protogen-go/artifact/artifact/v1alpha;artifactv1alpha\xa2\x02\x03\x41\x41X\xaa\x02\x19\x41rtifact.Artifact.V1alpha\xca\x02\x19\x41rtifact\\Artifact\\V1alpha\xe2\x02%Artifact\\Artifact\\V1alpha\\GPBMetadata\xea\x02\x1b\x41rtifact::Artifact::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -26,23 +26,23 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_CHUNK']._serialized_start=102
   _globals['_CHUNK']._serialized_end=355
   _globals['_LISTCHUNKSREQUEST']._serialized_start=357
-  _globals['_LISTCHUNKSREQUEST']._serialized_end=459
-  _globals['_LISTCHUNKSRESPONSE']._serialized_start=461
-  _globals['_LISTCHUNKSRESPONSE']._serialized_end=539
-  _globals['_SOURCEFILE']._serialized_start=542
-  _globals['_SOURCEFILE']._serialized_end=746
-  _globals['_GETSOURCEFILEREQUEST']._serialized_start=748
-  _globals['_GETSOURCEFILEREQUEST']._serialized_end=853
-  _globals['_GETSOURCEFILERESPONSE']._serialized_start=855
-  _globals['_GETSOURCEFILERESPONSE']._serialized_end=950
-  _globals['_UPDATECHUNKREQUEST']._serialized_start=952
-  _globals['_UPDATECHUNKREQUEST']._serialized_end=1035
-  _globals['_UPDATECHUNKRESPONSE']._serialized_start=1037
-  _globals['_UPDATECHUNKRESPONSE']._serialized_end=1114
-  _globals['_SIMILARITYCHUNKSSEARCHREQUEST']._serialized_start=1117
-  _globals['_SIMILARITYCHUNKSSEARCHREQUEST']._serialized_end=1257
-  _globals['_SIMILARITYCHUNKSSEARCHRESPONSE']._serialized_start=1259
-  _globals['_SIMILARITYCHUNKSSEARCHRESPONSE']._serialized_end=1374
-  _globals['_SIMILARITYCHUNK']._serialized_start=1377
-  _globals['_SIMILARITYCHUNK']._serialized_end=1534
+  _globals['_LISTCHUNKSREQUEST']._serialized_end=469
+  _globals['_LISTCHUNKSRESPONSE']._serialized_start=471
+  _globals['_LISTCHUNKSRESPONSE']._serialized_end=549
+  _globals['_SOURCEFILE']._serialized_start=552
+  _globals['_SOURCEFILE']._serialized_end=756
+  _globals['_GETSOURCEFILEREQUEST']._serialized_start=758
+  _globals['_GETSOURCEFILEREQUEST']._serialized_end=873
+  _globals['_GETSOURCEFILERESPONSE']._serialized_start=875
+  _globals['_GETSOURCEFILERESPONSE']._serialized_end=970
+  _globals['_UPDATECHUNKREQUEST']._serialized_start=972
+  _globals['_UPDATECHUNKREQUEST']._serialized_end=1055
+  _globals['_UPDATECHUNKRESPONSE']._serialized_start=1057
+  _globals['_UPDATECHUNKRESPONSE']._serialized_end=1134
+  _globals['_SIMILARITYCHUNKSSEARCHREQUEST']._serialized_start=1137
+  _globals['_SIMILARITYCHUNKSSEARCHREQUEST']._serialized_end=1287
+  _globals['_SIMILARITYCHUNKSSEARCHRESPONSE']._serialized_start=1289
+  _globals['_SIMILARITYCHUNKSSEARCHRESPONSE']._serialized_end=1404
+  _globals['_SIMILARITYCHUNK']._serialized_start=1407
+  _globals['_SIMILARITYCHUNK']._serialized_end=1564
 # @@protoc_insertion_point(module_scope)

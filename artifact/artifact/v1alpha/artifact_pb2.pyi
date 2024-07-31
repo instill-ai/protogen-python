@@ -452,12 +452,12 @@ class DeleteRepositoryTagResponse(google.protobuf.message.Message):
 global___DeleteRepositoryTagResponse = DeleteRepositoryTagResponse
 
 @typing_extensions.final
-class KnowledgeBase(google.protobuf.message.Message):
-    """KnowledgeBase represents a knowledge base."""
+class Catalog(google.protobuf.message.Message):
+    """Catalog represents a catalog."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    KB_ID_FIELD_NUMBER: builtins.int
+    CATALOG_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
@@ -471,43 +471,43 @@ class KnowledgeBase(google.protobuf.message.Message):
     TOTAL_FILES_FIELD_NUMBER: builtins.int
     TOTAL_TOKENS_FIELD_NUMBER: builtins.int
     USED_STORAGE_FIELD_NUMBER: builtins.int
-    kb_id: builtins.str
-    """The knowledge base identifier."""
+    catalog_id: builtins.str
+    """The catalog id."""
     name: builtins.str
-    """The knowledge base name."""
+    """The catalog name."""
     description: builtins.str
-    """The knowledge base description."""
+    """The catalog description."""
     create_time: builtins.str
-    """The creation time of the knowledge base."""
+    """The creation time of the catalog."""
     update_time: builtins.str
-    """The last update time of the knowledge base."""
+    """The last update time of the catalog."""
     owner_name: builtins.str
-    """The owner of the knowledge base."""
+    """The owner/namespaceof the catalog."""
     @property
     def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The knowledge base tags."""
+        """The catalog tags."""
     @property
     def converting_pipelines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The knowledge base converting pipelines."""
+        """The catalog converting pipelines."""
     @property
     def splitting_pipelines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The knowledge base splitting pipelines."""
+        """The catalog splitting pipelines."""
     @property
     def embedding_pipelines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The knowledge base embedding pipelines."""
+        """The catalog embedding pipelines."""
     @property
     def downstream_apps(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """The downstream apps"""
     total_files: builtins.int
-    """The total files in knowledge base."""
+    """The total files in catalog."""
     total_tokens: builtins.int
-    """The total tokens in knowledge base."""
+    """The total tokens in catalog."""
     used_storage: builtins.int
-    """The current used storage in knowledge base."""
+    """The current used storage in catalog."""
     def __init__(
         self,
         *,
-        kb_id: builtins.str = ...,
+        catalog_id: builtins.str = ...,
         name: builtins.str = ...,
         description: builtins.str = ...,
         create_time: builtins.str = ...,
@@ -522,13 +522,13 @@ class KnowledgeBase(google.protobuf.message.Message):
         total_tokens: builtins.int = ...,
         used_storage: builtins.int = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["converting_pipelines", b"converting_pipelines", "create_time", b"create_time", "description", b"description", "downstream_apps", b"downstream_apps", "embedding_pipelines", b"embedding_pipelines", "kb_id", b"kb_id", "name", b"name", "owner_name", b"owner_name", "splitting_pipelines", b"splitting_pipelines", "tags", b"tags", "total_files", b"total_files", "total_tokens", b"total_tokens", "update_time", b"update_time", "used_storage", b"used_storage"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "converting_pipelines", b"converting_pipelines", "create_time", b"create_time", "description", b"description", "downstream_apps", b"downstream_apps", "embedding_pipelines", b"embedding_pipelines", "name", b"name", "owner_name", b"owner_name", "splitting_pipelines", b"splitting_pipelines", "tags", b"tags", "total_files", b"total_files", "total_tokens", b"total_tokens", "update_time", b"update_time", "used_storage", b"used_storage"]) -> None: ...
 
-global___KnowledgeBase = KnowledgeBase
+global___Catalog = Catalog
 
 @typing_extensions.final
-class CreateKnowledgeBaseRequest(google.protobuf.message.Message):
-    """CreateKnowledgeBaseRequest represents a request to create a knowledge base."""
+class CreateCatalogRequest(google.protobuf.message.Message):
+    """CreateCatalogRequest represents a request to create a catalog."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -537,14 +537,14 @@ class CreateKnowledgeBaseRequest(google.protobuf.message.Message):
     DESCRIPTION_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """The knowledge base owner(nammespace)."""
+    """The catalog's owner(nammespace)."""
     name: builtins.str
-    """The knowledge base name."""
+    """The catalog name."""
     description: builtins.str
-    """The knowledge base description."""
+    """The catalog description."""
     @property
     def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The knowledge base tags."""
+        """The catalog tags."""
     def __init__(
         self,
         *,
@@ -555,37 +555,37 @@ class CreateKnowledgeBaseRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "name", b"name", "namespace_id", b"namespace_id", "tags", b"tags"]) -> None: ...
 
-global___CreateKnowledgeBaseRequest = CreateKnowledgeBaseRequest
+global___CreateCatalogRequest = CreateCatalogRequest
 
 @typing_extensions.final
-class CreateKnowledgeBaseResponse(google.protobuf.message.Message):
-    """CreateKnowledgeBaseResponse represents a response for creating a knowledge base."""
+class CreateCatalogResponse(google.protobuf.message.Message):
+    """CreateCatalogResponse represents a response for creating a catalog."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
+    CATALOG_FIELD_NUMBER: builtins.int
     @property
-    def knowledge_base(self) -> global___KnowledgeBase:
-        """The created knowledge base."""
+    def catalog(self) -> global___Catalog:
+        """The created catalog."""
     def __init__(
         self,
         *,
-        knowledge_base: global___KnowledgeBase | None = ...,
+        catalog: global___Catalog | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["catalog", b"catalog"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog", b"catalog"]) -> None: ...
 
-global___CreateKnowledgeBaseResponse = CreateKnowledgeBaseResponse
+global___CreateCatalogResponse = CreateCatalogResponse
 
 @typing_extensions.final
-class ListKnowledgeBasesRequest(google.protobuf.message.Message):
-    """Request message for ListKnowledgeBases"""
+class ListCatalogsRequest(google.protobuf.message.Message):
+    """Request message for ListCatalogs"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """User ID for which to list the knowledge bases"""
+    """User ID for which to list the catalogs"""
     def __init__(
         self,
         *,
@@ -593,119 +593,119 @@ class ListKnowledgeBasesRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id"]) -> None: ...
 
-global___ListKnowledgeBasesRequest = ListKnowledgeBasesRequest
+global___ListCatalogsRequest = ListCatalogsRequest
 
 @typing_extensions.final
-class ListKnowledgeBasesResponse(google.protobuf.message.Message):
-    """GetKnowledgeBasesResponse represents a response for getting all knowledge bases from users."""
+class ListCatalogsResponse(google.protobuf.message.Message):
+    """GetCatalogsResponse represents a response for getting all catalogs from users."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    KNOWLEDGE_BASES_FIELD_NUMBER: builtins.int
+    CATALOGS_FIELD_NUMBER: builtins.int
     @property
-    def knowledge_bases(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___KnowledgeBase]:
-        """The knowledge bases container."""
+    def catalogs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Catalog]:
+        """The catalogs container."""
     def __init__(
         self,
         *,
-        knowledge_bases: collections.abc.Iterable[global___KnowledgeBase] | None = ...,
+        catalogs: collections.abc.Iterable[global___Catalog] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["knowledge_bases", b"knowledge_bases"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalogs", b"catalogs"]) -> None: ...
 
-global___ListKnowledgeBasesResponse = ListKnowledgeBasesResponse
+global___ListCatalogsResponse = ListCatalogsResponse
 
 @typing_extensions.final
-class UpdateKnowledgeBaseRequest(google.protobuf.message.Message):
-    """UpdateKnowledgeBaseRequest represents a request to update a knowledge base."""
+class UpdateCatalogRequest(google.protobuf.message.Message):
+    """UpdateCatalogRequest represents a request to update a catalog."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    KB_ID_FIELD_NUMBER: builtins.int
+    CATALOG_ID_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    kb_id: builtins.str
-    """The knowledge base id."""
+    catalog_id: builtins.str
+    """The catalog id."""
     description: builtins.str
-    """The knowledge base description."""
+    """The catalog description."""
     @property
     def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The knowledge base tags."""
+        """The catalog tags."""
     namespace_id: builtins.str
-    """The knowledge base owner(namespace)."""
+    """The catalog owner(namespace)."""
     def __init__(
         self,
         *,
-        kb_id: builtins.str = ...,
+        catalog_id: builtins.str = ...,
         description: builtins.str = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
         namespace_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "kb_id", b"kb_id", "namespace_id", b"namespace_id", "tags", b"tags"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "description", b"description", "namespace_id", b"namespace_id", "tags", b"tags"]) -> None: ...
 
-global___UpdateKnowledgeBaseRequest = UpdateKnowledgeBaseRequest
+global___UpdateCatalogRequest = UpdateCatalogRequest
 
 @typing_extensions.final
-class UpdateKnowledgeBaseResponse(google.protobuf.message.Message):
-    """UpdateKnowledgeBaseResponse represents a response for updating a knowledge base."""
+class UpdateCatalogResponse(google.protobuf.message.Message):
+    """UpdateCatalogResponse represents a response for updating a catalog."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
+    CATALOG_FIELD_NUMBER: builtins.int
     @property
-    def knowledge_base(self) -> global___KnowledgeBase:
-        """The updated knowledge base."""
+    def catalog(self) -> global___Catalog:
+        """The updated catalog."""
     def __init__(
         self,
         *,
-        knowledge_base: global___KnowledgeBase | None = ...,
+        catalog: global___Catalog | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["catalog", b"catalog"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog", b"catalog"]) -> None: ...
 
-global___UpdateKnowledgeBaseResponse = UpdateKnowledgeBaseResponse
+global___UpdateCatalogResponse = UpdateCatalogResponse
 
 @typing_extensions.final
-class DeleteKnowledgeBaseRequest(google.protobuf.message.Message):
-    """DeleteKnowledgeBaseRequest represents a request to delete a knowledge base."""
+class DeleteCatalogRequest(google.protobuf.message.Message):
+    """DeleteCatalogRequest represents a request to delete a catalog."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    KB_ID_FIELD_NUMBER: builtins.int
+    CATALOG_ID_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """The owner's id. i.e. namespace."""
-    kb_id: builtins.str
-    """The knowledge base identifier."""
+    catalog_id: builtins.str
+    """The catalog id."""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
-        kb_id: builtins.str = ...,
+        catalog_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["kb_id", b"kb_id", "namespace_id", b"namespace_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "namespace_id", b"namespace_id"]) -> None: ...
 
-global___DeleteKnowledgeBaseRequest = DeleteKnowledgeBaseRequest
+global___DeleteCatalogRequest = DeleteCatalogRequest
 
 @typing_extensions.final
-class DeleteKnowledgeBaseResponse(google.protobuf.message.Message):
-    """DeleteKnowledgeBaseResponse represents a response for deleting a knowledge base."""
+class DeleteCatalogResponse(google.protobuf.message.Message):
+    """DeleteCatalogResponse represents a response for deleting a catalog."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
+    CATALOG_FIELD_NUMBER: builtins.int
     @property
-    def knowledge_base(self) -> global___KnowledgeBase:
-        """The knowledge base identifier."""
+    def catalog(self) -> global___Catalog:
+        """The catalog identifier."""
     def __init__(
         self,
         *,
-        knowledge_base: global___KnowledgeBase | None = ...,
+        catalog: global___Catalog | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["catalog", b"catalog"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog", b"catalog"]) -> None: ...
 
-global___DeleteKnowledgeBaseResponse = DeleteKnowledgeBaseResponse
+global___DeleteCatalogResponse = DeleteCatalogResponse
 
 @typing_extensions.final
 class File(google.protobuf.message.Message):
@@ -722,7 +722,7 @@ class File(google.protobuf.message.Message):
     CONTENT_FIELD_NUMBER: builtins.int
     OWNER_UID_FIELD_NUMBER: builtins.int
     CREATOR_UID_FIELD_NUMBER: builtins.int
-    KB_UID_FIELD_NUMBER: builtins.int
+    CATALOG_UID_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     DELETE_TIME_FIELD_NUMBER: builtins.int
@@ -744,11 +744,11 @@ class File(google.protobuf.message.Message):
     content: builtins.str
     """contect(this is reserved for future use)"""
     owner_uid: builtins.str
-    """owner uid"""
+    """owner/namespaceuid"""
     creator_uid: builtins.str
     """cretor uid from authn token"""
-    kb_uid: builtins.str
-    """knowledge base uid"""
+    catalog_uid: builtins.str
+    """catalog uid"""
     @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """create time"""
@@ -776,7 +776,7 @@ class File(google.protobuf.message.Message):
         content: builtins.str = ...,
         owner_uid: builtins.str = ...,
         creator_uid: builtins.str = ...,
-        kb_uid: builtins.str = ...,
+        catalog_uid: builtins.str = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
@@ -785,23 +785,23 @@ class File(google.protobuf.message.Message):
         total_tokens: builtins.int = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "delete_time", b"delete_time", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["content", b"content", "create_time", b"create_time", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "file_uid", b"file_uid", "kb_uid", b"kb_uid", "name", b"name", "owner_uid", b"owner_uid", "process_outcome", b"process_outcome", "process_status", b"process_status", "retrievable", b"retrievable", "size", b"size", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_uid", b"catalog_uid", "content", b"content", "create_time", b"create_time", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "file_uid", b"file_uid", "name", b"name", "owner_uid", b"owner_uid", "process_outcome", b"process_outcome", "process_status", b"process_status", "retrievable", b"retrievable", "size", b"size", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time"]) -> None: ...
 
 global___File = File
 
 @typing_extensions.final
-class UploadKnowledgeBaseFileRequest(google.protobuf.message.Message):
+class UploadCatalogFileRequest(google.protobuf.message.Message):
     """upload file request"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    KB_ID_FIELD_NUMBER: builtins.int
+    CATALOG_ID_FIELD_NUMBER: builtins.int
     FILE_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """owenr uid"""
-    kb_id: builtins.str
-    """knowledge base uid"""
+    """owner/namespace uid"""
+    catalog_id: builtins.str
+    """catalog id"""
     @property
     def file(self) -> global___File:
         """file"""
@@ -809,16 +809,16 @@ class UploadKnowledgeBaseFileRequest(google.protobuf.message.Message):
         self,
         *,
         namespace_id: builtins.str = ...,
-        kb_id: builtins.str = ...,
+        catalog_id: builtins.str = ...,
         file: global___File | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["file", b"file"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["file", b"file", "kb_id", b"kb_id", "namespace_id", b"namespace_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "file", b"file", "namespace_id", b"namespace_id"]) -> None: ...
 
-global___UploadKnowledgeBaseFileRequest = UploadKnowledgeBaseFileRequest
+global___UploadCatalogFileRequest = UploadCatalogFileRequest
 
 @typing_extensions.final
-class UploadKnowledgeBaseFileResponse(google.protobuf.message.Message):
+class UploadCatalogFileResponse(google.protobuf.message.Message):
     """upload file response"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -835,10 +835,10 @@ class UploadKnowledgeBaseFileResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing_extensions.Literal["file", b"file"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["file", b"file"]) -> None: ...
 
-global___UploadKnowledgeBaseFileResponse = UploadKnowledgeBaseFileResponse
+global___UploadCatalogFileResponse = UploadCatalogFileResponse
 
 @typing_extensions.final
-class DeleteKnowledgeBaseFileRequest(google.protobuf.message.Message):
+class DeleteCatalogFileRequest(google.protobuf.message.Message):
     """delete file request"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -853,10 +853,10 @@ class DeleteKnowledgeBaseFileRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["file_uid", b"file_uid"]) -> None: ...
 
-global___DeleteKnowledgeBaseFileRequest = DeleteKnowledgeBaseFileRequest
+global___DeleteCatalogFileRequest = DeleteCatalogFileRequest
 
 @typing_extensions.final
-class DeleteKnowledgeBaseFileResponse(google.protobuf.message.Message):
+class DeleteCatalogFileResponse(google.protobuf.message.Message):
     """delete file response"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -871,11 +871,11 @@ class DeleteKnowledgeBaseFileResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["file_uid", b"file_uid"]) -> None: ...
 
-global___DeleteKnowledgeBaseFileResponse = DeleteKnowledgeBaseFileResponse
+global___DeleteCatalogFileResponse = DeleteCatalogFileResponse
 
 @typing_extensions.final
-class ProcessKnowledgeBaseFilesRequest(google.protobuf.message.Message):
-    """Process KnowledgeBase File Request"""
+class ProcessCatalogFilesRequest(google.protobuf.message.Message):
+    """Process Catalog File Request"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -890,11 +890,11 @@ class ProcessKnowledgeBaseFilesRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["file_uids", b"file_uids"]) -> None: ...
 
-global___ProcessKnowledgeBaseFilesRequest = ProcessKnowledgeBaseFilesRequest
+global___ProcessCatalogFilesRequest = ProcessCatalogFilesRequest
 
 @typing_extensions.final
-class ProcessKnowledgeBaseFilesResponse(google.protobuf.message.Message):
-    """Process KnowledgeBase File Response"""
+class ProcessCatalogFilesResponse(google.protobuf.message.Message):
+    """Process Catalog File Response"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -909,10 +909,10 @@ class ProcessKnowledgeBaseFilesResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["files", b"files"]) -> None: ...
 
-global___ProcessKnowledgeBaseFilesResponse = ProcessKnowledgeBaseFilesResponse
+global___ProcessCatalogFilesResponse = ProcessCatalogFilesResponse
 
 @typing_extensions.final
-class ListKnowledgeBaseFilesFilter(google.protobuf.message.Message):
+class ListCatalogFilesFilter(google.protobuf.message.Message):
     """list file filter
     todo: support more parameters
     """
@@ -930,46 +930,46 @@ class ListKnowledgeBaseFilesFilter(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["file_uids", b"file_uids"]) -> None: ...
 
-global___ListKnowledgeBaseFilesFilter = ListKnowledgeBaseFilesFilter
+global___ListCatalogFilesFilter = ListCatalogFilesFilter
 
 @typing_extensions.final
-class ListKnowledgeBaseFilesRequest(google.protobuf.message.Message):
+class ListCatalogFilesRequest(google.protobuf.message.Message):
     """list files request"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    KB_ID_FIELD_NUMBER: builtins.int
+    CATALOG_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """The owner uid."""
-    kb_id: builtins.str
-    """The knowledge base uid."""
+    """The owner/namespaceuid id."""
+    catalog_id: builtins.str
+    """The catalog id."""
     page_size: builtins.int
     """The page size (default:10; max 100)."""
     page_token: builtins.str
     """The next page token(default from first file's token)."""
     @property
-    def filter(self) -> global___ListKnowledgeBaseFilesFilter:
+    def filter(self) -> global___ListCatalogFilesFilter:
         """The filter."""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
-        kb_id: builtins.str = ...,
+        catalog_id: builtins.str = ...,
         page_size: builtins.int = ...,
         page_token: builtins.str = ...,
-        filter: global___ListKnowledgeBaseFilesFilter | None = ...,
+        filter: global___ListCatalogFilesFilter | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["filter", b"filter"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "kb_id", b"kb_id", "namespace_id", b"namespace_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "filter", b"filter", "namespace_id", b"namespace_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
 
-global___ListKnowledgeBaseFilesRequest = ListKnowledgeBaseFilesRequest
+global___ListCatalogFilesRequest = ListCatalogFilesRequest
 
 @typing_extensions.final
-class ListKnowledgeBaseFilesResponse(google.protobuf.message.Message):
+class ListCatalogFilesResponse(google.protobuf.message.Message):
     """list files response"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -989,7 +989,7 @@ class ListKnowledgeBaseFilesResponse(google.protobuf.message.Message):
     next_page_token: builtins.str
     """next page token"""
     @property
-    def filter(self) -> global___ListKnowledgeBaseFilesFilter:
+    def filter(self) -> global___ListCatalogFilesFilter:
         """The filter."""
     def __init__(
         self,
@@ -998,9 +998,9 @@ class ListKnowledgeBaseFilesResponse(google.protobuf.message.Message):
         total_size: builtins.int = ...,
         page_size: builtins.int = ...,
         next_page_token: builtins.str = ...,
-        filter: global___ListKnowledgeBaseFilesFilter | None = ...,
+        filter: global___ListCatalogFilesFilter | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["filter", b"filter"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["files", b"files", "filter", b"filter", "next_page_token", b"next_page_token", "page_size", b"page_size", "total_size", b"total_size"]) -> None: ...
 
-global___ListKnowledgeBaseFilesResponse = ListKnowledgeBaseFilesResponse
+global___ListCatalogFilesResponse = ListCatalogFilesResponse

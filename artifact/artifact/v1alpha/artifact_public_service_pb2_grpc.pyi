@@ -40,44 +40,44 @@ class ArtifactPublicServiceStub:
 
     See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
     """
-    CreateKnowledgeBase: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.CreateKnowledgeBaseRequest,
-        artifact.artifact.v1alpha.artifact_pb2.CreateKnowledgeBaseResponse,
+    CreateCatalog: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.CreateCatalogRequest,
+        artifact.artifact.v1alpha.artifact_pb2.CreateCatalogResponse,
     ]
-    """Create a knowledge base"""
-    ListKnowledgeBases: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBasesRequest,
-        artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBasesResponse,
+    """Create a catalog"""
+    ListCatalogs: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.ListCatalogsRequest,
+        artifact.artifact.v1alpha.artifact_pb2.ListCatalogsResponse,
     ]
-    """Get all knowledge bases info"""
-    UpdateKnowledgeBase: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.UpdateKnowledgeBaseRequest,
-        artifact.artifact.v1alpha.artifact_pb2.UpdateKnowledgeBaseResponse,
+    """Get all catalogs info"""
+    UpdateCatalog: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.UpdateCatalogRequest,
+        artifact.artifact.v1alpha.artifact_pb2.UpdateCatalogResponse,
     ]
-    """Update a knowledge base info"""
-    DeleteKnowledgeBase: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseRequest,
-        artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseResponse,
+    """Update a catalog info"""
+    DeleteCatalog: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogRequest,
+        artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogResponse,
     ]
-    """Delete a knowledge base"""
-    UploadKnowledgeBaseFile: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.UploadKnowledgeBaseFileRequest,
-        artifact.artifact.v1alpha.artifact_pb2.UploadKnowledgeBaseFileResponse,
+    """Delete a catalog"""
+    UploadCatalogFile: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.UploadCatalogFileRequest,
+        artifact.artifact.v1alpha.artifact_pb2.UploadCatalogFileResponse,
     ]
     """Create a file"""
-    DeleteKnowledgeBaseFile: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseFileRequest,
-        artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseFileResponse,
+    DeleteCatalogFile: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileRequest,
+        artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileResponse,
     ]
     """Delete a file"""
-    ProcessKnowledgeBaseFiles: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.ProcessKnowledgeBaseFilesRequest,
-        artifact.artifact.v1alpha.artifact_pb2.ProcessKnowledgeBaseFilesResponse,
+    ProcessCatalogFiles: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.ProcessCatalogFilesRequest,
+        artifact.artifact.v1alpha.artifact_pb2.ProcessCatalogFilesResponse,
     ]
     """process file"""
-    ListKnowledgeBaseFiles: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseFilesRequest,
-        artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseFilesResponse,
+    ListCatalogFiles: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.ListCatalogFilesRequest,
+        artifact.artifact.v1alpha.artifact_pb2.ListCatalogFilesResponse,
     ]
     """list files"""
     ListChunks: grpc.UnaryUnaryMultiCallable[
@@ -122,44 +122,44 @@ class ArtifactPublicServiceAsyncStub:
 
     See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
     """
-    CreateKnowledgeBase: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.CreateKnowledgeBaseRequest,
-        artifact.artifact.v1alpha.artifact_pb2.CreateKnowledgeBaseResponse,
+    CreateCatalog: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.CreateCatalogRequest,
+        artifact.artifact.v1alpha.artifact_pb2.CreateCatalogResponse,
     ]
-    """Create a knowledge base"""
-    ListKnowledgeBases: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBasesRequest,
-        artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBasesResponse,
+    """Create a catalog"""
+    ListCatalogs: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.ListCatalogsRequest,
+        artifact.artifact.v1alpha.artifact_pb2.ListCatalogsResponse,
     ]
-    """Get all knowledge bases info"""
-    UpdateKnowledgeBase: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.UpdateKnowledgeBaseRequest,
-        artifact.artifact.v1alpha.artifact_pb2.UpdateKnowledgeBaseResponse,
+    """Get all catalogs info"""
+    UpdateCatalog: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.UpdateCatalogRequest,
+        artifact.artifact.v1alpha.artifact_pb2.UpdateCatalogResponse,
     ]
-    """Update a knowledge base info"""
-    DeleteKnowledgeBase: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseRequest,
-        artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseResponse,
+    """Update a catalog info"""
+    DeleteCatalog: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogRequest,
+        artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogResponse,
     ]
-    """Delete a knowledge base"""
-    UploadKnowledgeBaseFile: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.UploadKnowledgeBaseFileRequest,
-        artifact.artifact.v1alpha.artifact_pb2.UploadKnowledgeBaseFileResponse,
+    """Delete a catalog"""
+    UploadCatalogFile: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.UploadCatalogFileRequest,
+        artifact.artifact.v1alpha.artifact_pb2.UploadCatalogFileResponse,
     ]
     """Create a file"""
-    DeleteKnowledgeBaseFile: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseFileRequest,
-        artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseFileResponse,
+    DeleteCatalogFile: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileRequest,
+        artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileResponse,
     ]
     """Delete a file"""
-    ProcessKnowledgeBaseFiles: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.ProcessKnowledgeBaseFilesRequest,
-        artifact.artifact.v1alpha.artifact_pb2.ProcessKnowledgeBaseFilesResponse,
+    ProcessCatalogFiles: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.ProcessCatalogFilesRequest,
+        artifact.artifact.v1alpha.artifact_pb2.ProcessCatalogFilesResponse,
     ]
     """process file"""
-    ListKnowledgeBaseFiles: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseFilesRequest,
-        artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseFilesResponse,
+    ListCatalogFiles: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.ListCatalogFilesRequest,
+        artifact.artifact.v1alpha.artifact_pb2.ListCatalogFilesResponse,
     ]
     """list files"""
     ListChunks: grpc.aio.UnaryUnaryMultiCallable[
@@ -209,60 +209,60 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
         """
     @abc.abstractmethod
-    def CreateKnowledgeBase(
+    def CreateCatalog(
         self,
-        request: artifact.artifact.v1alpha.artifact_pb2.CreateKnowledgeBaseRequest,
+        request: artifact.artifact.v1alpha.artifact_pb2.CreateCatalogRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.CreateKnowledgeBaseResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.CreateKnowledgeBaseResponse]]:
-        """Create a knowledge base"""
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.CreateCatalogResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.CreateCatalogResponse]]:
+        """Create a catalog"""
     @abc.abstractmethod
-    def ListKnowledgeBases(
+    def ListCatalogs(
         self,
-        request: artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBasesRequest,
+        request: artifact.artifact.v1alpha.artifact_pb2.ListCatalogsRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBasesResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBasesResponse]]:
-        """Get all knowledge bases info"""
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.ListCatalogsResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.ListCatalogsResponse]]:
+        """Get all catalogs info"""
     @abc.abstractmethod
-    def UpdateKnowledgeBase(
+    def UpdateCatalog(
         self,
-        request: artifact.artifact.v1alpha.artifact_pb2.UpdateKnowledgeBaseRequest,
+        request: artifact.artifact.v1alpha.artifact_pb2.UpdateCatalogRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.UpdateKnowledgeBaseResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.UpdateKnowledgeBaseResponse]]:
-        """Update a knowledge base info"""
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.UpdateCatalogResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.UpdateCatalogResponse]]:
+        """Update a catalog info"""
     @abc.abstractmethod
-    def DeleteKnowledgeBase(
+    def DeleteCatalog(
         self,
-        request: artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseRequest,
+        request: artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseResponse]]:
-        """Delete a knowledge base"""
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogResponse]]:
+        """Delete a catalog"""
     @abc.abstractmethod
-    def UploadKnowledgeBaseFile(
+    def UploadCatalogFile(
         self,
-        request: artifact.artifact.v1alpha.artifact_pb2.UploadKnowledgeBaseFileRequest,
+        request: artifact.artifact.v1alpha.artifact_pb2.UploadCatalogFileRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.UploadKnowledgeBaseFileResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.UploadKnowledgeBaseFileResponse]]:
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.UploadCatalogFileResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.UploadCatalogFileResponse]]:
         """Create a file"""
     @abc.abstractmethod
-    def DeleteKnowledgeBaseFile(
+    def DeleteCatalogFile(
         self,
-        request: artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseFileRequest,
+        request: artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseFileResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.DeleteKnowledgeBaseFileResponse]]:
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileResponse]]:
         """Delete a file"""
     @abc.abstractmethod
-    def ProcessKnowledgeBaseFiles(
+    def ProcessCatalogFiles(
         self,
-        request: artifact.artifact.v1alpha.artifact_pb2.ProcessKnowledgeBaseFilesRequest,
+        request: artifact.artifact.v1alpha.artifact_pb2.ProcessCatalogFilesRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.ProcessKnowledgeBaseFilesResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.ProcessKnowledgeBaseFilesResponse]]:
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.ProcessCatalogFilesResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.ProcessCatalogFilesResponse]]:
         """process file"""
     @abc.abstractmethod
-    def ListKnowledgeBaseFiles(
+    def ListCatalogFiles(
         self,
-        request: artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseFilesRequest,
+        request: artifact.artifact.v1alpha.artifact_pb2.ListCatalogFilesRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseFilesResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseFilesResponse]]:
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.ListCatalogFilesResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.ListCatalogFilesResponse]]:
         """list files"""
     @abc.abstractmethod
     def ListChunks(

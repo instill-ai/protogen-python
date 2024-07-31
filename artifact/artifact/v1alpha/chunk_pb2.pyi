@@ -68,22 +68,22 @@ class ListChunksRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    KB_ID_FIELD_NUMBER: builtins.int
+    CATALOG_ID_FIELD_NUMBER: builtins.int
     FILE_UID_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """owner id (not uid)"""
-    kb_id: builtins.str
-    """knowledge base name (not uid)"""
+    """owner/namespace id (not uid)"""
+    catalog_id: builtins.str
+    """catalog id (not uid)"""
     file_uid: builtins.str
     """unique identifier of the file"""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
-        kb_id: builtins.str = ...,
+        catalog_id: builtins.str = ...,
         file_uid: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["file_uid", b"file_uid", "kb_id", b"kb_id", "namespace_id", b"namespace_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "file_uid", b"file_uid", "namespace_id", b"namespace_id"]) -> None: ...
 
 global___ListChunksRequest = ListChunksRequest
 
@@ -146,22 +146,22 @@ class GetSourceFileRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    KB_ID_FIELD_NUMBER: builtins.int
+    CATALOG_ID_FIELD_NUMBER: builtins.int
     FILE_UID_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """owner id"""
-    kb_id: builtins.str
-    """knowledge base name"""
+    """owner/namespace id"""
+    catalog_id: builtins.str
+    """catalog id"""
     file_uid: builtins.str
     """unique identifier of the original uploaded file"""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
-        kb_id: builtins.str = ...,
+        catalog_id: builtins.str = ...,
         file_uid: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["file_uid", b"file_uid", "kb_id", b"kb_id", "namespace_id", b"namespace_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "file_uid", b"file_uid", "namespace_id", b"namespace_id"]) -> None: ...
 
 global___GetSourceFileRequest = GetSourceFileRequest
 
@@ -234,13 +234,13 @@ class SimilarityChunksSearchRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    KB_ID_FIELD_NUMBER: builtins.int
+    CATALOG_ID_FIELD_NUMBER: builtins.int
     TEXT_PROMPT_FIELD_NUMBER: builtins.int
     TOPK_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """owner id"""
-    kb_id: builtins.str
-    """knowledge base name"""
+    """owner/namespace id"""
+    catalog_id: builtins.str
+    """catalog id"""
     text_prompt: builtins.str
     """text prompt"""
     topk: builtins.int
@@ -249,11 +249,11 @@ class SimilarityChunksSearchRequest(google.protobuf.message.Message):
         self,
         *,
         namespace_id: builtins.str = ...,
-        kb_id: builtins.str = ...,
+        catalog_id: builtins.str = ...,
         text_prompt: builtins.str = ...,
         topk: builtins.int = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["kb_id", b"kb_id", "namespace_id", b"namespace_id", "text_prompt", b"text_prompt", "topk", b"topk"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "namespace_id", b"namespace_id", "text_prompt", b"text_prompt", "topk", b"topk"]) -> None: ...
 
 global___SimilarityChunksSearchRequest = SimilarityChunksSearchRequest
 
@@ -291,7 +291,7 @@ class SimilarityChunk(google.protobuf.message.Message):
     similarity_score: builtins.float
     """similarity score"""
     text_content: builtins.str
-    """chunk"""
+    """content"""
     source_file: builtins.str
     """source file"""
     def __init__(
