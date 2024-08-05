@@ -5,6 +5,8 @@ isort:skip_file
 import abc
 import artifact.artifact.v1alpha.artifact_pb2
 import artifact.artifact.v1alpha.chunk_pb2
+import artifact.artifact.v1alpha.file_catalog_pb2
+import artifact.artifact.v1alpha.qa_pb2
 import collections.abc
 import grpc
 import grpc.aio
@@ -100,6 +102,16 @@ class ArtifactPublicServiceStub:
         artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchResponse,
     ]
     """Similarity chunks search"""
+    QuestionAnswering: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringRequest,
+        artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringResponse,
+    ]
+    """Question Answering"""
+    GetFileCatalog: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogRequest,
+        artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogResponse,
+    ]
+    """Get file catalog"""
 
 class ArtifactPublicServiceAsyncStub:
     """ArtifactPublicService exposes the public endpoints that allow clients to
@@ -182,6 +194,16 @@ class ArtifactPublicServiceAsyncStub:
         artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchResponse,
     ]
     """Similarity chunks search"""
+    QuestionAnswering: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringRequest,
+        artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringResponse,
+    ]
+    """Question Answering"""
+    GetFileCatalog: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogRequest,
+        artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogResponse,
+    ]
+    """Get file catalog"""
 
 class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
     """ArtifactPublicService exposes the public endpoints that allow clients to
@@ -292,5 +314,19 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchResponse]]:
         """Similarity chunks search"""
+    @abc.abstractmethod
+    def QuestionAnswering(
+        self,
+        request: artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringResponse]]:
+        """Question Answering"""
+    @abc.abstractmethod
+    def GetFileCatalog(
+        self,
+        request: artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogResponse]]:
+        """Get file catalog"""
 
 def add_ArtifactPublicServiceServicer_to_server(servicer: ArtifactPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

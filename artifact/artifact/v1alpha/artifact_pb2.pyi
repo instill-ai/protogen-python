@@ -31,17 +31,17 @@ class _FileProcessStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapp
     FILE_PROCESS_STATUS_NOTSTARTED: _FileProcessStatus.ValueType  # 1
     """NOTSTARTED"""
     FILE_PROCESS_STATUS_WAITING: _FileProcessStatus.ValueType  # 2
-    """waiting"""
+    """file is waiting for embedding process"""
     FILE_PROCESS_STATUS_CONVERTING: _FileProcessStatus.ValueType  # 3
-    """embedding process is running"""
+    """file is converting"""
     FILE_PROCESS_STATUS_CHUNKING: _FileProcessStatus.ValueType  # 4
-    """embedding process is done"""
+    """file is chunking"""
     FILE_PROCESS_STATUS_EMBEDDING: _FileProcessStatus.ValueType  # 5
-    """embedding process is failed"""
+    """file is embedding"""
     FILE_PROCESS_STATUS_COMPLETED: _FileProcessStatus.ValueType  # 6
-    """COMPLETED"""
+    """completed"""
     FILE_PROCESS_STATUS_FAILED: _FileProcessStatus.ValueType  # 7
-    """Failed"""
+    """failed"""
 
 class FileProcessStatus(_FileProcessStatus, metaclass=_FileProcessStatusEnumTypeWrapper):
     """file embedding process status"""
@@ -51,17 +51,17 @@ FILE_PROCESS_STATUS_UNSPECIFIED: FileProcessStatus.ValueType  # 0
 FILE_PROCESS_STATUS_NOTSTARTED: FileProcessStatus.ValueType  # 1
 """NOTSTARTED"""
 FILE_PROCESS_STATUS_WAITING: FileProcessStatus.ValueType  # 2
-"""waiting"""
+"""file is waiting for embedding process"""
 FILE_PROCESS_STATUS_CONVERTING: FileProcessStatus.ValueType  # 3
-"""embedding process is running"""
+"""file is converting"""
 FILE_PROCESS_STATUS_CHUNKING: FileProcessStatus.ValueType  # 4
-"""embedding process is done"""
+"""file is chunking"""
 FILE_PROCESS_STATUS_EMBEDDING: FileProcessStatus.ValueType  # 5
-"""embedding process is failed"""
+"""file is embedding"""
 FILE_PROCESS_STATUS_COMPLETED: FileProcessStatus.ValueType  # 6
-"""COMPLETED"""
+"""completed"""
 FILE_PROCESS_STATUS_FAILED: FileProcessStatus.ValueType  # 7
-"""Failed"""
+"""failed"""
 global___FileProcessStatus = FileProcessStatus
 
 class _FileType:
@@ -84,6 +84,16 @@ class _FileTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumT
     """JPEG"""
     FILE_TYPE_JPG: _FileType.ValueType  # 6
     """JPG"""
+    FILE_TYPE_HTML: _FileType.ValueType  # 7
+    """HTML"""
+    FILE_TYPE_DOCX: _FileType.ValueType  # 8
+    """DOCX"""
+    FILE_TYPE_DOC: _FileType.ValueType  # 9
+    """DOC"""
+    FILE_TYPE_PPT: _FileType.ValueType  # 10
+    """PPT"""
+    FILE_TYPE_PPTX: _FileType.ValueType  # 11
+    """PPTX"""
 
 class FileType(_FileType, metaclass=_FileTypeEnumTypeWrapper):
     """file type"""
@@ -102,6 +112,16 @@ FILE_TYPE_JPEG: FileType.ValueType  # 5
 """JPEG"""
 FILE_TYPE_JPG: FileType.ValueType  # 6
 """JPG"""
+FILE_TYPE_HTML: FileType.ValueType  # 7
+"""HTML"""
+FILE_TYPE_DOCX: FileType.ValueType  # 8
+"""DOCX"""
+FILE_TYPE_DOC: FileType.ValueType  # 9
+"""DOC"""
+FILE_TYPE_PPT: FileType.ValueType  # 10
+"""PPT"""
+FILE_TYPE_PPTX: FileType.ValueType  # 11
+"""PPTX"""
 global___FileType = FileType
 
 @typing_extensions.final
