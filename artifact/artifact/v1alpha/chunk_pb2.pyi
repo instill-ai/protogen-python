@@ -236,24 +236,24 @@ class SimilarityChunksSearchRequest(google.protobuf.message.Message):
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     CATALOG_ID_FIELD_NUMBER: builtins.int
     TEXT_PROMPT_FIELD_NUMBER: builtins.int
-    TOPK_FIELD_NUMBER: builtins.int
+    TOP_K_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """owner/namespace id"""
     catalog_id: builtins.str
     """catalog id"""
     text_prompt: builtins.str
     """text prompt"""
-    topk: builtins.int
-    """topk"""
+    top_k: builtins.int
+    """top k"""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         catalog_id: builtins.str = ...,
         text_prompt: builtins.str = ...,
-        topk: builtins.int = ...,
+        top_k: builtins.int = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "namespace_id", b"namespace_id", "text_prompt", b"text_prompt", "topk", b"topk"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "namespace_id", b"namespace_id", "text_prompt", b"text_prompt", "top_k", b"top_k"]) -> None: ...
 
 global___SimilarityChunksSearchRequest = SimilarityChunksSearchRequest
 
