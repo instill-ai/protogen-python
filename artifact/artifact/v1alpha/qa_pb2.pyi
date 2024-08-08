@@ -26,24 +26,24 @@ class QuestionAnsweringRequest(google.protobuf.message.Message):
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     CATALOG_ID_FIELD_NUMBER: builtins.int
     QUESTION_FIELD_NUMBER: builtins.int
-    TOPK_FIELD_NUMBER: builtins.int
+    TOP_K_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """id of the namespace"""
     catalog_id: builtins.str
     """id of the catalog"""
     question: builtins.str
     """question to be answered"""
-    topk: builtins.int
-    """topk default to 5"""
+    top_k: builtins.int
+    """top k default to 5"""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         catalog_id: builtins.str = ...,
         question: builtins.str = ...,
-        topk: builtins.int = ...,
+        top_k: builtins.int = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "namespace_id", b"namespace_id", "question", b"question", "topk", b"topk"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "namespace_id", b"namespace_id", "question", b"question", "top_k", b"top_k"]) -> None: ...
 
 global___QuestionAnsweringRequest = QuestionAnsweringRequest
 
