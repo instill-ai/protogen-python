@@ -215,9 +215,12 @@ class GetFileCatalogResponse(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["content", b"content", "create_time", b"create_time", "embedding", b"embedding", "end_pos", b"end_pos", "retrievable", b"retrievable", "start_pos", b"start_pos", "tokens_num", b"tokens_num", "type", b"type", "uid", b"uid"]) -> None: ...
 
+    ORIGINAL_DATA_FIELD_NUMBER: builtins.int
     METADATA_FIELD_NUMBER: builtins.int
     TEXT_FIELD_NUMBER: builtins.int
     CHUNKS_FIELD_NUMBER: builtins.int
+    original_data: builtins.str
+    """original data is encoded in base64"""
     @property
     def metadata(self) -> global___GetFileCatalogResponse.Metadata:
         """file catalog"""
@@ -230,11 +233,12 @@ class GetFileCatalogResponse(google.protobuf.message.Message):
     def __init__(
         self,
         *,
+        original_data: builtins.str = ...,
         metadata: global___GetFileCatalogResponse.Metadata | None = ...,
         text: global___GetFileCatalogResponse.Text | None = ...,
         chunks: collections.abc.Iterable[global___GetFileCatalogResponse.Chunk] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["metadata", b"metadata", "text", b"text"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["chunks", b"chunks", "metadata", b"metadata", "text", b"text"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chunks", b"chunks", "metadata", b"metadata", "original_data", b"original_data", "text", b"text"]) -> None: ...
 
 global___GetFileCatalogResponse = GetFileCatalogResponse
