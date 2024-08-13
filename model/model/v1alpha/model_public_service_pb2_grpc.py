@@ -304,6 +304,11 @@ class ModelPublicServiceStub(object):
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationLatestModelOperationRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationLatestModelOperationResponse.FromString,
                 )
+        self.ListModelTriggers = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/ListModelTriggers',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsResponse.FromString,
+                )
 
 
 class ModelPublicServiceServicer(object):
@@ -904,6 +909,15 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListModelTriggers(self, request, context):
+        """List model runs
+
+        Returns a paginated list of model runs.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ModelPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -1191,6 +1205,11 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     servicer.GetOrganizationLatestModelOperation,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationLatestModelOperationRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationLatestModelOperationResponse.SerializeToString,
+            ),
+            'ListModelTriggers': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListModelTriggers,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -2172,5 +2191,22 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/GetOrganizationLatestModelOperation',
             model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationLatestModelOperationRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationLatestModelOperationResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListModelTriggers(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/ListModelTriggers',
+            model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -9,6 +9,7 @@ import common.task.v1alpha.task_pb2
 import core.mgmt.v1beta.mgmt_pb2
 import google.longrunning.operations_pb2
 import google.protobuf.descriptor
+import google.protobuf.duration_pb2
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
@@ -3640,3 +3641,240 @@ class UndeployOrganizationModelAdminResponse(google.protobuf.message.Message):
     ) -> None: ...
 
 global___UndeployOrganizationModelAdminResponse = UndeployOrganizationModelAdminResponse
+
+@typing_extensions.final
+class ModelRun(google.protobuf.message.Message):
+    """ModelRun contains information about a run of models."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    class _RunStatus:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _RunStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ModelRun._RunStatus.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        RUN_STATUS_UNSPECIFIED: ModelRun._RunStatus.ValueType  # 0
+        """Unspecified."""
+        RUN_STATUS_PROCESSING: ModelRun._RunStatus.ValueType  # 1
+        """Model run in progress."""
+        RUN_STATUS_COMPLETED: ModelRun._RunStatus.ValueType  # 2
+        """Model run succeeded."""
+        RUN_STATUS_FAILED: ModelRun._RunStatus.ValueType  # 3
+        """Model run failed."""
+        RUN_STATUS_QUEUED: ModelRun._RunStatus.ValueType  # 4
+        """Model run is waiting to be executed."""
+
+    class RunStatus(_RunStatus, metaclass=_RunStatusEnumTypeWrapper):
+        """RunStatus defines the status of a model run."""
+
+    RUN_STATUS_UNSPECIFIED: ModelRun.RunStatus.ValueType  # 0
+    """Unspecified."""
+    RUN_STATUS_PROCESSING: ModelRun.RunStatus.ValueType  # 1
+    """Model run in progress."""
+    RUN_STATUS_COMPLETED: ModelRun.RunStatus.ValueType  # 2
+    """Model run succeeded."""
+    RUN_STATUS_FAILED: ModelRun.RunStatus.ValueType  # 3
+    """Model run failed."""
+    RUN_STATUS_QUEUED: ModelRun.RunStatus.ValueType  # 4
+    """Model run is waiting to be executed."""
+
+    class _RunSource:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _RunSourceEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ModelRun._RunSource.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        RUN_SOURCE_UNSPECIFIED: ModelRun._RunSource.ValueType  # 0
+        """Unspecified."""
+        RUN_SOURCE_CONSOLE: ModelRun._RunSource.ValueType  # 1
+        """Model run from frontend UI."""
+        RUN_SOURCE_API: ModelRun._RunSource.ValueType  # 2
+        """Model run from API or SDK."""
+
+    class RunSource(_RunSource, metaclass=_RunSourceEnumTypeWrapper):
+        """RunSource defines the source of a model run."""
+
+    RUN_SOURCE_UNSPECIFIED: ModelRun.RunSource.ValueType  # 0
+    """Unspecified."""
+    RUN_SOURCE_CONSOLE: ModelRun.RunSource.ValueType  # 1
+    """Model run from frontend UI."""
+    RUN_SOURCE_API: ModelRun.RunSource.ValueType  # 2
+    """Model run from API or SDK."""
+
+    UID_FIELD_NUMBER: builtins.int
+    MODEL_UID_FIELD_NUMBER: builtins.int
+    STATUS_FIELD_NUMBER: builtins.int
+    SOURCE_FIELD_NUMBER: builtins.int
+    TOTAL_DURATION_FIELD_NUMBER: builtins.int
+    END_TIME_FIELD_NUMBER: builtins.int
+    REQUESTER_ID_FIELD_NUMBER: builtins.int
+    CREDIT_AMOUNT_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    CREATE_TIME_FIELD_NUMBER: builtins.int
+    UPDATE_TIME_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
+    TASK_INPUTS_FIELD_NUMBER: builtins.int
+    TASK_OUTPUTS_FIELD_NUMBER: builtins.int
+    uid: builtins.str
+    """Model Run UUID."""
+    model_uid: builtins.str
+    """Model UUID."""
+    status: global___ModelRun.RunStatus.ValueType
+    """Model run status."""
+    source: global___ModelRun.RunSource.ValueType
+    """Run source."""
+    @property
+    def total_duration(self) -> google.protobuf.duration_pb2.Duration:
+        """Run total duration."""
+    @property
+    def end_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Run end time."""
+    requester_id: builtins.str
+    """Run requester ID."""
+    credit_amount: builtins.float
+    """The amount of Instill Credit consumed by the run. This field will only be present on Instill Cloud."""
+    error: builtins.str
+    """Error message occurred during model run."""
+    @property
+    def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Model run created time."""
+    @property
+    def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Model run updated time."""
+    version: builtins.str
+    """The model version identifier, which is same as image tag."""
+    @property
+    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Model inference input."""
+    @property
+    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Model inference outputs."""
+    def __init__(
+        self,
+        *,
+        uid: builtins.str = ...,
+        model_uid: builtins.str = ...,
+        status: global___ModelRun.RunStatus.ValueType = ...,
+        source: global___ModelRun.RunSource.ValueType = ...,
+        total_duration: google.protobuf.duration_pb2.Duration | None = ...,
+        end_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        requester_id: builtins.str = ...,
+        credit_amount: builtins.float | None = ...,
+        error: builtins.str | None = ...,
+        create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        version: builtins.str = ...,
+        task_inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
+        task_outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_credit_amount", b"_credit_amount", "_end_time", b"_end_time", "_error", b"_error", "_total_duration", b"_total_duration", "create_time", b"create_time", "credit_amount", b"credit_amount", "end_time", b"end_time", "error", b"error", "total_duration", b"total_duration", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_credit_amount", b"_credit_amount", "_end_time", b"_end_time", "_error", b"_error", "_total_duration", b"_total_duration", "create_time", b"create_time", "credit_amount", b"credit_amount", "end_time", b"end_time", "error", b"error", "model_uid", b"model_uid", "requester_id", b"requester_id", "source", b"source", "status", b"status", "task_inputs", b"task_inputs", "task_outputs", b"task_outputs", "total_duration", b"total_duration", "uid", b"uid", "update_time", b"update_time", "version", b"version"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_credit_amount", b"_credit_amount"]) -> typing_extensions.Literal["credit_amount"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_end_time", b"_end_time"]) -> typing_extensions.Literal["end_time"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_error", b"_error"]) -> typing_extensions.Literal["error"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_total_duration", b"_total_duration"]) -> typing_extensions.Literal["total_duration"] | None: ...
+
+global___ModelRun = ModelRun
+
+@typing_extensions.final
+class ListModelRunsRequest(google.protobuf.message.Message):
+    """ListModelRunsRequest represents a request to list of model runs."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_FIELD_NUMBER: builtins.int
+    VIEW_FIELD_NUMBER: builtins.int
+    ORDER_BY_FIELD_NUMBER: builtins.int
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    MODEL_ID_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
+    page_size: builtins.int
+    """The maximum number of runs to return. The default and cap values are 10
+    and 100, respectively.
+    """
+    page: builtins.int
+    """Page number."""
+    view: model.model.v1alpha.model_definition_pb2.View.ValueType
+    """View allows clients to specify the desired run view in the response.
+    The basic view excludes input / output data.
+    """
+    order_by: builtins.str
+    """Sort the results by the given expression.  
+    Format: `field [ASC | DESC], where `field` can be:
+    - `create_time`
+    - `update_time`
+    By default, results are sorted by descending creation time.
+    """
+    namespace_id: builtins.str
+    """Namespace ID."""
+    model_id: builtins.str
+    """Model ID."""
+    filter: builtins.str
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    The filter can be applied to the following fields:
+    - `create_time`
+    """
+    def __init__(
+        self,
+        *,
+        page_size: builtins.int | None = ...,
+        page: builtins.int | None = ...,
+        view: model.model.v1alpha.model_definition_pb2.View.ValueType | None = ...,
+        order_by: builtins.str | None = ...,
+        namespace_id: builtins.str = ...,
+        model_id: builtins.str = ...,
+        filter: builtins.str | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page", b"_page", "_page_size", b"_page_size", "_view", b"_view", "filter", b"filter", "order_by", b"order_by", "page", b"page", "page_size", b"page_size", "view", b"view"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page", b"_page", "_page_size", b"_page_size", "_view", b"_view", "filter", b"filter", "model_id", b"model_id", "namespace_id", b"namespace_id", "order_by", b"order_by", "page", b"page", "page_size", b"page_size", "view", b"view"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_order_by", b"_order_by"]) -> typing_extensions.Literal["order_by"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page", b"_page"]) -> typing_extensions.Literal["page"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+
+global___ListModelRunsRequest = ListModelRunsRequest
+
+@typing_extensions.final
+class ListModelRunsResponse(google.protobuf.message.Message):
+    """ListModelRunsResponse contains a list of model runs."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    RUNS_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_FIELD_NUMBER: builtins.int
+    @property
+    def runs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ModelRun]:
+        """A list of runs resources."""
+    total_size: builtins.int
+    """Total number of runs."""
+    page_size: builtins.int
+    """The requested page size."""
+    page: builtins.int
+    """The requested page offset."""
+    def __init__(
+        self,
+        *,
+        runs: collections.abc.Iterable[global___ModelRun] | None = ...,
+        total_size: builtins.int = ...,
+        page_size: builtins.int = ...,
+        page: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["page", b"page", "page_size", b"page_size", "runs", b"runs", "total_size", b"total_size"]) -> None: ...
+
+global___ListModelRunsResponse = ListModelRunsResponse

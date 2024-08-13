@@ -560,6 +560,14 @@ class ModelPublicServiceStub:
     This method allows requesters to request the status and outcome of
     long-running operations in a model, such as deployment.
     """
+    ListModelTriggers: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.ListModelRunsRequest,
+        model.model.v1alpha.model_pb2.ListModelRunsResponse,
+    ]
+    """List model runs
+
+    Returns a paginated list of model runs.
+    """
 
 class ModelPublicServiceAsyncStub:
     """Model
@@ -1101,6 +1109,14 @@ class ModelPublicServiceAsyncStub:
 
     This method allows requesters to request the status and outcome of
     long-running operations in a model, such as deployment.
+    """
+    ListModelTriggers: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.ListModelRunsRequest,
+        model.model.v1alpha.model_pb2.ListModelRunsResponse,
+    ]
+    """List model runs
+
+    Returns a paginated list of model runs.
     """
 
 class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
@@ -1757,6 +1773,16 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
 
         This method allows requesters to request the status and outcome of
         long-running operations in a model, such as deployment.
+        """
+    @abc.abstractmethod
+    def ListModelTriggers(
+        self,
+        request: model.model.v1alpha.model_pb2.ListModelRunsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.ListModelRunsResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.ListModelRunsResponse]]:
+        """List model runs
+
+        Returns a paginated list of model runs.
         """
 
 def add_ModelPublicServiceServicer_to_server(servicer: ModelPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
