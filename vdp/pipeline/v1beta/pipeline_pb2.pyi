@@ -5,6 +5,7 @@ isort:skip_file
 import builtins
 import collections.abc
 import common.healthcheck.v1beta.healthcheck_pb2
+import common.run.v1alpha.run_pb2
 import core.mgmt.v1beta.mgmt_pb2
 import google.longrunning.operations_pb2
 import google.protobuf.descriptor
@@ -54,34 +55,6 @@ STATE_ACTIVE: State.ValueType  # 2
 STATE_ERROR: State.ValueType  # 3
 """The pipeline has an error."""
 global___State = State
-
-class _RunStatus:
-    ValueType = typing.NewType("ValueType", builtins.int)
-    V: typing_extensions.TypeAlias = ValueType
-
-class _RunStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_RunStatus.ValueType], builtins.type):
-    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-    RUN_STATUS_UNSPECIFIED: _RunStatus.ValueType  # 0
-    """The status is unknown or not set."""
-    RUN_STATUS_RUNNING: _RunStatus.ValueType  # 1
-    """The run is currently in progress."""
-    RUN_STATUS_COMPLETED: _RunStatus.ValueType  # 2
-    """The run has completed successfully."""
-    RUN_STATUS_FAILED: _RunStatus.ValueType  # 3
-    """The run has failed."""
-
-class RunStatus(_RunStatus, metaclass=_RunStatusEnumTypeWrapper):
-    """RunStatus represents the possible states of a pipeline or component run."""
-
-RUN_STATUS_UNSPECIFIED: RunStatus.ValueType  # 0
-"""The status is unknown or not set."""
-RUN_STATUS_RUNNING: RunStatus.ValueType  # 1
-"""The run is currently in progress."""
-RUN_STATUS_COMPLETED: RunStatus.ValueType  # 2
-"""The run has completed successfully."""
-RUN_STATUS_FAILED: RunStatus.ValueType  # 3
-"""The run has failed."""
-global___RunStatus = RunStatus
 
 @typing_extensions.final
 class LivenessRequest(google.protobuf.message.Message):
@@ -4746,29 +4719,6 @@ class PipelineRun(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    class _RunSource:
-        ValueType = typing.NewType("ValueType", builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-
-    class _RunSourceEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PipelineRun._RunSource.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        RUN_SOURCE_UNSPECIFIED: PipelineRun._RunSource.ValueType  # 0
-        """Unspecified."""
-        RUN_SOURCE_CONSOLE: PipelineRun._RunSource.ValueType  # 1
-        """The request was triggered from Instill Console."""
-        RUN_SOURCE_API: PipelineRun._RunSource.ValueType  # 2
-        """The request was triggered from the API or SDK."""
-
-    class RunSource(_RunSource, metaclass=_RunSourceEnumTypeWrapper):
-        """RunSource defines the source of a pipeline run."""
-
-    RUN_SOURCE_UNSPECIFIED: PipelineRun.RunSource.ValueType  # 0
-    """Unspecified."""
-    RUN_SOURCE_CONSOLE: PipelineRun.RunSource.ValueType  # 1
-    """The request was triggered from Instill Console."""
-    RUN_SOURCE_API: PipelineRun.RunSource.ValueType  # 2
-    """The request was triggered from the API or SDK."""
-
     PIPELINE_UID_FIELD_NUMBER: builtins.int
     PIPELINE_RUN_UID_FIELD_NUMBER: builtins.int
     PIPELINE_VERSION_FIELD_NUMBER: builtins.int
@@ -4789,9 +4739,9 @@ class PipelineRun(google.protobuf.message.Message):
     """Unique identifier for each run."""
     pipeline_version: builtins.str
     """Pipeline version used in the run."""
-    status: global___RunStatus.ValueType
+    status: common.run.v1alpha.run_pb2.RunStatus.ValueType
     """Current status of the run."""
-    source: global___PipelineRun.RunSource.ValueType
+    source: common.run.v1alpha.run_pb2.RunSource.ValueType
     """Origin of the run."""
     @property
     def total_duration(self) -> google.protobuf.duration_pb2.Duration:
@@ -4823,8 +4773,8 @@ class PipelineRun(google.protobuf.message.Message):
         pipeline_uid: builtins.str = ...,
         pipeline_run_uid: builtins.str = ...,
         pipeline_version: builtins.str = ...,
-        status: global___RunStatus.ValueType = ...,
-        source: global___PipelineRun.RunSource.ValueType = ...,
+        status: common.run.v1alpha.run_pb2.RunStatus.ValueType = ...,
+        source: common.run.v1alpha.run_pb2.RunSource.ValueType = ...,
         total_duration: google.protobuf.duration_pb2.Duration | None = ...,
         requester_id: builtins.str = ...,
         inputs: collections.abc.Iterable[global___FileReference] | None = ...,
@@ -4868,7 +4818,7 @@ class ComponentRun(google.protobuf.message.Message):
     """Links to the parent PipelineRun."""
     component_id: builtins.str
     """Unique identifier for each pipeline component."""
-    status: global___RunStatus.ValueType
+    status: common.run.v1alpha.run_pb2.RunStatus.ValueType
     """Completion status of the component."""
     @property
     def total_duration(self) -> google.protobuf.duration_pb2.Duration:
@@ -4894,7 +4844,7 @@ class ComponentRun(google.protobuf.message.Message):
         *,
         pipeline_run_uid: builtins.str = ...,
         component_id: builtins.str = ...,
-        status: global___RunStatus.ValueType = ...,
+        status: common.run.v1alpha.run_pb2.RunStatus.ValueType = ...,
         total_duration: google.protobuf.duration_pb2.Duration | None = ...,
         start_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         complete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,

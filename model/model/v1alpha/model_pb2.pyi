@@ -5,6 +5,7 @@ isort:skip_file
 import builtins
 import collections.abc
 import common.healthcheck.v1beta.healthcheck_pb2
+import common.run.v1alpha.run_pb2
 import common.task.v1alpha.task_pb2
 import core.mgmt.v1beta.mgmt_pb2
 import google.longrunning.operations_pb2
@@ -3908,60 +3909,6 @@ class ModelRun(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    class _RunStatus:
-        ValueType = typing.NewType("ValueType", builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-
-    class _RunStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ModelRun._RunStatus.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        RUN_STATUS_UNSPECIFIED: ModelRun._RunStatus.ValueType  # 0
-        """Unspecified."""
-        RUN_STATUS_PROCESSING: ModelRun._RunStatus.ValueType  # 1
-        """Model run in progress."""
-        RUN_STATUS_COMPLETED: ModelRun._RunStatus.ValueType  # 2
-        """Model run succeeded."""
-        RUN_STATUS_FAILED: ModelRun._RunStatus.ValueType  # 3
-        """Model run failed."""
-        RUN_STATUS_QUEUED: ModelRun._RunStatus.ValueType  # 4
-        """Model run is waiting to be executed."""
-
-    class RunStatus(_RunStatus, metaclass=_RunStatusEnumTypeWrapper):
-        """RunStatus defines the status of a model run."""
-
-    RUN_STATUS_UNSPECIFIED: ModelRun.RunStatus.ValueType  # 0
-    """Unspecified."""
-    RUN_STATUS_PROCESSING: ModelRun.RunStatus.ValueType  # 1
-    """Model run in progress."""
-    RUN_STATUS_COMPLETED: ModelRun.RunStatus.ValueType  # 2
-    """Model run succeeded."""
-    RUN_STATUS_FAILED: ModelRun.RunStatus.ValueType  # 3
-    """Model run failed."""
-    RUN_STATUS_QUEUED: ModelRun.RunStatus.ValueType  # 4
-    """Model run is waiting to be executed."""
-
-    class _RunSource:
-        ValueType = typing.NewType("ValueType", builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-
-    class _RunSourceEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ModelRun._RunSource.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        RUN_SOURCE_UNSPECIFIED: ModelRun._RunSource.ValueType  # 0
-        """Unspecified."""
-        RUN_SOURCE_CONSOLE: ModelRun._RunSource.ValueType  # 1
-        """Model run from frontend UI."""
-        RUN_SOURCE_API: ModelRun._RunSource.ValueType  # 2
-        """Model run from API or SDK."""
-
-    class RunSource(_RunSource, metaclass=_RunSourceEnumTypeWrapper):
-        """RunSource defines the source of a model run."""
-
-    RUN_SOURCE_UNSPECIFIED: ModelRun.RunSource.ValueType  # 0
-    """Unspecified."""
-    RUN_SOURCE_CONSOLE: ModelRun.RunSource.ValueType  # 1
-    """Model run from frontend UI."""
-    RUN_SOURCE_API: ModelRun.RunSource.ValueType  # 2
-    """Model run from API or SDK."""
-
     UID_FIELD_NUMBER: builtins.int
     MODEL_UID_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
@@ -3980,9 +3927,9 @@ class ModelRun(google.protobuf.message.Message):
     """Model Run UUID."""
     model_uid: builtins.str
     """Model UUID."""
-    status: global___ModelRun.RunStatus.ValueType
+    status: common.run.v1alpha.run_pb2.RunStatus.ValueType
     """Model run status."""
-    source: global___ModelRun.RunSource.ValueType
+    source: common.run.v1alpha.run_pb2.RunSource.ValueType
     """Run source."""
     @property
     def total_duration(self) -> google.protobuf.duration_pb2.Duration:
@@ -4015,8 +3962,8 @@ class ModelRun(google.protobuf.message.Message):
         *,
         uid: builtins.str = ...,
         model_uid: builtins.str = ...,
-        status: global___ModelRun.RunStatus.ValueType = ...,
-        source: global___ModelRun.RunSource.ValueType = ...,
+        status: common.run.v1alpha.run_pb2.RunStatus.ValueType = ...,
+        source: common.run.v1alpha.run_pb2.RunSource.ValueType = ...,
         total_duration: google.protobuf.duration_pb2.Duration | None = ...,
         end_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         requester_id: builtins.str | None = ...,
