@@ -471,6 +471,16 @@ class PipelinePublicServiceStub(object):
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteOrganizationSecretRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteOrganizationSecretResponse.FromString,
                 )
+        self.ListPipelineRuns = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/ListPipelineRuns',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsResponse.FromString,
+                )
+        self.ListComponentRuns = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/ListComponentRuns',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListComponentRunsRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListComponentRunsResponse.FromString,
+                )
 
 
 class PipelinePublicServiceServicer(object):
@@ -1529,6 +1539,27 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListPipelineRuns(self, request, context):
+        """List Pipeline Runs
+
+        Returns a paginated list of runs for a given pipeline. When the requester
+        is the owner of the pipeline, they will be able to all the pipeline runs,
+        regardless the requester. Other requesters will only be able to see the
+        runs requested by themselves.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListComponentRuns(self, request, context):
+        """List Component runs
+
+        Returns the information of each component execution within a pipeline run.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_PipelinePublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -1981,6 +2012,16 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     servicer.DeleteOrganizationSecret,
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteOrganizationSecretRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteOrganizationSecretResponse.SerializeToString,
+            ),
+            'ListPipelineRuns': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListPipelineRuns,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsResponse.SerializeToString,
+            ),
+            'ListComponentRuns': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListComponentRuns,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListComponentRunsRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListComponentRunsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -3523,5 +3564,39 @@ class PipelinePublicService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/DeleteOrganizationSecret',
             vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteOrganizationSecretRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1beta_dot_secret__pb2.DeleteOrganizationSecretResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListPipelineRuns(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/ListPipelineRuns',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListComponentRuns(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/ListComponentRuns',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListComponentRunsRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListComponentRunsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

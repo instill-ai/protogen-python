@@ -8,6 +8,7 @@ import common.healthcheck.v1beta.healthcheck_pb2
 import core.mgmt.v1beta.mgmt_pb2
 import google.longrunning.operations_pb2
 import google.protobuf.descriptor
+import google.protobuf.duration_pb2
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
@@ -53,6 +54,34 @@ STATE_ACTIVE: State.ValueType  # 2
 STATE_ERROR: State.ValueType  # 3
 """The pipeline has an error."""
 global___State = State
+
+class _RunStatus:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _RunStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_RunStatus.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    RUN_STATUS_UNSPECIFIED: _RunStatus.ValueType  # 0
+    """The status is unknown or not set."""
+    RUN_STATUS_RUNNING: _RunStatus.ValueType  # 1
+    """The run is currently in progress."""
+    RUN_STATUS_COMPLETED: _RunStatus.ValueType  # 2
+    """The run has completed successfully."""
+    RUN_STATUS_FAILED: _RunStatus.ValueType  # 3
+    """The run has failed."""
+
+class RunStatus(_RunStatus, metaclass=_RunStatusEnumTypeWrapper):
+    """RunStatus represents the possible states of a pipeline or component run."""
+
+RUN_STATUS_UNSPECIFIED: RunStatus.ValueType  # 0
+"""The status is unknown or not set."""
+RUN_STATUS_RUNNING: RunStatus.ValueType  # 1
+"""The run is currently in progress."""
+RUN_STATUS_COMPLETED: RunStatus.ValueType  # 2
+"""The run has completed successfully."""
+RUN_STATUS_FAILED: RunStatus.ValueType  # 3
+"""The run has failed."""
+global___RunStatus = RunStatus
 
 @typing_extensions.final
 class LivenessRequest(google.protobuf.message.Message):
@@ -4545,3 +4574,344 @@ class LookUpPipelineAdminResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["pipeline", b"pipeline"]) -> None: ...
 
 global___LookUpPipelineAdminResponse = LookUpPipelineAdminResponse
+
+@typing_extensions.final
+class ListPipelineRunsRequest(google.protobuf.message.Message):
+    """ListPipelineRunsRequest is the request message for ListPipelineRuns."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    PAGE_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    VIEW_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The ID of the owner of the pipeline."""
+    pipeline_id: builtins.str
+    """The ID of the pipeline for which the runs will be listed."""
+    page: builtins.int
+    """The page number to retrieve."""
+    page_size: builtins.int
+    """The maximum number of items per page to return. The default and cap values
+    are 10 and 100, respectively.
+    """
+    view: global___Pipeline.View.ValueType
+    """View allows clients to specify the desired run view in the response.
+    The basic view excludes input / output data.
+    """
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        pipeline_id: builtins.str = ...,
+        page: builtins.int = ...,
+        page_size: builtins.int = ...,
+        view: global___Pipeline.View.ValueType | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "namespace_id", b"namespace_id", "page", b"page", "page_size", b"page_size", "pipeline_id", b"pipeline_id", "view", b"view"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+
+global___ListPipelineRunsRequest = ListPipelineRunsRequest
+
+@typing_extensions.final
+class ListPipelineRunsResponse(google.protobuf.message.Message):
+    """ListPipelineRunsResponse is the response message for ListPipelineRuns."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PIPELINE_RUNS_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    @property
+    def pipeline_runs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PipelineRun]:
+        """The list of pipeline runs."""
+    total_size: builtins.int
+    """The total number of pipeline runs matching the request."""
+    page: builtins.int
+    """The current page number."""
+    page_size: builtins.int
+    """The number of items per page."""
+    def __init__(
+        self,
+        *,
+        pipeline_runs: collections.abc.Iterable[global___PipelineRun] | None = ...,
+        total_size: builtins.int = ...,
+        page: builtins.int = ...,
+        page_size: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["page", b"page", "page_size", b"page_size", "pipeline_runs", b"pipeline_runs", "total_size", b"total_size"]) -> None: ...
+
+global___ListPipelineRunsResponse = ListPipelineRunsResponse
+
+@typing_extensions.final
+class ListComponentRunsRequest(google.protobuf.message.Message):
+    """ListComponentRunsRequest is the request message for ListComponentRuns."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PIPELINE_RUN_ID_FIELD_NUMBER: builtins.int
+    PAGE_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    pipeline_run_id: builtins.str
+    """The unique identifier of the pipeline run to list component runs for."""
+    page: builtins.int
+    """The page number to retrieve."""
+    page_size: builtins.int
+    """The maximum number of items per page to return. The default and cap values
+    are 10 and 100, respectively.
+    """
+    def __init__(
+        self,
+        *,
+        pipeline_run_id: builtins.str = ...,
+        page: builtins.int | None = ...,
+        page_size: builtins.int | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_page", b"_page", "_page_size", b"_page_size", "page", b"page", "page_size", b"page_size"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_page", b"_page", "_page_size", b"_page_size", "page", b"page", "page_size", b"page_size", "pipeline_run_id", b"pipeline_run_id"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page", b"_page"]) -> typing_extensions.Literal["page"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
+
+global___ListComponentRunsRequest = ListComponentRunsRequest
+
+@typing_extensions.final
+class ListComponentRunsResponse(google.protobuf.message.Message):
+    """ListComponentRunsResponse is the response message for ListComponentRuns."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    COMPONENT_RUNS_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    @property
+    def component_runs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ComponentRun]:
+        """The list of component runs."""
+    total_size: builtins.int
+    """The total number of component runs matching the request."""
+    page: builtins.int
+    """The current page number."""
+    page_size: builtins.int
+    """The number of items per page."""
+    def __init__(
+        self,
+        *,
+        component_runs: collections.abc.Iterable[global___ComponentRun] | None = ...,
+        total_size: builtins.int = ...,
+        page: builtins.int = ...,
+        page_size: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["component_runs", b"component_runs", "page", b"page", "page_size", b"page_size", "total_size", b"total_size"]) -> None: ...
+
+global___ListComponentRunsResponse = ListComponentRunsResponse
+
+@typing_extensions.final
+class FileReference(google.protobuf.message.Message):
+    """FileReference represents metadata for a file."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    TYPE_FIELD_NUMBER: builtins.int
+    SIZE_FIELD_NUMBER: builtins.int
+    URL_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """Name of the file."""
+    type: builtins.str
+    """Format of the file (e.g., PDF, TXT, JPG)."""
+    size: builtins.int
+    """Size of the file in bytes."""
+    url: builtins.str
+    """URL of the file (e.g., S3 URL)."""
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        type: builtins.str = ...,
+        size: builtins.int = ...,
+        url: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "size", b"size", "type", b"type", "url", b"url"]) -> None: ...
+
+global___FileReference = FileReference
+
+@typing_extensions.final
+class PipelineRun(google.protobuf.message.Message):
+    """PipelineRun represents a single execution of a pipeline."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    class _RunSource:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _RunSourceEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PipelineRun._RunSource.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        RUN_SOURCE_UNSPECIFIED: PipelineRun._RunSource.ValueType  # 0
+        """Unspecified."""
+        RUN_SOURCE_CONSOLE: PipelineRun._RunSource.ValueType  # 1
+        """The request was triggered from Instill Console."""
+        RUN_SOURCE_API: PipelineRun._RunSource.ValueType  # 2
+        """The request was triggered from the API or SDK."""
+
+    class RunSource(_RunSource, metaclass=_RunSourceEnumTypeWrapper):
+        """RunSource defines the source of a pipeline run."""
+
+    RUN_SOURCE_UNSPECIFIED: PipelineRun.RunSource.ValueType  # 0
+    """Unspecified."""
+    RUN_SOURCE_CONSOLE: PipelineRun.RunSource.ValueType  # 1
+    """The request was triggered from Instill Console."""
+    RUN_SOURCE_API: PipelineRun.RunSource.ValueType  # 2
+    """The request was triggered from the API or SDK."""
+
+    PIPELINE_UID_FIELD_NUMBER: builtins.int
+    PIPELINE_RUN_UID_FIELD_NUMBER: builtins.int
+    PIPELINE_VERSION_FIELD_NUMBER: builtins.int
+    STATUS_FIELD_NUMBER: builtins.int
+    SOURCE_FIELD_NUMBER: builtins.int
+    TOTAL_DURATION_FIELD_NUMBER: builtins.int
+    REQUESTER_ID_FIELD_NUMBER: builtins.int
+    INPUTS_FIELD_NUMBER: builtins.int
+    OUTPUTS_FIELD_NUMBER: builtins.int
+    RECIPE_SNAPSHOT_FIELD_NUMBER: builtins.int
+    START_TIME_FIELD_NUMBER: builtins.int
+    COMPLETE_TIME_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    CREDIT_AMOUNT_FIELD_NUMBER: builtins.int
+    pipeline_uid: builtins.str
+    """Unique identifier for the pipeline."""
+    pipeline_run_uid: builtins.str
+    """Unique identifier for each run."""
+    pipeline_version: builtins.str
+    """Pipeline version used in the run."""
+    status: global___RunStatus.ValueType
+    """Current status of the run."""
+    source: global___PipelineRun.RunSource.ValueType
+    """Origin of the run."""
+    @property
+    def total_duration(self) -> google.protobuf.duration_pb2.Duration:
+        """Time taken to complete the run."""
+    requester_id: builtins.str
+    """Identity of the user who initiated the run."""
+    @property
+    def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___FileReference]:
+        """Input files for the run."""
+    @property
+    def outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___FileReference]:
+        """Output files from the run."""
+    @property
+    def recipe_snapshot(self) -> google.protobuf.struct_pb2.Struct:
+        """Snapshot of the pipeline recipe used for this run."""
+    @property
+    def start_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time when the run started execution."""
+    @property
+    def complete_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time when the run completed."""
+    error: builtins.str
+    """Error message if the run failed."""
+    credit_amount: builtins.float
+    """Credits used of internal accounting metric."""
+    def __init__(
+        self,
+        *,
+        pipeline_uid: builtins.str = ...,
+        pipeline_run_uid: builtins.str = ...,
+        pipeline_version: builtins.str = ...,
+        status: global___RunStatus.ValueType = ...,
+        source: global___PipelineRun.RunSource.ValueType = ...,
+        total_duration: google.protobuf.duration_pb2.Duration | None = ...,
+        requester_id: builtins.str = ...,
+        inputs: collections.abc.Iterable[global___FileReference] | None = ...,
+        outputs: collections.abc.Iterable[global___FileReference] | None = ...,
+        recipe_snapshot: google.protobuf.struct_pb2.Struct | None = ...,
+        start_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        complete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        error: builtins.str | None = ...,
+        credit_amount: builtins.float | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "error", b"error", "recipe_snapshot", b"recipe_snapshot", "start_time", b"start_time", "total_duration", b"total_duration"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "error", b"error", "inputs", b"inputs", "outputs", b"outputs", "pipeline_run_uid", b"pipeline_run_uid", "pipeline_uid", b"pipeline_uid", "pipeline_version", b"pipeline_version", "recipe_snapshot", b"recipe_snapshot", "requester_id", b"requester_id", "source", b"source", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_complete_time", b"_complete_time"]) -> typing_extensions.Literal["complete_time"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_credit_amount", b"_credit_amount"]) -> typing_extensions.Literal["credit_amount"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_error", b"_error"]) -> typing_extensions.Literal["error"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_total_duration", b"_total_duration"]) -> typing_extensions.Literal["total_duration"] | None: ...
+
+global___PipelineRun = PipelineRun
+
+@typing_extensions.final
+class ComponentRun(google.protobuf.message.Message):
+    """ComponentRun represents the execution details of a single component within a pipeline run."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PIPELINE_RUN_UID_FIELD_NUMBER: builtins.int
+    COMPONENT_ID_FIELD_NUMBER: builtins.int
+    STATUS_FIELD_NUMBER: builtins.int
+    TOTAL_DURATION_FIELD_NUMBER: builtins.int
+    START_TIME_FIELD_NUMBER: builtins.int
+    COMPLETE_TIME_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    INPUTS_FIELD_NUMBER: builtins.int
+    OUTPUTS_FIELD_NUMBER: builtins.int
+    CREDIT_AMOUNT_FIELD_NUMBER: builtins.int
+    pipeline_run_uid: builtins.str
+    """Links to the parent PipelineRun."""
+    component_id: builtins.str
+    """Unique identifier for each pipeline component."""
+    status: global___RunStatus.ValueType
+    """Completion status of the component."""
+    @property
+    def total_duration(self) -> google.protobuf.duration_pb2.Duration:
+        """Time taken to execute the component."""
+    @property
+    def start_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time when the component started execution."""
+    @property
+    def complete_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time when the component finished execution."""
+    error: builtins.str
+    """Error message if the component failed."""
+    @property
+    def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___FileReference]:
+        """Input files for the component."""
+    @property
+    def outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___FileReference]:
+        """Output files from the component."""
+    credit_amount: builtins.float
+    """Credits used of internal accounting metric."""
+    def __init__(
+        self,
+        *,
+        pipeline_run_uid: builtins.str = ...,
+        component_id: builtins.str = ...,
+        status: global___RunStatus.ValueType = ...,
+        total_duration: google.protobuf.duration_pb2.Duration | None = ...,
+        start_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        complete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        error: builtins.str | None = ...,
+        inputs: collections.abc.Iterable[global___FileReference] | None = ...,
+        outputs: collections.abc.Iterable[global___FileReference] | None = ...,
+        credit_amount: builtins.float | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "error", b"error", "start_time", b"start_time", "total_duration", b"total_duration"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "component_id", b"component_id", "credit_amount", b"credit_amount", "error", b"error", "inputs", b"inputs", "outputs", b"outputs", "pipeline_run_uid", b"pipeline_run_uid", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_complete_time", b"_complete_time"]) -> typing_extensions.Literal["complete_time"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_credit_amount", b"_credit_amount"]) -> typing_extensions.Literal["credit_amount"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_error", b"_error"]) -> typing_extensions.Literal["error"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_total_duration", b"_total_duration"]) -> typing_extensions.Literal["total_duration"] | None: ...
+
+global___ComponentRun = ComponentRun

@@ -985,6 +985,25 @@ class PipelinePublicServiceStub:
     Deletes a secret, accesing it by its resource name, which is defined by
     the parent organization and the ID of the secret.
     """
+    ListPipelineRuns: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.ListPipelineRunsRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.ListPipelineRunsResponse,
+    ]
+    """List Pipeline Runs
+
+    Returns a paginated list of runs for a given pipeline. When the requester
+    is the owner of the pipeline, they will be able to all the pipeline runs,
+    regardless the requester. Other requesters will only be able to see the
+    runs requested by themselves.
+    """
+    ListComponentRuns: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.ListComponentRunsRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.ListComponentRunsResponse,
+    ]
+    """List Component runs
+
+    Returns the information of each component execution within a pipeline run.
+    """
 
 class PipelinePublicServiceAsyncStub:
     """VDP
@@ -1949,6 +1968,25 @@ class PipelinePublicServiceAsyncStub:
 
     Deletes a secret, accesing it by its resource name, which is defined by
     the parent organization and the ID of the secret.
+    """
+    ListPipelineRuns: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.ListPipelineRunsRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.ListPipelineRunsResponse,
+    ]
+    """List Pipeline Runs
+
+    Returns a paginated list of runs for a given pipeline. When the requester
+    is the owner of the pipeline, they will be able to all the pipeline runs,
+    regardless the requester. Other requesters will only be able to see the
+    runs requested by themselves.
+    """
+    ListComponentRuns: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.ListComponentRunsRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.ListComponentRunsResponse,
+    ]
+    """List Component runs
+
+    Returns the information of each component execution within a pipeline run.
     """
 
 class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
@@ -3094,6 +3132,29 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
 
         Deletes a secret, accesing it by its resource name, which is defined by
         the parent organization and the ID of the secret.
+        """
+    @abc.abstractmethod
+    def ListPipelineRuns(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.ListPipelineRunsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.ListPipelineRunsResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.ListPipelineRunsResponse]]:
+        """List Pipeline Runs
+
+        Returns a paginated list of runs for a given pipeline. When the requester
+        is the owner of the pipeline, they will be able to all the pipeline runs,
+        regardless the requester. Other requesters will only be able to see the
+        runs requested by themselves.
+        """
+    @abc.abstractmethod
+    def ListComponentRuns(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.ListComponentRunsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.ListComponentRunsResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.ListComponentRunsResponse]]:
+        """List Component runs
+
+        Returns the information of each component execution within a pipeline run.
         """
 
 def add_PipelinePublicServiceServicer_to_server(servicer: PipelinePublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
