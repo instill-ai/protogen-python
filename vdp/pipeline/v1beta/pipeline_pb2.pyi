@@ -9,7 +9,6 @@ import common.run.v1alpha.run_pb2
 import core.mgmt.v1beta.mgmt_pb2
 import google.longrunning.operations_pb2
 import google.protobuf.descriptor
-import google.protobuf.duration_pb2
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
@@ -4743,9 +4742,8 @@ class PipelineRun(google.protobuf.message.Message):
     """Current status of the run."""
     source: common.run.v1alpha.run_pb2.RunSource.ValueType
     """Origin of the run."""
-    @property
-    def total_duration(self) -> google.protobuf.duration_pb2.Duration:
-        """Time taken to complete the run."""
+    total_duration: builtins.int
+    """Time taken to complete the run in milliseconds."""
     requester_id: builtins.str
     """Identity of the user who initiated the run."""
     @property
@@ -4775,7 +4773,7 @@ class PipelineRun(google.protobuf.message.Message):
         pipeline_version: builtins.str = ...,
         status: common.run.v1alpha.run_pb2.RunStatus.ValueType = ...,
         source: common.run.v1alpha.run_pb2.RunSource.ValueType = ...,
-        total_duration: google.protobuf.duration_pb2.Duration | None = ...,
+        total_duration: builtins.int | None = ...,
         requester_id: builtins.str = ...,
         inputs: collections.abc.Iterable[global___FileReference] | None = ...,
         outputs: collections.abc.Iterable[global___FileReference] | None = ...,
@@ -4820,9 +4818,8 @@ class ComponentRun(google.protobuf.message.Message):
     """Unique identifier for each pipeline component."""
     status: common.run.v1alpha.run_pb2.RunStatus.ValueType
     """Completion status of the component."""
-    @property
-    def total_duration(self) -> google.protobuf.duration_pb2.Duration:
-        """Time taken to execute the component."""
+    total_duration: builtins.int
+    """Time taken to execute the component in milliseconds."""
     @property
     def start_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Time when the component started execution."""
@@ -4845,7 +4842,7 @@ class ComponentRun(google.protobuf.message.Message):
         pipeline_run_uid: builtins.str = ...,
         component_id: builtins.str = ...,
         status: common.run.v1alpha.run_pb2.RunStatus.ValueType = ...,
-        total_duration: google.protobuf.duration_pb2.Duration | None = ...,
+        total_duration: builtins.int | None = ...,
         start_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         complete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         error: builtins.str | None = ...,

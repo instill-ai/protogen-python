@@ -10,7 +10,6 @@ import common.task.v1alpha.task_pb2
 import core.mgmt.v1beta.mgmt_pb2
 import google.longrunning.operations_pb2
 import google.protobuf.descriptor
-import google.protobuf.duration_pb2
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
@@ -3931,9 +3930,8 @@ class ModelRun(google.protobuf.message.Message):
     """Model run status."""
     source: common.run.v1alpha.run_pb2.RunSource.ValueType
     """Run source."""
-    @property
-    def total_duration(self) -> google.protobuf.duration_pb2.Duration:
-        """Run total duration."""
+    total_duration: builtins.int
+    """Run total duration in milliseconds."""
     @property
     def end_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Run end time."""
@@ -3964,7 +3962,7 @@ class ModelRun(google.protobuf.message.Message):
         model_uid: builtins.str = ...,
         status: common.run.v1alpha.run_pb2.RunStatus.ValueType = ...,
         source: common.run.v1alpha.run_pb2.RunSource.ValueType = ...,
-        total_duration: google.protobuf.duration_pb2.Duration | None = ...,
+        total_duration: builtins.int | None = ...,
         end_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         requester_id: builtins.str | None = ...,
         credit_amount: builtins.float | None = ...,
