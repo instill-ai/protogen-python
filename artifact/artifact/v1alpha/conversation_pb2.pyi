@@ -32,13 +32,13 @@ class Conversation(google.protobuf.message.Message):
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     uid: builtins.str
-    """conversation id/name"""
+    """unique identifier of the conversation created by the system"""
     namespace_id: builtins.str
     """namespace id"""
     catalog_id: builtins.str
     """catalog id"""
     id: builtins.str
-    """unique identifier of the conversation created by the system"""
+    """conversation id/name"""
     @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """creation time of the conversation"""
@@ -142,7 +142,7 @@ class CreateConversationRequest(google.protobuf.message.Message):
     catalog_id: builtins.str
     """catalog id"""
     conversation_id: builtins.str
-    """conversation id. only allow kabab case"""
+    """conversation id. only allow kebab case"""
     def __init__(
         self,
         *,
@@ -236,14 +236,14 @@ class UpdateConversationRequest(google.protobuf.message.Message):
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     CATALOG_ID_FIELD_NUMBER: builtins.int
     CONVERSATION_ID_FIELD_NUMBER: builtins.int
-    NEW_CONVERSAION_ID_FIELD_NUMBER: builtins.int
+    NEW_CONVERSATION_ID_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """namespace id"""
     catalog_id: builtins.str
     """catalog id"""
     conversation_id: builtins.str
     """conversation id"""
-    new_conversaion_id: builtins.str
+    new_conversation_id: builtins.str
     """new conversation id"""
     def __init__(
         self,
@@ -251,9 +251,9 @@ class UpdateConversationRequest(google.protobuf.message.Message):
         namespace_id: builtins.str = ...,
         catalog_id: builtins.str = ...,
         conversation_id: builtins.str = ...,
-        new_conversaion_id: builtins.str = ...,
+        new_conversation_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "conversation_id", b"conversation_id", "namespace_id", b"namespace_id", "new_conversaion_id", b"new_conversaion_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "conversation_id", b"conversation_id", "namespace_id", b"namespace_id", "new_conversation_id", b"new_conversation_id"]) -> None: ...
 
 global___UpdateConversationRequest = UpdateConversationRequest
 

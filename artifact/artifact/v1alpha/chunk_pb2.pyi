@@ -174,7 +174,7 @@ class GetSourceFileResponse(google.protobuf.message.Message):
     SOURCE_FILE_FIELD_NUMBER: builtins.int
     @property
     def source_file(self) -> global___SourceFile:
-        """source file(either orignal file or converted file)"""
+        """source file(either original file or converted file)"""
     def __init__(
         self,
         *,
@@ -209,7 +209,7 @@ global___UpdateChunkRequest = UpdateChunkRequest
 
 @typing_extensions.final
 class UpdateChunkResponse(google.protobuf.message.Message):
-    """Updae chunk response"""
+    """update chunk response"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -229,7 +229,7 @@ global___UpdateChunkResponse = UpdateChunkResponse
 
 @typing_extensions.final
 class SimilarityChunksSearchRequest(google.protobuf.message.Message):
-    """Similar chunnk search request"""
+    """Similar chunk search request"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -259,7 +259,7 @@ global___SimilarityChunksSearchRequest = SimilarityChunksSearchRequest
 
 @typing_extensions.final
 class SimilarityChunksSearchResponse(google.protobuf.message.Message):
-    """Similar chunnk search response"""
+    """Similar chunk search response"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

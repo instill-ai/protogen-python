@@ -117,7 +117,7 @@ class ArtifactPublicServiceStub:
         artifact.artifact.v1alpha.conversation_pb2.CreateConversationRequest,
         artifact.artifact.v1alpha.conversation_pb2.CreateConversationResponse,
     ]
-    """CreateConversaion"""
+    """CreateConversation"""
     ListConversations: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.conversation_pb2.ListConversationsRequest,
         artifact.artifact.v1alpha.conversation_pb2.ListConversationsResponse,
@@ -249,7 +249,7 @@ class ArtifactPublicServiceAsyncStub:
         artifact.artifact.v1alpha.conversation_pb2.CreateConversationRequest,
         artifact.artifact.v1alpha.conversation_pb2.CreateConversationResponse,
     ]
-    """CreateConversaion"""
+    """CreateConversation"""
     ListConversations: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.conversation_pb2.ListConversationsRequest,
         artifact.artifact.v1alpha.conversation_pb2.ListConversationsResponse,
@@ -415,7 +415,7 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         request: artifact.artifact.v1alpha.conversation_pb2.CreateConversationRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.conversation_pb2.CreateConversationResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.conversation_pb2.CreateConversationResponse]]:
-        """CreateConversaion"""
+        """CreateConversation"""
     @abc.abstractmethod
     def ListConversations(
         self,

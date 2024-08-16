@@ -264,7 +264,7 @@ class ArtifactPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def CreateConversation(self, request, context):
-        """CreateConversaion
+        """CreateConversation
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

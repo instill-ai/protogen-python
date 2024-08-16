@@ -71,7 +71,7 @@ class _FileType:
 class _FileTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_FileType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     FILE_TYPE_UNSPECIFIED: _FileType.ValueType  # 0
-    """upsecifid"""
+    """unspecified"""
     FILE_TYPE_TEXT: _FileType.ValueType  # 1
     """text"""
     FILE_TYPE_PDF: _FileType.ValueType  # 2
@@ -99,7 +99,7 @@ class FileType(_FileType, metaclass=_FileTypeEnumTypeWrapper):
     """file type"""
 
 FILE_TYPE_UNSPECIFIED: FileType.ValueType  # 0
-"""upsecifid"""
+"""unspecified"""
 FILE_TYPE_TEXT: FileType.ValueType  # 1
 """text"""
 FILE_TYPE_PDF: FileType.ValueType  # 2
@@ -210,8 +210,8 @@ global___ReadinessResponse = ReadinessResponse
 class RepositoryTag(google.protobuf.message.Message):
     """
 
-    This API is under development and, therefore, some of its entitites and
-    entpoints are not implemented yet. This section aims to give context about the
+    This API is under development and, therefore, some of its entities and
+    endpoints are not implemented yet. This section aims to give context about the
     current interface and how it fits in the Artifact vision.
 
     # Artifact
@@ -502,7 +502,7 @@ class Catalog(google.protobuf.message.Message):
     update_time: builtins.str
     """The last update time of the catalog."""
     owner_name: builtins.str
-    """The owner/namespaceof the catalog."""
+    """The owner/namespace of the catalog."""
     @property
     def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """The catalog tags."""
@@ -557,7 +557,7 @@ class CreateCatalogRequest(google.protobuf.message.Message):
     DESCRIPTION_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """The catalog's owner(nammespace)."""
+    """The catalog's owner(namespaces)."""
     name: builtins.str
     """The catalog name."""
     description: builtins.str
@@ -729,7 +729,7 @@ global___DeleteCatalogResponse = DeleteCatalogResponse
 
 @typing_extensions.final
 class File(google.protobuf.message.Message):
-    """file mata data"""
+    """file"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -762,11 +762,11 @@ class File(google.protobuf.message.Message):
     retrievable: builtins.bool
     """retrievable(this is reserved for future use)"""
     content: builtins.str
-    """contect(this is reserved for future use)"""
+    """content(this is reserved for future use)"""
     owner_uid: builtins.str
-    """owner/namespaceuid"""
+    """owner/namespace uid"""
     creator_uid: builtins.str
-    """cretor uid from authn token"""
+    """creator uid from authn token"""
     catalog_uid: builtins.str
     """catalog uid"""
     @property
@@ -964,7 +964,7 @@ class ListCatalogFilesRequest(google.protobuf.message.Message):
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """The owner/namespaceuid id."""
+    """The owner/namespace uid id."""
     catalog_id: builtins.str
     """The catalog id."""
     page_size: builtins.int
