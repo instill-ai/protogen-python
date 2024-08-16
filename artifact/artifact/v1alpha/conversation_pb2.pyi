@@ -212,18 +212,22 @@ class ListConversationsResponse(google.protobuf.message.Message):
 
     CONVERSATIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def conversations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Conversation]:
         """conversations"""
     next_page_token: builtins.str
     """next page token"""
+    total_size: builtins.int
+    """total size"""
     def __init__(
         self,
         *,
         conversations: collections.abc.Iterable[global___Conversation] | None = ...,
         next_page_token: builtins.str = ...,
+        total_size: builtins.int = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["conversations", b"conversations", "next_page_token", b"next_page_token"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["conversations", b"conversations", "next_page_token", b"next_page_token", "total_size", b"total_size"]) -> None: ...
 
 global___ListConversationsResponse = ListConversationsResponse
 
@@ -423,18 +427,22 @@ class ListMessagesResponse(google.protobuf.message.Message):
 
     MESSAGES_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def messages(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Message]:
         """messages"""
     next_page_token: builtins.str
     """next page token"""
+    total_size: builtins.int
+    """total size"""
     def __init__(
         self,
         *,
         messages: collections.abc.Iterable[global___Message] | None = ...,
         next_page_token: builtins.str = ...,
+        total_size: builtins.int = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["messages", b"messages", "next_page_token", b"next_page_token"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["messages", b"messages", "next_page_token", b"next_page_token", "total_size", b"total_size"]) -> None: ...
 
 global___ListMessagesResponse = ListMessagesResponse
 
