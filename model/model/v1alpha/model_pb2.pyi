@@ -50,8 +50,6 @@ class _StateEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumType
     """Unspecified. This state can occur while a model is under operation."""
     STATE_OFFLINE: _State.ValueType  # 1
     """Offline is the state when the model instance number is 0."""
-    STATE_SCALING: _State.ValueType  # 2
-    """Scaling is the transition state when a model instance is scaling up or down."""
     STATE_ACTIVE: _State.ValueType  # 3
     """Active is the state when a model is processing requests."""
     STATE_IDLE: _State.ValueType  # 4
@@ -62,6 +60,10 @@ class _StateEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumType
     """Starting is the state when the system is provisioning the necessary
     resources for the model
     """
+    STATE_SCALING_UP: _State.ValueType  # 7
+    """Scaling Up is the transition state when the system is provisioning compute resource for this model instance."""
+    STATE_SCALING_DOWN: _State.ValueType  # 8
+    """Scaling is the transition state when the system is releasing compute resource for this model instance."""
 
 class State(_State, metaclass=_StateEnumTypeWrapper):
     """State describes the state of a model. See [Deploy
@@ -73,8 +75,6 @@ STATE_UNSPECIFIED: State.ValueType  # 0
 """Unspecified. This state can occur while a model is under operation."""
 STATE_OFFLINE: State.ValueType  # 1
 """Offline is the state when the model instance number is 0."""
-STATE_SCALING: State.ValueType  # 2
-"""Scaling is the transition state when a model instance is scaling up or down."""
 STATE_ACTIVE: State.ValueType  # 3
 """Active is the state when a model is processing requests."""
 STATE_IDLE: State.ValueType  # 4
@@ -85,6 +85,10 @@ STATE_STARTING: State.ValueType  # 6
 """Starting is the state when the system is provisioning the necessary
 resources for the model
 """
+STATE_SCALING_UP: State.ValueType  # 7
+"""Scaling Up is the transition state when the system is provisioning compute resource for this model instance."""
+STATE_SCALING_DOWN: State.ValueType  # 8
+"""Scaling is the transition state when the system is releasing compute resource for this model instance."""
 global___State = State
 
 @typing_extensions.final
