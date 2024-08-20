@@ -79,11 +79,11 @@ class _FileTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumT
     FILE_TYPE_MARKDOWN: _FileType.ValueType  # 3
     """MARKDOWN"""
     FILE_TYPE_PNG: _FileType.ValueType  # 4
-    """PNG"""
+    """PNG(not supported yet)"""
     FILE_TYPE_JPEG: _FileType.ValueType  # 5
-    """JPEG"""
+    """JPEG(not supported yet)"""
     FILE_TYPE_JPG: _FileType.ValueType  # 6
-    """JPG"""
+    """JPG(not supported yet)"""
     FILE_TYPE_HTML: _FileType.ValueType  # 7
     """HTML"""
     FILE_TYPE_DOCX: _FileType.ValueType  # 8
@@ -94,6 +94,10 @@ class _FileTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumT
     """PPT"""
     FILE_TYPE_PPTX: _FileType.ValueType  # 11
     """PPTX"""
+    FILE_TYPE_XLS: _FileType.ValueType  # 12
+    """XLS(not supported yet)"""
+    FILE_TYPE_XLSX: _FileType.ValueType  # 13
+    """XLSX"""
 
 class FileType(_FileType, metaclass=_FileTypeEnumTypeWrapper):
     """file type"""
@@ -107,11 +111,11 @@ FILE_TYPE_PDF: FileType.ValueType  # 2
 FILE_TYPE_MARKDOWN: FileType.ValueType  # 3
 """MARKDOWN"""
 FILE_TYPE_PNG: FileType.ValueType  # 4
-"""PNG"""
+"""PNG(not supported yet)"""
 FILE_TYPE_JPEG: FileType.ValueType  # 5
-"""JPEG"""
+"""JPEG(not supported yet)"""
 FILE_TYPE_JPG: FileType.ValueType  # 6
-"""JPG"""
+"""JPG(not supported yet)"""
 FILE_TYPE_HTML: FileType.ValueType  # 7
 """HTML"""
 FILE_TYPE_DOCX: FileType.ValueType  # 8
@@ -122,6 +126,10 @@ FILE_TYPE_PPT: FileType.ValueType  # 10
 """PPT"""
 FILE_TYPE_PPTX: FileType.ValueType  # 11
 """PPTX"""
+FILE_TYPE_XLS: FileType.ValueType  # 12
+"""XLS(not supported yet)"""
+FILE_TYPE_XLSX: FileType.ValueType  # 13
+"""XLSX"""
 global___FileType = FileType
 
 @typing_extensions.final

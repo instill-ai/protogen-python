@@ -77,37 +77,37 @@ class ArtifactPublicServiceStub:
         artifact.artifact.v1alpha.artifact_pb2.ProcessCatalogFilesRequest,
         artifact.artifact.v1alpha.artifact_pb2.ProcessCatalogFilesResponse,
     ]
-    """process file"""
+    """Process catalog files"""
     ListCatalogFiles: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.artifact_pb2.ListCatalogFilesRequest,
         artifact.artifact.v1alpha.artifact_pb2.ListCatalogFilesResponse,
     ]
-    """list files"""
+    """List catalog files"""
     ListChunks: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.ListChunksRequest,
         artifact.artifact.v1alpha.chunk_pb2.ListChunksResponse,
     ]
-    """List chunks"""
+    """List catalog chunks"""
     GetSourceFile: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.GetSourceFileRequest,
         artifact.artifact.v1alpha.chunk_pb2.GetSourceFileResponse,
     ]
-    """Get source file"""
+    """Get catalog single-source-of-truth file"""
     UpdateChunk: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.UpdateChunkRequest,
         artifact.artifact.v1alpha.chunk_pb2.UpdateChunkResponse,
     ]
-    """Update chunk"""
+    """Update catalog chunk"""
     SimilarityChunksSearch: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchRequest,
         artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchResponse,
     ]
-    """Similarity chunks search"""
+    """Retrieve similar chunks"""
     QuestionAnswering: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringRequest,
         artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringResponse,
     ]
-    """Question Answering"""
+    """Ask a question"""
     GetFileCatalog: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogRequest,
         artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogResponse,
@@ -117,42 +117,42 @@ class ArtifactPublicServiceStub:
         artifact.artifact.v1alpha.conversation_pb2.CreateConversationRequest,
         artifact.artifact.v1alpha.conversation_pb2.CreateConversationResponse,
     ]
-    """CreateConversation"""
+    """Create a Conversation"""
     ListConversations: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.conversation_pb2.ListConversationsRequest,
         artifact.artifact.v1alpha.conversation_pb2.ListConversationsResponse,
     ]
-    """ListConversations"""
+    """List conversations"""
     UpdateConversation: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.conversation_pb2.UpdateConversationRequest,
         artifact.artifact.v1alpha.conversation_pb2.UpdateConversationResponse,
     ]
-    """UpdateConversation"""
+    """Update a conversation"""
     DeleteConversation: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.conversation_pb2.DeleteConversationRequest,
         artifact.artifact.v1alpha.conversation_pb2.DeleteConversationResponse,
     ]
-    """DeleteConversation"""
+    """Delete a conversation"""
     CreateMessage: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.conversation_pb2.CreateMessageRequest,
         artifact.artifact.v1alpha.conversation_pb2.CreateMessageResponse,
     ]
-    """CreateMessage"""
+    """Create a message"""
     ListMessages: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.conversation_pb2.ListMessagesRequest,
         artifact.artifact.v1alpha.conversation_pb2.ListMessagesResponse,
     ]
-    """ListMessages"""
+    """List messages"""
     UpdateMessage: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.conversation_pb2.UpdateMessageRequest,
         artifact.artifact.v1alpha.conversation_pb2.UpdateMessageResponse,
     ]
-    """UpdateMessage"""
+    """Update a message"""
     DeleteMessage: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.conversation_pb2.DeleteMessageRequest,
         artifact.artifact.v1alpha.conversation_pb2.DeleteMessageResponse,
     ]
-    """DeleteMessage"""
+    """Delete a message"""
 
 class ArtifactPublicServiceAsyncStub:
     """ArtifactPublicService exposes the public endpoints that allow clients to
@@ -209,37 +209,37 @@ class ArtifactPublicServiceAsyncStub:
         artifact.artifact.v1alpha.artifact_pb2.ProcessCatalogFilesRequest,
         artifact.artifact.v1alpha.artifact_pb2.ProcessCatalogFilesResponse,
     ]
-    """process file"""
+    """Process catalog files"""
     ListCatalogFiles: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.artifact_pb2.ListCatalogFilesRequest,
         artifact.artifact.v1alpha.artifact_pb2.ListCatalogFilesResponse,
     ]
-    """list files"""
+    """List catalog files"""
     ListChunks: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.ListChunksRequest,
         artifact.artifact.v1alpha.chunk_pb2.ListChunksResponse,
     ]
-    """List chunks"""
+    """List catalog chunks"""
     GetSourceFile: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.GetSourceFileRequest,
         artifact.artifact.v1alpha.chunk_pb2.GetSourceFileResponse,
     ]
-    """Get source file"""
+    """Get catalog single-source-of-truth file"""
     UpdateChunk: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.UpdateChunkRequest,
         artifact.artifact.v1alpha.chunk_pb2.UpdateChunkResponse,
     ]
-    """Update chunk"""
+    """Update catalog chunk"""
     SimilarityChunksSearch: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchRequest,
         artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchResponse,
     ]
-    """Similarity chunks search"""
+    """Retrieve similar chunks"""
     QuestionAnswering: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringRequest,
         artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringResponse,
     ]
-    """Question Answering"""
+    """Ask a question"""
     GetFileCatalog: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogRequest,
         artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogResponse,
@@ -249,42 +249,42 @@ class ArtifactPublicServiceAsyncStub:
         artifact.artifact.v1alpha.conversation_pb2.CreateConversationRequest,
         artifact.artifact.v1alpha.conversation_pb2.CreateConversationResponse,
     ]
-    """CreateConversation"""
+    """Create a Conversation"""
     ListConversations: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.conversation_pb2.ListConversationsRequest,
         artifact.artifact.v1alpha.conversation_pb2.ListConversationsResponse,
     ]
-    """ListConversations"""
+    """List conversations"""
     UpdateConversation: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.conversation_pb2.UpdateConversationRequest,
         artifact.artifact.v1alpha.conversation_pb2.UpdateConversationResponse,
     ]
-    """UpdateConversation"""
+    """Update a conversation"""
     DeleteConversation: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.conversation_pb2.DeleteConversationRequest,
         artifact.artifact.v1alpha.conversation_pb2.DeleteConversationResponse,
     ]
-    """DeleteConversation"""
+    """Delete a conversation"""
     CreateMessage: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.conversation_pb2.CreateMessageRequest,
         artifact.artifact.v1alpha.conversation_pb2.CreateMessageResponse,
     ]
-    """CreateMessage"""
+    """Create a message"""
     ListMessages: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.conversation_pb2.ListMessagesRequest,
         artifact.artifact.v1alpha.conversation_pb2.ListMessagesResponse,
     ]
-    """ListMessages"""
+    """List messages"""
     UpdateMessage: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.conversation_pb2.UpdateMessageRequest,
         artifact.artifact.v1alpha.conversation_pb2.UpdateMessageResponse,
     ]
-    """UpdateMessage"""
+    """Update a message"""
     DeleteMessage: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.conversation_pb2.DeleteMessageRequest,
         artifact.artifact.v1alpha.conversation_pb2.DeleteMessageResponse,
     ]
-    """DeleteMessage"""
+    """Delete a message"""
 
 class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
     """ArtifactPublicService exposes the public endpoints that allow clients to
@@ -359,49 +359,49 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         request: artifact.artifact.v1alpha.artifact_pb2.ProcessCatalogFilesRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.ProcessCatalogFilesResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.ProcessCatalogFilesResponse]]:
-        """process file"""
+        """Process catalog files"""
     @abc.abstractmethod
     def ListCatalogFiles(
         self,
         request: artifact.artifact.v1alpha.artifact_pb2.ListCatalogFilesRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.ListCatalogFilesResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.ListCatalogFilesResponse]]:
-        """list files"""
+        """List catalog files"""
     @abc.abstractmethod
     def ListChunks(
         self,
         request: artifact.artifact.v1alpha.chunk_pb2.ListChunksRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.chunk_pb2.ListChunksResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.chunk_pb2.ListChunksResponse]]:
-        """List chunks"""
+        """List catalog chunks"""
     @abc.abstractmethod
     def GetSourceFile(
         self,
         request: artifact.artifact.v1alpha.chunk_pb2.GetSourceFileRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.chunk_pb2.GetSourceFileResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.chunk_pb2.GetSourceFileResponse]]:
-        """Get source file"""
+        """Get catalog single-source-of-truth file"""
     @abc.abstractmethod
     def UpdateChunk(
         self,
         request: artifact.artifact.v1alpha.chunk_pb2.UpdateChunkRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.chunk_pb2.UpdateChunkResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.chunk_pb2.UpdateChunkResponse]]:
-        """Update chunk"""
+        """Update catalog chunk"""
     @abc.abstractmethod
     def SimilarityChunksSearch(
         self,
         request: artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchResponse]]:
-        """Similarity chunks search"""
+        """Retrieve similar chunks"""
     @abc.abstractmethod
     def QuestionAnswering(
         self,
         request: artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringResponse]]:
-        """Question Answering"""
+        """Ask a question"""
     @abc.abstractmethod
     def GetFileCatalog(
         self,
@@ -415,55 +415,55 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         request: artifact.artifact.v1alpha.conversation_pb2.CreateConversationRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.conversation_pb2.CreateConversationResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.conversation_pb2.CreateConversationResponse]]:
-        """CreateConversation"""
+        """Create a Conversation"""
     @abc.abstractmethod
     def ListConversations(
         self,
         request: artifact.artifact.v1alpha.conversation_pb2.ListConversationsRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.conversation_pb2.ListConversationsResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.conversation_pb2.ListConversationsResponse]]:
-        """ListConversations"""
+        """List conversations"""
     @abc.abstractmethod
     def UpdateConversation(
         self,
         request: artifact.artifact.v1alpha.conversation_pb2.UpdateConversationRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.conversation_pb2.UpdateConversationResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.conversation_pb2.UpdateConversationResponse]]:
-        """UpdateConversation"""
+        """Update a conversation"""
     @abc.abstractmethod
     def DeleteConversation(
         self,
         request: artifact.artifact.v1alpha.conversation_pb2.DeleteConversationRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.conversation_pb2.DeleteConversationResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.conversation_pb2.DeleteConversationResponse]]:
-        """DeleteConversation"""
+        """Delete a conversation"""
     @abc.abstractmethod
     def CreateMessage(
         self,
         request: artifact.artifact.v1alpha.conversation_pb2.CreateMessageRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.conversation_pb2.CreateMessageResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.conversation_pb2.CreateMessageResponse]]:
-        """CreateMessage"""
+        """Create a message"""
     @abc.abstractmethod
     def ListMessages(
         self,
         request: artifact.artifact.v1alpha.conversation_pb2.ListMessagesRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.conversation_pb2.ListMessagesResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.conversation_pb2.ListMessagesResponse]]:
-        """ListMessages"""
+        """List messages"""
     @abc.abstractmethod
     def UpdateMessage(
         self,
         request: artifact.artifact.v1alpha.conversation_pb2.UpdateMessageRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.conversation_pb2.UpdateMessageResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.conversation_pb2.UpdateMessageResponse]]:
-        """UpdateMessage"""
+        """Update a message"""
     @abc.abstractmethod
     def DeleteMessage(
         self,
         request: artifact.artifact.v1alpha.conversation_pb2.DeleteMessageRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.conversation_pb2.DeleteMessageResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.conversation_pb2.DeleteMessageResponse]]:
-        """DeleteMessage"""
+        """Delete a message"""
 
 def add_ArtifactPublicServiceServicer_to_server(servicer: ArtifactPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
