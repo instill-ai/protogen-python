@@ -272,6 +272,28 @@ class Model(google.protobuf.message.Message):
     VISIBILITY_PUBLIC: Model.Visibility.ValueType  # 2
     """Other users can see the model."""
 
+    @typing_extensions.final
+    class Stats(google.protobuf.message.Message):
+        """Statistic data"""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        NUMBER_OF_RUNS_FIELD_NUMBER: builtins.int
+        LAST_RUN_TIME_FIELD_NUMBER: builtins.int
+        number_of_runs: builtins.int
+        """Number of model runs."""
+        @property
+        def last_run_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+            """Last run time."""
+        def __init__(
+            self,
+            *,
+            number_of_runs: builtins.int = ...,
+            last_run_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["last_run_time", b"last_run_time"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["last_run_time", b"last_run_time", "number_of_runs", b"number_of_runs"]) -> None: ...
+
     NAME_FIELD_NUMBER: builtins.int
     UID_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
@@ -299,6 +321,7 @@ class Model(google.protobuf.message.Message):
     OUTPUT_SCHEMA_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
     VERSIONS_FIELD_NUMBER: builtins.int
+    STATS_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the model, which allows its access by owner and ID.
     - Format: `users/{user.id}/models/{model.id}`.
@@ -374,6 +397,9 @@ class Model(google.protobuf.message.Message):
     @property
     def versions(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Version names."""
+    @property
+    def stats(self) -> global___Model.Stats:
+        """Statistic data."""
     def __init__(
         self,
         *,
@@ -404,9 +430,10 @@ class Model(google.protobuf.message.Message):
         output_schema: google.protobuf.struct_pb2.Struct | None = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
         versions: collections.abc.Iterable[builtins.str] | None = ...,
+        stats: global___Model.Stats | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_readme", b"_readme", "_source_url", b"_source_url", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "input_schema", b"input_schema", "license", b"license", "output_schema", b"output_schema", "owner", b"owner", "permission", b"permission", "profile_image", b"profile_image", "readme", b"readme", "sample_input", b"sample_input", "sample_output", b"sample_output", "source_url", b"source_url", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_readme", b"_readme", "_source_url", b"_source_url", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "hardware", b"hardware", "id", b"id", "input_schema", b"input_schema", "license", b"license", "model_definition", b"model_definition", "name", b"name", "output_schema", b"output_schema", "owner", b"owner", "owner_name", b"owner_name", "permission", b"permission", "profile_image", b"profile_image", "readme", b"readme", "region", b"region", "sample_input", b"sample_input", "sample_output", b"sample_output", "source_url", b"source_url", "tags", b"tags", "task", b"task", "uid", b"uid", "update_time", b"update_time", "versions", b"versions", "visibility", b"visibility"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_readme", b"_readme", "_source_url", b"_source_url", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "input_schema", b"input_schema", "license", b"license", "output_schema", b"output_schema", "owner", b"owner", "permission", b"permission", "profile_image", b"profile_image", "readme", b"readme", "sample_input", b"sample_input", "sample_output", b"sample_output", "source_url", b"source_url", "stats", b"stats", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_readme", b"_readme", "_source_url", b"_source_url", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "hardware", b"hardware", "id", b"id", "input_schema", b"input_schema", "license", b"license", "model_definition", b"model_definition", "name", b"name", "output_schema", b"output_schema", "owner", b"owner", "owner_name", b"owner_name", "permission", b"permission", "profile_image", b"profile_image", "readme", b"readme", "region", b"region", "sample_input", b"sample_input", "sample_output", b"sample_output", "source_url", b"source_url", "stats", b"stats", "tags", b"tags", "task", b"task", "uid", b"uid", "update_time", b"update_time", "versions", b"versions", "visibility", b"visibility"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_description", b"_description"]) -> typing_extensions.Literal["description"] | None: ...
     @typing.overload
