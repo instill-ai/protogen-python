@@ -3945,7 +3945,7 @@ class ModelRun(google.protobuf.message.Message):
     SOURCE_FIELD_NUMBER: builtins.int
     TOTAL_DURATION_FIELD_NUMBER: builtins.int
     END_TIME_FIELD_NUMBER: builtins.int
-    REQUESTER_ID_FIELD_NUMBER: builtins.int
+    RUNNER_ID_FIELD_NUMBER: builtins.int
     CREDIT_AMOUNT_FIELD_NUMBER: builtins.int
     ERROR_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
@@ -3966,8 +3966,8 @@ class ModelRun(google.protobuf.message.Message):
     @property
     def end_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Run end time."""
-    requester_id: builtins.str
-    """Run requester ID. If current viewing requester is not the owner, it will return null."""
+    runner_id: builtins.str
+    """Runner ID. If current viewing requester does not have enough permission, it will return null."""
     credit_amount: builtins.float
     """The amount of Instill Credit consumed by the run. This field will only be present on Instill Cloud."""
     error: builtins.str
@@ -3995,7 +3995,7 @@ class ModelRun(google.protobuf.message.Message):
         source: common.run.v1alpha.run_pb2.RunSource.ValueType = ...,
         total_duration: builtins.int | None = ...,
         end_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        requester_id: builtins.str | None = ...,
+        runner_id: builtins.str | None = ...,
         credit_amount: builtins.float | None = ...,
         error: builtins.str | None = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
@@ -4004,8 +4004,8 @@ class ModelRun(google.protobuf.message.Message):
         task_inputs: collections.abc.Iterable[global___TaskInput] | None = ...,
         task_outputs: collections.abc.Iterable[global___TaskOutput] | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_credit_amount", b"_credit_amount", "_end_time", b"_end_time", "_error", b"_error", "_requester_id", b"_requester_id", "_total_duration", b"_total_duration", "create_time", b"create_time", "credit_amount", b"credit_amount", "end_time", b"end_time", "error", b"error", "requester_id", b"requester_id", "total_duration", b"total_duration", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_credit_amount", b"_credit_amount", "_end_time", b"_end_time", "_error", b"_error", "_requester_id", b"_requester_id", "_total_duration", b"_total_duration", "create_time", b"create_time", "credit_amount", b"credit_amount", "end_time", b"end_time", "error", b"error", "model_uid", b"model_uid", "requester_id", b"requester_id", "source", b"source", "status", b"status", "task_inputs", b"task_inputs", "task_outputs", b"task_outputs", "total_duration", b"total_duration", "uid", b"uid", "update_time", b"update_time", "version", b"version"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_credit_amount", b"_credit_amount", "_end_time", b"_end_time", "_error", b"_error", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "create_time", b"create_time", "credit_amount", b"credit_amount", "end_time", b"end_time", "error", b"error", "runner_id", b"runner_id", "total_duration", b"total_duration", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_credit_amount", b"_credit_amount", "_end_time", b"_end_time", "_error", b"_error", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "create_time", b"create_time", "credit_amount", b"credit_amount", "end_time", b"end_time", "error", b"error", "model_uid", b"model_uid", "runner_id", b"runner_id", "source", b"source", "status", b"status", "task_inputs", b"task_inputs", "task_outputs", b"task_outputs", "total_duration", b"total_duration", "uid", b"uid", "update_time", b"update_time", "version", b"version"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_credit_amount", b"_credit_amount"]) -> typing_extensions.Literal["credit_amount"] | None: ...
     @typing.overload
@@ -4013,7 +4013,7 @@ class ModelRun(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_error", b"_error"]) -> typing_extensions.Literal["error"] | None: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_requester_id", b"_requester_id"]) -> typing_extensions.Literal["requester_id"] | None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_runner_id", b"_runner_id"]) -> typing_extensions.Literal["runner_id"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_total_duration", b"_total_duration"]) -> typing_extensions.Literal["total_duration"] | None: ...
 

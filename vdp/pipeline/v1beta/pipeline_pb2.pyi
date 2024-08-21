@@ -4559,6 +4559,7 @@ class ListPipelineRunsRequest(google.protobuf.message.Message):
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
+    ORDER_BY_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """The ID of the owner of the pipeline."""
     pipeline_id: builtins.str
@@ -4578,6 +4579,10 @@ class ListPipelineRunsRequest(google.protobuf.message.Message):
     expression.
     - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
     """
+    order_by: builtins.str
+    """Order by field, with options for ordering by `id`, `create_time` or `update_time`.
+    Format: `order_by=id` or `order_by=create_time desc`, default is `asc`.
+    """
     def __init__(
         self,
         *,
@@ -4587,11 +4592,14 @@ class ListPipelineRunsRequest(google.protobuf.message.Message):
         page_size: builtins.int = ...,
         view: global___Pipeline.View.ValueType | None = ...,
         filter: builtins.str | None = ...,
+        order_by: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_view", b"_view", "filter", b"filter", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_view", b"_view", "filter", b"filter", "namespace_id", b"namespace_id", "page", b"page", "page_size", b"page_size", "pipeline_id", b"pipeline_id", "view", b"view"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_view", b"_view", "filter", b"filter", "order_by", b"order_by", "view", b"view"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_view", b"_view", "filter", b"filter", "namespace_id", b"namespace_id", "order_by", b"order_by", "page", b"page", "page_size", b"page_size", "pipeline_id", b"pipeline_id", "view", b"view"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_order_by", b"_order_by"]) -> typing_extensions.Literal["order_by"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
 
@@ -4638,6 +4646,8 @@ class ListComponentRunsRequest(google.protobuf.message.Message):
     PAGE_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
+    ORDER_BY_FIELD_NUMBER: builtins.int
+    VIEW_FIELD_NUMBER: builtins.int
     pipeline_run_id: builtins.str
     """The unique identifier of the pipeline run to list component runs for."""
     page: builtins.int
@@ -4651,6 +4661,14 @@ class ListComponentRunsRequest(google.protobuf.message.Message):
     expression.
     - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
     """
+    order_by: builtins.str
+    """Order by field, with options for ordering by `id`, `create_time` or `update_time`.
+    Format: `order_by=id` or `order_by=create_time desc`, default is `asc`.
+    """
+    view: global___Pipeline.View.ValueType
+    """View allows clients to specify the desired run view in the response.
+    The basic view excludes input / output data.
+    """
     def __init__(
         self,
         *,
@@ -4658,15 +4676,21 @@ class ListComponentRunsRequest(google.protobuf.message.Message):
         page: builtins.int | None = ...,
         page_size: builtins.int | None = ...,
         filter: builtins.str | None = ...,
+        order_by: builtins.str | None = ...,
+        view: global___Pipeline.View.ValueType | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page", b"_page", "_page_size", b"_page_size", "filter", b"filter", "page", b"page", "page_size", b"page_size"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page", b"_page", "_page_size", b"_page_size", "filter", b"filter", "page", b"page", "page_size", b"page_size", "pipeline_run_id", b"pipeline_run_id"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page", b"_page", "_page_size", b"_page_size", "_view", b"_view", "filter", b"filter", "order_by", b"order_by", "page", b"page", "page_size", b"page_size", "view", b"view"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page", b"_page", "_page_size", b"_page_size", "_view", b"_view", "filter", b"filter", "order_by", b"order_by", "page", b"page", "page_size", b"page_size", "pipeline_run_id", b"pipeline_run_id", "view", b"view"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_order_by", b"_order_by"]) -> typing_extensions.Literal["order_by"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_page", b"_page"]) -> typing_extensions.Literal["page"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
 
 global___ListComponentRunsRequest = ListComponentRunsRequest
 
@@ -4743,7 +4767,7 @@ class PipelineRun(google.protobuf.message.Message):
     STATUS_FIELD_NUMBER: builtins.int
     SOURCE_FIELD_NUMBER: builtins.int
     TOTAL_DURATION_FIELD_NUMBER: builtins.int
-    REQUESTER_ID_FIELD_NUMBER: builtins.int
+    RUNNER_ID_FIELD_NUMBER: builtins.int
     INPUTS_REFERENCE_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
     OUTPUTS_REFERENCE_FIELD_NUMBER: builtins.int
@@ -4765,8 +4789,8 @@ class PipelineRun(google.protobuf.message.Message):
     """Origin of the run."""
     total_duration: builtins.int
     """Time taken to complete the run in milliseconds."""
-    requester_id: builtins.str
-    """Identity of the user who initiated the run."""
+    runner_id: builtins.str
+    """Runner ID. If current viewing requester does not have enough permission, it will return null."""
     @property
     def inputs_reference(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___FileReference]:
         """Input files for the run."""
@@ -4801,7 +4825,7 @@ class PipelineRun(google.protobuf.message.Message):
         status: common.run.v1alpha.run_pb2.RunStatus.ValueType = ...,
         source: common.run.v1alpha.run_pb2.RunSource.ValueType = ...,
         total_duration: builtins.int | None = ...,
-        requester_id: builtins.str = ...,
+        runner_id: builtins.str | None = ...,
         inputs_reference: collections.abc.Iterable[global___FileReference] | None = ...,
         inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
         outputs_reference: collections.abc.Iterable[global___FileReference] | None = ...,
@@ -4812,14 +4836,16 @@ class PipelineRun(google.protobuf.message.Message):
         error: builtins.str | None = ...,
         credit_amount: builtins.float | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "error", b"error", "recipe_snapshot", b"recipe_snapshot", "start_time", b"start_time", "total_duration", b"total_duration"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "error", b"error", "inputs", b"inputs", "inputs_reference", b"inputs_reference", "outputs", b"outputs", "outputs_reference", b"outputs_reference", "pipeline_run_uid", b"pipeline_run_uid", "pipeline_uid", b"pipeline_uid", "pipeline_version", b"pipeline_version", "recipe_snapshot", b"recipe_snapshot", "requester_id", b"requester_id", "source", b"source", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "error", b"error", "recipe_snapshot", b"recipe_snapshot", "runner_id", b"runner_id", "start_time", b"start_time", "total_duration", b"total_duration"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "error", b"error", "inputs", b"inputs", "inputs_reference", b"inputs_reference", "outputs", b"outputs", "outputs_reference", b"outputs_reference", "pipeline_run_uid", b"pipeline_run_uid", "pipeline_uid", b"pipeline_uid", "pipeline_version", b"pipeline_version", "recipe_snapshot", b"recipe_snapshot", "runner_id", b"runner_id", "source", b"source", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_complete_time", b"_complete_time"]) -> typing_extensions.Literal["complete_time"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_credit_amount", b"_credit_amount"]) -> typing_extensions.Literal["credit_amount"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_error", b"_error"]) -> typing_extensions.Literal["error"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_runner_id", b"_runner_id"]) -> typing_extensions.Literal["runner_id"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_total_duration", b"_total_duration"]) -> typing_extensions.Literal["total_duration"] | None: ...
 
@@ -4838,7 +4864,9 @@ class ComponentRun(google.protobuf.message.Message):
     START_TIME_FIELD_NUMBER: builtins.int
     COMPLETE_TIME_FIELD_NUMBER: builtins.int
     ERROR_FIELD_NUMBER: builtins.int
+    INPUTS_REFERENCE_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
+    OUTPUTS_REFERENCE_FIELD_NUMBER: builtins.int
     OUTPUTS_FIELD_NUMBER: builtins.int
     CREDIT_AMOUNT_FIELD_NUMBER: builtins.int
     pipeline_run_uid: builtins.str
@@ -4858,11 +4886,17 @@ class ComponentRun(google.protobuf.message.Message):
     error: builtins.str
     """Error message if the component failed."""
     @property
-    def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___FileReference]:
-        """Input files for the component."""
+    def inputs_reference(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___FileReference]:
+        """Input files for the run."""
     @property
-    def outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___FileReference]:
-        """Output files from the component."""
+    def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Component input parameters."""
+    @property
+    def outputs_reference(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___FileReference]:
+        """Output files from the run."""
+    @property
+    def outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Component inference outputs."""
     credit_amount: builtins.float
     """Credits used of internal accounting metric."""
     def __init__(
@@ -4875,12 +4909,14 @@ class ComponentRun(google.protobuf.message.Message):
         start_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         complete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         error: builtins.str | None = ...,
-        inputs: collections.abc.Iterable[global___FileReference] | None = ...,
-        outputs: collections.abc.Iterable[global___FileReference] | None = ...,
+        inputs_reference: collections.abc.Iterable[global___FileReference] | None = ...,
+        inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
+        outputs_reference: collections.abc.Iterable[global___FileReference] | None = ...,
+        outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
         credit_amount: builtins.float | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "error", b"error", "start_time", b"start_time", "total_duration", b"total_duration"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "component_id", b"component_id", "credit_amount", b"credit_amount", "error", b"error", "inputs", b"inputs", "outputs", b"outputs", "pipeline_run_uid", b"pipeline_run_uid", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "component_id", b"component_id", "credit_amount", b"credit_amount", "error", b"error", "inputs", b"inputs", "inputs_reference", b"inputs_reference", "outputs", b"outputs", "outputs_reference", b"outputs_reference", "pipeline_run_uid", b"pipeline_run_uid", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_complete_time", b"_complete_time"]) -> typing_extensions.Literal["complete_time"] | None: ...
     @typing.overload
