@@ -208,7 +208,7 @@ class ArtifactPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ProcessCatalogFiles(self, request, context):
-        """Process catalog files 
+        """Process catalog files
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

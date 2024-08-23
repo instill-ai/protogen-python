@@ -1484,7 +1484,7 @@ global___GetNamespaceLatestModelOperationRequest = GetNamespaceLatestModelOperat
 
 @typing_extensions.final
 class GetNamespaceLatestModelOperationResponse(google.protobuf.message.Message):
-    """GetNamespaceLatestModelOperationRequest represents a request to query a long-running
+    """GetNamespaceLatestModelOperationResponse represents a response to query a long-running
     operation.
     """
 
@@ -1503,6 +1503,62 @@ class GetNamespaceLatestModelOperationResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> None: ...
 
 global___GetNamespaceLatestModelOperationResponse = GetNamespaceLatestModelOperationResponse
+
+@typing_extensions.final
+class GetNamespaceModelOperationRequest(google.protobuf.message.Message):
+    """GetNamespaceModelOperationRequest represents a request to fetch the long-running
+    operation performed on a particular model version for a namespace.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    MODEL_ID_FIELD_NUMBER: builtins.int
+    VERSION_FIELD_NUMBER: builtins.int
+    VIEW_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID"""
+    model_id: builtins.str
+    """Model ID"""
+    version: builtins.str
+    """Model version"""
+    view: model.model.v1alpha.model_definition_pb2.View.ValueType
+    """View allows clients to specify the desired operation result in the response."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        model_id: builtins.str = ...,
+        version: builtins.str = ...,
+        view: model.model.v1alpha.model_definition_pb2.View.ValueType | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "model_id", b"model_id", "namespace_id", b"namespace_id", "version", b"version", "view", b"view"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+
+global___GetNamespaceModelOperationRequest = GetNamespaceModelOperationRequest
+
+@typing_extensions.final
+class GetNamespaceModelOperationResponse(google.protobuf.message.Message):
+    """GetNamespaceModelOperationResponse represents a response to query a long-running
+    operation.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OPERATION_FIELD_NUMBER: builtins.int
+    @property
+    def operation(self) -> google.longrunning.operations_pb2.Operation:
+        """The long-running operation."""
+    def __init__(
+        self,
+        *,
+        operation: google.longrunning.operations_pb2.Operation | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["operation", b"operation"]) -> None: ...
+
+global___GetNamespaceModelOperationResponse = GetNamespaceModelOperationResponse
 
 @typing_extensions.final
 class DeployNamespaceModelAdminRequest(google.protobuf.message.Message):

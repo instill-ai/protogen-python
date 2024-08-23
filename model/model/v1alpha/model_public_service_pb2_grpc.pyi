@@ -232,6 +232,16 @@ class ModelPublicServiceStub:
     Triggers the latest deployed model version to infer the result of a set of task or
     questions, submitted as a binary file.
     """
+    GetNamespaceModelOperation: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.GetNamespaceModelOperationRequest,
+        model.model.v1alpha.model_pb2.GetNamespaceModelOperationResponse,
+    ]
+    """Get the details of the long-running operation from a namespace model
+    with a particular version
+
+    This method allows requesters to request the status and outcome of
+    long-running operations in a model, such as trigger.
+    """
     GetNamespaceLatestModelOperation: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetNamespaceLatestModelOperationRequest,
         model.model.v1alpha.model_pb2.GetNamespaceLatestModelOperationResponse,
@@ -239,7 +249,7 @@ class ModelPublicServiceStub:
     """Get the details of the latest long-running operation from a namespace model
 
     This method allows requesters to request the status and outcome of
-    long-running operations in a model, such as deployment.
+    long-running operations in a model, such as trigger.
     """
     GetModelOperation: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetModelOperationRequest,
@@ -248,7 +258,7 @@ class ModelPublicServiceStub:
     """Get the details of a long-running operation
 
     This method allows requesters to request the status and outcome of
-    long-running operations in a model, such as deployment.
+    long-running operations in a model, such as trigger.
     """
     ListUserModels: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.ListUserModelsRequest,
@@ -549,7 +559,7 @@ class ModelPublicServiceStub:
     """Get the details of the latest long-running operation from a user model
 
     This method allows requesters to request the status and outcome of
-    long-running operations in a model, such as deployment.
+    long-running operations in a model, such as trigger.
     """
     GetOrganizationLatestModelOperation: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetOrganizationLatestModelOperationRequest,
@@ -558,7 +568,7 @@ class ModelPublicServiceStub:
     """Get the details of the latest long-running operation from a organization model
 
     This method allows requesters to request the status and outcome of
-    long-running operations in a model, such as deployment.
+    long-running operations in a model, such as trigger.
     """
     ListModelRuns: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.ListModelRunsRequest,
@@ -782,6 +792,16 @@ class ModelPublicServiceAsyncStub:
     Triggers the latest deployed model version to infer the result of a set of task or
     questions, submitted as a binary file.
     """
+    GetNamespaceModelOperation: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.GetNamespaceModelOperationRequest,
+        model.model.v1alpha.model_pb2.GetNamespaceModelOperationResponse,
+    ]
+    """Get the details of the long-running operation from a namespace model
+    with a particular version
+
+    This method allows requesters to request the status and outcome of
+    long-running operations in a model, such as trigger.
+    """
     GetNamespaceLatestModelOperation: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetNamespaceLatestModelOperationRequest,
         model.model.v1alpha.model_pb2.GetNamespaceLatestModelOperationResponse,
@@ -789,7 +809,7 @@ class ModelPublicServiceAsyncStub:
     """Get the details of the latest long-running operation from a namespace model
 
     This method allows requesters to request the status and outcome of
-    long-running operations in a model, such as deployment.
+    long-running operations in a model, such as trigger.
     """
     GetModelOperation: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetModelOperationRequest,
@@ -798,7 +818,7 @@ class ModelPublicServiceAsyncStub:
     """Get the details of a long-running operation
 
     This method allows requesters to request the status and outcome of
-    long-running operations in a model, such as deployment.
+    long-running operations in a model, such as trigger.
     """
     ListUserModels: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.ListUserModelsRequest,
@@ -1099,7 +1119,7 @@ class ModelPublicServiceAsyncStub:
     """Get the details of the latest long-running operation from a user model
 
     This method allows requesters to request the status and outcome of
-    long-running operations in a model, such as deployment.
+    long-running operations in a model, such as trigger.
     """
     GetOrganizationLatestModelOperation: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetOrganizationLatestModelOperationRequest,
@@ -1108,7 +1128,7 @@ class ModelPublicServiceAsyncStub:
     """Get the details of the latest long-running operation from a organization model
 
     This method allows requesters to request the status and outcome of
-    long-running operations in a model, such as deployment.
+    long-running operations in a model, such as trigger.
     """
     ListModelRuns: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.ListModelRunsRequest,
@@ -1379,6 +1399,18 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         questions, submitted as a binary file.
         """
     @abc.abstractmethod
+    def GetNamespaceModelOperation(
+        self,
+        request: model.model.v1alpha.model_pb2.GetNamespaceModelOperationRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.GetNamespaceModelOperationResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.GetNamespaceModelOperationResponse]]:
+        """Get the details of the long-running operation from a namespace model
+        with a particular version
+
+        This method allows requesters to request the status and outcome of
+        long-running operations in a model, such as trigger.
+        """
+    @abc.abstractmethod
     def GetNamespaceLatestModelOperation(
         self,
         request: model.model.v1alpha.model_pb2.GetNamespaceLatestModelOperationRequest,
@@ -1387,7 +1419,7 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         """Get the details of the latest long-running operation from a namespace model
 
         This method allows requesters to request the status and outcome of
-        long-running operations in a model, such as deployment.
+        long-running operations in a model, such as trigger.
         """
     @abc.abstractmethod
     def GetModelOperation(
@@ -1398,7 +1430,7 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         """Get the details of a long-running operation
 
         This method allows requesters to request the status and outcome of
-        long-running operations in a model, such as deployment.
+        long-running operations in a model, such as trigger.
         """
     @abc.abstractmethod
     def ListUserModels(
@@ -1761,7 +1793,7 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         """Get the details of the latest long-running operation from a user model
 
         This method allows requesters to request the status and outcome of
-        long-running operations in a model, such as deployment.
+        long-running operations in a model, such as trigger.
         """
     @abc.abstractmethod
     def GetOrganizationLatestModelOperation(
@@ -1772,7 +1804,7 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         """Get the details of the latest long-running operation from a organization model
 
         This method allows requesters to request the status and outcome of
-        long-running operations in a model, such as deployment.
+        long-running operations in a model, such as trigger.
         """
     @abc.abstractmethod
     def ListModelRuns(

@@ -134,6 +134,11 @@ class ModelPublicServiceStub(object):
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelBinaryFileUploadRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelBinaryFileUploadResponse.FromString,
                 )
+        self.GetNamespaceModelOperation = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/GetNamespaceModelOperation',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceModelOperationRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceModelOperationResponse.FromString,
+                )
         self.GetNamespaceLatestModelOperation = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/GetNamespaceLatestModelOperation',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceLatestModelOperationRequest.SerializeToString,
@@ -547,11 +552,22 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetNamespaceModelOperation(self, request, context):
+        """Get the details of the long-running operation from a namespace model
+        with a particular version
+
+        This method allows requesters to request the status and outcome of
+        long-running operations in a model, such as trigger.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetNamespaceLatestModelOperation(self, request, context):
         """Get the details of the latest long-running operation from a namespace model
 
         This method allows requesters to request the status and outcome of
-        long-running operations in a model, such as deployment.
+        long-running operations in a model, such as trigger.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -561,7 +577,7 @@ class ModelPublicServiceServicer(object):
         """Get the details of a long-running operation
 
         This method allows requesters to request the status and outcome of
-        long-running operations in a model, such as deployment.
+        long-running operations in a model, such as trigger.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -893,7 +909,7 @@ class ModelPublicServiceServicer(object):
         """Get the details of the latest long-running operation from a user model
 
         This method allows requesters to request the status and outcome of
-        long-running operations in a model, such as deployment.
+        long-running operations in a model, such as trigger.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -903,7 +919,7 @@ class ModelPublicServiceServicer(object):
         """Get the details of the latest long-running operation from a organization model
 
         This method allows requesters to request the status and outcome of
-        long-running operations in a model, such as deployment.
+        long-running operations in a model, such as trigger.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1035,6 +1051,11 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     servicer.TriggerNamespaceLatestModelBinaryFileUpload,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelBinaryFileUploadRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelBinaryFileUploadResponse.SerializeToString,
+            ),
+            'GetNamespaceModelOperation': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetNamespaceModelOperation,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceModelOperationRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceModelOperationResponse.SerializeToString,
             ),
             'GetNamespaceLatestModelOperation': grpc.unary_unary_rpc_method_handler(
                     servicer.GetNamespaceLatestModelOperation,
@@ -1613,6 +1634,23 @@ class ModelPublicService(object):
         return grpc.experimental.stream_unary(request_iterator, target, '/model.model.v1alpha.ModelPublicService/TriggerNamespaceLatestModelBinaryFileUpload',
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelBinaryFileUploadRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelBinaryFileUploadResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetNamespaceModelOperation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/GetNamespaceModelOperation',
+            model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceModelOperationRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceModelOperationResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
