@@ -133,7 +133,6 @@ class GetFileCatalogResponse(google.protobuf.message.Message):
 
         PIPELINE_IDS_FIELD_NUMBER: builtins.int
         TRANSFORMED_CONTENT_FIELD_NUMBER: builtins.int
-        TRANSFORMED_CONTENT_UID_FIELD_NUMBER: builtins.int
         TRANSFORMED_CONTENT_CHUNK_NUM_FIELD_NUMBER: builtins.int
         TRANSFORMED_CONTENT_TOKEN_NUM_FIELD_NUMBER: builtins.int
         TRANSFORMED_CONTENT_UPDATE_TIME_FIELD_NUMBER: builtins.int
@@ -142,8 +141,6 @@ class GetFileCatalogResponse(google.protobuf.message.Message):
             """pipelines"""
         transformed_content: builtins.str
         """transformed content"""
-        transformed_content_uid: builtins.str
-        """transformed content uid"""
         transformed_content_chunk_num: builtins.int
         """transformed content chunk number"""
         transformed_content_token_num: builtins.int
@@ -156,13 +153,12 @@ class GetFileCatalogResponse(google.protobuf.message.Message):
             *,
             pipeline_ids: collections.abc.Iterable[builtins.str] | None = ...,
             transformed_content: builtins.str = ...,
-            transformed_content_uid: builtins.str = ...,
             transformed_content_chunk_num: builtins.int = ...,
             transformed_content_token_num: builtins.int = ...,
             transformed_content_update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         ) -> None: ...
         def HasField(self, field_name: typing_extensions.Literal["transformed_content_update_time", b"transformed_content_update_time"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["pipeline_ids", b"pipeline_ids", "transformed_content", b"transformed_content", "transformed_content_chunk_num", b"transformed_content_chunk_num", "transformed_content_token_num", b"transformed_content_token_num", "transformed_content_uid", b"transformed_content_uid", "transformed_content_update_time", b"transformed_content_update_time"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["pipeline_ids", b"pipeline_ids", "transformed_content", b"transformed_content", "transformed_content_chunk_num", b"transformed_content_chunk_num", "transformed_content_token_num", b"transformed_content_token_num", "transformed_content_update_time", b"transformed_content_update_time"]) -> None: ...
 
     @typing_extensions.final
     class Chunk(google.protobuf.message.Message):

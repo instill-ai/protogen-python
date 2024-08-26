@@ -78,6 +78,34 @@ COMPONENT_TYPE_GENERIC: ComponentType.ValueType  # 6
 """Generic."""
 global___ComponentType = ComponentType
 
+class _View:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _ViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_View.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    VIEW_UNSPECIFIED: _View.ValueType  # 0
+    """Unspecified, equivalent to BASIC."""
+    VIEW_BASIC: _View.ValueType  # 1
+    """Default view."""
+    VIEW_FULL: _View.ValueType  # 2
+    """Full representation."""
+
+class View(_View, metaclass=_ViewEnumTypeWrapper):
+    """View defines how a resource is presented. Most resources can share this view
+    definition, the particular meaning of each value should be defined in the
+    resource itself. Certain resources might have their own View definition if
+    they need to implement more than 2 (basic / full) views.
+    """
+
+VIEW_UNSPECIFIED: View.ValueType  # 0
+"""Unspecified, equivalent to BASIC."""
+VIEW_BASIC: View.ValueType  # 1
+"""Default view."""
+VIEW_FULL: View.ValueType  # 2
+"""Full representation."""
+global___View = View
+
 @typing_extensions.final
 class Sharing(google.protobuf.message.Message):
     """Sharing contains the information to share a resource with other users.

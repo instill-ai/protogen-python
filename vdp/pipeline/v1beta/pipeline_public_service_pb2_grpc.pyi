@@ -9,6 +9,7 @@ import grpc.aio
 import typing
 import vdp.pipeline.v1beta.common_pb2
 import vdp.pipeline.v1beta.component_definition_pb2
+import vdp.pipeline.v1beta.integration_pb2
 import vdp.pipeline.v1beta.pipeline_pb2
 import vdp.pipeline.v1beta.secret_pb2
 
@@ -1004,6 +1005,76 @@ class PipelinePublicServiceStub:
 
     Returns the information of each component execution within a pipeline run.
     """
+    ListNamespaceConnections: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.integration_pb2.ListNamespaceConnectionsRequest,
+        vdp.pipeline.v1beta.integration_pb2.ListNamespaceConnectionsResponse,
+    ]
+    """List namespace connections
+
+    Returns a paginated list of connections created by a namespace.
+    """
+    GetNamespaceConnection: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.integration_pb2.GetNamespaceConnectionRequest,
+        vdp.pipeline.v1beta.integration_pb2.GetNamespaceConnectionResponse,
+    ]
+    """Get a namespace connection
+
+    Returns the details of a connection.
+    """
+    CreateNamespaceConnection: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.integration_pb2.CreateNamespaceConnectionRequest,
+        vdp.pipeline.v1beta.integration_pb2.CreateNamespaceConnectionResponse,
+    ]
+    """Create a connection
+
+    Creates a connection under the ownership of a namespace.
+    """
+    UpdateNamespaceConnection: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.integration_pb2.UpdateNamespaceConnectionRequest,
+        vdp.pipeline.v1beta.integration_pb2.UpdateNamespaceConnectionResponse,
+    ]
+    """Update a connection
+
+    Updates a connection with the supplied connection fields.
+    """
+    DeleteNamespaceConnection: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.integration_pb2.DeleteNamespaceConnectionRequest,
+        vdp.pipeline.v1beta.integration_pb2.DeleteNamespaceConnectionResponse,
+    ]
+    """Delete a connection
+
+    Deletes a connection.
+    """
+    TestNamespaceConnection: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.integration_pb2.TestNamespaceConnectionRequest,
+        vdp.pipeline.v1beta.integration_pb2.TestNamespaceConnectionResponse,
+    ]
+    """Test a connection
+
+    Makes a request to the 3rd party app that the connection is configured to
+    communicate with, and checks the result of the call. If the test fails,
+    the response status and error message will provide more information about
+    the failure.
+
+    Note that this action might affect the quota or billing of the integrated
+    account in the 3rd party app.
+    """
+    ListIntegrations: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.integration_pb2.ListIntegrationsRequest,
+        vdp.pipeline.v1beta.integration_pb2.ListIntegrationsResponse,
+    ]
+    """List integrations
+
+    Returns a paginated list of available integrations.
+    """
+    GetIntegration: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.integration_pb2.GetIntegrationRequest,
+        vdp.pipeline.v1beta.integration_pb2.GetIntegrationResponse,
+    ]
+    """Get an integration
+
+    Returns the details of an integration.
+    """
 
 class PipelinePublicServiceAsyncStub:
     """VDP
@@ -1987,6 +2058,76 @@ class PipelinePublicServiceAsyncStub:
     """List Component runs
 
     Returns the information of each component execution within a pipeline run.
+    """
+    ListNamespaceConnections: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.integration_pb2.ListNamespaceConnectionsRequest,
+        vdp.pipeline.v1beta.integration_pb2.ListNamespaceConnectionsResponse,
+    ]
+    """List namespace connections
+
+    Returns a paginated list of connections created by a namespace.
+    """
+    GetNamespaceConnection: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.integration_pb2.GetNamespaceConnectionRequest,
+        vdp.pipeline.v1beta.integration_pb2.GetNamespaceConnectionResponse,
+    ]
+    """Get a namespace connection
+
+    Returns the details of a connection.
+    """
+    CreateNamespaceConnection: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.integration_pb2.CreateNamespaceConnectionRequest,
+        vdp.pipeline.v1beta.integration_pb2.CreateNamespaceConnectionResponse,
+    ]
+    """Create a connection
+
+    Creates a connection under the ownership of a namespace.
+    """
+    UpdateNamespaceConnection: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.integration_pb2.UpdateNamespaceConnectionRequest,
+        vdp.pipeline.v1beta.integration_pb2.UpdateNamespaceConnectionResponse,
+    ]
+    """Update a connection
+
+    Updates a connection with the supplied connection fields.
+    """
+    DeleteNamespaceConnection: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.integration_pb2.DeleteNamespaceConnectionRequest,
+        vdp.pipeline.v1beta.integration_pb2.DeleteNamespaceConnectionResponse,
+    ]
+    """Delete a connection
+
+    Deletes a connection.
+    """
+    TestNamespaceConnection: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.integration_pb2.TestNamespaceConnectionRequest,
+        vdp.pipeline.v1beta.integration_pb2.TestNamespaceConnectionResponse,
+    ]
+    """Test a connection
+
+    Makes a request to the 3rd party app that the connection is configured to
+    communicate with, and checks the result of the call. If the test fails,
+    the response status and error message will provide more information about
+    the failure.
+
+    Note that this action might affect the quota or billing of the integrated
+    account in the 3rd party app.
+    """
+    ListIntegrations: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.integration_pb2.ListIntegrationsRequest,
+        vdp.pipeline.v1beta.integration_pb2.ListIntegrationsResponse,
+    ]
+    """List integrations
+
+    Returns a paginated list of available integrations.
+    """
+    GetIntegration: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.integration_pb2.GetIntegrationRequest,
+        vdp.pipeline.v1beta.integration_pb2.GetIntegrationResponse,
+    ]
+    """Get an integration
+
+    Returns the details of an integration.
     """
 
 class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
@@ -3155,6 +3296,92 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         """List Component runs
 
         Returns the information of each component execution within a pipeline run.
+        """
+    @abc.abstractmethod
+    def ListNamespaceConnections(
+        self,
+        request: vdp.pipeline.v1beta.integration_pb2.ListNamespaceConnectionsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.integration_pb2.ListNamespaceConnectionsResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.integration_pb2.ListNamespaceConnectionsResponse]]:
+        """List namespace connections
+
+        Returns a paginated list of connections created by a namespace.
+        """
+    @abc.abstractmethod
+    def GetNamespaceConnection(
+        self,
+        request: vdp.pipeline.v1beta.integration_pb2.GetNamespaceConnectionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.integration_pb2.GetNamespaceConnectionResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.integration_pb2.GetNamespaceConnectionResponse]]:
+        """Get a namespace connection
+
+        Returns the details of a connection.
+        """
+    @abc.abstractmethod
+    def CreateNamespaceConnection(
+        self,
+        request: vdp.pipeline.v1beta.integration_pb2.CreateNamespaceConnectionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.integration_pb2.CreateNamespaceConnectionResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.integration_pb2.CreateNamespaceConnectionResponse]]:
+        """Create a connection
+
+        Creates a connection under the ownership of a namespace.
+        """
+    @abc.abstractmethod
+    def UpdateNamespaceConnection(
+        self,
+        request: vdp.pipeline.v1beta.integration_pb2.UpdateNamespaceConnectionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.integration_pb2.UpdateNamespaceConnectionResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.integration_pb2.UpdateNamespaceConnectionResponse]]:
+        """Update a connection
+
+        Updates a connection with the supplied connection fields.
+        """
+    @abc.abstractmethod
+    def DeleteNamespaceConnection(
+        self,
+        request: vdp.pipeline.v1beta.integration_pb2.DeleteNamespaceConnectionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.integration_pb2.DeleteNamespaceConnectionResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.integration_pb2.DeleteNamespaceConnectionResponse]]:
+        """Delete a connection
+
+        Deletes a connection.
+        """
+    @abc.abstractmethod
+    def TestNamespaceConnection(
+        self,
+        request: vdp.pipeline.v1beta.integration_pb2.TestNamespaceConnectionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.integration_pb2.TestNamespaceConnectionResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.integration_pb2.TestNamespaceConnectionResponse]]:
+        """Test a connection
+
+        Makes a request to the 3rd party app that the connection is configured to
+        communicate with, and checks the result of the call. If the test fails,
+        the response status and error message will provide more information about
+        the failure.
+
+        Note that this action might affect the quota or billing of the integrated
+        account in the 3rd party app.
+        """
+    @abc.abstractmethod
+    def ListIntegrations(
+        self,
+        request: vdp.pipeline.v1beta.integration_pb2.ListIntegrationsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.integration_pb2.ListIntegrationsResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.integration_pb2.ListIntegrationsResponse]]:
+        """List integrations
+
+        Returns a paginated list of available integrations.
+        """
+    @abc.abstractmethod
+    def GetIntegration(
+        self,
+        request: vdp.pipeline.v1beta.integration_pb2.GetIntegrationRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.integration_pb2.GetIntegrationResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.integration_pb2.GetIntegrationResponse]]:
+        """Get an integration
+
+        Returns the details of an integration.
         """
 
 def add_PipelinePublicServiceServicer_to_server(servicer: PipelinePublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
