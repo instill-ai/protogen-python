@@ -452,6 +452,7 @@ class Integration(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["schema", b"schema"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["method", b"method", "schema", b"schema"]) -> None: ...
 
+    UID_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
     TITLE_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
@@ -460,6 +461,8 @@ class Integration(google.protobuf.message.Message):
     FEATURED_FIELD_NUMBER: builtins.int
     SCHEMAS_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
+    uid: builtins.str
+    """UUID-formatted unique identifier. It references a component definition."""
     id: builtins.str
     """Identifier of the integration, which references a component definition.
     Components with that definition ID will be able to use the connections
@@ -490,6 +493,7 @@ class Integration(google.protobuf.message.Message):
     def __init__(
         self,
         *,
+        uid: builtins.str = ...,
         id: builtins.str = ...,
         title: builtins.str = ...,
         description: builtins.str = ...,
@@ -499,7 +503,7 @@ class Integration(google.protobuf.message.Message):
         schemas: collections.abc.Iterable[global___Integration.SetupSchema] | None = ...,
         view: vdp.pipeline.v1beta.common_pb2.View.ValueType = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "featured", b"featured", "icon", b"icon", "id", b"id", "schemas", b"schemas", "title", b"title", "vendor", b"vendor", "view", b"view"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "featured", b"featured", "icon", b"icon", "id", b"id", "schemas", b"schemas", "title", b"title", "uid", b"uid", "vendor", b"vendor", "view", b"view"]) -> None: ...
 
 global___Integration = Integration
 
