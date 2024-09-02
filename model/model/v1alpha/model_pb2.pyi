@@ -18,18 +18,6 @@ import google.protobuf.struct_pb2
 import google.protobuf.timestamp_pb2
 import model.model.v1alpha.common_pb2
 import model.model.v1alpha.model_definition_pb2
-import model.model.v1alpha.task_classification_pb2
-import model.model.v1alpha.task_detection_pb2
-import model.model.v1alpha.task_image_to_image_pb2
-import model.model.v1alpha.task_instance_segmentation_pb2
-import model.model.v1alpha.task_keypoint_pb2
-import model.model.v1alpha.task_ocr_pb2
-import model.model.v1alpha.task_semantic_segmentation_pb2
-import model.model.v1alpha.task_text_generation_chat_pb2
-import model.model.v1alpha.task_text_generation_pb2
-import model.model.v1alpha.task_text_to_image_pb2
-import model.model.v1alpha.task_unspecified_pb2
-import model.model.v1alpha.task_visual_question_answering_pb2
 import sys
 import typing
 
@@ -313,8 +301,6 @@ class Model(google.protobuf.message.Message):
     SOURCE_URL_FIELD_NUMBER: builtins.int
     DOCUMENTATION_URL_FIELD_NUMBER: builtins.int
     LICENSE_FIELD_NUMBER: builtins.int
-    SAMPLE_INPUT_FIELD_NUMBER: builtins.int
-    SAMPLE_OUTPUT_FIELD_NUMBER: builtins.int
     PROFILE_IMAGE_FIELD_NUMBER: builtins.int
     PERMISSION_FIELD_NUMBER: builtins.int
     INPUT_SCHEMA_FIELD_NUMBER: builtins.int
@@ -374,12 +360,6 @@ class Model(google.protobuf.message.Message):
     """A link to any extra information."""
     license: builtins.str
     """License under which the model is distributed."""
-    @property
-    def sample_input(self) -> global___TaskInput:
-        """Sample input for this model"""
-    @property
-    def sample_output(self) -> global___TaskOutput:
-        """Sample output for this model"""
     profile_image: builtins.str
     """Model profile image in base64 format."""
     @property
@@ -422,8 +402,6 @@ class Model(google.protobuf.message.Message):
         source_url: builtins.str | None = ...,
         documentation_url: builtins.str | None = ...,
         license: builtins.str | None = ...,
-        sample_input: global___TaskInput | None = ...,
-        sample_output: global___TaskOutput | None = ...,
         profile_image: builtins.str | None = ...,
         permission: model.model.v1alpha.common_pb2.Permission | None = ...,
         input_schema: google.protobuf.struct_pb2.Struct | None = ...,
@@ -432,8 +410,8 @@ class Model(google.protobuf.message.Message):
         versions: collections.abc.Iterable[builtins.str] | None = ...,
         stats: global___Model.Stats | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_readme", b"_readme", "_source_url", b"_source_url", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "input_schema", b"input_schema", "license", b"license", "output_schema", b"output_schema", "owner", b"owner", "permission", b"permission", "profile_image", b"profile_image", "readme", b"readme", "sample_input", b"sample_input", "sample_output", b"sample_output", "source_url", b"source_url", "stats", b"stats", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_readme", b"_readme", "_source_url", b"_source_url", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "hardware", b"hardware", "id", b"id", "input_schema", b"input_schema", "license", b"license", "model_definition", b"model_definition", "name", b"name", "output_schema", b"output_schema", "owner", b"owner", "owner_name", b"owner_name", "permission", b"permission", "profile_image", b"profile_image", "readme", b"readme", "region", b"region", "sample_input", b"sample_input", "sample_output", b"sample_output", "source_url", b"source_url", "stats", b"stats", "tags", b"tags", "task", b"task", "uid", b"uid", "update_time", b"update_time", "versions", b"versions", "visibility", b"visibility"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_readme", b"_readme", "_source_url", b"_source_url", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "input_schema", b"input_schema", "license", b"license", "output_schema", b"output_schema", "owner", b"owner", "permission", b"permission", "profile_image", b"profile_image", "readme", b"readme", "source_url", b"source_url", "stats", b"stats", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_readme", b"_readme", "_source_url", b"_source_url", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "hardware", b"hardware", "id", b"id", "input_schema", b"input_schema", "license", b"license", "model_definition", b"model_definition", "name", b"name", "output_schema", b"output_schema", "owner", b"owner", "owner_name", b"owner_name", "permission", b"permission", "profile_image", b"profile_image", "readme", b"readme", "region", b"region", "source_url", b"source_url", "stats", b"stats", "tags", b"tags", "task", b"task", "uid", b"uid", "update_time", b"update_time", "versions", b"versions", "visibility", b"visibility"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_description", b"_description"]) -> typing_extensions.Literal["description"] | None: ...
     @typing.overload
@@ -1134,24 +1112,24 @@ class TriggerNamespaceModelRequest(google.protobuf.message.Message):
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     MODEL_ID_FIELD_NUMBER: builtins.int
-    TASK_INPUTS_FIELD_NUMBER: builtins.int
     VERSION_FIELD_NUMBER: builtins.int
+    TASK_INPUTS_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """Namespace ID"""
     model_id: builtins.str
     """Model ID"""
-    @property
-    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
-        """Inference input parameters."""
     version: builtins.str
     """Model version"""
+    @property
+    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Model inference inputs."""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         model_id: builtins.str = ...,
-        task_inputs: collections.abc.Iterable[global___TaskInput] | None = ...,
         version: builtins.str = ...,
+        task_inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id", "namespace_id", b"namespace_id", "task_inputs", b"task_inputs", "version", b"version"]) -> None: ...
 
@@ -1168,13 +1146,13 @@ class TriggerNamespaceModelResponse(google.protobuf.message.Message):
     task: common.task.v1alpha.task_pb2.Task.ValueType
     """Task type."""
     @property
-    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskOutput]:
+    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
         """Model inference outputs."""
     def __init__(
         self,
         *,
         task: common.task.v1alpha.task_pb2.Task.ValueType = ...,
-        task_outputs: collections.abc.Iterable[global___TaskOutput] | None = ...,
+        task_outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["task", b"task", "task_outputs", b"task_outputs"]) -> None: ...
 
@@ -1190,24 +1168,24 @@ class TriggerAsyncNamespaceModelRequest(google.protobuf.message.Message):
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     MODEL_ID_FIELD_NUMBER: builtins.int
-    TASK_INPUTS_FIELD_NUMBER: builtins.int
     VERSION_FIELD_NUMBER: builtins.int
+    TASK_INPUTS_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """Namespace ID"""
     model_id: builtins.str
     """Model ID"""
-    @property
-    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
-        """Inference input parameters."""
     version: builtins.str
     """Model version"""
+    @property
+    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Model inference inputs."""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         model_id: builtins.str = ...,
-        task_inputs: collections.abc.Iterable[global___TaskInput] | None = ...,
         version: builtins.str = ...,
+        task_inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id", "namespace_id", b"namespace_id", "task_inputs", b"task_inputs", "version", b"version"]) -> None: ...
 
@@ -1251,14 +1229,14 @@ class TriggerNamespaceLatestModelRequest(google.protobuf.message.Message):
     model_id: builtins.str
     """Model ID"""
     @property
-    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
-        """Inference input parameters."""
+    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Model inference inputs."""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         model_id: builtins.str = ...,
-        task_inputs: collections.abc.Iterable[global___TaskInput] | None = ...,
+        task_inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id", "namespace_id", b"namespace_id", "task_inputs", b"task_inputs"]) -> None: ...
 
@@ -1275,13 +1253,13 @@ class TriggerNamespaceLatestModelResponse(google.protobuf.message.Message):
     task: common.task.v1alpha.task_pb2.Task.ValueType
     """Task type."""
     @property
-    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskOutput]:
+    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
         """Model inference outputs."""
     def __init__(
         self,
         *,
         task: common.task.v1alpha.task_pb2.Task.ValueType = ...,
-        task_outputs: collections.abc.Iterable[global___TaskOutput] | None = ...,
+        task_outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["task", b"task", "task_outputs", b"task_outputs"]) -> None: ...
 
@@ -1303,14 +1281,14 @@ class TriggerAsyncNamespaceLatestModelRequest(google.protobuf.message.Message):
     model_id: builtins.str
     """Model ID"""
     @property
-    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
-        """Inference input parameters."""
+    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Model inference inputs."""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         model_id: builtins.str = ...,
-        task_inputs: collections.abc.Iterable[global___TaskInput] | None = ...,
+        task_inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id", "namespace_id", b"namespace_id", "task_inputs", b"task_inputs"]) -> None: ...
 
@@ -1348,26 +1326,25 @@ class TriggerNamespaceModelBinaryFileUploadRequest(google.protobuf.message.Messa
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     MODEL_ID_FIELD_NUMBER: builtins.int
-    TASK_INPUT_FIELD_NUMBER: builtins.int
     VERSION_FIELD_NUMBER: builtins.int
+    TASK_INPUT_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """Namespace ID"""
     model_id: builtins.str
     """Model ID"""
-    @property
-    def task_input(self) -> global___TaskInputStream:
-        """Inference input as a binary file."""
     version: builtins.str
     """Model version"""
+    @property
+    def task_input(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Inference input as a binary file."""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         model_id: builtins.str = ...,
-        task_input: global___TaskInputStream | None = ...,
         version: builtins.str = ...,
+        task_input: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["task_input", b"task_input"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id", "namespace_id", b"namespace_id", "task_input", b"task_input", "version", b"version"]) -> None: ...
 
 global___TriggerNamespaceModelBinaryFileUploadRequest = TriggerNamespaceModelBinaryFileUploadRequest
@@ -1380,22 +1357,18 @@ class TriggerNamespaceModelBinaryFileUploadResponse(google.protobuf.message.Mess
 
     TASK_FIELD_NUMBER: builtins.int
     TASK_OUTPUTS_FIELD_NUMBER: builtins.int
-    VERSION_FIELD_NUMBER: builtins.int
     task: common.task.v1alpha.task_pb2.Task.ValueType
     """Task type."""
     @property
-    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskOutput]:
+    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
         """Model inference outputs."""
-    version: builtins.str
-    """Model version"""
     def __init__(
         self,
         *,
         task: common.task.v1alpha.task_pb2.Task.ValueType = ...,
-        task_outputs: collections.abc.Iterable[global___TaskOutput] | None = ...,
-        version: builtins.str = ...,
+        task_outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["task", b"task", "task_outputs", b"task_outputs", "version", b"version"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["task", b"task", "task_outputs", b"task_outputs"]) -> None: ...
 
 global___TriggerNamespaceModelBinaryFileUploadResponse = TriggerNamespaceModelBinaryFileUploadResponse
 
@@ -1415,16 +1388,15 @@ class TriggerNamespaceLatestModelBinaryFileUploadRequest(google.protobuf.message
     model_id: builtins.str
     """Model ID"""
     @property
-    def task_input(self) -> global___TaskInputStream:
+    def task_input(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
         """Inference input as a binary file."""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         model_id: builtins.str = ...,
-        task_input: global___TaskInputStream | None = ...,
+        task_input: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["task_input", b"task_input"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["model_id", b"model_id", "namespace_id", b"namespace_id", "task_input", b"task_input"]) -> None: ...
 
 global___TriggerNamespaceLatestModelBinaryFileUploadRequest = TriggerNamespaceLatestModelBinaryFileUploadRequest
@@ -1440,13 +1412,15 @@ class TriggerNamespaceLatestModelBinaryFileUploadResponse(google.protobuf.messag
     task: common.task.v1alpha.task_pb2.Task.ValueType
     """Task type."""
     @property
-    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskOutput]:
-        """Model inference outputs."""
+    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Deleteted field.
+        Model inference outputs.
+        """
     def __init__(
         self,
         *,
         task: common.task.v1alpha.task_pb2.Task.ValueType = ...,
-        task_outputs: collections.abc.Iterable[global___TaskOutput] | None = ...,
+        task_outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["task", b"task", "task_outputs", b"task_outputs"]) -> None: ...
 
@@ -2175,263 +2149,35 @@ class DeleteUserModelVersionResponse(google.protobuf.message.Message):
 global___DeleteUserModelVersionResponse = DeleteUserModelVersionResponse
 
 @typing_extensions.final
-class TaskInput(google.protobuf.message.Message):
+class TriggerUserModelRequest(google.protobuf.message.Message):
     """//////////////////////////////////
      Trigger methods
     //////////////////////////////////
 
-    TaskInput represents a question or task for an AI model.
+    TriggerUserModelRequest represents a request to trigger a model inference.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    CLASSIFICATION_FIELD_NUMBER: builtins.int
-    DETECTION_FIELD_NUMBER: builtins.int
-    KEYPOINT_FIELD_NUMBER: builtins.int
-    OCR_FIELD_NUMBER: builtins.int
-    INSTANCE_SEGMENTATION_FIELD_NUMBER: builtins.int
-    SEMANTIC_SEGMENTATION_FIELD_NUMBER: builtins.int
-    TEXT_TO_IMAGE_FIELD_NUMBER: builtins.int
-    IMAGE_TO_IMAGE_FIELD_NUMBER: builtins.int
-    TEXT_GENERATION_FIELD_NUMBER: builtins.int
-    TEXT_GENERATION_CHAT_FIELD_NUMBER: builtins.int
-    VISUAL_QUESTION_ANSWERING_FIELD_NUMBER: builtins.int
-    UNSPECIFIED_FIELD_NUMBER: builtins.int
-    @property
-    def classification(self) -> model.model.v1alpha.task_classification_pb2.ClassificationInput:
-        """Image classification input."""
-    @property
-    def detection(self) -> model.model.v1alpha.task_detection_pb2.DetectionInput:
-        """Object detection input."""
-    @property
-    def keypoint(self) -> model.model.v1alpha.task_keypoint_pb2.KeypointInput:
-        """Keypoint detection input."""
-    @property
-    def ocr(self) -> model.model.v1alpha.task_ocr_pb2.OcrInput:
-        """Optical Character Recognition input."""
-    @property
-    def instance_segmentation(self) -> model.model.v1alpha.task_instance_segmentation_pb2.InstanceSegmentationInput:
-        """Instance segmentation input."""
-    @property
-    def semantic_segmentation(self) -> model.model.v1alpha.task_semantic_segmentation_pb2.SemanticSegmentationInput:
-        """Semantic segmentation input."""
-    @property
-    def text_to_image(self) -> model.model.v1alpha.task_text_to_image_pb2.TextToImageInput:
-        """Text to image input."""
-    @property
-    def image_to_image(self) -> model.model.v1alpha.task_image_to_image_pb2.ImageToImageInput:
-        """Image to image input."""
-    @property
-    def text_generation(self) -> model.model.v1alpha.task_text_generation_pb2.TextGenerationInput:
-        """Text generation input."""
-    @property
-    def text_generation_chat(self) -> model.model.v1alpha.task_text_generation_chat_pb2.TextGenerationChatInput:
-        """Conversational text generation input."""
-    @property
-    def visual_question_answering(self) -> model.model.v1alpha.task_visual_question_answering_pb2.VisualQuestionAnsweringInput:
-        """Visual question answering input."""
-    @property
-    def unspecified(self) -> model.model.v1alpha.task_unspecified_pb2.UnspecifiedInput:
-        """Unspecified task input."""
-    def __init__(
-        self,
-        *,
-        classification: model.model.v1alpha.task_classification_pb2.ClassificationInput | None = ...,
-        detection: model.model.v1alpha.task_detection_pb2.DetectionInput | None = ...,
-        keypoint: model.model.v1alpha.task_keypoint_pb2.KeypointInput | None = ...,
-        ocr: model.model.v1alpha.task_ocr_pb2.OcrInput | None = ...,
-        instance_segmentation: model.model.v1alpha.task_instance_segmentation_pb2.InstanceSegmentationInput | None = ...,
-        semantic_segmentation: model.model.v1alpha.task_semantic_segmentation_pb2.SemanticSegmentationInput | None = ...,
-        text_to_image: model.model.v1alpha.task_text_to_image_pb2.TextToImageInput | None = ...,
-        image_to_image: model.model.v1alpha.task_image_to_image_pb2.ImageToImageInput | None = ...,
-        text_generation: model.model.v1alpha.task_text_generation_pb2.TextGenerationInput | None = ...,
-        text_generation_chat: model.model.v1alpha.task_text_generation_chat_pb2.TextGenerationChatInput | None = ...,
-        visual_question_answering: model.model.v1alpha.task_visual_question_answering_pb2.VisualQuestionAnsweringInput | None = ...,
-        unspecified: model.model.v1alpha.task_unspecified_pb2.UnspecifiedInput | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["classification", b"classification", "detection", b"detection", "image_to_image", b"image_to_image", "input", b"input", "instance_segmentation", b"instance_segmentation", "keypoint", b"keypoint", "ocr", b"ocr", "semantic_segmentation", b"semantic_segmentation", "text_generation", b"text_generation", "text_generation_chat", b"text_generation_chat", "text_to_image", b"text_to_image", "unspecified", b"unspecified", "visual_question_answering", b"visual_question_answering"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["classification", b"classification", "detection", b"detection", "image_to_image", b"image_to_image", "input", b"input", "instance_segmentation", b"instance_segmentation", "keypoint", b"keypoint", "ocr", b"ocr", "semantic_segmentation", b"semantic_segmentation", "text_generation", b"text_generation", "text_generation_chat", b"text_generation_chat", "text_to_image", b"text_to_image", "unspecified", b"unspecified", "visual_question_answering", b"visual_question_answering"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["input", b"input"]) -> typing_extensions.Literal["classification", "detection", "keypoint", "ocr", "instance_segmentation", "semantic_segmentation", "text_to_image", "image_to_image", "text_generation", "text_generation_chat", "visual_question_answering", "unspecified"] | None: ...
-
-global___TaskInput = TaskInput
-
-@typing_extensions.final
-class TaskInputStream(google.protobuf.message.Message):
-    """TaskInputStream represents the input to trigger a model with stream method"""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    CLASSIFICATION_FIELD_NUMBER: builtins.int
-    DETECTION_FIELD_NUMBER: builtins.int
-    KEYPOINT_FIELD_NUMBER: builtins.int
-    OCR_FIELD_NUMBER: builtins.int
-    INSTANCE_SEGMENTATION_FIELD_NUMBER: builtins.int
-    SEMANTIC_SEGMENTATION_FIELD_NUMBER: builtins.int
-    TEXT_TO_IMAGE_FIELD_NUMBER: builtins.int
-    IMAGE_TO_IMAGE_FIELD_NUMBER: builtins.int
-    TEXT_GENERATION_FIELD_NUMBER: builtins.int
-    TEXT_GENERATION_CHAT_FIELD_NUMBER: builtins.int
-    VISUAL_QUESTION_ANSWERING_FIELD_NUMBER: builtins.int
-    UNSPECIFIED_FIELD_NUMBER: builtins.int
-    @property
-    def classification(self) -> model.model.v1alpha.task_classification_pb2.ClassificationInputStream:
-        """The classification input"""
-    @property
-    def detection(self) -> model.model.v1alpha.task_detection_pb2.DetectionInputStream:
-        """The detection input"""
-    @property
-    def keypoint(self) -> model.model.v1alpha.task_keypoint_pb2.KeypointInputStream:
-        """The keypoint input"""
-    @property
-    def ocr(self) -> model.model.v1alpha.task_ocr_pb2.OcrInputStream:
-        """The ocr input"""
-    @property
-    def instance_segmentation(self) -> model.model.v1alpha.task_instance_segmentation_pb2.InstanceSegmentationInputStream:
-        """The instance segmentation input"""
-    @property
-    def semantic_segmentation(self) -> model.model.v1alpha.task_semantic_segmentation_pb2.SemanticSegmentationInputStream:
-        """The semantic segmentation input"""
-    @property
-    def text_to_image(self) -> model.model.v1alpha.task_text_to_image_pb2.TextToImageInput:
-        """The text to image input"""
-    @property
-    def image_to_image(self) -> model.model.v1alpha.task_image_to_image_pb2.ImageToImageInput:
-        """The image to image input"""
-    @property
-    def text_generation(self) -> model.model.v1alpha.task_text_generation_pb2.TextGenerationInput:
-        """The text generation input"""
-    @property
-    def text_generation_chat(self) -> model.model.v1alpha.task_text_generation_chat_pb2.TextGenerationChatInput:
-        """The text generation chat input"""
-    @property
-    def visual_question_answering(self) -> model.model.v1alpha.task_visual_question_answering_pb2.VisualQuestionAnsweringInput:
-        """The visual question answering input"""
-    @property
-    def unspecified(self) -> model.model.v1alpha.task_unspecified_pb2.UnspecifiedInput:
-        """The unspecified task input"""
-    def __init__(
-        self,
-        *,
-        classification: model.model.v1alpha.task_classification_pb2.ClassificationInputStream | None = ...,
-        detection: model.model.v1alpha.task_detection_pb2.DetectionInputStream | None = ...,
-        keypoint: model.model.v1alpha.task_keypoint_pb2.KeypointInputStream | None = ...,
-        ocr: model.model.v1alpha.task_ocr_pb2.OcrInputStream | None = ...,
-        instance_segmentation: model.model.v1alpha.task_instance_segmentation_pb2.InstanceSegmentationInputStream | None = ...,
-        semantic_segmentation: model.model.v1alpha.task_semantic_segmentation_pb2.SemanticSegmentationInputStream | None = ...,
-        text_to_image: model.model.v1alpha.task_text_to_image_pb2.TextToImageInput | None = ...,
-        image_to_image: model.model.v1alpha.task_image_to_image_pb2.ImageToImageInput | None = ...,
-        text_generation: model.model.v1alpha.task_text_generation_pb2.TextGenerationInput | None = ...,
-        text_generation_chat: model.model.v1alpha.task_text_generation_chat_pb2.TextGenerationChatInput | None = ...,
-        visual_question_answering: model.model.v1alpha.task_visual_question_answering_pb2.VisualQuestionAnsweringInput | None = ...,
-        unspecified: model.model.v1alpha.task_unspecified_pb2.UnspecifiedInput | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["classification", b"classification", "detection", b"detection", "image_to_image", b"image_to_image", "input", b"input", "instance_segmentation", b"instance_segmentation", "keypoint", b"keypoint", "ocr", b"ocr", "semantic_segmentation", b"semantic_segmentation", "text_generation", b"text_generation", "text_generation_chat", b"text_generation_chat", "text_to_image", b"text_to_image", "unspecified", b"unspecified", "visual_question_answering", b"visual_question_answering"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["classification", b"classification", "detection", b"detection", "image_to_image", b"image_to_image", "input", b"input", "instance_segmentation", b"instance_segmentation", "keypoint", b"keypoint", "ocr", b"ocr", "semantic_segmentation", b"semantic_segmentation", "text_generation", b"text_generation", "text_generation_chat", b"text_generation_chat", "text_to_image", b"text_to_image", "unspecified", b"unspecified", "visual_question_answering", b"visual_question_answering"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["input", b"input"]) -> typing_extensions.Literal["classification", "detection", "keypoint", "ocr", "instance_segmentation", "semantic_segmentation", "text_to_image", "image_to_image", "text_generation", "text_generation_chat", "visual_question_answering", "unspecified"] | None: ...
-
-global___TaskInputStream = TaskInputStream
-
-@typing_extensions.final
-class TaskOutput(google.protobuf.message.Message):
-    """TaskOutput represents the result of an AI task performed by a model."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    CLASSIFICATION_FIELD_NUMBER: builtins.int
-    DETECTION_FIELD_NUMBER: builtins.int
-    KEYPOINT_FIELD_NUMBER: builtins.int
-    OCR_FIELD_NUMBER: builtins.int
-    INSTANCE_SEGMENTATION_FIELD_NUMBER: builtins.int
-    SEMANTIC_SEGMENTATION_FIELD_NUMBER: builtins.int
-    TEXT_TO_IMAGE_FIELD_NUMBER: builtins.int
-    IMAGE_TO_IMAGE_FIELD_NUMBER: builtins.int
-    TEXT_GENERATION_FIELD_NUMBER: builtins.int
-    TEXT_GENERATION_CHAT_FIELD_NUMBER: builtins.int
-    VISUAL_QUESTION_ANSWERING_FIELD_NUMBER: builtins.int
-    UNSPECIFIED_FIELD_NUMBER: builtins.int
-    @property
-    def classification(self) -> model.model.v1alpha.task_classification_pb2.ClassificationOutput:
-        """Image classification output."""
-    @property
-    def detection(self) -> model.model.v1alpha.task_detection_pb2.DetectionOutput:
-        """Object detection output."""
-    @property
-    def keypoint(self) -> model.model.v1alpha.task_keypoint_pb2.KeypointOutput:
-        """Keypoint detection output."""
-    @property
-    def ocr(self) -> model.model.v1alpha.task_ocr_pb2.OcrOutput:
-        """Optical Character Recognition output."""
-    @property
-    def instance_segmentation(self) -> model.model.v1alpha.task_instance_segmentation_pb2.InstanceSegmentationOutput:
-        """Instance segmentation output."""
-    @property
-    def semantic_segmentation(self) -> model.model.v1alpha.task_semantic_segmentation_pb2.SemanticSegmentationOutput:
-        """Semantic segmentation output."""
-    @property
-    def text_to_image(self) -> model.model.v1alpha.task_text_to_image_pb2.TextToImageOutput:
-        """Text to image output."""
-    @property
-    def image_to_image(self) -> model.model.v1alpha.task_image_to_image_pb2.ImageToImageOutput:
-        """Image to image output."""
-    @property
-    def text_generation(self) -> model.model.v1alpha.task_text_generation_pb2.TextGenerationOutput:
-        """Text generation output."""
-    @property
-    def text_generation_chat(self) -> model.model.v1alpha.task_text_generation_chat_pb2.TextGenerationChatOutput:
-        """Conversational text generation output."""
-    @property
-    def visual_question_answering(self) -> model.model.v1alpha.task_visual_question_answering_pb2.VisualQuestionAnsweringOutput:
-        """Visual question answering output."""
-    @property
-    def unspecified(self) -> model.model.v1alpha.task_unspecified_pb2.UnspecifiedOutput:
-        """Unspecified task output."""
-    def __init__(
-        self,
-        *,
-        classification: model.model.v1alpha.task_classification_pb2.ClassificationOutput | None = ...,
-        detection: model.model.v1alpha.task_detection_pb2.DetectionOutput | None = ...,
-        keypoint: model.model.v1alpha.task_keypoint_pb2.KeypointOutput | None = ...,
-        ocr: model.model.v1alpha.task_ocr_pb2.OcrOutput | None = ...,
-        instance_segmentation: model.model.v1alpha.task_instance_segmentation_pb2.InstanceSegmentationOutput | None = ...,
-        semantic_segmentation: model.model.v1alpha.task_semantic_segmentation_pb2.SemanticSegmentationOutput | None = ...,
-        text_to_image: model.model.v1alpha.task_text_to_image_pb2.TextToImageOutput | None = ...,
-        image_to_image: model.model.v1alpha.task_image_to_image_pb2.ImageToImageOutput | None = ...,
-        text_generation: model.model.v1alpha.task_text_generation_pb2.TextGenerationOutput | None = ...,
-        text_generation_chat: model.model.v1alpha.task_text_generation_chat_pb2.TextGenerationChatOutput | None = ...,
-        visual_question_answering: model.model.v1alpha.task_visual_question_answering_pb2.VisualQuestionAnsweringOutput | None = ...,
-        unspecified: model.model.v1alpha.task_unspecified_pb2.UnspecifiedOutput | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["classification", b"classification", "detection", b"detection", "image_to_image", b"image_to_image", "instance_segmentation", b"instance_segmentation", "keypoint", b"keypoint", "ocr", b"ocr", "output", b"output", "semantic_segmentation", b"semantic_segmentation", "text_generation", b"text_generation", "text_generation_chat", b"text_generation_chat", "text_to_image", b"text_to_image", "unspecified", b"unspecified", "visual_question_answering", b"visual_question_answering"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["classification", b"classification", "detection", b"detection", "image_to_image", b"image_to_image", "instance_segmentation", b"instance_segmentation", "keypoint", b"keypoint", "ocr", b"ocr", "output", b"output", "semantic_segmentation", b"semantic_segmentation", "text_generation", b"text_generation", "text_generation_chat", b"text_generation_chat", "text_to_image", b"text_to_image", "unspecified", b"unspecified", "visual_question_answering", b"visual_question_answering"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["output", b"output"]) -> typing_extensions.Literal["classification", "detection", "keypoint", "ocr", "instance_segmentation", "semantic_segmentation", "text_to_image", "image_to_image", "text_generation", "text_generation_chat", "visual_question_answering", "unspecified"] | None: ...
-
-global___TaskOutput = TaskOutput
-
-@typing_extensions.final
-class TriggerUserModelRequest(google.protobuf.message.Message):
-    """TriggerUserModelRequest represents a request to trigger a model inference."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
     NAME_FIELD_NUMBER: builtins.int
-    TASK_INPUTS_FIELD_NUMBER: builtins.int
     VERSION_FIELD_NUMBER: builtins.int
+    TASK_INPUTS_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the model , which allows its access by parent user
     and ID.
     - Format: `users/{user.id}/models/{model.id}`.
     """
-    @property
-    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
-        """Inference input parameters."""
     version: builtins.str
     """Model version"""
+    @property
+    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Model inference inputs."""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
-        task_inputs: collections.abc.Iterable[global___TaskInput] | None = ...,
         version: builtins.str = ...,
+        task_inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "task_inputs", b"task_inputs", "version", b"version"]) -> None: ...
 
@@ -2448,13 +2194,13 @@ class TriggerUserModelResponse(google.protobuf.message.Message):
     task: common.task.v1alpha.task_pb2.Task.ValueType
     """Task type."""
     @property
-    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskOutput]:
+    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
         """Model inference outputs."""
     def __init__(
         self,
         *,
         task: common.task.v1alpha.task_pb2.Task.ValueType = ...,
-        task_outputs: collections.abc.Iterable[global___TaskOutput] | None = ...,
+        task_outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["task", b"task", "task_outputs", b"task_outputs"]) -> None: ...
 
@@ -2469,24 +2215,24 @@ class TriggerAsyncUserModelRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
-    TASK_INPUTS_FIELD_NUMBER: builtins.int
     VERSION_FIELD_NUMBER: builtins.int
+    TASK_INPUTS_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the model , which allows its access by parent user
     and ID.
     - Format: `users/{user.id}/models/{model.id}`.
     """
-    @property
-    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
-        """Inference input parameters."""
     version: builtins.str
     """Model version"""
+    @property
+    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Model inference inputs."""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
-        task_inputs: collections.abc.Iterable[global___TaskInput] | None = ...,
         version: builtins.str = ...,
+        task_inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "task_inputs", b"task_inputs", "version", b"version"]) -> None: ...
 
@@ -2530,13 +2276,13 @@ class TriggerUserLatestModelRequest(google.protobuf.message.Message):
     - Format: `users/{user.id}/models/{model.id}`.
     """
     @property
-    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
-        """Inference input parameters."""
+    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Model inference inputs."""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
-        task_inputs: collections.abc.Iterable[global___TaskInput] | None = ...,
+        task_inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "task_inputs", b"task_inputs"]) -> None: ...
 
@@ -2553,13 +2299,13 @@ class TriggerUserLatestModelResponse(google.protobuf.message.Message):
     task: common.task.v1alpha.task_pb2.Task.ValueType
     """Task type."""
     @property
-    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskOutput]:
+    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
         """Model inference outputs."""
     def __init__(
         self,
         *,
         task: common.task.v1alpha.task_pb2.Task.ValueType = ...,
-        task_outputs: collections.abc.Iterable[global___TaskOutput] | None = ...,
+        task_outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["task", b"task", "task_outputs", b"task_outputs"]) -> None: ...
 
@@ -2581,13 +2327,13 @@ class TriggerAsyncUserLatestModelRequest(google.protobuf.message.Message):
     - Format: `users/{user.id}/models/{model.id}`.
     """
     @property
-    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
-        """Inference input parameters."""
+    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Model inference inputs."""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
-        task_inputs: collections.abc.Iterable[global___TaskInput] | None = ...,
+        task_inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "task_inputs", b"task_inputs"]) -> None: ...
 
@@ -2624,27 +2370,26 @@ class TriggerUserModelBinaryFileUploadRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
-    TASK_INPUT_FIELD_NUMBER: builtins.int
     VERSION_FIELD_NUMBER: builtins.int
+    TASK_INPUTS_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the model , which allows its access by parent user
     and ID.
     - Format: `users/{user.id}/models/{model.id}`.
     """
-    @property
-    def task_input(self) -> global___TaskInputStream:
-        """Inference input as a binary file."""
     version: builtins.str
     """Model version"""
+    @property
+    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Model inference inputs."""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
-        task_input: global___TaskInputStream | None = ...,
         version: builtins.str = ...,
+        task_inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["task_input", b"task_input"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "task_input", b"task_input", "version", b"version"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "task_inputs", b"task_inputs", "version", b"version"]) -> None: ...
 
 global___TriggerUserModelBinaryFileUploadRequest = TriggerUserModelBinaryFileUploadRequest
 
@@ -2656,22 +2401,18 @@ class TriggerUserModelBinaryFileUploadResponse(google.protobuf.message.Message):
 
     TASK_FIELD_NUMBER: builtins.int
     TASK_OUTPUTS_FIELD_NUMBER: builtins.int
-    VERSION_FIELD_NUMBER: builtins.int
     task: common.task.v1alpha.task_pb2.Task.ValueType
     """Task type."""
     @property
-    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskOutput]:
+    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
         """Model inference outputs."""
-    version: builtins.str
-    """Model version"""
     def __init__(
         self,
         *,
         task: common.task.v1alpha.task_pb2.Task.ValueType = ...,
-        task_outputs: collections.abc.Iterable[global___TaskOutput] | None = ...,
-        version: builtins.str = ...,
+        task_outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["task", b"task", "task_outputs", b"task_outputs", "version", b"version"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["task", b"task", "task_outputs", b"task_outputs"]) -> None: ...
 
 global___TriggerUserModelBinaryFileUploadResponse = TriggerUserModelBinaryFileUploadResponse
 
@@ -3219,24 +2960,24 @@ class TriggerOrganizationModelRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
-    TASK_INPUTS_FIELD_NUMBER: builtins.int
     VERSION_FIELD_NUMBER: builtins.int
+    TASK_INPUTS_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the model , which allows its access by parent organization
     and ID.
     - Format: `organizations/{organization.id}/models/{model.id}`.
     """
-    @property
-    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
-        """Inference input parameters."""
     version: builtins.str
     """Model version"""
+    @property
+    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Model inference inputs."""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
-        task_inputs: collections.abc.Iterable[global___TaskInput] | None = ...,
         version: builtins.str = ...,
+        task_inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "task_inputs", b"task_inputs", "version", b"version"]) -> None: ...
 
@@ -3253,13 +2994,13 @@ class TriggerOrganizationModelResponse(google.protobuf.message.Message):
     task: common.task.v1alpha.task_pb2.Task.ValueType
     """Task type."""
     @property
-    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskOutput]:
+    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
         """Model inference outputs."""
     def __init__(
         self,
         *,
         task: common.task.v1alpha.task_pb2.Task.ValueType = ...,
-        task_outputs: collections.abc.Iterable[global___TaskOutput] | None = ...,
+        task_outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["task", b"task", "task_outputs", b"task_outputs"]) -> None: ...
 
@@ -3274,24 +3015,24 @@ class TriggerAsyncOrganizationModelRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
-    TASK_INPUTS_FIELD_NUMBER: builtins.int
     VERSION_FIELD_NUMBER: builtins.int
+    TASK_INPUTS_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the model , which allows its access by parent organization
     and ID.
     - Format: `organizations/{organization.id}/models/{model.id}`.
     """
-    @property
-    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
-        """Inference input parameters."""
     version: builtins.str
     """Model version"""
+    @property
+    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Model inference inputs."""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
-        task_inputs: collections.abc.Iterable[global___TaskInput] | None = ...,
         version: builtins.str = ...,
+        task_inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "task_inputs", b"task_inputs", "version", b"version"]) -> None: ...
 
@@ -3333,13 +3074,13 @@ class TriggerOrganizationLatestModelRequest(google.protobuf.message.Message):
     - Format: `organizations/{organization.id}/models/{model.id}`.
     """
     @property
-    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
-        """Inference input parameters."""
+    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Model inference inputs."""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
-        task_inputs: collections.abc.Iterable[global___TaskInput] | None = ...,
+        task_inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "task_inputs", b"task_inputs"]) -> None: ...
 
@@ -3356,13 +3097,13 @@ class TriggerOrganizationLatestModelResponse(google.protobuf.message.Message):
     task: common.task.v1alpha.task_pb2.Task.ValueType
     """Task type."""
     @property
-    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskOutput]:
+    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
         """Model inference outputs."""
     def __init__(
         self,
         *,
         task: common.task.v1alpha.task_pb2.Task.ValueType = ...,
-        task_outputs: collections.abc.Iterable[global___TaskOutput] | None = ...,
+        task_outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["task", b"task", "task_outputs", b"task_outputs"]) -> None: ...
 
@@ -3384,13 +3125,13 @@ class TriggerAsyncOrganizationLatestModelRequest(google.protobuf.message.Message
     - Format: `organizations/{organization.id}/models/{model.id}`.
     """
     @property
-    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
-        """Inference input parameters."""
+    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Model inference inputs."""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
-        task_inputs: collections.abc.Iterable[global___TaskInput] | None = ...,
+        task_inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "task_inputs", b"task_inputs"]) -> None: ...
 
@@ -3427,27 +3168,26 @@ class TriggerOrganizationModelBinaryFileUploadRequest(google.protobuf.message.Me
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
-    TASK_INPUT_FIELD_NUMBER: builtins.int
     VERSION_FIELD_NUMBER: builtins.int
+    TASK_INPUTS_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the model , which allows its access by parent organization
     and ID.
     - Format: `organizations/{organization.id}/models/{model.id}`.
     """
-    @property
-    def task_input(self) -> global___TaskInputStream:
-        """Inference input as a binary file."""
     version: builtins.str
     """Model version"""
+    @property
+    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """Model inference inputs."""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
-        task_input: global___TaskInputStream | None = ...,
         version: builtins.str = ...,
+        task_inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["task_input", b"task_input"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "task_input", b"task_input", "version", b"version"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "task_inputs", b"task_inputs", "version", b"version"]) -> None: ...
 
 global___TriggerOrganizationModelBinaryFileUploadRequest = TriggerOrganizationModelBinaryFileUploadRequest
 
@@ -3462,13 +3202,13 @@ class TriggerOrganizationModelBinaryFileUploadResponse(google.protobuf.message.M
     task: common.task.v1alpha.task_pb2.Task.ValueType
     """Task type."""
     @property
-    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskOutput]:
+    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
         """Model inference outputs."""
     def __init__(
         self,
         *,
         task: common.task.v1alpha.task_pb2.Task.ValueType = ...,
-        task_outputs: collections.abc.Iterable[global___TaskOutput] | None = ...,
+        task_outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["task", b"task", "task_outputs", b"task_outputs"]) -> None: ...
 
@@ -4037,10 +3777,10 @@ class ModelRun(google.protobuf.message.Message):
     version: builtins.str
     """The model version identifier, which is same as image tag."""
     @property
-    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskInput]:
+    def task_inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
         """Model inference input."""
     @property
-    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TaskOutput]:
+    def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
         """Model inference outputs."""
     def __init__(
         self,
@@ -4057,8 +3797,8 @@ class ModelRun(google.protobuf.message.Message):
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         version: builtins.str = ...,
-        task_inputs: collections.abc.Iterable[global___TaskInput] | None = ...,
-        task_outputs: collections.abc.Iterable[global___TaskOutput] | None = ...,
+        task_inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
+        task_outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_credit_amount", b"_credit_amount", "_end_time", b"_end_time", "_error", b"_error", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "create_time", b"create_time", "credit_amount", b"credit_amount", "end_time", b"end_time", "error", b"error", "runner_id", b"runner_id", "total_duration", b"total_duration", "update_time", b"update_time"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_credit_amount", b"_credit_amount", "_end_time", b"_end_time", "_error", b"_error", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "create_time", b"create_time", "credit_amount", b"credit_amount", "end_time", b"end_time", "error", b"error", "model_uid", b"model_uid", "runner_id", b"runner_id", "source", b"source", "status", b"status", "task_inputs", b"task_inputs", "task_outputs", b"task_outputs", "total_duration", b"total_duration", "uid", b"uid", "update_time", b"update_time", "version", b"version"]) -> None: ...
