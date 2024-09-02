@@ -512,6 +512,11 @@ class PipelinePublicServiceStub(object):
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_integration__pb2.TestNamespaceConnectionRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_integration__pb2.TestNamespaceConnectionResponse.FromString,
                 )
+        self.ListPipelineIDsByConnectionID = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/ListPipelineIDsByConnectionID',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_integration__pb2.ListPipelineIDsByConnectionIDRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_integration__pb2.ListPipelineIDsByConnectionIDResponse.FromString,
+                )
         self.ListIntegrations = channel.unary_unary(
                 '/vdp.pipeline.v1beta.PipelinePublicService/ListIntegrations',
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_integration__pb2.ListIntegrationsRequest.SerializeToString,
@@ -1661,6 +1666,17 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListPipelineIDsByConnectionID(self, request, context):
+        """List pipelines that reference a connection
+
+        Returns a paginated list with the IDs of the pipelines that reference a
+        given connection. All the pipelines will belong to the same namespace as
+        the connection.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListIntegrations(self, request, context):
         """List integrations
 
@@ -2171,6 +2187,11 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     servicer.TestNamespaceConnection,
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_integration__pb2.TestNamespaceConnectionRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1beta_dot_integration__pb2.TestNamespaceConnectionResponse.SerializeToString,
+            ),
+            'ListPipelineIDsByConnectionID': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListPipelineIDsByConnectionID,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_integration__pb2.ListPipelineIDsByConnectionIDRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_integration__pb2.ListPipelineIDsByConnectionIDResponse.SerializeToString,
             ),
             'ListIntegrations': grpc.unary_unary_rpc_method_handler(
                     servicer.ListIntegrations,
@@ -3859,6 +3880,23 @@ class PipelinePublicService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/TestNamespaceConnection',
             vdp_dot_pipeline_dot_v1beta_dot_integration__pb2.TestNamespaceConnectionRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1beta_dot_integration__pb2.TestNamespaceConnectionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListPipelineIDsByConnectionID(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/ListPipelineIDsByConnectionID',
+            vdp_dot_pipeline_dot_v1beta_dot_integration__pb2.ListPipelineIDsByConnectionIDRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_integration__pb2.ListPipelineIDsByConnectionIDResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

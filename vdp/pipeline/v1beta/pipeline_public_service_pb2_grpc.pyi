@@ -1059,6 +1059,16 @@ class PipelinePublicServiceStub:
     Note that this action might affect the quota or billing of the integrated
     account in the 3rd party app.
     """
+    ListPipelineIDsByConnectionID: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.integration_pb2.ListPipelineIDsByConnectionIDRequest,
+        vdp.pipeline.v1beta.integration_pb2.ListPipelineIDsByConnectionIDResponse,
+    ]
+    """List pipelines that reference a connection
+
+    Returns a paginated list with the IDs of the pipelines that reference a
+    given connection. All the pipelines will belong to the same namespace as
+    the connection.
+    """
     ListIntegrations: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.integration_pb2.ListIntegrationsRequest,
         vdp.pipeline.v1beta.integration_pb2.ListIntegrationsResponse,
@@ -2112,6 +2122,16 @@ class PipelinePublicServiceAsyncStub:
 
     Note that this action might affect the quota or billing of the integrated
     account in the 3rd party app.
+    """
+    ListPipelineIDsByConnectionID: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.integration_pb2.ListPipelineIDsByConnectionIDRequest,
+        vdp.pipeline.v1beta.integration_pb2.ListPipelineIDsByConnectionIDResponse,
+    ]
+    """List pipelines that reference a connection
+
+    Returns a paginated list with the IDs of the pipelines that reference a
+    given connection. All the pipelines will belong to the same namespace as
+    the connection.
     """
     ListIntegrations: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.integration_pb2.ListIntegrationsRequest,
@@ -3362,6 +3382,18 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
 
         Note that this action might affect the quota or billing of the integrated
         account in the 3rd party app.
+        """
+    @abc.abstractmethod
+    def ListPipelineIDsByConnectionID(
+        self,
+        request: vdp.pipeline.v1beta.integration_pb2.ListPipelineIDsByConnectionIDRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.integration_pb2.ListPipelineIDsByConnectionIDResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.integration_pb2.ListPipelineIDsByConnectionIDResponse]]:
+        """List pipelines that reference a connection
+
+        Returns a paginated list with the IDs of the pipelines that reference a
+        given connection. All the pipelines will belong to the same namespace as
+        the connection.
         """
     @abc.abstractmethod
     def ListIntegrations(

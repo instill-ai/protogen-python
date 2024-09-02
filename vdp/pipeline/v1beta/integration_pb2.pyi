@@ -63,7 +63,6 @@ class Connection(google.protobuf.message.Message):
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     INTEGRATION_ID_FIELD_NUMBER: builtins.int
     INTEGRATION_TITLE_FIELD_NUMBER: builtins.int
-    PIPELINE_IDS_FIELD_NUMBER: builtins.int
     METHOD_FIELD_NUMBER: builtins.int
     SETUP_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
@@ -84,12 +83,6 @@ class Connection(google.protobuf.message.Message):
     integration ID without needing an extra call to fetch title by integration
     ID.
     """
-    @property
-    def pipeline_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The IDs of the pipelines that use this integration. All the pipelines will
-        be within the same namespace as the connection.
-        The length of the list will be capped to 100.
-        """
     method: global___Connection.Method.ValueType
     """Connection method. It references the setup schema provided by the
     integration.
@@ -117,7 +110,6 @@ class Connection(google.protobuf.message.Message):
         namespace_id: builtins.str = ...,
         integration_id: builtins.str = ...,
         integration_title: builtins.str = ...,
-        pipeline_ids: collections.abc.Iterable[builtins.str] | None = ...,
         method: global___Connection.Method.ValueType = ...,
         setup: google.protobuf.struct_pb2.Struct | None = ...,
         view: vdp.pipeline.v1beta.common_pb2.View.ValueType = ...,
@@ -125,7 +117,7 @@ class Connection(google.protobuf.message.Message):
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "setup", b"setup", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "id", b"id", "integration_id", b"integration_id", "integration_title", b"integration_title", "method", b"method", "namespace_id", b"namespace_id", "pipeline_ids", b"pipeline_ids", "setup", b"setup", "uid", b"uid", "update_time", b"update_time", "view", b"view"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "id", b"id", "integration_id", b"integration_id", "integration_title", b"integration_title", "method", b"method", "namespace_id", b"namespace_id", "setup", b"setup", "uid", b"uid", "update_time", b"update_time", "view", b"view"]) -> None: ...
 
 global___Connection = Connection
 
@@ -452,13 +444,33 @@ class Integration(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["schema", b"schema"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["method", b"method", "schema", b"schema"]) -> None: ...
 
+    @typing_extensions.final
+    class Link(google.protobuf.message.Message):
+        """Link contains the information to display an reference to an external URL."""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        TEXT_FIELD_NUMBER: builtins.int
+        URL_FIELD_NUMBER: builtins.int
+        text: builtins.str
+        """Text contains the message to display."""
+        url: builtins.str
+        """URL contains the reference the link will redirect to."""
+        def __init__(
+            self,
+            *,
+            text: builtins.str = ...,
+            url: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["text", b"text", "url", b"url"]) -> None: ...
+
     UID_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
     TITLE_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     VENDOR_FIELD_NUMBER: builtins.int
     ICON_FIELD_NUMBER: builtins.int
-    FEATURED_FIELD_NUMBER: builtins.int
+    HELP_LINK_FIELD_NUMBER: builtins.int
     SCHEMAS_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     uid: builtins.str
@@ -481,8 +493,8 @@ class Integration(google.protobuf.message.Message):
     See the `icon` field in the `ComponentDefinition` entity for more
     information.
     """
-    featured: builtins.bool
-    """This field allows requesters to list only shortlisted integrations."""
+    help_link: builtins.str
+    """Reference to the vendor's documentation to expand the integration details."""
     @property
     def schemas(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Integration.SetupSchema]:
         """Schemas defines the supported schemas for the connection setup."""
@@ -499,13 +511,91 @@ class Integration(google.protobuf.message.Message):
         description: builtins.str = ...,
         vendor: builtins.str = ...,
         icon: builtins.str = ...,
-        featured: builtins.bool = ...,
+        help_link: builtins.str | None = ...,
         schemas: collections.abc.Iterable[global___Integration.SetupSchema] | None = ...,
         view: vdp.pipeline.v1beta.common_pb2.View.ValueType = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "featured", b"featured", "icon", b"icon", "id", b"id", "schemas", b"schemas", "title", b"title", "uid", b"uid", "vendor", b"vendor", "view", b"view"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_help_link", b"_help_link", "help_link", b"help_link"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_help_link", b"_help_link", "description", b"description", "help_link", b"help_link", "icon", b"icon", "id", b"id", "schemas", b"schemas", "title", b"title", "uid", b"uid", "vendor", b"vendor", "view", b"view"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_help_link", b"_help_link"]) -> typing_extensions.Literal["help_link"] | None: ...
 
 global___Integration = Integration
+
+@typing_extensions.final
+class ListPipelineIDsByConnectionIDRequest(google.protobuf.message.Message):
+    """ListPipelineIDsByConnectionIDRequest represents a request to list the
+    pipelines that reference a connection.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    CONNECTION_ID_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Namespace ID."""
+    connection_id: builtins.str
+    """Connection ID."""
+    page_size: builtins.int
+    """The maximum number of items to return. The default and cap values are 10
+    and 100, respectively.
+    """
+    page_token: builtins.str
+    """Page token. By default, the first page will be returned."""
+    filter: builtins.str
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    The following filters are supported:
+    - `q` (fuzzy search on pipeline ID)
+    """
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        connection_id: builtins.str = ...,
+        page_size: builtins.int | None = ...,
+        page_token: builtins.str | None = ...,
+        filter: builtins.str | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "connection_id", b"connection_id", "filter", b"filter", "namespace_id", b"namespace_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_token", b"_page_token"]) -> typing_extensions.Literal["page_token"] | None: ...
+
+global___ListPipelineIDsByConnectionIDRequest = ListPipelineIDsByConnectionIDRequest
+
+@typing_extensions.final
+class ListPipelineIDsByConnectionIDResponse(google.protobuf.message.Message):
+    """ListPipelineIDsByConnectionIDResponse contains a paginated list of integrations."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PIPELINE_IDS_FIELD_NUMBER: builtins.int
+    NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    @property
+    def pipeline_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """A list of pipeline IDs matching the request parameters."""
+    next_page_token: builtins.str
+    """Next page token."""
+    total_size: builtins.int
+    """Total number of items."""
+    def __init__(
+        self,
+        *,
+        pipeline_ids: collections.abc.Iterable[builtins.str] | None = ...,
+        next_page_token: builtins.str = ...,
+        total_size: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "pipeline_ids", b"pipeline_ids", "total_size", b"total_size"]) -> None: ...
+
+global___ListPipelineIDsByConnectionIDResponse = ListPipelineIDsByConnectionIDResponse
 
 @typing_extensions.final
 class ListIntegrationsRequest(google.protobuf.message.Message):
@@ -529,10 +619,8 @@ class ListIntegrationsRequest(google.protobuf.message.Message):
     expression.
     The following filters are supported:
     - `qIntegration` (fuzzy search on title or vendor)
-    - `featured`
     Examples:
     - List integrations where app name or vendor match `googl`: `q="googl"`.
-    - List featured integrations: `featured=true`.
     """
     def __init__(
         self,
