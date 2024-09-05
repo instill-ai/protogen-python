@@ -145,7 +145,7 @@ class ListNamespaceConnectionsRequest(google.protobuf.message.Message):
     """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
     expression.
     The following filters are supported:
-    - `integration_id`
+    - `integrationId`
     - `qConnection` (fuzzy search on connection ID, integration title or vendor)
     Examples:
     - List connections where app name, vendor or connection ID match `googl`:
@@ -299,11 +299,17 @@ class UpdateNamespaceConnectionRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    CONNECTION_ID_FIELD_NUMBER: builtins.int
     CONNECTION_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
+    connection_id: builtins.str
+    """ID of the connection to be updated, as present in the database."""
     @property
     def connection(self) -> global___Connection:
-        """Properties of the connection to be updated."""
+        """Connection object with the new properties to be updated. Immutable and
+        output-only fields will be ignored. The Setup property must be updated
+        in block (no partial update is supported).
+        """
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """The update mask specifies the subset of fields that should be modified.
@@ -314,11 +320,12 @@ class UpdateNamespaceConnectionRequest(google.protobuf.message.Message):
     def __init__(
         self,
         *,
+        connection_id: builtins.str = ...,
         connection: global___Connection | None = ...,
         update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["connection", b"connection", "update_mask", b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["connection", b"connection", "update_mask", b"update_mask"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["connection", b"connection", "connection_id", b"connection_id", "update_mask", b"update_mask"]) -> None: ...
 
 global___UpdateNamespaceConnectionRequest = UpdateNamespaceConnectionRequest
 
