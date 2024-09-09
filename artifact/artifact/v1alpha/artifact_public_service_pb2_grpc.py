@@ -4,7 +4,6 @@ import grpc
 
 from artifact.artifact.v1alpha import artifact_pb2 as artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2
 from artifact.artifact.v1alpha import chunk_pb2 as artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2
-from artifact.artifact.v1alpha import conversation_pb2 as artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2
 from artifact.artifact.v1alpha import file_catalog_pb2 as artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2
 from artifact.artifact.v1alpha import qa_pb2 as artifact_dot_artifact_dot_v1alpha_dot_qa__pb2
 
@@ -99,46 +98,6 @@ class ArtifactPublicServiceStub(object):
                 '/artifact.artifact.v1alpha.ArtifactPublicService/GetFileCatalog',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetFileCatalogRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetFileCatalogResponse.FromString,
-                )
-        self.CreateConversation = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/CreateConversation',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.CreateConversationRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.CreateConversationResponse.FromString,
-                )
-        self.ListConversations = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/ListConversations',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.ListConversationsRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.ListConversationsResponse.FromString,
-                )
-        self.UpdateConversation = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateConversation',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.UpdateConversationRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.UpdateConversationResponse.FromString,
-                )
-        self.DeleteConversation = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/DeleteConversation',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.DeleteConversationRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.DeleteConversationResponse.FromString,
-                )
-        self.CreateMessage = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/CreateMessage',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.CreateMessageRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.CreateMessageResponse.FromString,
-                )
-        self.ListMessages = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/ListMessages',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.ListMessagesRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.ListMessagesResponse.FromString,
-                )
-        self.UpdateMessage = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateMessage',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.UpdateMessageRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.UpdateMessageResponse.FromString,
-                )
-        self.DeleteMessage = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/DeleteMessage',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.DeleteMessageRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.DeleteMessageResponse.FromString,
                 )
 
 
@@ -263,62 +222,6 @@ class ArtifactPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def CreateConversation(self, request, context):
-        """Create a Conversation
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ListConversations(self, request, context):
-        """List conversations
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def UpdateConversation(self, request, context):
-        """Update a conversation
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def DeleteConversation(self, request, context):
-        """Delete a conversation
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def CreateMessage(self, request, context):
-        """Create a message
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ListMessages(self, request, context):
-        """List messages
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def UpdateMessage(self, request, context):
-        """Update a message
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def DeleteMessage(self, request, context):
-        """Delete a message
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_ArtifactPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -401,46 +304,6 @@ def add_ArtifactPublicServiceServicer_to_server(servicer, server):
                     servicer.GetFileCatalog,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetFileCatalogRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetFileCatalogResponse.SerializeToString,
-            ),
-            'CreateConversation': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreateConversation,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.CreateConversationRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.CreateConversationResponse.SerializeToString,
-            ),
-            'ListConversations': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListConversations,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.ListConversationsRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.ListConversationsResponse.SerializeToString,
-            ),
-            'UpdateConversation': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateConversation,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.UpdateConversationRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.UpdateConversationResponse.SerializeToString,
-            ),
-            'DeleteConversation': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteConversation,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.DeleteConversationRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.DeleteConversationResponse.SerializeToString,
-            ),
-            'CreateMessage': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreateMessage,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.CreateMessageRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.CreateMessageResponse.SerializeToString,
-            ),
-            'ListMessages': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListMessages,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.ListMessagesRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.ListMessagesResponse.SerializeToString,
-            ),
-            'UpdateMessage': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateMessage,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.UpdateMessageRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.UpdateMessageResponse.SerializeToString,
-            ),
-            'DeleteMessage': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteMessage,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.DeleteMessageRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.DeleteMessageResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -723,141 +586,5 @@ class ArtifactPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/GetFileCatalog',
             artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetFileCatalogRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetFileCatalogResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def CreateConversation(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/CreateConversation',
-            artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.CreateConversationRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.CreateConversationResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ListConversations(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ListConversations',
-            artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.ListConversationsRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.ListConversationsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def UpdateConversation(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateConversation',
-            artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.UpdateConversationRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.UpdateConversationResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def DeleteConversation(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/DeleteConversation',
-            artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.DeleteConversationRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.DeleteConversationResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def CreateMessage(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/CreateMessage',
-            artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.CreateMessageRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.CreateMessageResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ListMessages(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ListMessages',
-            artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.ListMessagesRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.ListMessagesResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def UpdateMessage(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateMessage',
-            artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.UpdateMessageRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.UpdateMessageResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def DeleteMessage(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/DeleteMessage',
-            artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.DeleteMessageRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_conversation__pb2.DeleteMessageResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

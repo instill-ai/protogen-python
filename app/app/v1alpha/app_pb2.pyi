@@ -7,16 +7,38 @@ import collections.abc
 import common.healthcheck.v1beta.healthcheck_pb2
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
+import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
 import sys
+import typing
 
-if sys.version_info >= (3, 8):
+if sys.version_info >= (3, 10):
     import typing as typing_extensions
 else:
     import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
+
+class _AppType:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _AppTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_AppType.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    APP_TYPE_UNSPECIFIED: _AppType.ValueType  # 0
+    """AppType is not specified."""
+    APP_TYPE_AI_ASSISTANT: _AppType.ValueType  # 1
+    """AppType is a AI assistant app."""
+
+class AppType(_AppType, metaclass=_AppTypeEnumTypeWrapper):
+    """AppType represents the type of the app."""
+
+APP_TYPE_UNSPECIFIED: AppType.ValueType  # 0
+"""AppType is not specified."""
+APP_TYPE_AI_ASSISTANT: AppType.ValueType  # 1
+"""AppType is a AI assistant app."""
+global___AppType = AppType
 
 @typing_extensions.final
 class LivenessRequest(google.protobuf.message.Message):
@@ -118,16 +140,17 @@ class App(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     APP_ID_FIELD_NUMBER: builtins.int
-    NAME_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
-    OWNER_NAME_FIELD_NUMBER: builtins.int
+    OWNER_UID_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
+    AI_ASSISTANT_APP_FIELD_NUMBER: builtins.int
+    APP_TYPE_FIELD_NUMBER: builtins.int
+    APP_UID_FIELD_NUMBER: builtins.int
+    CREATOR_UID_FIELD_NUMBER: builtins.int
     app_id: builtins.str
     """The app id."""
-    name: builtins.str
-    """The app name."""
     description: builtins.str
     """The app description."""
     @property
@@ -136,26 +159,65 @@ class App(google.protobuf.message.Message):
     @property
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """The last update time of the app."""
-    owner_name: builtins.str
+    owner_uid: builtins.str
     """The owner/namespace of the app."""
     @property
     def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """The app tags."""
+    @property
+    def ai_assistant_app(self) -> global___AiAssistantAppMetadata:
+        """The ai assistant app metadata."""
+    app_type: global___AppType.ValueType
+    """The app type."""
+    app_uid: builtins.str
+    """app uid"""
+    creator_uid: builtins.str
+    """creator uid"""
     def __init__(
         self,
         *,
         app_id: builtins.str = ...,
-        name: builtins.str = ...,
         description: builtins.str = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        owner_name: builtins.str = ...,
+        owner_uid: builtins.str = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
+        ai_assistant_app: global___AiAssistantAppMetadata | None = ...,
+        app_type: global___AppType.ValueType = ...,
+        app_uid: builtins.str = ...,
+        creator_uid: builtins.str = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["app_id", b"app_id", "create_time", b"create_time", "description", b"description", "name", b"name", "owner_name", b"owner_name", "tags", b"tags", "update_time", b"update_time"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["ai_assistant_app", b"ai_assistant_app", "create_time", b"create_time", "metadata", b"metadata", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["ai_assistant_app", b"ai_assistant_app", "app_id", b"app_id", "app_type", b"app_type", "app_uid", b"app_uid", "create_time", b"create_time", "creator_uid", b"creator_uid", "description", b"description", "metadata", b"metadata", "owner_uid", b"owner_uid", "tags", b"tags", "update_time", b"update_time"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["metadata", b"metadata"]) -> typing_extensions.Literal["ai_assistant_app"] | None: ...
 
 global___App = App
+
+@typing_extensions.final
+class AiAssistantAppMetadata(google.protobuf.message.Message):
+    """AiAssistantAppMetadata represents the metadata for the ai assistant app."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CATALOG_UID_FIELD_NUMBER: builtins.int
+    TOP_K_FIELD_NUMBER: builtins.int
+    CONVERSATION_UID_FIELD_NUMBER: builtins.int
+    catalog_uid: builtins.str
+    """The ai assistant app catalog uid."""
+    top_k: builtins.int
+    """The ai assistant app top k."""
+    conversation_uid: builtins.str
+    """The ai assistant app conversation uid."""
+    def __init__(
+        self,
+        *,
+        catalog_uid: builtins.str = ...,
+        top_k: builtins.int = ...,
+        conversation_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_uid", b"catalog_uid", "conversation_uid", b"conversation_uid", "top_k", b"top_k"]) -> None: ...
+
+global___AiAssistantAppMetadata = AiAssistantAppMetadata
 
 @typing_extensions.final
 class CreateAppRequest(google.protobuf.message.Message):
@@ -329,3 +391,58 @@ class DeleteAppResponse(google.protobuf.message.Message):
     ) -> None: ...
 
 global___DeleteAppResponse = DeleteAppResponse
+
+@typing_extensions.final
+class UpdateAiAssistantAppPlaygroundRequest(google.protobuf.message.Message):
+    """UpdateAiAssistantAppPlaygroundRequest represents a request to update a ai assistant app playground.
+    after the update, the app's metadata will be updated with the last ai assistant app
+    uses catalog uid, top k, and conversation uid.
+    parameters:
+    - namespace_id: the namespace id.
+    - app_id: the app id.
+    - last_ai_app_catalog_uid: the last ai app catalog uid.
+    - last_ai_app_top_k: the last ai app top k.
+    - last_ai_app_conversation_uid: the last ai app conversation uid.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    APP_ID_FIELD_NUMBER: builtins.int
+    LAST_AI_APP_CATALOG_UID_FIELD_NUMBER: builtins.int
+    LAST_AI_APP_TOP_K_FIELD_NUMBER: builtins.int
+    LAST_AI_APP_CONVERSATION_UID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The namespace id."""
+    app_id: builtins.str
+    """The app id."""
+    last_ai_app_catalog_uid: builtins.str
+    """The last ai app uses catalog uid."""
+    last_ai_app_top_k: builtins.int
+    """The last ai app uses top k."""
+    last_ai_app_conversation_uid: builtins.str
+    """The last ai app uses conversation uid."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        app_id: builtins.str = ...,
+        last_ai_app_catalog_uid: builtins.str = ...,
+        last_ai_app_top_k: builtins.int = ...,
+        last_ai_app_conversation_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["app_id", b"app_id", "last_ai_app_catalog_uid", b"last_ai_app_catalog_uid", "last_ai_app_conversation_uid", b"last_ai_app_conversation_uid", "last_ai_app_top_k", b"last_ai_app_top_k", "namespace_id", b"namespace_id"]) -> None: ...
+
+global___UpdateAiAssistantAppPlaygroundRequest = UpdateAiAssistantAppPlaygroundRequest
+
+@typing_extensions.final
+class UpdateAiAssistantAppPlaygroundResponse(google.protobuf.message.Message):
+    """UpdateAiAssistantAppPlaygroundResponse represents a response for updating a ai assistant app playground."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___UpdateAiAssistantAppPlaygroundResponse = UpdateAiAssistantAppPlaygroundResponse

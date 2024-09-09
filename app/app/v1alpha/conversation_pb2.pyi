@@ -93,6 +93,7 @@ class Message(google.protobuf.message.Message):
     TYPE_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
+    MSG_SENDER_UID_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """message uid"""
     app_uid: builtins.str
@@ -111,6 +112,8 @@ class Message(google.protobuf.message.Message):
     @property
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """update time of the message"""
+    msg_sender_uid: builtins.str
+    """message sender uid"""
     def __init__(
         self,
         *,
@@ -122,9 +125,10 @@ class Message(google.protobuf.message.Message):
         type: global___Message.MessageType.ValueType = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        msg_sender_uid: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["app_uid", b"app_uid", "content", b"content", "conversation_uid", b"conversation_uid", "create_time", b"create_time", "role", b"role", "type", b"type", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["app_uid", b"app_uid", "content", b"content", "conversation_uid", b"conversation_uid", "create_time", b"create_time", "msg_sender_uid", b"msg_sender_uid", "role", b"role", "type", b"type", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
 
 global___Message = Message
 
@@ -184,6 +188,8 @@ class ListConversationsRequest(google.protobuf.message.Message):
     APP_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    CONVERSATION_ID_FIELD_NUMBER: builtins.int
+    IF_ALL_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """namespace id"""
     app_id: builtins.str
@@ -192,6 +198,10 @@ class ListConversationsRequest(google.protobuf.message.Message):
     """page size"""
     page_token: builtins.str
     """page token"""
+    conversation_id: builtins.str
+    """conversation_id this is optional, if provided, only the conversation with the given conversation_id will be returned"""
+    if_all: builtins.bool
+    """If true, all conversations will be returned. This has higher priority over conversation_id, page_size, and page_token."""
     def __init__(
         self,
         *,
@@ -199,8 +209,10 @@ class ListConversationsRequest(google.protobuf.message.Message):
         app_id: builtins.str = ...,
         page_size: builtins.int = ...,
         page_token: builtins.str = ...,
+        conversation_id: builtins.str = ...,
+        if_all: builtins.bool = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["app_id", b"app_id", "namespace_id", b"namespace_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["app_id", b"app_id", "conversation_id", b"conversation_id", "if_all", b"if_all", "namespace_id", b"namespace_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
 
 global___ListConversationsRequest = ListConversationsRequest
 
@@ -378,6 +390,43 @@ class CreateMessageResponse(google.protobuf.message.Message):
 global___CreateMessageResponse = CreateMessageResponse
 
 @typing_extensions.final
+class MessageSenderProfile(google.protobuf.message.Message):
+    """MessageSenderProfile describes the public data of a message sender.
+    refer to core.mgmt.v1beta.UserProfile for more details.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    MSG_SENDER_UID_FIELD_NUMBER: builtins.int
+    MSG_SENDER_ID_FIELD_NUMBER: builtins.int
+    DISPLAY_NAME_FIELD_NUMBER: builtins.int
+    AVATAR_FIELD_NUMBER: builtins.int
+    msg_sender_uid: builtins.str
+    """sender uid"""
+    msg_sender_id: builtins.str
+    """sender id"""
+    display_name: builtins.str
+    """Display name."""
+    avatar: builtins.str
+    """Avatar url. this url might be expired or not exist."""
+    def __init__(
+        self,
+        *,
+        msg_sender_uid: builtins.str = ...,
+        msg_sender_id: builtins.str = ...,
+        display_name: builtins.str | None = ...,
+        avatar: builtins.str | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_avatar", b"_avatar", "_display_name", b"_display_name", "avatar", b"avatar", "display_name", b"display_name"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_avatar", b"_avatar", "_display_name", b"_display_name", "avatar", b"avatar", "display_name", b"display_name", "msg_sender_id", b"msg_sender_id", "msg_sender_uid", b"msg_sender_uid"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_avatar", b"_avatar"]) -> typing_extensions.Literal["avatar"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_display_name", b"_display_name"]) -> typing_extensions.Literal["display_name"] | None: ...
+
+global___MessageSenderProfile = MessageSenderProfile
+
+@typing_extensions.final
 class ListMessagesRequest(google.protobuf.message.Message):
     """ListMessagesRequest is used to list messages in a conversation"""
 
@@ -390,6 +439,7 @@ class ListMessagesRequest(google.protobuf.message.Message):
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     INCLUDE_SYSTEM_MESSAGES_FIELD_NUMBER: builtins.int
+    IF_ALL_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """namespace id"""
     app_id: builtins.str
@@ -404,6 +454,8 @@ class ListMessagesRequest(google.protobuf.message.Message):
     """page token"""
     include_system_messages: builtins.bool
     """include system messages"""
+    if_all: builtins.bool
+    """If true, all messages will be returned. This has higher priority over latest_k, page_size, and page_token."""
     def __init__(
         self,
         *,
@@ -414,8 +466,9 @@ class ListMessagesRequest(google.protobuf.message.Message):
         page_size: builtins.int = ...,
         page_token: builtins.str = ...,
         include_system_messages: builtins.bool = ...,
+        if_all: builtins.bool = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["app_id", b"app_id", "conversation_id", b"conversation_id", "include_system_messages", b"include_system_messages", "latest_k", b"latest_k", "namespace_id", b"namespace_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["app_id", b"app_id", "conversation_id", b"conversation_id", "if_all", b"if_all", "include_system_messages", b"include_system_messages", "latest_k", b"latest_k", "namespace_id", b"namespace_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
 
 global___ListMessagesRequest = ListMessagesRequest
 
@@ -428,6 +481,7 @@ class ListMessagesResponse(google.protobuf.message.Message):
     MESSAGES_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    SENDER_PROFILES_FIELD_NUMBER: builtins.int
     @property
     def messages(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Message]:
         """messages"""
@@ -435,14 +489,18 @@ class ListMessagesResponse(google.protobuf.message.Message):
     """next page token"""
     total_size: builtins.int
     """total size"""
+    @property
+    def sender_profiles(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___MessageSenderProfile]:
+        """message sender profiles"""
     def __init__(
         self,
         *,
         messages: collections.abc.Iterable[global___Message] | None = ...,
         next_page_token: builtins.str = ...,
         total_size: builtins.int = ...,
+        sender_profiles: collections.abc.Iterable[global___MessageSenderProfile] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["messages", b"messages", "next_page_token", b"next_page_token", "total_size", b"total_size"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["messages", b"messages", "next_page_token", b"next_page_token", "sender_profiles", b"sender_profiles", "total_size", b"total_size"]) -> None: ...
 
 global___ListMessagesResponse = ListMessagesResponse
 
