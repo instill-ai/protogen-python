@@ -16,7 +16,7 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19\x61pp/app/v1alpha/app.proto\x12\x0f\x61pp.app.v1alpha\x1a+common/healthcheck/v1beta/healthcheck.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x96\x01\n\x0fLivenessRequest\x12j\n\x14health_check_request\x18\x01 \x01(\x0b\x32-.common.healthcheck.v1beta.HealthCheckRequestB\x04\xe2\x41\x01\x01H\x00R\x12healthCheckRequest\x88\x01\x01\x42\x17\n\x15_health_check_request\"|\n\x10LivenessResponse\x12h\n\x15health_check_response\x18\x01 \x01(\x0b\x32..common.healthcheck.v1beta.HealthCheckResponseB\x04\xe2\x41\x01\x03R\x13healthCheckResponse\"\x97\x01\n\x10ReadinessRequest\x12j\n\x14health_check_request\x18\x01 \x01(\x0b\x32-.common.healthcheck.v1beta.HealthCheckRequestB\x04\xe2\x41\x01\x01H\x00R\x12healthCheckRequest\x88\x01\x01\x42\x17\n\x15_health_check_request\"}\n\x11ReadinessResponse\x12h\n\x15health_check_response\x18\x01 \x01(\x0b\x32..common.healthcheck.v1beta.HealthCheckResponseB\x04\xe2\x41\x01\x03R\x13healthCheckResponse\"\xf5\x03\n\x03\x41pp\x12\x1b\n\x06\x61pp_id\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x05\x61ppId\x12&\n\x0b\x64\x65scription\x18\x02 \x01(\tB\x04\xe2\x41\x01\x01R\x0b\x64\x65scription\x12\x41\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x04\xe2\x41\x01\x03R\ncreateTime\x12\x41\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x04\xe2\x41\x01\x03R\nupdateTime\x12!\n\towner_uid\x18\x05 \x01(\tB\x04\xe2\x41\x01\x03R\x08ownerUid\x12\x18\n\x04tags\x18\x06 \x03(\tB\x04\xe2\x41\x01\x01R\x04tags\x12Y\n\x10\x61i_assistant_app\x18\x07 \x01(\x0b\x32\'.app.app.v1alpha.AiAssistantAppMetadataB\x04\xe2\x41\x01\x03H\x00R\x0e\x61iAssistantApp\x12\x39\n\x08\x61pp_type\x18\x08 \x01(\x0e\x32\x18.app.app.v1alpha.AppTypeB\x04\xe2\x41\x01\x03R\x07\x61ppType\x12\x1d\n\x07\x61pp_uid\x18\t \x01(\tB\x04\xe2\x41\x01\x03R\x06\x61ppUid\x12%\n\x0b\x63reator_uid\x18\n \x01(\tB\x04\xe2\x41\x01\x03R\ncreatorUidB\n\n\x08metadata\"\x8b\x01\n\x16\x41iAssistantAppMetadata\x12%\n\x0b\x63\x61talog_uid\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\ncatalogUid\x12\x19\n\x05top_k\x18\x02 \x01(\x05\x42\x04\xe2\x41\x01\x02R\x04topK\x12/\n\x10\x63onversation_uid\x18\x03 \x01(\tB\x04\xe2\x41\x01\x02R\x0f\x63onversationUid\"\x97\x01\n\x10\x43reateAppRequest\x12\'\n\x0cnamespace_id\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x0bnamespaceId\x12\x18\n\x04name\x18\x02 \x01(\tB\x04\xe2\x41\x01\x02R\x04name\x12&\n\x0b\x64\x65scription\x18\x03 \x01(\tB\x04\xe2\x41\x01\x01R\x0b\x64\x65scription\x12\x18\n\x04tags\x18\x04 \x03(\tB\x04\xe2\x41\x01\x01R\x04tags\"A\n\x11\x43reateAppResponse\x12,\n\x03\x61pp\x18\x01 \x01(\x0b\x32\x14.app.app.v1alpha.AppB\x04\xe2\x41\x01\x03R\x03\x61pp\":\n\x0fListAppsRequest\x12\'\n\x0cnamespace_id\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x0bnamespaceId\"B\n\x10ListAppsResponse\x12.\n\x04\x61pps\x18\x01 \x03(\x0b\x32\x14.app.app.v1alpha.AppB\x04\xe2\x41\x01\x03R\x04\x61pps\"\x9a\x01\n\x10UpdateAppRequest\x12\x1b\n\x06\x61pp_id\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x05\x61ppId\x12&\n\x0b\x64\x65scription\x18\x02 \x01(\tB\x04\xe2\x41\x01\x01R\x0b\x64\x65scription\x12\x18\n\x04tags\x18\x03 \x03(\tB\x04\xe2\x41\x01\x01R\x04tags\x12\'\n\x0cnamespace_id\x18\x04 \x01(\tB\x04\xe2\x41\x01\x02R\x0bnamespaceId\"A\n\x11UpdateAppResponse\x12,\n\x03\x61pp\x18\x01 \x01(\x0b\x32\x14.app.app.v1alpha.AppB\x04\xe2\x41\x01\x03R\x03\x61pp\"X\n\x10\x44\x65leteAppRequest\x12\'\n\x0cnamespace_id\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x0bnamespaceId\x12\x1b\n\x06\x61pp_id\x18\x02 \x01(\tB\x04\xe2\x41\x01\x02R\x05\x61ppId\"\x13\n\x11\x44\x65leteAppResponse\"\x9f\x02\n%UpdateAiAssistantAppPlaygroundRequest\x12\'\n\x0cnamespace_id\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x0bnamespaceId\x12\x1b\n\x06\x61pp_id\x18\x02 \x01(\tB\x04\xe2\x41\x01\x02R\x05\x61ppId\x12:\n\x17last_ai_app_catalog_uid\x18\x03 \x01(\tB\x04\xe2\x41\x01\x01R\x13lastAiAppCatalogUid\x12.\n\x11last_ai_app_top_k\x18\x04 \x01(\x05\x42\x04\xe2\x41\x01\x01R\rlastAiAppTopK\x12\x44\n\x1clast_ai_app_conversation_uid\x18\x05 \x01(\tB\x04\xe2\x41\x01\x01R\x18lastAiAppConversationUid\"(\n&UpdateAiAssistantAppPlaygroundResponse*>\n\x07\x41ppType\x12\x18\n\x14\x41PP_TYPE_UNSPECIFIED\x10\x00\x12\x19\n\x15\x41PP_TYPE_AI_ASSISTANT\x10\x01\x42\xbb\x01\n\x13\x63om.app.app.v1alphaB\x08\x41ppProtoP\x01Z<github.com/instill-ai/protogen-go/app/app/v1alpha;appv1alpha\xa2\x02\x03\x41\x41X\xaa\x02\x0f\x41pp.App.V1alpha\xca\x02\x0f\x41pp\\App\\V1alpha\xe2\x02\x1b\x41pp\\App\\V1alpha\\GPBMetadata\xea\x02\x11\x41pp::App::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19\x61pp/app/v1alpha/app.proto\x12\x0f\x61pp.app.v1alpha\x1a+common/healthcheck/v1beta/healthcheck.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x96\x01\n\x0fLivenessRequest\x12j\n\x14health_check_request\x18\x01 \x01(\x0b\x32-.common.healthcheck.v1beta.HealthCheckRequestB\x04\xe2\x41\x01\x01H\x00R\x12healthCheckRequest\x88\x01\x01\x42\x17\n\x15_health_check_request\"|\n\x10LivenessResponse\x12h\n\x15health_check_response\x18\x01 \x01(\x0b\x32..common.healthcheck.v1beta.HealthCheckResponseB\x04\xe2\x41\x01\x03R\x13healthCheckResponse\"\x97\x01\n\x10ReadinessRequest\x12j\n\x14health_check_request\x18\x01 \x01(\x0b\x32-.common.healthcheck.v1beta.HealthCheckRequestB\x04\xe2\x41\x01\x01H\x00R\x12healthCheckRequest\x88\x01\x01\x42\x17\n\x15_health_check_request\"}\n\x11ReadinessResponse\x12h\n\x15health_check_response\x18\x01 \x01(\x0b\x32..common.healthcheck.v1beta.HealthCheckResponseB\x04\xe2\x41\x01\x03R\x13healthCheckResponse\"\xf5\x03\n\x03\x41pp\x12\x1b\n\x06\x61pp_id\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x05\x61ppId\x12&\n\x0b\x64\x65scription\x18\x02 \x01(\tB\x04\xe2\x41\x01\x01R\x0b\x64\x65scription\x12\x41\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x04\xe2\x41\x01\x03R\ncreateTime\x12\x41\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x04\xe2\x41\x01\x03R\nupdateTime\x12!\n\towner_uid\x18\x05 \x01(\tB\x04\xe2\x41\x01\x03R\x08ownerUid\x12\x18\n\x04tags\x18\x06 \x03(\tB\x04\xe2\x41\x01\x01R\x04tags\x12Y\n\x10\x61i_assistant_app\x18\x07 \x01(\x0b\x32\'.app.app.v1alpha.AiAssistantAppMetadataB\x04\xe2\x41\x01\x03H\x00R\x0e\x61iAssistantApp\x12\x39\n\x08\x61pp_type\x18\x08 \x01(\x0e\x32\x18.app.app.v1alpha.AppTypeB\x04\xe2\x41\x01\x03R\x07\x61ppType\x12\x1d\n\x07\x61pp_uid\x18\t \x01(\tB\x04\xe2\x41\x01\x03R\x06\x61ppUid\x12%\n\x0b\x63reator_uid\x18\n \x01(\tB\x04\xe2\x41\x01\x03R\ncreatorUidB\n\n\x08metadata\"\x8b\x01\n\x16\x41iAssistantAppMetadata\x12%\n\x0b\x63\x61talog_uid\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\ncatalogUid\x12\x19\n\x05top_k\x18\x02 \x01(\x05\x42\x04\xe2\x41\x01\x02R\x04topK\x12/\n\x10\x63onversation_uid\x18\x03 \x01(\tB\x04\xe2\x41\x01\x02R\x0f\x63onversationUid\"\x93\x01\n\x10\x43reateAppRequest\x12\'\n\x0cnamespace_id\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x0bnamespaceId\x12\x14\n\x02id\x18\x02 \x01(\tB\x04\xe2\x41\x01\x02R\x02id\x12&\n\x0b\x64\x65scription\x18\x03 \x01(\tB\x04\xe2\x41\x01\x01R\x0b\x64\x65scription\x12\x18\n\x04tags\x18\x04 \x03(\tB\x04\xe2\x41\x01\x01R\x04tags\"A\n\x11\x43reateAppResponse\x12,\n\x03\x61pp\x18\x01 \x01(\x0b\x32\x14.app.app.v1alpha.AppB\x04\xe2\x41\x01\x03R\x03\x61pp\":\n\x0fListAppsRequest\x12\'\n\x0cnamespace_id\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x0bnamespaceId\"B\n\x10ListAppsResponse\x12.\n\x04\x61pps\x18\x01 \x03(\x0b\x32\x14.app.app.v1alpha.AppB\x04\xe2\x41\x01\x03R\x04\x61pps\"\xde\x02\n\x10UpdateAppRequest\x12\'\n\x0cnamespace_id\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x0bnamespaceId\x12\x1b\n\x06\x61pp_id\x18\x02 \x01(\tB\x04\xe2\x41\x01\x02R\x05\x61ppId\x12\"\n\nnew_app_id\x18\x03 \x01(\tB\x04\xe2\x41\x01\x01R\x08newAppId\x12-\n\x0fnew_description\x18\x04 \x01(\tB\x04\xe2\x41\x01\x01R\x0enewDescription\x12\x1f\n\x08new_tags\x18\x05 \x03(\tB\x04\xe2\x41\x01\x01R\x07newTags\x12M\n!last_ai_assistant_app_catalog_uid\x18\x06 \x01(\tB\x04\xe2\x41\x01\x01R\x1clastAiAssistantAppCatalogUid\x12\x41\n\x1blast_ai_assistant_app_top_k\x18\x07 \x01(\x05\x42\x04\xe2\x41\x01\x01R\x16lastAiAssistantAppTopK\"A\n\x11UpdateAppResponse\x12,\n\x03\x61pp\x18\x01 \x01(\x0b\x32\x14.app.app.v1alpha.AppB\x04\xe2\x41\x01\x03R\x03\x61pp\"X\n\x10\x44\x65leteAppRequest\x12\'\n\x0cnamespace_id\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x0bnamespaceId\x12\x1b\n\x06\x61pp_id\x18\x02 \x01(\tB\x04\xe2\x41\x01\x02R\x05\x61ppId\"\x13\n\x11\x44\x65leteAppResponse\"\x9f\x02\n%UpdateAiAssistantAppPlaygroundRequest\x12\'\n\x0cnamespace_id\x18\x01 \x01(\tB\x04\xe2\x41\x01\x02R\x0bnamespaceId\x12\x1b\n\x06\x61pp_id\x18\x02 \x01(\tB\x04\xe2\x41\x01\x02R\x05\x61ppId\x12:\n\x17last_ai_app_catalog_uid\x18\x03 \x01(\tB\x04\xe2\x41\x01\x01R\x13lastAiAppCatalogUid\x12.\n\x11last_ai_app_top_k\x18\x04 \x01(\x05\x42\x04\xe2\x41\x01\x01R\rlastAiAppTopK\x12\x44\n\x1clast_ai_app_conversation_uid\x18\x05 \x01(\tB\x04\xe2\x41\x01\x01R\x18lastAiAppConversationUid\"(\n&UpdateAiAssistantAppPlaygroundResponse*>\n\x07\x41ppType\x12\x18\n\x14\x41PP_TYPE_UNSPECIFIED\x10\x00\x12\x19\n\x15\x41PP_TYPE_AI_ASSISTANT\x10\x01\x42\xbb\x01\n\x13\x63om.app.app.v1alphaB\x08\x41ppProtoP\x01Z<github.com/instill-ai/protogen-go/app/app/v1alpha;appv1alpha\xa2\x02\x03\x41\x41X\xaa\x02\x0f\x41pp.App.V1alpha\xca\x02\x0f\x41pp\\App\\V1alpha\xe2\x02\x1b\x41pp\\App\\V1alpha\\GPBMetadata\xea\x02\x11\x41pp::App::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -61,8 +61,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _AIASSISTANTAPPMETADATA.fields_by_name['conversation_uid']._serialized_options = b'\342A\001\002'
   _CREATEAPPREQUEST.fields_by_name['namespace_id']._options = None
   _CREATEAPPREQUEST.fields_by_name['namespace_id']._serialized_options = b'\342A\001\002'
-  _CREATEAPPREQUEST.fields_by_name['name']._options = None
-  _CREATEAPPREQUEST.fields_by_name['name']._serialized_options = b'\342A\001\002'
+  _CREATEAPPREQUEST.fields_by_name['id']._options = None
+  _CREATEAPPREQUEST.fields_by_name['id']._serialized_options = b'\342A\001\002'
   _CREATEAPPREQUEST.fields_by_name['description']._options = None
   _CREATEAPPREQUEST.fields_by_name['description']._serialized_options = b'\342A\001\001'
   _CREATEAPPREQUEST.fields_by_name['tags']._options = None
@@ -73,14 +73,20 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _LISTAPPSREQUEST.fields_by_name['namespace_id']._serialized_options = b'\342A\001\002'
   _LISTAPPSRESPONSE.fields_by_name['apps']._options = None
   _LISTAPPSRESPONSE.fields_by_name['apps']._serialized_options = b'\342A\001\003'
-  _UPDATEAPPREQUEST.fields_by_name['app_id']._options = None
-  _UPDATEAPPREQUEST.fields_by_name['app_id']._serialized_options = b'\342A\001\002'
-  _UPDATEAPPREQUEST.fields_by_name['description']._options = None
-  _UPDATEAPPREQUEST.fields_by_name['description']._serialized_options = b'\342A\001\001'
-  _UPDATEAPPREQUEST.fields_by_name['tags']._options = None
-  _UPDATEAPPREQUEST.fields_by_name['tags']._serialized_options = b'\342A\001\001'
   _UPDATEAPPREQUEST.fields_by_name['namespace_id']._options = None
   _UPDATEAPPREQUEST.fields_by_name['namespace_id']._serialized_options = b'\342A\001\002'
+  _UPDATEAPPREQUEST.fields_by_name['app_id']._options = None
+  _UPDATEAPPREQUEST.fields_by_name['app_id']._serialized_options = b'\342A\001\002'
+  _UPDATEAPPREQUEST.fields_by_name['new_app_id']._options = None
+  _UPDATEAPPREQUEST.fields_by_name['new_app_id']._serialized_options = b'\342A\001\001'
+  _UPDATEAPPREQUEST.fields_by_name['new_description']._options = None
+  _UPDATEAPPREQUEST.fields_by_name['new_description']._serialized_options = b'\342A\001\001'
+  _UPDATEAPPREQUEST.fields_by_name['new_tags']._options = None
+  _UPDATEAPPREQUEST.fields_by_name['new_tags']._serialized_options = b'\342A\001\001'
+  _UPDATEAPPREQUEST.fields_by_name['last_ai_assistant_app_catalog_uid']._options = None
+  _UPDATEAPPREQUEST.fields_by_name['last_ai_assistant_app_catalog_uid']._serialized_options = b'\342A\001\001'
+  _UPDATEAPPREQUEST.fields_by_name['last_ai_assistant_app_top_k']._options = None
+  _UPDATEAPPREQUEST.fields_by_name['last_ai_assistant_app_top_k']._serialized_options = b'\342A\001\001'
   _UPDATEAPPRESPONSE.fields_by_name['app']._options = None
   _UPDATEAPPRESPONSE.fields_by_name['app']._serialized_options = b'\342A\001\003'
   _DELETEAPPREQUEST.fields_by_name['namespace_id']._options = None
@@ -97,8 +103,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _UPDATEAIASSISTANTAPPPLAYGROUNDREQUEST.fields_by_name['last_ai_app_top_k']._serialized_options = b'\342A\001\001'
   _UPDATEAIASSISTANTAPPPLAYGROUNDREQUEST.fields_by_name['last_ai_app_conversation_uid']._options = None
   _UPDATEAIASSISTANTAPPPLAYGROUNDREQUEST.fields_by_name['last_ai_app_conversation_uid']._serialized_options = b'\342A\001\001'
-  _globals['_APPTYPE']._serialized_start=2379
-  _globals['_APPTYPE']._serialized_end=2441
+  _globals['_APPTYPE']._serialized_start=2571
+  _globals['_APPTYPE']._serialized_end=2633
   _globals['_LIVENESSREQUEST']._serialized_start=158
   _globals['_LIVENESSREQUEST']._serialized_end=308
   _globals['_LIVENESSRESPONSE']._serialized_start=310
@@ -112,23 +118,23 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_AIASSISTANTAPPMETADATA']._serialized_start=1222
   _globals['_AIASSISTANTAPPMETADATA']._serialized_end=1361
   _globals['_CREATEAPPREQUEST']._serialized_start=1364
-  _globals['_CREATEAPPREQUEST']._serialized_end=1515
-  _globals['_CREATEAPPRESPONSE']._serialized_start=1517
-  _globals['_CREATEAPPRESPONSE']._serialized_end=1582
-  _globals['_LISTAPPSREQUEST']._serialized_start=1584
-  _globals['_LISTAPPSREQUEST']._serialized_end=1642
-  _globals['_LISTAPPSRESPONSE']._serialized_start=1644
-  _globals['_LISTAPPSRESPONSE']._serialized_end=1710
-  _globals['_UPDATEAPPREQUEST']._serialized_start=1713
-  _globals['_UPDATEAPPREQUEST']._serialized_end=1867
-  _globals['_UPDATEAPPRESPONSE']._serialized_start=1869
-  _globals['_UPDATEAPPRESPONSE']._serialized_end=1934
-  _globals['_DELETEAPPREQUEST']._serialized_start=1936
-  _globals['_DELETEAPPREQUEST']._serialized_end=2024
-  _globals['_DELETEAPPRESPONSE']._serialized_start=2026
-  _globals['_DELETEAPPRESPONSE']._serialized_end=2045
-  _globals['_UPDATEAIASSISTANTAPPPLAYGROUNDREQUEST']._serialized_start=2048
-  _globals['_UPDATEAIASSISTANTAPPPLAYGROUNDREQUEST']._serialized_end=2335
-  _globals['_UPDATEAIASSISTANTAPPPLAYGROUNDRESPONSE']._serialized_start=2337
-  _globals['_UPDATEAIASSISTANTAPPPLAYGROUNDRESPONSE']._serialized_end=2377
+  _globals['_CREATEAPPREQUEST']._serialized_end=1511
+  _globals['_CREATEAPPRESPONSE']._serialized_start=1513
+  _globals['_CREATEAPPRESPONSE']._serialized_end=1578
+  _globals['_LISTAPPSREQUEST']._serialized_start=1580
+  _globals['_LISTAPPSREQUEST']._serialized_end=1638
+  _globals['_LISTAPPSRESPONSE']._serialized_start=1640
+  _globals['_LISTAPPSRESPONSE']._serialized_end=1706
+  _globals['_UPDATEAPPREQUEST']._serialized_start=1709
+  _globals['_UPDATEAPPREQUEST']._serialized_end=2059
+  _globals['_UPDATEAPPRESPONSE']._serialized_start=2061
+  _globals['_UPDATEAPPRESPONSE']._serialized_end=2126
+  _globals['_DELETEAPPREQUEST']._serialized_start=2128
+  _globals['_DELETEAPPREQUEST']._serialized_end=2216
+  _globals['_DELETEAPPRESPONSE']._serialized_start=2218
+  _globals['_DELETEAPPRESPONSE']._serialized_end=2237
+  _globals['_UPDATEAIASSISTANTAPPPLAYGROUNDREQUEST']._serialized_start=2240
+  _globals['_UPDATEAIASSISTANTAPPPLAYGROUNDREQUEST']._serialized_end=2527
+  _globals['_UPDATEAIASSISTANTAPPPLAYGROUNDRESPONSE']._serialized_start=2529
+  _globals['_UPDATEAIASSISTANTAPPPLAYGROUNDRESPONSE']._serialized_end=2569
 # @@protoc_insertion_point(module_scope)

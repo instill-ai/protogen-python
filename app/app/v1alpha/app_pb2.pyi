@@ -226,13 +226,16 @@ class CreateAppRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    NAME_FIELD_NUMBER: builtins.int
+    ID_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """The app's owner(namespaces)."""
-    name: builtins.str
-    """The app name."""
+    id: builtins.str
+    """The app id.
+    the app id should be lowercase without any space or special character besides the hyphen,
+    it can not start with number or hyphen, and should be less than 32 characters.
+    """
     description: builtins.str
     """The app description."""
     @property
@@ -242,11 +245,11 @@ class CreateAppRequest(google.protobuf.message.Message):
         self,
         *,
         namespace_id: builtins.str = ...,
-        name: builtins.str = ...,
+        id: builtins.str = ...,
         description: builtins.str = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "name", b"name", "namespace_id", b"namespace_id", "tags", b"tags"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "id", b"id", "namespace_id", b"namespace_id", "tags", b"tags"]) -> None: ...
 
 global___CreateAppRequest = CreateAppRequest
 
@@ -313,28 +316,40 @@ class UpdateAppRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    APP_ID_FIELD_NUMBER: builtins.int
-    DESCRIPTION_FIELD_NUMBER: builtins.int
-    TAGS_FIELD_NUMBER: builtins.int
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    APP_ID_FIELD_NUMBER: builtins.int
+    NEW_APP_ID_FIELD_NUMBER: builtins.int
+    NEW_DESCRIPTION_FIELD_NUMBER: builtins.int
+    NEW_TAGS_FIELD_NUMBER: builtins.int
+    LAST_AI_ASSISTANT_APP_CATALOG_UID_FIELD_NUMBER: builtins.int
+    LAST_AI_ASSISTANT_APP_TOP_K_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """namespace id"""
     app_id: builtins.str
-    """The app id."""
-    description: builtins.str
+    """app id"""
+    new_app_id: builtins.str
+    """The app id needs to follow the kebab case format."""
+    new_description: builtins.str
     """The app description."""
     @property
-    def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+    def new_tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """The app tags."""
-    namespace_id: builtins.str
-    """The app owner(namespace)."""
+    last_ai_assistant_app_catalog_uid: builtins.str
+    """last ai assistant app catalog uid"""
+    last_ai_assistant_app_top_k: builtins.int
+    """last ai assistant app top k"""
     def __init__(
         self,
         *,
-        app_id: builtins.str = ...,
-        description: builtins.str = ...,
-        tags: collections.abc.Iterable[builtins.str] | None = ...,
         namespace_id: builtins.str = ...,
+        app_id: builtins.str = ...,
+        new_app_id: builtins.str = ...,
+        new_description: builtins.str = ...,
+        new_tags: collections.abc.Iterable[builtins.str] | None = ...,
+        last_ai_assistant_app_catalog_uid: builtins.str = ...,
+        last_ai_assistant_app_top_k: builtins.int = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["app_id", b"app_id", "description", b"description", "namespace_id", b"namespace_id", "tags", b"tags"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["app_id", b"app_id", "last_ai_assistant_app_catalog_uid", b"last_ai_assistant_app_catalog_uid", "last_ai_assistant_app_top_k", b"last_ai_assistant_app_top_k", "namespace_id", b"namespace_id", "new_app_id", b"new_app_id", "new_description", b"new_description", "new_tags", b"new_tags"]) -> None: ...
 
 global___UpdateAppRequest = UpdateAppRequest
 
