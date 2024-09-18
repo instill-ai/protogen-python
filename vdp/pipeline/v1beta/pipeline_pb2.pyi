@@ -1048,13 +1048,13 @@ class ValidateNamespacePipelineResponse(google.protobuf.message.Message):
     success: builtins.bool
     """Success"""
     @property
-    def errors(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PipelineValidationError]:
+    def errors(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ErrPipelineValidation]:
         """The validated pipeline resource."""
     def __init__(
         self,
         *,
         success: builtins.bool = ...,
-        errors: collections.abc.Iterable[global___PipelineValidationError] | None = ...,
+        errors: collections.abc.Iterable[global___ErrPipelineValidation] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["errors", b"errors", "success", b"success"]) -> None: ...
 
@@ -2224,8 +2224,10 @@ class DeleteUserPipelineResponse(google.protobuf.message.Message):
 global___DeleteUserPipelineResponse = DeleteUserPipelineResponse
 
 @typing_extensions.final
-class PipelineValidationError(google.protobuf.message.Message):
-    """PipelineValidation"""
+class ErrPipelineValidation(google.protobuf.message.Message):
+    """ErrPipelineValidation contains information about a failed pipeline
+    validation.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2243,7 +2245,7 @@ class PipelineValidationError(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["error", b"error", "location", b"location"]) -> None: ...
 
-global___PipelineValidationError = PipelineValidationError
+global___ErrPipelineValidation = ErrPipelineValidation
 
 @typing_extensions.final
 class ValidateUserPipelineRequest(google.protobuf.message.Message):
@@ -2279,13 +2281,13 @@ class ValidateUserPipelineResponse(google.protobuf.message.Message):
     success: builtins.bool
     """Success"""
     @property
-    def errors(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PipelineValidationError]:
+    def errors(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ErrPipelineValidation]:
         """The validated pipeline resource."""
     def __init__(
         self,
         *,
         success: builtins.bool = ...,
-        errors: collections.abc.Iterable[global___PipelineValidationError] | None = ...,
+        errors: collections.abc.Iterable[global___ErrPipelineValidation] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["errors", b"errors", "success", b"success"]) -> None: ...
 
@@ -3458,13 +3460,13 @@ class ValidateOrganizationPipelineResponse(google.protobuf.message.Message):
     success: builtins.bool
     """Success"""
     @property
-    def errors(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PipelineValidationError]:
+    def errors(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ErrPipelineValidation]:
         """The validated pipeline resource."""
     def __init__(
         self,
         *,
         success: builtins.bool = ...,
-        errors: collections.abc.Iterable[global___PipelineValidationError] | None = ...,
+        errors: collections.abc.Iterable[global___ErrPipelineValidation] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["errors", b"errors", "success", b"success"]) -> None: ...
 
