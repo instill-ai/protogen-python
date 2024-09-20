@@ -65,6 +65,8 @@ class Connection(google.protobuf.message.Message):
     INTEGRATION_TITLE_FIELD_NUMBER: builtins.int
     METHOD_FIELD_NUMBER: builtins.int
     SETUP_FIELD_NUMBER: builtins.int
+    SCOPES_FIELD_NUMBER: builtins.int
+    O_AUTH_ACCESS_DETAILS_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
@@ -92,6 +94,19 @@ class Connection(google.protobuf.message.Message):
         """Connection details. This field is required on creation, optional on view.
         When viewing the connection details, the setup values will be redacted.
         """
+    @property
+    def scopes(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """A list of scopes that identify the resources that the connection will be
+        able to access on the user's behalf. This is typically passed on creation
+        when the setup has been generated through an OAuth flow with a limited set
+        of scopes.
+        """
+    @property
+    def o_auth_access_details(self) -> google.protobuf.struct_pb2.Struct:
+        """When the connection method is METHOD_OAUTH, the access token might come
+        with some extra information that might vary across vendors. This
+        information is passed as connection metadata.
+        """
     view: vdp.pipeline.v1beta.common_pb2.View.ValueType
     """View defines how the integration is presented. The `setup` field is only
     showed in the FULL view.
@@ -112,12 +127,15 @@ class Connection(google.protobuf.message.Message):
         integration_title: builtins.str = ...,
         method: global___Connection.Method.ValueType = ...,
         setup: google.protobuf.struct_pb2.Struct | None = ...,
+        scopes: collections.abc.Iterable[builtins.str] | None = ...,
+        o_auth_access_details: google.protobuf.struct_pb2.Struct | None = ...,
         view: vdp.pipeline.v1beta.common_pb2.View.ValueType = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "setup", b"setup", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "id", b"id", "integration_id", b"integration_id", "integration_title", b"integration_title", "method", b"method", "namespace_id", b"namespace_id", "setup", b"setup", "uid", b"uid", "update_time", b"update_time", "view", b"view"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_o_auth_access_details", b"_o_auth_access_details", "create_time", b"create_time", "o_auth_access_details", b"o_auth_access_details", "setup", b"setup", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_o_auth_access_details", b"_o_auth_access_details", "create_time", b"create_time", "id", b"id", "integration_id", b"integration_id", "integration_title", b"integration_title", "method", b"method", "namespace_id", b"namespace_id", "o_auth_access_details", b"o_auth_access_details", "scopes", b"scopes", "setup", b"setup", "uid", b"uid", "update_time", b"update_time", "view", b"view"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_o_auth_access_details", b"_o_auth_access_details"]) -> typing_extensions.Literal["o_auth_access_details"] | None: ...
 
 global___Connection = Connection
 
@@ -428,8 +446,63 @@ class Integration(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     @typing_extensions.final
+    class Link(google.protobuf.message.Message):
+        """Link contains the information to display an reference to an external URL."""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        TEXT_FIELD_NUMBER: builtins.int
+        URL_FIELD_NUMBER: builtins.int
+        text: builtins.str
+        """Text contains the message to display."""
+        url: builtins.str
+        """URL contains the reference the link will redirect to."""
+        def __init__(
+            self,
+            *,
+            text: builtins.str = ...,
+            url: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["text", b"text", "url", b"url"]) -> None: ...
+
+    @typing_extensions.final
+    class OAuthConfig(google.protobuf.message.Message):
+        """OAuthConfig contains the configuration parameters for fetching an access
+        token via an OAuth 2.0 flow.
+        """
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        AUTH_URL_FIELD_NUMBER: builtins.int
+        ACCESS_URL_FIELD_NUMBER: builtins.int
+        SCOPES_FIELD_NUMBER: builtins.int
+        auth_url: builtins.str
+        """The URL of the OAuth server to initiate the authentication and
+        authorization process.
+        """
+        access_url: builtins.str
+        """The URL of the OAuth server to exchange the authorization code for an
+        access token.
+        """
+        @property
+        def scopes(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+            """A list of scopes that identify the resources that the connection will be
+            able to access on the user's behalf.
+            """
+        def __init__(
+            self,
+            *,
+            auth_url: builtins.str = ...,
+            access_url: builtins.str = ...,
+            scopes: collections.abc.Iterable[builtins.str] | None = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["access_url", b"access_url", "auth_url", b"auth_url", "scopes", b"scopes"]) -> None: ...
+
+    @typing_extensions.final
     class SetupSchema(google.protobuf.message.Message):
-        """SetupSchema defines the schema for a connection setup."""
+        """SetupSchema defines the schema for a connection setup.
+        This message is deprecated.
+        """
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -451,26 +524,6 @@ class Integration(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["schema", b"schema"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["method", b"method", "schema", b"schema"]) -> None: ...
 
-    @typing_extensions.final
-    class Link(google.protobuf.message.Message):
-        """Link contains the information to display an reference to an external URL."""
-
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        TEXT_FIELD_NUMBER: builtins.int
-        URL_FIELD_NUMBER: builtins.int
-        text: builtins.str
-        """Text contains the message to display."""
-        url: builtins.str
-        """URL contains the reference the link will redirect to."""
-        def __init__(
-            self,
-            *,
-            text: builtins.str = ...,
-            url: builtins.str = ...,
-        ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["text", b"text", "url", b"url"]) -> None: ...
-
     UID_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
     TITLE_FIELD_NUMBER: builtins.int
@@ -478,8 +531,10 @@ class Integration(google.protobuf.message.Message):
     VENDOR_FIELD_NUMBER: builtins.int
     ICON_FIELD_NUMBER: builtins.int
     HELP_LINK_FIELD_NUMBER: builtins.int
-    SCHEMAS_FIELD_NUMBER: builtins.int
+    SETUP_SCHEMA_FIELD_NUMBER: builtins.int
+    O_AUTH_CONFIG_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
+    SCHEMAS_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """UUID-formatted unique identifier. It references a component definition."""
     id: builtins.str
@@ -500,15 +555,34 @@ class Integration(google.protobuf.message.Message):
     See the `icon` field in the `ComponentDefinition` entity for more
     information.
     """
-    help_link: builtins.str
-    """Reference to the vendor's documentation to expand the integration details."""
+    @property
+    def help_link(self) -> global___Integration.Link:
+        """Reference to the vendor's documentation to expand the integration details."""
+    @property
+    def setup_schema(self) -> google.protobuf.struct_pb2.Struct:
+        """The connection setup field definitions. Each integration will require
+        different data to connect to the 3rd party app.
+        """
+    @property
+    def o_auth_config(self) -> global___Integration.OAuthConfig:
+        """Configuration parameters required for the OAuth setup flow. This field
+        will be present only if the integration supports OAuth 2.0.
+        """
+    view: vdp.pipeline.v1beta.common_pb2.View.ValueType
+    """View defines how the integration is presented. The following fields are
+    only shown in the FULL view:
+    - schemas
+    - setupSchema
+    - oAuthConfig
+    """
     @property
     def schemas(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Integration.SetupSchema]:
-        """Schemas defines the supported schemas for the connection setup."""
-    view: vdp.pipeline.v1beta.common_pb2.View.ValueType
-    """View defines how the integration is presented. The `spec` field is only
-    showed in the FULL view.
-    """
+        """Schemas defines the supported schemas for the connection setup.
+        We haven't found a case for a schema that changes on the connection method
+        (components don't care about how the connection was built), so the schema
+        will be provided in the setupSchema field and the OAuth support and
+        configuration will be provided in oAuthConfig.
+        """
     def __init__(
         self,
         *,
@@ -518,13 +592,18 @@ class Integration(google.protobuf.message.Message):
         description: builtins.str = ...,
         vendor: builtins.str = ...,
         icon: builtins.str = ...,
-        help_link: builtins.str | None = ...,
-        schemas: collections.abc.Iterable[global___Integration.SetupSchema] | None = ...,
+        help_link: global___Integration.Link | None = ...,
+        setup_schema: google.protobuf.struct_pb2.Struct | None = ...,
+        o_auth_config: global___Integration.OAuthConfig | None = ...,
         view: vdp.pipeline.v1beta.common_pb2.View.ValueType = ...,
+        schemas: collections.abc.Iterable[global___Integration.SetupSchema] | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_help_link", b"_help_link", "help_link", b"help_link"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_help_link", b"_help_link", "description", b"description", "help_link", b"help_link", "icon", b"icon", "id", b"id", "schemas", b"schemas", "title", b"title", "uid", b"uid", "vendor", b"vendor", "view", b"view"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_help_link", b"_help_link", "_o_auth_config", b"_o_auth_config", "help_link", b"help_link", "o_auth_config", b"o_auth_config", "setup_schema", b"setup_schema"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_help_link", b"_help_link", "_o_auth_config", b"_o_auth_config", "description", b"description", "help_link", b"help_link", "icon", b"icon", "id", b"id", "o_auth_config", b"o_auth_config", "schemas", b"schemas", "setup_schema", b"setup_schema", "title", b"title", "uid", b"uid", "vendor", b"vendor", "view", b"view"]) -> None: ...
+    @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_help_link", b"_help_link"]) -> typing_extensions.Literal["help_link"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_o_auth_config", b"_o_auth_config"]) -> typing_extensions.Literal["o_auth_config"] | None: ...
 
 global___Integration = Integration
 
