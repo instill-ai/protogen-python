@@ -125,7 +125,9 @@ class ArtifactPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def CreateCatalog(self, request, context):
-        """Create a catalog
+        """TODO improve public endpoint definitions with title and description.
+
+        Create a catalog
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

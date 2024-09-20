@@ -46,7 +46,10 @@ class ArtifactPublicServiceStub:
         artifact.artifact.v1alpha.artifact_pb2.CreateCatalogRequest,
         artifact.artifact.v1alpha.artifact_pb2.CreateCatalogResponse,
     ]
-    """Create a catalog"""
+    """TODO improve public endpoint definitions with title and description.
+
+    Create a catalog
+    """
     ListCatalogs: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.artifact_pb2.ListCatalogsRequest,
         artifact.artifact.v1alpha.artifact_pb2.ListCatalogsResponse,
@@ -138,7 +141,10 @@ class ArtifactPublicServiceAsyncStub:
         artifact.artifact.v1alpha.artifact_pb2.CreateCatalogRequest,
         artifact.artifact.v1alpha.artifact_pb2.CreateCatalogResponse,
     ]
-    """Create a catalog"""
+    """TODO improve public endpoint definitions with title and description.
+
+    Create a catalog
+    """
     ListCatalogs: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.artifact_pb2.ListCatalogsRequest,
         artifact.artifact.v1alpha.artifact_pb2.ListCatalogsResponse,
@@ -236,7 +242,10 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         request: artifact.artifact.v1alpha.artifact_pb2.CreateCatalogRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.CreateCatalogResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.CreateCatalogResponse]]:
-        """Create a catalog"""
+        """TODO improve public endpoint definitions with title and description.
+
+        Create a catalog
+        """
     @abc.abstractmethod
     def ListCatalogs(
         self,
