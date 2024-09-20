@@ -108,8 +108,11 @@ class Connection(google.protobuf.message.Message):
         information is passed as connection metadata.
         """
     view: vdp.pipeline.v1beta.common_pb2.View.ValueType
-    """View defines how the integration is presented. The `setup` field is only
-    showed in the FULL view.
+    """View defines how the connection is presented. The following fields are
+    only shown in the FULL view:
+    - setup
+    - scopes
+    - oAuthAccessDetails
     """
     @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
