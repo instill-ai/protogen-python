@@ -95,9 +95,11 @@ class _FileTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumT
     FILE_TYPE_PPTX: _FileType.ValueType  # 11
     """PPTX"""
     FILE_TYPE_XLS: _FileType.ValueType  # 12
-    """XLS(not supported yet)"""
+    """XLS"""
     FILE_TYPE_XLSX: _FileType.ValueType  # 13
     """XLSX"""
+    FILE_TYPE_CSV: _FileType.ValueType  # 14
+    """CSV"""
 
 class FileType(_FileType, metaclass=_FileTypeEnumTypeWrapper):
     """file type"""
@@ -127,9 +129,11 @@ FILE_TYPE_PPT: FileType.ValueType  # 10
 FILE_TYPE_PPTX: FileType.ValueType  # 11
 """PPTX"""
 FILE_TYPE_XLS: FileType.ValueType  # 12
-"""XLS(not supported yet)"""
+"""XLS"""
 FILE_TYPE_XLSX: FileType.ValueType  # 13
 """XLSX"""
+FILE_TYPE_CSV: FileType.ValueType  # 14
+"""CSV"""
 global___FileType = FileType
 
 @typing_extensions.final
