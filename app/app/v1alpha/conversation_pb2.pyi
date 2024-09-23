@@ -188,6 +188,7 @@ class ListConversationsRequest(google.protobuf.message.Message):
     APP_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    CONVERSATION_UID_FIELD_NUMBER: builtins.int
     CONVERSATION_ID_FIELD_NUMBER: builtins.int
     IF_ALL_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
@@ -198,6 +199,10 @@ class ListConversationsRequest(google.protobuf.message.Message):
     """page size"""
     page_token: builtins.str
     """page token"""
+    conversation_uid: builtins.str
+    """conversation_uid this is optional, if provided, only the conversation with the given conversation_uid will be returned
+    first check conversation_uid, then check conversation_id, then check if_all
+    """
     conversation_id: builtins.str
     """conversation_id this is optional, if provided, only the conversation with the given conversation_id will be returned"""
     if_all: builtins.bool
@@ -209,10 +214,11 @@ class ListConversationsRequest(google.protobuf.message.Message):
         app_id: builtins.str = ...,
         page_size: builtins.int = ...,
         page_token: builtins.str = ...,
+        conversation_uid: builtins.str = ...,
         conversation_id: builtins.str = ...,
         if_all: builtins.bool = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["app_id", b"app_id", "conversation_id", b"conversation_id", "if_all", b"if_all", "namespace_id", b"namespace_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["app_id", b"app_id", "conversation_id", b"conversation_id", "conversation_uid", b"conversation_uid", "if_all", b"if_all", "namespace_id", b"namespace_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
 
 global___ListConversationsRequest = ListConversationsRequest
 
@@ -440,6 +446,7 @@ class ListMessagesRequest(google.protobuf.message.Message):
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     INCLUDE_SYSTEM_MESSAGES_FIELD_NUMBER: builtins.int
     IF_ALL_FIELD_NUMBER: builtins.int
+    MESSAGE_UID_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """namespace id"""
     app_id: builtins.str
@@ -456,6 +463,8 @@ class ListMessagesRequest(google.protobuf.message.Message):
     """include system messages"""
     if_all: builtins.bool
     """If true, all messages will be returned. This has higher priority over latest_k, page_size, and page_token."""
+    message_uid: builtins.str
+    """message_uid this is optional, if provided, only the message with the given message_uid will be returned"""
     def __init__(
         self,
         *,
@@ -467,8 +476,9 @@ class ListMessagesRequest(google.protobuf.message.Message):
         page_token: builtins.str = ...,
         include_system_messages: builtins.bool = ...,
         if_all: builtins.bool = ...,
+        message_uid: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["app_id", b"app_id", "conversation_id", b"conversation_id", "if_all", b"if_all", "include_system_messages", b"include_system_messages", "latest_k", b"latest_k", "namespace_id", b"namespace_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["app_id", b"app_id", "conversation_id", b"conversation_id", "if_all", b"if_all", "include_system_messages", b"include_system_messages", "latest_k", b"latest_k", "message_uid", b"message_uid", "namespace_id", b"namespace_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
 
 global___ListMessagesRequest = ListMessagesRequest
 
