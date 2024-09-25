@@ -125,10 +125,9 @@ global___ReadinessResponse = ReadinessResponse
 @typing_extensions.final
 class App(google.protobuf.message.Message):
     """
-
     This API is under development and, therefore, some of its entities and
-    endpoints are not implemented yet. This section aims to give context about the
-    current interface and how it fits in the App vision.
+    endpoints are not implemented yet. This section aims to give context about
+    the current interface and how it fits in the App vision.
 
     # App
 
@@ -165,8 +164,8 @@ class App(google.protobuf.message.Message):
     def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """The app tags."""
     @property
-    def ai_assistant_app(self) -> global___AiAssistantAppMetadata:
-        """The ai assistant app metadata."""
+    def ai_assistant_app(self) -> global___AIAssistantAppMetadata:
+        """The AI assistant app metadata."""
     app_type: global___AppType.ValueType
     """The app type."""
     app_uid: builtins.str
@@ -182,7 +181,7 @@ class App(google.protobuf.message.Message):
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         owner_uid: builtins.str = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
-        ai_assistant_app: global___AiAssistantAppMetadata | None = ...,
+        ai_assistant_app: global___AIAssistantAppMetadata | None = ...,
         app_type: global___AppType.ValueType = ...,
         app_uid: builtins.str = ...,
         creator_uid: builtins.str = ...,
@@ -194,8 +193,8 @@ class App(google.protobuf.message.Message):
 global___App = App
 
 @typing_extensions.final
-class AiAssistantAppMetadata(google.protobuf.message.Message):
-    """AiAssistantAppMetadata represents the metadata for the ai assistant app."""
+class AIAssistantAppMetadata(google.protobuf.message.Message):
+    """AIAssistantAppMetadata represents the metadata for the AI assistant app."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -203,11 +202,11 @@ class AiAssistantAppMetadata(google.protobuf.message.Message):
     TOP_K_FIELD_NUMBER: builtins.int
     CONVERSATION_UID_FIELD_NUMBER: builtins.int
     catalog_uid: builtins.str
-    """The ai assistant app catalog uid."""
+    """The AI assistant app catalog uid."""
     top_k: builtins.int
-    """The ai assistant app top k."""
+    """The AI assistant app top k."""
     conversation_uid: builtins.str
-    """The ai assistant app conversation uid."""
+    """The AI assistant app conversation uid."""
     def __init__(
         self,
         *,
@@ -217,7 +216,7 @@ class AiAssistantAppMetadata(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["catalog_uid", b"catalog_uid", "conversation_uid", b"conversation_uid", "top_k", b"top_k"]) -> None: ...
 
-global___AiAssistantAppMetadata = AiAssistantAppMetadata
+global___AIAssistantAppMetadata = AIAssistantAppMetadata
 
 @typing_extensions.final
 class CreateAppRequest(google.protobuf.message.Message):
@@ -335,9 +334,9 @@ class UpdateAppRequest(google.protobuf.message.Message):
     def new_tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """The app tags."""
     last_ai_assistant_app_catalog_uid: builtins.str
-    """last ai assistant app catalog uid"""
+    """last AI assistant app catalog uid"""
     last_ai_assistant_app_top_k: builtins.int
-    """last ai assistant app top k"""
+    """last AI assistant app top k"""
     def __init__(
         self,
         *,
@@ -408,16 +407,11 @@ class DeleteAppResponse(google.protobuf.message.Message):
 global___DeleteAppResponse = DeleteAppResponse
 
 @typing_extensions.final
-class UpdateAiAssistantAppPlaygroundRequest(google.protobuf.message.Message):
-    """UpdateAiAssistantAppPlaygroundRequest represents a request to update a ai assistant app playground.
-    after the update, the app's metadata will be updated with the last ai assistant app
-    uses catalog uid, top k, and conversation uid.
-    parameters:
-    - namespace_id: the namespace id.
-    - app_id: the app id.
-    - last_ai_app_catalog_uid: the last ai app catalog uid.
-    - last_ai_app_top_k: the last ai app top k.
-    - last_ai_app_conversation_uid: the last ai app conversation uid.
+class UpdateAIAssistantAppPlaygroundRequest(google.protobuf.message.Message):
+    """UpdateAIAssistantAppPlaygroundRequest represents a request to update an AI
+    assistant app playground.
+    After the update, the app's metadata will be updated with the last AI
+    assistant app uses catalog UID, top k, and conversation UID.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -432,11 +426,11 @@ class UpdateAiAssistantAppPlaygroundRequest(google.protobuf.message.Message):
     app_id: builtins.str
     """The app id."""
     last_ai_app_catalog_uid: builtins.str
-    """The last ai app uses catalog uid."""
+    """The last AI app uses catalog uid."""
     last_ai_app_top_k: builtins.int
-    """The last ai app uses top k."""
+    """The last AI app uses top k."""
     last_ai_app_conversation_uid: builtins.str
-    """The last ai app uses conversation uid."""
+    """The last AI app uses conversation uid."""
     def __init__(
         self,
         *,
@@ -448,11 +442,13 @@ class UpdateAiAssistantAppPlaygroundRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["app_id", b"app_id", "last_ai_app_catalog_uid", b"last_ai_app_catalog_uid", "last_ai_app_conversation_uid", b"last_ai_app_conversation_uid", "last_ai_app_top_k", b"last_ai_app_top_k", "namespace_id", b"namespace_id"]) -> None: ...
 
-global___UpdateAiAssistantAppPlaygroundRequest = UpdateAiAssistantAppPlaygroundRequest
+global___UpdateAIAssistantAppPlaygroundRequest = UpdateAIAssistantAppPlaygroundRequest
 
 @typing_extensions.final
-class UpdateAiAssistantAppPlaygroundResponse(google.protobuf.message.Message):
-    """UpdateAiAssistantAppPlaygroundResponse represents a response for updating a ai assistant app playground."""
+class UpdateAIAssistantAppPlaygroundResponse(google.protobuf.message.Message):
+    """UpdateAIAssistantAppPlaygroundResponse represents a response for updating a
+    AI assistant app playground.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -460,4 +456,4 @@ class UpdateAiAssistantAppPlaygroundResponse(google.protobuf.message.Message):
         self,
     ) -> None: ...
 
-global___UpdateAiAssistantAppPlaygroundResponse = UpdateAiAssistantAppPlaygroundResponse
+global___UpdateAIAssistantAppPlaygroundResponse = UpdateAIAssistantAppPlaygroundResponse

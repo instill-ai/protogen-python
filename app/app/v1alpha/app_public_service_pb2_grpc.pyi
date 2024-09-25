@@ -100,11 +100,11 @@ class AppPublicServiceStub:
         app.app.v1alpha.conversation_pb2.DeleteMessageResponse,
     ]
     """Delete a message"""
-    UpdateAiAssistantAppPlayground: grpc.UnaryUnaryMultiCallable[
-        app.app.v1alpha.app_pb2.UpdateAiAssistantAppPlaygroundRequest,
-        app.app.v1alpha.app_pb2.UpdateAiAssistantAppPlaygroundResponse,
+    UpdateAIAssistantAppPlayground: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.app_pb2.UpdateAIAssistantAppPlaygroundRequest,
+        app.app.v1alpha.app_pb2.UpdateAIAssistantAppPlaygroundResponse,
     ]
-    """Update ai assistant app playground"""
+    """Update AI assistant app playground"""
 
 class AppPublicServiceAsyncStub:
     """AppPublicService exposes the public endpoints that allow clients to
@@ -187,11 +187,11 @@ class AppPublicServiceAsyncStub:
         app.app.v1alpha.conversation_pb2.DeleteMessageResponse,
     ]
     """Delete a message"""
-    UpdateAiAssistantAppPlayground: grpc.aio.UnaryUnaryMultiCallable[
-        app.app.v1alpha.app_pb2.UpdateAiAssistantAppPlaygroundRequest,
-        app.app.v1alpha.app_pb2.UpdateAiAssistantAppPlaygroundResponse,
+    UpdateAIAssistantAppPlayground: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.app_pb2.UpdateAIAssistantAppPlaygroundRequest,
+        app.app.v1alpha.app_pb2.UpdateAIAssistantAppPlaygroundResponse,
     ]
-    """Update ai assistant app playground"""
+    """Update AI assistant app playground"""
 
 class AppPublicServiceServicer(metaclass=abc.ABCMeta):
     """AppPublicService exposes the public endpoints that allow clients to
@@ -303,11 +303,11 @@ class AppPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[app.app.v1alpha.conversation_pb2.DeleteMessageResponse, collections.abc.Awaitable[app.app.v1alpha.conversation_pb2.DeleteMessageResponse]]:
         """Delete a message"""
     @abc.abstractmethod
-    def UpdateAiAssistantAppPlayground(
+    def UpdateAIAssistantAppPlayground(
         self,
-        request: app.app.v1alpha.app_pb2.UpdateAiAssistantAppPlaygroundRequest,
+        request: app.app.v1alpha.app_pb2.UpdateAIAssistantAppPlaygroundRequest,
         context: _ServicerContext,
-    ) -> typing.Union[app.app.v1alpha.app_pb2.UpdateAiAssistantAppPlaygroundResponse, collections.abc.Awaitable[app.app.v1alpha.app_pb2.UpdateAiAssistantAppPlaygroundResponse]]:
-        """Update ai assistant app playground"""
+    ) -> typing.Union[app.app.v1alpha.app_pb2.UpdateAIAssistantAppPlaygroundResponse, collections.abc.Awaitable[app.app.v1alpha.app_pb2.UpdateAIAssistantAppPlaygroundResponse]]:
+        """Update AI assistant app playground"""
 
 def add_AppPublicServiceServicer_to_server(servicer: AppPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

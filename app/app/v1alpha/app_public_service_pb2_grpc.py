@@ -87,10 +87,10 @@ class AppPublicServiceStub(object):
                 request_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.DeleteMessageRequest.SerializeToString,
                 response_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.DeleteMessageResponse.FromString,
                 )
-        self.UpdateAiAssistantAppPlayground = channel.unary_unary(
-                '/app.app.v1alpha.AppPublicService/UpdateAiAssistantAppPlayground',
-                request_serializer=app_dot_app_dot_v1alpha_dot_app__pb2.UpdateAiAssistantAppPlaygroundRequest.SerializeToString,
-                response_deserializer=app_dot_app_dot_v1alpha_dot_app__pb2.UpdateAiAssistantAppPlaygroundResponse.FromString,
+        self.UpdateAIAssistantAppPlayground = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/UpdateAIAssistantAppPlayground',
+                request_serializer=app_dot_app_dot_v1alpha_dot_app__pb2.UpdateAIAssistantAppPlaygroundRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_app__pb2.UpdateAIAssistantAppPlaygroundResponse.FromString,
                 )
 
 
@@ -201,8 +201,8 @@ class AppPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UpdateAiAssistantAppPlayground(self, request, context):
-        """Update ai assistant app playground
+    def UpdateAIAssistantAppPlayground(self, request, context):
+        """Update AI assistant app playground
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -281,10 +281,10 @@ def add_AppPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.DeleteMessageRequest.FromString,
                     response_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.DeleteMessageResponse.SerializeToString,
             ),
-            'UpdateAiAssistantAppPlayground': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateAiAssistantAppPlayground,
-                    request_deserializer=app_dot_app_dot_v1alpha_dot_app__pb2.UpdateAiAssistantAppPlaygroundRequest.FromString,
-                    response_serializer=app_dot_app_dot_v1alpha_dot_app__pb2.UpdateAiAssistantAppPlaygroundResponse.SerializeToString,
+            'UpdateAIAssistantAppPlayground': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateAIAssistantAppPlayground,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_app__pb2.UpdateAIAssistantAppPlaygroundRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_app__pb2.UpdateAIAssistantAppPlaygroundResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -537,7 +537,7 @@ class AppPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UpdateAiAssistantAppPlayground(request,
+    def UpdateAIAssistantAppPlayground(request,
             target,
             options=(),
             channel_credentials=None,
@@ -547,8 +547,8 @@ class AppPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/UpdateAiAssistantAppPlayground',
-            app_dot_app_dot_v1alpha_dot_app__pb2.UpdateAiAssistantAppPlaygroundRequest.SerializeToString,
-            app_dot_app_dot_v1alpha_dot_app__pb2.UpdateAiAssistantAppPlaygroundResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/UpdateAIAssistantAppPlayground',
+            app_dot_app_dot_v1alpha_dot_app__pb2.UpdateAIAssistantAppPlaygroundRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_app__pb2.UpdateAIAssistantAppPlaygroundResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
