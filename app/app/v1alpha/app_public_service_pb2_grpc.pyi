@@ -105,6 +105,23 @@ class AppPublicServiceStub:
         app.app.v1alpha.app_pb2.UpdateAIAssistantAppPlaygroundResponse,
     ]
     """Update AI assistant app playground"""
+    GetPlaygroundConversation: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.app_pb2.GetPlaygroundConversationRequest,
+        app.app.v1alpha.app_pb2.GetPlaygroundConversationResponse,
+    ]
+    """Get Playground Conversation
+
+    get the latest conversation of auth user(e.g. login user and api key user)
+    """
+    RestartPlaygroundConversation: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.app_pb2.RestartPlaygroundConversationRequest,
+        app.app.v1alpha.app_pb2.RestartPlaygroundConversationResponse,
+    ]
+    """Restart Playground Conversation
+
+    create a new conversation and use the auth user uid as creator uid and auto
+    generate a new conversation id on the behalf of auth user.
+    """
 
 class AppPublicServiceAsyncStub:
     """AppPublicService exposes the public endpoints that allow clients to
@@ -192,6 +209,23 @@ class AppPublicServiceAsyncStub:
         app.app.v1alpha.app_pb2.UpdateAIAssistantAppPlaygroundResponse,
     ]
     """Update AI assistant app playground"""
+    GetPlaygroundConversation: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.app_pb2.GetPlaygroundConversationRequest,
+        app.app.v1alpha.app_pb2.GetPlaygroundConversationResponse,
+    ]
+    """Get Playground Conversation
+
+    get the latest conversation of auth user(e.g. login user and api key user)
+    """
+    RestartPlaygroundConversation: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.app_pb2.RestartPlaygroundConversationRequest,
+        app.app.v1alpha.app_pb2.RestartPlaygroundConversationResponse,
+    ]
+    """Restart Playground Conversation
+
+    create a new conversation and use the auth user uid as creator uid and auto
+    generate a new conversation id on the behalf of auth user.
+    """
 
 class AppPublicServiceServicer(metaclass=abc.ABCMeta):
     """AppPublicService exposes the public endpoints that allow clients to
@@ -309,5 +343,26 @@ class AppPublicServiceServicer(metaclass=abc.ABCMeta):
         context: _ServicerContext,
     ) -> typing.Union[app.app.v1alpha.app_pb2.UpdateAIAssistantAppPlaygroundResponse, collections.abc.Awaitable[app.app.v1alpha.app_pb2.UpdateAIAssistantAppPlaygroundResponse]]:
         """Update AI assistant app playground"""
+    @abc.abstractmethod
+    def GetPlaygroundConversation(
+        self,
+        request: app.app.v1alpha.app_pb2.GetPlaygroundConversationRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.app_pb2.GetPlaygroundConversationResponse, collections.abc.Awaitable[app.app.v1alpha.app_pb2.GetPlaygroundConversationResponse]]:
+        """Get Playground Conversation
+
+        get the latest conversation of auth user(e.g. login user and api key user)
+        """
+    @abc.abstractmethod
+    def RestartPlaygroundConversation(
+        self,
+        request: app.app.v1alpha.app_pb2.RestartPlaygroundConversationRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.app_pb2.RestartPlaygroundConversationResponse, collections.abc.Awaitable[app.app.v1alpha.app_pb2.RestartPlaygroundConversationResponse]]:
+        """Restart Playground Conversation
+
+        create a new conversation and use the auth user uid as creator uid and auto
+        generate a new conversation id on the behalf of auth user.
+        """
 
 def add_AppPublicServiceServicer_to_server(servicer: AppPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

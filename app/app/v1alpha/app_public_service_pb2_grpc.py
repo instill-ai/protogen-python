@@ -92,6 +92,16 @@ class AppPublicServiceStub(object):
                 request_serializer=app_dot_app_dot_v1alpha_dot_app__pb2.UpdateAIAssistantAppPlaygroundRequest.SerializeToString,
                 response_deserializer=app_dot_app_dot_v1alpha_dot_app__pb2.UpdateAIAssistantAppPlaygroundResponse.FromString,
                 )
+        self.GetPlaygroundConversation = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/GetPlaygroundConversation',
+                request_serializer=app_dot_app_dot_v1alpha_dot_app__pb2.GetPlaygroundConversationRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_app__pb2.GetPlaygroundConversationResponse.FromString,
+                )
+        self.RestartPlaygroundConversation = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/RestartPlaygroundConversation',
+                request_serializer=app_dot_app_dot_v1alpha_dot_app__pb2.RestartPlaygroundConversationRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_app__pb2.RestartPlaygroundConversationResponse.FromString,
+                )
 
 
 class AppPublicServiceServicer(object):
@@ -208,6 +218,25 @@ class AppPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetPlaygroundConversation(self, request, context):
+        """Get Playground Conversation
+
+        get the latest conversation of auth user(e.g. login user and api key user)
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RestartPlaygroundConversation(self, request, context):
+        """Restart Playground Conversation
+
+        create a new conversation and use the auth user uid as creator uid and auto
+        generate a new conversation id on the behalf of auth user.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_AppPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -285,6 +314,16 @@ def add_AppPublicServiceServicer_to_server(servicer, server):
                     servicer.UpdateAIAssistantAppPlayground,
                     request_deserializer=app_dot_app_dot_v1alpha_dot_app__pb2.UpdateAIAssistantAppPlaygroundRequest.FromString,
                     response_serializer=app_dot_app_dot_v1alpha_dot_app__pb2.UpdateAIAssistantAppPlaygroundResponse.SerializeToString,
+            ),
+            'GetPlaygroundConversation': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetPlaygroundConversation,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_app__pb2.GetPlaygroundConversationRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_app__pb2.GetPlaygroundConversationResponse.SerializeToString,
+            ),
+            'RestartPlaygroundConversation': grpc.unary_unary_rpc_method_handler(
+                    servicer.RestartPlaygroundConversation,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_app__pb2.RestartPlaygroundConversationRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_app__pb2.RestartPlaygroundConversationResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -550,5 +589,39 @@ class AppPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/UpdateAIAssistantAppPlayground',
             app_dot_app_dot_v1alpha_dot_app__pb2.UpdateAIAssistantAppPlaygroundRequest.SerializeToString,
             app_dot_app_dot_v1alpha_dot_app__pb2.UpdateAIAssistantAppPlaygroundResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetPlaygroundConversation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/GetPlaygroundConversation',
+            app_dot_app_dot_v1alpha_dot_app__pb2.GetPlaygroundConversationRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_app__pb2.GetPlaygroundConversationResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RestartPlaygroundConversation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/RestartPlaygroundConversation',
+            app_dot_app_dot_v1alpha_dot_app__pb2.RestartPlaygroundConversationRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_app__pb2.RestartPlaygroundConversationResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
