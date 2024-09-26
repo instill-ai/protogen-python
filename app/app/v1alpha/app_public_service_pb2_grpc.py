@@ -102,6 +102,11 @@ class AppPublicServiceStub(object):
                 request_serializer=app_dot_app_dot_v1alpha_dot_app__pb2.RestartPlaygroundConversationRequest.SerializeToString,
                 response_deserializer=app_dot_app_dot_v1alpha_dot_app__pb2.RestartPlaygroundConversationResponse.FromString,
                 )
+        self.Chat = channel.unary_stream(
+                '/app.app.v1alpha.AppPublicService/Chat',
+                request_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.ChatRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.ChatResponse.FromString,
+                )
 
 
 class AppPublicServiceServicer(object):
@@ -237,6 +242,17 @@ class AppPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def Chat(self, request, context):
+        """Chat
+
+        Chat sends a message asynchronously and streams back the response.
+        This method is intended for real-time conversation with a chatbot
+        and the response needs to be processed incrementally.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_AppPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -324,6 +340,11 @@ def add_AppPublicServiceServicer_to_server(servicer, server):
                     servicer.RestartPlaygroundConversation,
                     request_deserializer=app_dot_app_dot_v1alpha_dot_app__pb2.RestartPlaygroundConversationRequest.FromString,
                     response_serializer=app_dot_app_dot_v1alpha_dot_app__pb2.RestartPlaygroundConversationResponse.SerializeToString,
+            ),
+            'Chat': grpc.unary_stream_rpc_method_handler(
+                    servicer.Chat,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.ChatRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.ChatResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -623,5 +644,22 @@ class AppPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/RestartPlaygroundConversation',
             app_dot_app_dot_v1alpha_dot_app__pb2.RestartPlaygroundConversationRequest.SerializeToString,
             app_dot_app_dot_v1alpha_dot_app__pb2.RestartPlaygroundConversationResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Chat(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/app.app.v1alpha.AppPublicService/Chat',
+            app_dot_app_dot_v1alpha_dot_conversation__pb2.ChatRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_conversation__pb2.ChatResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

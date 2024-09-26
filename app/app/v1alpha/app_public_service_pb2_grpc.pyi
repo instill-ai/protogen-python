@@ -122,6 +122,16 @@ class AppPublicServiceStub:
     create a new conversation and use the auth user uid as creator uid and auto
     generate a new conversation id on the behalf of auth user.
     """
+    Chat: grpc.UnaryStreamMultiCallable[
+        app.app.v1alpha.conversation_pb2.ChatRequest,
+        app.app.v1alpha.conversation_pb2.ChatResponse,
+    ]
+    """Chat
+
+    Chat sends a message asynchronously and streams back the response.
+    This method is intended for real-time conversation with a chatbot
+    and the response needs to be processed incrementally.
+    """
 
 class AppPublicServiceAsyncStub:
     """AppPublicService exposes the public endpoints that allow clients to
@@ -225,6 +235,16 @@ class AppPublicServiceAsyncStub:
 
     create a new conversation and use the auth user uid as creator uid and auto
     generate a new conversation id on the behalf of auth user.
+    """
+    Chat: grpc.aio.UnaryStreamMultiCallable[
+        app.app.v1alpha.conversation_pb2.ChatRequest,
+        app.app.v1alpha.conversation_pb2.ChatResponse,
+    ]
+    """Chat
+
+    Chat sends a message asynchronously and streams back the response.
+    This method is intended for real-time conversation with a chatbot
+    and the response needs to be processed incrementally.
     """
 
 class AppPublicServiceServicer(metaclass=abc.ABCMeta):
@@ -363,6 +383,18 @@ class AppPublicServiceServicer(metaclass=abc.ABCMeta):
 
         create a new conversation and use the auth user uid as creator uid and auto
         generate a new conversation id on the behalf of auth user.
+        """
+    @abc.abstractmethod
+    def Chat(
+        self,
+        request: app.app.v1alpha.conversation_pb2.ChatRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[collections.abc.Iterator[app.app.v1alpha.conversation_pb2.ChatResponse], collections.abc.AsyncIterator[app.app.v1alpha.conversation_pb2.ChatResponse]]:
+        """Chat
+
+        Chat sends a message asynchronously and streams back the response.
+        This method is intended for real-time conversation with a chatbot
+        and the response needs to be processed incrementally.
         """
 
 def add_AppPublicServiceServicer_to_server(servicer: AppPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
