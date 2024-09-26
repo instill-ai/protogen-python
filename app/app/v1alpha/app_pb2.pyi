@@ -323,20 +323,30 @@ class UpdateAppRequest(google.protobuf.message.Message):
     LAST_AI_ASSISTANT_APP_CATALOG_UID_FIELD_NUMBER: builtins.int
     LAST_AI_ASSISTANT_APP_TOP_K_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """namespace id"""
+    """Namespace id."""
     app_id: builtins.str
-    """app id"""
+    """App id."""
     new_app_id: builtins.str
-    """The app id needs to follow the kebab case format."""
+    """The app id needs to follow the kebab case format.
+    if the new app id is not provided, the app id will not be updated.
+    """
     new_description: builtins.str
-    """The app description."""
+    """The app description.
+    If the new description is empty, the description will be set to empty.
+    """
     @property
     def new_tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The app tags."""
+        """The app tags.
+        If the new tags is empty, the tags will be set to empty.
+        """
     last_ai_assistant_app_catalog_uid: builtins.str
-    """last AI assistant app catalog uid"""
+    """last AI assistant app catalog uid
+    If the last AI assistant app catalog uid is empty, the last AI assistant app catalog uid will be set to empty.
+    """
     last_ai_assistant_app_top_k: builtins.int
-    """last AI assistant app top k"""
+    """last AI assistant app top k
+    If the last AI assistant app top k is empty, the last AI assistant app top k will be set to empty.
+    """
     def __init__(
         self,
         *,
@@ -420,7 +430,6 @@ class UpdateAIAssistantAppPlaygroundRequest(google.protobuf.message.Message):
     APP_ID_FIELD_NUMBER: builtins.int
     LAST_AI_APP_CATALOG_UID_FIELD_NUMBER: builtins.int
     LAST_AI_APP_TOP_K_FIELD_NUMBER: builtins.int
-    LAST_AI_APP_CONVERSATION_UID_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """The namespace id."""
     app_id: builtins.str
@@ -429,8 +438,6 @@ class UpdateAIAssistantAppPlaygroundRequest(google.protobuf.message.Message):
     """The last AI app uses catalog uid."""
     last_ai_app_top_k: builtins.int
     """The last AI app uses top k."""
-    last_ai_app_conversation_uid: builtins.str
-    """The last AI app uses conversation uid."""
     def __init__(
         self,
         *,
@@ -438,9 +445,8 @@ class UpdateAIAssistantAppPlaygroundRequest(google.protobuf.message.Message):
         app_id: builtins.str = ...,
         last_ai_app_catalog_uid: builtins.str = ...,
         last_ai_app_top_k: builtins.int = ...,
-        last_ai_app_conversation_uid: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["app_id", b"app_id", "last_ai_app_catalog_uid", b"last_ai_app_catalog_uid", "last_ai_app_conversation_uid", b"last_ai_app_conversation_uid", "last_ai_app_top_k", b"last_ai_app_top_k", "namespace_id", b"namespace_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["app_id", b"app_id", "last_ai_app_catalog_uid", b"last_ai_app_catalog_uid", "last_ai_app_top_k", b"last_ai_app_top_k", "namespace_id", b"namespace_id"]) -> None: ...
 
 global___UpdateAIAssistantAppPlaygroundRequest = UpdateAIAssistantAppPlaygroundRequest
 

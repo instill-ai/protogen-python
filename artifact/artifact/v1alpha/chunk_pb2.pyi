@@ -63,27 +63,35 @@ global___Chunk = Chunk
 
 @typing_extensions.final
 class ListChunksRequest(google.protobuf.message.Message):
-    """The ListChunksRequest message represents a request to list chunks in the artifact system."""
+    """The ListChunksRequest message represents a request to list chunks in the artifact system.
+    The response will be a list of chunks based on the request, i.e., response will
+    have chunks of the file with file_uid and chunks specified in chunk_uids.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     CATALOG_ID_FIELD_NUMBER: builtins.int
     FILE_UID_FIELD_NUMBER: builtins.int
+    CHUNK_UIDS_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """owner/namespace id (not uid)"""
     catalog_id: builtins.str
     """catalog id (not uid)"""
     file_uid: builtins.str
     """unique identifier of the file"""
+    @property
+    def chunk_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """repeated chunk uid"""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         catalog_id: builtins.str = ...,
         file_uid: builtins.str = ...,
+        chunk_uids: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "file_uid", b"file_uid", "namespace_id", b"namespace_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "chunk_uids", b"chunk_uids", "file_uid", b"file_uid", "namespace_id", b"namespace_id"]) -> None: ...
 
 global___ListChunksRequest = ListChunksRequest
 

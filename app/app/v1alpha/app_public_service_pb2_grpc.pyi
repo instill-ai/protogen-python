@@ -44,12 +44,12 @@ class AppPublicServiceStub:
         app.app.v1alpha.app_pb2.CreateAppRequest,
         app.app.v1alpha.app_pb2.CreateAppResponse,
     ]
-    """Create a App"""
+    """Create a app"""
     ListApps: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.app_pb2.ListAppsRequest,
         app.app.v1alpha.app_pb2.ListAppsResponse,
     ]
-    """Get all apps info"""
+    """List all apps info"""
     UpdateApp: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.app_pb2.UpdateAppRequest,
         app.app.v1alpha.app_pb2.UpdateAppResponse,
@@ -148,12 +148,12 @@ class AppPublicServiceAsyncStub:
         app.app.v1alpha.app_pb2.CreateAppRequest,
         app.app.v1alpha.app_pb2.CreateAppResponse,
     ]
-    """Create a App"""
+    """Create a app"""
     ListApps: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.app_pb2.ListAppsRequest,
         app.app.v1alpha.app_pb2.ListAppsResponse,
     ]
-    """Get all apps info"""
+    """List all apps info"""
     UpdateApp: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.app_pb2.UpdateAppRequest,
         app.app.v1alpha.app_pb2.UpdateAppResponse,
@@ -258,14 +258,14 @@ class AppPublicServiceServicer(metaclass=abc.ABCMeta):
         request: app.app.v1alpha.app_pb2.CreateAppRequest,
         context: _ServicerContext,
     ) -> typing.Union[app.app.v1alpha.app_pb2.CreateAppResponse, collections.abc.Awaitable[app.app.v1alpha.app_pb2.CreateAppResponse]]:
-        """Create a App"""
+        """Create a app"""
     @abc.abstractmethod
     def ListApps(
         self,
         request: app.app.v1alpha.app_pb2.ListAppsRequest,
         context: _ServicerContext,
     ) -> typing.Union[app.app.v1alpha.app_pb2.ListAppsResponse, collections.abc.Awaitable[app.app.v1alpha.app_pb2.ListAppsResponse]]:
-        """Get all apps info"""
+        """List all apps info"""
     @abc.abstractmethod
     def UpdateApp(
         self,

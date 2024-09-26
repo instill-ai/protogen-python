@@ -128,14 +128,14 @@ class AppPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def CreateApp(self, request, context):
-        """Create a App
+        """Create a app
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListApps(self, request, context):
-        """Get all apps info
+        """List all apps info
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
