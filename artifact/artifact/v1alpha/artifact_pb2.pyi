@@ -5,10 +5,12 @@ isort:skip_file
 import builtins
 import collections.abc
 import common.healthcheck.v1beta.healthcheck_pb2
+import common.run.v1alpha.run_pb2
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
+import google.protobuf.struct_pb2
 import google.protobuf.timestamp_pb2
 import sys
 import typing
@@ -135,6 +137,46 @@ FILE_TYPE_XLSX: FileType.ValueType  # 13
 FILE_TYPE_CSV: FileType.ValueType  # 14
 """CSV"""
 global___FileType = FileType
+
+class _CatalogRunAction:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _CatalogRunActionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CatalogRunAction.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    CATALOG_RUN_ACTION_UNSPECIFIED: _CatalogRunAction.ValueType  # 0
+    """Unspecified."""
+    CATALOG_RUN_ACTION_CREATE: _CatalogRunAction.ValueType  # 1
+    """Create catalog."""
+    CATALOG_RUN_ACTION_UPDATE: _CatalogRunAction.ValueType  # 2
+    """Update catalog."""
+    CATALOG_RUN_ACTION_DELETE: _CatalogRunAction.ValueType  # 3
+    """Delete catalog."""
+    CATALOG_RUN_ACTION_CREATE_FILE: _CatalogRunAction.ValueType  # 4
+    """Upload catalog file."""
+    CATALOG_RUN_ACTION_PROCESS_FILE: _CatalogRunAction.ValueType  # 5
+    """Process catalog file."""
+    CATALOG_RUN_ACTION_DELETE_FILE: _CatalogRunAction.ValueType  # 6
+    """Delete catalog file."""
+
+class CatalogRunAction(_CatalogRunAction, metaclass=_CatalogRunActionEnumTypeWrapper):
+    """CatalogRunAction describes the actions a user has over a catalog."""
+
+CATALOG_RUN_ACTION_UNSPECIFIED: CatalogRunAction.ValueType  # 0
+"""Unspecified."""
+CATALOG_RUN_ACTION_CREATE: CatalogRunAction.ValueType  # 1
+"""Create catalog."""
+CATALOG_RUN_ACTION_UPDATE: CatalogRunAction.ValueType  # 2
+"""Update catalog."""
+CATALOG_RUN_ACTION_DELETE: CatalogRunAction.ValueType  # 3
+"""Delete catalog."""
+CATALOG_RUN_ACTION_CREATE_FILE: CatalogRunAction.ValueType  # 4
+"""Upload catalog file."""
+CATALOG_RUN_ACTION_PROCESS_FILE: CatalogRunAction.ValueType  # 5
+"""Process catalog file."""
+CATALOG_RUN_ACTION_DELETE_FILE: CatalogRunAction.ValueType  # 6
+"""Delete catalog file."""
+global___CatalogRunAction = CatalogRunAction
 
 @typing_extensions.final
 class LivenessRequest(google.protobuf.message.Message):
@@ -1040,3 +1082,173 @@ class ListCatalogFilesResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["files", b"files", "filter", b"filter", "next_page_token", b"next_page_token", "page_size", b"page_size", "total_size", b"total_size"]) -> None: ...
 
 global___ListCatalogFilesResponse = ListCatalogFilesResponse
+
+@typing_extensions.final
+class CatalogRun(google.protobuf.message.Message):
+    """CatalogRun represents a single execution of a catalog action."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    UID_FIELD_NUMBER: builtins.int
+    CATALOG_UID_FIELD_NUMBER: builtins.int
+    FILE_UIDS_FIELD_NUMBER: builtins.int
+    ACTION_FIELD_NUMBER: builtins.int
+    STATUS_FIELD_NUMBER: builtins.int
+    SOURCE_FIELD_NUMBER: builtins.int
+    TOTAL_DURATION_FIELD_NUMBER: builtins.int
+    RUNNER_ID_FIELD_NUMBER: builtins.int
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PAYLOAD_FIELD_NUMBER: builtins.int
+    START_TIME_FIELD_NUMBER: builtins.int
+    COMPLETE_TIME_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    CREDIT_AMOUNT_FIELD_NUMBER: builtins.int
+    uid: builtins.str
+    """Unique identifier for each run."""
+    catalog_uid: builtins.str
+    """catalog uid"""
+    @property
+    def file_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """The file uids."""
+    action: global___CatalogRunAction.ValueType
+    """Action of the catalog run."""
+    status: common.run.v1alpha.run_pb2.RunStatus.ValueType
+    """Current status of the run."""
+    source: common.run.v1alpha.run_pb2.RunSource.ValueType
+    """Origin of the run."""
+    total_duration: builtins.int
+    """Time taken to complete the run in milliseconds."""
+    runner_id: builtins.str
+    """Runner ID. (User UID)"""
+    namespace_id: builtins.str
+    """Namespace ID."""
+    @property
+    def payload(self) -> google.protobuf.struct_pb2.Struct:
+        """Run request payload."""
+    @property
+    def start_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time when the run started execution."""
+    @property
+    def complete_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time when the run completed."""
+    error: builtins.str
+    """Error message if the run failed."""
+    credit_amount: builtins.float
+    """Credits used of internal accounting metric."""
+    def __init__(
+        self,
+        *,
+        uid: builtins.str = ...,
+        catalog_uid: builtins.str = ...,
+        file_uids: collections.abc.Iterable[builtins.str] | None = ...,
+        action: global___CatalogRunAction.ValueType = ...,
+        status: common.run.v1alpha.run_pb2.RunStatus.ValueType = ...,
+        source: common.run.v1alpha.run_pb2.RunSource.ValueType = ...,
+        total_duration: builtins.int | None = ...,
+        runner_id: builtins.str | None = ...,
+        namespace_id: builtins.str | None = ...,
+        payload: google.protobuf.struct_pb2.Struct | None = ...,
+        start_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        complete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        error: builtins.str | None = ...,
+        credit_amount: builtins.float | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_namespace_id", b"_namespace_id", "_payload", b"_payload", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "error", b"error", "namespace_id", b"namespace_id", "payload", b"payload", "runner_id", b"runner_id", "start_time", b"start_time", "total_duration", b"total_duration"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_namespace_id", b"_namespace_id", "_payload", b"_payload", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "action", b"action", "catalog_uid", b"catalog_uid", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "error", b"error", "file_uids", b"file_uids", "namespace_id", b"namespace_id", "payload", b"payload", "runner_id", b"runner_id", "source", b"source", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration", "uid", b"uid"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_complete_time", b"_complete_time"]) -> typing_extensions.Literal["complete_time"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_credit_amount", b"_credit_amount"]) -> typing_extensions.Literal["credit_amount"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_error", b"_error"]) -> typing_extensions.Literal["error"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_namespace_id", b"_namespace_id"]) -> typing_extensions.Literal["namespace_id"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_payload", b"_payload"]) -> typing_extensions.Literal["payload"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_runner_id", b"_runner_id"]) -> typing_extensions.Literal["runner_id"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_total_duration", b"_total_duration"]) -> typing_extensions.Literal["total_duration"] | None: ...
+
+global___CatalogRun = CatalogRun
+
+@typing_extensions.final
+class ListCatalogRunsResponse(google.protobuf.message.Message):
+    """ListCatalogRunsResponse is the response message for ListCatalogRuns."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CATALOG_RUNS_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    @property
+    def catalog_runs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CatalogRun]:
+        """The list of runs."""
+    total_size: builtins.int
+    """The total number of runs matching the request."""
+    page: builtins.int
+    """The current page number."""
+    page_size: builtins.int
+    """The number of items per page."""
+    def __init__(
+        self,
+        *,
+        catalog_runs: collections.abc.Iterable[global___CatalogRun] | None = ...,
+        total_size: builtins.int = ...,
+        page: builtins.int = ...,
+        page_size: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_runs", b"catalog_runs", "page", b"page", "page_size", b"page_size", "total_size", b"total_size"]) -> None: ...
+
+global___ListCatalogRunsResponse = ListCatalogRunsResponse
+
+@typing_extensions.final
+class ListCatalogRunsRequest(google.protobuf.message.Message):
+    """ListCatalogRunsRequest is the request message for ListCatalogRuns."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    CATALOG_ID_FIELD_NUMBER: builtins.int
+    PAGE_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
+    ORDER_BY_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The ID of the owner of the catalog."""
+    catalog_id: builtins.str
+    """The ID of the catalog for which the runs will be listed."""
+    page: builtins.int
+    """The page number to retrieve."""
+    page_size: builtins.int
+    """The maximum number of items per page to return. The default and cap values
+    are 10 and 100, respectively.
+    """
+    filter: builtins.str
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
+    order_by: builtins.str
+    """Order by field, with options for ordering by `id`, `create_time` or `update_time`.
+    Format: `order_by=id` or `order_by=create_time desc`, default is `asc`.
+    """
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        catalog_id: builtins.str = ...,
+        page: builtins.int = ...,
+        page_size: builtins.int = ...,
+        filter: builtins.str | None = ...,
+        order_by: builtins.str | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "filter", b"filter", "order_by", b"order_by"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "catalog_id", b"catalog_id", "filter", b"filter", "namespace_id", b"namespace_id", "order_by", b"order_by", "page", b"page", "page_size", b"page_size"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_order_by", b"_order_by"]) -> typing_extensions.Literal["order_by"] | None: ...
+
+global___ListCatalogRunsRequest = ListCatalogRunsRequest

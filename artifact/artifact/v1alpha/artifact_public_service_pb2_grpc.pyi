@@ -115,6 +115,11 @@ class ArtifactPublicServiceStub:
         artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogResponse,
     ]
     """Get file catalog"""
+    ListCatalogRuns: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsRequest,
+        artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsResponse,
+    ]
+    """List Catalog Runs"""
 
 class ArtifactPublicServiceAsyncStub:
     """ArtifactPublicService exposes the public endpoints that allow clients to
@@ -210,6 +215,11 @@ class ArtifactPublicServiceAsyncStub:
         artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogResponse,
     ]
     """Get file catalog"""
+    ListCatalogRuns: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsRequest,
+        artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsResponse,
+    ]
+    """List Catalog Runs"""
 
 class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
     """ArtifactPublicService exposes the public endpoints that allow clients to
@@ -337,5 +347,12 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogResponse]]:
         """Get file catalog"""
+    @abc.abstractmethod
+    def ListCatalogRuns(
+        self,
+        request: artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsResponse]]:
+        """List Catalog Runs"""
 
 def add_ArtifactPublicServiceServicer_to_server(servicer: ArtifactPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
