@@ -84,10 +84,10 @@ class ArtifactPublicServiceStub(object):
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.UpdateChunkRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.UpdateChunkResponse.FromString,
                 )
-        self.SimilarityChunksSearch = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/SimilarityChunksSearch',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SimilarityChunksSearchRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SimilarityChunksSearchResponse.FromString,
+        self.ViewChunks = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/ViewChunks',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ViewChunksRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ViewChunksResponse.FromString,
                 )
         self.QuestionAnswering = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/QuestionAnswering',
@@ -208,8 +208,8 @@ class ArtifactPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def SimilarityChunksSearch(self, request, context):
-        """Retrieve similar chunks
+    def ViewChunks(self, request, context):
+        """View similar chunks
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -304,10 +304,10 @@ def add_ArtifactPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.UpdateChunkRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.UpdateChunkResponse.SerializeToString,
             ),
-            'SimilarityChunksSearch': grpc.unary_unary_rpc_method_handler(
-                    servicer.SimilarityChunksSearch,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SimilarityChunksSearchRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SimilarityChunksSearchResponse.SerializeToString,
+            'ViewChunks': grpc.unary_unary_rpc_method_handler(
+                    servicer.ViewChunks,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ViewChunksRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ViewChunksResponse.SerializeToString,
             ),
             'QuestionAnswering': grpc.unary_unary_rpc_method_handler(
                     servicer.QuestionAnswering,
@@ -558,7 +558,7 @@ class ArtifactPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def SimilarityChunksSearch(request,
+    def ViewChunks(request,
             target,
             options=(),
             channel_credentials=None,
@@ -568,9 +568,9 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/SimilarityChunksSearch',
-            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SimilarityChunksSearchRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SimilarityChunksSearchResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ViewChunks',
+            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ViewChunksRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ViewChunksResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

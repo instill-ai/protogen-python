@@ -100,11 +100,11 @@ class ArtifactPublicServiceStub:
         artifact.artifact.v1alpha.chunk_pb2.UpdateChunkResponse,
     ]
     """Update catalog chunk"""
-    SimilarityChunksSearch: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchRequest,
-        artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchResponse,
+    ViewChunks: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.chunk_pb2.ViewChunksRequest,
+        artifact.artifact.v1alpha.chunk_pb2.ViewChunksResponse,
     ]
-    """Retrieve similar chunks"""
+    """View similar chunks"""
     QuestionAnswering: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringRequest,
         artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringResponse,
@@ -200,11 +200,11 @@ class ArtifactPublicServiceAsyncStub:
         artifact.artifact.v1alpha.chunk_pb2.UpdateChunkResponse,
     ]
     """Update catalog chunk"""
-    SimilarityChunksSearch: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchRequest,
-        artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchResponse,
+    ViewChunks: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.chunk_pb2.ViewChunksRequest,
+        artifact.artifact.v1alpha.chunk_pb2.ViewChunksResponse,
     ]
-    """Retrieve similar chunks"""
+    """View similar chunks"""
     QuestionAnswering: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringRequest,
         artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringResponse,
@@ -327,12 +327,12 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[artifact.artifact.v1alpha.chunk_pb2.UpdateChunkResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.chunk_pb2.UpdateChunkResponse]]:
         """Update catalog chunk"""
     @abc.abstractmethod
-    def SimilarityChunksSearch(
+    def ViewChunks(
         self,
-        request: artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchRequest,
+        request: artifact.artifact.v1alpha.chunk_pb2.ViewChunksRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchResponse]]:
-        """Retrieve similar chunks"""
+    ) -> typing.Union[artifact.artifact.v1alpha.chunk_pb2.ViewChunksResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.chunk_pb2.ViewChunksResponse]]:
+        """View similar chunks"""
     @abc.abstractmethod
     def QuestionAnswering(
         self,
