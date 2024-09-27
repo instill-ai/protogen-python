@@ -236,8 +236,8 @@ class UpdateChunkResponse(google.protobuf.message.Message):
 global___UpdateChunkResponse = UpdateChunkResponse
 
 @typing_extensions.final
-class ViewChunksRequest(google.protobuf.message.Message):
-    """View chunks request"""
+class SimilarityChunksSearchRequest(google.protobuf.message.Message):
+    """Similar chunk search request"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -263,11 +263,11 @@ class ViewChunksRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "namespace_id", b"namespace_id", "text_prompt", b"text_prompt", "top_k", b"top_k"]) -> None: ...
 
-global___ViewChunksRequest = ViewChunksRequest
+global___SimilarityChunksSearchRequest = SimilarityChunksSearchRequest
 
 @typing_extensions.final
-class ViewChunksResponse(google.protobuf.message.Message):
-    """View chunks response"""
+class SimilarityChunksSearchResponse(google.protobuf.message.Message):
+    """Similar chunk search response"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -282,7 +282,7 @@ class ViewChunksResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["similar_chunks", b"similar_chunks"]) -> None: ...
 
-global___ViewChunksResponse = ViewChunksResponse
+global___SimilarityChunksSearchResponse = SimilarityChunksSearchResponse
 
 @typing_extensions.final
 class SimilarityChunk(google.protobuf.message.Message):
