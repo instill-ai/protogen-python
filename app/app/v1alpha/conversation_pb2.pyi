@@ -625,6 +625,7 @@ class ChatRequest(google.protobuf.message.Message):
     CATALOG_ID_FIELD_NUMBER: builtins.int
     CONVERSATION_UID_FIELD_NUMBER: builtins.int
     MESSAGE_FIELD_NUMBER: builtins.int
+    TOP_K_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """Namespace ID"""
     app_id: builtins.str
@@ -635,6 +636,8 @@ class ChatRequest(google.protobuf.message.Message):
     """Conversation UID"""
     message: builtins.str
     """User message"""
+    top_k: builtins.int
+    """top k, defaults to 5"""
     def __init__(
         self,
         *,
@@ -643,8 +646,9 @@ class ChatRequest(google.protobuf.message.Message):
         catalog_id: builtins.str = ...,
         conversation_uid: builtins.str = ...,
         message: builtins.str = ...,
+        top_k: builtins.int = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["app_id", b"app_id", "catalog_id", b"catalog_id", "conversation_uid", b"conversation_uid", "message", b"message", "namespace_id", b"namespace_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["app_id", b"app_id", "catalog_id", b"catalog_id", "conversation_uid", b"conversation_uid", "message", b"message", "namespace_id", b"namespace_id", "top_k", b"top_k"]) -> None: ...
 
 global___ChatRequest = ChatRequest
 
