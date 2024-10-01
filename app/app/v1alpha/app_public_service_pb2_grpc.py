@@ -102,7 +102,7 @@ class AppPublicServiceStub(object):
                 request_serializer=app_dot_app_dot_v1alpha_dot_app__pb2.RestartPlaygroundConversationRequest.SerializeToString,
                 response_deserializer=app_dot_app_dot_v1alpha_dot_app__pb2.RestartPlaygroundConversationResponse.FromString,
                 )
-        self.Chat = channel.unary_stream(
+        self.Chat = channel.unary_unary(
                 '/app.app.v1alpha.AppPublicService/Chat',
                 request_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.ChatRequest.SerializeToString,
                 response_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.ChatResponse.FromString,
@@ -341,7 +341,7 @@ def add_AppPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=app_dot_app_dot_v1alpha_dot_app__pb2.RestartPlaygroundConversationRequest.FromString,
                     response_serializer=app_dot_app_dot_v1alpha_dot_app__pb2.RestartPlaygroundConversationResponse.SerializeToString,
             ),
-            'Chat': grpc.unary_stream_rpc_method_handler(
+            'Chat': grpc.unary_unary_rpc_method_handler(
                     servicer.Chat,
                     request_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.ChatRequest.FromString,
                     response_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.ChatResponse.SerializeToString,
@@ -658,7 +658,7 @@ class AppPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/app.app.v1alpha.AppPublicService/Chat',
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/Chat',
             app_dot_app_dot_v1alpha_dot_conversation__pb2.ChatRequest.SerializeToString,
             app_dot_app_dot_v1alpha_dot_conversation__pb2.ChatResponse.FromString,
             options, channel_credentials,

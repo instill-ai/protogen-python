@@ -122,7 +122,7 @@ class AppPublicServiceStub:
     create a new conversation and use the auth user uid as creator uid and auto
     generate a new conversation id on the behalf of auth user.
     """
-    Chat: grpc.UnaryStreamMultiCallable[
+    Chat: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.ChatRequest,
         app.app.v1alpha.conversation_pb2.ChatResponse,
     ]
@@ -236,7 +236,7 @@ class AppPublicServiceAsyncStub:
     create a new conversation and use the auth user uid as creator uid and auto
     generate a new conversation id on the behalf of auth user.
     """
-    Chat: grpc.aio.UnaryStreamMultiCallable[
+    Chat: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.ChatRequest,
         app.app.v1alpha.conversation_pb2.ChatResponse,
     ]
@@ -389,7 +389,7 @@ class AppPublicServiceServicer(metaclass=abc.ABCMeta):
         self,
         request: app.app.v1alpha.conversation_pb2.ChatRequest,
         context: _ServicerContext,
-    ) -> typing.Union[collections.abc.Iterator[app.app.v1alpha.conversation_pb2.ChatResponse], collections.abc.AsyncIterator[app.app.v1alpha.conversation_pb2.ChatResponse]]:
+    ) -> typing.Union[app.app.v1alpha.conversation_pb2.ChatResponse, collections.abc.Awaitable[app.app.v1alpha.conversation_pb2.ChatResponse]]:
         """Chat
 
         Chat sends a message asynchronously and streams back the response.
