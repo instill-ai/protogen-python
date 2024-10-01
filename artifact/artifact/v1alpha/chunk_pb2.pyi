@@ -82,7 +82,7 @@ class ListChunksRequest(google.protobuf.message.Message):
     """unique identifier of the file"""
     @property
     def chunk_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """repeated chunk uid"""
+        """repeated chunk uid(not implemented yet)"""
     def __init__(
         self,
         *,
@@ -294,6 +294,7 @@ class SimilarityChunk(google.protobuf.message.Message):
     SIMILARITY_SCORE_FIELD_NUMBER: builtins.int
     TEXT_CONTENT_FIELD_NUMBER: builtins.int
     SOURCE_FILE_FIELD_NUMBER: builtins.int
+    CHUNK_METADATA_FIELD_NUMBER: builtins.int
     chunk_uid: builtins.str
     """chunk uid"""
     similarity_score: builtins.float
@@ -301,7 +302,10 @@ class SimilarityChunk(google.protobuf.message.Message):
     text_content: builtins.str
     """content"""
     source_file: builtins.str
-    """source file"""
+    """source file's name"""
+    @property
+    def chunk_metadata(self) -> global___Chunk:
+        """chunk"""
     def __init__(
         self,
         *,
@@ -309,7 +313,9 @@ class SimilarityChunk(google.protobuf.message.Message):
         similarity_score: builtins.float = ...,
         text_content: builtins.str = ...,
         source_file: builtins.str = ...,
+        chunk_metadata: global___Chunk | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["chunk_uid", b"chunk_uid", "similarity_score", b"similarity_score", "source_file", b"source_file", "text_content", b"text_content"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["chunk_metadata", b"chunk_metadata"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chunk_metadata", b"chunk_metadata", "chunk_uid", b"chunk_uid", "similarity_score", b"similarity_score", "source_file", b"source_file", "text_content", b"text_content"]) -> None: ...
 
 global___SimilarityChunk = SimilarityChunk
