@@ -31,6 +31,8 @@ class Conversation(google.protobuf.message.Message):
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     APP_ID_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
+    LAST_USED_CATALOG_UID_FIELD_NUMBER: builtins.int
+    LAST_USED_TOP_K_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     uid: builtins.str
@@ -41,6 +43,10 @@ class Conversation(google.protobuf.message.Message):
     """app id"""
     id: builtins.str
     """conversation id/name"""
+    last_used_catalog_uid: builtins.str
+    """last used catalog uid"""
+    last_used_top_k: builtins.int
+    """last used top k"""
     @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """creation time of the conversation"""
@@ -54,11 +60,17 @@ class Conversation(google.protobuf.message.Message):
         namespace_id: builtins.str = ...,
         app_id: builtins.str = ...,
         id: builtins.str = ...,
+        last_used_catalog_uid: builtins.str | None = ...,
+        last_used_top_k: builtins.int | None = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["app_id", b"app_id", "create_time", b"create_time", "id", b"id", "namespace_id", b"namespace_id", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid", "_last_used_top_k", b"_last_used_top_k", "create_time", b"create_time", "last_used_catalog_uid", b"last_used_catalog_uid", "last_used_top_k", b"last_used_top_k", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid", "_last_used_top_k", b"_last_used_top_k", "app_id", b"app_id", "create_time", b"create_time", "id", b"id", "last_used_catalog_uid", b"last_used_catalog_uid", "last_used_top_k", b"last_used_top_k", "namespace_id", b"namespace_id", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid"]) -> typing_extensions.Literal["last_used_catalog_uid"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_last_used_top_k", b"_last_used_top_k"]) -> typing_extensions.Literal["last_used_top_k"] | None: ...
 
 global___Conversation = Conversation
 
@@ -261,6 +273,8 @@ class UpdateConversationRequest(google.protobuf.message.Message):
     APP_ID_FIELD_NUMBER: builtins.int
     CONVERSATION_ID_FIELD_NUMBER: builtins.int
     NEW_CONVERSATION_ID_FIELD_NUMBER: builtins.int
+    LAST_USED_CATALOG_UID_FIELD_NUMBER: builtins.int
+    LAST_USED_TOP_K_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """namespace id"""
     app_id: builtins.str
@@ -269,15 +283,28 @@ class UpdateConversationRequest(google.protobuf.message.Message):
     """conversation id"""
     new_conversation_id: builtins.str
     """new conversation id"""
+    last_used_catalog_uid: builtins.str
+    """last used catalog uid"""
+    last_used_top_k: builtins.int
+    """last used top k"""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         app_id: builtins.str = ...,
         conversation_id: builtins.str = ...,
-        new_conversation_id: builtins.str = ...,
+        new_conversation_id: builtins.str | None = ...,
+        last_used_catalog_uid: builtins.str | None = ...,
+        last_used_top_k: builtins.int | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["app_id", b"app_id", "conversation_id", b"conversation_id", "namespace_id", b"namespace_id", "new_conversation_id", b"new_conversation_id"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid", "_last_used_top_k", b"_last_used_top_k", "_new_conversation_id", b"_new_conversation_id", "last_used_catalog_uid", b"last_used_catalog_uid", "last_used_top_k", b"last_used_top_k", "new_conversation_id", b"new_conversation_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid", "_last_used_top_k", b"_last_used_top_k", "_new_conversation_id", b"_new_conversation_id", "app_id", b"app_id", "conversation_id", b"conversation_id", "last_used_catalog_uid", b"last_used_catalog_uid", "last_used_top_k", b"last_used_top_k", "namespace_id", b"namespace_id", "new_conversation_id", b"new_conversation_id"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid"]) -> typing_extensions.Literal["last_used_catalog_uid"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_last_used_top_k", b"_last_used_top_k"]) -> typing_extensions.Literal["last_used_top_k"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_new_conversation_id", b"_new_conversation_id"]) -> typing_extensions.Literal["new_conversation_id"] | None: ...
 
 global___UpdateConversationRequest = UpdateConversationRequest
 
