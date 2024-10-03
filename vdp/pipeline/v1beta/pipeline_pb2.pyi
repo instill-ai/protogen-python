@@ -4837,9 +4837,7 @@ class PipelineRun(google.protobuf.message.Message):
     SOURCE_FIELD_NUMBER: builtins.int
     TOTAL_DURATION_FIELD_NUMBER: builtins.int
     RUNNER_ID_FIELD_NUMBER: builtins.int
-    INPUTS_REFERENCE_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
-    OUTPUTS_REFERENCE_FIELD_NUMBER: builtins.int
     OUTPUTS_FIELD_NUMBER: builtins.int
     RECIPE_SNAPSHOT_FIELD_NUMBER: builtins.int
     START_TIME_FIELD_NUMBER: builtins.int
@@ -4862,14 +4860,8 @@ class PipelineRun(google.protobuf.message.Message):
     runner_id: builtins.str
     """Runner ID. If current viewing requester does not have enough permission, it will return null."""
     @property
-    def inputs_reference(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___FileReference]:
-        """Input files for the run."""
-    @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
         """Pipeline input parameters."""
-    @property
-    def outputs_reference(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___FileReference]:
-        """Output files from the run."""
     @property
     def outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
         """Pipeline inference outputs."""
@@ -4899,9 +4891,7 @@ class PipelineRun(google.protobuf.message.Message):
         source: common.run.v1alpha.run_pb2.RunSource.ValueType = ...,
         total_duration: builtins.int | None = ...,
         runner_id: builtins.str | None = ...,
-        inputs_reference: collections.abc.Iterable[global___FileReference] | None = ...,
         inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
-        outputs_reference: collections.abc.Iterable[global___FileReference] | None = ...,
         outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
         recipe_snapshot: google.protobuf.struct_pb2.Struct | None = ...,
         start_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
@@ -4911,7 +4901,7 @@ class PipelineRun(google.protobuf.message.Message):
         data_specification: vdp.pipeline.v1beta.component_definition_pb2.DataSpecification | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "data_specification", b"data_specification", "error", b"error", "recipe_snapshot", b"recipe_snapshot", "runner_id", b"runner_id", "start_time", b"start_time", "total_duration", b"total_duration"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "data_specification", b"data_specification", "error", b"error", "inputs", b"inputs", "inputs_reference", b"inputs_reference", "outputs", b"outputs", "outputs_reference", b"outputs_reference", "pipeline_run_uid", b"pipeline_run_uid", "pipeline_uid", b"pipeline_uid", "pipeline_version", b"pipeline_version", "recipe_snapshot", b"recipe_snapshot", "runner_id", b"runner_id", "source", b"source", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "data_specification", b"data_specification", "error", b"error", "inputs", b"inputs", "outputs", b"outputs", "pipeline_run_uid", b"pipeline_run_uid", "pipeline_uid", b"pipeline_uid", "pipeline_version", b"pipeline_version", "recipe_snapshot", b"recipe_snapshot", "runner_id", b"runner_id", "source", b"source", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_complete_time", b"_complete_time"]) -> typing_extensions.Literal["complete_time"] | None: ...
     @typing.overload
