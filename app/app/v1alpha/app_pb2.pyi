@@ -414,54 +414,6 @@ class DeleteAppResponse(google.protobuf.message.Message):
 global___DeleteAppResponse = DeleteAppResponse
 
 @typing_extensions.final
-class UpdateAIAssistantAppPlaygroundRequest(google.protobuf.message.Message):
-    """UpdateAIAssistantAppPlaygroundRequest represents a request to update an AI
-    assistant app playground.
-    After the update, the app's metadata will be updated with the last AI
-    assistant app uses catalog UID, top k, and conversation UID.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    APP_ID_FIELD_NUMBER: builtins.int
-    LAST_AI_APP_CATALOG_UID_FIELD_NUMBER: builtins.int
-    LAST_AI_APP_TOP_K_FIELD_NUMBER: builtins.int
-    namespace_id: builtins.str
-    """The namespace id."""
-    app_id: builtins.str
-    """The app id."""
-    last_ai_app_catalog_uid: builtins.str
-    """The last AI app uses catalog uid."""
-    last_ai_app_top_k: builtins.int
-    """The last AI app uses top k."""
-    def __init__(
-        self,
-        *,
-        namespace_id: builtins.str = ...,
-        app_id: builtins.str = ...,
-        last_ai_app_catalog_uid: builtins.str = ...,
-        last_ai_app_top_k: builtins.int = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["app_id", b"app_id", "last_ai_app_catalog_uid", b"last_ai_app_catalog_uid", "last_ai_app_top_k", b"last_ai_app_top_k", "namespace_id", b"namespace_id"]) -> None: ...
-
-global___UpdateAIAssistantAppPlaygroundRequest = UpdateAIAssistantAppPlaygroundRequest
-
-@typing_extensions.final
-class UpdateAIAssistantAppPlaygroundResponse(google.protobuf.message.Message):
-    """UpdateAIAssistantAppPlaygroundResponse represents a response for updating a
-    AI assistant app playground.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    def __init__(
-        self,
-    ) -> None: ...
-
-global___UpdateAIAssistantAppPlaygroundResponse = UpdateAIAssistantAppPlaygroundResponse
-
-@typing_extensions.final
 class RestartPlaygroundConversationRequest(google.protobuf.message.Message):
     """RestartPlaygroundConversationRequest represents a request to restart a playground conversation."""
 

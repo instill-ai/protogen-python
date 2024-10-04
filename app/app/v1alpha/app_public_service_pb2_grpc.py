@@ -87,11 +87,6 @@ class AppPublicServiceStub(object):
                 request_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.DeleteMessageRequest.SerializeToString,
                 response_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.DeleteMessageResponse.FromString,
                 )
-        self.UpdateAIAssistantAppPlayground = channel.unary_unary(
-                '/app.app.v1alpha.AppPublicService/UpdateAIAssistantAppPlayground',
-                request_serializer=app_dot_app_dot_v1alpha_dot_app__pb2.UpdateAIAssistantAppPlaygroundRequest.SerializeToString,
-                response_deserializer=app_dot_app_dot_v1alpha_dot_app__pb2.UpdateAIAssistantAppPlaygroundResponse.FromString,
-                )
         self.GetPlaygroundConversation = channel.unary_unary(
                 '/app.app.v1alpha.AppPublicService/GetPlaygroundConversation',
                 request_serializer=app_dot_app_dot_v1alpha_dot_app__pb2.GetPlaygroundConversationRequest.SerializeToString,
@@ -216,13 +211,6 @@ class AppPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UpdateAIAssistantAppPlayground(self, request, context):
-        """Update AI assistant app playground
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def GetPlaygroundConversation(self, request, context):
         """Get Playground Conversation
 
@@ -325,11 +313,6 @@ def add_AppPublicServiceServicer_to_server(servicer, server):
                     servicer.DeleteMessage,
                     request_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.DeleteMessageRequest.FromString,
                     response_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.DeleteMessageResponse.SerializeToString,
-            ),
-            'UpdateAIAssistantAppPlayground': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateAIAssistantAppPlayground,
-                    request_deserializer=app_dot_app_dot_v1alpha_dot_app__pb2.UpdateAIAssistantAppPlaygroundRequest.FromString,
-                    response_serializer=app_dot_app_dot_v1alpha_dot_app__pb2.UpdateAIAssistantAppPlaygroundResponse.SerializeToString,
             ),
             'GetPlaygroundConversation': grpc.unary_unary_rpc_method_handler(
                     servicer.GetPlaygroundConversation,
@@ -593,23 +576,6 @@ class AppPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/DeleteMessage',
             app_dot_app_dot_v1alpha_dot_conversation__pb2.DeleteMessageRequest.SerializeToString,
             app_dot_app_dot_v1alpha_dot_conversation__pb2.DeleteMessageResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def UpdateAIAssistantAppPlayground(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/UpdateAIAssistantAppPlayground',
-            app_dot_app_dot_v1alpha_dot_app__pb2.UpdateAIAssistantAppPlaygroundRequest.SerializeToString,
-            app_dot_app_dot_v1alpha_dot_app__pb2.UpdateAIAssistantAppPlaygroundResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

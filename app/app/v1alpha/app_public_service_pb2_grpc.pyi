@@ -100,11 +100,6 @@ class AppPublicServiceStub:
         app.app.v1alpha.conversation_pb2.DeleteMessageResponse,
     ]
     """Delete a message"""
-    UpdateAIAssistantAppPlayground: grpc.UnaryUnaryMultiCallable[
-        app.app.v1alpha.app_pb2.UpdateAIAssistantAppPlaygroundRequest,
-        app.app.v1alpha.app_pb2.UpdateAIAssistantAppPlaygroundResponse,
-    ]
-    """Update AI assistant app playground"""
     GetPlaygroundConversation: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.app_pb2.GetPlaygroundConversationRequest,
         app.app.v1alpha.app_pb2.GetPlaygroundConversationResponse,
@@ -214,11 +209,6 @@ class AppPublicServiceAsyncStub:
         app.app.v1alpha.conversation_pb2.DeleteMessageResponse,
     ]
     """Delete a message"""
-    UpdateAIAssistantAppPlayground: grpc.aio.UnaryUnaryMultiCallable[
-        app.app.v1alpha.app_pb2.UpdateAIAssistantAppPlaygroundRequest,
-        app.app.v1alpha.app_pb2.UpdateAIAssistantAppPlaygroundResponse,
-    ]
-    """Update AI assistant app playground"""
     GetPlaygroundConversation: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.app_pb2.GetPlaygroundConversationRequest,
         app.app.v1alpha.app_pb2.GetPlaygroundConversationResponse,
@@ -356,13 +346,6 @@ class AppPublicServiceServicer(metaclass=abc.ABCMeta):
         context: _ServicerContext,
     ) -> typing.Union[app.app.v1alpha.conversation_pb2.DeleteMessageResponse, collections.abc.Awaitable[app.app.v1alpha.conversation_pb2.DeleteMessageResponse]]:
         """Delete a message"""
-    @abc.abstractmethod
-    def UpdateAIAssistantAppPlayground(
-        self,
-        request: app.app.v1alpha.app_pb2.UpdateAIAssistantAppPlaygroundRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[app.app.v1alpha.app_pb2.UpdateAIAssistantAppPlaygroundResponse, collections.abc.Awaitable[app.app.v1alpha.app_pb2.UpdateAIAssistantAppPlaygroundResponse]]:
-        """Update AI assistant app playground"""
     @abc.abstractmethod
     def GetPlaygroundConversation(
         self,
