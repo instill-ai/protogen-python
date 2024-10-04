@@ -66,6 +66,7 @@ class Connection(google.protobuf.message.Message):
     METHOD_FIELD_NUMBER: builtins.int
     SETUP_FIELD_NUMBER: builtins.int
     SCOPES_FIELD_NUMBER: builtins.int
+    IDENTITY_FIELD_NUMBER: builtins.int
     O_AUTH_ACCESS_DETAILS_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
@@ -101,6 +102,11 @@ class Connection(google.protobuf.message.Message):
         when the setup has been generated through an OAuth flow with a limited set
         of scopes.
         """
+    identity: builtins.str
+    """When the connection method is METHOD_OAUTH, this field will hold the
+    identity (e.g., email, username) with which the access token has been
+    generated.
+    """
     @property
     def o_auth_access_details(self) -> google.protobuf.struct_pb2.Struct:
         """When the connection method is METHOD_OAUTH, the access token might come
@@ -131,13 +137,17 @@ class Connection(google.protobuf.message.Message):
         method: global___Connection.Method.ValueType = ...,
         setup: google.protobuf.struct_pb2.Struct | None = ...,
         scopes: collections.abc.Iterable[builtins.str] | None = ...,
+        identity: builtins.str | None = ...,
         o_auth_access_details: google.protobuf.struct_pb2.Struct | None = ...,
         view: vdp.pipeline.v1beta.common_pb2.View.ValueType = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_o_auth_access_details", b"_o_auth_access_details", "create_time", b"create_time", "o_auth_access_details", b"o_auth_access_details", "setup", b"setup", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_o_auth_access_details", b"_o_auth_access_details", "create_time", b"create_time", "id", b"id", "integration_id", b"integration_id", "integration_title", b"integration_title", "method", b"method", "namespace_id", b"namespace_id", "o_auth_access_details", b"o_auth_access_details", "scopes", b"scopes", "setup", b"setup", "uid", b"uid", "update_time", b"update_time", "view", b"view"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_identity", b"_identity", "_o_auth_access_details", b"_o_auth_access_details", "create_time", b"create_time", "identity", b"identity", "o_auth_access_details", b"o_auth_access_details", "setup", b"setup", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_identity", b"_identity", "_o_auth_access_details", b"_o_auth_access_details", "create_time", b"create_time", "id", b"id", "identity", b"identity", "integration_id", b"integration_id", "integration_title", b"integration_title", "method", b"method", "namespace_id", b"namespace_id", "o_auth_access_details", b"o_auth_access_details", "scopes", b"scopes", "setup", b"setup", "uid", b"uid", "update_time", b"update_time", "view", b"view"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_identity", b"_identity"]) -> typing_extensions.Literal["identity"] | None: ...
+    @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_o_auth_access_details", b"_o_auth_access_details"]) -> typing_extensions.Literal["o_auth_access_details"] | None: ...
 
 global___Connection = Connection
