@@ -157,22 +157,18 @@ class ListNamespaceConnectionsRequest(google.protobuf.message.Message):
     namespace_id: builtins.str
     """Namespace ID."""
     page_size: builtins.int
-    """The maximum number of items to return. The default and cap values are 10
-    and 100, respectively.
-    """
+    """The maximum number of items to return. The default and cap values are 10 and 100, respectively."""
     page_token: builtins.str
     """Page token. By default, the first page will be returned."""
     filter: builtins.str
-    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
-    expression.
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter expression.
     The following filters are supported:
     - `integrationId`
     - `qConnection` (fuzzy search on connection ID, integration title or vendor)
-    Examples:
-    - List connections where app name, vendor or connection ID match `googl`:
-    `q="googl"`.
-    - List connections where the component type is `openai` (e.g. to setup a
-    connector within a pipeline): `integration_id="openai"`.
+
+    **Examples**:
+    - List connections where app name, vendor or connection ID match `googl`: `q="googl"`.
+    - List connections where the component type is `openai` (e.g. to setup a connector within a pipeline): `integrationId="openai"`.
     """
     def __init__(
         self,
@@ -628,14 +624,11 @@ class ListPipelineIDsByConnectionIDRequest(google.protobuf.message.Message):
     connection_id: builtins.str
     """Connection ID."""
     page_size: builtins.int
-    """The maximum number of items to return. The default and cap values are 10
-    and 100, respectively.
-    """
+    """The maximum number of items to return. The default and cap values are 10 and 100, respectively."""
     page_token: builtins.str
     """Page token. By default, the first page will be returned."""
     filter: builtins.str
-    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
-    expression.
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter expression.
     The following filters are supported:
     - `q` (fuzzy search on pipeline ID)
     """
@@ -698,17 +691,15 @@ class ListIntegrationsRequest(google.protobuf.message.Message):
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    """The maximum number of items to return. The default and cap values are 10
-    and 100, respectively.
-    """
+    """The maximum number of items to return. The default and cap values are 10 and 100, respectively."""
     page_token: builtins.str
     """Page token. By default, the first page will be returned."""
     filter: builtins.str
-    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
-    expression.
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter expression.
     The following filters are supported:
     - `qIntegration` (fuzzy search on title or vendor)
-    Examples:
+
+    **Examples**:
     - List integrations where app name or vendor match `googl`: `q="googl"`.
     """
     def __init__(
