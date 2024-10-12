@@ -314,6 +314,11 @@ class ModelPublicServiceStub(object):
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsResponse.FromString,
                 )
+        self.ListModelRunsByCreditOwner = channel.unary_unary(
+                '/model.model.v1alpha.ModelPublicService/ListModelRunsByCreditOwner',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsByCreditOwnerRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsByCreditOwnerResponse.FromString,
+                )
 
 
 class ModelPublicServiceServicer(object):
@@ -934,6 +939,16 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListModelRunsByCreditOwner(self, request, context):
+        """List Model Runs of a Namespace (user or organization)
+
+        Returns a paginated list of runs for 1 or more models. This is mainly used by credit dashboard.
+        The requester can view all the runs that consumed their credits across different models.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ModelPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -1231,6 +1246,11 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     servicer.ListModelRuns,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsResponse.SerializeToString,
+            ),
+            'ListModelRunsByCreditOwner': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListModelRunsByCreditOwner,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsByCreditOwnerRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsByCreditOwnerResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -2246,5 +2266,22 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/ListModelRuns',
             model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListModelRunsByCreditOwner(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/ListModelRunsByCreditOwner',
+            model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsByCreditOwnerRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsByCreditOwnerResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

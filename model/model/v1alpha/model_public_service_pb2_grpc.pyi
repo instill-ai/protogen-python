@@ -578,6 +578,15 @@ class ModelPublicServiceStub:
 
     Returns a paginated list of model runs.
     """
+    ListModelRunsByCreditOwner: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.ListModelRunsByCreditOwnerRequest,
+        model.model.v1alpha.model_pb2.ListModelRunsByCreditOwnerResponse,
+    ]
+    """List Model Runs of a Namespace (user or organization)
+
+    Returns a paginated list of runs for 1 or more models. This is mainly used by credit dashboard.
+    The requester can view all the runs that consumed their credits across different models.
+    """
 
 class ModelPublicServiceAsyncStub:
     """Model
@@ -1137,6 +1146,15 @@ class ModelPublicServiceAsyncStub:
     """List model runs
 
     Returns a paginated list of model runs.
+    """
+    ListModelRunsByCreditOwner: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.ListModelRunsByCreditOwnerRequest,
+        model.model.v1alpha.model_pb2.ListModelRunsByCreditOwnerResponse,
+    ]
+    """List Model Runs of a Namespace (user or organization)
+
+    Returns a paginated list of runs for 1 or more models. This is mainly used by credit dashboard.
+    The requester can view all the runs that consumed their credits across different models.
     """
 
 class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
@@ -1815,6 +1833,17 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         """List model runs
 
         Returns a paginated list of model runs.
+        """
+    @abc.abstractmethod
+    def ListModelRunsByCreditOwner(
+        self,
+        request: model.model.v1alpha.model_pb2.ListModelRunsByCreditOwnerRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.ListModelRunsByCreditOwnerResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.ListModelRunsByCreditOwnerResponse]]:
+        """List Model Runs of a Namespace (user or organization)
+
+        Returns a paginated list of runs for 1 or more models. This is mainly used by credit dashboard.
+        The requester can view all the runs that consumed their credits across different models.
         """
 
 def add_ModelPublicServiceServicer_to_server(servicer: ModelPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

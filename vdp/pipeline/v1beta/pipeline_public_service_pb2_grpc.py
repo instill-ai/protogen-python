@@ -462,6 +462,11 @@ class PipelinePublicServiceStub(object):
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListComponentRunsRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListComponentRunsResponse.FromString,
                 )
+        self.ListPipelineRunsByCreditOwner = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/ListPipelineRunsByCreditOwner',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsByCreditOwnerRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsByCreditOwnerResponse.FromString,
+                )
         self.ListNamespaceConnections = channel.unary_unary(
                 '/vdp.pipeline.v1beta.PipelinePublicService/ListNamespaceConnections',
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_integration__pb2.ListNamespaceConnectionsRequest.SerializeToString,
@@ -1546,6 +1551,16 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListPipelineRunsByCreditOwner(self, request, context):
+        """List Pipeline Runs of a Namespace (user or organization)
+
+        Returns a paginated list of runs for 1 or more pipelines. This is mainly used by credit dashboard.
+        The requester can view all the runs that consumed their credits across different pipelines.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListNamespaceConnections(self, request, context):
         """List namespace connections
 
@@ -2077,6 +2092,11 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     servicer.ListComponentRuns,
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListComponentRunsRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListComponentRunsResponse.SerializeToString,
+            ),
+            'ListPipelineRunsByCreditOwner': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListPipelineRunsByCreditOwner,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsByCreditOwnerRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsByCreditOwnerResponse.SerializeToString,
             ),
             'ListNamespaceConnections': grpc.unary_unary_rpc_method_handler(
                     servicer.ListNamespaceConnections,
@@ -3630,6 +3650,23 @@ class PipelinePublicService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/ListComponentRuns',
             vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListComponentRunsRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListComponentRunsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListPipelineRunsByCreditOwner(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/ListPipelineRunsByCreditOwner',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsByCreditOwnerRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsByCreditOwnerResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

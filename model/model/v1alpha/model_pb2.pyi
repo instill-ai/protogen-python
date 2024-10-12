@@ -3749,6 +3749,7 @@ class ModelRun(google.protobuf.message.Message):
     VERSION_FIELD_NUMBER: builtins.int
     TASK_INPUTS_FIELD_NUMBER: builtins.int
     TASK_OUTPUTS_FIELD_NUMBER: builtins.int
+    MODEL_ID_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """Model Run UUID."""
     model_uid: builtins.str
@@ -3782,6 +3783,8 @@ class ModelRun(google.protobuf.message.Message):
     @property
     def task_outputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
         """Model inference outputs."""
+    model_id: builtins.str
+    """Model ID."""
     def __init__(
         self,
         *,
@@ -3799,15 +3802,18 @@ class ModelRun(google.protobuf.message.Message):
         version: builtins.str = ...,
         task_inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
         task_outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
+        model_id: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_credit_amount", b"_credit_amount", "_end_time", b"_end_time", "_error", b"_error", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "create_time", b"create_time", "credit_amount", b"credit_amount", "end_time", b"end_time", "error", b"error", "runner_id", b"runner_id", "total_duration", b"total_duration", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_credit_amount", b"_credit_amount", "_end_time", b"_end_time", "_error", b"_error", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "create_time", b"create_time", "credit_amount", b"credit_amount", "end_time", b"end_time", "error", b"error", "model_uid", b"model_uid", "runner_id", b"runner_id", "source", b"source", "status", b"status", "task_inputs", b"task_inputs", "task_outputs", b"task_outputs", "total_duration", b"total_duration", "uid", b"uid", "update_time", b"update_time", "version", b"version"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_credit_amount", b"_credit_amount", "_end_time", b"_end_time", "_error", b"_error", "_model_id", b"_model_id", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "create_time", b"create_time", "credit_amount", b"credit_amount", "end_time", b"end_time", "error", b"error", "model_id", b"model_id", "runner_id", b"runner_id", "total_duration", b"total_duration", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_credit_amount", b"_credit_amount", "_end_time", b"_end_time", "_error", b"_error", "_model_id", b"_model_id", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "create_time", b"create_time", "credit_amount", b"credit_amount", "end_time", b"end_time", "error", b"error", "model_id", b"model_id", "model_uid", b"model_uid", "runner_id", b"runner_id", "source", b"source", "status", b"status", "task_inputs", b"task_inputs", "task_outputs", b"task_outputs", "total_duration", b"total_duration", "uid", b"uid", "update_time", b"update_time", "version", b"version"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_credit_amount", b"_credit_amount"]) -> typing_extensions.Literal["credit_amount"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_end_time", b"_end_time"]) -> typing_extensions.Literal["end_time"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_error", b"_error"]) -> typing_extensions.Literal["error"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_model_id", b"_model_id"]) -> typing_extensions.Literal["model_id"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_runner_id", b"_runner_id"]) -> typing_extensions.Literal["runner_id"] | None: ...
     @typing.overload
@@ -3823,7 +3829,6 @@ class ListModelRunsRequest(google.protobuf.message.Message):
 
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_FIELD_NUMBER: builtins.int
-    VIEW_FIELD_NUMBER: builtins.int
     ORDER_BY_FIELD_NUMBER: builtins.int
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     MODEL_ID_FIELD_NUMBER: builtins.int
@@ -3834,10 +3839,6 @@ class ListModelRunsRequest(google.protobuf.message.Message):
     """
     page: builtins.int
     """Page number."""
-    view: model.model.v1alpha.model_definition_pb2.View.ValueType
-    """View allows clients to specify the desired run view in the response.
-    The basic view excludes input / output data.
-    """
     order_by: builtins.str
     """Sort the results by the given expression.
     Format: `field [ASC | DESC], where `field` can be:
@@ -3861,14 +3862,78 @@ class ListModelRunsRequest(google.protobuf.message.Message):
         *,
         page_size: builtins.int | None = ...,
         page: builtins.int | None = ...,
-        view: model.model.v1alpha.model_definition_pb2.View.ValueType | None = ...,
         order_by: builtins.str | None = ...,
         namespace_id: builtins.str = ...,
         model_id: builtins.str = ...,
         filter: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page", b"_page", "_page_size", b"_page_size", "_view", b"_view", "filter", b"filter", "order_by", b"order_by", "page", b"page", "page_size", b"page_size", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page", b"_page", "_page_size", b"_page_size", "_view", b"_view", "filter", b"filter", "model_id", b"model_id", "namespace_id", b"namespace_id", "order_by", b"order_by", "page", b"page", "page_size", b"page_size", "view", b"view"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page", b"_page", "_page_size", b"_page_size", "filter", b"filter", "order_by", b"order_by", "page", b"page", "page_size", b"page_size"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page", b"_page", "_page_size", b"_page_size", "filter", b"filter", "model_id", b"model_id", "namespace_id", b"namespace_id", "order_by", b"order_by", "page", b"page", "page_size", b"page_size"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_order_by", b"_order_by"]) -> typing_extensions.Literal["order_by"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page", b"_page"]) -> typing_extensions.Literal["page"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
+
+global___ListModelRunsRequest = ListModelRunsRequest
+
+@typing_extensions.final
+class ListModelRunsByCreditOwnerRequest(google.protobuf.message.Message):
+    """ListModelRunsByCreditOwnerRequest is the request message for ListModelRunsByCreditOwner."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_FIELD_NUMBER: builtins.int
+    ORDER_BY_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
+    START_FIELD_NUMBER: builtins.int
+    STOP_FIELD_NUMBER: builtins.int
+    page_size: builtins.int
+    """The maximum number of runs to return. The default and cap values are 10
+    and 100, respectively.
+    """
+    page: builtins.int
+    """Page number."""
+    order_by: builtins.str
+    """Sort the results by the given expression.
+    Format: `field [ASC | DESC], where `field` can be:
+    - `create_time`
+    - `update_time`
+    By default, results are sorted by descending creation time.
+    """
+    filter: builtins.str
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    The filter can be applied to the following fields:
+    - `create_time`
+    """
+    @property
+    def start(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Beginning of the time range from which the records will be fetched.
+        The default value is the beginning of the current day, in UTC.
+        """
+    @property
+    def stop(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """End of the time range from which the records will be fetched.
+        The default value is the current timestamp.
+        """
+    def __init__(
+        self,
+        *,
+        page_size: builtins.int | None = ...,
+        page: builtins.int | None = ...,
+        order_by: builtins.str | None = ...,
+        filter: builtins.str | None = ...,
+        start: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        stop: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page", b"_page", "_page_size", b"_page_size", "_start", b"_start", "_stop", b"_stop", "filter", b"filter", "order_by", b"order_by", "page", b"page", "page_size", b"page_size", "start", b"start", "stop", b"stop"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page", b"_page", "_page_size", b"_page_size", "_start", b"_start", "_stop", b"_stop", "filter", b"filter", "order_by", b"order_by", "page", b"page", "page_size", b"page_size", "start", b"start", "stop", b"stop"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
     @typing.overload
@@ -3878,9 +3943,11 @@ class ListModelRunsRequest(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_start", b"_start"]) -> typing_extensions.Literal["start"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_stop", b"_stop"]) -> typing_extensions.Literal["stop"] | None: ...
 
-global___ListModelRunsRequest = ListModelRunsRequest
+global___ListModelRunsByCreditOwnerRequest = ListModelRunsByCreditOwnerRequest
 
 @typing_extensions.final
 class ListModelRunsResponse(google.protobuf.message.Message):
@@ -3912,3 +3979,34 @@ class ListModelRunsResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["page", b"page", "page_size", b"page_size", "runs", b"runs", "total_size", b"total_size"]) -> None: ...
 
 global___ListModelRunsResponse = ListModelRunsResponse
+
+@typing_extensions.final
+class ListModelRunsByCreditOwnerResponse(google.protobuf.message.Message):
+    """ListModelRunsByCreditOwnerResponse is the request message for ListModelRunsByCreditOwner."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    RUNS_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_FIELD_NUMBER: builtins.int
+    @property
+    def runs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ModelRun]:
+        """A list of runs resources."""
+    total_size: builtins.int
+    """Total number of runs."""
+    page_size: builtins.int
+    """The requested page size."""
+    page: builtins.int
+    """The requested page offset."""
+    def __init__(
+        self,
+        *,
+        runs: collections.abc.Iterable[global___ModelRun] | None = ...,
+        total_size: builtins.int = ...,
+        page_size: builtins.int = ...,
+        page: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["page", b"page", "page_size", b"page_size", "runs", b"runs", "total_size", b"total_size"]) -> None: ...
+
+global___ListModelRunsByCreditOwnerResponse = ListModelRunsByCreditOwnerResponse
