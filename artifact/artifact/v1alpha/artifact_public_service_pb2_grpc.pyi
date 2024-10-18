@@ -6,6 +6,7 @@ import abc
 import artifact.artifact.v1alpha.artifact_pb2
 import artifact.artifact.v1alpha.chunk_pb2
 import artifact.artifact.v1alpha.file_catalog_pb2
+import artifact.artifact.v1alpha.object_pb2
 import artifact.artifact.v1alpha.qa_pb2
 import collections.abc
 import grpc
@@ -120,6 +121,16 @@ class ArtifactPublicServiceStub:
         artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsResponse,
     ]
     """List Catalog Runs"""
+    GetObjectUploadURL: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.object_pb2.GetObjectUploadURLRequest,
+        artifact.artifact.v1alpha.object_pb2.GetObjectUploadURLResponse,
+    ]
+    """Get Object Upload URL"""
+    GetObjectDownloadURL: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.object_pb2.GetObjectDownloadURLRequest,
+        artifact.artifact.v1alpha.object_pb2.GetObjectDownloadURLResponse,
+    ]
+    """Get Object Download URL"""
 
 class ArtifactPublicServiceAsyncStub:
     """ArtifactPublicService exposes the public endpoints that allow clients to
@@ -220,6 +231,16 @@ class ArtifactPublicServiceAsyncStub:
         artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsResponse,
     ]
     """List Catalog Runs"""
+    GetObjectUploadURL: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.object_pb2.GetObjectUploadURLRequest,
+        artifact.artifact.v1alpha.object_pb2.GetObjectUploadURLResponse,
+    ]
+    """Get Object Upload URL"""
+    GetObjectDownloadURL: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.object_pb2.GetObjectDownloadURLRequest,
+        artifact.artifact.v1alpha.object_pb2.GetObjectDownloadURLResponse,
+    ]
+    """Get Object Download URL"""
 
 class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
     """ArtifactPublicService exposes the public endpoints that allow clients to
@@ -354,5 +375,19 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsResponse]]:
         """List Catalog Runs"""
+    @abc.abstractmethod
+    def GetObjectUploadURL(
+        self,
+        request: artifact.artifact.v1alpha.object_pb2.GetObjectUploadURLRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.object_pb2.GetObjectUploadURLResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.object_pb2.GetObjectUploadURLResponse]]:
+        """Get Object Upload URL"""
+    @abc.abstractmethod
+    def GetObjectDownloadURL(
+        self,
+        request: artifact.artifact.v1alpha.object_pb2.GetObjectDownloadURLRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.object_pb2.GetObjectDownloadURLResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.object_pb2.GetObjectDownloadURLResponse]]:
+        """Get Object Download URL"""
 
 def add_ArtifactPublicServiceServicer_to_server(servicer: ArtifactPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

@@ -5,6 +5,7 @@ import grpc
 from artifact.artifact.v1alpha import artifact_pb2 as artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2
 from artifact.artifact.v1alpha import chunk_pb2 as artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2
 from artifact.artifact.v1alpha import file_catalog_pb2 as artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2
+from artifact.artifact.v1alpha import object_pb2 as artifact_dot_artifact_dot_v1alpha_dot_object__pb2
 from artifact.artifact.v1alpha import qa_pb2 as artifact_dot_artifact_dot_v1alpha_dot_qa__pb2
 
 
@@ -103,6 +104,16 @@ class ArtifactPublicServiceStub(object):
                 '/artifact.artifact.v1alpha.ArtifactPublicService/ListCatalogRuns',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogRunsRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogRunsResponse.FromString,
+                )
+        self.GetObjectUploadURL = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/GetObjectUploadURL',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectUploadURLRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectUploadURLResponse.FromString,
+                )
+        self.GetObjectDownloadURL = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/GetObjectDownloadURL',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectDownloadURLRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectDownloadURLResponse.FromString,
                 )
 
 
@@ -236,6 +247,20 @@ class ArtifactPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetObjectUploadURL(self, request, context):
+        """Get Object Upload URL
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetObjectDownloadURL(self, request, context):
+        """Get Object Download URL
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ArtifactPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -323,6 +348,16 @@ def add_ArtifactPublicServiceServicer_to_server(servicer, server):
                     servicer.ListCatalogRuns,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogRunsRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogRunsResponse.SerializeToString,
+            ),
+            'GetObjectUploadURL': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetObjectUploadURL,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectUploadURLRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectUploadURLResponse.SerializeToString,
+            ),
+            'GetObjectDownloadURL': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetObjectDownloadURL,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectDownloadURLRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectDownloadURLResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -622,5 +657,39 @@ class ArtifactPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ListCatalogRuns',
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogRunsRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogRunsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetObjectUploadURL(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/GetObjectUploadURL',
+            artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectUploadURLRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectUploadURLResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetObjectDownloadURL(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/GetObjectDownloadURL',
+            artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectDownloadURLRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectDownloadURLResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
