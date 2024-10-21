@@ -54,6 +54,11 @@ class ArtifactPrivateServiceStub:
         artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagResponse,
     ]
     """Delete a repository tag."""
+    GetObjectURL: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.GetObjectURLRequest,
+        artifact.artifact.v1alpha.artifact_pb2.GetObjectURLResponse,
+    ]
+    """Get Object Upload URL"""
 
 class ArtifactPrivateServiceAsyncStub:
     """ArtifactPrivateService exposes the private endpoints that allow clients to
@@ -91,6 +96,11 @@ class ArtifactPrivateServiceAsyncStub:
         artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagResponse,
     ]
     """Delete a repository tag."""
+    GetObjectURL: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.GetObjectURLRequest,
+        artifact.artifact.v1alpha.artifact_pb2.GetObjectURLResponse,
+    ]
+    """Get Object Upload URL"""
 
 class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
     """ArtifactPrivateService exposes the private endpoints that allow clients to
@@ -136,5 +146,12 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagResponse]]:
         """Delete a repository tag."""
+    @abc.abstractmethod
+    def GetObjectURL(
+        self,
+        request: artifact.artifact.v1alpha.artifact_pb2.GetObjectURLRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.GetObjectURLResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.GetObjectURLResponse]]:
+        """Get Object Upload URL"""
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer: ArtifactPrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
