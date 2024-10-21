@@ -7,6 +7,7 @@ import google.protobuf.descriptor
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
 import sys
+import typing
 
 if sys.version_info >= (3, 8):
     import typing as typing_extensions
@@ -30,6 +31,7 @@ class Object(google.protobuf.message.Message):
     IS_UPLOADED_FIELD_NUMBER: builtins.int
     PATH_FIELD_NUMBER: builtins.int
     OBJECT_EXPIRE_DAYS_FIELD_NUMBER: builtins.int
+    LAST_MODIFIED_TIME_FIELD_NUMBER: builtins.int
     CREATED_TIME_FIELD_NUMBER: builtins.int
     UPDATED_TIME_FIELD_NUMBER: builtins.int
     uid: builtins.str
@@ -40,7 +42,7 @@ class Object(google.protobuf.message.Message):
     """size in bytes"""
     content_type: builtins.str
     """content type
-    this is from content-type header of http request
+    this is mime type from content-type header of http request or from file extension
     """
     namespace_uid: builtins.str
     """namespace uid"""
@@ -52,8 +54,11 @@ class Object(google.protobuf.message.Message):
     """object path(optional)"""
     object_expire_days: builtins.int
     """object live time in days
-    minimum is 1 day. if not set, the object will not be deleted automatically
+    if set to 0, the object will not be deleted automatically
     """
+    @property
+    def last_modified_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """last modified time"""
     @property
     def created_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """created time"""
@@ -72,11 +77,15 @@ class Object(google.protobuf.message.Message):
         is_uploaded: builtins.bool = ...,
         path: builtins.str | None = ...,
         object_expire_days: builtins.int = ...,
+        last_modified_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         created_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         updated_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_path", b"_path", "created_time", b"created_time", "path", b"path", "updated_time", b"updated_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_path", b"_path", "content_type", b"content_type", "created_time", b"created_time", "creator", b"creator", "is_uploaded", b"is_uploaded", "name", b"name", "namespace_uid", b"namespace_uid", "object_expire_days", b"object_expire_days", "path", b"path", "size", b"size", "uid", b"uid", "updated_time", b"updated_time"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_last_modified_time", b"_last_modified_time", "_path", b"_path", "created_time", b"created_time", "last_modified_time", b"last_modified_time", "path", b"path", "updated_time", b"updated_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_last_modified_time", b"_last_modified_time", "_path", b"_path", "content_type", b"content_type", "created_time", b"created_time", "creator", b"creator", "is_uploaded", b"is_uploaded", "last_modified_time", b"last_modified_time", "name", b"name", "namespace_uid", b"namespace_uid", "object_expire_days", b"object_expire_days", "path", b"path", "size", b"size", "uid", b"uid", "updated_time", b"updated_time"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_last_modified_time", b"_last_modified_time"]) -> typing_extensions.Literal["last_modified_time"] | None: ...
+    @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_path", b"_path"]) -> typing_extensions.Literal["path"] | None: ...
 
 global___Object = Object
@@ -89,7 +98,7 @@ class GetObjectUploadURLRequest(google.protobuf.message.Message):
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     OBJECT_NAME_FIELD_NUMBER: builtins.int
-    EXPIRATION_TIME_FIELD_NUMBER: builtins.int
+    URL_EXPIRE_DAYS_FIELD_NUMBER: builtins.int
     LAST_MODIFIED_TIME_FIELD_NUMBER: builtins.int
     OBJECT_EXPIRE_DAYS_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
@@ -98,28 +107,30 @@ class GetObjectUploadURLRequest(google.protobuf.message.Message):
     """name of the object with length limit to 1024 characters.
     this is the unique identifier of the object in the namespace
     """
-    expiration_time: builtins.int
-    """expiration time in minutes for the URL with a default value of 1440 minutes (1 day).
-    minimum is 60 minutes (1 hour) and maximum is 20160 minutes (14 days)
+    url_expire_days: builtins.int
+    """Expiration time in days for the URL.
+    Minimum is 1 day and maximum is 7 days. If not set or set to 0, defaults to 1 day.
     """
     @property
     def last_modified_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """last modified time this value is provided by the client when the object url is created"""
+        """last modified time this value is provided by the client when the object url is created
+        it must be in RFC3339 formatted date-time string
+        """
     object_expire_days: builtins.int
     """object live time in days
-    minimum is 1 day. if not set, the object will not be deleted automatically
+    minimum is 1 day. if set to 0, the object will not be deleted automatically
     """
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         object_name: builtins.str = ...,
-        expiration_time: builtins.int = ...,
+        url_expire_days: builtins.int = ...,
         last_modified_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         object_expire_days: builtins.int = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["last_modified_time", b"last_modified_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["expiration_time", b"expiration_time", "last_modified_time", b"last_modified_time", "namespace_id", b"namespace_id", "object_expire_days", b"object_expire_days", "object_name", b"object_name"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["last_modified_time", b"last_modified_time", "namespace_id", b"namespace_id", "object_expire_days", b"object_expire_days", "object_name", b"object_name", "url_expire_days", b"url_expire_days"]) -> None: ...
 
 global___GetObjectUploadURLRequest = GetObjectUploadURLRequest
 
@@ -161,7 +172,7 @@ class GetObjectDownloadURLRequest(google.protobuf.message.Message):
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     OBJECT_UID_FIELD_NUMBER: builtins.int
     OBJECT_NAME_FIELD_NUMBER: builtins.int
-    EXPIRATION_TIME_FIELD_NUMBER: builtins.int
+    URL_EXPIRE_DAYS_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """id of the namespace"""
     object_uid: builtins.str
@@ -173,9 +184,9 @@ class GetObjectDownloadURLRequest(google.protobuf.message.Message):
     """object name
     if provided, object uid is not required
     """
-    expiration_time: builtins.int
-    """expiration time in minutes for url with default value to 1440 minutes (1 day).
-    minimum is 60 minutes (1 hour) and maximum is 20160 minutes (14 days)
+    url_expire_days: builtins.int
+    """Expiration time in days for the URL.
+    Minimum is 1 day and maximum is 7 days. If not set or set to 0, defaults to 1 day.
     """
     def __init__(
         self,
@@ -183,9 +194,9 @@ class GetObjectDownloadURLRequest(google.protobuf.message.Message):
         namespace_id: builtins.str = ...,
         object_uid: builtins.str = ...,
         object_name: builtins.str = ...,
-        expiration_time: builtins.int = ...,
+        url_expire_days: builtins.int = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["expiration_time", b"expiration_time", "namespace_id", b"namespace_id", "object_name", b"object_name", "object_uid", b"object_uid"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "object_name", b"object_name", "object_uid", b"object_uid", "url_expire_days", b"url_expire_days"]) -> None: ...
 
 global___GetObjectDownloadURLRequest = GetObjectDownloadURLRequest
 
