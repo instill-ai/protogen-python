@@ -4457,8 +4457,8 @@ class ListPipelineRunsRequest(google.protobuf.message.Message):
 global___ListPipelineRunsRequest = ListPipelineRunsRequest
 
 @typing_extensions.final
-class ListPipelineRunsByCreditOwnerRequest(google.protobuf.message.Message):
-    """ListPipelineRunsByCreditOwnerRequest is the request message for ListPipelineRunsByCreditOwner."""
+class ListPipelineRunsByRequesterRequest(google.protobuf.message.Message):
+    """ListPipelineRunsByRequesterRequest is the request message for ListPipelineRunsByRequester."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -4468,6 +4468,7 @@ class ListPipelineRunsByCreditOwnerRequest(google.protobuf.message.Message):
     ORDER_BY_FIELD_NUMBER: builtins.int
     START_FIELD_NUMBER: builtins.int
     STOP_FIELD_NUMBER: builtins.int
+    REQUESTER_ID_FIELD_NUMBER: builtins.int
     page: builtins.int
     """The page number to retrieve."""
     page_size: builtins.int
@@ -4477,7 +4478,11 @@ class ListPipelineRunsByCreditOwnerRequest(google.protobuf.message.Message):
     filter: builtins.str
     """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
     expression.
-    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    The following filters are supported:
+    - `status`
+    - `source`
+
+    **Example**: `status="RUN_STATUS_COMPLETED"`.
     """
     order_by: builtins.str
     """Order by field, with options for ordering by `id`, `create_time` or `update_time`.
@@ -4493,6 +4498,8 @@ class ListPipelineRunsByCreditOwnerRequest(google.protobuf.message.Message):
         """End of the time range from which the records will be fetched.
         The default value is the current timestamp.
         """
+    requester_id: builtins.str
+    """Requester ID."""
     def __init__(
         self,
         *,
@@ -4502,9 +4509,10 @@ class ListPipelineRunsByCreditOwnerRequest(google.protobuf.message.Message):
         order_by: builtins.str | None = ...,
         start: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         stop: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        requester_id: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_start", b"_start", "_stop", b"_stop", "filter", b"filter", "order_by", b"order_by", "start", b"start", "stop", b"stop"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_start", b"_start", "_stop", b"_stop", "filter", b"filter", "order_by", b"order_by", "page", b"page", "page_size", b"page_size", "start", b"start", "stop", b"stop"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_start", b"_start", "_stop", b"_stop", "filter", b"filter", "order_by", b"order_by", "page", b"page", "page_size", b"page_size", "requester_id", b"requester_id", "start", b"start", "stop", b"stop"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
     @typing.overload
@@ -4514,7 +4522,7 @@ class ListPipelineRunsByCreditOwnerRequest(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_stop", b"_stop"]) -> typing_extensions.Literal["stop"] | None: ...
 
-global___ListPipelineRunsByCreditOwnerRequest = ListPipelineRunsByCreditOwnerRequest
+global___ListPipelineRunsByRequesterRequest = ListPipelineRunsByRequesterRequest
 
 @typing_extensions.final
 class ListPipelineRunsResponse(google.protobuf.message.Message):
@@ -4548,8 +4556,8 @@ class ListPipelineRunsResponse(google.protobuf.message.Message):
 global___ListPipelineRunsResponse = ListPipelineRunsResponse
 
 @typing_extensions.final
-class ListPipelineRunsByCreditOwnerResponse(google.protobuf.message.Message):
-    """ListPipelineRunsByCreditOwnerResponse is the response message for ListPipelineRunsByCreditOwner."""
+class ListPipelineRunsByRequesterResponse(google.protobuf.message.Message):
+    """ListPipelineRunsByRequesterResponse is the response message for ListPipelineRunsByRequester."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -4576,7 +4584,7 @@ class ListPipelineRunsByCreditOwnerResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["page", b"page", "page_size", b"page_size", "pipeline_runs", b"pipeline_runs", "total_size", b"total_size"]) -> None: ...
 
-global___ListPipelineRunsByCreditOwnerResponse = ListPipelineRunsByCreditOwnerResponse
+global___ListPipelineRunsByRequesterResponse = ListPipelineRunsByRequesterResponse
 
 @typing_extensions.final
 class ListComponentRunsRequest(google.protobuf.message.Message):
@@ -4719,6 +4727,7 @@ class PipelineRun(google.protobuf.message.Message):
     CREDIT_AMOUNT_FIELD_NUMBER: builtins.int
     DATA_SPECIFICATION_FIELD_NUMBER: builtins.int
     PIPELINE_ID_FIELD_NUMBER: builtins.int
+    REQUESTER_ID_FIELD_NUMBER: builtins.int
     pipeline_uid: builtins.str
     """Unique identifier for the pipeline."""
     pipeline_run_uid: builtins.str
@@ -4757,6 +4766,10 @@ class PipelineRun(google.protobuf.message.Message):
         """Data specifications."""
     pipeline_id: builtins.str
     """The ID of the pipeline"""
+    requester_id: builtins.str
+    """Requester ID. This field might be empty if the pipeline run belongs to a
+    deleted namespace.
+    """
     def __init__(
         self,
         *,
@@ -4776,9 +4789,10 @@ class PipelineRun(google.protobuf.message.Message):
         credit_amount: builtins.float | None = ...,
         data_specification: vdp.pipeline.v1beta.component_definition_pb2.DataSpecification | None = ...,
         pipeline_id: builtins.str | None = ...,
+        requester_id: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_pipeline_id", b"_pipeline_id", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "data_specification", b"data_specification", "error", b"error", "pipeline_id", b"pipeline_id", "recipe_snapshot", b"recipe_snapshot", "runner_id", b"runner_id", "start_time", b"start_time", "total_duration", b"total_duration"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_pipeline_id", b"_pipeline_id", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "data_specification", b"data_specification", "error", b"error", "inputs", b"inputs", "outputs", b"outputs", "pipeline_id", b"pipeline_id", "pipeline_run_uid", b"pipeline_run_uid", "pipeline_uid", b"pipeline_uid", "pipeline_version", b"pipeline_version", "recipe_snapshot", b"recipe_snapshot", "runner_id", b"runner_id", "source", b"source", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_pipeline_id", b"_pipeline_id", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "data_specification", b"data_specification", "error", b"error", "inputs", b"inputs", "outputs", b"outputs", "pipeline_id", b"pipeline_id", "pipeline_run_uid", b"pipeline_run_uid", "pipeline_uid", b"pipeline_uid", "pipeline_version", b"pipeline_version", "recipe_snapshot", b"recipe_snapshot", "requester_id", b"requester_id", "runner_id", b"runner_id", "source", b"source", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_complete_time", b"_complete_time"]) -> typing_extensions.Literal["complete_time"] | None: ...
     @typing.overload

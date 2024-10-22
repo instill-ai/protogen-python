@@ -578,14 +578,14 @@ class ModelPublicServiceStub:
 
     Returns a paginated list of model runs.
     """
-    ListModelRunsByCreditOwner: grpc.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.ListModelRunsByCreditOwnerRequest,
-        model.model.v1alpha.model_pb2.ListModelRunsByCreditOwnerResponse,
+    ListModelRunsByRequester: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.ListModelRunsByRequesterRequest,
+        model.model.v1alpha.model_pb2.ListModelRunsByRequesterResponse,
     ]
     """List Model Runs of a Namespace (user or organization)
 
-    Returns a paginated list of runs for 1 or more models. This is mainly used by credit dashboard.
-    The requester can view all the runs that consumed their credits across different models.
+    Returns a paginated list of runs for 1 or more models. This is mainly used by dashboard.
+    The requester can view all the runs by the requester across different models.
     """
 
 class ModelPublicServiceAsyncStub:
@@ -1147,14 +1147,14 @@ class ModelPublicServiceAsyncStub:
 
     Returns a paginated list of model runs.
     """
-    ListModelRunsByCreditOwner: grpc.aio.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_pb2.ListModelRunsByCreditOwnerRequest,
-        model.model.v1alpha.model_pb2.ListModelRunsByCreditOwnerResponse,
+    ListModelRunsByRequester: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.ListModelRunsByRequesterRequest,
+        model.model.v1alpha.model_pb2.ListModelRunsByRequesterResponse,
     ]
     """List Model Runs of a Namespace (user or organization)
 
-    Returns a paginated list of runs for 1 or more models. This is mainly used by credit dashboard.
-    The requester can view all the runs that consumed their credits across different models.
+    Returns a paginated list of runs for 1 or more models. This is mainly used by dashboard.
+    The requester can view all the runs by the requester across different models.
     """
 
 class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
@@ -1835,15 +1835,15 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         Returns a paginated list of model runs.
         """
     @abc.abstractmethod
-    def ListModelRunsByCreditOwner(
+    def ListModelRunsByRequester(
         self,
-        request: model.model.v1alpha.model_pb2.ListModelRunsByCreditOwnerRequest,
+        request: model.model.v1alpha.model_pb2.ListModelRunsByRequesterRequest,
         context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_pb2.ListModelRunsByCreditOwnerResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.ListModelRunsByCreditOwnerResponse]]:
+    ) -> typing.Union[model.model.v1alpha.model_pb2.ListModelRunsByRequesterResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.ListModelRunsByRequesterResponse]]:
         """List Model Runs of a Namespace (user or organization)
 
-        Returns a paginated list of runs for 1 or more models. This is mainly used by credit dashboard.
-        The requester can view all the runs that consumed their credits across different models.
+        Returns a paginated list of runs for 1 or more models. This is mainly used by dashboard.
+        The requester can view all the runs by the requester across different models.
         """
 
 def add_ModelPublicServiceServicer_to_server(servicer: ModelPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

@@ -3750,6 +3750,7 @@ class ModelRun(google.protobuf.message.Message):
     TASK_INPUTS_FIELD_NUMBER: builtins.int
     TASK_OUTPUTS_FIELD_NUMBER: builtins.int
     MODEL_ID_FIELD_NUMBER: builtins.int
+    REQUESTER_ID_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """Model Run UUID."""
     model_uid: builtins.str
@@ -3785,6 +3786,10 @@ class ModelRun(google.protobuf.message.Message):
         """Model inference outputs."""
     model_id: builtins.str
     """Model ID."""
+    requester_id: builtins.str
+    """Requester ID. This field might be empty if the model run belongs to a
+    deleted namespace.
+    """
     def __init__(
         self,
         *,
@@ -3803,9 +3808,10 @@ class ModelRun(google.protobuf.message.Message):
         task_inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
         task_outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
         model_id: builtins.str | None = ...,
+        requester_id: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_credit_amount", b"_credit_amount", "_end_time", b"_end_time", "_error", b"_error", "_model_id", b"_model_id", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "create_time", b"create_time", "credit_amount", b"credit_amount", "end_time", b"end_time", "error", b"error", "model_id", b"model_id", "runner_id", b"runner_id", "total_duration", b"total_duration", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_credit_amount", b"_credit_amount", "_end_time", b"_end_time", "_error", b"_error", "_model_id", b"_model_id", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "create_time", b"create_time", "credit_amount", b"credit_amount", "end_time", b"end_time", "error", b"error", "model_id", b"model_id", "model_uid", b"model_uid", "runner_id", b"runner_id", "source", b"source", "status", b"status", "task_inputs", b"task_inputs", "task_outputs", b"task_outputs", "total_duration", b"total_duration", "uid", b"uid", "update_time", b"update_time", "version", b"version"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_credit_amount", b"_credit_amount", "_end_time", b"_end_time", "_error", b"_error", "_model_id", b"_model_id", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "create_time", b"create_time", "credit_amount", b"credit_amount", "end_time", b"end_time", "error", b"error", "model_id", b"model_id", "model_uid", b"model_uid", "requester_id", b"requester_id", "runner_id", b"runner_id", "source", b"source", "status", b"status", "task_inputs", b"task_inputs", "task_outputs", b"task_outputs", "total_duration", b"total_duration", "uid", b"uid", "update_time", b"update_time", "version", b"version"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_credit_amount", b"_credit_amount"]) -> typing_extensions.Literal["credit_amount"] | None: ...
     @typing.overload
@@ -3881,8 +3887,8 @@ class ListModelRunsRequest(google.protobuf.message.Message):
 global___ListModelRunsRequest = ListModelRunsRequest
 
 @typing_extensions.final
-class ListModelRunsByCreditOwnerRequest(google.protobuf.message.Message):
-    """ListModelRunsByCreditOwnerRequest is the request message for ListModelRunsByCreditOwner."""
+class ListModelRunsByRequesterRequest(google.protobuf.message.Message):
+    """ListModelRunsByRequesterRequest is the request message for ListModelRunsByRequester."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -3892,6 +3898,7 @@ class ListModelRunsByCreditOwnerRequest(google.protobuf.message.Message):
     FILTER_FIELD_NUMBER: builtins.int
     START_FIELD_NUMBER: builtins.int
     STOP_FIELD_NUMBER: builtins.int
+    REQUESTER_ID_FIELD_NUMBER: builtins.int
     page_size: builtins.int
     """The maximum number of runs to return. The default and cap values are 10
     and 100, respectively.
@@ -3908,9 +3915,10 @@ class ListModelRunsByCreditOwnerRequest(google.protobuf.message.Message):
     filter: builtins.str
     """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
     expression.
-    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    - Example: `status="RUN_STATUS_COMPLETED"`.
     The filter can be applied to the following fields:
-    - `create_time`
+    - `status`
+    - `source`
     """
     @property
     def start(self) -> google.protobuf.timestamp_pb2.Timestamp:
@@ -3922,6 +3930,8 @@ class ListModelRunsByCreditOwnerRequest(google.protobuf.message.Message):
         """End of the time range from which the records will be fetched.
         The default value is the current timestamp.
         """
+    requester_id: builtins.str
+    """Requester ID."""
     def __init__(
         self,
         *,
@@ -3931,9 +3941,10 @@ class ListModelRunsByCreditOwnerRequest(google.protobuf.message.Message):
         filter: builtins.str | None = ...,
         start: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         stop: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        requester_id: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page", b"_page", "_page_size", b"_page_size", "_start", b"_start", "_stop", b"_stop", "filter", b"filter", "order_by", b"order_by", "page", b"page", "page_size", b"page_size", "start", b"start", "stop", b"stop"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page", b"_page", "_page_size", b"_page_size", "_start", b"_start", "_stop", b"_stop", "filter", b"filter", "order_by", b"order_by", "page", b"page", "page_size", b"page_size", "start", b"start", "stop", b"stop"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page", b"_page", "_page_size", b"_page_size", "_start", b"_start", "_stop", b"_stop", "filter", b"filter", "order_by", b"order_by", "page", b"page", "page_size", b"page_size", "requester_id", b"requester_id", "start", b"start", "stop", b"stop"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
     @typing.overload
@@ -3947,7 +3958,7 @@ class ListModelRunsByCreditOwnerRequest(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_stop", b"_stop"]) -> typing_extensions.Literal["stop"] | None: ...
 
-global___ListModelRunsByCreditOwnerRequest = ListModelRunsByCreditOwnerRequest
+global___ListModelRunsByRequesterRequest = ListModelRunsByRequesterRequest
 
 @typing_extensions.final
 class ListModelRunsResponse(google.protobuf.message.Message):
@@ -3981,8 +3992,8 @@ class ListModelRunsResponse(google.protobuf.message.Message):
 global___ListModelRunsResponse = ListModelRunsResponse
 
 @typing_extensions.final
-class ListModelRunsByCreditOwnerResponse(google.protobuf.message.Message):
-    """ListModelRunsByCreditOwnerResponse is the request message for ListModelRunsByCreditOwner."""
+class ListModelRunsByRequesterResponse(google.protobuf.message.Message):
+    """ListModelRunsByRequesterResponse is the request message for ListModelRunsByRequester."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -4009,4 +4020,4 @@ class ListModelRunsByCreditOwnerResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["page", b"page", "page_size", b"page_size", "runs", b"runs", "total_size", b"total_size"]) -> None: ...
 
-global___ListModelRunsByCreditOwnerResponse = ListModelRunsByCreditOwnerResponse
+global___ListModelRunsByRequesterResponse = ListModelRunsByRequesterResponse

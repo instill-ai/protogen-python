@@ -462,10 +462,10 @@ class PipelinePublicServiceStub(object):
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListComponentRunsRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListComponentRunsResponse.FromString,
                 )
-        self.ListPipelineRunsByCreditOwner = channel.unary_unary(
-                '/vdp.pipeline.v1beta.PipelinePublicService/ListPipelineRunsByCreditOwner',
-                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsByCreditOwnerRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsByCreditOwnerResponse.FromString,
+        self.ListPipelineRunsByRequester = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/ListPipelineRunsByRequester',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsByRequesterRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsByRequesterResponse.FromString,
                 )
         self.ListNamespaceConnections = channel.unary_unary(
                 '/vdp.pipeline.v1beta.PipelinePublicService/ListNamespaceConnections',
@@ -1551,11 +1551,11 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListPipelineRunsByCreditOwner(self, request, context):
+    def ListPipelineRunsByRequester(self, request, context):
         """List Pipeline Runs of a Namespace (user or organization)
 
-        Returns a paginated list of runs for 1 or more pipelines. This is mainly used by credit dashboard.
-        The requester can view all the runs that consumed their credits across different pipelines.
+        Returns a paginated list of runs for 1 or more pipelines. This is mainly used by dashboard.
+        The requester can view all the runs by the requester across different pipelines.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2093,10 +2093,10 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListComponentRunsRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListComponentRunsResponse.SerializeToString,
             ),
-            'ListPipelineRunsByCreditOwner': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListPipelineRunsByCreditOwner,
-                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsByCreditOwnerRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsByCreditOwnerResponse.SerializeToString,
+            'ListPipelineRunsByRequester': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListPipelineRunsByRequester,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsByRequesterRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsByRequesterResponse.SerializeToString,
             ),
             'ListNamespaceConnections': grpc.unary_unary_rpc_method_handler(
                     servicer.ListNamespaceConnections,
@@ -3654,7 +3654,7 @@ class PipelinePublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ListPipelineRunsByCreditOwner(request,
+    def ListPipelineRunsByRequester(request,
             target,
             options=(),
             channel_credentials=None,
@@ -3664,9 +3664,9 @@ class PipelinePublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/ListPipelineRunsByCreditOwner',
-            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsByCreditOwnerRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsByCreditOwnerResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/ListPipelineRunsByRequester',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsByRequesterRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsByRequesterResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

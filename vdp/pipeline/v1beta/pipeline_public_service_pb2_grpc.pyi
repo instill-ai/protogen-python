@@ -969,14 +969,14 @@ class PipelinePublicServiceStub:
 
     Returns the information of each component execution within a pipeline run.
     """
-    ListPipelineRunsByCreditOwner: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.pipeline_pb2.ListPipelineRunsByCreditOwnerRequest,
-        vdp.pipeline.v1beta.pipeline_pb2.ListPipelineRunsByCreditOwnerResponse,
+    ListPipelineRunsByRequester: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.ListPipelineRunsByRequesterRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.ListPipelineRunsByRequesterResponse,
     ]
     """List Pipeline Runs of a Namespace (user or organization)
 
-    Returns a paginated list of runs for 1 or more pipelines. This is mainly used by credit dashboard.
-    The requester can view all the runs that consumed their credits across different pipelines.
+    Returns a paginated list of runs for 1 or more pipelines. This is mainly used by dashboard.
+    The requester can view all the runs by the requester across different pipelines.
     """
     ListNamespaceConnections: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.integration_pb2.ListNamespaceConnectionsRequest,
@@ -2006,14 +2006,14 @@ class PipelinePublicServiceAsyncStub:
 
     Returns the information of each component execution within a pipeline run.
     """
-    ListPipelineRunsByCreditOwner: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.pipeline_pb2.ListPipelineRunsByCreditOwnerRequest,
-        vdp.pipeline.v1beta.pipeline_pb2.ListPipelineRunsByCreditOwnerResponse,
+    ListPipelineRunsByRequester: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.ListPipelineRunsByRequesterRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.ListPipelineRunsByRequesterResponse,
     ]
     """List Pipeline Runs of a Namespace (user or organization)
 
-    Returns a paginated list of runs for 1 or more pipelines. This is mainly used by credit dashboard.
-    The requester can view all the runs that consumed their credits across different pipelines.
+    Returns a paginated list of runs for 1 or more pipelines. This is mainly used by dashboard.
+    The requester can view all the runs by the requester across different pipelines.
     """
     ListNamespaceConnections: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.integration_pb2.ListNamespaceConnectionsRequest,
@@ -3220,15 +3220,15 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         Returns the information of each component execution within a pipeline run.
         """
     @abc.abstractmethod
-    def ListPipelineRunsByCreditOwner(
+    def ListPipelineRunsByRequester(
         self,
-        request: vdp.pipeline.v1beta.pipeline_pb2.ListPipelineRunsByCreditOwnerRequest,
+        request: vdp.pipeline.v1beta.pipeline_pb2.ListPipelineRunsByRequesterRequest,
         context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.ListPipelineRunsByCreditOwnerResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.ListPipelineRunsByCreditOwnerResponse]]:
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.ListPipelineRunsByRequesterResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.ListPipelineRunsByRequesterResponse]]:
         """List Pipeline Runs of a Namespace (user or organization)
 
-        Returns a paginated list of runs for 1 or more pipelines. This is mainly used by credit dashboard.
-        The requester can view all the runs that consumed their credits across different pipelines.
+        Returns a paginated list of runs for 1 or more pipelines. This is mainly used by dashboard.
+        The requester can view all the runs by the requester across different pipelines.
         """
     @abc.abstractmethod
     def ListNamespaceConnections(
