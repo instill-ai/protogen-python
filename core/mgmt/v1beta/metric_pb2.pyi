@@ -545,3 +545,123 @@ class PipelineTriggerChartRecord(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["compute_time_duration", b"compute_time_duration", "pipeline_id", b"pipeline_id", "pipeline_release_id", b"pipeline_release_id", "pipeline_release_uid", b"pipeline_release_uid", "pipeline_uid", b"pipeline_uid", "status", b"status", "time_buckets", b"time_buckets", "trigger_counts", b"trigger_counts", "trigger_mode", b"trigger_mode"]) -> None: ...
 
 global___PipelineTriggerChartRecord = PipelineTriggerChartRecord
+
+@typing_extensions.final
+class PipelineTriggerRecord(google.protobuf.message.Message):
+    """PipelineTriggerRecord represents a pipeline execution event."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TRIGGER_TIME_FIELD_NUMBER: builtins.int
+    PIPELINE_TRIGGER_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_UID_FIELD_NUMBER: builtins.int
+    TRIGGER_MODE_FIELD_NUMBER: builtins.int
+    COMPUTE_TIME_DURATION_FIELD_NUMBER: builtins.int
+    STATUS_FIELD_NUMBER: builtins.int
+    PIPELINE_RELEASE_ID_FIELD_NUMBER: builtins.int
+    PIPELINE_RELEASE_UID_FIELD_NUMBER: builtins.int
+    @property
+    def trigger_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """The moment when the pipeline was triggered."""
+    pipeline_trigger_id: builtins.str
+    """UUID of the trigger."""
+    pipeline_id: builtins.str
+    """Pipeline ID."""
+    pipeline_uid: builtins.str
+    """Pipeline UUID."""
+    trigger_mode: global___Mode.ValueType
+    """Trigger mode."""
+    compute_time_duration: builtins.float
+    """Total execution duration."""
+    status: global___Status.ValueType
+    """Final status."""
+    pipeline_release_id: builtins.str
+    """If a release of the pipeline was triggered, pipeline version."""
+    pipeline_release_uid: builtins.str
+    """If a release of the pipeline was triggered, release UUID."""
+    def __init__(
+        self,
+        *,
+        trigger_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        pipeline_trigger_id: builtins.str = ...,
+        pipeline_id: builtins.str = ...,
+        pipeline_uid: builtins.str = ...,
+        trigger_mode: global___Mode.ValueType = ...,
+        compute_time_duration: builtins.float = ...,
+        status: global___Status.ValueType = ...,
+        pipeline_release_id: builtins.str = ...,
+        pipeline_release_uid: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["trigger_time", b"trigger_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["compute_time_duration", b"compute_time_duration", "pipeline_id", b"pipeline_id", "pipeline_release_id", b"pipeline_release_id", "pipeline_release_uid", b"pipeline_release_uid", "pipeline_trigger_id", b"pipeline_trigger_id", "pipeline_uid", b"pipeline_uid", "status", b"status", "trigger_mode", b"trigger_mode", "trigger_time", b"trigger_time"]) -> None: ...
+
+global___PipelineTriggerRecord = PipelineTriggerRecord
+
+@typing_extensions.final
+class ListPipelineTriggerRecordsRequest(google.protobuf.message.Message):
+    """ListPipelineTriggerRecordsRequest represents a request to list the triggers
+    of a pipeline.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
+    page_size: builtins.int
+    """The maximum number of triggers to return. If this parameter is unspecified,
+    at most 100 pipelines will be returned. The cap value for this parameter is
+    1000 (i.e. any value above that will be coerced to 100).
+    """
+    page_token: builtins.str
+    """Page token."""
+    filter: builtins.str
+    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
+    expression.
+    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
+    """
+    def __init__(
+        self,
+        *,
+        page_size: builtins.int | None = ...,
+        page_token: builtins.str | None = ...,
+        filter: builtins.str | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_token", b"_page_token"]) -> typing_extensions.Literal["page_token"] | None: ...
+
+global___ListPipelineTriggerRecordsRequest = ListPipelineTriggerRecordsRequest
+
+@typing_extensions.final
+class ListPipelineTriggerRecordsResponse(google.protobuf.message.Message):
+    """ListPipelineTriggerRecordsResponse contains a list of pipeline triggers."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PIPELINE_TRIGGER_RECORDS_FIELD_NUMBER: builtins.int
+    NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    @property
+    def pipeline_trigger_records(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PipelineTriggerRecord]:
+        """A list of pipeline triggers."""
+    next_page_token: builtins.str
+    """Next page token."""
+    total_size: builtins.int
+    """Total number of pipeline triggers."""
+    def __init__(
+        self,
+        *,
+        pipeline_trigger_records: collections.abc.Iterable[global___PipelineTriggerRecord] | None = ...,
+        next_page_token: builtins.str = ...,
+        total_size: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "pipeline_trigger_records", b"pipeline_trigger_records", "total_size", b"total_size"]) -> None: ...
+
+global___ListPipelineTriggerRecordsResponse = ListPipelineTriggerRecordsResponse

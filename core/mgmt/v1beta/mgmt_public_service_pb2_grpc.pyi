@@ -262,6 +262,14 @@ class MgmtPublicServiceStub:
     Returns the availability of a namespace or, alternatively, the type of
     resource that is using it.
     """
+    ListPipelineTriggerRecords: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsRequest,
+        core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsResponse,
+    ]
+    """List pipeline triggers
+
+    Returns a paginated list of pipeline executions.
+    """
     GetPipelineTriggerCount: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.GetPipelineTriggerCountRequest,
         core.mgmt.v1beta.metric_pb2.GetPipelineTriggerCountResponse,
@@ -588,6 +596,14 @@ class MgmtPublicServiceAsyncStub:
 
     Returns the availability of a namespace or, alternatively, the type of
     resource that is using it.
+    """
+    ListPipelineTriggerRecords: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsRequest,
+        core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsResponse,
+    ]
+    """List pipeline triggers
+
+    Returns a paginated list of pipeline executions.
     """
     GetPipelineTriggerCount: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.GetPipelineTriggerCountRequest,
@@ -971,6 +987,16 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
 
         Returns the availability of a namespace or, alternatively, the type of
         resource that is using it.
+        """
+    @abc.abstractmethod
+    def ListPipelineTriggerRecords(
+        self,
+        request: core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsResponse, collections.abc.Awaitable[core.mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsResponse]]:
+        """List pipeline triggers
+
+        Returns a paginated list of pipeline executions.
         """
     @abc.abstractmethod
     def GetPipelineTriggerCount(
