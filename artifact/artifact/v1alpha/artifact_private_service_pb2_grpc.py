@@ -36,6 +36,11 @@ class ArtifactPrivateServiceStub(object):
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteRepositoryTagRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteRepositoryTagResponse.FromString,
                 )
+        self.GetObject = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPrivateService/GetObject',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectResponse.FromString,
+                )
         self.GetObjectURL = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/GetObjectURL',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectURLRequest.SerializeToString,
@@ -85,8 +90,15 @@ class ArtifactPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetObject(self, request, context):
+        """Get Object
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetObjectURL(self, request, context):
-        """Get Object Upload URL
+        """Get Object URL
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -114,6 +126,11 @@ def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
                     servicer.DeleteRepositoryTag,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteRepositoryTagRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteRepositoryTagResponse.SerializeToString,
+            ),
+            'GetObject': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetObject,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectResponse.SerializeToString,
             ),
             'GetObjectURL': grpc.unary_unary_rpc_method_handler(
                     servicer.GetObjectURL,
@@ -197,6 +214,23 @@ class ArtifactPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/DeleteRepositoryTag',
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteRepositoryTagRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteRepositoryTagResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetObject(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/GetObject',
+            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
