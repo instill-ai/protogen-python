@@ -631,14 +631,22 @@ class GetObjectURLRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     UID_FIELD_NUMBER: builtins.int
+    ENCODED_URL_PATH_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """object url uid"""
+    encoded_url_path: builtins.str
+    """encoded url path. artifact first use uid to get object url,
+    if not exist, then use encoded url path to get object url
+    """
     def __init__(
         self,
         *,
         uid: builtins.str = ...,
+        encoded_url_path: builtins.str | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["uid", b"uid"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_encoded_url_path", b"_encoded_url_path", "encoded_url_path", b"encoded_url_path"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_encoded_url_path", b"_encoded_url_path", "encoded_url_path", b"encoded_url_path", "uid", b"uid"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_encoded_url_path", b"_encoded_url_path"]) -> typing_extensions.Literal["encoded_url_path"] | None: ...
 
 global___GetObjectURLRequest = GetObjectURLRequest
 
