@@ -64,6 +64,11 @@ class ArtifactPrivateServiceStub:
         artifact.artifact.v1alpha.artifact_pb2.GetObjectURLResponse,
     ]
     """Get Object URL"""
+    UpdateObject: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.UpdateObjectRequest,
+        artifact.artifact.v1alpha.artifact_pb2.UpdateObjectResponse,
+    ]
+    """Update Object"""
 
 class ArtifactPrivateServiceAsyncStub:
     """ArtifactPrivateService exposes the private endpoints that allow clients to
@@ -111,6 +116,11 @@ class ArtifactPrivateServiceAsyncStub:
         artifact.artifact.v1alpha.artifact_pb2.GetObjectURLResponse,
     ]
     """Get Object URL"""
+    UpdateObject: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.UpdateObjectRequest,
+        artifact.artifact.v1alpha.artifact_pb2.UpdateObjectResponse,
+    ]
+    """Update Object"""
 
 class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
     """ArtifactPrivateService exposes the private endpoints that allow clients to
@@ -170,5 +180,12 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.GetObjectURLResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.GetObjectURLResponse]]:
         """Get Object URL"""
+    @abc.abstractmethod
+    def UpdateObject(
+        self,
+        request: artifact.artifact.v1alpha.artifact_pb2.UpdateObjectRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.UpdateObjectResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.UpdateObjectResponse]]:
+        """Update Object"""
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer: ArtifactPrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

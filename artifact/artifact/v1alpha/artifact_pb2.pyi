@@ -671,6 +671,70 @@ class GetObjectURLResponse(google.protobuf.message.Message):
 global___GetObjectURLResponse = GetObjectURLResponse
 
 @typing_extensions.final
+class UpdateObjectRequest(google.protobuf.message.Message):
+    """UpdateObjectRequest"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    UID_FIELD_NUMBER: builtins.int
+    SIZE_FIELD_NUMBER: builtins.int
+    TYPE_FIELD_NUMBER: builtins.int
+    IS_UPLOADED_FIELD_NUMBER: builtins.int
+    LAST_MODIFIED_TIME_FIELD_NUMBER: builtins.int
+    uid: builtins.str
+    """object uid"""
+    size: builtins.int
+    """size"""
+    type: builtins.str
+    """type"""
+    is_uploaded: builtins.bool
+    """is upload"""
+    @property
+    def last_modified_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """last modified time"""
+    def __init__(
+        self,
+        *,
+        uid: builtins.str = ...,
+        size: builtins.int | None = ...,
+        type: builtins.str | None = ...,
+        is_uploaded: builtins.bool | None = ...,
+        last_modified_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_is_uploaded", b"_is_uploaded", "_last_modified_time", b"_last_modified_time", "_size", b"_size", "_type", b"_type", "is_uploaded", b"is_uploaded", "last_modified_time", b"last_modified_time", "size", b"size", "type", b"type"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_is_uploaded", b"_is_uploaded", "_last_modified_time", b"_last_modified_time", "_size", b"_size", "_type", b"_type", "is_uploaded", b"is_uploaded", "last_modified_time", b"last_modified_time", "size", b"size", "type", b"type", "uid", b"uid"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_is_uploaded", b"_is_uploaded"]) -> typing_extensions.Literal["is_uploaded"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_last_modified_time", b"_last_modified_time"]) -> typing_extensions.Literal["last_modified_time"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_size", b"_size"]) -> typing_extensions.Literal["size"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_type", b"_type"]) -> typing_extensions.Literal["type"] | None: ...
+
+global___UpdateObjectRequest = UpdateObjectRequest
+
+@typing_extensions.final
+class UpdateObjectResponse(google.protobuf.message.Message):
+    """UpdateObjectResponse"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OBJECT_FIELD_NUMBER: builtins.int
+    @property
+    def object(self) -> artifact.artifact.v1alpha.object_pb2.Object:
+        """object"""
+    def __init__(
+        self,
+        *,
+        object: artifact.artifact.v1alpha.object_pb2.Object | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["object", b"object"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["object", b"object"]) -> None: ...
+
+global___UpdateObjectResponse = UpdateObjectResponse
+
+@typing_extensions.final
 class Catalog(google.protobuf.message.Message):
     """Catalog represents a catalog."""
 

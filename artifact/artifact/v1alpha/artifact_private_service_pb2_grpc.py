@@ -46,6 +46,11 @@ class ArtifactPrivateServiceStub(object):
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectURLRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectURLResponse.FromString,
                 )
+        self.UpdateObject = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateObject',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateObjectRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateObjectResponse.FromString,
+                )
 
 
 class ArtifactPrivateServiceServicer(object):
@@ -104,6 +109,13 @@ class ArtifactPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UpdateObject(self, request, context):
+        """Update Object
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -136,6 +148,11 @@ def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
                     servicer.GetObjectURL,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectURLRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectURLResponse.SerializeToString,
+            ),
+            'UpdateObject': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateObject,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateObjectRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateObjectResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -248,5 +265,22 @@ class ArtifactPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/GetObjectURL',
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectURLRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectURLResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateObject(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateObject',
+            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateObjectRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateObjectResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

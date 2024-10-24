@@ -171,32 +171,23 @@ class GetObjectDownloadURLRequest(google.protobuf.message.Message):
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     OBJECT_UID_FIELD_NUMBER: builtins.int
-    OBJECT_NAME_FIELD_NUMBER: builtins.int
     URL_EXPIRE_DAYS_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """id of the namespace"""
     object_uid: builtins.str
-    """uid of the object
-    if provided, object name is not required
-    uid has priority over name
-    """
-    object_name: builtins.str
-    """object name
-    if provided, object uid is not required
-    """
+    """uid of the object"""
     url_expire_days: builtins.int
-    """Expiration time in days for the URL.
-    Minimum is 1 day and maximum is 7 days. If not set or set to 0, defaults to 1 day.
+    """expiration time in days for the URL.
+    minimum is 1 day. if not set or set to 0, defaults to 1 day.
     """
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         object_uid: builtins.str = ...,
-        object_name: builtins.str = ...,
         url_expire_days: builtins.int = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "object_name", b"object_name", "object_uid", b"object_uid", "url_expire_days", b"url_expire_days"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "object_uid", b"object_uid", "url_expire_days", b"url_expire_days"]) -> None: ...
 
 global___GetObjectDownloadURLRequest = GetObjectDownloadURLRequest
 
