@@ -128,7 +128,9 @@ class AppPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def CreateApp(self, request, context):
-        """Create a app
+        """Create an app
+
+        Creates an app.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -136,6 +138,8 @@ class AppPublicServiceServicer(object):
 
     def ListApps(self, request, context):
         """List all apps info
+
+        Returns a paginated list of apps.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -143,6 +147,8 @@ class AppPublicServiceServicer(object):
 
     def UpdateApp(self, request, context):
         """Update a app info
+
+        Updates the information of an app.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -150,13 +156,17 @@ class AppPublicServiceServicer(object):
 
     def DeleteApp(self, request, context):
         """Delete a app
+
+        Deletes an app.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def CreateConversation(self, request, context):
-        """Create a Conversation
+        """Create a conversation
+
+        Creates a conversation.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -164,6 +174,8 @@ class AppPublicServiceServicer(object):
 
     def ListConversations(self, request, context):
         """List conversations
+
+        Returns a paginated list of conversations.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -171,6 +183,8 @@ class AppPublicServiceServicer(object):
 
     def UpdateConversation(self, request, context):
         """Update a conversation
+
+        Updates a conversation.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -178,6 +192,8 @@ class AppPublicServiceServicer(object):
 
     def DeleteConversation(self, request, context):
         """Delete a conversation
+
+        Deletes a conversation.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -185,6 +201,8 @@ class AppPublicServiceServicer(object):
 
     def CreateMessage(self, request, context):
         """Create a message
+
+        Creates a message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -192,6 +210,8 @@ class AppPublicServiceServicer(object):
 
     def ListMessages(self, request, context):
         """List messages
+
+        Returns a paginated list of messages.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -199,6 +219,8 @@ class AppPublicServiceServicer(object):
 
     def UpdateMessage(self, request, context):
         """Update a message
+
+        Updates a message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -206,6 +228,8 @@ class AppPublicServiceServicer(object):
 
     def DeleteMessage(self, request, context):
         """Delete a message
+
+        Deletes a message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -214,7 +238,7 @@ class AppPublicServiceServicer(object):
     def GetPlaygroundConversation(self, request, context):
         """Get Playground Conversation
 
-        get the latest conversation of auth user(e.g. login user and api key user)
+        Returns the latest conversation of auth user(e.g. login user and api key user).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -223,8 +247,8 @@ class AppPublicServiceServicer(object):
     def RestartPlaygroundConversation(self, request, context):
         """Restart Playground Conversation
 
-        create a new conversation and use the auth user uid as creator uid and auto
-        generate a new conversation id on the behalf of auth user.
+        Creates a new conversation and uses the auth user UID as creator UID and
+        auto-generates a new conversation ID on the behalf of auth user.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

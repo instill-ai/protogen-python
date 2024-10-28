@@ -141,9 +141,9 @@ class ArtifactPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def CreateCatalog(self, request, context):
-        """TODO improve public endpoint definitions with title and description.
+        """Create a catalog
 
-        Create a catalog
+        Creates a catalog.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -151,6 +151,8 @@ class ArtifactPublicServiceServicer(object):
 
     def ListCatalogs(self, request, context):
         """Get all catalogs info
+
+        Returns a paginated list of catalogs.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -158,6 +160,8 @@ class ArtifactPublicServiceServicer(object):
 
     def UpdateCatalog(self, request, context):
         """Update a catalog info
+
+        Updates the information of a catalog.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -165,6 +169,8 @@ class ArtifactPublicServiceServicer(object):
 
     def DeleteCatalog(self, request, context):
         """Delete a catalog
+
+        Deletes a catalog.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -172,6 +178,8 @@ class ArtifactPublicServiceServicer(object):
 
     def UploadCatalogFile(self, request, context):
         """Create a file
+
+        Creates a file.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -179,6 +187,8 @@ class ArtifactPublicServiceServicer(object):
 
     def DeleteCatalogFile(self, request, context):
         """Delete a file
+
+        Deletes a file.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -186,6 +196,8 @@ class ArtifactPublicServiceServicer(object):
 
     def ProcessCatalogFiles(self, request, context):
         """Process catalog files
+
+        Processes catalog files.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -193,6 +205,8 @@ class ArtifactPublicServiceServicer(object):
 
     def ListCatalogFiles(self, request, context):
         """List catalog files
+
+        Returns a paginated list of catalog files.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -200,6 +214,8 @@ class ArtifactPublicServiceServicer(object):
 
     def ListChunks(self, request, context):
         """List catalog chunks
+
+        Returns a paginated list of catalog chunks.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -207,6 +223,8 @@ class ArtifactPublicServiceServicer(object):
 
     def GetSourceFile(self, request, context):
         """Get catalog single-source-of-truth file
+
+        Gets the single-source-of-truth file of a catalog.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -214,6 +232,8 @@ class ArtifactPublicServiceServicer(object):
 
     def UpdateChunk(self, request, context):
         """Update catalog chunk
+
+        Updates a catalog chunk.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -221,6 +241,8 @@ class ArtifactPublicServiceServicer(object):
 
     def SimilarityChunksSearch(self, request, context):
         """Retrieve similar chunks
+
+        Returns the similar chunks.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -228,6 +250,8 @@ class ArtifactPublicServiceServicer(object):
 
     def QuestionAnswering(self, request, context):
         """Ask a question
+
+        Asks a question.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -235,6 +259,8 @@ class ArtifactPublicServiceServicer(object):
 
     def GetFileCatalog(self, request, context):
         """Get file catalog
+
+        Get the catalog file.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -242,6 +268,8 @@ class ArtifactPublicServiceServicer(object):
 
     def ListCatalogRuns(self, request, context):
         """List Catalog Runs
+
+        Returns a paginated list of catalog runs.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -249,6 +277,8 @@ class ArtifactPublicServiceServicer(object):
 
     def GetObjectUploadURL(self, request, context):
         """Get Object Upload URL
+
+        Returns the upload URL of an object.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -256,6 +286,8 @@ class ArtifactPublicServiceServicer(object):
 
     def GetObjectDownloadURL(self, request, context):
         """Get Object Download URL
+
+        Returns the download URL of an object.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

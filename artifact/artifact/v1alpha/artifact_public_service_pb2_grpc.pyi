@@ -47,90 +47,138 @@ class ArtifactPublicServiceStub:
         artifact.artifact.v1alpha.artifact_pb2.CreateCatalogRequest,
         artifact.artifact.v1alpha.artifact_pb2.CreateCatalogResponse,
     ]
-    """TODO improve public endpoint definitions with title and description.
+    """Create a catalog
 
-    Create a catalog
+    Creates a catalog.
     """
     ListCatalogs: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.artifact_pb2.ListCatalogsRequest,
         artifact.artifact.v1alpha.artifact_pb2.ListCatalogsResponse,
     ]
-    """Get all catalogs info"""
+    """Get all catalogs info
+
+    Returns a paginated list of catalogs.
+    """
     UpdateCatalog: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.artifact_pb2.UpdateCatalogRequest,
         artifact.artifact.v1alpha.artifact_pb2.UpdateCatalogResponse,
     ]
-    """Update a catalog info"""
+    """Update a catalog info
+
+    Updates the information of a catalog.
+    """
     DeleteCatalog: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogRequest,
         artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogResponse,
     ]
-    """Delete a catalog"""
+    """Delete a catalog
+
+    Deletes a catalog.
+    """
     UploadCatalogFile: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.artifact_pb2.UploadCatalogFileRequest,
         artifact.artifact.v1alpha.artifact_pb2.UploadCatalogFileResponse,
     ]
-    """Create a file"""
+    """Create a file
+
+    Creates a file.
+    """
     DeleteCatalogFile: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileRequest,
         artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileResponse,
     ]
-    """Delete a file"""
+    """Delete a file
+
+    Deletes a file.
+    """
     ProcessCatalogFiles: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.artifact_pb2.ProcessCatalogFilesRequest,
         artifact.artifact.v1alpha.artifact_pb2.ProcessCatalogFilesResponse,
     ]
-    """Process catalog files"""
+    """Process catalog files
+
+    Processes catalog files.
+    """
     ListCatalogFiles: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.artifact_pb2.ListCatalogFilesRequest,
         artifact.artifact.v1alpha.artifact_pb2.ListCatalogFilesResponse,
     ]
-    """List catalog files"""
+    """List catalog files
+
+    Returns a paginated list of catalog files.
+    """
     ListChunks: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.ListChunksRequest,
         artifact.artifact.v1alpha.chunk_pb2.ListChunksResponse,
     ]
-    """List catalog chunks"""
+    """List catalog chunks
+
+    Returns a paginated list of catalog chunks.
+    """
     GetSourceFile: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.GetSourceFileRequest,
         artifact.artifact.v1alpha.chunk_pb2.GetSourceFileResponse,
     ]
-    """Get catalog single-source-of-truth file"""
+    """Get catalog single-source-of-truth file
+
+    Gets the single-source-of-truth file of a catalog.
+    """
     UpdateChunk: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.UpdateChunkRequest,
         artifact.artifact.v1alpha.chunk_pb2.UpdateChunkResponse,
     ]
-    """Update catalog chunk"""
+    """Update catalog chunk
+
+    Updates a catalog chunk.
+    """
     SimilarityChunksSearch: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchRequest,
         artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchResponse,
     ]
-    """Retrieve similar chunks"""
+    """Retrieve similar chunks
+
+    Returns the similar chunks.
+    """
     QuestionAnswering: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringRequest,
         artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringResponse,
     ]
-    """Ask a question"""
+    """Ask a question
+
+    Asks a question.
+    """
     GetFileCatalog: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogRequest,
         artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogResponse,
     ]
-    """Get file catalog"""
+    """Get file catalog
+
+    Get the catalog file.
+    """
     ListCatalogRuns: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsRequest,
         artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsResponse,
     ]
-    """List Catalog Runs"""
+    """List Catalog Runs
+
+    Returns a paginated list of catalog runs.
+    """
     GetObjectUploadURL: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.object_pb2.GetObjectUploadURLRequest,
         artifact.artifact.v1alpha.object_pb2.GetObjectUploadURLResponse,
     ]
-    """Get Object Upload URL"""
+    """Get Object Upload URL
+
+    Returns the upload URL of an object.
+    """
     GetObjectDownloadURL: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.object_pb2.GetObjectDownloadURLRequest,
         artifact.artifact.v1alpha.object_pb2.GetObjectDownloadURLResponse,
     ]
-    """Get Object Download URL"""
+    """Get Object Download URL
+
+    Returns the download URL of an object.
+    """
 
 class ArtifactPublicServiceAsyncStub:
     """ArtifactPublicService exposes the public endpoints that allow clients to
@@ -157,90 +205,138 @@ class ArtifactPublicServiceAsyncStub:
         artifact.artifact.v1alpha.artifact_pb2.CreateCatalogRequest,
         artifact.artifact.v1alpha.artifact_pb2.CreateCatalogResponse,
     ]
-    """TODO improve public endpoint definitions with title and description.
+    """Create a catalog
 
-    Create a catalog
+    Creates a catalog.
     """
     ListCatalogs: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.artifact_pb2.ListCatalogsRequest,
         artifact.artifact.v1alpha.artifact_pb2.ListCatalogsResponse,
     ]
-    """Get all catalogs info"""
+    """Get all catalogs info
+
+    Returns a paginated list of catalogs.
+    """
     UpdateCatalog: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.artifact_pb2.UpdateCatalogRequest,
         artifact.artifact.v1alpha.artifact_pb2.UpdateCatalogResponse,
     ]
-    """Update a catalog info"""
+    """Update a catalog info
+
+    Updates the information of a catalog.
+    """
     DeleteCatalog: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogRequest,
         artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogResponse,
     ]
-    """Delete a catalog"""
+    """Delete a catalog
+
+    Deletes a catalog.
+    """
     UploadCatalogFile: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.artifact_pb2.UploadCatalogFileRequest,
         artifact.artifact.v1alpha.artifact_pb2.UploadCatalogFileResponse,
     ]
-    """Create a file"""
+    """Create a file
+
+    Creates a file.
+    """
     DeleteCatalogFile: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileRequest,
         artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileResponse,
     ]
-    """Delete a file"""
+    """Delete a file
+
+    Deletes a file.
+    """
     ProcessCatalogFiles: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.artifact_pb2.ProcessCatalogFilesRequest,
         artifact.artifact.v1alpha.artifact_pb2.ProcessCatalogFilesResponse,
     ]
-    """Process catalog files"""
+    """Process catalog files
+
+    Processes catalog files.
+    """
     ListCatalogFiles: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.artifact_pb2.ListCatalogFilesRequest,
         artifact.artifact.v1alpha.artifact_pb2.ListCatalogFilesResponse,
     ]
-    """List catalog files"""
+    """List catalog files
+
+    Returns a paginated list of catalog files.
+    """
     ListChunks: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.ListChunksRequest,
         artifact.artifact.v1alpha.chunk_pb2.ListChunksResponse,
     ]
-    """List catalog chunks"""
+    """List catalog chunks
+
+    Returns a paginated list of catalog chunks.
+    """
     GetSourceFile: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.GetSourceFileRequest,
         artifact.artifact.v1alpha.chunk_pb2.GetSourceFileResponse,
     ]
-    """Get catalog single-source-of-truth file"""
+    """Get catalog single-source-of-truth file
+
+    Gets the single-source-of-truth file of a catalog.
+    """
     UpdateChunk: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.UpdateChunkRequest,
         artifact.artifact.v1alpha.chunk_pb2.UpdateChunkResponse,
     ]
-    """Update catalog chunk"""
+    """Update catalog chunk
+
+    Updates a catalog chunk.
+    """
     SimilarityChunksSearch: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchRequest,
         artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchResponse,
     ]
-    """Retrieve similar chunks"""
+    """Retrieve similar chunks
+
+    Returns the similar chunks.
+    """
     QuestionAnswering: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringRequest,
         artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringResponse,
     ]
-    """Ask a question"""
+    """Ask a question
+
+    Asks a question.
+    """
     GetFileCatalog: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogRequest,
         artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogResponse,
     ]
-    """Get file catalog"""
+    """Get file catalog
+
+    Get the catalog file.
+    """
     ListCatalogRuns: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsRequest,
         artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsResponse,
     ]
-    """List Catalog Runs"""
+    """List Catalog Runs
+
+    Returns a paginated list of catalog runs.
+    """
     GetObjectUploadURL: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.object_pb2.GetObjectUploadURLRequest,
         artifact.artifact.v1alpha.object_pb2.GetObjectUploadURLResponse,
     ]
-    """Get Object Upload URL"""
+    """Get Object Upload URL
+
+    Returns the upload URL of an object.
+    """
     GetObjectDownloadURL: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.object_pb2.GetObjectDownloadURLRequest,
         artifact.artifact.v1alpha.object_pb2.GetObjectDownloadURLResponse,
     ]
-    """Get Object Download URL"""
+    """Get Object Download URL
+
+    Returns the download URL of an object.
+    """
 
 class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
     """ArtifactPublicService exposes the public endpoints that allow clients to
@@ -273,9 +369,9 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         request: artifact.artifact.v1alpha.artifact_pb2.CreateCatalogRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.CreateCatalogResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.CreateCatalogResponse]]:
-        """TODO improve public endpoint definitions with title and description.
+        """Create a catalog
 
-        Create a catalog
+        Creates a catalog.
         """
     @abc.abstractmethod
     def ListCatalogs(
@@ -283,111 +379,159 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         request: artifact.artifact.v1alpha.artifact_pb2.ListCatalogsRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.ListCatalogsResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.ListCatalogsResponse]]:
-        """Get all catalogs info"""
+        """Get all catalogs info
+
+        Returns a paginated list of catalogs.
+        """
     @abc.abstractmethod
     def UpdateCatalog(
         self,
         request: artifact.artifact.v1alpha.artifact_pb2.UpdateCatalogRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.UpdateCatalogResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.UpdateCatalogResponse]]:
-        """Update a catalog info"""
+        """Update a catalog info
+
+        Updates the information of a catalog.
+        """
     @abc.abstractmethod
     def DeleteCatalog(
         self,
         request: artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogResponse]]:
-        """Delete a catalog"""
+        """Delete a catalog
+
+        Deletes a catalog.
+        """
     @abc.abstractmethod
     def UploadCatalogFile(
         self,
         request: artifact.artifact.v1alpha.artifact_pb2.UploadCatalogFileRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.UploadCatalogFileResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.UploadCatalogFileResponse]]:
-        """Create a file"""
+        """Create a file
+
+        Creates a file.
+        """
     @abc.abstractmethod
     def DeleteCatalogFile(
         self,
         request: artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileResponse]]:
-        """Delete a file"""
+        """Delete a file
+
+        Deletes a file.
+        """
     @abc.abstractmethod
     def ProcessCatalogFiles(
         self,
         request: artifact.artifact.v1alpha.artifact_pb2.ProcessCatalogFilesRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.ProcessCatalogFilesResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.ProcessCatalogFilesResponse]]:
-        """Process catalog files"""
+        """Process catalog files
+
+        Processes catalog files.
+        """
     @abc.abstractmethod
     def ListCatalogFiles(
         self,
         request: artifact.artifact.v1alpha.artifact_pb2.ListCatalogFilesRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.ListCatalogFilesResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.ListCatalogFilesResponse]]:
-        """List catalog files"""
+        """List catalog files
+
+        Returns a paginated list of catalog files.
+        """
     @abc.abstractmethod
     def ListChunks(
         self,
         request: artifact.artifact.v1alpha.chunk_pb2.ListChunksRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.chunk_pb2.ListChunksResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.chunk_pb2.ListChunksResponse]]:
-        """List catalog chunks"""
+        """List catalog chunks
+
+        Returns a paginated list of catalog chunks.
+        """
     @abc.abstractmethod
     def GetSourceFile(
         self,
         request: artifact.artifact.v1alpha.chunk_pb2.GetSourceFileRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.chunk_pb2.GetSourceFileResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.chunk_pb2.GetSourceFileResponse]]:
-        """Get catalog single-source-of-truth file"""
+        """Get catalog single-source-of-truth file
+
+        Gets the single-source-of-truth file of a catalog.
+        """
     @abc.abstractmethod
     def UpdateChunk(
         self,
         request: artifact.artifact.v1alpha.chunk_pb2.UpdateChunkRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.chunk_pb2.UpdateChunkResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.chunk_pb2.UpdateChunkResponse]]:
-        """Update catalog chunk"""
+        """Update catalog chunk
+
+        Updates a catalog chunk.
+        """
     @abc.abstractmethod
     def SimilarityChunksSearch(
         self,
         request: artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchResponse]]:
-        """Retrieve similar chunks"""
+        """Retrieve similar chunks
+
+        Returns the similar chunks.
+        """
     @abc.abstractmethod
     def QuestionAnswering(
         self,
         request: artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringResponse]]:
-        """Ask a question"""
+        """Ask a question
+
+        Asks a question.
+        """
     @abc.abstractmethod
     def GetFileCatalog(
         self,
         request: artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogResponse]]:
-        """Get file catalog"""
+        """Get file catalog
+
+        Get the catalog file.
+        """
     @abc.abstractmethod
     def ListCatalogRuns(
         self,
         request: artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsResponse]]:
-        """List Catalog Runs"""
+        """List Catalog Runs
+
+        Returns a paginated list of catalog runs.
+        """
     @abc.abstractmethod
     def GetObjectUploadURL(
         self,
         request: artifact.artifact.v1alpha.object_pb2.GetObjectUploadURLRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.object_pb2.GetObjectUploadURLResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.object_pb2.GetObjectUploadURLResponse]]:
-        """Get Object Upload URL"""
+        """Get Object Upload URL
+
+        Returns the upload URL of an object.
+        """
     @abc.abstractmethod
     def GetObjectDownloadURL(
         self,
         request: artifact.artifact.v1alpha.object_pb2.GetObjectDownloadURLRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.object_pb2.GetObjectDownloadURLResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.object_pb2.GetObjectDownloadURLResponse]]:
-        """Get Object Download URL"""
+        """Get Object Download URL
+
+        Returns the download URL of an object.
+        """
 
 def add_ArtifactPublicServiceServicer_to_server(servicer: ArtifactPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

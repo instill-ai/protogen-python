@@ -44,69 +44,105 @@ class AppPublicServiceStub:
         app.app.v1alpha.app_pb2.CreateAppRequest,
         app.app.v1alpha.app_pb2.CreateAppResponse,
     ]
-    """Create a app"""
+    """Create an app
+
+    Creates an app.
+    """
     ListApps: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.app_pb2.ListAppsRequest,
         app.app.v1alpha.app_pb2.ListAppsResponse,
     ]
-    """List all apps info"""
+    """List all apps info
+
+    Returns a paginated list of apps.
+    """
     UpdateApp: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.app_pb2.UpdateAppRequest,
         app.app.v1alpha.app_pb2.UpdateAppResponse,
     ]
-    """Update a app info"""
+    """Update a app info
+
+    Updates the information of an app.
+    """
     DeleteApp: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.app_pb2.DeleteAppRequest,
         app.app.v1alpha.app_pb2.DeleteAppResponse,
     ]
-    """Delete a app"""
+    """Delete a app
+
+    Deletes an app.
+    """
     CreateConversation: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.CreateConversationRequest,
         app.app.v1alpha.conversation_pb2.CreateConversationResponse,
     ]
-    """Create a Conversation"""
+    """Create a conversation
+
+    Creates a conversation.
+    """
     ListConversations: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.ListConversationsRequest,
         app.app.v1alpha.conversation_pb2.ListConversationsResponse,
     ]
-    """List conversations"""
+    """List conversations
+
+    Returns a paginated list of conversations.
+    """
     UpdateConversation: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.UpdateConversationRequest,
         app.app.v1alpha.conversation_pb2.UpdateConversationResponse,
     ]
-    """Update a conversation"""
+    """Update a conversation
+
+    Updates a conversation.
+    """
     DeleteConversation: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.DeleteConversationRequest,
         app.app.v1alpha.conversation_pb2.DeleteConversationResponse,
     ]
-    """Delete a conversation"""
+    """Delete a conversation
+
+    Deletes a conversation.
+    """
     CreateMessage: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.CreateMessageRequest,
         app.app.v1alpha.conversation_pb2.CreateMessageResponse,
     ]
-    """Create a message"""
+    """Create a message
+
+    Creates a message.
+    """
     ListMessages: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.ListMessagesRequest,
         app.app.v1alpha.conversation_pb2.ListMessagesResponse,
     ]
-    """List messages"""
+    """List messages
+
+    Returns a paginated list of messages.
+    """
     UpdateMessage: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.UpdateMessageRequest,
         app.app.v1alpha.conversation_pb2.UpdateMessageResponse,
     ]
-    """Update a message"""
+    """Update a message
+
+    Updates a message.
+    """
     DeleteMessage: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.DeleteMessageRequest,
         app.app.v1alpha.conversation_pb2.DeleteMessageResponse,
     ]
-    """Delete a message"""
+    """Delete a message
+
+    Deletes a message.
+    """
     GetPlaygroundConversation: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.app_pb2.GetPlaygroundConversationRequest,
         app.app.v1alpha.app_pb2.GetPlaygroundConversationResponse,
     ]
     """Get Playground Conversation
 
-    get the latest conversation of auth user(e.g. login user and api key user)
+    Returns the latest conversation of auth user(e.g. login user and api key user).
     """
     RestartPlaygroundConversation: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.app_pb2.RestartPlaygroundConversationRequest,
@@ -114,8 +150,8 @@ class AppPublicServiceStub:
     ]
     """Restart Playground Conversation
 
-    create a new conversation and use the auth user uid as creator uid and auto
-    generate a new conversation id on the behalf of auth user.
+    Creates a new conversation and uses the auth user UID as creator UID and
+    auto-generates a new conversation ID on the behalf of auth user.
     """
     Chat: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.ChatRequest,
@@ -153,69 +189,105 @@ class AppPublicServiceAsyncStub:
         app.app.v1alpha.app_pb2.CreateAppRequest,
         app.app.v1alpha.app_pb2.CreateAppResponse,
     ]
-    """Create a app"""
+    """Create an app
+
+    Creates an app.
+    """
     ListApps: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.app_pb2.ListAppsRequest,
         app.app.v1alpha.app_pb2.ListAppsResponse,
     ]
-    """List all apps info"""
+    """List all apps info
+
+    Returns a paginated list of apps.
+    """
     UpdateApp: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.app_pb2.UpdateAppRequest,
         app.app.v1alpha.app_pb2.UpdateAppResponse,
     ]
-    """Update a app info"""
+    """Update a app info
+
+    Updates the information of an app.
+    """
     DeleteApp: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.app_pb2.DeleteAppRequest,
         app.app.v1alpha.app_pb2.DeleteAppResponse,
     ]
-    """Delete a app"""
+    """Delete a app
+
+    Deletes an app.
+    """
     CreateConversation: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.CreateConversationRequest,
         app.app.v1alpha.conversation_pb2.CreateConversationResponse,
     ]
-    """Create a Conversation"""
+    """Create a conversation
+
+    Creates a conversation.
+    """
     ListConversations: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.ListConversationsRequest,
         app.app.v1alpha.conversation_pb2.ListConversationsResponse,
     ]
-    """List conversations"""
+    """List conversations
+
+    Returns a paginated list of conversations.
+    """
     UpdateConversation: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.UpdateConversationRequest,
         app.app.v1alpha.conversation_pb2.UpdateConversationResponse,
     ]
-    """Update a conversation"""
+    """Update a conversation
+
+    Updates a conversation.
+    """
     DeleteConversation: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.DeleteConversationRequest,
         app.app.v1alpha.conversation_pb2.DeleteConversationResponse,
     ]
-    """Delete a conversation"""
+    """Delete a conversation
+
+    Deletes a conversation.
+    """
     CreateMessage: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.CreateMessageRequest,
         app.app.v1alpha.conversation_pb2.CreateMessageResponse,
     ]
-    """Create a message"""
+    """Create a message
+
+    Creates a message.
+    """
     ListMessages: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.ListMessagesRequest,
         app.app.v1alpha.conversation_pb2.ListMessagesResponse,
     ]
-    """List messages"""
+    """List messages
+
+    Returns a paginated list of messages.
+    """
     UpdateMessage: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.UpdateMessageRequest,
         app.app.v1alpha.conversation_pb2.UpdateMessageResponse,
     ]
-    """Update a message"""
+    """Update a message
+
+    Updates a message.
+    """
     DeleteMessage: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.DeleteMessageRequest,
         app.app.v1alpha.conversation_pb2.DeleteMessageResponse,
     ]
-    """Delete a message"""
+    """Delete a message
+
+    Deletes a message.
+    """
     GetPlaygroundConversation: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.app_pb2.GetPlaygroundConversationRequest,
         app.app.v1alpha.app_pb2.GetPlaygroundConversationResponse,
     ]
     """Get Playground Conversation
 
-    get the latest conversation of auth user(e.g. login user and api key user)
+    Returns the latest conversation of auth user(e.g. login user and api key user).
     """
     RestartPlaygroundConversation: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.app_pb2.RestartPlaygroundConversationRequest,
@@ -223,8 +295,8 @@ class AppPublicServiceAsyncStub:
     ]
     """Restart Playground Conversation
 
-    create a new conversation and use the auth user uid as creator uid and auto
-    generate a new conversation id on the behalf of auth user.
+    Creates a new conversation and uses the auth user UID as creator UID and
+    auto-generates a new conversation ID on the behalf of auth user.
     """
     Chat: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.ChatRequest,
@@ -268,84 +340,120 @@ class AppPublicServiceServicer(metaclass=abc.ABCMeta):
         request: app.app.v1alpha.app_pb2.CreateAppRequest,
         context: _ServicerContext,
     ) -> typing.Union[app.app.v1alpha.app_pb2.CreateAppResponse, collections.abc.Awaitable[app.app.v1alpha.app_pb2.CreateAppResponse]]:
-        """Create a app"""
+        """Create an app
+
+        Creates an app.
+        """
     @abc.abstractmethod
     def ListApps(
         self,
         request: app.app.v1alpha.app_pb2.ListAppsRequest,
         context: _ServicerContext,
     ) -> typing.Union[app.app.v1alpha.app_pb2.ListAppsResponse, collections.abc.Awaitable[app.app.v1alpha.app_pb2.ListAppsResponse]]:
-        """List all apps info"""
+        """List all apps info
+
+        Returns a paginated list of apps.
+        """
     @abc.abstractmethod
     def UpdateApp(
         self,
         request: app.app.v1alpha.app_pb2.UpdateAppRequest,
         context: _ServicerContext,
     ) -> typing.Union[app.app.v1alpha.app_pb2.UpdateAppResponse, collections.abc.Awaitable[app.app.v1alpha.app_pb2.UpdateAppResponse]]:
-        """Update a app info"""
+        """Update a app info
+
+        Updates the information of an app.
+        """
     @abc.abstractmethod
     def DeleteApp(
         self,
         request: app.app.v1alpha.app_pb2.DeleteAppRequest,
         context: _ServicerContext,
     ) -> typing.Union[app.app.v1alpha.app_pb2.DeleteAppResponse, collections.abc.Awaitable[app.app.v1alpha.app_pb2.DeleteAppResponse]]:
-        """Delete a app"""
+        """Delete a app
+
+        Deletes an app.
+        """
     @abc.abstractmethod
     def CreateConversation(
         self,
         request: app.app.v1alpha.conversation_pb2.CreateConversationRequest,
         context: _ServicerContext,
     ) -> typing.Union[app.app.v1alpha.conversation_pb2.CreateConversationResponse, collections.abc.Awaitable[app.app.v1alpha.conversation_pb2.CreateConversationResponse]]:
-        """Create a Conversation"""
+        """Create a conversation
+
+        Creates a conversation.
+        """
     @abc.abstractmethod
     def ListConversations(
         self,
         request: app.app.v1alpha.conversation_pb2.ListConversationsRequest,
         context: _ServicerContext,
     ) -> typing.Union[app.app.v1alpha.conversation_pb2.ListConversationsResponse, collections.abc.Awaitable[app.app.v1alpha.conversation_pb2.ListConversationsResponse]]:
-        """List conversations"""
+        """List conversations
+
+        Returns a paginated list of conversations.
+        """
     @abc.abstractmethod
     def UpdateConversation(
         self,
         request: app.app.v1alpha.conversation_pb2.UpdateConversationRequest,
         context: _ServicerContext,
     ) -> typing.Union[app.app.v1alpha.conversation_pb2.UpdateConversationResponse, collections.abc.Awaitable[app.app.v1alpha.conversation_pb2.UpdateConversationResponse]]:
-        """Update a conversation"""
+        """Update a conversation
+
+        Updates a conversation.
+        """
     @abc.abstractmethod
     def DeleteConversation(
         self,
         request: app.app.v1alpha.conversation_pb2.DeleteConversationRequest,
         context: _ServicerContext,
     ) -> typing.Union[app.app.v1alpha.conversation_pb2.DeleteConversationResponse, collections.abc.Awaitable[app.app.v1alpha.conversation_pb2.DeleteConversationResponse]]:
-        """Delete a conversation"""
+        """Delete a conversation
+
+        Deletes a conversation.
+        """
     @abc.abstractmethod
     def CreateMessage(
         self,
         request: app.app.v1alpha.conversation_pb2.CreateMessageRequest,
         context: _ServicerContext,
     ) -> typing.Union[app.app.v1alpha.conversation_pb2.CreateMessageResponse, collections.abc.Awaitable[app.app.v1alpha.conversation_pb2.CreateMessageResponse]]:
-        """Create a message"""
+        """Create a message
+
+        Creates a message.
+        """
     @abc.abstractmethod
     def ListMessages(
         self,
         request: app.app.v1alpha.conversation_pb2.ListMessagesRequest,
         context: _ServicerContext,
     ) -> typing.Union[app.app.v1alpha.conversation_pb2.ListMessagesResponse, collections.abc.Awaitable[app.app.v1alpha.conversation_pb2.ListMessagesResponse]]:
-        """List messages"""
+        """List messages
+
+        Returns a paginated list of messages.
+        """
     @abc.abstractmethod
     def UpdateMessage(
         self,
         request: app.app.v1alpha.conversation_pb2.UpdateMessageRequest,
         context: _ServicerContext,
     ) -> typing.Union[app.app.v1alpha.conversation_pb2.UpdateMessageResponse, collections.abc.Awaitable[app.app.v1alpha.conversation_pb2.UpdateMessageResponse]]:
-        """Update a message"""
+        """Update a message
+
+        Updates a message.
+        """
     @abc.abstractmethod
     def DeleteMessage(
         self,
         request: app.app.v1alpha.conversation_pb2.DeleteMessageRequest,
         context: _ServicerContext,
     ) -> typing.Union[app.app.v1alpha.conversation_pb2.DeleteMessageResponse, collections.abc.Awaitable[app.app.v1alpha.conversation_pb2.DeleteMessageResponse]]:
-        """Delete a message"""
+        """Delete a message
+
+        Deletes a message.
+        """
     @abc.abstractmethod
     def GetPlaygroundConversation(
         self,
@@ -354,7 +462,7 @@ class AppPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[app.app.v1alpha.app_pb2.GetPlaygroundConversationResponse, collections.abc.Awaitable[app.app.v1alpha.app_pb2.GetPlaygroundConversationResponse]]:
         """Get Playground Conversation
 
-        get the latest conversation of auth user(e.g. login user and api key user)
+        Returns the latest conversation of auth user(e.g. login user and api key user).
         """
     @abc.abstractmethod
     def RestartPlaygroundConversation(
@@ -364,8 +472,8 @@ class AppPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[app.app.v1alpha.app_pb2.RestartPlaygroundConversationResponse, collections.abc.Awaitable[app.app.v1alpha.app_pb2.RestartPlaygroundConversationResponse]]:
         """Restart Playground Conversation
 
-        create a new conversation and use the auth user uid as creator uid and auto
-        generate a new conversation id on the behalf of auth user.
+        Creates a new conversation and uses the auth user UID as creator UID and
+        auto-generates a new conversation ID on the behalf of auth user.
         """
     @abc.abstractmethod
     def Chat(

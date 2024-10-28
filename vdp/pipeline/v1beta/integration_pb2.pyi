@@ -284,17 +284,21 @@ class CreateNamespaceConnectionRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
     CONNECTION_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """ID of the namespace that owns the connection."""
     @property
     def connection(self) -> global___Connection:
         """Properties of the connection to be created."""
     def __init__(
         self,
         *,
+        namespace_id: builtins.str = ...,
         connection: global___Connection | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["connection", b"connection"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["connection", b"connection"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["connection", b"connection", "namespace_id", b"namespace_id"]) -> None: ...
 
 global___CreateNamespaceConnectionRequest = CreateNamespaceConnectionRequest
 
@@ -327,10 +331,13 @@ class UpdateNamespaceConnectionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     CONNECTION_ID_FIELD_NUMBER: builtins.int
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
     CONNECTION_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     connection_id: builtins.str
     """ID of the connection to be updated, as present in the database."""
+    namespace_id: builtins.str
+    """ID of the namespace that owns the connection."""
     @property
     def connection(self) -> global___Connection:
         """Connection object with the new properties to be updated. Immutable and
@@ -348,11 +355,12 @@ class UpdateNamespaceConnectionRequest(google.protobuf.message.Message):
         self,
         *,
         connection_id: builtins.str = ...,
+        namespace_id: builtins.str = ...,
         connection: global___Connection | None = ...,
         update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["connection", b"connection", "update_mask", b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["connection", b"connection", "connection_id", b"connection_id", "update_mask", b"update_mask"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["connection", b"connection", "connection_id", b"connection_id", "namespace_id", b"namespace_id", "update_mask", b"update_mask"]) -> None: ...
 
 global___UpdateNamespaceConnectionRequest = UpdateNamespaceConnectionRequest
 
