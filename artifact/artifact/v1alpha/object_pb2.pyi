@@ -108,8 +108,8 @@ class GetObjectUploadURLRequest(google.protobuf.message.Message):
     this is the unique identifier of the object in the namespace
     """
     url_expire_days: builtins.int
-    """Expiration time in days for the URL.
-    Minimum is 1 day and maximum is 7 days. If not set or set to 0, defaults to 1 day.
+    """expiration time in days for the URL.
+    maximum is 7 days. if set to 0, URL will not expire.
     """
     @property
     def last_modified_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
@@ -178,7 +178,7 @@ class GetObjectDownloadURLRequest(google.protobuf.message.Message):
     """uid of the object"""
     url_expire_days: builtins.int
     """expiration time in days for the URL.
-    minimum is 1 day. if not set or set to 0, defaults to 1 day.
+    maximum is 7 days. if set to 0, URL will not expire.
     """
     def __init__(
         self,
