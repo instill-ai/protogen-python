@@ -179,6 +179,11 @@ class MgmtPublicServiceStub(object):
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsResponse.FromString,
                 )
+        self.ListModelTriggerChartRecords = channel.unary_unary(
+                '/core.mgmt.v1beta.MgmtPublicService/ListModelTriggerChartRecords',
+                request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerChartRecordsRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerChartRecordsResponse.FromString,
+                )
         self.ListCreditConsumptionChartRecords = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/ListCreditConsumptionChartRecords',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListCreditConsumptionChartRecordsRequest.SerializeToString,
@@ -522,6 +527,17 @@ class MgmtPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListModelTriggerChartRecords(self, request, context):
+        """List model trigger time charts
+
+        Returns a timeline of model trigger counts for a given requester. The
+        response will contain one set of records (datapoints), representing the
+        amount of triggers in a time bucket.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListCreditConsumptionChartRecords(self, request, context):
         """List Instill Credit consumption time charts
 
@@ -745,6 +761,11 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     servicer.ListPipelineTriggerChartRecords,
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsResponse.SerializeToString,
+            ),
+            'ListModelTriggerChartRecords': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListModelTriggerChartRecords,
+                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerChartRecordsRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerChartRecordsResponse.SerializeToString,
             ),
             'ListCreditConsumptionChartRecords': grpc.unary_unary_rpc_method_handler(
                     servicer.ListCreditConsumptionChartRecords,
@@ -1331,6 +1352,23 @@ class MgmtPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerChartRecords',
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListModelTriggerChartRecords(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListModelTriggerChartRecords',
+            core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerChartRecordsRequest.SerializeToString,
+            core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerChartRecordsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

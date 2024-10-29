@@ -298,6 +298,16 @@ class MgmtPublicServiceStub:
     owner.
     NOTE: This method will soon return the trigger counts of a given requester.
     """
+    ListModelTriggerChartRecords: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.metric_pb2.ListModelTriggerChartRecordsRequest,
+        core.mgmt.v1beta.metric_pb2.ListModelTriggerChartRecordsResponse,
+    ]
+    """List model trigger time charts
+
+    Returns a timeline of model trigger counts for a given requester. The
+    response will contain one set of records (datapoints), representing the
+    amount of triggers in a time bucket.
+    """
     ListCreditConsumptionChartRecords: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListCreditConsumptionChartRecordsRequest,
         core.mgmt.v1beta.metric_pb2.ListCreditConsumptionChartRecordsResponse,
@@ -632,6 +642,16 @@ class MgmtPublicServiceAsyncStub:
     Returns a timeline of pipline trigger counts for the pipelines of a given
     owner.
     NOTE: This method will soon return the trigger counts of a given requester.
+    """
+    ListModelTriggerChartRecords: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.metric_pb2.ListModelTriggerChartRecordsRequest,
+        core.mgmt.v1beta.metric_pb2.ListModelTriggerChartRecordsResponse,
+    ]
+    """List model trigger time charts
+
+    Returns a timeline of model trigger counts for a given requester. The
+    response will contain one set of records (datapoints), representing the
+    amount of triggers in a time bucket.
     """
     ListCreditConsumptionChartRecords: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListCreditConsumptionChartRecordsRequest,
@@ -1031,6 +1051,18 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         Returns a timeline of pipline trigger counts for the pipelines of a given
         owner.
         NOTE: This method will soon return the trigger counts of a given requester.
+        """
+    @abc.abstractmethod
+    def ListModelTriggerChartRecords(
+        self,
+        request: core.mgmt.v1beta.metric_pb2.ListModelTriggerChartRecordsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.metric_pb2.ListModelTriggerChartRecordsResponse, collections.abc.Awaitable[core.mgmt.v1beta.metric_pb2.ListModelTriggerChartRecordsResponse]]:
+        """List model trigger time charts
+
+        Returns a timeline of model trigger counts for a given requester. The
+        response will contain one set of records (datapoints), representing the
+        amount of triggers in a time bucket.
         """
     @abc.abstractmethod
     def ListCreditConsumptionChartRecords(
