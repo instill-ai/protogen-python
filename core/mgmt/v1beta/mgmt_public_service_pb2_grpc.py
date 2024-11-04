@@ -179,6 +179,11 @@ class MgmtPublicServiceStub(object):
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsResponse.FromString,
                 )
+        self.ListModelTriggerTableRecords = channel.unary_unary(
+                '/core.mgmt.v1beta.MgmtPublicService/ListModelTriggerTableRecords',
+                request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerTableRecordsRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerTableRecordsResponse.FromString,
+                )
         self.ListModelTriggerChartRecords = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/ListModelTriggerChartRecords',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerChartRecordsRequest.SerializeToString,
@@ -527,6 +532,16 @@ class MgmtPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListModelTriggerTableRecords(self, request, context):
+        """List model trigger metrics
+
+        Returns a paginated list of model executions aggregated by model ID.
+        NOTE: This method is deprecated and will be retired soon.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListModelTriggerChartRecords(self, request, context):
         """List model trigger time charts
 
@@ -761,6 +776,11 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     servicer.ListPipelineTriggerChartRecords,
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsResponse.SerializeToString,
+            ),
+            'ListModelTriggerTableRecords': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListModelTriggerTableRecords,
+                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerTableRecordsRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerTableRecordsResponse.SerializeToString,
             ),
             'ListModelTriggerChartRecords': grpc.unary_unary_rpc_method_handler(
                     servicer.ListModelTriggerChartRecords,
@@ -1352,6 +1372,23 @@ class MgmtPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerChartRecords',
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListModelTriggerTableRecords(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListModelTriggerTableRecords',
+            core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerTableRecordsRequest.SerializeToString,
+            core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerTableRecordsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

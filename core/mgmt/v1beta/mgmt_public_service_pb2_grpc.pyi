@@ -298,6 +298,15 @@ class MgmtPublicServiceStub:
     owner.
     NOTE: This method will soon return the trigger counts of a given requester.
     """
+    ListModelTriggerTableRecords: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.metric_pb2.ListModelTriggerTableRecordsRequest,
+        core.mgmt.v1beta.metric_pb2.ListModelTriggerTableRecordsResponse,
+    ]
+    """List model trigger metrics
+
+    Returns a paginated list of model executions aggregated by model ID.
+    NOTE: This method is deprecated and will be retired soon.
+    """
     ListModelTriggerChartRecords: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListModelTriggerChartRecordsRequest,
         core.mgmt.v1beta.metric_pb2.ListModelTriggerChartRecordsResponse,
@@ -642,6 +651,15 @@ class MgmtPublicServiceAsyncStub:
     Returns a timeline of pipline trigger counts for the pipelines of a given
     owner.
     NOTE: This method will soon return the trigger counts of a given requester.
+    """
+    ListModelTriggerTableRecords: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.metric_pb2.ListModelTriggerTableRecordsRequest,
+        core.mgmt.v1beta.metric_pb2.ListModelTriggerTableRecordsResponse,
+    ]
+    """List model trigger metrics
+
+    Returns a paginated list of model executions aggregated by model ID.
+    NOTE: This method is deprecated and will be retired soon.
     """
     ListModelTriggerChartRecords: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListModelTriggerChartRecordsRequest,
@@ -1051,6 +1069,17 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         Returns a timeline of pipline trigger counts for the pipelines of a given
         owner.
         NOTE: This method will soon return the trigger counts of a given requester.
+        """
+    @abc.abstractmethod
+    def ListModelTriggerTableRecords(
+        self,
+        request: core.mgmt.v1beta.metric_pb2.ListModelTriggerTableRecordsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.metric_pb2.ListModelTriggerTableRecordsResponse, collections.abc.Awaitable[core.mgmt.v1beta.metric_pb2.ListModelTriggerTableRecordsResponse]]:
+        """List model trigger metrics
+
+        Returns a paginated list of model executions aggregated by model ID.
+        NOTE: This method is deprecated and will be retired soon.
         """
     @abc.abstractmethod
     def ListModelTriggerChartRecords(
