@@ -169,6 +169,11 @@ class MgmtPublicServiceStub(object):
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetPipelineTriggerCountRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetPipelineTriggerCountResponse.FromString,
                 )
+        self.GetModelTriggerCount = channel.unary_unary(
+                '/core.mgmt.v1beta.MgmtPublicService/GetModelTriggerCount',
+                request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetModelTriggerCountRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetModelTriggerCountResponse.FromString,
+                )
         self.ListPipelineTriggerTableRecords = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerTableRecords',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerTableRecordsRequest.SerializeToString,
@@ -506,6 +511,16 @@ class MgmtPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetModelTriggerCount(self, request, context):
+        """Get model trigger count
+
+        Returns the model trigger count of a given requester within a timespan.
+        Results are grouped by trigger status.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListPipelineTriggerTableRecords(self, request, context):
         """List pipeline trigger metrics
 
@@ -751,6 +766,11 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     servicer.GetPipelineTriggerCount,
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetPipelineTriggerCountRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetPipelineTriggerCountResponse.SerializeToString,
+            ),
+            'GetModelTriggerCount': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetModelTriggerCount,
+                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetModelTriggerCountRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetModelTriggerCountResponse.SerializeToString,
             ),
             'ListPipelineTriggerTableRecords': grpc.unary_unary_rpc_method_handler(
                     servicer.ListPipelineTriggerTableRecords,
@@ -1318,6 +1338,23 @@ class MgmtPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/GetPipelineTriggerCount',
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetPipelineTriggerCountRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetPipelineTriggerCountResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetModelTriggerCount(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/GetModelTriggerCount',
+            core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetModelTriggerCountRequest.SerializeToString,
+            core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetModelTriggerCountResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

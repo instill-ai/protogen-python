@@ -279,6 +279,15 @@ class MgmtPublicServiceStub:
     Returns the pipeline trigger count of a given requester within a timespan.
     Results are grouped by trigger status.
     """
+    GetModelTriggerCount: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.metric_pb2.GetModelTriggerCountRequest,
+        core.mgmt.v1beta.metric_pb2.GetModelTriggerCountResponse,
+    ]
+    """Get model trigger count
+
+    Returns the model trigger count of a given requester within a timespan.
+    Results are grouped by trigger status.
+    """
     ListPipelineTriggerTableRecords: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsRequest,
         core.mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsResponse,
@@ -622,6 +631,15 @@ class MgmtPublicServiceAsyncStub:
     """Get pipeline trigger count
 
     Returns the pipeline trigger count of a given requester within a timespan.
+    Results are grouped by trigger status.
+    """
+    GetModelTriggerCount: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.metric_pb2.GetModelTriggerCountRequest,
+        core.mgmt.v1beta.metric_pb2.GetModelTriggerCountResponse,
+    ]
+    """Get model trigger count
+
+    Returns the model trigger count of a given requester within a timespan.
     Results are grouped by trigger status.
     """
     ListPipelineTriggerTableRecords: grpc.aio.UnaryUnaryMultiCallable[
@@ -1027,6 +1045,17 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         """Get pipeline trigger count
 
         Returns the pipeline trigger count of a given requester within a timespan.
+        Results are grouped by trigger status.
+        """
+    @abc.abstractmethod
+    def GetModelTriggerCount(
+        self,
+        request: core.mgmt.v1beta.metric_pb2.GetModelTriggerCountRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.metric_pb2.GetModelTriggerCountResponse, collections.abc.Awaitable[core.mgmt.v1beta.metric_pb2.GetModelTriggerCountResponse]]:
+        """Get model trigger count
+
+        Returns the model trigger count of a given requester within a timespan.
         Results are grouped by trigger status.
         """
     @abc.abstractmethod

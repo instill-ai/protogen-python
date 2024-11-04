@@ -68,10 +68,10 @@ STATUS_ERRORED: Status.ValueType  # 2
 global___Status = Status
 
 @typing_extensions.final
-class PipelineTriggerCount(google.protobuf.message.Message):
+class TriggerCount(google.protobuf.message.Message):
     """========== Pipeline endpoints
 
-    PipelineTriggerCount represents a pipeline execution count with some
+    TriggerCount represents a execution count with some
     aggregation params (e.g. trigger status).
     """
 
@@ -93,7 +93,7 @@ class PipelineTriggerCount(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["_status", b"_status", "status", b"status", "trigger_count", b"trigger_count"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_status", b"_status"]) -> typing_extensions.Literal["status"] | None: ...
 
-global___PipelineTriggerCount = PipelineTriggerCount
+global___TriggerCount = TriggerCount
 
 @typing_extensions.final
 class GetPipelineTriggerCountRequest(google.protobuf.message.Message):
@@ -167,6 +167,45 @@ class GetPipelineTriggerCountRequest(google.protobuf.message.Message):
 global___GetPipelineTriggerCountRequest = GetPipelineTriggerCountRequest
 
 @typing_extensions.final
+class GetModelTriggerCountRequest(google.protobuf.message.Message):
+    """GetModelTriggerCountRequest represents a request to fetch the trigger
+    count of a requester over a time period.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    REQUESTER_ID_FIELD_NUMBER: builtins.int
+    START_FIELD_NUMBER: builtins.int
+    STOP_FIELD_NUMBER: builtins.int
+    requester_id: builtins.str
+    """The ID of the requester that triggered the model."""
+    @property
+    def start(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Beginning of the time range from which the records will be fetched.
+        The default value is the beginning of the current day, in UTC.
+        """
+    @property
+    def stop(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """End of the time range from which the records will be fetched.
+        The default value is the current timestamp.
+        """
+    def __init__(
+        self,
+        *,
+        requester_id: builtins.str = ...,
+        start: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        stop: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_start", b"_start", "_stop", b"_stop", "start", b"start", "stop", b"stop"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_start", b"_start", "_stop", b"_stop", "requester_id", b"requester_id", "start", b"start", "stop", b"stop"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_start", b"_start"]) -> typing_extensions.Literal["start"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_stop", b"_stop"]) -> typing_extensions.Literal["stop"] | None: ...
+
+global___GetModelTriggerCountRequest = GetModelTriggerCountRequest
+
+@typing_extensions.final
 class GetPipelineTriggerCountResponse(google.protobuf.message.Message):
     """GetPipelineTriggerCountResponse contains the trigger count, grouped by
     trigger status.
@@ -176,16 +215,37 @@ class GetPipelineTriggerCountResponse(google.protobuf.message.Message):
 
     PIPELINE_TRIGGER_COUNTS_FIELD_NUMBER: builtins.int
     @property
-    def pipeline_trigger_counts(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PipelineTriggerCount]:
+    def pipeline_trigger_counts(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TriggerCount]:
         """The trigger counts, grouped by status."""
     def __init__(
         self,
         *,
-        pipeline_trigger_counts: collections.abc.Iterable[global___PipelineTriggerCount] | None = ...,
+        pipeline_trigger_counts: collections.abc.Iterable[global___TriggerCount] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["pipeline_trigger_counts", b"pipeline_trigger_counts"]) -> None: ...
 
 global___GetPipelineTriggerCountResponse = GetPipelineTriggerCountResponse
+
+@typing_extensions.final
+class GetModelTriggerCountResponse(google.protobuf.message.Message):
+    """GetModelTriggerCountResponse contains the trigger count, grouped by
+    trigger status.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    MODEL_TRIGGER_COUNTS_FIELD_NUMBER: builtins.int
+    @property
+    def model_trigger_counts(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TriggerCount]:
+        """The trigger counts, grouped by status."""
+    def __init__(
+        self,
+        *,
+        model_trigger_counts: collections.abc.Iterable[global___TriggerCount] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["model_trigger_counts", b"model_trigger_counts"]) -> None: ...
+
+global___GetModelTriggerCountResponse = GetModelTriggerCountResponse
 
 @typing_extensions.final
 class CreditConsumptionChartRecord(google.protobuf.message.Message):
