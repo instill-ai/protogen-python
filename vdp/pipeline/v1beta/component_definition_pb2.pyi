@@ -20,42 +20,6 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
-class _ConnectorType:
-    ValueType = typing.NewType("ValueType", builtins.int)
-    V: typing_extensions.TypeAlias = ValueType
-
-class _ConnectorTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ConnectorType.ValueType], builtins.type):
-    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-    CONNECTOR_TYPE_UNSPECIFIED: _ConnectorType.ValueType  # 0
-    """Unspecified."""
-    CONNECTOR_TYPE_AI: _ConnectorType.ValueType  # 3
-    """AI connector."""
-    CONNECTOR_TYPE_DATA: _ConnectorType.ValueType  # 5
-    """Data connector."""
-    CONNECTOR_TYPE_OPERATOR: _ConnectorType.ValueType  # 6
-    """Operator connector."""
-    CONNECTOR_TYPE_APPLICATION: _ConnectorType.ValueType  # 7
-    """Application connector."""
-    CONNECTOR_TYPE_GENERIC: _ConnectorType.ValueType  # 8
-    """Generic."""
-
-class ConnectorType(_ConnectorType, metaclass=_ConnectorTypeEnumTypeWrapper):
-    """ConnectorType defines the connector type based on its task features."""
-
-CONNECTOR_TYPE_UNSPECIFIED: ConnectorType.ValueType  # 0
-"""Unspecified."""
-CONNECTOR_TYPE_AI: ConnectorType.ValueType  # 3
-"""AI connector."""
-CONNECTOR_TYPE_DATA: ConnectorType.ValueType  # 5
-"""Data connector."""
-CONNECTOR_TYPE_OPERATOR: ConnectorType.ValueType  # 6
-"""Operator connector."""
-CONNECTOR_TYPE_APPLICATION: ConnectorType.ValueType  # 7
-"""Application connector."""
-CONNECTOR_TYPE_GENERIC: ConnectorType.ValueType  # 8
-"""Generic."""
-global___ConnectorType = ConnectorType
-
 @typing_extensions.final
 class ComponentDefinition(google.protobuf.message.Message):
     """/////////////////////////////////////////////////////////////////////
@@ -208,8 +172,27 @@ class ComponentDefinition(google.protobuf.message.Message):
             def HasField(self, field_name: typing_extensions.Literal["value", b"value"]) -> builtins.bool: ...
             def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
+        @typing_extensions.final
+        class EventSpecificationsEntry(google.protobuf.message.Message):
+            DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+            KEY_FIELD_NUMBER: builtins.int
+            VALUE_FIELD_NUMBER: builtins.int
+            key: builtins.str
+            @property
+            def value(self) -> global___EventSpecification: ...
+            def __init__(
+                self,
+                *,
+                key: builtins.str = ...,
+                value: global___EventSpecification | None = ...,
+            ) -> None: ...
+            def HasField(self, field_name: typing_extensions.Literal["value", b"value"]) -> builtins.bool: ...
+            def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
+
         COMPONENT_SPECIFICATION_FIELD_NUMBER: builtins.int
         DATA_SPECIFICATIONS_FIELD_NUMBER: builtins.int
+        EVENT_SPECIFICATIONS_FIELD_NUMBER: builtins.int
         @property
         def component_specification(self) -> google.protobuf.struct_pb2.Struct:
             """Component specification."""
@@ -217,15 +200,22 @@ class ComponentDefinition(google.protobuf.message.Message):
         def data_specifications(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___DataSpecification]:
             """Data specifications.
             The key represents the task, and the value is the corresponding data_specification.
+            Note: This field will be renamed to task_specifications in the future.
+            """
+        @property
+        def event_specifications(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___EventSpecification]:
+            """Event specifications.
+            The key represents the event, and the value is the corresponding event_specification.
             """
         def __init__(
             self,
             *,
             component_specification: google.protobuf.struct_pb2.Struct | None = ...,
             data_specifications: collections.abc.Mapping[builtins.str, global___DataSpecification] | None = ...,
+            event_specifications: collections.abc.Mapping[builtins.str, global___EventSpecification] | None = ...,
         ) -> None: ...
         def HasField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification", "data_specifications", b"data_specifications"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification", "data_specifications", b"data_specifications", "event_specifications", b"event_specifications"]) -> None: ...
 
     NAME_FIELD_NUMBER: builtins.int
     UID_FIELD_NUMBER: builtins.int
@@ -245,6 +235,7 @@ class ComponentDefinition(google.protobuf.message.Message):
     TASKS_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     RELEASE_STAGE_FIELD_NUMBER: builtins.int
+    EVENTS_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The name of the component definition, defined by its ID.
     - Format: `component-definitions/{id}`
@@ -303,6 +294,9 @@ class ComponentDefinition(google.protobuf.message.Message):
     """Short description of the component."""
     release_stage: global___ComponentDefinition.ReleaseStage.ValueType
     """Release stage."""
+    @property
+    def events(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[vdp.pipeline.v1beta.common_pb2.ComponentEvent]:
+        """List of events that can be produced by the component."""
     def __init__(
         self,
         *,
@@ -324,15 +318,18 @@ class ComponentDefinition(google.protobuf.message.Message):
         tasks: collections.abc.Iterable[vdp.pipeline.v1beta.common_pb2.ComponentTask] | None = ...,
         description: builtins.str = ...,
         release_stage: global___ComponentDefinition.ReleaseStage.ValueType = ...,
+        events: collections.abc.Iterable[vdp.pipeline.v1beta.common_pb2.ComponentEvent] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["spec", b"spec", "vendor_attributes", b"vendor_attributes"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["custom", b"custom", "description", b"description", "documentation_url", b"documentation_url", "icon", b"icon", "id", b"id", "name", b"name", "public", b"public", "release_stage", b"release_stage", "source_url", b"source_url", "spec", b"spec", "tasks", b"tasks", "title", b"title", "tombstone", b"tombstone", "type", b"type", "uid", b"uid", "vendor", b"vendor", "vendor_attributes", b"vendor_attributes", "version", b"version"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["custom", b"custom", "description", b"description", "documentation_url", b"documentation_url", "events", b"events", "icon", b"icon", "id", b"id", "name", b"name", "public", b"public", "release_stage", b"release_stage", "source_url", b"source_url", "spec", b"spec", "tasks", b"tasks", "title", b"title", "tombstone", b"tombstone", "type", b"type", "uid", b"uid", "vendor", b"vendor", "vendor_attributes", b"vendor_attributes", "version", b"version"]) -> None: ...
 
 global___ComponentDefinition = ComponentDefinition
 
 @typing_extensions.final
 class DataSpecification(google.protobuf.message.Message):
-    """DataSpecification describes the JSON schema of component input and output."""
+    """DataSpecification describes the JSON schema of component input and output.
+    Note: This message will be renamed to TaskSpecifications in the future.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -356,311 +353,34 @@ class DataSpecification(google.protobuf.message.Message):
 global___DataSpecification = DataSpecification
 
 @typing_extensions.final
-class ConnectorSpec(google.protobuf.message.Message):
-    """ConnectorSpec represents a specification data model."""
+class EventSpecification(google.protobuf.message.Message):
+    """EventSpecification describes the JSON schema of component event setup and examples."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    @typing_extensions.final
-    class DataSpecificationsEntry(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        KEY_FIELD_NUMBER: builtins.int
-        VALUE_FIELD_NUMBER: builtins.int
-        key: builtins.str
-        @property
-        def value(self) -> global___DataSpecification: ...
-        def __init__(
-            self,
-            *,
-            key: builtins.str = ...,
-            value: global___DataSpecification | None = ...,
-        ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["value", b"value"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
-
-    COMPONENT_SPECIFICATION_FIELD_NUMBER: builtins.int
-    DATA_SPECIFICATIONS_FIELD_NUMBER: builtins.int
+    SETUP_SCHEMA_FIELD_NUMBER: builtins.int
+    MESSAGE_SCHEMA_FIELD_NUMBER: builtins.int
+    MESSAGE_EXAMPLES_FIELD_NUMBER: builtins.int
     @property
-    def component_specification(self) -> google.protobuf.struct_pb2.Struct:
-        """Component specification."""
+    def setup_schema(self) -> google.protobuf.struct_pb2.Struct:
+        """JSON schema describing the component event setup data."""
     @property
-    def data_specifications(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___DataSpecification]:
-        """Data specifications.
-        The key represents the task, and the value is the corresponding data_specification.
-        """
+    def message_schema(self) -> google.protobuf.struct_pb2.Struct:
+        """JSON schema describing the component event message data."""
+    @property
+    def message_examples(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
+        """JSON schema describing the component event examples."""
     def __init__(
         self,
         *,
-        component_specification: google.protobuf.struct_pb2.Struct | None = ...,
-        data_specifications: collections.abc.Mapping[builtins.str, global___DataSpecification] | None = ...,
+        setup_schema: google.protobuf.struct_pb2.Struct | None = ...,
+        message_schema: google.protobuf.struct_pb2.Struct | None = ...,
+        message_examples: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification", "data_specifications", b"data_specifications"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["message_schema", b"message_schema", "setup_schema", b"setup_schema"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["message_examples", b"message_examples", "message_schema", b"message_schema", "setup_schema", b"setup_schema"]) -> None: ...
 
-global___ConnectorSpec = ConnectorSpec
-
-@typing_extensions.final
-class ConnectorDefinition(google.protobuf.message.Message):
-    """A Connector is a type of pipeline component that queries, processes or sends
-    the ingested unstructured data to a service or app. Users need to configure
-    their connectors (e.g. by providing an API token to a remote service). A
-    ConnectorDefinition describes a certain type of Connector.
-
-    For more information, see
-    [Component](https://www.instill.tech/docs/component/introduction)
-    in the official documentation.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAME_FIELD_NUMBER: builtins.int
-    UID_FIELD_NUMBER: builtins.int
-    ID_FIELD_NUMBER: builtins.int
-    TITLE_FIELD_NUMBER: builtins.int
-    DOCUMENTATION_URL_FIELD_NUMBER: builtins.int
-    ICON_FIELD_NUMBER: builtins.int
-    SPEC_FIELD_NUMBER: builtins.int
-    TYPE_FIELD_NUMBER: builtins.int
-    TOMBSTONE_FIELD_NUMBER: builtins.int
-    PUBLIC_FIELD_NUMBER: builtins.int
-    CUSTOM_FIELD_NUMBER: builtins.int
-    VENDOR_FIELD_NUMBER: builtins.int
-    VENDOR_ATTRIBUTES_FIELD_NUMBER: builtins.int
-    SOURCE_URL_FIELD_NUMBER: builtins.int
-    VERSION_FIELD_NUMBER: builtins.int
-    TASKS_FIELD_NUMBER: builtins.int
-    DESCRIPTION_FIELD_NUMBER: builtins.int
-    RELEASE_STAGE_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The name of the connector definition, defined by its ID.
-    - Format: `connector-definitions/{id}
-    """
-    uid: builtins.str
-    """Connector definition UUID."""
-    id: builtins.str
-    """Connector definition resource ID (used in `name` as the last segment). This
-    conforms to RFC-1034, which restricts to letters, numbers, and hyphen,
-    with the first character a letter, the last a letter or a number, and a 63
-    character maximum.
-    """
-    title: builtins.str
-    """Connector definition title."""
-    documentation_url: builtins.str
-    """Connector definition documentation URL."""
-    icon: builtins.str
-    """Connector definition icon. This is a path that's relative to the root of
-    the connector implementation (see `source_url`) and that allows clients
-    frontend applications to pull and locate the icons.
-    """
-    @property
-    def spec(self) -> global___ConnectorSpec:
-        """Connector definition specification."""
-    type: global___ConnectorType.ValueType
-    """Connector definition type."""
-    tombstone: builtins.bool
-    """Connector definition tombstone. If true, this configuration is permanently
-    off. Otherwise, the configuration is active.
-    """
-    public: builtins.bool
-    """The public flag determines whether this connector definition is available
-    to all workspaces.
-    """
-    custom: builtins.bool
-    """Connector definition custom flag, i.e., whether this is a custom
-    connector definition.
-    """
-    vendor: builtins.str
-    """Connector definition vendor name."""
-    @property
-    def vendor_attributes(self) -> google.protobuf.struct_pb2.Struct:
-        """Vendor-specific attributes."""
-    source_url: builtins.str
-    """Source code URL. This points to the source code where the connector is
-    implemented.
-    """
-    version: builtins.str
-    """Connector definition version. This is a string that fulfills the SemVer
-    specification (e.g. `1.0.0-beta`).
-    """
-    @property
-    def tasks(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[vdp.pipeline.v1beta.common_pb2.ComponentTask]:
-        """List of tasks that can be executed by the connector."""
-    description: builtins.str
-    """Short description of the connector."""
-    release_stage: global___ComponentDefinition.ReleaseStage.ValueType
-    """Release stage."""
-    def __init__(
-        self,
-        *,
-        name: builtins.str = ...,
-        uid: builtins.str = ...,
-        id: builtins.str = ...,
-        title: builtins.str = ...,
-        documentation_url: builtins.str = ...,
-        icon: builtins.str = ...,
-        spec: global___ConnectorSpec | None = ...,
-        type: global___ConnectorType.ValueType = ...,
-        tombstone: builtins.bool = ...,
-        public: builtins.bool = ...,
-        custom: builtins.bool = ...,
-        vendor: builtins.str = ...,
-        vendor_attributes: google.protobuf.struct_pb2.Struct | None = ...,
-        source_url: builtins.str = ...,
-        version: builtins.str = ...,
-        tasks: collections.abc.Iterable[vdp.pipeline.v1beta.common_pb2.ComponentTask] | None = ...,
-        description: builtins.str = ...,
-        release_stage: global___ComponentDefinition.ReleaseStage.ValueType = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["spec", b"spec", "vendor_attributes", b"vendor_attributes"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["custom", b"custom", "description", b"description", "documentation_url", b"documentation_url", "icon", b"icon", "id", b"id", "name", b"name", "public", b"public", "release_stage", b"release_stage", "source_url", b"source_url", "spec", b"spec", "tasks", b"tasks", "title", b"title", "tombstone", b"tombstone", "type", b"type", "uid", b"uid", "vendor", b"vendor", "vendor_attributes", b"vendor_attributes", "version", b"version"]) -> None: ...
-
-global___ConnectorDefinition = ConnectorDefinition
-
-@typing_extensions.final
-class OperatorSpec(google.protobuf.message.Message):
-    """OperatorSpec represents a specification data model."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    @typing_extensions.final
-    class DataSpecificationsEntry(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        KEY_FIELD_NUMBER: builtins.int
-        VALUE_FIELD_NUMBER: builtins.int
-        key: builtins.str
-        @property
-        def value(self) -> global___DataSpecification: ...
-        def __init__(
-            self,
-            *,
-            key: builtins.str = ...,
-            value: global___DataSpecification | None = ...,
-        ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["value", b"value"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
-
-    COMPONENT_SPECIFICATION_FIELD_NUMBER: builtins.int
-    DATA_SPECIFICATIONS_FIELD_NUMBER: builtins.int
-    @property
-    def component_specification(self) -> google.protobuf.struct_pb2.Struct:
-        """Component specification."""
-    @property
-    def data_specifications(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___DataSpecification]:
-        """Data specifications.
-        The key represents the task, and the value is the corresponding data_specification.
-        """
-    def __init__(
-        self,
-        *,
-        component_specification: google.protobuf.struct_pb2.Struct | None = ...,
-        data_specifications: collections.abc.Mapping[builtins.str, global___DataSpecification] | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["component_specification", b"component_specification", "data_specifications", b"data_specifications"]) -> None: ...
-
-global___OperatorSpec = OperatorSpec
-
-@typing_extensions.final
-class OperatorDefinition(google.protobuf.message.Message):
-    """An Operator is a type of pipeline component that performs data injection and
-    manipulation. OperatorDefinition describes a certain type of operator.
-
-    For more information, see
-    [Component](https://www.instill.tech/docs/component/introduction)
-    in the official documentation.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAME_FIELD_NUMBER: builtins.int
-    UID_FIELD_NUMBER: builtins.int
-    ID_FIELD_NUMBER: builtins.int
-    TITLE_FIELD_NUMBER: builtins.int
-    DOCUMENTATION_URL_FIELD_NUMBER: builtins.int
-    ICON_FIELD_NUMBER: builtins.int
-    SPEC_FIELD_NUMBER: builtins.int
-    TOMBSTONE_FIELD_NUMBER: builtins.int
-    PUBLIC_FIELD_NUMBER: builtins.int
-    CUSTOM_FIELD_NUMBER: builtins.int
-    SOURCE_URL_FIELD_NUMBER: builtins.int
-    VERSION_FIELD_NUMBER: builtins.int
-    TASKS_FIELD_NUMBER: builtins.int
-    DESCRIPTION_FIELD_NUMBER: builtins.int
-    RELEASE_STAGE_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The name of the operator definition.
-    - Format: `operator-definitions/*`
-    """
-    uid: builtins.str
-    """Operator definition UUID."""
-    id: builtins.str
-    """Operator definition resource ID (used in `name` as the last segment).
-    This conforms to RFC-1034, which restricts to letters, numbers, and
-    hyphen, with the first character a letter, the last a letter or a number,
-    and a 63 character maximum.
-    """
-    title: builtins.str
-    """Operator definition title."""
-    documentation_url: builtins.str
-    """Operator definition documentation URL."""
-    icon: builtins.str
-    """Operator definition icon. This is a path that's relative to the root of
-    the operator implementation (see `source_url`) and that allows clients
-    frontend applications to pull and locate the icons.
-    """
-    @property
-    def spec(self) -> global___OperatorSpec:
-        """Operator definition specification."""
-    tombstone: builtins.bool
-    """Operator definition tombstone. If true, this configuration is permanently
-    off. Otherwise, the configuration is active.
-    """
-    public: builtins.bool
-    """The public flag determines whether this operator definition is available
-    to all workspaces.
-    """
-    custom: builtins.bool
-    """The custom flag determines whether this is a custom operator definition."""
-    source_url: builtins.str
-    """Source code URL. This points to the source code where the operator is
-    implemented.
-    """
-    version: builtins.str
-    """Operator definition version. This is a string that fulfills the SemVer
-    specification (e.g. `1.0.0-beta`).
-    """
-    @property
-    def tasks(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[vdp.pipeline.v1beta.common_pb2.ComponentTask]:
-        """List of tasks that can be executed by the operator."""
-    description: builtins.str
-    """Short description of the operator."""
-    release_stage: global___ComponentDefinition.ReleaseStage.ValueType
-    """Release stage."""
-    def __init__(
-        self,
-        *,
-        name: builtins.str = ...,
-        uid: builtins.str = ...,
-        id: builtins.str = ...,
-        title: builtins.str = ...,
-        documentation_url: builtins.str = ...,
-        icon: builtins.str = ...,
-        spec: global___OperatorSpec | None = ...,
-        tombstone: builtins.bool = ...,
-        public: builtins.bool = ...,
-        custom: builtins.bool = ...,
-        source_url: builtins.str = ...,
-        version: builtins.str = ...,
-        tasks: collections.abc.Iterable[vdp.pipeline.v1beta.common_pb2.ComponentTask] | None = ...,
-        description: builtins.str = ...,
-        release_stage: global___ComponentDefinition.ReleaseStage.ValueType = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["spec", b"spec"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["custom", b"custom", "description", b"description", "documentation_url", b"documentation_url", "icon", b"icon", "id", b"id", "name", b"name", "public", b"public", "release_stage", b"release_stage", "source_url", b"source_url", "spec", b"spec", "tasks", b"tasks", "title", b"title", "tombstone", b"tombstone", "uid", b"uid", "version", b"version"]) -> None: ...
-
-global___OperatorDefinition = OperatorDefinition
+global___EventSpecification = EventSpecification
 
 @typing_extensions.final
 class ListComponentDefinitionsRequest(google.protobuf.message.Message):
@@ -744,248 +464,3 @@ class ListComponentDefinitionsResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["component_definitions", b"component_definitions", "page", b"page", "page_size", b"page_size", "total_size", b"total_size"]) -> None: ...
 
 global___ListComponentDefinitionsResponse = ListComponentDefinitionsResponse
-
-@typing_extensions.final
-class ListConnectorDefinitionsRequest(google.protobuf.message.Message):
-    """ListConnectorDefinitionsRequest represents a request to list connector
-    definitions.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    PAGE_SIZE_FIELD_NUMBER: builtins.int
-    PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    FILTER_FIELD_NUMBER: builtins.int
-    VIEW_FIELD_NUMBER: builtins.int
-    page_size: builtins.int
-    """The maximum number of connector definitions to return. If this parameter
-    is unspecified, at most 10 definitions will be returned. The cap value for
-    this parameter is 100 (i.e. any value above that will be coerced to 100).
-    """
-    page_token: builtins.str
-    """Page token."""
-    filter: builtins.str
-    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
-    expression.
-    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
-    """
-    view: global___ComponentDefinition.View.ValueType
-    """View allows clients to specify the desired resource view in the response."""
-    def __init__(
-        self,
-        *,
-        page_size: builtins.int | None = ...,
-        page_token: builtins.str | None = ...,
-        filter: builtins.str | None = ...,
-        view: global___ComponentDefinition.View.ValueType | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_view", b"_view", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_view", b"_view", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "view", b"view"]) -> None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_token", b"_page_token"]) -> typing_extensions.Literal["page_token"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
-
-global___ListConnectorDefinitionsRequest = ListConnectorDefinitionsRequest
-
-@typing_extensions.final
-class ListConnectorDefinitionsResponse(google.protobuf.message.Message):
-    """ListConnectorDefinitionsResponse contains a list of connector definitions."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    CONNECTOR_DEFINITIONS_FIELD_NUMBER: builtins.int
-    NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    TOTAL_SIZE_FIELD_NUMBER: builtins.int
-    @property
-    def connector_definitions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ConnectorDefinition]:
-        """A list of connector definition resources."""
-    next_page_token: builtins.str
-    """Next page token."""
-    total_size: builtins.int
-    """Total number of connector definitions."""
-    def __init__(
-        self,
-        *,
-        connector_definitions: collections.abc.Iterable[global___ConnectorDefinition] | None = ...,
-        next_page_token: builtins.str = ...,
-        total_size: builtins.int = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["connector_definitions", b"connector_definitions", "next_page_token", b"next_page_token", "total_size", b"total_size"]) -> None: ...
-
-global___ListConnectorDefinitionsResponse = ListConnectorDefinitionsResponse
-
-@typing_extensions.final
-class GetConnectorDefinitionRequest(google.protobuf.message.Message):
-    """GetConnectorDefinitionRequest represents a request to fetch the details of a
-    connector definition.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAME_FIELD_NUMBER: builtins.int
-    VIEW_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the connector definition, which allows its access by ID.
-    - Format: `connector-definitions/{id}`.
-    """
-    view: global___ComponentDefinition.View.ValueType
-    """View allows clients to specify the desired resource view in the response."""
-    def __init__(
-        self,
-        *,
-        name: builtins.str = ...,
-        view: global___ComponentDefinition.View.ValueType | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "name", b"name", "view", b"view"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
-
-global___GetConnectorDefinitionRequest = GetConnectorDefinitionRequest
-
-@typing_extensions.final
-class GetConnectorDefinitionResponse(google.protobuf.message.Message):
-    """GetConnectorDefinitionResponse contains the requested connector definition."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    CONNECTOR_DEFINITION_FIELD_NUMBER: builtins.int
-    @property
-    def connector_definition(self) -> global___ConnectorDefinition:
-        """The connector definition resource."""
-    def __init__(
-        self,
-        *,
-        connector_definition: global___ConnectorDefinition | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connector_definition", b"connector_definition"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["connector_definition", b"connector_definition"]) -> None: ...
-
-global___GetConnectorDefinitionResponse = GetConnectorDefinitionResponse
-
-@typing_extensions.final
-class ListOperatorDefinitionsRequest(google.protobuf.message.Message):
-    """ListOperatorDefinitionsRequest represents a request to list operator
-    definitions.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    PAGE_SIZE_FIELD_NUMBER: builtins.int
-    PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    FILTER_FIELD_NUMBER: builtins.int
-    VIEW_FIELD_NUMBER: builtins.int
-    page_size: builtins.int
-    """The maximum number of OperatorDefinitions to return. The
-    service may return fewer than this value. If unspecified, at most 10
-    OperatorDefinitions will be returned. The maximum value is 100;
-    values above 100 will be coerced to 100.
-    """
-    page_token: builtins.str
-    """Page token."""
-    filter: builtins.str
-    """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter
-    expression.
-    - Example: `create_time>timestamp("2000-06-19T23:31:08.657Z")`.
-    """
-    view: global___ComponentDefinition.View.ValueType
-    """View allows clients to specify the desired resource view in the response."""
-    def __init__(
-        self,
-        *,
-        page_size: builtins.int | None = ...,
-        page_token: builtins.str | None = ...,
-        filter: builtins.str | None = ...,
-        view: global___ComponentDefinition.View.ValueType | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_view", b"_view", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "_view", b"_view", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "view", b"view"]) -> None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_token", b"_page_token"]) -> typing_extensions.Literal["page_token"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
-
-global___ListOperatorDefinitionsRequest = ListOperatorDefinitionsRequest
-
-@typing_extensions.final
-class ListOperatorDefinitionsResponse(google.protobuf.message.Message):
-    """ListOperatorDefinitionsResponse contains a list of operator definitions."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    OPERATOR_DEFINITIONS_FIELD_NUMBER: builtins.int
-    NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    TOTAL_SIZE_FIELD_NUMBER: builtins.int
-    @property
-    def operator_definitions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___OperatorDefinition]:
-        """A list of operator definition resources."""
-    next_page_token: builtins.str
-    """Next page token."""
-    total_size: builtins.int
-    """Total number of operator definitions."""
-    def __init__(
-        self,
-        *,
-        operator_definitions: collections.abc.Iterable[global___OperatorDefinition] | None = ...,
-        next_page_token: builtins.str = ...,
-        total_size: builtins.int = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "operator_definitions", b"operator_definitions", "total_size", b"total_size"]) -> None: ...
-
-global___ListOperatorDefinitionsResponse = ListOperatorDefinitionsResponse
-
-@typing_extensions.final
-class GetOperatorDefinitionRequest(google.protobuf.message.Message):
-    """GetOperatorDefinitionRequest represents a request to fetch the details of a
-    operator definition.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAME_FIELD_NUMBER: builtins.int
-    VIEW_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    """The resource name of the operator definition, which allows its access by ID.
-    - Format: `operator-definitions/{id}`.
-    """
-    view: global___ComponentDefinition.View.ValueType
-    """View allows clients to specify the desired resource view in the response."""
-    def __init__(
-        self,
-        *,
-        name: builtins.str = ...,
-        view: global___ComponentDefinition.View.ValueType | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "name", b"name", "view", b"view"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
-
-global___GetOperatorDefinitionRequest = GetOperatorDefinitionRequest
-
-@typing_extensions.final
-class GetOperatorDefinitionResponse(google.protobuf.message.Message):
-    """GetOperatorDefinitionResponse contains the requested operator definition."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    OPERATOR_DEFINITION_FIELD_NUMBER: builtins.int
-    @property
-    def operator_definition(self) -> global___OperatorDefinition:
-        """The operator definition resource."""
-    def __init__(
-        self,
-        *,
-        operator_definition: global___OperatorDefinition | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["operator_definition", b"operator_definition"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["operator_definition", b"operator_definition"]) -> None: ...
-
-global___GetOperatorDefinitionResponse = GetOperatorDefinitionResponse

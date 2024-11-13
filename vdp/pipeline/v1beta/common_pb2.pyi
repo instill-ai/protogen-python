@@ -332,3 +332,31 @@ class ComponentTask(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "name", b"name", "title", b"title"]) -> None: ...
 
 global___ComponentTask = ComponentTask
+
+@typing_extensions.final
+class ComponentEvent(google.protobuf.message.Message):
+    """ComponentEvent contains information about an event that a component can
+    produce.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    TITLE_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The event name, e.g. `EVENT_NEW`."""
+    title: builtins.str
+    """Title is the event name in a human-friendly format."""
+    description: builtins.str
+    """Description contains information about the event."""
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        title: builtins.str = ...,
+        description: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "name", b"name", "title", b"title"]) -> None: ...
+
+global___ComponentEvent = ComponentEvent

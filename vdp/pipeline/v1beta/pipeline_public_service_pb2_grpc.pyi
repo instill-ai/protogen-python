@@ -817,38 +817,6 @@ class PipelinePublicServiceStub:
     The pipeline is identified by its resource name, formed by its parent
     organization and ID.
     """
-    ListConnectorDefinitions: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.component_definition_pb2.ListConnectorDefinitionsRequest,
-        vdp.pipeline.v1beta.component_definition_pb2.ListConnectorDefinitionsResponse,
-    ]
-    """List connector definitions
-
-    Returns a paginated list of connector definitions.
-    """
-    GetConnectorDefinition: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.component_definition_pb2.GetConnectorDefinitionRequest,
-        vdp.pipeline.v1beta.component_definition_pb2.GetConnectorDefinitionResponse,
-    ]
-    """Get connector definition
-
-    Returns the details of a connector definition.
-    """
-    ListOperatorDefinitions: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.component_definition_pb2.ListOperatorDefinitionsRequest,
-        vdp.pipeline.v1beta.component_definition_pb2.ListOperatorDefinitionsResponse,
-    ]
-    """List operator definitions
-
-    Returns a paginated list of operator definitions.
-    """
-    GetOperatorDefinition: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.component_definition_pb2.GetOperatorDefinitionRequest,
-        vdp.pipeline.v1beta.component_definition_pb2.GetOperatorDefinitionResponse,
-    ]
-    """Get operator definition
-
-    Returns the details of an operator definition.
-    """
     CheckName: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.common_pb2.CheckNameRequest,
         vdp.pipeline.v1beta.common_pb2.CheckNameResponse,
@@ -1853,38 +1821,6 @@ class PipelinePublicServiceAsyncStub:
 
     The pipeline is identified by its resource name, formed by its parent
     organization and ID.
-    """
-    ListConnectorDefinitions: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.component_definition_pb2.ListConnectorDefinitionsRequest,
-        vdp.pipeline.v1beta.component_definition_pb2.ListConnectorDefinitionsResponse,
-    ]
-    """List connector definitions
-
-    Returns a paginated list of connector definitions.
-    """
-    GetConnectorDefinition: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.component_definition_pb2.GetConnectorDefinitionRequest,
-        vdp.pipeline.v1beta.component_definition_pb2.GetConnectorDefinitionResponse,
-    ]
-    """Get connector definition
-
-    Returns the details of a connector definition.
-    """
-    ListOperatorDefinitions: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.component_definition_pb2.ListOperatorDefinitionsRequest,
-        vdp.pipeline.v1beta.component_definition_pb2.ListOperatorDefinitionsResponse,
-    ]
-    """List operator definitions
-
-    Returns a paginated list of operator definitions.
-    """
-    GetOperatorDefinition: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.component_definition_pb2.GetOperatorDefinitionRequest,
-        vdp.pipeline.v1beta.component_definition_pb2.GetOperatorDefinitionResponse,
-    ]
-    """Get operator definition
-
-    Returns the details of an operator definition.
     """
     CheckName: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.common_pb2.CheckNameRequest,
@@ -3032,46 +2968,6 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
 
         The pipeline is identified by its resource name, formed by its parent
         organization and ID.
-        """
-    @abc.abstractmethod
-    def ListConnectorDefinitions(
-        self,
-        request: vdp.pipeline.v1beta.component_definition_pb2.ListConnectorDefinitionsRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.component_definition_pb2.ListConnectorDefinitionsResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.component_definition_pb2.ListConnectorDefinitionsResponse]]:
-        """List connector definitions
-
-        Returns a paginated list of connector definitions.
-        """
-    @abc.abstractmethod
-    def GetConnectorDefinition(
-        self,
-        request: vdp.pipeline.v1beta.component_definition_pb2.GetConnectorDefinitionRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.component_definition_pb2.GetConnectorDefinitionResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.component_definition_pb2.GetConnectorDefinitionResponse]]:
-        """Get connector definition
-
-        Returns the details of a connector definition.
-        """
-    @abc.abstractmethod
-    def ListOperatorDefinitions(
-        self,
-        request: vdp.pipeline.v1beta.component_definition_pb2.ListOperatorDefinitionsRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.component_definition_pb2.ListOperatorDefinitionsResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.component_definition_pb2.ListOperatorDefinitionsResponse]]:
-        """List operator definitions
-
-        Returns a paginated list of operator definitions.
-        """
-    @abc.abstractmethod
-    def GetOperatorDefinition(
-        self,
-        request: vdp.pipeline.v1beta.component_definition_pb2.GetOperatorDefinitionRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.component_definition_pb2.GetOperatorDefinitionResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.component_definition_pb2.GetOperatorDefinitionResponse]]:
-        """Get operator definition
-
-        Returns the details of an operator definition.
         """
     @abc.abstractmethod
     def CheckName(
