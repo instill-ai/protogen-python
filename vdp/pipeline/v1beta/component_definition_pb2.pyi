@@ -358,12 +358,18 @@ class EventSpecification(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    SETUP_SCHEMA_FIELD_NUMBER: builtins.int
+    TITLE_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
+    CONFIG_SCHEMA_FIELD_NUMBER: builtins.int
     MESSAGE_SCHEMA_FIELD_NUMBER: builtins.int
     MESSAGE_EXAMPLES_FIELD_NUMBER: builtins.int
+    title: builtins.str
+    """Event title."""
+    description: builtins.str
+    """Event description."""
     @property
-    def setup_schema(self) -> google.protobuf.struct_pb2.Struct:
-        """JSON schema describing the component event setup data."""
+    def config_schema(self) -> google.protobuf.struct_pb2.Struct:
+        """JSON schema describing the component event config data."""
     @property
     def message_schema(self) -> google.protobuf.struct_pb2.Struct:
         """JSON schema describing the component event message data."""
@@ -373,12 +379,14 @@ class EventSpecification(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        setup_schema: google.protobuf.struct_pb2.Struct | None = ...,
+        title: builtins.str = ...,
+        description: builtins.str = ...,
+        config_schema: google.protobuf.struct_pb2.Struct | None = ...,
         message_schema: google.protobuf.struct_pb2.Struct | None = ...,
         message_examples: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["message_schema", b"message_schema", "setup_schema", b"setup_schema"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["message_examples", b"message_examples", "message_schema", b"message_schema", "setup_schema", b"setup_schema"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["config_schema", b"config_schema", "message_schema", b"message_schema"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["config_schema", b"config_schema", "description", b"description", "message_examples", b"message_examples", "message_schema", b"message_schema", "title", b"title"]) -> None: ...
 
 global___EventSpecification = EventSpecification
 
