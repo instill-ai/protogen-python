@@ -87,15 +87,20 @@ class PipelinePublicServiceStub(object):
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneNamespacePipelineRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneNamespacePipelineResponse.FromString,
                 )
-        self.SendNamespacePipelineEvent = channel.unary_unary(
-                '/vdp.pipeline.v1beta.PipelinePublicService/SendNamespacePipelineEvent',
-                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.SendNamespacePipelineEventRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.SendNamespacePipelineEventResponse.FromString,
+        self.HandleNamespacePipelineWebhookEvent = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/HandleNamespacePipelineWebhookEvent',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.HandleNamespacePipelineWebhookEventRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.HandleNamespacePipelineWebhookEventResponse.FromString,
                 )
-        self.SendNamespacePipelineReleaseEvent = channel.unary_unary(
-                '/vdp.pipeline.v1beta.PipelinePublicService/SendNamespacePipelineReleaseEvent',
-                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.SendNamespacePipelineReleaseEventRequest.SerializeToString,
-                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.SendNamespacePipelineReleaseEventResponse.FromString,
+        self.HandleNamespacePipelineReleaseWebhookEvent = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/HandleNamespacePipelineReleaseWebhookEvent',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.HandleNamespacePipelineReleaseWebhookEventRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.HandleNamespacePipelineReleaseWebhookEventResponse.FromString,
+                )
+        self.DispatchPipelineWebhookEvent = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePublicService/DispatchPipelineWebhookEvent',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.DispatchPipelineWebhookEventRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.DispatchPipelineWebhookEventResponse.FromString,
                 )
         self.TriggerNamespacePipeline = channel.unary_unary(
                 '/vdp.pipeline.v1beta.PipelinePublicService/TriggerNamespacePipeline',
@@ -638,15 +643,27 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def SendNamespacePipelineEvent(self, request, context):
-        """SendNamespacePipelineEvent
+    def HandleNamespacePipelineWebhookEvent(self, request, context):
+        """HandleNamespacePipelineWebhookEvent
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def SendNamespacePipelineReleaseEvent(self, request, context):
-        """SendNamespacePipelineReleaseEvent
+    def HandleNamespacePipelineReleaseWebhookEvent(self, request, context):
+        """HandleNamespacePipelineReleaseWebhookEvent
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DispatchPipelineWebhookEvent(self, request, context):
+        """Dispatch Pipeline Webhook Event
+
+        Handles webhook events by routing them to the appropriate pipeline based on the webhook type and message.
+        The webhook type determines which component processes the event, while the message payload contains data
+        that triggers pipeline execution. The pipeline processes the event using configured handlers and returns
+        a response to the webhook sender.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1662,15 +1679,20 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneNamespacePipelineRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.CloneNamespacePipelineResponse.SerializeToString,
             ),
-            'SendNamespacePipelineEvent': grpc.unary_unary_rpc_method_handler(
-                    servicer.SendNamespacePipelineEvent,
-                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.SendNamespacePipelineEventRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.SendNamespacePipelineEventResponse.SerializeToString,
+            'HandleNamespacePipelineWebhookEvent': grpc.unary_unary_rpc_method_handler(
+                    servicer.HandleNamespacePipelineWebhookEvent,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.HandleNamespacePipelineWebhookEventRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.HandleNamespacePipelineWebhookEventResponse.SerializeToString,
             ),
-            'SendNamespacePipelineReleaseEvent': grpc.unary_unary_rpc_method_handler(
-                    servicer.SendNamespacePipelineReleaseEvent,
-                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.SendNamespacePipelineReleaseEventRequest.FromString,
-                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.SendNamespacePipelineReleaseEventResponse.SerializeToString,
+            'HandleNamespacePipelineReleaseWebhookEvent': grpc.unary_unary_rpc_method_handler(
+                    servicer.HandleNamespacePipelineReleaseWebhookEvent,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.HandleNamespacePipelineReleaseWebhookEventRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.HandleNamespacePipelineReleaseWebhookEventResponse.SerializeToString,
+            ),
+            'DispatchPipelineWebhookEvent': grpc.unary_unary_rpc_method_handler(
+                    servicer.DispatchPipelineWebhookEvent,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.DispatchPipelineWebhookEventRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.DispatchPipelineWebhookEventResponse.SerializeToString,
             ),
             'TriggerNamespacePipeline': grpc.unary_unary_rpc_method_handler(
                     servicer.TriggerNamespacePipeline,
@@ -2303,7 +2325,7 @@ class PipelinePublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def SendNamespacePipelineEvent(request,
+    def HandleNamespacePipelineWebhookEvent(request,
             target,
             options=(),
             channel_credentials=None,
@@ -2313,14 +2335,14 @@ class PipelinePublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/SendNamespacePipelineEvent',
-            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.SendNamespacePipelineEventRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.SendNamespacePipelineEventResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/HandleNamespacePipelineWebhookEvent',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.HandleNamespacePipelineWebhookEventRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.HandleNamespacePipelineWebhookEventResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def SendNamespacePipelineReleaseEvent(request,
+    def HandleNamespacePipelineReleaseWebhookEvent(request,
             target,
             options=(),
             channel_credentials=None,
@@ -2330,9 +2352,26 @@ class PipelinePublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/SendNamespacePipelineReleaseEvent',
-            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.SendNamespacePipelineReleaseEventRequest.SerializeToString,
-            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.SendNamespacePipelineReleaseEventResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/HandleNamespacePipelineReleaseWebhookEvent',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.HandleNamespacePipelineReleaseWebhookEventRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.HandleNamespacePipelineReleaseWebhookEventResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DispatchPipelineWebhookEvent(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePublicService/DispatchPipelineWebhookEvent',
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.DispatchPipelineWebhookEventRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.DispatchPipelineWebhookEventResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

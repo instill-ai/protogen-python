@@ -1290,8 +1290,8 @@ class CloneNamespacePipelineReleaseResponse(google.protobuf.message.Message):
 global___CloneNamespacePipelineReleaseResponse = CloneNamespacePipelineReleaseResponse
 
 @typing_extensions.final
-class SendNamespacePipelineEventRequest(google.protobuf.message.Message):
-    """SendNamespacePipelineEventRequest"""
+class HandleNamespacePipelineWebhookEventRequest(google.protobuf.message.Message):
+    """HandleNamespacePipelineWebhookEventRequest"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1323,11 +1323,11 @@ class SendNamespacePipelineEventRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing_extensions.Literal["data", b"data"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["code", b"code", "data", b"data", "event", b"event", "namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id"]) -> None: ...
 
-global___SendNamespacePipelineEventRequest = SendNamespacePipelineEventRequest
+global___HandleNamespacePipelineWebhookEventRequest = HandleNamespacePipelineWebhookEventRequest
 
 @typing_extensions.final
-class SendNamespacePipelineEventResponse(google.protobuf.message.Message):
-    """SendNamespacePipelineEventResponse"""
+class HandleNamespacePipelineWebhookEventResponse(google.protobuf.message.Message):
+    """HandleNamespacePipelineWebhookEventResponse"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1343,11 +1343,11 @@ class SendNamespacePipelineEventResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing_extensions.Literal["data", b"data"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["data", b"data"]) -> None: ...
 
-global___SendNamespacePipelineEventResponse = SendNamespacePipelineEventResponse
+global___HandleNamespacePipelineWebhookEventResponse = HandleNamespacePipelineWebhookEventResponse
 
 @typing_extensions.final
-class SendNamespacePipelineReleaseEventRequest(google.protobuf.message.Message):
-    """SendNamespacePipelineReleaseEventRequest"""
+class HandleNamespacePipelineReleaseWebhookEventRequest(google.protobuf.message.Message):
+    """HandleNamespacePipelineReleaseWebhookEventRequest"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1383,11 +1383,11 @@ class SendNamespacePipelineReleaseEventRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing_extensions.Literal["data", b"data"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["code", b"code", "data", b"data", "event", b"event", "namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id", "release_id", b"release_id"]) -> None: ...
 
-global___SendNamespacePipelineReleaseEventRequest = SendNamespacePipelineReleaseEventRequest
+global___HandleNamespacePipelineReleaseWebhookEventRequest = HandleNamespacePipelineReleaseWebhookEventRequest
 
 @typing_extensions.final
-class SendNamespacePipelineReleaseEventResponse(google.protobuf.message.Message):
-    """SendNamespacePipelineReleaseEventResponse"""
+class HandleNamespacePipelineReleaseWebhookEventResponse(google.protobuf.message.Message):
+    """HandleNamespacePipelineReleaseWebhookEventResponse"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1403,7 +1403,59 @@ class SendNamespacePipelineReleaseEventResponse(google.protobuf.message.Message)
     def HasField(self, field_name: typing_extensions.Literal["data", b"data"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["data", b"data"]) -> None: ...
 
-global___SendNamespacePipelineReleaseEventResponse = SendNamespacePipelineReleaseEventResponse
+global___HandleNamespacePipelineReleaseWebhookEventResponse = HandleNamespacePipelineReleaseWebhookEventResponse
+
+@typing_extensions.final
+class DispatchPipelineWebhookEventRequest(google.protobuf.message.Message):
+    """DispatchPipelineWebhookEventRequest represents a request to dispatch webhook events
+    for a pipeline. The request contains the webhook type and event message that
+    will be processed by the event router and dispatched to the appropriate pipeline
+    based on the webhook type and message. The event message contains the payload
+    data that will be used to trigger pipeline execution.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    WEBHOOK_TYPE_FIELD_NUMBER: builtins.int
+    MESSAGE_FIELD_NUMBER: builtins.int
+    webhook_type: builtins.str
+    """Webhook Type"""
+    @property
+    def message(self) -> google.protobuf.struct_pb2.Struct:
+        """Event"""
+    def __init__(
+        self,
+        *,
+        webhook_type: builtins.str = ...,
+        message: google.protobuf.struct_pb2.Struct | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["message", b"message"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["message", b"message", "webhook_type", b"webhook_type"]) -> None: ...
+
+global___DispatchPipelineWebhookEventRequest = DispatchPipelineWebhookEventRequest
+
+@typing_extensions.final
+class DispatchPipelineWebhookEventResponse(google.protobuf.message.Message):
+    """DispatchPipelineWebhookEventResponse represents a response to dispatch webhook events
+    for a pipeline. The response contains the response message that will be sent
+    back to the webhook sender.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    RESPONSE_FIELD_NUMBER: builtins.int
+    @property
+    def response(self) -> google.protobuf.struct_pb2.Struct:
+        """Response"""
+    def __init__(
+        self,
+        *,
+        response: google.protobuf.struct_pb2.Struct | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["response", b"response"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["response", b"response"]) -> None: ...
+
+global___DispatchPipelineWebhookEventResponse = DispatchPipelineWebhookEventResponse
 
 @typing_extensions.final
 class TriggerNamespacePipelineRequest(google.protobuf.message.Message):

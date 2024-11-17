@@ -153,16 +153,27 @@ class PipelinePublicServiceStub:
     Clones a pipeline owned by a namespace. The new pipeline may have a different
     parent, and this can be either a namespace or an organization.
     """
-    SendNamespacePipelineEvent: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineEventRequest,
-        vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineEventResponse,
+    HandleNamespacePipelineWebhookEvent: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineWebhookEventRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineWebhookEventResponse,
     ]
-    """SendNamespacePipelineEvent"""
-    SendNamespacePipelineReleaseEvent: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineReleaseEventRequest,
-        vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineReleaseEventResponse,
+    """HandleNamespacePipelineWebhookEvent"""
+    HandleNamespacePipelineReleaseWebhookEvent: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineReleaseWebhookEventRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineReleaseWebhookEventResponse,
     ]
-    """SendNamespacePipelineReleaseEvent"""
+    """HandleNamespacePipelineReleaseWebhookEvent"""
+    DispatchPipelineWebhookEvent: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.DispatchPipelineWebhookEventRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.DispatchPipelineWebhookEventResponse,
+    ]
+    """Dispatch Pipeline Webhook Event
+
+    Handles webhook events by routing them to the appropriate pipeline based on the webhook type and message.
+    The webhook type determines which component processes the event, while the message payload contains data
+    that triggers pipeline execution. The pipeline processes the event using configured handlers and returns
+    a response to the webhook sender.
+    """
     TriggerNamespacePipeline: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineResponse,
@@ -1158,16 +1169,27 @@ class PipelinePublicServiceAsyncStub:
     Clones a pipeline owned by a namespace. The new pipeline may have a different
     parent, and this can be either a namespace or an organization.
     """
-    SendNamespacePipelineEvent: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineEventRequest,
-        vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineEventResponse,
+    HandleNamespacePipelineWebhookEvent: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineWebhookEventRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineWebhookEventResponse,
     ]
-    """SendNamespacePipelineEvent"""
-    SendNamespacePipelineReleaseEvent: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineReleaseEventRequest,
-        vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineReleaseEventResponse,
+    """HandleNamespacePipelineWebhookEvent"""
+    HandleNamespacePipelineReleaseWebhookEvent: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineReleaseWebhookEventRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineReleaseWebhookEventResponse,
     ]
-    """SendNamespacePipelineReleaseEvent"""
+    """HandleNamespacePipelineReleaseWebhookEvent"""
+    DispatchPipelineWebhookEvent: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.pipeline_pb2.DispatchPipelineWebhookEventRequest,
+        vdp.pipeline.v1beta.pipeline_pb2.DispatchPipelineWebhookEventResponse,
+    ]
+    """Dispatch Pipeline Webhook Event
+
+    Handles webhook events by routing them to the appropriate pipeline based on the webhook type and message.
+    The webhook type determines which component processes the event, while the message payload contains data
+    that triggers pipeline execution. The pipeline processes the event using configured handlers and returns
+    a response to the webhook sender.
+    """
     TriggerNamespacePipeline: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineRequest,
         vdp.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineResponse,
@@ -2190,19 +2212,32 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         parent, and this can be either a namespace or an organization.
         """
     @abc.abstractmethod
-    def SendNamespacePipelineEvent(
+    def HandleNamespacePipelineWebhookEvent(
         self,
-        request: vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineEventRequest,
+        request: vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineWebhookEventRequest,
         context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineEventResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineEventResponse]]:
-        """SendNamespacePipelineEvent"""
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineWebhookEventResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineWebhookEventResponse]]:
+        """HandleNamespacePipelineWebhookEvent"""
     @abc.abstractmethod
-    def SendNamespacePipelineReleaseEvent(
+    def HandleNamespacePipelineReleaseWebhookEvent(
         self,
-        request: vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineReleaseEventRequest,
+        request: vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineReleaseWebhookEventRequest,
         context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineReleaseEventResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.SendNamespacePipelineReleaseEventResponse]]:
-        """SendNamespacePipelineReleaseEvent"""
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineReleaseWebhookEventResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineReleaseWebhookEventResponse]]:
+        """HandleNamespacePipelineReleaseWebhookEvent"""
+    @abc.abstractmethod
+    def DispatchPipelineWebhookEvent(
+        self,
+        request: vdp.pipeline.v1beta.pipeline_pb2.DispatchPipelineWebhookEventRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.DispatchPipelineWebhookEventResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.DispatchPipelineWebhookEventResponse]]:
+        """Dispatch Pipeline Webhook Event
+
+        Handles webhook events by routing them to the appropriate pipeline based on the webhook type and message.
+        The webhook type determines which component processes the event, while the message payload contains data
+        that triggers pipeline execution. The pipeline processes the event using configured handlers and returns
+        a response to the webhook sender.
+        """
     @abc.abstractmethod
     def TriggerNamespacePipeline(
         self,
