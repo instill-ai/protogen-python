@@ -653,6 +653,8 @@ class ChatRequest(google.protobuf.message.Message):
     CONVERSATION_UID_FIELD_NUMBER: builtins.int
     MESSAGE_FIELD_NUMBER: builtins.int
     TOP_K_FIELD_NUMBER: builtins.int
+    LLM_MODEL_FIELD_NUMBER: builtins.int
+    USER_INSTRUCTION_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """Namespace ID"""
     app_id: builtins.str
@@ -665,6 +667,10 @@ class ChatRequest(google.protobuf.message.Message):
     """User message"""
     top_k: builtins.int
     """top k, defaults to 5"""
+    llm_model: builtins.str
+    """LLM model name, defaults to `gpt-4o`"""
+    user_instruction: builtins.str
+    """Instruction for the model to follow, defaults to `Please answer user question accurately and in the same language as the Follow-up Question.`"""
     def __init__(
         self,
         *,
@@ -674,10 +680,17 @@ class ChatRequest(google.protobuf.message.Message):
         conversation_uid: builtins.str = ...,
         message: builtins.str = ...,
         top_k: builtins.int | None = ...,
+        llm_model: builtins.str | None = ...,
+        user_instruction: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_top_k", b"_top_k", "top_k", b"top_k"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_top_k", b"_top_k", "app_id", b"app_id", "catalog_id", b"catalog_id", "conversation_uid", b"conversation_uid", "message", b"message", "namespace_id", b"namespace_id", "top_k", b"top_k"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_llm_model", b"_llm_model", "_top_k", b"_top_k", "_user_instruction", b"_user_instruction", "llm_model", b"llm_model", "top_k", b"top_k", "user_instruction", b"user_instruction"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_llm_model", b"_llm_model", "_top_k", b"_top_k", "_user_instruction", b"_user_instruction", "app_id", b"app_id", "catalog_id", b"catalog_id", "conversation_uid", b"conversation_uid", "llm_model", b"llm_model", "message", b"message", "namespace_id", b"namespace_id", "top_k", b"top_k", "user_instruction", b"user_instruction"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_llm_model", b"_llm_model"]) -> typing_extensions.Literal["llm_model"] | None: ...
+    @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_top_k", b"_top_k"]) -> typing_extensions.Literal["top_k"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_user_instruction", b"_user_instruction"]) -> typing_extensions.Literal["user_instruction"] | None: ...
 
 global___ChatRequest = ChatRequest
 
