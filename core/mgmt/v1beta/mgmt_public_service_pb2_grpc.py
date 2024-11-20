@@ -159,11 +159,6 @@ class MgmtPublicServiceStub(object):
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceResponse.FromString,
                 )
-        self.ListPipelineTriggerRecords = channel.unary_unary(
-                '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerRecords',
-                request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerRecordsRequest.SerializeToString,
-                response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerRecordsResponse.FromString,
-                )
         self.GetPipelineTriggerCount = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/GetPipelineTriggerCount',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetPipelineTriggerCountRequest.SerializeToString,
@@ -173,11 +168,6 @@ class MgmtPublicServiceStub(object):
                 '/core.mgmt.v1beta.MgmtPublicService/GetModelTriggerCount',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetModelTriggerCountRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetModelTriggerCountResponse.FromString,
-                )
-        self.ListPipelineTriggerTableRecords = channel.unary_unary(
-                '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerTableRecords',
-                request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerTableRecordsRequest.SerializeToString,
-                response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerTableRecordsResponse.FromString,
                 )
         self.ListPipelineTriggerChartRecords = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerChartRecords',
@@ -218,6 +208,21 @@ class MgmtPublicServiceStub(object):
                 '/core.mgmt.v1beta.MgmtPublicService/AuthValidateAccessToken',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenResponse.FromString,
+                )
+        self.ListPipelineTriggerRecords = channel.unary_unary(
+                '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerRecords',
+                request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerRecordsRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerRecordsResponse.FromString,
+                )
+        self.ListPipelineTriggerTableRecords = channel.unary_unary(
+                '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerTableRecords',
+                request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerTableRecordsRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerTableRecordsResponse.FromString,
+                )
+        self.ListPipelineTriggerChartRecordsV0 = channel.unary_unary(
+                '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerChartRecordsV0',
+                request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsV0Request.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsV0Response.FromString,
                 )
 
 
@@ -492,15 +497,6 @@ class MgmtPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListPipelineTriggerRecords(self, request, context):
-        """List pipeline triggers
-
-        Returns a paginated list of pipeline executions.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def GetPipelineTriggerCount(self, request, context):
         """Get pipeline trigger count
 
@@ -521,22 +517,12 @@ class MgmtPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListPipelineTriggerTableRecords(self, request, context):
-        """List pipeline trigger metrics
-
-        Returns a paginated list of pipeline executions aggregated by pipeline ID.
-        NOTE: This method is deprecated and will be retired soon.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def ListPipelineTriggerChartRecords(self, request, context):
         """List pipeline trigger time charts
 
-        Returns a timeline of pipline trigger counts for the pipelines of a given
-        owner.
-        NOTE: This method will soon return the trigger counts of a given requester.
+        Returns a timeline of pipline trigger counts for a given requester. The
+        response will contain one set of records (datapoints), representing the
+        amount of triggers in a time bucket.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -560,6 +546,8 @@ class MgmtPublicServiceServicer(object):
         response will contain one set of records (datapoints) per consumption
         source (e.g. "pipeline", "model"). Each datapoint represents the amount
         consumed in a time bucket.
+
+        This endpoint is only exposed on Instill Cloud.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -609,6 +597,43 @@ class MgmtPublicServiceServicer(object):
         """Validate an access token
 
         Checks the validity of an access token.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListPipelineTriggerRecords(self, request, context):
+        """===========================================================================
+        Deprecated endpoints, to be retired after new pipeline dashboard is rolled
+        out.
+        ===========================================================================
+
+        List pipeline triggers
+
+        Returns a paginated list of pipeline executions.
+        NOTE: This method is deprecated and will be retired soon.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListPipelineTriggerTableRecords(self, request, context):
+        """List pipeline trigger metrics
+
+        Returns a paginated list of pipeline executions aggregated by pipeline ID.
+        NOTE: This method is deprecated and will be retired soon.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListPipelineTriggerChartRecordsV0(self, request, context):
+        """List pipeline trigger time charts
+
+        Returns a timeline of pipline trigger counts for the pipelines of a given
+        owner.
+        NOTE: This method will soon be retired and replaced by
+        ListPipelineTriggerchartRecords.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -757,11 +782,6 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceResponse.SerializeToString,
             ),
-            'ListPipelineTriggerRecords': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListPipelineTriggerRecords,
-                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerRecordsRequest.FromString,
-                    response_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerRecordsResponse.SerializeToString,
-            ),
             'GetPipelineTriggerCount': grpc.unary_unary_rpc_method_handler(
                     servicer.GetPipelineTriggerCount,
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetPipelineTriggerCountRequest.FromString,
@@ -771,11 +791,6 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     servicer.GetModelTriggerCount,
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetModelTriggerCountRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetModelTriggerCountResponse.SerializeToString,
-            ),
-            'ListPipelineTriggerTableRecords': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListPipelineTriggerTableRecords,
-                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerTableRecordsRequest.FromString,
-                    response_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerTableRecordsResponse.SerializeToString,
             ),
             'ListPipelineTriggerChartRecords': grpc.unary_unary_rpc_method_handler(
                     servicer.ListPipelineTriggerChartRecords,
@@ -816,6 +831,21 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     servicer.AuthValidateAccessToken,
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenResponse.SerializeToString,
+            ),
+            'ListPipelineTriggerRecords': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListPipelineTriggerRecords,
+                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerRecordsRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerRecordsResponse.SerializeToString,
+            ),
+            'ListPipelineTriggerTableRecords': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListPipelineTriggerTableRecords,
+                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerTableRecordsRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerTableRecordsResponse.SerializeToString,
+            ),
+            'ListPipelineTriggerChartRecordsV0': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListPipelineTriggerChartRecordsV0,
+                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsV0Request.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsV0Response.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1308,23 +1338,6 @@ class MgmtPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ListPipelineTriggerRecords(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerRecords',
-            core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerRecordsRequest.SerializeToString,
-            core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerRecordsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def GetPipelineTriggerCount(request,
             target,
             options=(),
@@ -1355,23 +1368,6 @@ class MgmtPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/GetModelTriggerCount',
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetModelTriggerCountRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetModelTriggerCountResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ListPipelineTriggerTableRecords(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerTableRecords',
-            core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerTableRecordsRequest.SerializeToString,
-            core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerTableRecordsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1508,5 +1504,56 @@ class MgmtPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/AuthValidateAccessToken',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListPipelineTriggerRecords(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerRecords',
+            core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerRecordsRequest.SerializeToString,
+            core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerRecordsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListPipelineTriggerTableRecords(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerTableRecords',
+            core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerTableRecordsRequest.SerializeToString,
+            core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerTableRecordsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListPipelineTriggerChartRecordsV0(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerChartRecordsV0',
+            core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsV0Request.SerializeToString,
+            core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsV0Response.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
