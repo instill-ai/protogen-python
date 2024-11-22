@@ -23,6 +23,30 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+class _CatalogType:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _CatalogTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CatalogType.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    CATALOG_TYPE_UNSPECIFIED: _CatalogType.ValueType  # 0
+    """UNSPECIFIED"""
+    CATALOG_TYPE_PERSISTENT: _CatalogType.ValueType  # 1
+    """PERSISTENT"""
+    CATALOG_TYPE_EPHEMERAL: _CatalogType.ValueType  # 2
+    """EPHEMERAL"""
+
+class CatalogType(_CatalogType, metaclass=_CatalogTypeEnumTypeWrapper):
+    """Catalog Type. e.g. "persistent" or "ephemeral" """
+
+CATALOG_TYPE_UNSPECIFIED: CatalogType.ValueType  # 0
+"""UNSPECIFIED"""
+CATALOG_TYPE_PERSISTENT: CatalogType.ValueType  # 1
+"""PERSISTENT"""
+CATALOG_TYPE_EPHEMERAL: CatalogType.ValueType  # 2
+"""EPHEMERAL"""
+global___CatalogType = CatalogType
+
 class _FileProcessStatus:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
@@ -823,6 +847,7 @@ class CreateCatalogRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
+    TYPE_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """The catalog's owner(namespaces)."""
     name: builtins.str
@@ -832,6 +857,8 @@ class CreateCatalogRequest(google.protobuf.message.Message):
     @property
     def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """The catalog tags."""
+    type: global___CatalogType.ValueType
+    """The catalog type. default is PERSISTENT"""
     def __init__(
         self,
         *,
@@ -839,8 +866,9 @@ class CreateCatalogRequest(google.protobuf.message.Message):
         name: builtins.str = ...,
         description: builtins.str = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
+        type: global___CatalogType.ValueType = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "name", b"name", "namespace_id", b"namespace_id", "tags", b"tags"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "name", b"name", "namespace_id", b"namespace_id", "tags", b"tags", "type", b"type"]) -> None: ...
 
 global___CreateCatalogRequest = CreateCatalogRequest
 
@@ -866,7 +894,7 @@ global___CreateCatalogResponse = CreateCatalogResponse
 
 @typing_extensions.final
 class ListCatalogsRequest(google.protobuf.message.Message):
-    """Request message for ListCatalogs"""
+    """Request message for ListCatalogs(not include the ephemeral catalogs)"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1017,6 +1045,7 @@ class File(google.protobuf.message.Message):
     TOTAL_CHUNKS_FIELD_NUMBER: builtins.int
     TOTAL_TOKENS_FIELD_NUMBER: builtins.int
     EXTERNAL_METADATA_FIELD_NUMBER: builtins.int
+    OBJECT_UID_FIELD_NUMBER: builtins.int
     file_uid: builtins.str
     """file uid"""
     name: builtins.str
@@ -1055,6 +1084,10 @@ class File(google.protobuf.message.Message):
     @property
     def external_metadata(self) -> google.protobuf.struct_pb2.Struct:
         """Custom metadata provided by the user during file upload"""
+    object_uid: builtins.str
+    """objectUid in blob storage. user can upload to blob storage directly, then put objectUid here.
+    then no need the base64 encoding for the file content.
+    """
     def __init__(
         self,
         *,
@@ -1075,9 +1108,10 @@ class File(google.protobuf.message.Message):
         total_chunks: builtins.int = ...,
         total_tokens: builtins.int = ...,
         external_metadata: google.protobuf.struct_pb2.Struct | None = ...,
+        object_uid: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_external_metadata", b"_external_metadata", "create_time", b"create_time", "delete_time", b"delete_time", "external_metadata", b"external_metadata", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_external_metadata", b"_external_metadata", "catalog_uid", b"catalog_uid", "content", b"content", "create_time", b"create_time", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "external_metadata", b"external_metadata", "file_uid", b"file_uid", "name", b"name", "owner_uid", b"owner_uid", "process_outcome", b"process_outcome", "process_status", b"process_status", "retrievable", b"retrievable", "size", b"size", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_external_metadata", b"_external_metadata", "catalog_uid", b"catalog_uid", "content", b"content", "create_time", b"create_time", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "external_metadata", b"external_metadata", "file_uid", b"file_uid", "name", b"name", "object_uid", b"object_uid", "owner_uid", b"owner_uid", "process_outcome", b"process_outcome", "process_status", b"process_status", "retrievable", b"retrievable", "size", b"size", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_external_metadata", b"_external_metadata"]) -> typing_extensions.Literal["external_metadata"] | None: ...
 
 global___File = File

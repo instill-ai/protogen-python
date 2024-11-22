@@ -11,13 +11,14 @@ from google.protobuf.internal import builder as _builder
 _sym_db = _symbol_database.Default()
 
 
+from app.app.v1alpha import agent_pb2 as app_dot_app_dot_v1alpha_dot_agent__pb2
 from artifact.artifact.v1alpha import chunk_pb2 as artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"app/app/v1alpha/conversation.proto\x12\x0f\x61pp.app.v1alpha\x1a%artifact/artifact/v1alpha/chunk.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9e\x03\n\x0c\x43onversation\x12\x15\n\x03uid\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12&\n\x0cnamespace_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\x1a\n\x06\x61pp_id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x05\x61ppId\x12\x13\n\x02id\x18\x04 \x01(\tB\x03\xe0\x41\x02R\x02id\x12;\n\x15last_used_catalog_uid\x18\x05 \x01(\tB\x03\xe0\x41\x01H\x00R\x12lastUsedCatalogUid\x88\x01\x01\x12/\n\x0flast_used_top_k\x18\x06 \x01(\rB\x03\xe0\x41\x01H\x01R\x0clastUsedTopK\x88\x01\x01\x12@\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTimeB\x18\n\x16_last_used_catalog_uidB\x12\n\x10_last_used_top_k\"\xd8\x03\n\x07Message\x12\x15\n\x03uid\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x1c\n\x07\x61pp_uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x06\x61ppUid\x12.\n\x10\x63onversation_uid\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x0f\x63onversationUid\x12\x1d\n\x07\x63ontent\x18\x04 \x01(\tB\x03\xe0\x41\x02R\x07\x63ontent\x12\x17\n\x04role\x18\x05 \x01(\tB\x03\xe0\x41\x02R\x04role\x12=\n\x04type\x18\x06 \x01(\x0e\x32$.app.app.v1alpha.Message.MessageTypeB\x03\xe0\x41\x02R\x04type\x12@\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\x12)\n\x0emsg_sender_uid\x18\t \x01(\tB\x03\xe0\x41\x03R\x0cmsgSenderUid\"B\n\x0bMessageType\x12\x1c\n\x18MESSAGE_TYPE_UNSPECIFIED\x10\x00\x12\x15\n\x11MESSAGE_TYPE_TEXT\x10\x01\"\x8d\x01\n\x19\x43reateConversationRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\x1a\n\x06\x61pp_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x05\x61ppId\x12,\n\x0f\x63onversation_id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x0e\x63onversationId\"d\n\x1a\x43reateConversationResponse\x12\x46\n\x0c\x63onversation\x18\x01 \x01(\x0b\x32\x1d.app.app.v1alpha.ConversationB\x03\xe0\x41\x03R\x0c\x63onversation\"\x9e\x02\n\x18ListConversationsRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\x1a\n\x06\x61pp_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x05\x61ppId\x12 \n\tpage_size\x18\x03 \x01(\x05\x42\x03\xe0\x41\x01R\x08pageSize\x12\"\n\npage_token\x18\x04 \x01(\tB\x03\xe0\x41\x01R\tpageToken\x12.\n\x10\x63onversation_uid\x18\x05 \x01(\tB\x03\xe0\x41\x01R\x0f\x63onversationUid\x12,\n\x0f\x63onversation_id\x18\x06 \x01(\tB\x03\xe0\x41\x01R\x0e\x63onversationId\x12\x1a\n\x06if_all\x18\x07 \x01(\x08\x42\x03\xe0\x41\x01R\x05ifAll\"\xb6\x01\n\x19ListConversationsResponse\x12H\n\rconversations\x18\x01 \x03(\x0b\x32\x1d.app.app.v1alpha.ConversationB\x03\xe0\x41\x03R\rconversations\x12+\n\x0fnext_page_token\x18\x02 \x01(\tB\x03\xe0\x41\x03R\rnextPageToken\x12\"\n\ntotal_size\x18\x03 \x01(\x05\x42\x03\xe0\x41\x03R\ttotalSize\"\xf6\x02\n\x19UpdateConversationRequest\x12!\n\x0cnamespace_id\x18\x01 \x01(\tR\x0bnamespaceId\x12\x1a\n\x06\x61pp_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x05\x61ppId\x12,\n\x0f\x63onversation_id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x0e\x63onversationId\x12\x38\n\x13new_conversation_id\x18\x04 \x01(\tB\x03\xe0\x41\x01H\x00R\x11newConversationId\x88\x01\x01\x12;\n\x15last_used_catalog_uid\x18\x05 \x01(\tB\x03\xe0\x41\x01H\x01R\x12lastUsedCatalogUid\x88\x01\x01\x12/\n\x0flast_used_top_k\x18\x06 \x01(\rB\x03\xe0\x41\x01H\x02R\x0clastUsedTopK\x88\x01\x01\x42\x16\n\x14_new_conversation_idB\x18\n\x16_last_used_catalog_uidB\x12\n\x10_last_used_top_k\"d\n\x1aUpdateConversationResponse\x12\x46\n\x0c\x63onversation\x18\x01 \x01(\x0b\x32\x1d.app.app.v1alpha.ConversationB\x03\xe0\x41\x03R\x0c\x63onversation\"\x8d\x01\n\x19\x44\x65leteConversationRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\x1a\n\x06\x61pp_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x05\x61ppId\x12,\n\x0f\x63onversation_id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x0e\x63onversationId\"\x1c\n\x1a\x44\x65leteConversationResponse\"\xff\x01\n\x14\x43reateMessageRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\x1a\n\x06\x61pp_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x05\x61ppId\x12,\n\x0f\x63onversation_id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x0e\x63onversationId\x12\x1d\n\x07\x63ontent\x18\x04 \x01(\tB\x03\xe0\x41\x02R\x07\x63ontent\x12\x17\n\x04role\x18\x05 \x01(\tB\x03\xe0\x41\x02R\x04role\x12=\n\x04type\x18\x06 \x01(\x0e\x32$.app.app.v1alpha.Message.MessageTypeB\x03\xe0\x41\x02R\x04type\"K\n\x15\x43reateMessageResponse\x12\x32\n\x07message\x18\x01 \x01(\x0b\x32\x18.app.app.v1alpha.MessageR\x07message\"\xd5\x01\n\x14MessageSenderProfile\x12)\n\x0emsg_sender_uid\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x0cmsgSenderUid\x12\'\n\rmsg_sender_id\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x0bmsgSenderId\x12+\n\x0c\x64isplay_name\x18\x03 \x01(\tB\x03\xe0\x41\x03H\x00R\x0b\x64isplayName\x88\x01\x01\x12 \n\x06\x61vatar\x18\x04 \x01(\tB\x03\xe0\x41\x03H\x01R\x06\x61vatar\x88\x01\x01\x42\x0f\n\r_display_nameB\t\n\x07_avatar\"\xec\x02\n\x13ListMessagesRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\x1a\n\x06\x61pp_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x05\x61ppId\x12,\n\x0f\x63onversation_id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x0e\x63onversationId\x12\x1e\n\x08latest_k\x18\x04 \x01(\x05\x42\x03\xe0\x41\x01R\x07latestK\x12 \n\tpage_size\x18\x05 \x01(\x05\x42\x03\xe0\x41\x03R\x08pageSize\x12\"\n\npage_token\x18\x06 \x01(\tB\x03\xe0\x41\x03R\tpageToken\x12;\n\x17include_system_messages\x18\x07 \x01(\x08\x42\x03\xe0\x41\x03R\x15includeSystemMessages\x12\x1a\n\x06if_all\x18\x08 \x01(\x08\x42\x03\xe0\x41\x01R\x05ifAll\x12$\n\x0bmessage_uid\x18\t \x01(\tB\x03\xe0\x41\x01R\nmessageUid\"\xf7\x01\n\x14ListMessagesResponse\x12\x39\n\x08messages\x18\x01 \x03(\x0b\x32\x18.app.app.v1alpha.MessageB\x03\xe0\x41\x03R\x08messages\x12+\n\x0fnext_page_token\x18\x02 \x01(\tB\x03\xe0\x41\x03R\rnextPageToken\x12\"\n\ntotal_size\x18\x03 \x01(\x05\x42\x03\xe0\x41\x03R\ttotalSize\x12S\n\x0fsender_profiles\x18\x04 \x03(\x0b\x32%.app.app.v1alpha.MessageSenderProfileB\x03\xe0\x41\x03R\x0esenderProfiles\"\xcd\x01\n\x14UpdateMessageRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\x1a\n\x06\x61pp_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x05\x61ppId\x12,\n\x0f\x63onversation_id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x0e\x63onversationId\x12$\n\x0bmessage_uid\x18\x04 \x01(\tB\x03\xe0\x41\x02R\nmessageUid\x12\x1d\n\x07\x63ontent\x18\x05 \x01(\tB\x03\xe0\x41\x02R\x07\x63ontent\"P\n\x15UpdateMessageResponse\x12\x37\n\x07message\x18\x01 \x01(\x0b\x32\x18.app.app.v1alpha.MessageB\x03\xe0\x41\x03R\x07message\"\xae\x01\n\x14\x44\x65leteMessageRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\x1a\n\x06\x61pp_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x05\x61ppId\x12,\n\x0f\x63onversation_id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x0e\x63onversationId\x12$\n\x0bmessage_uid\x18\x04 \x01(\tB\x03\xe0\x41\x02R\nmessageUid\"\x17\n\x15\x44\x65leteMessageResponse\"\xdd\x02\n\x0b\x43hatRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\x1a\n\x06\x61pp_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x05\x61ppId\x12\"\n\ncatalog_id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\tcatalogId\x12.\n\x10\x63onversation_uid\x18\x04 \x01(\tB\x03\xe0\x41\x02R\x0f\x63onversationUid\x12\x1d\n\x07message\x18\x05 \x01(\tB\x03\xe0\x41\x02R\x07message\x12\x18\n\x05top_k\x18\x06 \x01(\rH\x00R\x04topK\x88\x01\x01\x12 \n\tllm_model\x18\x07 \x01(\tH\x01R\x08llmModel\x88\x01\x01\x12.\n\x10user_instruction\x18\x08 \x01(\tH\x02R\x0fuserInstruction\x88\x01\x01\x42\x08\n\x06_top_kB\x0c\n\n_llm_modelB\x13\n\x11_user_instruction\"\x8f\x01\n\x0c\x43hatResponse\x12\x36\n\x07outputs\x18\x01 \x03(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x03R\x07outputs\x12G\n\x06\x63hunks\x18\x02 \x03(\x0b\x32*.artifact.artifact.v1alpha.SimilarityChunkB\x03\xe0\x41\x03R\x06\x63hunksB\xc4\x01\n\x13\x63om.app.app.v1alphaB\x11\x43onversationProtoP\x01Z<github.com/instill-ai/protogen-go/app/app/v1alpha;appv1alpha\xa2\x02\x03\x41\x41X\xaa\x02\x0f\x41pp.App.V1alpha\xca\x02\x0f\x41pp\\App\\V1alpha\xe2\x02\x1b\x41pp\\App\\V1alpha\\GPBMetadata\xea\x02\x11\x41pp::App::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"app/app/v1alpha/conversation.proto\x12\x0f\x61pp.app.v1alpha\x1a\x1b\x61pp/app/v1alpha/agent.proto\x1a%artifact/artifact/v1alpha/chunk.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xae\x05\n\x0c\x43onversation\x12\x15\n\x03uid\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12&\n\x0cnamespace_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\x1a\n\x06\x61pp_id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x05\x61ppId\x12\x13\n\x02id\x18\x04 \x01(\tB\x03\xe0\x41\x02R\x02id\x12;\n\x15last_used_catalog_uid\x18\x05 \x01(\tB\x03\xe0\x41\x01H\x00R\x12lastUsedCatalogUid\x88\x01\x01\x12/\n\x0flast_used_top_k\x18\x06 \x01(\rB\x03\xe0\x41\x01H\x01R\x0clastUsedTopK\x88\x01\x01\x12@\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\x12J\n\x0c\x61i_agent_app\x18\t \x01(\x0b\x32#.app.app.v1alpha.AIAgentAppMetadataB\x03\xe0\x41\x03R\naiAgentApp\x12\x30\n\x0ftemp_catalog_id\x18\n \x01(\tB\x03\xe0\x41\x01H\x02R\rtempCatalogId\x88\x01\x01\x12;\n\tchat_with\x18\x0b \x01(\x0e\x32\x19.app.app.v1alpha.ChatWithB\x03\xe0\x41\x03R\x08\x63hatWith\x12?\n\x19\x63onversation_display_name\x18\x0c \x01(\tB\x03\xe0\x41\x01R\x17\x63onversationDisplayNameB\x18\n\x16_last_used_catalog_uidB\x12\n\x10_last_used_top_kB\x12\n\x10_temp_catalog_id\"\xcd\x04\n\x07Message\x12\x15\n\x03uid\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x1c\n\x07\x61pp_uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x06\x61ppUid\x12.\n\x10\x63onversation_uid\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x0f\x63onversationUid\x12\x1d\n\x07\x63ontent\x18\x04 \x01(\tB\x03\xe0\x41\x02R\x07\x63ontent\x12\x17\n\x04role\x18\x05 \x01(\tB\x03\xe0\x41\x02R\x04role\x12=\n\x04type\x18\x06 \x01(\x0e\x32$.app.app.v1alpha.Message.MessageTypeB\x03\xe0\x41\x02R\x04type\x12@\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\x12)\n\x0emsg_sender_uid\x18\t \x01(\tB\x03\xe0\x41\x03R\x0cmsgSenderUid\x12=\n\x06\x63hunks\x18\n \x03(\x0b\x32 .artifact.artifact.v1alpha.ChunkB\x03\xe0\x41\x03R\x06\x63hunks\x12\x34\n\x13standalone_question\x18\x0b \x01(\tB\x03\xe0\x41\x03R\x12standaloneQuestion\"B\n\x0bMessageType\x12\x1c\n\x18MESSAGE_TYPE_UNSPECIFIED\x10\x00\x12\x15\n\x11MESSAGE_TYPE_TEXT\x10\x01\"\xd7\x02\n\x19\x43reateConversationRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\x1a\n\x06\x61pp_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x05\x61ppId\x12,\n\x0f\x63onversation_id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x0e\x63onversationId\x12;\n\tchat_with\x18\x04 \x01(\x0e\x32\x19.app.app.v1alpha.ChatWithB\x03\xe0\x41\x01R\x08\x63hatWith\x12?\n\x19\x63onversation_display_name\x18\x05 \x01(\tB\x03\xe0\x41\x01R\x17\x63onversationDisplayName\x12J\n\x0c\x61i_agent_app\x18\x06 \x01(\x0b\x32#.app.app.v1alpha.AIAgentAppMetadataB\x03\xe0\x41\x01R\naiAgentApp\"d\n\x1a\x43reateConversationResponse\x12\x46\n\x0c\x63onversation\x18\x01 \x01(\x0b\x32\x1d.app.app.v1alpha.ConversationB\x03\xe0\x41\x03R\x0c\x63onversation\"\xdb\x02\n\x18ListConversationsRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\x1a\n\x06\x61pp_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x05\x61ppId\x12 \n\tpage_size\x18\x03 \x01(\x05\x42\x03\xe0\x41\x01R\x08pageSize\x12\"\n\npage_token\x18\x04 \x01(\tB\x03\xe0\x41\x01R\tpageToken\x12.\n\x10\x63onversation_uid\x18\x05 \x01(\tB\x03\xe0\x41\x01R\x0f\x63onversationUid\x12,\n\x0f\x63onversation_id\x18\x06 \x01(\tB\x03\xe0\x41\x01R\x0e\x63onversationId\x12\x1a\n\x06if_all\x18\x07 \x01(\x08\x42\x03\xe0\x41\x01R\x05ifAll\x12;\n\tchat_with\x18\x08 \x01(\x0e\x32\x19.app.app.v1alpha.ChatWithB\x03\xe0\x41\x01R\x08\x63hatWith\"\xb6\x01\n\x19ListConversationsResponse\x12H\n\rconversations\x18\x01 \x03(\x0b\x32\x1d.app.app.v1alpha.ConversationB\x03\xe0\x41\x03R\rconversations\x12+\n\x0fnext_page_token\x18\x02 \x01(\tB\x03\xe0\x41\x03R\rnextPageToken\x12\"\n\ntotal_size\x18\x03 \x01(\x05\x42\x03\xe0\x41\x03R\ttotalSize\"\x83\x04\n\x19UpdateConversationRequest\x12!\n\x0cnamespace_id\x18\x01 \x01(\tR\x0bnamespaceId\x12\x1a\n\x06\x61pp_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x05\x61ppId\x12,\n\x0f\x63onversation_id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x0e\x63onversationId\x12\x38\n\x13new_conversation_id\x18\x04 \x01(\tB\x03\xe0\x41\x01H\x00R\x11newConversationId\x88\x01\x01\x12;\n\x15last_used_catalog_uid\x18\x05 \x01(\tB\x03\xe0\x41\x01H\x01R\x12lastUsedCatalogUid\x88\x01\x01\x12/\n\x0flast_used_top_k\x18\x06 \x01(\rB\x03\xe0\x41\x01H\x02R\x0clastUsedTopK\x88\x01\x01\x12J\n\x0c\x61i_agent_app\x18\x07 \x01(\x0b\x32#.app.app.v1alpha.AIAgentAppMetadataB\x03\xe0\x41\x01R\naiAgentApp\x12?\n\x19\x63onversation_display_name\x18\x08 \x01(\tB\x03\xe0\x41\x01R\x17\x63onversationDisplayNameB\x16\n\x14_new_conversation_idB\x18\n\x16_last_used_catalog_uidB\x12\n\x10_last_used_top_k\"d\n\x1aUpdateConversationResponse\x12\x46\n\x0c\x63onversation\x18\x01 \x01(\x0b\x32\x1d.app.app.v1alpha.ConversationB\x03\xe0\x41\x03R\x0c\x63onversation\"\x8d\x01\n\x19\x44\x65leteConversationRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\x1a\n\x06\x61pp_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x05\x61ppId\x12,\n\x0f\x63onversation_id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x0e\x63onversationId\"\x1c\n\x1a\x44\x65leteConversationResponse\"\xff\x01\n\x14\x43reateMessageRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\x1a\n\x06\x61pp_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x05\x61ppId\x12,\n\x0f\x63onversation_id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x0e\x63onversationId\x12\x1d\n\x07\x63ontent\x18\x04 \x01(\tB\x03\xe0\x41\x02R\x07\x63ontent\x12\x17\n\x04role\x18\x05 \x01(\tB\x03\xe0\x41\x02R\x04role\x12=\n\x04type\x18\x06 \x01(\x0e\x32$.app.app.v1alpha.Message.MessageTypeB\x03\xe0\x41\x02R\x04type\"K\n\x15\x43reateMessageResponse\x12\x32\n\x07message\x18\x01 \x01(\x0b\x32\x18.app.app.v1alpha.MessageR\x07message\"\xd5\x01\n\x14MessageSenderProfile\x12)\n\x0emsg_sender_uid\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x0cmsgSenderUid\x12\'\n\rmsg_sender_id\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x0bmsgSenderId\x12+\n\x0c\x64isplay_name\x18\x03 \x01(\tB\x03\xe0\x41\x03H\x00R\x0b\x64isplayName\x88\x01\x01\x12 \n\x06\x61vatar\x18\x04 \x01(\tB\x03\xe0\x41\x03H\x01R\x06\x61vatar\x88\x01\x01\x42\x0f\n\r_display_nameB\t\n\x07_avatar\"\xec\x02\n\x13ListMessagesRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\x1a\n\x06\x61pp_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x05\x61ppId\x12,\n\x0f\x63onversation_id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x0e\x63onversationId\x12\x1e\n\x08latest_k\x18\x04 \x01(\x05\x42\x03\xe0\x41\x01R\x07latestK\x12 \n\tpage_size\x18\x05 \x01(\x05\x42\x03\xe0\x41\x03R\x08pageSize\x12\"\n\npage_token\x18\x06 \x01(\tB\x03\xe0\x41\x03R\tpageToken\x12;\n\x17include_system_messages\x18\x07 \x01(\x08\x42\x03\xe0\x41\x03R\x15includeSystemMessages\x12\x1a\n\x06if_all\x18\x08 \x01(\x08\x42\x03\xe0\x41\x01R\x05ifAll\x12$\n\x0bmessage_uid\x18\t \x01(\tB\x03\xe0\x41\x01R\nmessageUid\"\xf7\x01\n\x14ListMessagesResponse\x12\x39\n\x08messages\x18\x01 \x03(\x0b\x32\x18.app.app.v1alpha.MessageB\x03\xe0\x41\x03R\x08messages\x12+\n\x0fnext_page_token\x18\x02 \x01(\tB\x03\xe0\x41\x03R\rnextPageToken\x12\"\n\ntotal_size\x18\x03 \x01(\x05\x42\x03\xe0\x41\x03R\ttotalSize\x12S\n\x0fsender_profiles\x18\x04 \x03(\x0b\x32%.app.app.v1alpha.MessageSenderProfileB\x03\xe0\x41\x03R\x0esenderProfiles\"\xcd\x01\n\x14UpdateMessageRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\x1a\n\x06\x61pp_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x05\x61ppId\x12,\n\x0f\x63onversation_id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x0e\x63onversationId\x12$\n\x0bmessage_uid\x18\x04 \x01(\tB\x03\xe0\x41\x02R\nmessageUid\x12\x1d\n\x07\x63ontent\x18\x05 \x01(\tB\x03\xe0\x41\x02R\x07\x63ontent\"P\n\x15UpdateMessageResponse\x12\x37\n\x07message\x18\x01 \x01(\x0b\x32\x18.app.app.v1alpha.MessageB\x03\xe0\x41\x03R\x07message\"\xae\x01\n\x14\x44\x65leteMessageRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\x1a\n\x06\x61pp_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x05\x61ppId\x12,\n\x0f\x63onversation_id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x0e\x63onversationId\x12$\n\x0bmessage_uid\x18\x04 \x01(\tB\x03\xe0\x41\x02R\nmessageUid\"\x17\n\x15\x44\x65leteMessageResponse\"\xdd\x02\n\x0b\x43hatRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\x1a\n\x06\x61pp_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x05\x61ppId\x12\"\n\ncatalog_id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\tcatalogId\x12.\n\x10\x63onversation_uid\x18\x04 \x01(\tB\x03\xe0\x41\x02R\x0f\x63onversationUid\x12\x1d\n\x07message\x18\x05 \x01(\tB\x03\xe0\x41\x02R\x07message\x12\x18\n\x05top_k\x18\x06 \x01(\rH\x00R\x04topK\x88\x01\x01\x12 \n\tllm_model\x18\x07 \x01(\tH\x01R\x08llmModel\x88\x01\x01\x12.\n\x10user_instruction\x18\x08 \x01(\tH\x02R\x0fuserInstruction\x88\x01\x01\x42\x08\n\x06_top_kB\x0c\n\n_llm_modelB\x13\n\x11_user_instruction\"\x8f\x01\n\x0c\x43hatResponse\x12\x36\n\x07outputs\x18\x01 \x03(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x03R\x07outputs\x12G\n\x06\x63hunks\x18\x02 \x03(\x0b\x32*.artifact.artifact.v1alpha.SimilarityChunkB\x03\xe0\x41\x03R\x06\x63hunks*Y\n\x08\x43hatWith\x12\x19\n\x15\x43HAT_WITH_UNSPECIFIED\x10\x00\x12\x1a\n\x16\x43HAT_WITH_AI_ASSISTANT\x10\x01\x12\x16\n\x12\x43HAT_WITH_AI_AGENT\x10\x02\x42\xc4\x01\n\x13\x63om.app.app.v1alphaB\x11\x43onversationProtoP\x01Z<github.com/instill-ai/protogen-go/app/app/v1alpha;appv1alpha\xa2\x02\x03\x41\x41X\xaa\x02\x0f\x41pp.App.V1alpha\xca\x02\x0f\x41pp\\App\\V1alpha\xe2\x02\x1b\x41pp\\App\\V1alpha\\GPBMetadata\xea\x02\x11\x41pp::App::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -42,6 +43,14 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _CONVERSATION.fields_by_name['create_time']._serialized_options = b'\340A\003'
   _CONVERSATION.fields_by_name['update_time']._options = None
   _CONVERSATION.fields_by_name['update_time']._serialized_options = b'\340A\003'
+  _CONVERSATION.fields_by_name['ai_agent_app']._options = None
+  _CONVERSATION.fields_by_name['ai_agent_app']._serialized_options = b'\340A\003'
+  _CONVERSATION.fields_by_name['temp_catalog_id']._options = None
+  _CONVERSATION.fields_by_name['temp_catalog_id']._serialized_options = b'\340A\001'
+  _CONVERSATION.fields_by_name['chat_with']._options = None
+  _CONVERSATION.fields_by_name['chat_with']._serialized_options = b'\340A\003'
+  _CONVERSATION.fields_by_name['conversation_display_name']._options = None
+  _CONVERSATION.fields_by_name['conversation_display_name']._serialized_options = b'\340A\001'
   _MESSAGE.fields_by_name['uid']._options = None
   _MESSAGE.fields_by_name['uid']._serialized_options = b'\340A\003'
   _MESSAGE.fields_by_name['app_uid']._options = None
@@ -60,12 +69,22 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _MESSAGE.fields_by_name['update_time']._serialized_options = b'\340A\003'
   _MESSAGE.fields_by_name['msg_sender_uid']._options = None
   _MESSAGE.fields_by_name['msg_sender_uid']._serialized_options = b'\340A\003'
+  _MESSAGE.fields_by_name['chunks']._options = None
+  _MESSAGE.fields_by_name['chunks']._serialized_options = b'\340A\003'
+  _MESSAGE.fields_by_name['standalone_question']._options = None
+  _MESSAGE.fields_by_name['standalone_question']._serialized_options = b'\340A\003'
   _CREATECONVERSATIONREQUEST.fields_by_name['namespace_id']._options = None
   _CREATECONVERSATIONREQUEST.fields_by_name['namespace_id']._serialized_options = b'\340A\002'
   _CREATECONVERSATIONREQUEST.fields_by_name['app_id']._options = None
   _CREATECONVERSATIONREQUEST.fields_by_name['app_id']._serialized_options = b'\340A\002'
   _CREATECONVERSATIONREQUEST.fields_by_name['conversation_id']._options = None
   _CREATECONVERSATIONREQUEST.fields_by_name['conversation_id']._serialized_options = b'\340A\002'
+  _CREATECONVERSATIONREQUEST.fields_by_name['chat_with']._options = None
+  _CREATECONVERSATIONREQUEST.fields_by_name['chat_with']._serialized_options = b'\340A\001'
+  _CREATECONVERSATIONREQUEST.fields_by_name['conversation_display_name']._options = None
+  _CREATECONVERSATIONREQUEST.fields_by_name['conversation_display_name']._serialized_options = b'\340A\001'
+  _CREATECONVERSATIONREQUEST.fields_by_name['ai_agent_app']._options = None
+  _CREATECONVERSATIONREQUEST.fields_by_name['ai_agent_app']._serialized_options = b'\340A\001'
   _CREATECONVERSATIONRESPONSE.fields_by_name['conversation']._options = None
   _CREATECONVERSATIONRESPONSE.fields_by_name['conversation']._serialized_options = b'\340A\003'
   _LISTCONVERSATIONSREQUEST.fields_by_name['namespace_id']._options = None
@@ -82,6 +101,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _LISTCONVERSATIONSREQUEST.fields_by_name['conversation_id']._serialized_options = b'\340A\001'
   _LISTCONVERSATIONSREQUEST.fields_by_name['if_all']._options = None
   _LISTCONVERSATIONSREQUEST.fields_by_name['if_all']._serialized_options = b'\340A\001'
+  _LISTCONVERSATIONSREQUEST.fields_by_name['chat_with']._options = None
+  _LISTCONVERSATIONSREQUEST.fields_by_name['chat_with']._serialized_options = b'\340A\001'
   _LISTCONVERSATIONSRESPONSE.fields_by_name['conversations']._options = None
   _LISTCONVERSATIONSRESPONSE.fields_by_name['conversations']._serialized_options = b'\340A\003'
   _LISTCONVERSATIONSRESPONSE.fields_by_name['next_page_token']._options = None
@@ -98,6 +119,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _UPDATECONVERSATIONREQUEST.fields_by_name['last_used_catalog_uid']._serialized_options = b'\340A\001'
   _UPDATECONVERSATIONREQUEST.fields_by_name['last_used_top_k']._options = None
   _UPDATECONVERSATIONREQUEST.fields_by_name['last_used_top_k']._serialized_options = b'\340A\001'
+  _UPDATECONVERSATIONREQUEST.fields_by_name['ai_agent_app']._options = None
+  _UPDATECONVERSATIONREQUEST.fields_by_name['ai_agent_app']._serialized_options = b'\340A\001'
+  _UPDATECONVERSATIONREQUEST.fields_by_name['conversation_display_name']._options = None
+  _UPDATECONVERSATIONREQUEST.fields_by_name['conversation_display_name']._serialized_options = b'\340A\001'
   _UPDATECONVERSATIONRESPONSE.fields_by_name['conversation']._options = None
   _UPDATECONVERSATIONRESPONSE.fields_by_name['conversation']._serialized_options = b'\340A\003'
   _DELETECONVERSATIONREQUEST.fields_by_name['namespace_id']._options = None
@@ -186,48 +211,50 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _CHATRESPONSE.fields_by_name['outputs']._serialized_options = b'\340A\003'
   _CHATRESPONSE.fields_by_name['chunks']._options = None
   _CHATRESPONSE.fields_by_name['chunks']._serialized_options = b'\340A\003'
-  _globals['_CONVERSATION']._serialized_start=191
-  _globals['_CONVERSATION']._serialized_end=605
-  _globals['_MESSAGE']._serialized_start=608
-  _globals['_MESSAGE']._serialized_end=1080
-  _globals['_MESSAGE_MESSAGETYPE']._serialized_start=1014
-  _globals['_MESSAGE_MESSAGETYPE']._serialized_end=1080
-  _globals['_CREATECONVERSATIONREQUEST']._serialized_start=1083
-  _globals['_CREATECONVERSATIONREQUEST']._serialized_end=1224
-  _globals['_CREATECONVERSATIONRESPONSE']._serialized_start=1226
-  _globals['_CREATECONVERSATIONRESPONSE']._serialized_end=1326
-  _globals['_LISTCONVERSATIONSREQUEST']._serialized_start=1329
-  _globals['_LISTCONVERSATIONSREQUEST']._serialized_end=1615
-  _globals['_LISTCONVERSATIONSRESPONSE']._serialized_start=1618
-  _globals['_LISTCONVERSATIONSRESPONSE']._serialized_end=1800
-  _globals['_UPDATECONVERSATIONREQUEST']._serialized_start=1803
-  _globals['_UPDATECONVERSATIONREQUEST']._serialized_end=2177
-  _globals['_UPDATECONVERSATIONRESPONSE']._serialized_start=2179
-  _globals['_UPDATECONVERSATIONRESPONSE']._serialized_end=2279
-  _globals['_DELETECONVERSATIONREQUEST']._serialized_start=2282
-  _globals['_DELETECONVERSATIONREQUEST']._serialized_end=2423
-  _globals['_DELETECONVERSATIONRESPONSE']._serialized_start=2425
-  _globals['_DELETECONVERSATIONRESPONSE']._serialized_end=2453
-  _globals['_CREATEMESSAGEREQUEST']._serialized_start=2456
-  _globals['_CREATEMESSAGEREQUEST']._serialized_end=2711
-  _globals['_CREATEMESSAGERESPONSE']._serialized_start=2713
-  _globals['_CREATEMESSAGERESPONSE']._serialized_end=2788
-  _globals['_MESSAGESENDERPROFILE']._serialized_start=2791
-  _globals['_MESSAGESENDERPROFILE']._serialized_end=3004
-  _globals['_LISTMESSAGESREQUEST']._serialized_start=3007
-  _globals['_LISTMESSAGESREQUEST']._serialized_end=3371
-  _globals['_LISTMESSAGESRESPONSE']._serialized_start=3374
-  _globals['_LISTMESSAGESRESPONSE']._serialized_end=3621
-  _globals['_UPDATEMESSAGEREQUEST']._serialized_start=3624
-  _globals['_UPDATEMESSAGEREQUEST']._serialized_end=3829
-  _globals['_UPDATEMESSAGERESPONSE']._serialized_start=3831
-  _globals['_UPDATEMESSAGERESPONSE']._serialized_end=3911
-  _globals['_DELETEMESSAGEREQUEST']._serialized_start=3914
-  _globals['_DELETEMESSAGEREQUEST']._serialized_end=4088
-  _globals['_DELETEMESSAGERESPONSE']._serialized_start=4090
-  _globals['_DELETEMESSAGERESPONSE']._serialized_end=4113
-  _globals['_CHATREQUEST']._serialized_start=4116
-  _globals['_CHATREQUEST']._serialized_end=4465
-  _globals['_CHATRESPONSE']._serialized_start=4468
-  _globals['_CHATRESPONSE']._serialized_end=4611
+  _globals['_CHATWITH']._serialized_start=5435
+  _globals['_CHATWITH']._serialized_end=5524
+  _globals['_CONVERSATION']._serialized_start=220
+  _globals['_CONVERSATION']._serialized_end=906
+  _globals['_MESSAGE']._serialized_start=909
+  _globals['_MESSAGE']._serialized_end=1498
+  _globals['_MESSAGE_MESSAGETYPE']._serialized_start=1432
+  _globals['_MESSAGE_MESSAGETYPE']._serialized_end=1498
+  _globals['_CREATECONVERSATIONREQUEST']._serialized_start=1501
+  _globals['_CREATECONVERSATIONREQUEST']._serialized_end=1844
+  _globals['_CREATECONVERSATIONRESPONSE']._serialized_start=1846
+  _globals['_CREATECONVERSATIONRESPONSE']._serialized_end=1946
+  _globals['_LISTCONVERSATIONSREQUEST']._serialized_start=1949
+  _globals['_LISTCONVERSATIONSREQUEST']._serialized_end=2296
+  _globals['_LISTCONVERSATIONSRESPONSE']._serialized_start=2299
+  _globals['_LISTCONVERSATIONSRESPONSE']._serialized_end=2481
+  _globals['_UPDATECONVERSATIONREQUEST']._serialized_start=2484
+  _globals['_UPDATECONVERSATIONREQUEST']._serialized_end=2999
+  _globals['_UPDATECONVERSATIONRESPONSE']._serialized_start=3001
+  _globals['_UPDATECONVERSATIONRESPONSE']._serialized_end=3101
+  _globals['_DELETECONVERSATIONREQUEST']._serialized_start=3104
+  _globals['_DELETECONVERSATIONREQUEST']._serialized_end=3245
+  _globals['_DELETECONVERSATIONRESPONSE']._serialized_start=3247
+  _globals['_DELETECONVERSATIONRESPONSE']._serialized_end=3275
+  _globals['_CREATEMESSAGEREQUEST']._serialized_start=3278
+  _globals['_CREATEMESSAGEREQUEST']._serialized_end=3533
+  _globals['_CREATEMESSAGERESPONSE']._serialized_start=3535
+  _globals['_CREATEMESSAGERESPONSE']._serialized_end=3610
+  _globals['_MESSAGESENDERPROFILE']._serialized_start=3613
+  _globals['_MESSAGESENDERPROFILE']._serialized_end=3826
+  _globals['_LISTMESSAGESREQUEST']._serialized_start=3829
+  _globals['_LISTMESSAGESREQUEST']._serialized_end=4193
+  _globals['_LISTMESSAGESRESPONSE']._serialized_start=4196
+  _globals['_LISTMESSAGESRESPONSE']._serialized_end=4443
+  _globals['_UPDATEMESSAGEREQUEST']._serialized_start=4446
+  _globals['_UPDATEMESSAGEREQUEST']._serialized_end=4651
+  _globals['_UPDATEMESSAGERESPONSE']._serialized_start=4653
+  _globals['_UPDATEMESSAGERESPONSE']._serialized_end=4733
+  _globals['_DELETEMESSAGEREQUEST']._serialized_start=4736
+  _globals['_DELETEMESSAGEREQUEST']._serialized_end=4910
+  _globals['_DELETEMESSAGERESPONSE']._serialized_start=4912
+  _globals['_DELETEMESSAGERESPONSE']._serialized_end=4935
+  _globals['_CHATREQUEST']._serialized_start=4938
+  _globals['_CHATREQUEST']._serialized_end=5287
+  _globals['_CHATRESPONSE']._serialized_start=5290
+  _globals['_CHATRESPONSE']._serialized_end=5433
 # @@protoc_insertion_point(module_scope)
