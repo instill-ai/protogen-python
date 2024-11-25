@@ -104,6 +104,38 @@ class AppPublicServiceStub:
 
     Deletes a conversation.
     """
+    CreateChat: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.conversation_pb2.CreateChatRequest,
+        app.app.v1alpha.conversation_pb2.CreateChatResponse,
+    ]
+    """Create a chat
+
+    Creates a chat.
+    """
+    ListChats: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.conversation_pb2.ListChatsRequest,
+        app.app.v1alpha.conversation_pb2.ListChatsResponse,
+    ]
+    """List chats
+
+    Returns a paginated list of conversations.
+    """
+    UpdateChat: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.conversation_pb2.UpdateChatRequest,
+        app.app.v1alpha.conversation_pb2.UpdateChatResponse,
+    ]
+    """Update a chat
+
+    Updates a chat.
+    """
+    DeleteChat: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.conversation_pb2.DeleteChatRequest,
+        app.app.v1alpha.conversation_pb2.DeleteChatResponse,
+    ]
+    """Delete a chat
+
+    Deletes a chat.
+    """
     CreateMessage: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.CreateMessageRequest,
         app.app.v1alpha.conversation_pb2.CreateMessageResponse,
@@ -143,6 +175,14 @@ class AppPublicServiceStub:
     """Get Playground Conversation
 
     Returns the latest conversation of auth user(e.g. login user and api key user).
+    """
+    ListChatMessages: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.conversation_pb2.ListChatMessagesRequest,
+        app.app.v1alpha.conversation_pb2.ListChatMessagesResponse,
+    ]
+    """List chat messages
+
+    Returns a paginated list of messages.
     """
     RestartPlaygroundConversation: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.app_pb2.RestartPlaygroundConversationRequest,
@@ -249,6 +289,38 @@ class AppPublicServiceAsyncStub:
 
     Deletes a conversation.
     """
+    CreateChat: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.conversation_pb2.CreateChatRequest,
+        app.app.v1alpha.conversation_pb2.CreateChatResponse,
+    ]
+    """Create a chat
+
+    Creates a chat.
+    """
+    ListChats: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.conversation_pb2.ListChatsRequest,
+        app.app.v1alpha.conversation_pb2.ListChatsResponse,
+    ]
+    """List chats
+
+    Returns a paginated list of conversations.
+    """
+    UpdateChat: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.conversation_pb2.UpdateChatRequest,
+        app.app.v1alpha.conversation_pb2.UpdateChatResponse,
+    ]
+    """Update a chat
+
+    Updates a chat.
+    """
+    DeleteChat: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.conversation_pb2.DeleteChatRequest,
+        app.app.v1alpha.conversation_pb2.DeleteChatResponse,
+    ]
+    """Delete a chat
+
+    Deletes a chat.
+    """
     CreateMessage: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.CreateMessageRequest,
         app.app.v1alpha.conversation_pb2.CreateMessageResponse,
@@ -288,6 +360,14 @@ class AppPublicServiceAsyncStub:
     """Get Playground Conversation
 
     Returns the latest conversation of auth user(e.g. login user and api key user).
+    """
+    ListChatMessages: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.conversation_pb2.ListChatMessagesRequest,
+        app.app.v1alpha.conversation_pb2.ListChatMessagesResponse,
+    ]
+    """List chat messages
+
+    Returns a paginated list of messages.
     """
     RestartPlaygroundConversation: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.app_pb2.RestartPlaygroundConversationRequest,
@@ -415,6 +495,46 @@ class AppPublicServiceServicer(metaclass=abc.ABCMeta):
         Deletes a conversation.
         """
     @abc.abstractmethod
+    def CreateChat(
+        self,
+        request: app.app.v1alpha.conversation_pb2.CreateChatRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.conversation_pb2.CreateChatResponse, collections.abc.Awaitable[app.app.v1alpha.conversation_pb2.CreateChatResponse]]:
+        """Create a chat
+
+        Creates a chat.
+        """
+    @abc.abstractmethod
+    def ListChats(
+        self,
+        request: app.app.v1alpha.conversation_pb2.ListChatsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.conversation_pb2.ListChatsResponse, collections.abc.Awaitable[app.app.v1alpha.conversation_pb2.ListChatsResponse]]:
+        """List chats
+
+        Returns a paginated list of conversations.
+        """
+    @abc.abstractmethod
+    def UpdateChat(
+        self,
+        request: app.app.v1alpha.conversation_pb2.UpdateChatRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.conversation_pb2.UpdateChatResponse, collections.abc.Awaitable[app.app.v1alpha.conversation_pb2.UpdateChatResponse]]:
+        """Update a chat
+
+        Updates a chat.
+        """
+    @abc.abstractmethod
+    def DeleteChat(
+        self,
+        request: app.app.v1alpha.conversation_pb2.DeleteChatRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.conversation_pb2.DeleteChatResponse, collections.abc.Awaitable[app.app.v1alpha.conversation_pb2.DeleteChatResponse]]:
+        """Delete a chat
+
+        Deletes a chat.
+        """
+    @abc.abstractmethod
     def CreateMessage(
         self,
         request: app.app.v1alpha.conversation_pb2.CreateMessageRequest,
@@ -463,6 +583,16 @@ class AppPublicServiceServicer(metaclass=abc.ABCMeta):
         """Get Playground Conversation
 
         Returns the latest conversation of auth user(e.g. login user and api key user).
+        """
+    @abc.abstractmethod
+    def ListChatMessages(
+        self,
+        request: app.app.v1alpha.conversation_pb2.ListChatMessagesRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.conversation_pb2.ListChatMessagesResponse, collections.abc.Awaitable[app.app.v1alpha.conversation_pb2.ListChatMessagesResponse]]:
+        """List chat messages
+
+        Returns a paginated list of messages.
         """
     @abc.abstractmethod
     def RestartPlaygroundConversation(

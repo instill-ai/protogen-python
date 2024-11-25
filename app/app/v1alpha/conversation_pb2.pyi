@@ -22,30 +22,6 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
-class _ChatWith:
-    ValueType = typing.NewType("ValueType", builtins.int)
-    V: typing_extensions.TypeAlias = ValueType
-
-class _ChatWithEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ChatWith.ValueType], builtins.type):
-    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-    CHAT_WITH_UNSPECIFIED: _ChatWith.ValueType  # 0
-    """unspecified"""
-    CHAT_WITH_AI_ASSISTANT: _ChatWith.ValueType  # 1
-    """chat with ai assistant(default)"""
-    CHAT_WITH_AI_AGENT: _ChatWith.ValueType  # 2
-    """chat with ai agent"""
-
-class ChatWith(_ChatWith, metaclass=_ChatWithEnumTypeWrapper):
-    """ChatWith enum"""
-
-CHAT_WITH_UNSPECIFIED: ChatWith.ValueType  # 0
-"""unspecified"""
-CHAT_WITH_AI_ASSISTANT: ChatWith.ValueType  # 1
-"""chat with ai assistant(default)"""
-CHAT_WITH_AI_AGENT: ChatWith.ValueType  # 2
-"""chat with ai agent"""
-global___ChatWith = ChatWith
-
 @typing_extensions.final
 class Conversation(google.protobuf.message.Message):
     """Conversation represents a chat conversation"""
@@ -60,10 +36,6 @@ class Conversation(google.protobuf.message.Message):
     LAST_USED_TOP_K_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
-    AI_AGENT_APP_FIELD_NUMBER: builtins.int
-    TEMP_CATALOG_ID_FIELD_NUMBER: builtins.int
-    CHAT_WITH_FIELD_NUMBER: builtins.int
-    CONVERSATION_DISPLAY_NAME_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """unique identifier of the conversation created by the system"""
     namespace_id: builtins.str
@@ -82,15 +54,6 @@ class Conversation(google.protobuf.message.Message):
     @property
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """update time of the conversation"""
-    @property
-    def ai_agent_app(self) -> app.app.v1alpha.agent_pb2.AIAgentAppMetadata:
-        """agent metadata"""
-    temp_catalog_id: builtins.str
-    """temp catalog id automatically created for ai agent app"""
-    chat_with: global___ChatWith.ValueType
-    """chat with"""
-    conversation_display_name: builtins.str
-    """conversation display name"""
     def __init__(
         self,
         *,
@@ -102,13 +65,67 @@ class Conversation(google.protobuf.message.Message):
         last_used_top_k: builtins.int | None = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid", "_last_used_top_k", b"_last_used_top_k", "create_time", b"create_time", "last_used_catalog_uid", b"last_used_catalog_uid", "last_used_top_k", b"last_used_top_k", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid", "_last_used_top_k", b"_last_used_top_k", "app_id", b"app_id", "create_time", b"create_time", "id", b"id", "last_used_catalog_uid", b"last_used_catalog_uid", "last_used_top_k", b"last_used_top_k", "namespace_id", b"namespace_id", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid"]) -> typing_extensions.Literal["last_used_catalog_uid"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_last_used_top_k", b"_last_used_top_k"]) -> typing_extensions.Literal["last_used_top_k"] | None: ...
+
+global___Conversation = Conversation
+
+@typing_extensions.final
+class Chat(google.protobuf.message.Message):
+    """Chat represents a chat"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    UID_FIELD_NUMBER: builtins.int
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    LAST_USED_CATALOG_UID_FIELD_NUMBER: builtins.int
+    LAST_USED_TOP_K_FIELD_NUMBER: builtins.int
+    CREATE_TIME_FIELD_NUMBER: builtins.int
+    UPDATE_TIME_FIELD_NUMBER: builtins.int
+    AI_AGENT_APP_FIELD_NUMBER: builtins.int
+    TEMP_CATALOG_ID_FIELD_NUMBER: builtins.int
+    CHAT_DISPLAY_NAME_FIELD_NUMBER: builtins.int
+    uid: builtins.str
+    """unique identifier of the conversation created by the system"""
+    namespace_id: builtins.str
+    """namespace id"""
+    last_used_catalog_uid: builtins.str
+    """last used catalog uid"""
+    last_used_top_k: builtins.int
+    """last used top k"""
+    @property
+    def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """creation time of the chat"""
+    @property
+    def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """update time of the chat"""
+    @property
+    def ai_agent_app(self) -> app.app.v1alpha.agent_pb2.AIAgentAppMetadata:
+        """agent metadata"""
+    temp_catalog_id: builtins.str
+    """temp catalog id automatically created for ai agent app"""
+    chat_display_name: builtins.str
+    """conversation display name"""
+    def __init__(
+        self,
+        *,
+        uid: builtins.str = ...,
+        namespace_id: builtins.str = ...,
+        last_used_catalog_uid: builtins.str | None = ...,
+        last_used_top_k: builtins.int | None = ...,
+        create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         ai_agent_app: app.app.v1alpha.agent_pb2.AIAgentAppMetadata | None = ...,
         temp_catalog_id: builtins.str | None = ...,
-        chat_with: global___ChatWith.ValueType = ...,
-        conversation_display_name: builtins.str = ...,
+        chat_display_name: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid", "_last_used_top_k", b"_last_used_top_k", "_temp_catalog_id", b"_temp_catalog_id", "ai_agent_app", b"ai_agent_app", "create_time", b"create_time", "last_used_catalog_uid", b"last_used_catalog_uid", "last_used_top_k", b"last_used_top_k", "temp_catalog_id", b"temp_catalog_id", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid", "_last_used_top_k", b"_last_used_top_k", "_temp_catalog_id", b"_temp_catalog_id", "ai_agent_app", b"ai_agent_app", "app_id", b"app_id", "chat_with", b"chat_with", "conversation_display_name", b"conversation_display_name", "create_time", b"create_time", "id", b"id", "last_used_catalog_uid", b"last_used_catalog_uid", "last_used_top_k", b"last_used_top_k", "namespace_id", b"namespace_id", "temp_catalog_id", b"temp_catalog_id", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid", "_last_used_top_k", b"_last_used_top_k", "_temp_catalog_id", b"_temp_catalog_id", "ai_agent_app", b"ai_agent_app", "chat_display_name", b"chat_display_name", "create_time", b"create_time", "last_used_catalog_uid", b"last_used_catalog_uid", "last_used_top_k", b"last_used_top_k", "namespace_id", b"namespace_id", "temp_catalog_id", b"temp_catalog_id", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid"]) -> typing_extensions.Literal["last_used_catalog_uid"] | None: ...
     @typing.overload
@@ -116,11 +133,22 @@ class Conversation(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_temp_catalog_id", b"_temp_catalog_id"]) -> typing_extensions.Literal["temp_catalog_id"] | None: ...
 
-global___Conversation = Conversation
+global___Chat = Chat
 
 @typing_extensions.final
 class Message(google.protobuf.message.Message):
-    """Message represents a single message in a conversation"""
+    """ChatWith enum
+    enum ChatWith {
+      // unspecified
+      CHAT_WITH_UNSPECIFIED = 0;
+      // chat with ai assistant(default)
+      CHAT_WITH_AI_ASSISTANT = 1;
+      // chat with ai agent
+      CHAT_WITH_AI_AGENT = 2;
+    }
+
+    Message represents a single message in a conversation
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -208,34 +236,20 @@ class CreateConversationRequest(google.protobuf.message.Message):
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     APP_ID_FIELD_NUMBER: builtins.int
     CONVERSATION_ID_FIELD_NUMBER: builtins.int
-    CHAT_WITH_FIELD_NUMBER: builtins.int
-    CONVERSATION_DISPLAY_NAME_FIELD_NUMBER: builtins.int
-    AI_AGENT_APP_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """namespace id"""
     app_id: builtins.str
     """app id"""
     conversation_id: builtins.str
     """conversation id. only allow kebab case"""
-    chat_with: global___ChatWith.ValueType
-    """chat with(optional) default is CHAT_WITH_AI_ASSISTANT"""
-    conversation_display_name: builtins.str
-    """conversation display name"""
-    @property
-    def ai_agent_app(self) -> app.app.v1alpha.agent_pb2.AIAgentAppMetadata:
-        """agent metadata"""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         app_id: builtins.str = ...,
         conversation_id: builtins.str = ...,
-        chat_with: global___ChatWith.ValueType = ...,
-        conversation_display_name: builtins.str = ...,
-        ai_agent_app: app.app.v1alpha.agent_pb2.AIAgentAppMetadata | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["ai_agent_app", b"ai_agent_app"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["ai_agent_app", b"ai_agent_app", "app_id", b"app_id", "chat_with", b"chat_with", "conversation_display_name", b"conversation_display_name", "conversation_id", b"conversation_id", "namespace_id", b"namespace_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["app_id", b"app_id", "conversation_id", b"conversation_id", "namespace_id", b"namespace_id"]) -> None: ...
 
 global___CreateConversationRequest = CreateConversationRequest
 
@@ -260,6 +274,54 @@ class CreateConversationResponse(google.protobuf.message.Message):
 global___CreateConversationResponse = CreateConversationResponse
 
 @typing_extensions.final
+class CreateChatRequest(google.protobuf.message.Message):
+    """CreateChatRequest is used to create a new chat"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    CHAT_DISPLAY_NAME_FIELD_NUMBER: builtins.int
+    AI_AGENT_APP_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """namespace id"""
+    chat_display_name: builtins.str
+    """chat display name"""
+    @property
+    def ai_agent_app(self) -> app.app.v1alpha.agent_pb2.AIAgentAppMetadata:
+        """agent metadata"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        chat_display_name: builtins.str = ...,
+        ai_agent_app: app.app.v1alpha.agent_pb2.AIAgentAppMetadata | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["ai_agent_app", b"ai_agent_app"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["ai_agent_app", b"ai_agent_app", "chat_display_name", b"chat_display_name", "namespace_id", b"namespace_id"]) -> None: ...
+
+global___CreateChatRequest = CreateChatRequest
+
+@typing_extensions.final
+class CreateChatResponse(google.protobuf.message.Message):
+    """CreateChatResponse returns the created chat"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CHAT_FIELD_NUMBER: builtins.int
+    @property
+    def chat(self) -> global___Chat:
+        """chat"""
+    def __init__(
+        self,
+        *,
+        chat: global___Chat | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["chat", b"chat"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chat", b"chat"]) -> None: ...
+
+global___CreateChatResponse = CreateChatResponse
+
+@typing_extensions.final
 class ListConversationsRequest(google.protobuf.message.Message):
     """ListConversationsRequest is used to list conversations"""
 
@@ -272,7 +334,6 @@ class ListConversationsRequest(google.protobuf.message.Message):
     CONVERSATION_UID_FIELD_NUMBER: builtins.int
     CONVERSATION_ID_FIELD_NUMBER: builtins.int
     IF_ALL_FIELD_NUMBER: builtins.int
-    CHAT_WITH_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """namespace id"""
     app_id: builtins.str
@@ -289,8 +350,6 @@ class ListConversationsRequest(google.protobuf.message.Message):
     """conversation_id this is optional, if provided, only the conversation with the given conversation_id will be returned"""
     if_all: builtins.bool
     """If true, all conversations will be returned. This has higher priority over conversation_id, page_size, and page_token."""
-    chat_with: global___ChatWith.ValueType
-    """chat with"""
     def __init__(
         self,
         *,
@@ -301,9 +360,8 @@ class ListConversationsRequest(google.protobuf.message.Message):
         conversation_uid: builtins.str = ...,
         conversation_id: builtins.str = ...,
         if_all: builtins.bool = ...,
-        chat_with: global___ChatWith.ValueType = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["app_id", b"app_id", "chat_with", b"chat_with", "conversation_id", b"conversation_id", "conversation_uid", b"conversation_uid", "if_all", b"if_all", "namespace_id", b"namespace_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["app_id", b"app_id", "conversation_id", b"conversation_id", "conversation_uid", b"conversation_uid", "if_all", b"if_all", "namespace_id", b"namespace_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
 
 global___ListConversationsRequest = ListConversationsRequest
 
@@ -333,6 +391,69 @@ class ListConversationsResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["conversations", b"conversations", "next_page_token", b"next_page_token", "total_size", b"total_size"]) -> None: ...
 
 global___ListConversationsResponse = ListConversationsResponse
+
+@typing_extensions.final
+class ListChatsRequest(google.protobuf.message.Message):
+    """ListChatsRequest is used to list chats"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    IF_ALL_FIELD_NUMBER: builtins.int
+    CHAT_UID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """namespace id"""
+    page_size: builtins.int
+    """page size"""
+    page_token: builtins.str
+    """page token"""
+    if_all: builtins.bool
+    """if true, all chats will be returned. This has higher priority over page_size and page_token."""
+    chat_uid: builtins.str
+    """chat_uid this is optional, if provided, only the chat with the given chat_uid will be returned
+    first check chat_uid then check if_all
+    """
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        page_size: builtins.int = ...,
+        page_token: builtins.str = ...,
+        if_all: builtins.bool = ...,
+        chat_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chat_uid", b"chat_uid", "if_all", b"if_all", "namespace_id", b"namespace_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
+global___ListChatsRequest = ListChatsRequest
+
+@typing_extensions.final
+class ListChatsResponse(google.protobuf.message.Message):
+    """ListChatsResponse returns a list of chats"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CHATS_FIELD_NUMBER: builtins.int
+    NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    @property
+    def chats(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Chat]:
+        """chats"""
+    next_page_token: builtins.str
+    """next page token"""
+    total_size: builtins.int
+    """total size"""
+    def __init__(
+        self,
+        *,
+        chats: collections.abc.Iterable[global___Chat] | None = ...,
+        next_page_token: builtins.str = ...,
+        total_size: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chats", b"chats", "next_page_token", b"next_page_token", "total_size", b"total_size"]) -> None: ...
+
+global___ListChatsResponse = ListChatsResponse
 
 @typing_extensions.final
 class UpdateConversationRequest(google.protobuf.message.Message):
@@ -409,6 +530,58 @@ class UpdateConversationResponse(google.protobuf.message.Message):
 global___UpdateConversationResponse = UpdateConversationResponse
 
 @typing_extensions.final
+class UpdateChatRequest(google.protobuf.message.Message):
+    """UpdateChatRequest is used to update a chat"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    CHAT_UID_FIELD_NUMBER: builtins.int
+    CHAT_DISPLAY_NAME_FIELD_NUMBER: builtins.int
+    AI_AGENT_APP_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """namespace id"""
+    chat_uid: builtins.str
+    """chat uid"""
+    chat_display_name: builtins.str
+    """chat display name"""
+    @property
+    def ai_agent_app(self) -> app.app.v1alpha.agent_pb2.AIAgentAppMetadata:
+        """ai agent app metadata"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        chat_uid: builtins.str = ...,
+        chat_display_name: builtins.str = ...,
+        ai_agent_app: app.app.v1alpha.agent_pb2.AIAgentAppMetadata | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["ai_agent_app", b"ai_agent_app"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["ai_agent_app", b"ai_agent_app", "chat_display_name", b"chat_display_name", "chat_uid", b"chat_uid", "namespace_id", b"namespace_id"]) -> None: ...
+
+global___UpdateChatRequest = UpdateChatRequest
+
+@typing_extensions.final
+class UpdateChatResponse(google.protobuf.message.Message):
+    """UpdateChatResponse returns the updated chat"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CHAT_FIELD_NUMBER: builtins.int
+    @property
+    def chat(self) -> global___Chat:
+        """chat"""
+    def __init__(
+        self,
+        *,
+        chat: global___Chat | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["chat", b"chat"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chat", b"chat"]) -> None: ...
+
+global___UpdateChatResponse = UpdateChatResponse
+
+@typing_extensions.final
 class DeleteConversationRequest(google.protobuf.message.Message):
     """DeleteConversationRequest is used to delete a conversation"""
 
@@ -445,6 +618,40 @@ class DeleteConversationResponse(google.protobuf.message.Message):
     ) -> None: ...
 
 global___DeleteConversationResponse = DeleteConversationResponse
+
+@typing_extensions.final
+class DeleteChatRequest(google.protobuf.message.Message):
+    """DeleteChatRequest is used to delete a chat"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    CHAT_UID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """namespace id"""
+    chat_uid: builtins.str
+    """chat uid"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        chat_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chat_uid", b"chat_uid", "namespace_id", b"namespace_id"]) -> None: ...
+
+global___DeleteChatRequest = DeleteChatRequest
+
+@typing_extensions.final
+class DeleteChatResponse(google.protobuf.message.Message):
+    """DeleteChatResponse is empty as no content needs to be returned"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___DeleteChatResponse = DeleteChatResponse
 
 @typing_extensions.final
 class CreateMessageRequest(google.protobuf.message.Message):
@@ -718,6 +925,67 @@ class DeleteMessageResponse(google.protobuf.message.Message):
     ) -> None: ...
 
 global___DeleteMessageResponse = DeleteMessageResponse
+
+@typing_extensions.final
+class ListChatMessagesRequest(google.protobuf.message.Message):
+    """ListChatMessagesRequest is used to list messages in a chat"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    CHAT_UID_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    IF_ALL_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """namespace id"""
+    chat_uid: builtins.str
+    """chat uid"""
+    page_size: builtins.int
+    """page size"""
+    page_token: builtins.str
+    """page token"""
+    if_all: builtins.bool
+    """If true, all messages will be returned. This has higher priority over page_size and page_token."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        chat_uid: builtins.str = ...,
+        page_size: builtins.int = ...,
+        page_token: builtins.str = ...,
+        if_all: builtins.bool = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chat_uid", b"chat_uid", "if_all", b"if_all", "namespace_id", b"namespace_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
+global___ListChatMessagesRequest = ListChatMessagesRequest
+
+@typing_extensions.final
+class ListChatMessagesResponse(google.protobuf.message.Message):
+    """ListChatMessagesResponse returns a list of messages"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    MESSAGES_FIELD_NUMBER: builtins.int
+    NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    @property
+    def messages(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Message]:
+        """messages"""
+    next_page_token: builtins.str
+    """next page token"""
+    total_size: builtins.int
+    """total size"""
+    def __init__(
+        self,
+        *,
+        messages: collections.abc.Iterable[global___Message] | None = ...,
+        next_page_token: builtins.str = ...,
+        total_size: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["messages", b"messages", "next_page_token", b"next_page_token", "total_size", b"total_size"]) -> None: ...
+
+global___ListChatMessagesResponse = ListChatMessagesResponse
 
 @typing_extensions.final
 class ChatRequest(google.protobuf.message.Message):

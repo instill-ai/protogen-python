@@ -67,6 +67,26 @@ class AppPublicServiceStub(object):
                 request_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.DeleteConversationRequest.SerializeToString,
                 response_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.DeleteConversationResponse.FromString,
                 )
+        self.CreateChat = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/CreateChat',
+                request_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.CreateChatRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.CreateChatResponse.FromString,
+                )
+        self.ListChats = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/ListChats',
+                request_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.ListChatsRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.ListChatsResponse.FromString,
+                )
+        self.UpdateChat = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/UpdateChat',
+                request_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.UpdateChatRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.UpdateChatResponse.FromString,
+                )
+        self.DeleteChat = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/DeleteChat',
+                request_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.DeleteChatRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.DeleteChatResponse.FromString,
+                )
         self.CreateMessage = channel.unary_unary(
                 '/app.app.v1alpha.AppPublicService/CreateMessage',
                 request_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.CreateMessageRequest.SerializeToString,
@@ -91,6 +111,11 @@ class AppPublicServiceStub(object):
                 '/app.app.v1alpha.AppPublicService/GetPlaygroundConversation',
                 request_serializer=app_dot_app_dot_v1alpha_dot_app__pb2.GetPlaygroundConversationRequest.SerializeToString,
                 response_deserializer=app_dot_app_dot_v1alpha_dot_app__pb2.GetPlaygroundConversationResponse.FromString,
+                )
+        self.ListChatMessages = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/ListChatMessages',
+                request_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.ListChatMessagesRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.ListChatMessagesResponse.FromString,
                 )
         self.RestartPlaygroundConversation = channel.unary_unary(
                 '/app.app.v1alpha.AppPublicService/RestartPlaygroundConversation',
@@ -199,6 +224,42 @@ class AppPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateChat(self, request, context):
+        """Create a chat
+
+        Creates a chat.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListChats(self, request, context):
+        """List chats
+
+        Returns a paginated list of conversations.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateChat(self, request, context):
+        """Update a chat
+
+        Updates a chat.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteChat(self, request, context):
+        """Delete a chat
+
+        Deletes a chat.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CreateMessage(self, request, context):
         """Create a message
 
@@ -239,6 +300,15 @@ class AppPublicServiceServicer(object):
         """Get Playground Conversation
 
         Returns the latest conversation of auth user(e.g. login user and api key user).
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListChatMessages(self, request, context):
+        """List chat messages
+
+        Returns a paginated list of messages.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -318,6 +388,26 @@ def add_AppPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.DeleteConversationRequest.FromString,
                     response_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.DeleteConversationResponse.SerializeToString,
             ),
+            'CreateChat': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateChat,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.CreateChatRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.CreateChatResponse.SerializeToString,
+            ),
+            'ListChats': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListChats,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.ListChatsRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.ListChatsResponse.SerializeToString,
+            ),
+            'UpdateChat': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateChat,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.UpdateChatRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.UpdateChatResponse.SerializeToString,
+            ),
+            'DeleteChat': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteChat,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.DeleteChatRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.DeleteChatResponse.SerializeToString,
+            ),
             'CreateMessage': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateMessage,
                     request_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.CreateMessageRequest.FromString,
@@ -342,6 +432,11 @@ def add_AppPublicServiceServicer_to_server(servicer, server):
                     servicer.GetPlaygroundConversation,
                     request_deserializer=app_dot_app_dot_v1alpha_dot_app__pb2.GetPlaygroundConversationRequest.FromString,
                     response_serializer=app_dot_app_dot_v1alpha_dot_app__pb2.GetPlaygroundConversationResponse.SerializeToString,
+            ),
+            'ListChatMessages': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListChatMessages,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.ListChatMessagesRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.ListChatMessagesResponse.SerializeToString,
             ),
             'RestartPlaygroundConversation': grpc.unary_unary_rpc_method_handler(
                     servicer.RestartPlaygroundConversation,
@@ -536,6 +631,74 @@ class AppPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def CreateChat(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/CreateChat',
+            app_dot_app_dot_v1alpha_dot_conversation__pb2.CreateChatRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_conversation__pb2.CreateChatResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListChats(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/ListChats',
+            app_dot_app_dot_v1alpha_dot_conversation__pb2.ListChatsRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_conversation__pb2.ListChatsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateChat(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/UpdateChat',
+            app_dot_app_dot_v1alpha_dot_conversation__pb2.UpdateChatRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_conversation__pb2.UpdateChatResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteChat(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/DeleteChat',
+            app_dot_app_dot_v1alpha_dot_conversation__pb2.DeleteChatRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_conversation__pb2.DeleteChatResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def CreateMessage(request,
             target,
             options=(),
@@ -617,6 +780,23 @@ class AppPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/GetPlaygroundConversation',
             app_dot_app_dot_v1alpha_dot_app__pb2.GetPlaygroundConversationRequest.SerializeToString,
             app_dot_app_dot_v1alpha_dot_app__pb2.GetPlaygroundConversationResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListChatMessages(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/ListChatMessages',
+            app_dot_app_dot_v1alpha_dot_conversation__pb2.ListChatMessagesRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_conversation__pb2.ListChatMessagesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
