@@ -515,32 +515,6 @@ class Integration(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["access_url", b"access_url", "auth_url", b"auth_url", "scopes", b"scopes"]) -> None: ...
 
-    @typing_extensions.final
-    class SetupSchema(google.protobuf.message.Message):
-        """SetupSchema defines the schema for a connection setup.
-        This message is deprecated.
-        """
-
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        METHOD_FIELD_NUMBER: builtins.int
-        SCHEMA_FIELD_NUMBER: builtins.int
-        method: global___Connection.Method.ValueType
-        """The connection method, which will define the fields in the schema."""
-        @property
-        def schema(self) -> google.protobuf.struct_pb2.Struct:
-            """The connection setup field definitions. Each integration will require
-            different data to connect to the 3rd party app.
-            """
-        def __init__(
-            self,
-            *,
-            method: global___Connection.Method.ValueType = ...,
-            schema: google.protobuf.struct_pb2.Struct | None = ...,
-        ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["schema", b"schema"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["method", b"method", "schema", b"schema"]) -> None: ...
-
     UID_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
     TITLE_FIELD_NUMBER: builtins.int
@@ -551,7 +525,6 @@ class Integration(google.protobuf.message.Message):
     SETUP_SCHEMA_FIELD_NUMBER: builtins.int
     O_AUTH_CONFIG_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
-    SCHEMAS_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """UUID-formatted unique identifier. It references a component definition."""
     id: builtins.str
@@ -588,18 +561,9 @@ class Integration(google.protobuf.message.Message):
     view: vdp.pipeline.v1beta.common_pb2.View.ValueType
     """View defines how the integration is presented. The following fields are
     only shown in the FULL view:
-    - schemas
     - setupSchema
     - oAuthConfig
     """
-    @property
-    def schemas(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Integration.SetupSchema]:
-        """Schemas defines the supported schemas for the connection setup.
-        We haven't found a case for a schema that changes on the connection method
-        (components don't care about how the connection was built), so the schema
-        will be provided in the setupSchema field and the OAuth support and
-        configuration will be provided in oAuthConfig.
-        """
     def __init__(
         self,
         *,
@@ -613,10 +577,9 @@ class Integration(google.protobuf.message.Message):
         setup_schema: google.protobuf.struct_pb2.Struct | None = ...,
         o_auth_config: global___Integration.OAuthConfig | None = ...,
         view: vdp.pipeline.v1beta.common_pb2.View.ValueType = ...,
-        schemas: collections.abc.Iterable[global___Integration.SetupSchema] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_help_link", b"_help_link", "_o_auth_config", b"_o_auth_config", "help_link", b"help_link", "o_auth_config", b"o_auth_config", "setup_schema", b"setup_schema"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_help_link", b"_help_link", "_o_auth_config", b"_o_auth_config", "description", b"description", "help_link", b"help_link", "icon", b"icon", "id", b"id", "o_auth_config", b"o_auth_config", "schemas", b"schemas", "setup_schema", b"setup_schema", "title", b"title", "uid", b"uid", "vendor", b"vendor", "view", b"view"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_help_link", b"_help_link", "_o_auth_config", b"_o_auth_config", "description", b"description", "help_link", b"help_link", "icon", b"icon", "id", b"id", "o_auth_config", b"o_auth_config", "setup_schema", b"setup_schema", "title", b"title", "uid", b"uid", "vendor", b"vendor", "view", b"view"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_help_link", b"_help_link"]) -> typing_extensions.Literal["help_link"] | None: ...
     @typing.overload
