@@ -87,7 +87,7 @@ class Chat(google.protobuf.message.Message):
     LAST_USED_TOP_K_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
-    AI_AGENT_APP_FIELD_NUMBER: builtins.int
+    AI_AGENT_METADATA_FIELD_NUMBER: builtins.int
     TEMP_CATALOG_ID_FIELD_NUMBER: builtins.int
     CHAT_DISPLAY_NAME_FIELD_NUMBER: builtins.int
     uid: builtins.str
@@ -105,7 +105,7 @@ class Chat(google.protobuf.message.Message):
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """update time of the chat"""
     @property
-    def ai_agent_app(self) -> app.app.v1alpha.agent_pb2.AIAgentAppMetadata:
+    def ai_agent_metadata(self) -> app.app.v1alpha.agent_pb2.AIAgentAppMetadata:
         """agent metadata"""
     temp_catalog_id: builtins.str
     """temp catalog id automatically created for ai agent app"""
@@ -120,12 +120,12 @@ class Chat(google.protobuf.message.Message):
         last_used_top_k: builtins.int | None = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        ai_agent_app: app.app.v1alpha.agent_pb2.AIAgentAppMetadata | None = ...,
+        ai_agent_metadata: app.app.v1alpha.agent_pb2.AIAgentAppMetadata | None = ...,
         temp_catalog_id: builtins.str | None = ...,
         chat_display_name: builtins.str = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid", "_last_used_top_k", b"_last_used_top_k", "_temp_catalog_id", b"_temp_catalog_id", "ai_agent_app", b"ai_agent_app", "create_time", b"create_time", "last_used_catalog_uid", b"last_used_catalog_uid", "last_used_top_k", b"last_used_top_k", "temp_catalog_id", b"temp_catalog_id", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid", "_last_used_top_k", b"_last_used_top_k", "_temp_catalog_id", b"_temp_catalog_id", "ai_agent_app", b"ai_agent_app", "chat_display_name", b"chat_display_name", "create_time", b"create_time", "last_used_catalog_uid", b"last_used_catalog_uid", "last_used_top_k", b"last_used_top_k", "namespace_id", b"namespace_id", "temp_catalog_id", b"temp_catalog_id", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid", "_last_used_top_k", b"_last_used_top_k", "_temp_catalog_id", b"_temp_catalog_id", "ai_agent_metadata", b"ai_agent_metadata", "create_time", b"create_time", "last_used_catalog_uid", b"last_used_catalog_uid", "last_used_top_k", b"last_used_top_k", "temp_catalog_id", b"temp_catalog_id", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid", "_last_used_top_k", b"_last_used_top_k", "_temp_catalog_id", b"_temp_catalog_id", "ai_agent_metadata", b"ai_agent_metadata", "chat_display_name", b"chat_display_name", "create_time", b"create_time", "last_used_catalog_uid", b"last_used_catalog_uid", "last_used_top_k", b"last_used_top_k", "namespace_id", b"namespace_id", "temp_catalog_id", b"temp_catalog_id", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid"]) -> typing_extensions.Literal["last_used_catalog_uid"] | None: ...
     @typing.overload
@@ -467,8 +467,6 @@ class UpdateConversationRequest(google.protobuf.message.Message):
     NEW_CONVERSATION_ID_FIELD_NUMBER: builtins.int
     LAST_USED_CATALOG_UID_FIELD_NUMBER: builtins.int
     LAST_USED_TOP_K_FIELD_NUMBER: builtins.int
-    AI_AGENT_APP_FIELD_NUMBER: builtins.int
-    CONVERSATION_DISPLAY_NAME_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """namespace id"""
     app_id: builtins.str
@@ -481,11 +479,6 @@ class UpdateConversationRequest(google.protobuf.message.Message):
     """last used catalog uid(only for ai assistant app)"""
     last_used_top_k: builtins.int
     """last used top k(only for ai assistant app)"""
-    @property
-    def ai_agent_app(self) -> app.app.v1alpha.agent_pb2.AIAgentAppMetadata:
-        """ai agent app metadata"""
-    conversation_display_name: builtins.str
-    """conversation display name"""
     def __init__(
         self,
         *,
@@ -495,11 +488,9 @@ class UpdateConversationRequest(google.protobuf.message.Message):
         new_conversation_id: builtins.str | None = ...,
         last_used_catalog_uid: builtins.str | None = ...,
         last_used_top_k: builtins.int | None = ...,
-        ai_agent_app: app.app.v1alpha.agent_pb2.AIAgentAppMetadata | None = ...,
-        conversation_display_name: builtins.str = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid", "_last_used_top_k", b"_last_used_top_k", "_new_conversation_id", b"_new_conversation_id", "ai_agent_app", b"ai_agent_app", "last_used_catalog_uid", b"last_used_catalog_uid", "last_used_top_k", b"last_used_top_k", "new_conversation_id", b"new_conversation_id"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid", "_last_used_top_k", b"_last_used_top_k", "_new_conversation_id", b"_new_conversation_id", "ai_agent_app", b"ai_agent_app", "app_id", b"app_id", "conversation_display_name", b"conversation_display_name", "conversation_id", b"conversation_id", "last_used_catalog_uid", b"last_used_catalog_uid", "last_used_top_k", b"last_used_top_k", "namespace_id", b"namespace_id", "new_conversation_id", b"new_conversation_id"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid", "_last_used_top_k", b"_last_used_top_k", "_new_conversation_id", b"_new_conversation_id", "last_used_catalog_uid", b"last_used_catalog_uid", "last_used_top_k", b"last_used_top_k", "new_conversation_id", b"new_conversation_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid", "_last_used_top_k", b"_last_used_top_k", "_new_conversation_id", b"_new_conversation_id", "app_id", b"app_id", "conversation_id", b"conversation_id", "last_used_catalog_uid", b"last_used_catalog_uid", "last_used_top_k", b"last_used_top_k", "namespace_id", b"namespace_id", "new_conversation_id", b"new_conversation_id"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid"]) -> typing_extensions.Literal["last_used_catalog_uid"] | None: ...
     @typing.overload
@@ -538,7 +529,7 @@ class UpdateChatRequest(google.protobuf.message.Message):
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     CHAT_UID_FIELD_NUMBER: builtins.int
     CHAT_DISPLAY_NAME_FIELD_NUMBER: builtins.int
-    AI_AGENT_APP_FIELD_NUMBER: builtins.int
+    AI_AGENT_METADATA_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """namespace id"""
     chat_uid: builtins.str
@@ -546,7 +537,7 @@ class UpdateChatRequest(google.protobuf.message.Message):
     chat_display_name: builtins.str
     """chat display name"""
     @property
-    def ai_agent_app(self) -> app.app.v1alpha.agent_pb2.AIAgentAppMetadata:
+    def ai_agent_metadata(self) -> app.app.v1alpha.agent_pb2.AIAgentAppMetadata:
         """ai agent app metadata"""
     def __init__(
         self,
@@ -554,10 +545,10 @@ class UpdateChatRequest(google.protobuf.message.Message):
         namespace_id: builtins.str = ...,
         chat_uid: builtins.str = ...,
         chat_display_name: builtins.str = ...,
-        ai_agent_app: app.app.v1alpha.agent_pb2.AIAgentAppMetadata | None = ...,
+        ai_agent_metadata: app.app.v1alpha.agent_pb2.AIAgentAppMetadata | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["ai_agent_app", b"ai_agent_app"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["ai_agent_app", b"ai_agent_app", "chat_display_name", b"chat_display_name", "chat_uid", b"chat_uid", "namespace_id", b"namespace_id"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["ai_agent_metadata", b"ai_agent_metadata"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["ai_agent_metadata", b"ai_agent_metadata", "chat_display_name", b"chat_display_name", "chat_uid", b"chat_uid", "namespace_id", b"namespace_id"]) -> None: ...
 
 global___UpdateChatRequest = UpdateChatRequest
 

@@ -7,7 +7,7 @@ import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
-import google.protobuf.struct_pb2
+import google.protobuf.timestamp_pb2
 import sys
 
 if sys.version_info >= (3, 8):
@@ -16,6 +16,61 @@ else:
     import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
+
+@typing_extensions.final
+class Agent(google.protobuf.message.Message):
+    """Agent represents a agent."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    AGENT_UID_FIELD_NUMBER: builtins.int
+    DISPLAY_NAME_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
+    NAMESPACE_UID_FIELD_NUMBER: builtins.int
+    TAGS_FIELD_NUMBER: builtins.int
+    AI_AGENT_METADATA_FIELD_NUMBER: builtins.int
+    CREATOR_UID_FIELD_NUMBER: builtins.int
+    CREATE_TIME_FIELD_NUMBER: builtins.int
+    UPDATE_TIME_FIELD_NUMBER: builtins.int
+    agent_uid: builtins.str
+    """agent uid"""
+    display_name: builtins.str
+    """The agent display name."""
+    description: builtins.str
+    """The agent description."""
+    namespace_uid: builtins.str
+    """The namespace of the agent."""
+    @property
+    def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """The agent tags."""
+    @property
+    def ai_agent_metadata(self) -> global___AIAgentAppMetadata:
+        """The agent metadata."""
+    creator_uid: builtins.str
+    """creator uid"""
+    @property
+    def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """The creation time of the agent."""
+    @property
+    def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """The last update time of the agent."""
+    def __init__(
+        self,
+        *,
+        agent_uid: builtins.str = ...,
+        display_name: builtins.str = ...,
+        description: builtins.str = ...,
+        namespace_uid: builtins.str = ...,
+        tags: collections.abc.Iterable[builtins.str] | None = ...,
+        ai_agent_metadata: global___AIAgentAppMetadata | None = ...,
+        creator_uid: builtins.str = ...,
+        create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["ai_agent_metadata", b"ai_agent_metadata", "create_time", b"create_time", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["agent_uid", b"agent_uid", "ai_agent_metadata", b"ai_agent_metadata", "create_time", b"create_time", "creator_uid", b"creator_uid", "description", b"description", "display_name", b"display_name", "namespace_uid", b"namespace_uid", "tags", b"tags", "update_time", b"update_time"]) -> None: ...
+
+global___Agent = Agent
 
 @typing_extensions.final
 class AIAgentAppMetadata(google.protobuf.message.Message):
@@ -59,20 +114,263 @@ class Tool(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
+    class ConfigEntry(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        KEY_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
+            *,
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
+
+    PIPELINE_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     CONFIG_FIELD_NUMBER: builtins.int
+    pipeline_id: builtins.str
+    """The pipeline id of the tool. e.g. "preset/xxx-search" """
     name: builtins.str
-    """The tool name. e.g. ["preset/pipeline@v1.0.0", "preset/pipeline-2@v2.0.0"]."""
+    """The tool name."""
     @property
-    def config(self) -> google.protobuf.struct_pb2.Struct:
-        """The tool config"""
+    def config(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
+        """The tool connection key(variable) and value(id)."""
     def __init__(
         self,
         *,
-        name: builtins.str = ...,
-        config: google.protobuf.struct_pb2.Struct | None = ...,
+        pipeline_id: builtins.str = ...,
+        name: builtins.str | None = ...,
+        config: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["config", b"config"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "name", b"name"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_name", b"_name", "name", b"name"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_name", b"_name", "config", b"config", "name", b"name", "pipeline_id", b"pipeline_id"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_name", b"_name"]) -> typing_extensions.Literal["name"] | None: ...
 
 global___Tool = Tool
+
+@typing_extensions.final
+class CreateAgentRequest(google.protobuf.message.Message):
+    """CreateAgentRequest represents a request to create a agent."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    DISPLAY_NAME_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
+    TAGS_FIELD_NUMBER: builtins.int
+    AI_AGENT_APP_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The app's owner(namespaces)."""
+    display_name: builtins.str
+    """The agent display name."""
+    description: builtins.str
+    """The agent description."""
+    @property
+    def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """The agent tags."""
+    @property
+    def ai_agent_app(self) -> global___AIAgentAppMetadata:
+        """The agent metadata."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        display_name: builtins.str = ...,
+        description: builtins.str = ...,
+        tags: collections.abc.Iterable[builtins.str] | None = ...,
+        ai_agent_app: global___AIAgentAppMetadata | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["ai_agent_app", b"ai_agent_app"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["ai_agent_app", b"ai_agent_app", "description", b"description", "display_name", b"display_name", "namespace_id", b"namespace_id", "tags", b"tags"]) -> None: ...
+
+global___CreateAgentRequest = CreateAgentRequest
+
+@typing_extensions.final
+class CreateAgentResponse(google.protobuf.message.Message):
+    """CreateAgentResponse represents a response for creating a agent."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    AGENT_FIELD_NUMBER: builtins.int
+    @property
+    def agent(self) -> global___Agent:
+        """The created agent."""
+    def __init__(
+        self,
+        *,
+        agent: global___Agent | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["agent", b"agent"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["agent", b"agent"]) -> None: ...
+
+global___CreateAgentResponse = CreateAgentResponse
+
+@typing_extensions.final
+class ListAgentsRequest(google.protobuf.message.Message):
+    """ListAgentsRequest represents a request to list agents."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The app's owner(namespaces)."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id"]) -> None: ...
+
+global___ListAgentsRequest = ListAgentsRequest
+
+@typing_extensions.final
+class ListAgentsResponse(google.protobuf.message.Message):
+    """ListAgentsResponse represents a response for listing agents."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    AGENTS_FIELD_NUMBER: builtins.int
+    @property
+    def agents(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Agent]:
+        """The agents."""
+    def __init__(
+        self,
+        *,
+        agents: collections.abc.Iterable[global___Agent] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["agents", b"agents"]) -> None: ...
+
+global___ListAgentsResponse = ListAgentsResponse
+
+@typing_extensions.final
+class UpdateAgentRequest(google.protobuf.message.Message):
+    """UpdateAgentRequest represents a request to update a agent."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    AGENT_UID_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
+    TAGS_FIELD_NUMBER: builtins.int
+    AI_AGENT_APP_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The app's owner(namespaces)."""
+    agent_uid: builtins.str
+    """The agent uid."""
+    description: builtins.str
+    """The agent description."""
+    @property
+    def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """The agent tags."""
+    @property
+    def ai_agent_app(self) -> global___AIAgentAppMetadata:
+        """The agent metadata."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        agent_uid: builtins.str = ...,
+        description: builtins.str = ...,
+        tags: collections.abc.Iterable[builtins.str] | None = ...,
+        ai_agent_app: global___AIAgentAppMetadata | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["ai_agent_app", b"ai_agent_app"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["agent_uid", b"agent_uid", "ai_agent_app", b"ai_agent_app", "description", b"description", "namespace_id", b"namespace_id", "tags", b"tags"]) -> None: ...
+
+global___UpdateAgentRequest = UpdateAgentRequest
+
+@typing_extensions.final
+class UpdateAgentResponse(google.protobuf.message.Message):
+    """UpdateAgentResponse represents a response for updating a agent."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    AGENT_FIELD_NUMBER: builtins.int
+    @property
+    def agent(self) -> global___Agent:
+        """The updated agent."""
+    def __init__(
+        self,
+        *,
+        agent: global___Agent | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["agent", b"agent"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["agent", b"agent"]) -> None: ...
+
+global___UpdateAgentResponse = UpdateAgentResponse
+
+@typing_extensions.final
+class DeleteAgentRequest(google.protobuf.message.Message):
+    """DeleteAgentRequest represents a request to delete a agent."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    AGENT_UID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The app's owner(namespaces)."""
+    agent_uid: builtins.str
+    """The agent uid."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        agent_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["agent_uid", b"agent_uid", "namespace_id", b"namespace_id"]) -> None: ...
+
+global___DeleteAgentRequest = DeleteAgentRequest
+
+@typing_extensions.final
+class DeleteAgentResponse(google.protobuf.message.Message):
+    """DeleteAgentResponse represents a response for deleting a agent."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___DeleteAgentResponse = DeleteAgentResponse
+
+@typing_extensions.final
+class ListToolsRequest(google.protobuf.message.Message):
+    """ListToolsRequest represents a request to list tools."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The app's owner(namespaces)."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id"]) -> None: ...
+
+global___ListToolsRequest = ListToolsRequest
+
+@typing_extensions.final
+class ListToolsResponse(google.protobuf.message.Message):
+    """ListToolsResponse represents a response for listing tools."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TOOLS_FIELD_NUMBER: builtins.int
+    @property
+    def tools(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Tool]:
+        """The tools."""
+    def __init__(
+        self,
+        *,
+        tools: collections.abc.Iterable[global___Tool] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["tools", b"tools"]) -> None: ...
+
+global___ListToolsResponse = ListToolsResponse

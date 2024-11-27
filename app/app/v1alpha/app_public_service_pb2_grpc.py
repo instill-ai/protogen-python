@@ -2,6 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+from app.app.v1alpha import agent_pb2 as app_dot_app_dot_v1alpha_dot_agent__pb2
 from app.app.v1alpha import app_pb2 as app_dot_app_dot_v1alpha_dot_app__pb2
 from app.app.v1alpha import conversation_pb2 as app_dot_app_dot_v1alpha_dot_conversation__pb2
 
@@ -67,6 +68,26 @@ class AppPublicServiceStub(object):
                 request_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.DeleteConversationRequest.SerializeToString,
                 response_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.DeleteConversationResponse.FromString,
                 )
+        self.CreateAgent = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/CreateAgent',
+                request_serializer=app_dot_app_dot_v1alpha_dot_agent__pb2.CreateAgentRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_agent__pb2.CreateAgentResponse.FromString,
+                )
+        self.ListAgents = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/ListAgents',
+                request_serializer=app_dot_app_dot_v1alpha_dot_agent__pb2.ListAgentsRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_agent__pb2.ListAgentsResponse.FromString,
+                )
+        self.UpdateAgent = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/UpdateAgent',
+                request_serializer=app_dot_app_dot_v1alpha_dot_agent__pb2.UpdateAgentRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_agent__pb2.UpdateAgentResponse.FromString,
+                )
+        self.DeleteAgent = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/DeleteAgent',
+                request_serializer=app_dot_app_dot_v1alpha_dot_agent__pb2.DeleteAgentRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_agent__pb2.DeleteAgentResponse.FromString,
+                )
         self.CreateChat = channel.unary_unary(
                 '/app.app.v1alpha.AppPublicService/CreateChat',
                 request_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.CreateChatRequest.SerializeToString,
@@ -111,6 +132,11 @@ class AppPublicServiceStub(object):
                 '/app.app.v1alpha.AppPublicService/GetPlaygroundConversation',
                 request_serializer=app_dot_app_dot_v1alpha_dot_app__pb2.GetPlaygroundConversationRequest.SerializeToString,
                 response_deserializer=app_dot_app_dot_v1alpha_dot_app__pb2.GetPlaygroundConversationResponse.FromString,
+                )
+        self.ListTools = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/ListTools',
+                request_serializer=app_dot_app_dot_v1alpha_dot_agent__pb2.ListToolsRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_agent__pb2.ListToolsResponse.FromString,
                 )
         self.ListChatMessages = channel.unary_unary(
                 '/app.app.v1alpha.AppPublicService/ListChatMessages',
@@ -171,7 +197,7 @@ class AppPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def UpdateApp(self, request, context):
-        """Update a app info
+        """Update an app's information
 
         Updates the information of an app.
         """
@@ -180,7 +206,7 @@ class AppPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def DeleteApp(self, request, context):
-        """Delete a app
+        """Delete an app
 
         Deletes an app.
         """
@@ -224,6 +250,42 @@ class AppPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateAgent(self, request, context):
+        """Create an agent
+
+        Creates an agent.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListAgents(self, request, context):
+        """List all agents info
+
+        Returns a paginated list of agents.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateAgent(self, request, context):
+        """Update an agent
+
+        Updates the information of an agent.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteAgent(self, request, context):
+        """Delete an agent
+
+        Deletes an agent.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CreateChat(self, request, context):
         """Create a chat
 
@@ -236,7 +298,7 @@ class AppPublicServiceServicer(object):
     def ListChats(self, request, context):
         """List chats
 
-        Returns a paginated list of conversations.
+        Returns a list of chats.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -299,7 +361,16 @@ class AppPublicServiceServicer(object):
     def GetPlaygroundConversation(self, request, context):
         """Get Playground Conversation
 
-        Returns the latest conversation of auth user(e.g. login user and api key user).
+        Returns the latest conversation for the authenticated user (e.g., logged-in user or API key user).
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListTools(self, request, context):
+        """List all tools
+
+        Returns a list of tools.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -317,8 +388,8 @@ class AppPublicServiceServicer(object):
     def RestartPlaygroundConversation(self, request, context):
         """Restart Playground Conversation
 
-        Creates a new conversation and uses the auth user UID as creator UID and
-        auto-generates a new conversation ID on the behalf of auth user.
+        Creates a new conversation using the authenticated user's UID as creator and
+        auto-generates a new conversation ID on behalf of the authenticated user.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -388,6 +459,26 @@ def add_AppPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.DeleteConversationRequest.FromString,
                     response_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.DeleteConversationResponse.SerializeToString,
             ),
+            'CreateAgent': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateAgent,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_agent__pb2.CreateAgentRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_agent__pb2.CreateAgentResponse.SerializeToString,
+            ),
+            'ListAgents': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListAgents,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_agent__pb2.ListAgentsRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_agent__pb2.ListAgentsResponse.SerializeToString,
+            ),
+            'UpdateAgent': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateAgent,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_agent__pb2.UpdateAgentRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_agent__pb2.UpdateAgentResponse.SerializeToString,
+            ),
+            'DeleteAgent': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteAgent,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_agent__pb2.DeleteAgentRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_agent__pb2.DeleteAgentResponse.SerializeToString,
+            ),
             'CreateChat': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateChat,
                     request_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.CreateChatRequest.FromString,
@@ -432,6 +523,11 @@ def add_AppPublicServiceServicer_to_server(servicer, server):
                     servicer.GetPlaygroundConversation,
                     request_deserializer=app_dot_app_dot_v1alpha_dot_app__pb2.GetPlaygroundConversationRequest.FromString,
                     response_serializer=app_dot_app_dot_v1alpha_dot_app__pb2.GetPlaygroundConversationResponse.SerializeToString,
+            ),
+            'ListTools': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListTools,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_agent__pb2.ListToolsRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_agent__pb2.ListToolsResponse.SerializeToString,
             ),
             'ListChatMessages': grpc.unary_unary_rpc_method_handler(
                     servicer.ListChatMessages,
@@ -631,6 +727,74 @@ class AppPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def CreateAgent(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/CreateAgent',
+            app_dot_app_dot_v1alpha_dot_agent__pb2.CreateAgentRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_agent__pb2.CreateAgentResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListAgents(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/ListAgents',
+            app_dot_app_dot_v1alpha_dot_agent__pb2.ListAgentsRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_agent__pb2.ListAgentsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateAgent(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/UpdateAgent',
+            app_dot_app_dot_v1alpha_dot_agent__pb2.UpdateAgentRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_agent__pb2.UpdateAgentResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAgent(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/DeleteAgent',
+            app_dot_app_dot_v1alpha_dot_agent__pb2.DeleteAgentRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_agent__pb2.DeleteAgentResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def CreateChat(request,
             target,
             options=(),
@@ -780,6 +944,23 @@ class AppPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/GetPlaygroundConversation',
             app_dot_app_dot_v1alpha_dot_app__pb2.GetPlaygroundConversationRequest.SerializeToString,
             app_dot_app_dot_v1alpha_dot_app__pb2.GetPlaygroundConversationResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListTools(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/ListTools',
+            app_dot_app_dot_v1alpha_dot_agent__pb2.ListToolsRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_agent__pb2.ListToolsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

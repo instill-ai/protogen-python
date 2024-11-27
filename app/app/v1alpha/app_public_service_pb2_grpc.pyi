@@ -3,6 +3,7 @@
 isort:skip_file
 """
 import abc
+import app.app.v1alpha.agent_pb2
 import app.app.v1alpha.app_pb2
 import app.app.v1alpha.conversation_pb2
 import collections.abc
@@ -60,7 +61,7 @@ class AppPublicServiceStub:
         app.app.v1alpha.app_pb2.UpdateAppRequest,
         app.app.v1alpha.app_pb2.UpdateAppResponse,
     ]
-    """Update a app info
+    """Update an app's information
 
     Updates the information of an app.
     """
@@ -68,7 +69,7 @@ class AppPublicServiceStub:
         app.app.v1alpha.app_pb2.DeleteAppRequest,
         app.app.v1alpha.app_pb2.DeleteAppResponse,
     ]
-    """Delete a app
+    """Delete an app
 
     Deletes an app.
     """
@@ -104,6 +105,38 @@ class AppPublicServiceStub:
 
     Deletes a conversation.
     """
+    CreateAgent: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.agent_pb2.CreateAgentRequest,
+        app.app.v1alpha.agent_pb2.CreateAgentResponse,
+    ]
+    """Create an agent
+
+    Creates an agent.
+    """
+    ListAgents: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.agent_pb2.ListAgentsRequest,
+        app.app.v1alpha.agent_pb2.ListAgentsResponse,
+    ]
+    """List all agents info
+
+    Returns a paginated list of agents.
+    """
+    UpdateAgent: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.agent_pb2.UpdateAgentRequest,
+        app.app.v1alpha.agent_pb2.UpdateAgentResponse,
+    ]
+    """Update an agent
+
+    Updates the information of an agent.
+    """
+    DeleteAgent: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.agent_pb2.DeleteAgentRequest,
+        app.app.v1alpha.agent_pb2.DeleteAgentResponse,
+    ]
+    """Delete an agent
+
+    Deletes an agent.
+    """
     CreateChat: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.CreateChatRequest,
         app.app.v1alpha.conversation_pb2.CreateChatResponse,
@@ -118,7 +151,7 @@ class AppPublicServiceStub:
     ]
     """List chats
 
-    Returns a paginated list of conversations.
+    Returns a list of chats.
     """
     UpdateChat: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.UpdateChatRequest,
@@ -174,7 +207,15 @@ class AppPublicServiceStub:
     ]
     """Get Playground Conversation
 
-    Returns the latest conversation of auth user(e.g. login user and api key user).
+    Returns the latest conversation for the authenticated user (e.g., logged-in user or API key user).
+    """
+    ListTools: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.agent_pb2.ListToolsRequest,
+        app.app.v1alpha.agent_pb2.ListToolsResponse,
+    ]
+    """List all tools
+
+    Returns a list of tools.
     """
     ListChatMessages: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.ListChatMessagesRequest,
@@ -190,8 +231,8 @@ class AppPublicServiceStub:
     ]
     """Restart Playground Conversation
 
-    Creates a new conversation and uses the auth user UID as creator UID and
-    auto-generates a new conversation ID on the behalf of auth user.
+    Creates a new conversation using the authenticated user's UID as creator and
+    auto-generates a new conversation ID on behalf of the authenticated user.
     """
     Chat: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.ChatRequest,
@@ -245,7 +286,7 @@ class AppPublicServiceAsyncStub:
         app.app.v1alpha.app_pb2.UpdateAppRequest,
         app.app.v1alpha.app_pb2.UpdateAppResponse,
     ]
-    """Update a app info
+    """Update an app's information
 
     Updates the information of an app.
     """
@@ -253,7 +294,7 @@ class AppPublicServiceAsyncStub:
         app.app.v1alpha.app_pb2.DeleteAppRequest,
         app.app.v1alpha.app_pb2.DeleteAppResponse,
     ]
-    """Delete a app
+    """Delete an app
 
     Deletes an app.
     """
@@ -289,6 +330,38 @@ class AppPublicServiceAsyncStub:
 
     Deletes a conversation.
     """
+    CreateAgent: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.agent_pb2.CreateAgentRequest,
+        app.app.v1alpha.agent_pb2.CreateAgentResponse,
+    ]
+    """Create an agent
+
+    Creates an agent.
+    """
+    ListAgents: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.agent_pb2.ListAgentsRequest,
+        app.app.v1alpha.agent_pb2.ListAgentsResponse,
+    ]
+    """List all agents info
+
+    Returns a paginated list of agents.
+    """
+    UpdateAgent: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.agent_pb2.UpdateAgentRequest,
+        app.app.v1alpha.agent_pb2.UpdateAgentResponse,
+    ]
+    """Update an agent
+
+    Updates the information of an agent.
+    """
+    DeleteAgent: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.agent_pb2.DeleteAgentRequest,
+        app.app.v1alpha.agent_pb2.DeleteAgentResponse,
+    ]
+    """Delete an agent
+
+    Deletes an agent.
+    """
     CreateChat: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.CreateChatRequest,
         app.app.v1alpha.conversation_pb2.CreateChatResponse,
@@ -303,7 +376,7 @@ class AppPublicServiceAsyncStub:
     ]
     """List chats
 
-    Returns a paginated list of conversations.
+    Returns a list of chats.
     """
     UpdateChat: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.UpdateChatRequest,
@@ -359,7 +432,15 @@ class AppPublicServiceAsyncStub:
     ]
     """Get Playground Conversation
 
-    Returns the latest conversation of auth user(e.g. login user and api key user).
+    Returns the latest conversation for the authenticated user (e.g., logged-in user or API key user).
+    """
+    ListTools: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.agent_pb2.ListToolsRequest,
+        app.app.v1alpha.agent_pb2.ListToolsResponse,
+    ]
+    """List all tools
+
+    Returns a list of tools.
     """
     ListChatMessages: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.ListChatMessagesRequest,
@@ -375,8 +456,8 @@ class AppPublicServiceAsyncStub:
     ]
     """Restart Playground Conversation
 
-    Creates a new conversation and uses the auth user UID as creator UID and
-    auto-generates a new conversation ID on the behalf of auth user.
+    Creates a new conversation using the authenticated user's UID as creator and
+    auto-generates a new conversation ID on behalf of the authenticated user.
     """
     Chat: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.conversation_pb2.ChatRequest,
@@ -440,7 +521,7 @@ class AppPublicServiceServicer(metaclass=abc.ABCMeta):
         request: app.app.v1alpha.app_pb2.UpdateAppRequest,
         context: _ServicerContext,
     ) -> typing.Union[app.app.v1alpha.app_pb2.UpdateAppResponse, collections.abc.Awaitable[app.app.v1alpha.app_pb2.UpdateAppResponse]]:
-        """Update a app info
+        """Update an app's information
 
         Updates the information of an app.
         """
@@ -450,7 +531,7 @@ class AppPublicServiceServicer(metaclass=abc.ABCMeta):
         request: app.app.v1alpha.app_pb2.DeleteAppRequest,
         context: _ServicerContext,
     ) -> typing.Union[app.app.v1alpha.app_pb2.DeleteAppResponse, collections.abc.Awaitable[app.app.v1alpha.app_pb2.DeleteAppResponse]]:
-        """Delete a app
+        """Delete an app
 
         Deletes an app.
         """
@@ -495,6 +576,46 @@ class AppPublicServiceServicer(metaclass=abc.ABCMeta):
         Deletes a conversation.
         """
     @abc.abstractmethod
+    def CreateAgent(
+        self,
+        request: app.app.v1alpha.agent_pb2.CreateAgentRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.agent_pb2.CreateAgentResponse, collections.abc.Awaitable[app.app.v1alpha.agent_pb2.CreateAgentResponse]]:
+        """Create an agent
+
+        Creates an agent.
+        """
+    @abc.abstractmethod
+    def ListAgents(
+        self,
+        request: app.app.v1alpha.agent_pb2.ListAgentsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.agent_pb2.ListAgentsResponse, collections.abc.Awaitable[app.app.v1alpha.agent_pb2.ListAgentsResponse]]:
+        """List all agents info
+
+        Returns a paginated list of agents.
+        """
+    @abc.abstractmethod
+    def UpdateAgent(
+        self,
+        request: app.app.v1alpha.agent_pb2.UpdateAgentRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.agent_pb2.UpdateAgentResponse, collections.abc.Awaitable[app.app.v1alpha.agent_pb2.UpdateAgentResponse]]:
+        """Update an agent
+
+        Updates the information of an agent.
+        """
+    @abc.abstractmethod
+    def DeleteAgent(
+        self,
+        request: app.app.v1alpha.agent_pb2.DeleteAgentRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.agent_pb2.DeleteAgentResponse, collections.abc.Awaitable[app.app.v1alpha.agent_pb2.DeleteAgentResponse]]:
+        """Delete an agent
+
+        Deletes an agent.
+        """
+    @abc.abstractmethod
     def CreateChat(
         self,
         request: app.app.v1alpha.conversation_pb2.CreateChatRequest,
@@ -512,7 +633,7 @@ class AppPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[app.app.v1alpha.conversation_pb2.ListChatsResponse, collections.abc.Awaitable[app.app.v1alpha.conversation_pb2.ListChatsResponse]]:
         """List chats
 
-        Returns a paginated list of conversations.
+        Returns a list of chats.
         """
     @abc.abstractmethod
     def UpdateChat(
@@ -582,7 +703,17 @@ class AppPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[app.app.v1alpha.app_pb2.GetPlaygroundConversationResponse, collections.abc.Awaitable[app.app.v1alpha.app_pb2.GetPlaygroundConversationResponse]]:
         """Get Playground Conversation
 
-        Returns the latest conversation of auth user(e.g. login user and api key user).
+        Returns the latest conversation for the authenticated user (e.g., logged-in user or API key user).
+        """
+    @abc.abstractmethod
+    def ListTools(
+        self,
+        request: app.app.v1alpha.agent_pb2.ListToolsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.agent_pb2.ListToolsResponse, collections.abc.Awaitable[app.app.v1alpha.agent_pb2.ListToolsResponse]]:
+        """List all tools
+
+        Returns a list of tools.
         """
     @abc.abstractmethod
     def ListChatMessages(
@@ -602,8 +733,8 @@ class AppPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[app.app.v1alpha.app_pb2.RestartPlaygroundConversationResponse, collections.abc.Awaitable[app.app.v1alpha.app_pb2.RestartPlaygroundConversationResponse]]:
         """Restart Playground Conversation
 
-        Creates a new conversation and uses the auth user UID as creator UID and
-        auto-generates a new conversation ID on the behalf of auth user.
+        Creates a new conversation using the authenticated user's UID as creator and
+        auto-generates a new conversation ID on behalf of the authenticated user.
         """
     @abc.abstractmethod
     def Chat(
