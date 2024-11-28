@@ -22,6 +22,41 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+class _CitationsType:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _CitationsTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CitationsType.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    CITATIONS_TYPE_UNSPECIFIED: _CitationsType.ValueType  # 0
+    """Unspecified citation type"""
+    CITATIONS_TYPE_CHUNK: _CitationsType.ValueType  # 1
+    """Chunk-based citation"""
+    CITATIONS_TYPE_URL: _CitationsType.ValueType  # 2
+    """URL-based citation"""
+
+class CitationsType(_CitationsType, metaclass=_CitationsTypeEnumTypeWrapper):
+    """ChatWith enum
+    enum ChatWith {
+      // unspecified
+      CHAT_WITH_UNSPECIFIED = 0;
+      // chat with ai assistant(default)
+      CHAT_WITH_AI_ASSISTANT = 1;
+      // chat with ai agent
+      CHAT_WITH_AI_AGENT = 2;
+    }
+
+    type of the citations message
+    """
+
+CITATIONS_TYPE_UNSPECIFIED: CitationsType.ValueType  # 0
+"""Unspecified citation type"""
+CITATIONS_TYPE_CHUNK: CitationsType.ValueType  # 1
+"""Chunk-based citation"""
+CITATIONS_TYPE_URL: CitationsType.ValueType  # 2
+"""URL-based citation"""
+global___CitationsType = CitationsType
+
 @typing_extensions.final
 class Conversation(google.protobuf.message.Message):
     """Conversation represents a chat conversation"""
@@ -136,19 +171,49 @@ class Chat(google.protobuf.message.Message):
 global___Chat = Chat
 
 @typing_extensions.final
-class Message(google.protobuf.message.Message):
-    """ChatWith enum
-    enum ChatWith {
-      // unspecified
-      CHAT_WITH_UNSPECIFIED = 0;
-      // chat with ai assistant(default)
-      CHAT_WITH_AI_ASSISTANT = 1;
-      // chat with ai agent
-      CHAT_WITH_AI_AGENT = 2;
-    }
+class Citation(google.protobuf.message.Message):
+    """Citation message"""
 
-    Message represents a single message in a conversation
-    """
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TYPE_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
+    URL_FIELD_NUMBER: builtins.int
+    CHUNK_UID_FIELD_NUMBER: builtins.int
+    FILE_UID_FIELD_NUMBER: builtins.int
+    type: global___CitationsType.ValueType
+    """Type of citation"""
+    name: builtins.str
+    """Name of the citation"""
+    url: builtins.str
+    """URL of the citation (only applicable for URL-type citations)"""
+    chunk_uid: builtins.str
+    """Chunk UID (only applicable for chunk-type citations)"""
+    file_uid: builtins.str
+    """File UID (only applicable for chunk-type citations)"""
+    def __init__(
+        self,
+        *,
+        type: global___CitationsType.ValueType = ...,
+        name: builtins.str = ...,
+        url: builtins.str | None = ...,
+        chunk_uid: builtins.str | None = ...,
+        file_uid: builtins.str | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_chunk_uid", b"_chunk_uid", "_file_uid", b"_file_uid", "_url", b"_url", "chunk_uid", b"chunk_uid", "file_uid", b"file_uid", "url", b"url"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_chunk_uid", b"_chunk_uid", "_file_uid", b"_file_uid", "_url", b"_url", "chunk_uid", b"chunk_uid", "file_uid", b"file_uid", "name", b"name", "type", b"type", "url", b"url"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_chunk_uid", b"_chunk_uid"]) -> typing_extensions.Literal["chunk_uid"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_file_uid", b"_file_uid"]) -> typing_extensions.Literal["file_uid"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_url", b"_url"]) -> typing_extensions.Literal["url"] | None: ...
+
+global___Citation = Citation
+
+@typing_extensions.final
+class Message(google.protobuf.message.Message):
+    """Message represents a single message in a conversation"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -180,8 +245,8 @@ class Message(google.protobuf.message.Message):
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     MSG_SENDER_UID_FIELD_NUMBER: builtins.int
-    CHUNKS_FIELD_NUMBER: builtins.int
     STANDALONE_QUESTION_FIELD_NUMBER: builtins.int
+    CITATIONS_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """message uid"""
     app_uid: builtins.str
@@ -201,12 +266,12 @@ class Message(google.protobuf.message.Message):
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """update time of the message"""
     msg_sender_uid: builtins.str
-    """message sender uid"""
-    @property
-    def chunks(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[artifact.artifact.v1alpha.chunk_pb2.Chunk]:
-        """the chunks attached to the message"""
+    """message sender uid(only for user messages)"""
     standalone_question: builtins.str
-    """standalone question"""
+    """standalone question(only for user messages)"""
+    @property
+    def citations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Citation]:
+        """citations(only for agent messages)"""
     def __init__(
         self,
         *,
@@ -219,11 +284,11 @@ class Message(google.protobuf.message.Message):
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         msg_sender_uid: builtins.str = ...,
-        chunks: collections.abc.Iterable[artifact.artifact.v1alpha.chunk_pb2.Chunk] | None = ...,
         standalone_question: builtins.str = ...,
+        citations: collections.abc.Iterable[global___Citation] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["app_uid", b"app_uid", "chunks", b"chunks", "content", b"content", "conversation_uid", b"conversation_uid", "create_time", b"create_time", "msg_sender_uid", b"msg_sender_uid", "role", b"role", "standalone_question", b"standalone_question", "type", b"type", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["app_uid", b"app_uid", "citations", b"citations", "content", b"content", "conversation_uid", b"conversation_uid", "create_time", b"create_time", "msg_sender_uid", b"msg_sender_uid", "role", b"role", "standalone_question", b"standalone_question", "type", b"type", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
 
 global___Message = Message
 
