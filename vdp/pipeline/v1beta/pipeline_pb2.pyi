@@ -2583,7 +2583,7 @@ global___TriggerUserPipelineWithStreamResponse = TriggerUserPipelineWithStreamRe
 
 @typing_extensions.final
 class TriggerData(google.protobuf.message.Message):
-    """Data"""
+    """TriggerData contains the input data for a pipeline run."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2603,22 +2603,61 @@ class TriggerData(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
+    class ConnectionReferencesEntry(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        KEY_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
+            *,
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
+
     VARIABLE_FIELD_NUMBER: builtins.int
     SECRET_FIELD_NUMBER: builtins.int
+    CONNECTION_REFERENCES_FIELD_NUMBER: builtins.int
     @property
     def variable(self) -> google.protobuf.struct_pb2.Struct:
-        """Variables"""
+        """The values of the pipeline variables."""
     @property
     def secret(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
-        """Variables"""
+        """A collection of secrets. By default, if a pipeline references any secret
+        (`${secret.<id>}`), its value is read from the namespace's secrets.
+        This object provides a way to override these secret values: if one of its
+        keys matches the ID of a reference secret, its value will be read from
+        here instead of from the namespace secret collection.
+        """
+    @property
+    def connection_references(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
+        """A collection of connection references. By default, connection references
+        (`${connection.<id>}`) in a pipeline will be resolved by fetching the
+        value from the requester's connections. Connections contain sensitive data
+        and can't be shared across namespaces, so this means that, in order to
+        successfully run a pipeline owned by another namespace, the requester will
+        need to have a connection with the same ID.
+        This object provides a way to override the connection references with
+        connections that the requester owns. Each element in the object maps a
+        connection ID present in the pipeline (key) to the ID of a connection
+        owned by the requester (value).
+        Note that, since only references are accepted (this object shouldn't
+        contain connection **values**), the reference syntax shouldn't be used
+        here.
+        """
     def __init__(
         self,
         *,
         variable: google.protobuf.struct_pb2.Struct | None = ...,
         secret: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        connection_references: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["variable", b"variable"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["secret", b"secret", "variable", b"variable"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["connection_references", b"connection_references", "secret", b"secret", "variable", b"variable"]) -> None: ...
 
 global___TriggerData = TriggerData
 

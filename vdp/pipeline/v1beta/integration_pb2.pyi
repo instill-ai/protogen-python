@@ -773,3 +773,51 @@ class GetIntegrationResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["integration", b"integration"]) -> None: ...
 
 global___GetIntegrationResponse = GetIntegrationResponse
+
+@typing_extensions.final
+class LookUpConnectionAdminRequest(google.protobuf.message.Message):
+    """LookUpConnectionAdminRequest represents a request to fetch the details of a
+    connection by UID.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    VIEW_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """Connection UID."""
+    view: vdp.pipeline.v1beta.common_pb2.View.ValueType
+    """View allows clients to specify the desired view in the response. It
+    defaults to `VIEW_BASIC`.
+    """
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        view: vdp.pipeline.v1beta.common_pb2.View.ValueType | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "namespace_id", b"namespace_id", "view", b"view"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
+
+global___LookUpConnectionAdminRequest = LookUpConnectionAdminRequest
+
+@typing_extensions.final
+class LookUpConnectionAdminResponse(google.protobuf.message.Message):
+    """LookUpConnectionAdminResponse contains the requested connection."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CONNECTION_FIELD_NUMBER: builtins.int
+    @property
+    def connection(self) -> global___Connection:
+        """The requested connection."""
+    def __init__(
+        self,
+        *,
+        connection: global___Connection | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connection", b"connection"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["connection", b"connection"]) -> None: ...
+
+global___LookUpConnectionAdminResponse = LookUpConnectionAdminResponse

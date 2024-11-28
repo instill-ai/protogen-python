@@ -7,6 +7,7 @@ import collections.abc
 import grpc
 import grpc.aio
 import typing
+import vdp.pipeline.v1beta.integration_pb2
 import vdp.pipeline.v1beta.pipeline_pb2
 
 _T = typing.TypeVar('_T')
@@ -29,8 +30,8 @@ class PipelinePrivateServiceStub:
     ]
     """List pipelines (admin only)
 
-    This is a *private* method that allows admin users and internal clients to
-    list *all* pipeline resources.
+    This *private* method allows internal clients to list *all* pipeline
+    resources.
     """
     LookUpPipelineAdmin: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineAdminRequest,
@@ -38,8 +39,8 @@ class PipelinePrivateServiceStub:
     ]
     """Get a pipeline by UID (admin only)
 
-    This is a *private* method that allows admin users to access any pipeline
-    resource by its UID.
+    This *private* method allows internal clients to access any pipeline
+    resource by UID.
     """
     ListPipelineReleasesAdmin: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelineReleasesAdminRequest,
@@ -47,8 +48,16 @@ class PipelinePrivateServiceStub:
     ]
     """List pipeline releases (admin only)
 
-    This is a *private* method that allows admin users to list *all* pipeline
-    releases.
+    This *private* method allows admin users to list *all* pipeline releases.
+    """
+    LookUpConnectionAdmin: grpc.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.integration_pb2.LookUpConnectionAdminRequest,
+        vdp.pipeline.v1beta.integration_pb2.LookUpConnectionAdminResponse,
+    ]
+    """Get a connection by UID (admin only)
+
+    This *private* method allows internal clients to access any connection
+    resource by UID.
     """
 
 class PipelinePrivateServiceAsyncStub:
@@ -62,8 +71,8 @@ class PipelinePrivateServiceAsyncStub:
     ]
     """List pipelines (admin only)
 
-    This is a *private* method that allows admin users and internal clients to
-    list *all* pipeline resources.
+    This *private* method allows internal clients to list *all* pipeline
+    resources.
     """
     LookUpPipelineAdmin: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineAdminRequest,
@@ -71,8 +80,8 @@ class PipelinePrivateServiceAsyncStub:
     ]
     """Get a pipeline by UID (admin only)
 
-    This is a *private* method that allows admin users to access any pipeline
-    resource by its UID.
+    This *private* method allows internal clients to access any pipeline
+    resource by UID.
     """
     ListPipelineReleasesAdmin: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.ListPipelineReleasesAdminRequest,
@@ -80,8 +89,16 @@ class PipelinePrivateServiceAsyncStub:
     ]
     """List pipeline releases (admin only)
 
-    This is a *private* method that allows admin users to list *all* pipeline
-    releases.
+    This *private* method allows admin users to list *all* pipeline releases.
+    """
+    LookUpConnectionAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        vdp.pipeline.v1beta.integration_pb2.LookUpConnectionAdminRequest,
+        vdp.pipeline.v1beta.integration_pb2.LookUpConnectionAdminResponse,
+    ]
+    """Get a connection by UID (admin only)
+
+    This *private* method allows internal clients to access any connection
+    resource by UID.
     """
 
 class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
@@ -97,8 +114,8 @@ class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesAdminResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.ListPipelinesAdminResponse]]:
         """List pipelines (admin only)
 
-        This is a *private* method that allows admin users and internal clients to
-        list *all* pipeline resources.
+        This *private* method allows internal clients to list *all* pipeline
+        resources.
         """
     @abc.abstractmethod
     def LookUpPipelineAdmin(
@@ -108,8 +125,8 @@ class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineAdminResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.LookUpPipelineAdminResponse]]:
         """Get a pipeline by UID (admin only)
 
-        This is a *private* method that allows admin users to access any pipeline
-        resource by its UID.
+        This *private* method allows internal clients to access any pipeline
+        resource by UID.
         """
     @abc.abstractmethod
     def ListPipelineReleasesAdmin(
@@ -119,8 +136,18 @@ class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.ListPipelineReleasesAdminResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.ListPipelineReleasesAdminResponse]]:
         """List pipeline releases (admin only)
 
-        This is a *private* method that allows admin users to list *all* pipeline
-        releases.
+        This *private* method allows admin users to list *all* pipeline releases.
+        """
+    @abc.abstractmethod
+    def LookUpConnectionAdmin(
+        self,
+        request: vdp.pipeline.v1beta.integration_pb2.LookUpConnectionAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[vdp.pipeline.v1beta.integration_pb2.LookUpConnectionAdminResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.integration_pb2.LookUpConnectionAdminResponse]]:
+        """Get a connection by UID (admin only)
+
+        This *private* method allows internal clients to access any connection
+        resource by UID.
         """
 
 def add_PipelinePrivateServiceServicer_to_server(servicer: PipelinePrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

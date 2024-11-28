@@ -2,6 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+from vdp.pipeline.v1beta import integration_pb2 as vdp_dot_pipeline_dot_v1beta_dot_integration__pb2
 from vdp.pipeline.v1beta import pipeline_pb2 as vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2
 
 
@@ -31,6 +32,11 @@ class PipelinePrivateServiceStub(object):
                 request_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineReleasesAdminRequest.SerializeToString,
                 response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineReleasesAdminResponse.FromString,
                 )
+        self.LookUpConnectionAdmin = channel.unary_unary(
+                '/vdp.pipeline.v1beta.PipelinePrivateService/LookUpConnectionAdmin',
+                request_serializer=vdp_dot_pipeline_dot_v1beta_dot_integration__pb2.LookUpConnectionAdminRequest.SerializeToString,
+                response_deserializer=vdp_dot_pipeline_dot_v1beta_dot_integration__pb2.LookUpConnectionAdminResponse.FromString,
+                )
 
 
 class PipelinePrivateServiceServicer(object):
@@ -41,8 +47,8 @@ class PipelinePrivateServiceServicer(object):
     def ListPipelinesAdmin(self, request, context):
         """List pipelines (admin only)
 
-        This is a *private* method that allows admin users and internal clients to
-        list *all* pipeline resources.
+        This *private* method allows internal clients to list *all* pipeline
+        resources.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -51,8 +57,8 @@ class PipelinePrivateServiceServicer(object):
     def LookUpPipelineAdmin(self, request, context):
         """Get a pipeline by UID (admin only)
 
-        This is a *private* method that allows admin users to access any pipeline
-        resource by its UID.
+        This *private* method allows internal clients to access any pipeline
+        resource by UID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -61,8 +67,17 @@ class PipelinePrivateServiceServicer(object):
     def ListPipelineReleasesAdmin(self, request, context):
         """List pipeline releases (admin only)
 
-        This is a *private* method that allows admin users to list *all* pipeline
-        releases.
+        This *private* method allows admin users to list *all* pipeline releases.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def LookUpConnectionAdmin(self, request, context):
+        """Get a connection by UID (admin only)
+
+        This *private* method allows internal clients to access any connection
+        resource by UID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -85,6 +100,11 @@ def add_PipelinePrivateServiceServicer_to_server(servicer, server):
                     servicer.ListPipelineReleasesAdmin,
                     request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineReleasesAdminRequest.FromString,
                     response_serializer=vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineReleasesAdminResponse.SerializeToString,
+            ),
+            'LookUpConnectionAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.LookUpConnectionAdmin,
+                    request_deserializer=vdp_dot_pipeline_dot_v1beta_dot_integration__pb2.LookUpConnectionAdminRequest.FromString,
+                    response_serializer=vdp_dot_pipeline_dot_v1beta_dot_integration__pb2.LookUpConnectionAdminResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -146,5 +166,22 @@ class PipelinePrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePrivateService/ListPipelineReleasesAdmin',
             vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineReleasesAdminRequest.SerializeToString,
             vdp_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineReleasesAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def LookUpConnectionAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/vdp.pipeline.v1beta.PipelinePrivateService/LookUpConnectionAdmin',
+            vdp_dot_pipeline_dot_v1beta_dot_integration__pb2.LookUpConnectionAdminRequest.SerializeToString,
+            vdp_dot_pipeline_dot_v1beta_dot_integration__pb2.LookUpConnectionAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
