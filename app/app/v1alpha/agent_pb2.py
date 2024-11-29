@@ -15,7 +15,7 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1b\x61pp/app/v1alpha/agent.proto\x12\x0f\x61pp.app.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbb\x03\n\x05\x41gent\x12 \n\tagent_uid\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x08\x61gentUid\x12&\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x0b\x64isplayName\x12%\n\x0b\x64\x65scription\x18\x03 \x01(\tB\x03\xe0\x41\x01R\x0b\x64\x65scription\x12(\n\rnamespace_uid\x18\x04 \x01(\tB\x03\xe0\x41\x03R\x0cnamespaceUid\x12\x17\n\x04tags\x18\x05 \x03(\tB\x03\xe0\x41\x01R\x04tags\x12T\n\x11\x61i_agent_metadata\x18\x06 \x01(\x0b\x32#.app.app.v1alpha.AIAgentAppMetadataB\x03\xe0\x41\x03R\x0f\x61iAgentMetadata\x12$\n\x0b\x63reator_uid\x18\x07 \x01(\tB\x03\xe0\x41\x03R\ncreatorUid\x12@\n\x0b\x63reate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\"\xe4\x01\n\x12\x41IAgentAppMetadata\x12\'\n\x0cinstructions\x18\x01 \x01(\tB\x03\xe0\x41\x01R\x0cinstructions\x12\x30\n\x05tools\x18\x02 \x03(\x0b\x32\x15.app.app.v1alpha.ToolB\x03\xe0\x41\x01R\x05tools\x12&\n\x0c\x63\x61talog_uids\x18\x03 \x03(\tB\x03\xe0\x41\x01R\x0b\x63\x61talogUids\x12#\n\x0b\x63hunk_top_k\x18\x04 \x01(\x05\x42\x03\xe0\x41\x01R\tchunkTopK\x12&\n\x0c\x63hunk_weight\x18\x05 \x01(\x02\x42\x03\xe0\x41\x01R\x0b\x63hunkWeight\"\xce\x01\n\x04Tool\x12$\n\x0bpipeline_id\x18\x01 \x01(\tB\x03\xe0\x41\x01R\npipelineId\x12\x1c\n\x04name\x18\x02 \x01(\tB\x03\xe0\x41\x01H\x00R\x04name\x88\x01\x01\x12>\n\x06\x63onfig\x18\x03 \x03(\x0b\x32!.app.app.v1alpha.Tool.ConfigEntryB\x03\xe0\x41\x01R\x06\x63onfig\x1a\x39\n\x0b\x43onfigEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x07\n\x05_name\"\xf0\x01\n\x12\x43reateAgentRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12&\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x01R\x0b\x64isplayName\x12%\n\x0b\x64\x65scription\x18\x03 \x01(\tB\x03\xe0\x41\x01R\x0b\x64\x65scription\x12\x17\n\x04tags\x18\x04 \x03(\tB\x03\xe0\x41\x01R\x04tags\x12J\n\x0c\x61i_agent_app\x18\x05 \x01(\x0b\x32#.app.app.v1alpha.AIAgentAppMetadataB\x03\xe0\x41\x01R\naiAgentApp\"H\n\x13\x43reateAgentResponse\x12\x31\n\x05\x61gent\x18\x01 \x01(\x0b\x32\x16.app.app.v1alpha.AgentB\x03\xe0\x41\x03R\x05\x61gent\";\n\x11ListAgentsRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\"D\n\x12ListAgentsResponse\x12.\n\x06\x61gents\x18\x01 \x03(\x0b\x32\x16.app.app.v1alpha.AgentR\x06\x61gents\"\xea\x01\n\x12UpdateAgentRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12 \n\tagent_uid\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x08\x61gentUid\x12%\n\x0b\x64\x65scription\x18\x03 \x01(\tB\x03\xe0\x41\x01R\x0b\x64\x65scription\x12\x17\n\x04tags\x18\x04 \x03(\tB\x03\xe0\x41\x01R\x04tags\x12J\n\x0c\x61i_agent_app\x18\x05 \x01(\x0b\x32#.app.app.v1alpha.AIAgentAppMetadataB\x03\xe0\x41\x01R\naiAgentApp\"H\n\x13UpdateAgentResponse\x12\x31\n\x05\x61gent\x18\x01 \x01(\x0b\x32\x16.app.app.v1alpha.AgentB\x03\xe0\x41\x03R\x05\x61gent\"^\n\x12\x44\x65leteAgentRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12 \n\tagent_uid\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x08\x61gentUid\"\x15\n\x13\x44\x65leteAgentResponse\":\n\x10ListToolsRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\"@\n\x11ListToolsResponse\x12+\n\x05tools\x18\x01 \x03(\x0b\x32\x15.app.app.v1alpha.ToolR\x05toolsB\xbd\x01\n\x13\x63om.app.app.v1alphaB\nAgentProtoP\x01Z<github.com/instill-ai/protogen-go/app/app/v1alpha;appv1alpha\xa2\x02\x03\x41\x41X\xaa\x02\x0f\x41pp.App.V1alpha\xca\x02\x0f\x41pp\\App\\V1alpha\xe2\x02\x1b\x41pp\\App\\V1alpha\\GPBMetadata\xea\x02\x11\x41pp::App::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1b\x61pp/app/v1alpha/agent.proto\x12\x0f\x61pp.app.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbb\x03\n\x05\x41gent\x12 \n\tagent_uid\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x08\x61gentUid\x12&\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x0b\x64isplayName\x12%\n\x0b\x64\x65scription\x18\x03 \x01(\tB\x03\xe0\x41\x01R\x0b\x64\x65scription\x12(\n\rnamespace_uid\x18\x04 \x01(\tB\x03\xe0\x41\x03R\x0cnamespaceUid\x12\x17\n\x04tags\x18\x05 \x03(\tB\x03\xe0\x41\x01R\x04tags\x12T\n\x11\x61i_agent_metadata\x18\x06 \x01(\x0b\x32#.app.app.v1alpha.AIAgentAppMetadataB\x03\xe0\x41\x03R\x0f\x61iAgentMetadata\x12$\n\x0b\x63reator_uid\x18\x07 \x01(\tB\x03\xe0\x41\x03R\ncreatorUid\x12@\n\x0b\x63reate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\"\xe4\x01\n\x12\x41IAgentAppMetadata\x12\'\n\x0cinstructions\x18\x01 \x01(\tB\x03\xe0\x41\x01R\x0cinstructions\x12\x30\n\x05tools\x18\x02 \x03(\x0b\x32\x15.app.app.v1alpha.ToolB\x03\xe0\x41\x01R\x05tools\x12&\n\x0c\x63\x61talog_uids\x18\x03 \x03(\tB\x03\xe0\x41\x01R\x0b\x63\x61talogUids\x12#\n\x0b\x63hunk_top_k\x18\x04 \x01(\x05\x42\x03\xe0\x41\x01R\tchunkTopK\x12&\n\x0c\x63hunk_weight\x18\x05 \x01(\x02\x42\x03\xe0\x41\x01R\x0b\x63hunkWeight\"\xce\x01\n\x04Tool\x12$\n\x0bpipeline_id\x18\x01 \x01(\tB\x03\xe0\x41\x01R\npipelineId\x12\x1c\n\x04name\x18\x02 \x01(\tB\x03\xe0\x41\x01H\x00R\x04name\x88\x01\x01\x12>\n\x06\x63onfig\x18\x03 \x03(\x0b\x32!.app.app.v1alpha.Tool.ConfigEntryB\x03\xe0\x41\x01R\x06\x63onfig\x1a\x39\n\x0b\x43onfigEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\x07\n\x05_name\"\xfa\x01\n\x12\x43reateAgentRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12&\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x01R\x0b\x64isplayName\x12%\n\x0b\x64\x65scription\x18\x03 \x01(\tB\x03\xe0\x41\x01R\x0b\x64\x65scription\x12\x17\n\x04tags\x18\x04 \x03(\tB\x03\xe0\x41\x01R\x04tags\x12T\n\x11\x61i_agent_metadata\x18\x05 \x01(\x0b\x32#.app.app.v1alpha.AIAgentAppMetadataB\x03\xe0\x41\x01R\x0f\x61iAgentMetadata\"H\n\x13\x43reateAgentResponse\x12\x31\n\x05\x61gent\x18\x01 \x01(\x0b\x32\x16.app.app.v1alpha.AgentB\x03\xe0\x41\x03R\x05\x61gent\";\n\x11ListAgentsRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\"D\n\x12ListAgentsResponse\x12.\n\x06\x61gents\x18\x01 \x03(\x0b\x32\x16.app.app.v1alpha.AgentR\x06\x61gents\"\x9c\x02\n\x12UpdateAgentRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12 \n\tagent_uid\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x08\x61gentUid\x12&\n\x0c\x64isplay_name\x18\x03 \x01(\tB\x03\xe0\x41\x01R\x0b\x64isplayName\x12%\n\x0b\x64\x65scription\x18\x04 \x01(\tB\x03\xe0\x41\x01R\x0b\x64\x65scription\x12\x17\n\x04tags\x18\x05 \x03(\tB\x03\xe0\x41\x01R\x04tags\x12T\n\x11\x61i_agent_metadata\x18\x06 \x01(\x0b\x32#.app.app.v1alpha.AIAgentAppMetadataB\x03\xe0\x41\x01R\x0f\x61iAgentMetadata\"H\n\x13UpdateAgentResponse\x12\x31\n\x05\x61gent\x18\x01 \x01(\x0b\x32\x16.app.app.v1alpha.AgentB\x03\xe0\x41\x03R\x05\x61gent\"^\n\x12\x44\x65leteAgentRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12 \n\tagent_uid\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x08\x61gentUid\"\x15\n\x13\x44\x65leteAgentResponse\":\n\x10ListToolsRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\"@\n\x11ListToolsResponse\x12+\n\x05tools\x18\x01 \x03(\x0b\x32\x15.app.app.v1alpha.ToolR\x05toolsB\xbd\x01\n\x13\x63om.app.app.v1alphaB\nAgentProtoP\x01Z<github.com/instill-ai/protogen-go/app/app/v1alpha;appv1alpha\xa2\x02\x03\x41\x41X\xaa\x02\x0f\x41pp.App.V1alpha\xca\x02\x0f\x41pp\\App\\V1alpha\xe2\x02\x1b\x41pp\\App\\V1alpha\\GPBMetadata\xea\x02\x11\x41pp::App::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -68,8 +68,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _CREATEAGENTREQUEST.fields_by_name['description']._serialized_options = b'\340A\001'
   _CREATEAGENTREQUEST.fields_by_name['tags']._options = None
   _CREATEAGENTREQUEST.fields_by_name['tags']._serialized_options = b'\340A\001'
-  _CREATEAGENTREQUEST.fields_by_name['ai_agent_app']._options = None
-  _CREATEAGENTREQUEST.fields_by_name['ai_agent_app']._serialized_options = b'\340A\001'
+  _CREATEAGENTREQUEST.fields_by_name['ai_agent_metadata']._options = None
+  _CREATEAGENTREQUEST.fields_by_name['ai_agent_metadata']._serialized_options = b'\340A\001'
   _CREATEAGENTRESPONSE.fields_by_name['agent']._options = None
   _CREATEAGENTRESPONSE.fields_by_name['agent']._serialized_options = b'\340A\003'
   _LISTAGENTSREQUEST.fields_by_name['namespace_id']._options = None
@@ -78,12 +78,14 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _UPDATEAGENTREQUEST.fields_by_name['namespace_id']._serialized_options = b'\340A\002'
   _UPDATEAGENTREQUEST.fields_by_name['agent_uid']._options = None
   _UPDATEAGENTREQUEST.fields_by_name['agent_uid']._serialized_options = b'\340A\002'
+  _UPDATEAGENTREQUEST.fields_by_name['display_name']._options = None
+  _UPDATEAGENTREQUEST.fields_by_name['display_name']._serialized_options = b'\340A\001'
   _UPDATEAGENTREQUEST.fields_by_name['description']._options = None
   _UPDATEAGENTREQUEST.fields_by_name['description']._serialized_options = b'\340A\001'
   _UPDATEAGENTREQUEST.fields_by_name['tags']._options = None
   _UPDATEAGENTREQUEST.fields_by_name['tags']._serialized_options = b'\340A\001'
-  _UPDATEAGENTREQUEST.fields_by_name['ai_agent_app']._options = None
-  _UPDATEAGENTREQUEST.fields_by_name['ai_agent_app']._serialized_options = b'\340A\001'
+  _UPDATEAGENTREQUEST.fields_by_name['ai_agent_metadata']._options = None
+  _UPDATEAGENTREQUEST.fields_by_name['ai_agent_metadata']._serialized_options = b'\340A\001'
   _UPDATEAGENTRESPONSE.fields_by_name['agent']._options = None
   _UPDATEAGENTRESPONSE.fields_by_name['agent']._serialized_options = b'\340A\003'
   _DELETEAGENTREQUEST.fields_by_name['namespace_id']._options = None
@@ -101,23 +103,23 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_TOOL_CONFIGENTRY']._serialized_start=932
   _globals['_TOOL_CONFIGENTRY']._serialized_end=989
   _globals['_CREATEAGENTREQUEST']._serialized_start=1001
-  _globals['_CREATEAGENTREQUEST']._serialized_end=1241
-  _globals['_CREATEAGENTRESPONSE']._serialized_start=1243
-  _globals['_CREATEAGENTRESPONSE']._serialized_end=1315
-  _globals['_LISTAGENTSREQUEST']._serialized_start=1317
-  _globals['_LISTAGENTSREQUEST']._serialized_end=1376
-  _globals['_LISTAGENTSRESPONSE']._serialized_start=1378
-  _globals['_LISTAGENTSRESPONSE']._serialized_end=1446
-  _globals['_UPDATEAGENTREQUEST']._serialized_start=1449
-  _globals['_UPDATEAGENTREQUEST']._serialized_end=1683
-  _globals['_UPDATEAGENTRESPONSE']._serialized_start=1685
-  _globals['_UPDATEAGENTRESPONSE']._serialized_end=1757
-  _globals['_DELETEAGENTREQUEST']._serialized_start=1759
-  _globals['_DELETEAGENTREQUEST']._serialized_end=1853
-  _globals['_DELETEAGENTRESPONSE']._serialized_start=1855
-  _globals['_DELETEAGENTRESPONSE']._serialized_end=1876
-  _globals['_LISTTOOLSREQUEST']._serialized_start=1878
-  _globals['_LISTTOOLSREQUEST']._serialized_end=1936
-  _globals['_LISTTOOLSRESPONSE']._serialized_start=1938
-  _globals['_LISTTOOLSRESPONSE']._serialized_end=2002
+  _globals['_CREATEAGENTREQUEST']._serialized_end=1251
+  _globals['_CREATEAGENTRESPONSE']._serialized_start=1253
+  _globals['_CREATEAGENTRESPONSE']._serialized_end=1325
+  _globals['_LISTAGENTSREQUEST']._serialized_start=1327
+  _globals['_LISTAGENTSREQUEST']._serialized_end=1386
+  _globals['_LISTAGENTSRESPONSE']._serialized_start=1388
+  _globals['_LISTAGENTSRESPONSE']._serialized_end=1456
+  _globals['_UPDATEAGENTREQUEST']._serialized_start=1459
+  _globals['_UPDATEAGENTREQUEST']._serialized_end=1743
+  _globals['_UPDATEAGENTRESPONSE']._serialized_start=1745
+  _globals['_UPDATEAGENTRESPONSE']._serialized_end=1817
+  _globals['_DELETEAGENTREQUEST']._serialized_start=1819
+  _globals['_DELETEAGENTREQUEST']._serialized_end=1913
+  _globals['_DELETEAGENTRESPONSE']._serialized_start=1915
+  _globals['_DELETEAGENTRESPONSE']._serialized_end=1936
+  _globals['_LISTTOOLSREQUEST']._serialized_start=1938
+  _globals['_LISTTOOLSREQUEST']._serialized_end=1996
+  _globals['_LISTTOOLSRESPONSE']._serialized_start=1998
+  _globals['_LISTTOOLSRESPONSE']._serialized_end=2062
 # @@protoc_insertion_point(module_scope)

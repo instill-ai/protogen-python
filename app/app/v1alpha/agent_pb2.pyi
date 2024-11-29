@@ -35,25 +35,25 @@ class Agent(google.protobuf.message.Message):
     agent_uid: builtins.str
     """agent uid"""
     display_name: builtins.str
-    """The agent display name."""
+    """agent display name"""
     description: builtins.str
-    """The agent description."""
+    """agent description"""
     namespace_uid: builtins.str
-    """The namespace of the agent."""
+    """namespace uid"""
     @property
     def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The agent tags."""
+        """agent tags"""
     @property
     def ai_agent_metadata(self) -> global___AIAgentAppMetadata:
-        """The agent metadata."""
+        """agent metadata"""
     creator_uid: builtins.str
     """creator uid"""
     @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """The creation time of the agent."""
+        """creation time"""
     @property
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """The last update time of the agent."""
+        """last update time"""
     def __init__(
         self,
         *,
@@ -84,17 +84,17 @@ class AIAgentAppMetadata(google.protobuf.message.Message):
     CHUNK_TOP_K_FIELD_NUMBER: builtins.int
     CHUNK_WEIGHT_FIELD_NUMBER: builtins.int
     instructions: builtins.str
-    """The instructions for the AI agent app."""
+    """instructions"""
     @property
     def tools(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Tool]:
-        """The tools(pipelines) that the AI agent app can use."""
+        """tools(pipelines)"""
     @property
     def catalog_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The catalog uids that the AI agent app can use."""
+        """catalog uids"""
     chunk_top_k: builtins.int
-    """The AI agent app top k."""
+    """AI agent app top k"""
     chunk_weight: builtins.float
-    """The AI agent chunk weight."""
+    """AI agent chunk weight"""
     def __init__(
         self,
         *,
@@ -163,19 +163,19 @@ class CreateAgentRequest(google.protobuf.message.Message):
     DISPLAY_NAME_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
-    AI_AGENT_APP_FIELD_NUMBER: builtins.int
+    AI_AGENT_METADATA_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """The app's owner(namespaces)."""
+    """namespace id"""
     display_name: builtins.str
-    """The agent display name."""
+    """agent display name"""
     description: builtins.str
-    """The agent description."""
+    """agent description"""
     @property
     def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The agent tags."""
+        """agent tags"""
     @property
-    def ai_agent_app(self) -> global___AIAgentAppMetadata:
-        """The agent metadata."""
+    def ai_agent_metadata(self) -> global___AIAgentAppMetadata:
+        """agent metadata"""
     def __init__(
         self,
         *,
@@ -183,10 +183,10 @@ class CreateAgentRequest(google.protobuf.message.Message):
         display_name: builtins.str = ...,
         description: builtins.str = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
-        ai_agent_app: global___AIAgentAppMetadata | None = ...,
+        ai_agent_metadata: global___AIAgentAppMetadata | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["ai_agent_app", b"ai_agent_app"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["ai_agent_app", b"ai_agent_app", "description", b"description", "display_name", b"display_name", "namespace_id", b"namespace_id", "tags", b"tags"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["ai_agent_metadata", b"ai_agent_metadata"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["ai_agent_metadata", b"ai_agent_metadata", "description", b"description", "display_name", b"display_name", "namespace_id", b"namespace_id", "tags", b"tags"]) -> None: ...
 
 global___CreateAgentRequest = CreateAgentRequest
 
@@ -199,7 +199,7 @@ class CreateAgentResponse(google.protobuf.message.Message):
     AGENT_FIELD_NUMBER: builtins.int
     @property
     def agent(self) -> global___Agent:
-        """The created agent."""
+        """created agent"""
     def __init__(
         self,
         *,
@@ -218,7 +218,7 @@ class ListAgentsRequest(google.protobuf.message.Message):
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """The app's owner(namespaces)."""
+    """namespace id"""
     def __init__(
         self,
         *,
@@ -237,7 +237,7 @@ class ListAgentsResponse(google.protobuf.message.Message):
     AGENTS_FIELD_NUMBER: builtins.int
     @property
     def agents(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Agent]:
-        """The agents."""
+        """agents"""
     def __init__(
         self,
         *,
@@ -255,32 +255,36 @@ class UpdateAgentRequest(google.protobuf.message.Message):
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     AGENT_UID_FIELD_NUMBER: builtins.int
+    DISPLAY_NAME_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
-    AI_AGENT_APP_FIELD_NUMBER: builtins.int
+    AI_AGENT_METADATA_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """The app's owner(namespaces)."""
+    """namespace id"""
     agent_uid: builtins.str
-    """The agent uid."""
+    """agent uid"""
+    display_name: builtins.str
+    """agent display name"""
     description: builtins.str
-    """The agent description."""
+    """agent description"""
     @property
     def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The agent tags."""
+        """agent tags"""
     @property
-    def ai_agent_app(self) -> global___AIAgentAppMetadata:
-        """The agent metadata."""
+    def ai_agent_metadata(self) -> global___AIAgentAppMetadata:
+        """agent metadata"""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         agent_uid: builtins.str = ...,
+        display_name: builtins.str = ...,
         description: builtins.str = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
-        ai_agent_app: global___AIAgentAppMetadata | None = ...,
+        ai_agent_metadata: global___AIAgentAppMetadata | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["ai_agent_app", b"ai_agent_app"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["agent_uid", b"agent_uid", "ai_agent_app", b"ai_agent_app", "description", b"description", "namespace_id", b"namespace_id", "tags", b"tags"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["ai_agent_metadata", b"ai_agent_metadata"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["agent_uid", b"agent_uid", "ai_agent_metadata", b"ai_agent_metadata", "description", b"description", "display_name", b"display_name", "namespace_id", b"namespace_id", "tags", b"tags"]) -> None: ...
 
 global___UpdateAgentRequest = UpdateAgentRequest
 
@@ -293,7 +297,7 @@ class UpdateAgentResponse(google.protobuf.message.Message):
     AGENT_FIELD_NUMBER: builtins.int
     @property
     def agent(self) -> global___Agent:
-        """The updated agent."""
+        """updated agent"""
     def __init__(
         self,
         *,
@@ -313,9 +317,9 @@ class DeleteAgentRequest(google.protobuf.message.Message):
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     AGENT_UID_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """The app's owner(namespaces)."""
+    """namespace id"""
     agent_uid: builtins.str
-    """The agent uid."""
+    """agent uid"""
     def __init__(
         self,
         *,
@@ -346,7 +350,7 @@ class ListToolsRequest(google.protobuf.message.Message):
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """The app's owner(namespaces)."""
+    """namespace id"""
     def __init__(
         self,
         *,
@@ -365,7 +369,7 @@ class ListToolsResponse(google.protobuf.message.Message):
     TOOLS_FIELD_NUMBER: builtins.int
     @property
     def tools(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Tool]:
-        """The tools."""
+        """tools"""
     def __init__(
         self,
         *,
