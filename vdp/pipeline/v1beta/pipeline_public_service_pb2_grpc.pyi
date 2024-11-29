@@ -153,16 +153,6 @@ class PipelinePublicServiceStub:
     Clones a pipeline owned by a namespace. The new pipeline may have a different
     parent, and this can be either a namespace or an organization.
     """
-    HandleNamespacePipelineWebhookEvent: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineWebhookEventRequest,
-        vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineWebhookEventResponse,
-    ]
-    """HandleNamespacePipelineWebhookEvent"""
-    HandleNamespacePipelineReleaseWebhookEvent: grpc.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineReleaseWebhookEventRequest,
-        vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineReleaseWebhookEventResponse,
-    ]
-    """HandleNamespacePipelineReleaseWebhookEvent"""
     DispatchPipelineWebhookEvent: grpc.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.DispatchPipelineWebhookEventRequest,
         vdp.pipeline.v1beta.pipeline_pb2.DispatchPipelineWebhookEventResponse,
@@ -1169,16 +1159,6 @@ class PipelinePublicServiceAsyncStub:
     Clones a pipeline owned by a namespace. The new pipeline may have a different
     parent, and this can be either a namespace or an organization.
     """
-    HandleNamespacePipelineWebhookEvent: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineWebhookEventRequest,
-        vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineWebhookEventResponse,
-    ]
-    """HandleNamespacePipelineWebhookEvent"""
-    HandleNamespacePipelineReleaseWebhookEvent: grpc.aio.UnaryUnaryMultiCallable[
-        vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineReleaseWebhookEventRequest,
-        vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineReleaseWebhookEventResponse,
-    ]
-    """HandleNamespacePipelineReleaseWebhookEvent"""
     DispatchPipelineWebhookEvent: grpc.aio.UnaryUnaryMultiCallable[
         vdp.pipeline.v1beta.pipeline_pb2.DispatchPipelineWebhookEventRequest,
         vdp.pipeline.v1beta.pipeline_pb2.DispatchPipelineWebhookEventResponse,
@@ -2211,20 +2191,6 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         Clones a pipeline owned by a namespace. The new pipeline may have a different
         parent, and this can be either a namespace or an organization.
         """
-    @abc.abstractmethod
-    def HandleNamespacePipelineWebhookEvent(
-        self,
-        request: vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineWebhookEventRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineWebhookEventResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineWebhookEventResponse]]:
-        """HandleNamespacePipelineWebhookEvent"""
-    @abc.abstractmethod
-    def HandleNamespacePipelineReleaseWebhookEvent(
-        self,
-        request: vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineReleaseWebhookEventRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineReleaseWebhookEventResponse, collections.abc.Awaitable[vdp.pipeline.v1beta.pipeline_pb2.HandleNamespacePipelineReleaseWebhookEventResponse]]:
-        """HandleNamespacePipelineReleaseWebhookEvent"""
     @abc.abstractmethod
     def DispatchPipelineWebhookEvent(
         self,
