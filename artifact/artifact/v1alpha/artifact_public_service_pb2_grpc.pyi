@@ -115,6 +115,14 @@ class ArtifactPublicServiceStub:
 
     Returns a paginated list of catalog chunks.
     """
+    SearchChunks: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.chunk_pb2.SearchChunksRequest,
+        artifact.artifact.v1alpha.chunk_pb2.SearchChunksResponse,
+    ]
+    """Search catalog chunks
+
+    Returns a paginated list of catalog chunks based on search criteria.
+    """
     GetSourceFile: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.GetSourceFileRequest,
         artifact.artifact.v1alpha.chunk_pb2.GetSourceFileResponse,
@@ -122,6 +130,14 @@ class ArtifactPublicServiceStub:
     """Get catalog single-source-of-truth file
 
     Gets the single-source-of-truth file of a catalog.
+    """
+    SearchSourceFiles: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.chunk_pb2.SearchSourceFilesRequest,
+        artifact.artifact.v1alpha.chunk_pb2.SearchSourceFilesResponse,
+    ]
+    """Search single-source-of-truth files
+
+    Searches the single-source-of-truth files of a catalog.
     """
     UpdateChunk: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.UpdateChunkRequest,
@@ -273,6 +289,14 @@ class ArtifactPublicServiceAsyncStub:
 
     Returns a paginated list of catalog chunks.
     """
+    SearchChunks: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.chunk_pb2.SearchChunksRequest,
+        artifact.artifact.v1alpha.chunk_pb2.SearchChunksResponse,
+    ]
+    """Search catalog chunks
+
+    Returns a paginated list of catalog chunks based on search criteria.
+    """
     GetSourceFile: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.GetSourceFileRequest,
         artifact.artifact.v1alpha.chunk_pb2.GetSourceFileResponse,
@@ -280,6 +304,14 @@ class ArtifactPublicServiceAsyncStub:
     """Get catalog single-source-of-truth file
 
     Gets the single-source-of-truth file of a catalog.
+    """
+    SearchSourceFiles: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.chunk_pb2.SearchSourceFilesRequest,
+        artifact.artifact.v1alpha.chunk_pb2.SearchSourceFilesResponse,
+    ]
+    """Search single-source-of-truth files
+
+    Searches the single-source-of-truth files of a catalog.
     """
     UpdateChunk: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.UpdateChunkRequest,
@@ -454,6 +486,16 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         Returns a paginated list of catalog chunks.
         """
     @abc.abstractmethod
+    def SearchChunks(
+        self,
+        request: artifact.artifact.v1alpha.chunk_pb2.SearchChunksRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.chunk_pb2.SearchChunksResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.chunk_pb2.SearchChunksResponse]]:
+        """Search catalog chunks
+
+        Returns a paginated list of catalog chunks based on search criteria.
+        """
+    @abc.abstractmethod
     def GetSourceFile(
         self,
         request: artifact.artifact.v1alpha.chunk_pb2.GetSourceFileRequest,
@@ -462,6 +504,16 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         """Get catalog single-source-of-truth file
 
         Gets the single-source-of-truth file of a catalog.
+        """
+    @abc.abstractmethod
+    def SearchSourceFiles(
+        self,
+        request: artifact.artifact.v1alpha.chunk_pb2.SearchSourceFilesRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.chunk_pb2.SearchSourceFilesResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.chunk_pb2.SearchSourceFilesResponse]]:
+        """Search single-source-of-truth files
+
+        Searches the single-source-of-truth files of a catalog.
         """
     @abc.abstractmethod
     def UpdateChunk(
