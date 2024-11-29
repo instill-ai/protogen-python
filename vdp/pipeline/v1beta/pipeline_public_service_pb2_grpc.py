@@ -1472,15 +1472,16 @@ class PipelinePublicServiceServicer(object):
 
         Returns a paginated list of runs for a given pipeline. When the requester
         is the owner of the pipeline, they will be able to all the pipeline runs,
-        regardless the requester. Other requesters will only be able to see the
-        runs requested by themselves.
+        regardless who requested the trigger (the view will be partial to hide
+        sensitive data like e.g. the trigger input and output). Other requesters
+        will only be able to see the runs requested by themselves.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListComponentRuns(self, request, context):
-        """List Component runs
+        """List Component Runs
 
         Returns the information of each component execution within a pipeline run.
         """
@@ -1489,10 +1490,10 @@ class PipelinePublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListPipelineRunsByRequester(self, request, context):
-        """List Pipeline Runs of a Namespace (user or organization)
+        """List Pipeline Runs By Requester
 
-        Returns a paginated list of runs for 1 or more pipelines. This is mainly used by dashboard.
-        The requester can view all the runs by the requester across different pipelines.
+        Returns a paginated list of runs for requested by a namespace. The
+        response may contain runs from several pipelines.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

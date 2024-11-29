@@ -4802,7 +4802,6 @@ class PipelineRun(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    PIPELINE_UID_FIELD_NUMBER: builtins.int
     PIPELINE_RUN_UID_FIELD_NUMBER: builtins.int
     PIPELINE_VERSION_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
@@ -4819,9 +4818,7 @@ class PipelineRun(google.protobuf.message.Message):
     DATA_SPECIFICATION_FIELD_NUMBER: builtins.int
     PIPELINE_ID_FIELD_NUMBER: builtins.int
     REQUESTER_ID_FIELD_NUMBER: builtins.int
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    pipeline_uid: builtins.str
-    """Unique identifier for the pipeline."""
+    PIPELINE_NAMESPACE_ID_FIELD_NUMBER: builtins.int
     pipeline_run_uid: builtins.str
     """Unique identifier for each run."""
     pipeline_version: builtins.str
@@ -4833,7 +4830,9 @@ class PipelineRun(google.protobuf.message.Message):
     total_duration: builtins.int
     """Time taken to complete the run in milliseconds."""
     runner_id: builtins.str
-    """Runner ID. If current viewing requester does not have enough permission, it will return null."""
+    """Runner ID. The authenticated user that triggered the run. If current
+    viewing requester does not have enough permission, it will return null.
+    """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
         """Pipeline input parameters."""
@@ -4859,15 +4858,14 @@ class PipelineRun(google.protobuf.message.Message):
     pipeline_id: builtins.str
     """The ID of the pipeline"""
     requester_id: builtins.str
-    """Requester ID. This field might be empty if the pipeline run belongs to a
-    deleted namespace.
+    """Requester ID. The namespace used to trigger the run. This field might be
+    empty if the pipeline run belongs to a deleted namespace.
     """
-    namespace_id: builtins.str
-    """Namespace ID"""
+    pipeline_namespace_id: builtins.str
+    """ID of the namespace that owns the pipeline."""
     def __init__(
         self,
         *,
-        pipeline_uid: builtins.str = ...,
         pipeline_run_uid: builtins.str = ...,
         pipeline_version: builtins.str = ...,
         status: common.run.v1alpha.run_pb2.RunStatus.ValueType = ...,
@@ -4884,10 +4882,10 @@ class PipelineRun(google.protobuf.message.Message):
         data_specification: vdp.pipeline.v1beta.component_definition_pb2.DataSpecification | None = ...,
         pipeline_id: builtins.str | None = ...,
         requester_id: builtins.str = ...,
-        namespace_id: builtins.str = ...,
+        pipeline_namespace_id: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_pipeline_id", b"_pipeline_id", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "data_specification", b"data_specification", "error", b"error", "pipeline_id", b"pipeline_id", "recipe_snapshot", b"recipe_snapshot", "runner_id", b"runner_id", "start_time", b"start_time", "total_duration", b"total_duration"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_pipeline_id", b"_pipeline_id", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "data_specification", b"data_specification", "error", b"error", "inputs", b"inputs", "namespace_id", b"namespace_id", "outputs", b"outputs", "pipeline_id", b"pipeline_id", "pipeline_run_uid", b"pipeline_run_uid", "pipeline_uid", b"pipeline_uid", "pipeline_version", b"pipeline_version", "recipe_snapshot", b"recipe_snapshot", "requester_id", b"requester_id", "runner_id", b"runner_id", "source", b"source", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_pipeline_id", b"_pipeline_id", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "data_specification", b"data_specification", "error", b"error", "inputs", b"inputs", "outputs", b"outputs", "pipeline_id", b"pipeline_id", "pipeline_namespace_id", b"pipeline_namespace_id", "pipeline_run_uid", b"pipeline_run_uid", "pipeline_version", b"pipeline_version", "recipe_snapshot", b"recipe_snapshot", "requester_id", b"requester_id", "runner_id", b"runner_id", "source", b"source", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_complete_time", b"_complete_time"]) -> typing_extensions.Literal["complete_time"] | None: ...
     @typing.overload

@@ -3736,7 +3736,6 @@ class ModelRun(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     UID_FIELD_NUMBER: builtins.int
-    MODEL_UID_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
     SOURCE_FIELD_NUMBER: builtins.int
     TOTAL_DURATION_FIELD_NUMBER: builtins.int
@@ -3751,11 +3750,9 @@ class ModelRun(google.protobuf.message.Message):
     TASK_OUTPUTS_FIELD_NUMBER: builtins.int
     MODEL_ID_FIELD_NUMBER: builtins.int
     REQUESTER_ID_FIELD_NUMBER: builtins.int
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    MODEL_NAMESPACE_ID_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """Model Run UUID."""
-    model_uid: builtins.str
-    """Model UUID."""
     status: common.run.v1alpha.run_pb2.RunStatus.ValueType
     """Model run status."""
     source: common.run.v1alpha.run_pb2.RunSource.ValueType
@@ -3788,16 +3785,15 @@ class ModelRun(google.protobuf.message.Message):
     model_id: builtins.str
     """Model ID."""
     requester_id: builtins.str
-    """Requester ID. This field might be empty if the model run belongs to a
-    deleted namespace.
+    """Requester ID. The namespace used to trigger the run. This field might be
+    empty if the model run belongs to a deleted namespace.
     """
-    namespace_id: builtins.str
-    """Namespace ID."""
+    model_namespace_id: builtins.str
+    """ID of the namespace that owns the model."""
     def __init__(
         self,
         *,
         uid: builtins.str = ...,
-        model_uid: builtins.str = ...,
         status: common.run.v1alpha.run_pb2.RunStatus.ValueType = ...,
         source: common.run.v1alpha.run_pb2.RunSource.ValueType = ...,
         total_duration: builtins.int | None = ...,
@@ -3812,10 +3808,10 @@ class ModelRun(google.protobuf.message.Message):
         task_outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
         model_id: builtins.str | None = ...,
         requester_id: builtins.str = ...,
-        namespace_id: builtins.str = ...,
+        model_namespace_id: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_credit_amount", b"_credit_amount", "_end_time", b"_end_time", "_error", b"_error", "_model_id", b"_model_id", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "create_time", b"create_time", "credit_amount", b"credit_amount", "end_time", b"end_time", "error", b"error", "model_id", b"model_id", "runner_id", b"runner_id", "total_duration", b"total_duration", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_credit_amount", b"_credit_amount", "_end_time", b"_end_time", "_error", b"_error", "_model_id", b"_model_id", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "create_time", b"create_time", "credit_amount", b"credit_amount", "end_time", b"end_time", "error", b"error", "model_id", b"model_id", "model_uid", b"model_uid", "namespace_id", b"namespace_id", "requester_id", b"requester_id", "runner_id", b"runner_id", "source", b"source", "status", b"status", "task_inputs", b"task_inputs", "task_outputs", b"task_outputs", "total_duration", b"total_duration", "uid", b"uid", "update_time", b"update_time", "version", b"version"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_credit_amount", b"_credit_amount", "_end_time", b"_end_time", "_error", b"_error", "_model_id", b"_model_id", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "create_time", b"create_time", "credit_amount", b"credit_amount", "end_time", b"end_time", "error", b"error", "model_id", b"model_id", "model_namespace_id", b"model_namespace_id", "requester_id", b"requester_id", "runner_id", b"runner_id", "source", b"source", "status", b"status", "task_inputs", b"task_inputs", "task_outputs", b"task_outputs", "total_duration", b"total_duration", "uid", b"uid", "update_time", b"update_time", "version", b"version"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_credit_amount", b"_credit_amount"]) -> typing_extensions.Literal["credit_amount"] | None: ...
     @typing.overload

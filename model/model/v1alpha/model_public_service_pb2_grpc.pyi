@@ -574,18 +574,22 @@ class ModelPublicServiceStub:
         model.model.v1alpha.model_pb2.ListModelRunsRequest,
         model.model.v1alpha.model_pb2.ListModelRunsResponse,
     ]
-    """List model runs
+    """List Model Runs
 
-    Returns a paginated list of model runs.
+    Returns a paginated list of runs for a given model. When the requester is
+    the owner of the model, they will be able to all the model runs,
+    regardless who requested the trigger (the view will be partial to hide
+    sensitive data like e.g. the trigger input and output). Other requesters
+    will only be able to see the runs requested by themselves.
     """
     ListModelRunsByRequester: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.ListModelRunsByRequesterRequest,
         model.model.v1alpha.model_pb2.ListModelRunsByRequesterResponse,
     ]
-    """List Model Runs of a Namespace (user or organization)
+    """List Model Runs By Requester
 
-    Returns a paginated list of runs for 1 or more models. This is mainly used by dashboard.
-    The requester can view all the runs by the requester across different models.
+    Returns a paginated list of runs requested by a namespace. The response
+    may contain runs from several models.
     """
 
 class ModelPublicServiceAsyncStub:
@@ -1143,18 +1147,22 @@ class ModelPublicServiceAsyncStub:
         model.model.v1alpha.model_pb2.ListModelRunsRequest,
         model.model.v1alpha.model_pb2.ListModelRunsResponse,
     ]
-    """List model runs
+    """List Model Runs
 
-    Returns a paginated list of model runs.
+    Returns a paginated list of runs for a given model. When the requester is
+    the owner of the model, they will be able to all the model runs,
+    regardless who requested the trigger (the view will be partial to hide
+    sensitive data like e.g. the trigger input and output). Other requesters
+    will only be able to see the runs requested by themselves.
     """
     ListModelRunsByRequester: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.ListModelRunsByRequesterRequest,
         model.model.v1alpha.model_pb2.ListModelRunsByRequesterResponse,
     ]
-    """List Model Runs of a Namespace (user or organization)
+    """List Model Runs By Requester
 
-    Returns a paginated list of runs for 1 or more models. This is mainly used by dashboard.
-    The requester can view all the runs by the requester across different models.
+    Returns a paginated list of runs requested by a namespace. The response
+    may contain runs from several models.
     """
 
 class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
@@ -1830,9 +1838,13 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         request: model.model.v1alpha.model_pb2.ListModelRunsRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.ListModelRunsResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.ListModelRunsResponse]]:
-        """List model runs
+        """List Model Runs
 
-        Returns a paginated list of model runs.
+        Returns a paginated list of runs for a given model. When the requester is
+        the owner of the model, they will be able to all the model runs,
+        regardless who requested the trigger (the view will be partial to hide
+        sensitive data like e.g. the trigger input and output). Other requesters
+        will only be able to see the runs requested by themselves.
         """
     @abc.abstractmethod
     def ListModelRunsByRequester(
@@ -1840,10 +1852,10 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         request: model.model.v1alpha.model_pb2.ListModelRunsByRequesterRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.ListModelRunsByRequesterResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.ListModelRunsByRequesterResponse]]:
-        """List Model Runs of a Namespace (user or organization)
+        """List Model Runs By Requester
 
-        Returns a paginated list of runs for 1 or more models. This is mainly used by dashboard.
-        The requester can view all the runs by the requester across different models.
+        Returns a paginated list of runs requested by a namespace. The response
+        may contain runs from several models.
         """
 
 def add_ModelPublicServiceServicer_to_server(servicer: ModelPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
