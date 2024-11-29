@@ -782,9 +782,9 @@ class LookUpConnectionAdminRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    UID_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
-    namespace_id: builtins.str
+    uid: builtins.str
     """Connection UID."""
     view: vdp.pipeline.v1beta.common_pb2.View.ValueType
     """View allows clients to specify the desired view in the response. It
@@ -793,11 +793,11 @@ class LookUpConnectionAdminRequest(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        namespace_id: builtins.str = ...,
+        uid: builtins.str = ...,
         view: vdp.pipeline.v1beta.common_pb2.View.ValueType | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "namespace_id", b"namespace_id", "view", b"view"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "uid", b"uid", "view", b"view"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
 
 global___LookUpConnectionAdminRequest = LookUpConnectionAdminRequest
