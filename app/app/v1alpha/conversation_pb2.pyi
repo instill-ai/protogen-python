@@ -125,6 +125,7 @@ class Chat(google.protobuf.message.Message):
     AI_AGENT_METADATA_FIELD_NUMBER: builtins.int
     TEMP_CATALOG_ID_FIELD_NUMBER: builtins.int
     CHAT_DISPLAY_NAME_FIELD_NUMBER: builtins.int
+    BREAKPOINT_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """unique identifier of the conversation created by the system"""
     namespace_id: builtins.str
@@ -146,6 +147,8 @@ class Chat(google.protobuf.message.Message):
     """temp catalog id automatically created for ai agent app"""
     chat_display_name: builtins.str
     """conversation display name"""
+    breakpoint: builtins.str
+    """breakpoint. allow to continue the chat from breakpoint"""
     def __init__(
         self,
         *,
@@ -158,9 +161,10 @@ class Chat(google.protobuf.message.Message):
         ai_agent_metadata: app.app.v1alpha.agent_pb2.AIAgentAppMetadata | None = ...,
         temp_catalog_id: builtins.str | None = ...,
         chat_display_name: builtins.str = ...,
+        breakpoint: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid", "_last_used_top_k", b"_last_used_top_k", "_temp_catalog_id", b"_temp_catalog_id", "ai_agent_metadata", b"ai_agent_metadata", "create_time", b"create_time", "last_used_catalog_uid", b"last_used_catalog_uid", "last_used_top_k", b"last_used_top_k", "temp_catalog_id", b"temp_catalog_id", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid", "_last_used_top_k", b"_last_used_top_k", "_temp_catalog_id", b"_temp_catalog_id", "ai_agent_metadata", b"ai_agent_metadata", "chat_display_name", b"chat_display_name", "create_time", b"create_time", "last_used_catalog_uid", b"last_used_catalog_uid", "last_used_top_k", b"last_used_top_k", "namespace_id", b"namespace_id", "temp_catalog_id", b"temp_catalog_id", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid", "_last_used_top_k", b"_last_used_top_k", "_temp_catalog_id", b"_temp_catalog_id", "ai_agent_metadata", b"ai_agent_metadata", "breakpoint", b"breakpoint", "chat_display_name", b"chat_display_name", "create_time", b"create_time", "last_used_catalog_uid", b"last_used_catalog_uid", "last_used_top_k", b"last_used_top_k", "namespace_id", b"namespace_id", "temp_catalog_id", b"temp_catalog_id", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_last_used_catalog_uid", b"_last_used_catalog_uid"]) -> typing_extensions.Literal["last_used_catalog_uid"] | None: ...
     @typing.overload

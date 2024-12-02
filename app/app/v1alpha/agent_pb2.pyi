@@ -78,11 +78,28 @@ class AIAgentAppMetadata(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
+    class ConnectionsEntry(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        KEY_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
+            *,
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
+
     INSTRUCTIONS_FIELD_NUMBER: builtins.int
     TOOLS_FIELD_NUMBER: builtins.int
     CATALOG_UIDS_FIELD_NUMBER: builtins.int
     CHUNK_TOP_K_FIELD_NUMBER: builtins.int
     CHUNK_WEIGHT_FIELD_NUMBER: builtins.int
+    CONNECTIONS_FIELD_NUMBER: builtins.int
     instructions: builtins.str
     """instructions"""
     @property
@@ -95,6 +112,9 @@ class AIAgentAppMetadata(google.protobuf.message.Message):
     """AI agent app top k"""
     chunk_weight: builtins.float
     """AI agent chunk weight"""
+    @property
+    def connections(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
+        """connection key(used connection id in recipe) and value(connection uid from namespace)."""
     def __init__(
         self,
         *,
@@ -103,8 +123,9 @@ class AIAgentAppMetadata(google.protobuf.message.Message):
         catalog_uids: collections.abc.Iterable[builtins.str] | None = ...,
         chunk_top_k: builtins.int = ...,
         chunk_weight: builtins.float = ...,
+        connections: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_uids", b"catalog_uids", "chunk_top_k", b"chunk_top_k", "chunk_weight", b"chunk_weight", "instructions", b"instructions", "tools", b"tools"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_uids", b"catalog_uids", "chunk_top_k", b"chunk_top_k", "chunk_weight", b"chunk_weight", "connections", b"connections", "instructions", b"instructions", "tools", b"tools"]) -> None: ...
 
 global___AIAgentAppMetadata = AIAgentAppMetadata
 
@@ -115,7 +136,7 @@ class Tool(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     @typing_extensions.final
-    class ConfigEntry(google.protobuf.message.Message):
+    class ConnectionsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
         KEY_FIELD_NUMBER: builtins.int
@@ -132,23 +153,23 @@ class Tool(google.protobuf.message.Message):
 
     PIPELINE_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
-    CONFIG_FIELD_NUMBER: builtins.int
+    CONNECTIONS_FIELD_NUMBER: builtins.int
     pipeline_id: builtins.str
     """The pipeline id of the tool. e.g. "preset/xxx-search" """
     name: builtins.str
     """The tool name."""
     @property
-    def config(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
-        """The tool connection key(variable) and value(id)."""
+    def connections(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
+        """The tool connection key(used connection id in recipe) and value(connection uid from namespace)."""
     def __init__(
         self,
         *,
         pipeline_id: builtins.str = ...,
         name: builtins.str | None = ...,
-        config: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        connections: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_name", b"_name", "name", b"name"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_name", b"_name", "config", b"config", "name", b"name", "pipeline_id", b"pipeline_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_name", b"_name", "connections", b"connections", "name", b"name", "pipeline_id", b"pipeline_id"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_name", b"_name"]) -> typing_extensions.Literal["name"] | None: ...
 
 global___Tool = Tool
