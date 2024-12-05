@@ -154,6 +154,7 @@ class Tool(google.protobuf.message.Message):
     PIPELINE_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     CONNECTIONS_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
     pipeline_id: builtins.str
     """The pipeline id of the tool. e.g. "preset/xxx-search" """
     name: builtins.str
@@ -161,15 +162,18 @@ class Tool(google.protobuf.message.Message):
     @property
     def connections(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """The tool connection key(used connection id in recipe) and value(connection uid from namespace)."""
+    description: builtins.str
+    """The tool description."""
     def __init__(
         self,
         *,
         pipeline_id: builtins.str = ...,
         name: builtins.str | None = ...,
         connections: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        description: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_name", b"_name", "name", b"name"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_name", b"_name", "connections", b"connections", "name", b"name", "pipeline_id", b"pipeline_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_name", b"_name", "connections", b"connections", "description", b"description", "name", b"name", "pipeline_id", b"pipeline_id"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_name", b"_name"]) -> typing_extensions.Literal["name"] | None: ...
 
 global___Tool = Tool
