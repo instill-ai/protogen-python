@@ -1501,3 +1501,51 @@ class ListCatalogRunsRequest(google.protobuf.message.Message):
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_order_by", b"_order_by"]) -> typing_extensions.Literal["order_by"] | None: ...
 
 global___ListCatalogRunsRequest = ListCatalogRunsRequest
+
+@typing_extensions.final
+class MoveFileToCatalogRequest(google.protobuf.message.Message):
+    """MoveFileToCatalogRequest represents a request to move a file to another catalog."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_UID_FIELD_NUMBER: builtins.int
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    CATALOG_ID_FIELD_NUMBER: builtins.int
+    TO_CATALOG_ID_FIELD_NUMBER: builtins.int
+    file_uid: builtins.str
+    """The file uid."""
+    namespace_id: builtins.str
+    """namespace id"""
+    catalog_id: builtins.str
+    """catalog id"""
+    to_catalog_id: builtins.str
+    """The target catalog id."""
+    def __init__(
+        self,
+        *,
+        file_uid: builtins.str = ...,
+        namespace_id: builtins.str = ...,
+        catalog_id: builtins.str = ...,
+        to_catalog_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "file_uid", b"file_uid", "namespace_id", b"namespace_id", "to_catalog_id", b"to_catalog_id"]) -> None: ...
+
+global___MoveFileToCatalogRequest = MoveFileToCatalogRequest
+
+@typing_extensions.final
+class MoveFileToCatalogResponse(google.protobuf.message.Message):
+    """MoveFileToCatalogResponse represents a response for moving a file to another catalog."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_UID_FIELD_NUMBER: builtins.int
+    file_uid: builtins.str
+    """The file uid."""
+    def __init__(
+        self,
+        *,
+        file_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file_uid", b"file_uid"]) -> None: ...
+
+global___MoveFileToCatalogResponse = MoveFileToCatalogResponse

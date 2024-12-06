@@ -125,6 +125,11 @@ class ArtifactPublicServiceStub(object):
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectDownloadURLRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectDownloadURLResponse.FromString,
                 )
+        self.MoveFileToCatalog = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/MoveFileToCatalog',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.MoveFileToCatalogRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.MoveFileToCatalogResponse.FromString,
+                )
 
 
 class ArtifactPublicServiceServicer(object):
@@ -321,6 +326,15 @@ class ArtifactPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def MoveFileToCatalog(self, request, context):
+        """Move file to another catalog
+
+        Moves a file to another catalog.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ArtifactPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -428,6 +442,11 @@ def add_ArtifactPublicServiceServicer_to_server(servicer, server):
                     servicer.GetObjectDownloadURL,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectDownloadURLRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectDownloadURLResponse.SerializeToString,
+            ),
+            'MoveFileToCatalog': grpc.unary_unary_rpc_method_handler(
+                    servicer.MoveFileToCatalog,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.MoveFileToCatalogRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.MoveFileToCatalogResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -795,5 +814,22 @@ class ArtifactPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/GetObjectDownloadURL',
             artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectDownloadURLRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectDownloadURLResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def MoveFileToCatalog(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/MoveFileToCatalog',
+            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.MoveFileToCatalogRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.MoveFileToCatalogResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

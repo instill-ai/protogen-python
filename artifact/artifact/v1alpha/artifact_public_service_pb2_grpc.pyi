@@ -195,6 +195,14 @@ class ArtifactPublicServiceStub:
 
     Returns the download URL of an object.
     """
+    MoveFileToCatalog: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.MoveFileToCatalogRequest,
+        artifact.artifact.v1alpha.artifact_pb2.MoveFileToCatalogResponse,
+    ]
+    """Move file to another catalog
+
+    Moves a file to another catalog.
+    """
 
 class ArtifactPublicServiceAsyncStub:
     """ArtifactPublicService exposes the public endpoints that allow clients to
@@ -368,6 +376,14 @@ class ArtifactPublicServiceAsyncStub:
     """Get Object Download URL
 
     Returns the download URL of an object.
+    """
+    MoveFileToCatalog: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.MoveFileToCatalogRequest,
+        artifact.artifact.v1alpha.artifact_pb2.MoveFileToCatalogResponse,
+    ]
+    """Move file to another catalog
+
+    Moves a file to another catalog.
     """
 
 class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
@@ -584,6 +600,16 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         """Get Object Download URL
 
         Returns the download URL of an object.
+        """
+    @abc.abstractmethod
+    def MoveFileToCatalog(
+        self,
+        request: artifact.artifact.v1alpha.artifact_pb2.MoveFileToCatalogRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.MoveFileToCatalogResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.MoveFileToCatalogResponse]]:
+        """Move file to another catalog
+
+        Moves a file to another catalog.
         """
 
 def add_ArtifactPublicServiceServicer_to_server(servicer: ArtifactPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
