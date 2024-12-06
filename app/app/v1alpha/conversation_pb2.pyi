@@ -254,7 +254,7 @@ class Message(google.protobuf.message.Message):
     uid: builtins.str
     """message uid"""
     app_uid: builtins.str
-    """app uid"""
+    """app uid(deprecated)"""
     conversation_uid: builtins.str
     """conversation uid"""
     content: builtins.str
@@ -350,23 +350,23 @@ class CreateChatRequest(google.protobuf.message.Message):
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     CHAT_DISPLAY_NAME_FIELD_NUMBER: builtins.int
-    AI_AGENT_APP_FIELD_NUMBER: builtins.int
+    AI_AGENT_SETTINGS_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """namespace id"""
     chat_display_name: builtins.str
     """chat display name"""
     @property
-    def ai_agent_app(self) -> app.app.v1alpha.agent_pb2.AIAgentAppMetadata:
-        """agent metadata"""
+    def ai_agent_settings(self) -> app.app.v1alpha.agent_pb2.AIAgentSettings:
+        """agent settings"""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         chat_display_name: builtins.str = ...,
-        ai_agent_app: app.app.v1alpha.agent_pb2.AIAgentAppMetadata | None = ...,
+        ai_agent_settings: app.app.v1alpha.agent_pb2.AIAgentSettings | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["ai_agent_app", b"ai_agent_app"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["ai_agent_app", b"ai_agent_app", "chat_display_name", b"chat_display_name", "namespace_id", b"namespace_id"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["ai_agent_settings", b"ai_agent_settings"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["ai_agent_settings", b"ai_agent_settings", "chat_display_name", b"chat_display_name", "namespace_id", b"namespace_id"]) -> None: ...
 
 global___CreateChatRequest = CreateChatRequest
 
@@ -598,7 +598,7 @@ class UpdateChatRequest(google.protobuf.message.Message):
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     CHAT_UID_FIELD_NUMBER: builtins.int
     CHAT_DISPLAY_NAME_FIELD_NUMBER: builtins.int
-    AI_AGENT_METADATA_FIELD_NUMBER: builtins.int
+    AI_AGENT_SETTINGS_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """namespace id"""
     chat_uid: builtins.str
@@ -606,18 +606,18 @@ class UpdateChatRequest(google.protobuf.message.Message):
     chat_display_name: builtins.str
     """chat display name"""
     @property
-    def ai_agent_metadata(self) -> app.app.v1alpha.agent_pb2.AIAgentAppMetadata:
-        """ai agent app metadata"""
+    def ai_agent_settings(self) -> app.app.v1alpha.agent_pb2.AIAgentSettings:
+        """ai agent settings"""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         chat_uid: builtins.str = ...,
         chat_display_name: builtins.str = ...,
-        ai_agent_metadata: app.app.v1alpha.agent_pb2.AIAgentAppMetadata | None = ...,
+        ai_agent_settings: app.app.v1alpha.agent_pb2.AIAgentSettings | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["ai_agent_metadata", b"ai_agent_metadata"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["ai_agent_metadata", b"ai_agent_metadata", "chat_display_name", b"chat_display_name", "chat_uid", b"chat_uid", "namespace_id", b"namespace_id"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["ai_agent_settings", b"ai_agent_settings"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["ai_agent_settings", b"ai_agent_settings", "chat_display_name", b"chat_display_name", "chat_uid", b"chat_uid", "namespace_id", b"namespace_id"]) -> None: ...
 
 global___UpdateChatRequest = UpdateChatRequest
 

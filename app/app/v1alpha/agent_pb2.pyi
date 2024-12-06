@@ -130,6 +130,55 @@ class AIAgentAppMetadata(google.protobuf.message.Message):
 global___AIAgentAppMetadata = AIAgentAppMetadata
 
 @typing_extensions.final
+class AIAgentSettings(google.protobuf.message.Message):
+    """AIAgentSettings represents the settings for the AI agent."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    @typing_extensions.final
+    class ConnectionsEntry(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        KEY_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
+            *,
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
+
+    INSTRUCTIONS_FIELD_NUMBER: builtins.int
+    CATALOG_UIDS_FIELD_NUMBER: builtins.int
+    CONNECTIONS_FIELD_NUMBER: builtins.int
+    TOOL_IDS_FIELD_NUMBER: builtins.int
+    instructions: builtins.str
+    """instructions"""
+    @property
+    def catalog_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """catalog uids"""
+    @property
+    def connections(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
+        """connection key(used connection id in recipe) and value(connection uid from namespace)."""
+    @property
+    def tool_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """tool ids (pipeline ids) that this agent can use. e.g. "preset/web-search", "preset/google-search" """
+    def __init__(
+        self,
+        *,
+        instructions: builtins.str = ...,
+        catalog_uids: collections.abc.Iterable[builtins.str] | None = ...,
+        connections: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        tool_ids: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_uids", b"catalog_uids", "connections", b"connections", "instructions", b"instructions", "tool_ids", b"tool_ids"]) -> None: ...
+
+global___AIAgentSettings = AIAgentSettings
+
+@typing_extensions.final
 class Tool(google.protobuf.message.Message):
     """tool definitions"""
 
@@ -188,7 +237,7 @@ class CreateAgentRequest(google.protobuf.message.Message):
     DISPLAY_NAME_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
-    AI_AGENT_METADATA_FIELD_NUMBER: builtins.int
+    AI_AGENT_SETTINGS_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """namespace id"""
     display_name: builtins.str
@@ -199,7 +248,7 @@ class CreateAgentRequest(google.protobuf.message.Message):
     def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """agent tags"""
     @property
-    def ai_agent_metadata(self) -> global___AIAgentAppMetadata:
+    def ai_agent_settings(self) -> global___AIAgentSettings:
         """agent metadata"""
     def __init__(
         self,
@@ -208,10 +257,10 @@ class CreateAgentRequest(google.protobuf.message.Message):
         display_name: builtins.str = ...,
         description: builtins.str = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
-        ai_agent_metadata: global___AIAgentAppMetadata | None = ...,
+        ai_agent_settings: global___AIAgentSettings | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["ai_agent_metadata", b"ai_agent_metadata"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["ai_agent_metadata", b"ai_agent_metadata", "description", b"description", "display_name", b"display_name", "namespace_id", b"namespace_id", "tags", b"tags"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["ai_agent_settings", b"ai_agent_settings"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["ai_agent_settings", b"ai_agent_settings", "description", b"description", "display_name", b"display_name", "namespace_id", b"namespace_id", "tags", b"tags"]) -> None: ...
 
 global___CreateAgentRequest = CreateAgentRequest
 
@@ -283,7 +332,7 @@ class UpdateAgentRequest(google.protobuf.message.Message):
     DISPLAY_NAME_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
-    AI_AGENT_METADATA_FIELD_NUMBER: builtins.int
+    AI_AGENT_SETTINGS_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """namespace id"""
     agent_uid: builtins.str
@@ -296,8 +345,8 @@ class UpdateAgentRequest(google.protobuf.message.Message):
     def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """agent tags"""
     @property
-    def ai_agent_metadata(self) -> global___AIAgentAppMetadata:
-        """agent metadata"""
+    def ai_agent_settings(self) -> global___AIAgentSettings:
+        """agent settings"""
     def __init__(
         self,
         *,
@@ -306,10 +355,10 @@ class UpdateAgentRequest(google.protobuf.message.Message):
         display_name: builtins.str = ...,
         description: builtins.str = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
-        ai_agent_metadata: global___AIAgentAppMetadata | None = ...,
+        ai_agent_settings: global___AIAgentSettings | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["ai_agent_metadata", b"ai_agent_metadata"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["agent_uid", b"agent_uid", "ai_agent_metadata", b"ai_agent_metadata", "description", b"description", "display_name", b"display_name", "namespace_id", b"namespace_id", "tags", b"tags"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["ai_agent_settings", b"ai_agent_settings"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["agent_uid", b"agent_uid", "ai_agent_settings", b"ai_agent_settings", "description", b"description", "display_name", b"display_name", "namespace_id", b"namespace_id", "tags", b"tags"]) -> None: ...
 
 global___UpdateAgentRequest = UpdateAgentRequest
 
