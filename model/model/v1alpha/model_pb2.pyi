@@ -174,17 +174,39 @@ class Region(google.protobuf.message.Message):
     region_name: builtins.str
     """Concate name of provider and region"""
     @property
-    def hardware(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+    def hardware(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Hardware]:
         """Hardware describes the available hardware types in this region"""
     def __init__(
         self,
         *,
         region_name: builtins.str = ...,
-        hardware: collections.abc.Iterable[builtins.str] | None = ...,
+        hardware: collections.abc.Iterable[global___Hardware] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["hardware", b"hardware", "region_name", b"region_name"]) -> None: ...
 
 global___Region = Region
+
+@typing_extensions.final
+class Hardware(google.protobuf.message.Message):
+    """Hardware describes the hardware title and string value that backend consumes."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TITLE_FIELD_NUMBER: builtins.int
+    VALUE_FIELD_NUMBER: builtins.int
+    title: builtins.str
+    """Hardware display title"""
+    value: builtins.str
+    """Hardware name value"""
+    def __init__(
+        self,
+        *,
+        title: builtins.str = ...,
+        value: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["title", b"title", "value", b"value"]) -> None: ...
+
+global___Hardware = Hardware
 
 @typing_extensions.final
 class ModelVersion(google.protobuf.message.Message):
