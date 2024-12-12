@@ -318,6 +318,7 @@ class Model(google.protobuf.message.Message):
     OWNER_NAME_FIELD_NUMBER: builtins.int
     OWNER_FIELD_NUMBER: builtins.int
     REGION_FIELD_NUMBER: builtins.int
+    HARDWARE_FIELD_NUMBER: builtins.int
     README_FIELD_NUMBER: builtins.int
     SOURCE_URL_FIELD_NUMBER: builtins.int
     DOCUMENTATION_URL_FIELD_NUMBER: builtins.int
@@ -329,7 +330,6 @@ class Model(google.protobuf.message.Message):
     TAGS_FIELD_NUMBER: builtins.int
     VERSIONS_FIELD_NUMBER: builtins.int
     STATS_FIELD_NUMBER: builtins.int
-    HARDWARE_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the model, which allows its access by owner and ID.
     - Format: `users/{user.id}/models/{model.id}`.
@@ -372,6 +372,8 @@ class Model(google.protobuf.message.Message):
         """Model owner."""
     region: builtins.str
     """Region of choice for the particular provider to host the model."""
+    hardware: builtins.str
+    """Hardware of choice to serve the model."""
     readme: builtins.str
     """README holds the model documentation."""
     source_url: builtins.str
@@ -400,9 +402,6 @@ class Model(google.protobuf.message.Message):
     @property
     def stats(self) -> global___Model.Stats:
         """Statistic data."""
-    @property
-    def hardware(self) -> global___Hardware:
-        """Hardware of choice to serve the model."""
     def __init__(
         self,
         *,
@@ -420,6 +419,7 @@ class Model(google.protobuf.message.Message):
         owner_name: builtins.str = ...,
         owner: core.mgmt.v1beta.mgmt_pb2.Owner | None = ...,
         region: builtins.str = ...,
+        hardware: builtins.str = ...,
         readme: builtins.str | None = ...,
         source_url: builtins.str | None = ...,
         documentation_url: builtins.str | None = ...,
@@ -431,9 +431,8 @@ class Model(google.protobuf.message.Message):
         tags: collections.abc.Iterable[builtins.str] | None = ...,
         versions: collections.abc.Iterable[builtins.str] | None = ...,
         stats: global___Model.Stats | None = ...,
-        hardware: global___Hardware | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_readme", b"_readme", "_source_url", b"_source_url", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "hardware", b"hardware", "input_schema", b"input_schema", "license", b"license", "output_schema", b"output_schema", "owner", b"owner", "permission", b"permission", "profile_image", b"profile_image", "readme", b"readme", "source_url", b"source_url", "stats", b"stats", "update_time", b"update_time"]) -> builtins.bool: ...
+    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_readme", b"_readme", "_source_url", b"_source_url", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "input_schema", b"input_schema", "license", b"license", "output_schema", b"output_schema", "owner", b"owner", "permission", b"permission", "profile_image", b"profile_image", "readme", b"readme", "source_url", b"source_url", "stats", b"stats", "update_time", b"update_time"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_readme", b"_readme", "_source_url", b"_source_url", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "hardware", b"hardware", "id", b"id", "input_schema", b"input_schema", "license", b"license", "model_definition", b"model_definition", "name", b"name", "output_schema", b"output_schema", "owner", b"owner", "owner_name", b"owner_name", "permission", b"permission", "profile_image", b"profile_image", "readme", b"readme", "region", b"region", "source_url", b"source_url", "stats", b"stats", "tags", b"tags", "task", b"task", "uid", b"uid", "update_time", b"update_time", "versions", b"versions", "visibility", b"visibility"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_description", b"_description"]) -> typing_extensions.Literal["description"] | None: ...
