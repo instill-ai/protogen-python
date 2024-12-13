@@ -4819,6 +4819,7 @@ class PipelineRun(google.protobuf.message.Message):
     PIPELINE_ID_FIELD_NUMBER: builtins.int
     REQUESTER_ID_FIELD_NUMBER: builtins.int
     PIPELINE_NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    BLOB_DATA_EXPIRATION_TIME_FIELD_NUMBER: builtins.int
     pipeline_run_uid: builtins.str
     """Unique identifier for each run."""
     pipeline_version: builtins.str
@@ -4863,6 +4864,13 @@ class PipelineRun(google.protobuf.message.Message):
     """
     pipeline_namespace_id: builtins.str
     """ID of the namespace that owns the pipeline."""
+    @property
+    def blob_data_expiration_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Expiration time for the blob data associated with the pipeline run (e.g.
+        input data, recipe). When the run is accessed after the expiration, that
+        information will be empty, but this field will allow the user identify
+        that the data isn't there because it has expired.
+        """
     def __init__(
         self,
         *,
@@ -4883,9 +4891,12 @@ class PipelineRun(google.protobuf.message.Message):
         pipeline_id: builtins.str | None = ...,
         requester_id: builtins.str = ...,
         pipeline_namespace_id: builtins.str = ...,
+        blob_data_expiration_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_pipeline_id", b"_pipeline_id", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "data_specification", b"data_specification", "error", b"error", "pipeline_id", b"pipeline_id", "recipe_snapshot", b"recipe_snapshot", "runner_id", b"runner_id", "start_time", b"start_time", "total_duration", b"total_duration"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_pipeline_id", b"_pipeline_id", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "data_specification", b"data_specification", "error", b"error", "inputs", b"inputs", "outputs", b"outputs", "pipeline_id", b"pipeline_id", "pipeline_namespace_id", b"pipeline_namespace_id", "pipeline_run_uid", b"pipeline_run_uid", "pipeline_version", b"pipeline_version", "recipe_snapshot", b"recipe_snapshot", "requester_id", b"requester_id", "runner_id", b"runner_id", "source", b"source", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_blob_data_expiration_time", b"_blob_data_expiration_time", "_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_pipeline_id", b"_pipeline_id", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "blob_data_expiration_time", b"blob_data_expiration_time", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "data_specification", b"data_specification", "error", b"error", "pipeline_id", b"pipeline_id", "recipe_snapshot", b"recipe_snapshot", "runner_id", b"runner_id", "start_time", b"start_time", "total_duration", b"total_duration"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_blob_data_expiration_time", b"_blob_data_expiration_time", "_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_pipeline_id", b"_pipeline_id", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "blob_data_expiration_time", b"blob_data_expiration_time", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "data_specification", b"data_specification", "error", b"error", "inputs", b"inputs", "outputs", b"outputs", "pipeline_id", b"pipeline_id", "pipeline_namespace_id", b"pipeline_namespace_id", "pipeline_run_uid", b"pipeline_run_uid", "pipeline_version", b"pipeline_version", "recipe_snapshot", b"recipe_snapshot", "requester_id", b"requester_id", "runner_id", b"runner_id", "source", b"source", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_blob_data_expiration_time", b"_blob_data_expiration_time"]) -> typing_extensions.Literal["blob_data_expiration_time"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_complete_time", b"_complete_time"]) -> typing_extensions.Literal["complete_time"] | None: ...
     @typing.overload
@@ -4919,6 +4930,7 @@ class ComponentRun(google.protobuf.message.Message):
     OUTPUTS_REFERENCE_FIELD_NUMBER: builtins.int
     OUTPUTS_FIELD_NUMBER: builtins.int
     CREDIT_AMOUNT_FIELD_NUMBER: builtins.int
+    BLOB_DATA_EXPIRATION_TIME_FIELD_NUMBER: builtins.int
     pipeline_run_uid: builtins.str
     """Links to the parent PipelineRun."""
     component_id: builtins.str
@@ -4949,6 +4961,13 @@ class ComponentRun(google.protobuf.message.Message):
         """Component inference outputs."""
     credit_amount: builtins.float
     """Credits used of internal accounting metric."""
+    @property
+    def blob_data_expiration_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Expiration time for the blob data associated with the component run (e.g.
+        input / output data). When the run is accessed after the expiration, that
+        information will be empty, but this field will allow the user identify
+        that the data isn't there because it has expired.
+        """
     def __init__(
         self,
         *,
@@ -4964,9 +4983,12 @@ class ComponentRun(google.protobuf.message.Message):
         outputs_reference: collections.abc.Iterable[global___FileReference] | None = ...,
         outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
         credit_amount: builtins.float | None = ...,
+        blob_data_expiration_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "error", b"error", "start_time", b"start_time", "total_duration", b"total_duration"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "component_id", b"component_id", "credit_amount", b"credit_amount", "error", b"error", "inputs", b"inputs", "inputs_reference", b"inputs_reference", "outputs", b"outputs", "outputs_reference", b"outputs_reference", "pipeline_run_uid", b"pipeline_run_uid", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_blob_data_expiration_time", b"_blob_data_expiration_time", "_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_total_duration", b"_total_duration", "blob_data_expiration_time", b"blob_data_expiration_time", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "error", b"error", "start_time", b"start_time", "total_duration", b"total_duration"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_blob_data_expiration_time", b"_blob_data_expiration_time", "_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_total_duration", b"_total_duration", "blob_data_expiration_time", b"blob_data_expiration_time", "complete_time", b"complete_time", "component_id", b"component_id", "credit_amount", b"credit_amount", "error", b"error", "inputs", b"inputs", "inputs_reference", b"inputs_reference", "outputs", b"outputs", "outputs_reference", b"outputs_reference", "pipeline_run_uid", b"pipeline_run_uid", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_blob_data_expiration_time", b"_blob_data_expiration_time"]) -> typing_extensions.Literal["blob_data_expiration_time"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_complete_time", b"_complete_time"]) -> typing_extensions.Literal["complete_time"] | None: ...
     @typing.overload
