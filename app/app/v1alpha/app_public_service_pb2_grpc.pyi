@@ -6,6 +6,7 @@ import abc
 import app.app.v1alpha.agent_pb2
 import app.app.v1alpha.app_pb2
 import app.app.v1alpha.conversation_pb2
+import app.app.v1alpha.table_pb2
 import collections.abc
 import grpc
 import grpc.aio
@@ -244,6 +245,118 @@ class AppPublicServiceStub:
     This method is intended for real-time conversation with a chatbot
     and the response needs to be processed incrementally.
     """
+    ListTables: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.ListTablesRequest,
+        app.app.v1alpha.table_pb2.ListTablesResponse,
+    ]
+    """List tables
+
+    Returns a paginated list of tables.
+    """
+    CreateTable: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.CreateTableRequest,
+        app.app.v1alpha.table_pb2.CreateTableResponse,
+    ]
+    """Create a table
+
+    Creates a table.
+    """
+    GetTable: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.GetTableRequest,
+        app.app.v1alpha.table_pb2.GetTableResponse,
+    ]
+    """Get table
+
+    Gets a table.
+    """
+    UpdateTable: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.UpdateTableRequest,
+        app.app.v1alpha.table_pb2.UpdateTableResponse,
+    ]
+    """Update table
+
+    Updates a table.
+    """
+    DeleteTable: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.DeleteTableRequest,
+        app.app.v1alpha.table_pb2.DeleteTableResponse,
+    ]
+    """Delete table
+
+    Deletes a table.
+    """
+    GetColumnDefinitions: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.GetColumnDefinitionsRequest,
+        app.app.v1alpha.table_pb2.GetColumnDefinitionsResponse,
+    ]
+    """Get column definitions
+
+    Gets column definitions for a table.
+    """
+    UpdateColumnDefinitions: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.UpdateColumnDefinitionsRequest,
+        app.app.v1alpha.table_pb2.UpdateColumnDefinitionsResponse,
+    ]
+    """Update column definitions
+
+    Updates column definitions for a table.
+    """
+    ListRows: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.ListRowsRequest,
+        app.app.v1alpha.table_pb2.ListRowsResponse,
+    ]
+    """List rows
+
+    Returns list of rows.
+    """
+    InsertRow: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.InsertRowRequest,
+        app.app.v1alpha.table_pb2.InsertRowResponse,
+    ]
+    """Insert row
+
+    Inserts a row into a table.
+    """
+    UpdateRow: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.UpdateRowRequest,
+        app.app.v1alpha.table_pb2.UpdateRowResponse,
+    ]
+    """Update row
+
+    Updates a row in a table.
+    """
+    UpdateRows: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.UpdateRowsRequest,
+        app.app.v1alpha.table_pb2.UpdateRowsResponse,
+    ]
+    """Update rows
+
+    Updates multiple rows in a table.
+    """
+    DeleteRow: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.DeleteRowRequest,
+        app.app.v1alpha.table_pb2.DeleteRowResponse,
+    ]
+    """Delete row
+
+    Deletes a row from a table.
+    """
+    DeleteRows: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.DeleteRowsRequest,
+        app.app.v1alpha.table_pb2.DeleteRowsResponse,
+    ]
+    """Delete rows
+
+    Deletes multiple rows from a table.
+    """
+    Export: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.ExportRequest,
+        app.app.v1alpha.table_pb2.ExportResponse,
+    ]
+    """Export table
+
+    Exports table data.
+    """
 
 class AppPublicServiceAsyncStub:
     """AppPublicService exposes the public endpoints that allow clients to
@@ -468,6 +581,118 @@ class AppPublicServiceAsyncStub:
     Chat sends a message asynchronously and streams back the response.
     This method is intended for real-time conversation with a chatbot
     and the response needs to be processed incrementally.
+    """
+    ListTables: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.ListTablesRequest,
+        app.app.v1alpha.table_pb2.ListTablesResponse,
+    ]
+    """List tables
+
+    Returns a paginated list of tables.
+    """
+    CreateTable: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.CreateTableRequest,
+        app.app.v1alpha.table_pb2.CreateTableResponse,
+    ]
+    """Create a table
+
+    Creates a table.
+    """
+    GetTable: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.GetTableRequest,
+        app.app.v1alpha.table_pb2.GetTableResponse,
+    ]
+    """Get table
+
+    Gets a table.
+    """
+    UpdateTable: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.UpdateTableRequest,
+        app.app.v1alpha.table_pb2.UpdateTableResponse,
+    ]
+    """Update table
+
+    Updates a table.
+    """
+    DeleteTable: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.DeleteTableRequest,
+        app.app.v1alpha.table_pb2.DeleteTableResponse,
+    ]
+    """Delete table
+
+    Deletes a table.
+    """
+    GetColumnDefinitions: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.GetColumnDefinitionsRequest,
+        app.app.v1alpha.table_pb2.GetColumnDefinitionsResponse,
+    ]
+    """Get column definitions
+
+    Gets column definitions for a table.
+    """
+    UpdateColumnDefinitions: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.UpdateColumnDefinitionsRequest,
+        app.app.v1alpha.table_pb2.UpdateColumnDefinitionsResponse,
+    ]
+    """Update column definitions
+
+    Updates column definitions for a table.
+    """
+    ListRows: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.ListRowsRequest,
+        app.app.v1alpha.table_pb2.ListRowsResponse,
+    ]
+    """List rows
+
+    Returns list of rows.
+    """
+    InsertRow: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.InsertRowRequest,
+        app.app.v1alpha.table_pb2.InsertRowResponse,
+    ]
+    """Insert row
+
+    Inserts a row into a table.
+    """
+    UpdateRow: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.UpdateRowRequest,
+        app.app.v1alpha.table_pb2.UpdateRowResponse,
+    ]
+    """Update row
+
+    Updates a row in a table.
+    """
+    UpdateRows: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.UpdateRowsRequest,
+        app.app.v1alpha.table_pb2.UpdateRowsResponse,
+    ]
+    """Update rows
+
+    Updates multiple rows in a table.
+    """
+    DeleteRow: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.DeleteRowRequest,
+        app.app.v1alpha.table_pb2.DeleteRowResponse,
+    ]
+    """Delete row
+
+    Deletes a row from a table.
+    """
+    DeleteRows: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.DeleteRowsRequest,
+        app.app.v1alpha.table_pb2.DeleteRowsResponse,
+    ]
+    """Delete rows
+
+    Deletes multiple rows from a table.
+    """
+    Export: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.ExportRequest,
+        app.app.v1alpha.table_pb2.ExportResponse,
+    ]
+    """Export table
+
+    Exports table data.
     """
 
 class AppPublicServiceServicer(metaclass=abc.ABCMeta):
@@ -747,6 +972,146 @@ class AppPublicServiceServicer(metaclass=abc.ABCMeta):
         Chat sends a message asynchronously and streams back the response.
         This method is intended for real-time conversation with a chatbot
         and the response needs to be processed incrementally.
+        """
+    @abc.abstractmethod
+    def ListTables(
+        self,
+        request: app.app.v1alpha.table_pb2.ListTablesRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.table_pb2.ListTablesResponse, collections.abc.Awaitable[app.app.v1alpha.table_pb2.ListTablesResponse]]:
+        """List tables
+
+        Returns a paginated list of tables.
+        """
+    @abc.abstractmethod
+    def CreateTable(
+        self,
+        request: app.app.v1alpha.table_pb2.CreateTableRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.table_pb2.CreateTableResponse, collections.abc.Awaitable[app.app.v1alpha.table_pb2.CreateTableResponse]]:
+        """Create a table
+
+        Creates a table.
+        """
+    @abc.abstractmethod
+    def GetTable(
+        self,
+        request: app.app.v1alpha.table_pb2.GetTableRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.table_pb2.GetTableResponse, collections.abc.Awaitable[app.app.v1alpha.table_pb2.GetTableResponse]]:
+        """Get table
+
+        Gets a table.
+        """
+    @abc.abstractmethod
+    def UpdateTable(
+        self,
+        request: app.app.v1alpha.table_pb2.UpdateTableRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.table_pb2.UpdateTableResponse, collections.abc.Awaitable[app.app.v1alpha.table_pb2.UpdateTableResponse]]:
+        """Update table
+
+        Updates a table.
+        """
+    @abc.abstractmethod
+    def DeleteTable(
+        self,
+        request: app.app.v1alpha.table_pb2.DeleteTableRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.table_pb2.DeleteTableResponse, collections.abc.Awaitable[app.app.v1alpha.table_pb2.DeleteTableResponse]]:
+        """Delete table
+
+        Deletes a table.
+        """
+    @abc.abstractmethod
+    def GetColumnDefinitions(
+        self,
+        request: app.app.v1alpha.table_pb2.GetColumnDefinitionsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.table_pb2.GetColumnDefinitionsResponse, collections.abc.Awaitable[app.app.v1alpha.table_pb2.GetColumnDefinitionsResponse]]:
+        """Get column definitions
+
+        Gets column definitions for a table.
+        """
+    @abc.abstractmethod
+    def UpdateColumnDefinitions(
+        self,
+        request: app.app.v1alpha.table_pb2.UpdateColumnDefinitionsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.table_pb2.UpdateColumnDefinitionsResponse, collections.abc.Awaitable[app.app.v1alpha.table_pb2.UpdateColumnDefinitionsResponse]]:
+        """Update column definitions
+
+        Updates column definitions for a table.
+        """
+    @abc.abstractmethod
+    def ListRows(
+        self,
+        request: app.app.v1alpha.table_pb2.ListRowsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.table_pb2.ListRowsResponse, collections.abc.Awaitable[app.app.v1alpha.table_pb2.ListRowsResponse]]:
+        """List rows
+
+        Returns list of rows.
+        """
+    @abc.abstractmethod
+    def InsertRow(
+        self,
+        request: app.app.v1alpha.table_pb2.InsertRowRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.table_pb2.InsertRowResponse, collections.abc.Awaitable[app.app.v1alpha.table_pb2.InsertRowResponse]]:
+        """Insert row
+
+        Inserts a row into a table.
+        """
+    @abc.abstractmethod
+    def UpdateRow(
+        self,
+        request: app.app.v1alpha.table_pb2.UpdateRowRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.table_pb2.UpdateRowResponse, collections.abc.Awaitable[app.app.v1alpha.table_pb2.UpdateRowResponse]]:
+        """Update row
+
+        Updates a row in a table.
+        """
+    @abc.abstractmethod
+    def UpdateRows(
+        self,
+        request: app.app.v1alpha.table_pb2.UpdateRowsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.table_pb2.UpdateRowsResponse, collections.abc.Awaitable[app.app.v1alpha.table_pb2.UpdateRowsResponse]]:
+        """Update rows
+
+        Updates multiple rows in a table.
+        """
+    @abc.abstractmethod
+    def DeleteRow(
+        self,
+        request: app.app.v1alpha.table_pb2.DeleteRowRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.table_pb2.DeleteRowResponse, collections.abc.Awaitable[app.app.v1alpha.table_pb2.DeleteRowResponse]]:
+        """Delete row
+
+        Deletes a row from a table.
+        """
+    @abc.abstractmethod
+    def DeleteRows(
+        self,
+        request: app.app.v1alpha.table_pb2.DeleteRowsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.table_pb2.DeleteRowsResponse, collections.abc.Awaitable[app.app.v1alpha.table_pb2.DeleteRowsResponse]]:
+        """Delete rows
+
+        Deletes multiple rows from a table.
+        """
+    @abc.abstractmethod
+    def Export(
+        self,
+        request: app.app.v1alpha.table_pb2.ExportRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.table_pb2.ExportResponse, collections.abc.Awaitable[app.app.v1alpha.table_pb2.ExportResponse]]:
+        """Export table
+
+        Exports table data.
         """
 
 def add_AppPublicServiceServicer_to_server(servicer: AppPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

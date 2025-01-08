@@ -5,6 +5,7 @@ import grpc
 from app.app.v1alpha import agent_pb2 as app_dot_app_dot_v1alpha_dot_agent__pb2
 from app.app.v1alpha import app_pb2 as app_dot_app_dot_v1alpha_dot_app__pb2
 from app.app.v1alpha import conversation_pb2 as app_dot_app_dot_v1alpha_dot_conversation__pb2
+from app.app.v1alpha import table_pb2 as app_dot_app_dot_v1alpha_dot_table__pb2
 
 
 class AppPublicServiceStub(object):
@@ -152,6 +153,76 @@ class AppPublicServiceStub(object):
                 '/app.app.v1alpha.AppPublicService/Chat',
                 request_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.ChatRequest.SerializeToString,
                 response_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.ChatResponse.FromString,
+                )
+        self.ListTables = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/ListTables',
+                request_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.ListTablesRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.ListTablesResponse.FromString,
+                )
+        self.CreateTable = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/CreateTable',
+                request_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.CreateTableRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.CreateTableResponse.FromString,
+                )
+        self.GetTable = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/GetTable',
+                request_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.GetTableRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.GetTableResponse.FromString,
+                )
+        self.UpdateTable = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/UpdateTable',
+                request_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.UpdateTableRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.UpdateTableResponse.FromString,
+                )
+        self.DeleteTable = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/DeleteTable',
+                request_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.DeleteTableRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.DeleteTableResponse.FromString,
+                )
+        self.GetColumnDefinitions = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/GetColumnDefinitions',
+                request_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.GetColumnDefinitionsRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.GetColumnDefinitionsResponse.FromString,
+                )
+        self.UpdateColumnDefinitions = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/UpdateColumnDefinitions',
+                request_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.UpdateColumnDefinitionsRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.UpdateColumnDefinitionsResponse.FromString,
+                )
+        self.ListRows = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/ListRows',
+                request_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.ListRowsRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.ListRowsResponse.FromString,
+                )
+        self.InsertRow = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/InsertRow',
+                request_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.InsertRowRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.InsertRowResponse.FromString,
+                )
+        self.UpdateRow = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/UpdateRow',
+                request_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.UpdateRowRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.UpdateRowResponse.FromString,
+                )
+        self.UpdateRows = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/UpdateRows',
+                request_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.UpdateRowsRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.UpdateRowsResponse.FromString,
+                )
+        self.DeleteRow = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/DeleteRow',
+                request_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.DeleteRowRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.DeleteRowResponse.FromString,
+                )
+        self.DeleteRows = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/DeleteRows',
+                request_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.DeleteRowsRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.DeleteRowsResponse.FromString,
+                )
+        self.Export = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/Export',
+                request_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.ExportRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.ExportResponse.FromString,
                 )
 
 
@@ -406,6 +477,132 @@ class AppPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListTables(self, request, context):
+        """List tables
+
+        Returns a paginated list of tables.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateTable(self, request, context):
+        """Create a table
+
+        Creates a table.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetTable(self, request, context):
+        """Get table
+
+        Gets a table.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateTable(self, request, context):
+        """Update table
+
+        Updates a table.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteTable(self, request, context):
+        """Delete table
+
+        Deletes a table.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetColumnDefinitions(self, request, context):
+        """Get column definitions
+
+        Gets column definitions for a table.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateColumnDefinitions(self, request, context):
+        """Update column definitions
+
+        Updates column definitions for a table.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListRows(self, request, context):
+        """List rows
+
+        Returns list of rows.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def InsertRow(self, request, context):
+        """Insert row
+
+        Inserts a row into a table.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateRow(self, request, context):
+        """Update row
+
+        Updates a row in a table.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateRows(self, request, context):
+        """Update rows
+
+        Updates multiple rows in a table.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteRow(self, request, context):
+        """Delete row
+
+        Deletes a row from a table.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteRows(self, request, context):
+        """Delete rows
+
+        Deletes multiple rows from a table.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Export(self, request, context):
+        """Export table
+
+        Exports table data.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_AppPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -543,6 +740,76 @@ def add_AppPublicServiceServicer_to_server(servicer, server):
                     servicer.Chat,
                     request_deserializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.ChatRequest.FromString,
                     response_serializer=app_dot_app_dot_v1alpha_dot_conversation__pb2.ChatResponse.SerializeToString,
+            ),
+            'ListTables': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListTables,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.ListTablesRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.ListTablesResponse.SerializeToString,
+            ),
+            'CreateTable': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateTable,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.CreateTableRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.CreateTableResponse.SerializeToString,
+            ),
+            'GetTable': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetTable,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.GetTableRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.GetTableResponse.SerializeToString,
+            ),
+            'UpdateTable': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateTable,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.UpdateTableRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.UpdateTableResponse.SerializeToString,
+            ),
+            'DeleteTable': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteTable,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.DeleteTableRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.DeleteTableResponse.SerializeToString,
+            ),
+            'GetColumnDefinitions': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetColumnDefinitions,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.GetColumnDefinitionsRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.GetColumnDefinitionsResponse.SerializeToString,
+            ),
+            'UpdateColumnDefinitions': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateColumnDefinitions,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.UpdateColumnDefinitionsRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.UpdateColumnDefinitionsResponse.SerializeToString,
+            ),
+            'ListRows': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListRows,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.ListRowsRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.ListRowsResponse.SerializeToString,
+            ),
+            'InsertRow': grpc.unary_unary_rpc_method_handler(
+                    servicer.InsertRow,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.InsertRowRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.InsertRowResponse.SerializeToString,
+            ),
+            'UpdateRow': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateRow,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.UpdateRowRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.UpdateRowResponse.SerializeToString,
+            ),
+            'UpdateRows': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateRows,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.UpdateRowsRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.UpdateRowsResponse.SerializeToString,
+            ),
+            'DeleteRow': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteRow,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.DeleteRowRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.DeleteRowResponse.SerializeToString,
+            ),
+            'DeleteRows': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteRows,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.DeleteRowsRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.DeleteRowsResponse.SerializeToString,
+            ),
+            'Export': grpc.unary_unary_rpc_method_handler(
+                    servicer.Export,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.ExportRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.ExportResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1012,5 +1279,243 @@ class AppPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/Chat',
             app_dot_app_dot_v1alpha_dot_conversation__pb2.ChatRequest.SerializeToString,
             app_dot_app_dot_v1alpha_dot_conversation__pb2.ChatResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListTables(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/ListTables',
+            app_dot_app_dot_v1alpha_dot_table__pb2.ListTablesRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_table__pb2.ListTablesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateTable(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/CreateTable',
+            app_dot_app_dot_v1alpha_dot_table__pb2.CreateTableRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_table__pb2.CreateTableResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetTable(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/GetTable',
+            app_dot_app_dot_v1alpha_dot_table__pb2.GetTableRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_table__pb2.GetTableResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateTable(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/UpdateTable',
+            app_dot_app_dot_v1alpha_dot_table__pb2.UpdateTableRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_table__pb2.UpdateTableResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteTable(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/DeleteTable',
+            app_dot_app_dot_v1alpha_dot_table__pb2.DeleteTableRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_table__pb2.DeleteTableResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetColumnDefinitions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/GetColumnDefinitions',
+            app_dot_app_dot_v1alpha_dot_table__pb2.GetColumnDefinitionsRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_table__pb2.GetColumnDefinitionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateColumnDefinitions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/UpdateColumnDefinitions',
+            app_dot_app_dot_v1alpha_dot_table__pb2.UpdateColumnDefinitionsRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_table__pb2.UpdateColumnDefinitionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListRows(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/ListRows',
+            app_dot_app_dot_v1alpha_dot_table__pb2.ListRowsRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_table__pb2.ListRowsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def InsertRow(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/InsertRow',
+            app_dot_app_dot_v1alpha_dot_table__pb2.InsertRowRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_table__pb2.InsertRowResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateRow(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/UpdateRow',
+            app_dot_app_dot_v1alpha_dot_table__pb2.UpdateRowRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_table__pb2.UpdateRowResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateRows(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/UpdateRows',
+            app_dot_app_dot_v1alpha_dot_table__pb2.UpdateRowsRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_table__pb2.UpdateRowsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteRow(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/DeleteRow',
+            app_dot_app_dot_v1alpha_dot_table__pb2.DeleteRowRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_table__pb2.DeleteRowResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteRows(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/DeleteRows',
+            app_dot_app_dot_v1alpha_dot_table__pb2.DeleteRowsRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_table__pb2.DeleteRowsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Export(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/Export',
+            app_dot_app_dot_v1alpha_dot_table__pb2.ExportRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_table__pb2.ExportResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
