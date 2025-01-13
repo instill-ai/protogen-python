@@ -349,6 +349,14 @@ class AppPublicServiceStub:
 
     Deletes multiple rows from a table.
     """
+    MoveRows: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.MoveRowsRequest,
+        app.app.v1alpha.table_pb2.MoveRowsResponse,
+    ]
+    """Move row
+
+    Moves a row to a new position in a table.
+    """
     Export: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.table_pb2.ExportRequest,
         app.app.v1alpha.table_pb2.ExportResponse,
@@ -685,6 +693,14 @@ class AppPublicServiceAsyncStub:
     """Delete rows
 
     Deletes multiple rows from a table.
+    """
+    MoveRows: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.MoveRowsRequest,
+        app.app.v1alpha.table_pb2.MoveRowsResponse,
+    ]
+    """Move row
+
+    Moves a row to a new position in a table.
     """
     Export: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.table_pb2.ExportRequest,
@@ -1102,6 +1118,16 @@ class AppPublicServiceServicer(metaclass=abc.ABCMeta):
         """Delete rows
 
         Deletes multiple rows from a table.
+        """
+    @abc.abstractmethod
+    def MoveRows(
+        self,
+        request: app.app.v1alpha.table_pb2.MoveRowsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.table_pb2.MoveRowsResponse, collections.abc.Awaitable[app.app.v1alpha.table_pb2.MoveRowsResponse]]:
+        """Move row
+
+        Moves a row to a new position in a table.
         """
     @abc.abstractmethod
     def Export(

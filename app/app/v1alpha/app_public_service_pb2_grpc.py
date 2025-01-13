@@ -219,6 +219,11 @@ class AppPublicServiceStub(object):
                 request_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.DeleteRowsRequest.SerializeToString,
                 response_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.DeleteRowsResponse.FromString,
                 )
+        self.MoveRows = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/MoveRows',
+                request_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.MoveRowsRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.MoveRowsResponse.FromString,
+                )
         self.Export = channel.unary_unary(
                 '/app.app.v1alpha.AppPublicService/Export',
                 request_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.ExportRequest.SerializeToString,
@@ -594,6 +599,15 @@ class AppPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def MoveRows(self, request, context):
+        """Move row
+
+        Moves a row to a new position in a table.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Export(self, request, context):
         """Export table
 
@@ -805,6 +819,11 @@ def add_AppPublicServiceServicer_to_server(servicer, server):
                     servicer.DeleteRows,
                     request_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.DeleteRowsRequest.FromString,
                     response_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.DeleteRowsResponse.SerializeToString,
+            ),
+            'MoveRows': grpc.unary_unary_rpc_method_handler(
+                    servicer.MoveRows,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.MoveRowsRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.MoveRowsResponse.SerializeToString,
             ),
             'Export': grpc.unary_unary_rpc_method_handler(
                     servicer.Export,
@@ -1500,6 +1519,23 @@ class AppPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/DeleteRows',
             app_dot_app_dot_v1alpha_dot_table__pb2.DeleteRowsRequest.SerializeToString,
             app_dot_app_dot_v1alpha_dot_table__pb2.DeleteRowsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def MoveRows(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/MoveRows',
+            app_dot_app_dot_v1alpha_dot_table__pb2.MoveRowsRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_table__pb2.MoveRowsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

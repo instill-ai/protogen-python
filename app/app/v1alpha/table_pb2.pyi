@@ -714,6 +714,7 @@ class Row(google.protobuf.message.Message):
     UID_FIELD_NUMBER: builtins.int
     CELLS_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
+    UPDATE_TIME_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """The unique identifier of the row."""
     @property
@@ -722,15 +723,19 @@ class Row(google.protobuf.message.Message):
     @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """The timestamp when the row was created."""
+    @property
+    def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """The timestamp when the row was last updated."""
     def __init__(
         self,
         *,
         uid: builtins.str = ...,
         cells: collections.abc.Mapping[builtins.str, global___Cell] | None = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cells", b"cells", "create_time", b"create_time", "uid", b"uid"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cells", b"cells", "create_time", b"create_time", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
 
 global___Row = Row
 
@@ -800,6 +805,7 @@ class InsertRowRequest(google.protobuf.message.Message):
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     TABLE_UID_FIELD_NUMBER: builtins.int
     ROW_FIELD_NUMBER: builtins.int
+    AFTER_ROW_UID_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """The ID of the namespace that owns the table."""
     table_uid: builtins.str
@@ -807,15 +813,19 @@ class InsertRowRequest(google.protobuf.message.Message):
     @property
     def row(self) -> global___Row:
         """The rows to insert."""
+    after_row_uid: builtins.str
+    """The unique identifier of the row to insert after."""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         table_uid: builtins.str = ...,
         row: global___Row | None = ...,
+        after_row_uid: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["row", b"row"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "row", b"row", "table_uid", b"table_uid"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_after_row_uid", b"_after_row_uid", "after_row_uid", b"after_row_uid", "row", b"row"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_after_row_uid", b"_after_row_uid", "after_row_uid", b"after_row_uid", "namespace_id", b"namespace_id", "row", b"row", "table_uid", b"table_uid"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_after_row_uid", b"_after_row_uid"]) -> typing_extensions.Literal["after_row_uid"] | None: ...
 
 global___InsertRowRequest = InsertRowRequest
 
@@ -1013,6 +1023,51 @@ class DeleteRowsResponse(google.protobuf.message.Message):
     ) -> None: ...
 
 global___DeleteRowsResponse = DeleteRowsResponse
+
+@typing_extensions.final
+class MoveRowsRequest(google.protobuf.message.Message):
+    """MoveRowsRequest represents a request to move multiple rows."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    TABLE_UID_FIELD_NUMBER: builtins.int
+    ROW_UIDS_FIELD_NUMBER: builtins.int
+    AFTER_ROW_UID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The ID of the namespace that owns the table."""
+    table_uid: builtins.str
+    """The UID of the table containing the row."""
+    @property
+    def row_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """The unique identifiers of the rows to be moved."""
+    after_row_uid: builtins.str
+    """The unique identifier of the row to move after."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        table_uid: builtins.str = ...,
+        row_uids: collections.abc.Iterable[builtins.str] | None = ...,
+        after_row_uid: builtins.str | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_after_row_uid", b"_after_row_uid", "after_row_uid", b"after_row_uid"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_after_row_uid", b"_after_row_uid", "after_row_uid", b"after_row_uid", "namespace_id", b"namespace_id", "row_uids", b"row_uids", "table_uid", b"table_uid"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_after_row_uid", b"_after_row_uid"]) -> typing_extensions.Literal["after_row_uid"] | None: ...
+
+global___MoveRowsRequest = MoveRowsRequest
+
+@typing_extensions.final
+class MoveRowsResponse(google.protobuf.message.Message):
+    """MoveRowsResponse is an empty response for moving multiple rows."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___MoveRowsResponse = MoveRowsResponse
 
 @typing_extensions.final
 class ExportRequest(google.protobuf.message.Message):
