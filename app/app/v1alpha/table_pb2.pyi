@@ -805,7 +805,7 @@ class InsertRowRequest(google.protobuf.message.Message):
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     TABLE_UID_FIELD_NUMBER: builtins.int
     ROW_FIELD_NUMBER: builtins.int
-    AFTER_ROW_UID_FIELD_NUMBER: builtins.int
+    BEFORE_ROW_UID_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """The ID of the namespace that owns the table."""
     table_uid: builtins.str
@@ -813,19 +813,19 @@ class InsertRowRequest(google.protobuf.message.Message):
     @property
     def row(self) -> global___Row:
         """The rows to insert."""
-    after_row_uid: builtins.str
-    """The unique identifier of the row to insert after."""
+    before_row_uid: builtins.str
+    """The unique identifier of the row to insert before."""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         table_uid: builtins.str = ...,
         row: global___Row | None = ...,
-        after_row_uid: builtins.str | None = ...,
+        before_row_uid: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_after_row_uid", b"_after_row_uid", "after_row_uid", b"after_row_uid", "row", b"row"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_after_row_uid", b"_after_row_uid", "after_row_uid", b"after_row_uid", "namespace_id", b"namespace_id", "row", b"row", "table_uid", b"table_uid"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_after_row_uid", b"_after_row_uid"]) -> typing_extensions.Literal["after_row_uid"] | None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_before_row_uid", b"_before_row_uid", "before_row_uid", b"before_row_uid", "row", b"row"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_before_row_uid", b"_before_row_uid", "before_row_uid", b"before_row_uid", "namespace_id", b"namespace_id", "row", b"row", "table_uid", b"table_uid"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_before_row_uid", b"_before_row_uid"]) -> typing_extensions.Literal["before_row_uid"] | None: ...
 
 global___InsertRowRequest = InsertRowRequest
 
@@ -1033,7 +1033,7 @@ class MoveRowsRequest(google.protobuf.message.Message):
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     TABLE_UID_FIELD_NUMBER: builtins.int
     ROW_UIDS_FIELD_NUMBER: builtins.int
-    AFTER_ROW_UID_FIELD_NUMBER: builtins.int
+    BEFORE_ROW_UID_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """The ID of the namespace that owns the table."""
     table_uid: builtins.str
@@ -1041,19 +1041,19 @@ class MoveRowsRequest(google.protobuf.message.Message):
     @property
     def row_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """The unique identifiers of the rows to be moved."""
-    after_row_uid: builtins.str
-    """The unique identifier of the row to move after."""
+    before_row_uid: builtins.str
+    """The unique identifier of the row to move before."""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         table_uid: builtins.str = ...,
         row_uids: collections.abc.Iterable[builtins.str] | None = ...,
-        after_row_uid: builtins.str | None = ...,
+        before_row_uid: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_after_row_uid", b"_after_row_uid", "after_row_uid", b"after_row_uid"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_after_row_uid", b"_after_row_uid", "after_row_uid", b"after_row_uid", "namespace_id", b"namespace_id", "row_uids", b"row_uids", "table_uid", b"table_uid"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_after_row_uid", b"_after_row_uid"]) -> typing_extensions.Literal["after_row_uid"] | None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_before_row_uid", b"_before_row_uid", "before_row_uid", b"before_row_uid"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_before_row_uid", b"_before_row_uid", "before_row_uid", b"before_row_uid", "namespace_id", b"namespace_id", "row_uids", b"row_uids", "table_uid", b"table_uid"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_before_row_uid", b"_before_row_uid"]) -> typing_extensions.Literal["before_row_uid"] | None: ...
 
 global___MoveRowsRequest = MoveRowsRequest
 
