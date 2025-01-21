@@ -143,10 +143,20 @@ class AppPublicServiceStub(object):
                 request_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.MoveRowsRequest.SerializeToString,
                 response_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.MoveRowsResponse.FromString,
                 )
+        self.GetTableEvents = channel.unary_stream(
+                '/app.app.v1alpha.AppPublicService/GetTableEvents',
+                request_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.GetTableEventsRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.GetTableEventsResponse.FromString,
+                )
         self.Export = channel.unary_unary(
                 '/app.app.v1alpha.AppPublicService/Export',
                 request_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.ExportRequest.SerializeToString,
                 response_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.ExportResponse.FromString,
+                )
+        self.GenerateMockTable = channel.unary_unary(
+                '/app.app.v1alpha.AppPublicService/GenerateMockTable',
+                request_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.GenerateMockTableRequest.SerializeToString,
+                response_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.GenerateMockTableResponse.FromString,
                 )
 
 
@@ -382,10 +392,30 @@ class AppPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetTableEvents(self, request, context):
+        """Get table events
+
+        Returns a list of events for a table.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Export(self, request, context):
         """Export table
 
         Exports table data.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GenerateMockTable(self, request, context):
+        """Generate mock table
+
+        Generates mock table data.
+        This API is only available for internal use to generate mock row data for testing purposes.
+        It should not be used in production environments.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -519,10 +549,20 @@ def add_AppPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.MoveRowsRequest.FromString,
                     response_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.MoveRowsResponse.SerializeToString,
             ),
+            'GetTableEvents': grpc.unary_stream_rpc_method_handler(
+                    servicer.GetTableEvents,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.GetTableEventsRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.GetTableEventsResponse.SerializeToString,
+            ),
             'Export': grpc.unary_unary_rpc_method_handler(
                     servicer.Export,
                     request_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.ExportRequest.FromString,
                     response_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.ExportResponse.SerializeToString,
+            ),
+            'GenerateMockTable': grpc.unary_unary_rpc_method_handler(
+                    servicer.GenerateMockTable,
+                    request_deserializer=app_dot_app_dot_v1alpha_dot_table__pb2.GenerateMockTableRequest.FromString,
+                    response_serializer=app_dot_app_dot_v1alpha_dot_table__pb2.GenerateMockTableResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -962,6 +1002,23 @@ class AppPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def GetTableEvents(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/app.app.v1alpha.AppPublicService/GetTableEvents',
+            app_dot_app_dot_v1alpha_dot_table__pb2.GetTableEventsRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_table__pb2.GetTableEventsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def Export(request,
             target,
             options=(),
@@ -975,5 +1032,22 @@ class AppPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/Export',
             app_dot_app_dot_v1alpha_dot_table__pb2.ExportRequest.SerializeToString,
             app_dot_app_dot_v1alpha_dot_table__pb2.ExportResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GenerateMockTable(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/app.app.v1alpha.AppPublicService/GenerateMockTable',
+            app_dot_app_dot_v1alpha_dot_table__pb2.GenerateMockTableRequest.SerializeToString,
+            app_dot_app_dot_v1alpha_dot_table__pb2.GenerateMockTableResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

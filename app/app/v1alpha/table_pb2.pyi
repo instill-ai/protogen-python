@@ -7,17 +7,55 @@ import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
+import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.struct_pb2
 import google.protobuf.timestamp_pb2
 import sys
+import typing
 
-if sys.version_info >= (3, 8):
+if sys.version_info >= (3, 10):
     import typing as typing_extensions
 else:
     import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
+
+class _CellStatus:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _CellStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CellStatus.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    CELL_STATUS_UNSPECIFIED: _CellStatus.ValueType  # 0
+    """The cell status is not specified."""
+    CELL_STATUS_IDLE: _CellStatus.ValueType  # 1
+    """The cell is idle."""
+    CELL_STATUS_PENDING: _CellStatus.ValueType  # 2
+    """The cell is pending."""
+    CELL_STATUS_PROCESSING: _CellStatus.ValueType  # 3
+    """The cell is processing."""
+    CELL_STATUS_FAILED: _CellStatus.ValueType  # 4
+    """The cell is failed."""
+    CELL_STATUS_COMPLETED: _CellStatus.ValueType  # 5
+    """The cell is completed."""
+
+class CellStatus(_CellStatus, metaclass=_CellStatusEnumTypeWrapper):
+    """CellStatus represents the status of a cell."""
+
+CELL_STATUS_UNSPECIFIED: CellStatus.ValueType  # 0
+"""The cell status is not specified."""
+CELL_STATUS_IDLE: CellStatus.ValueType  # 1
+"""The cell is idle."""
+CELL_STATUS_PENDING: CellStatus.ValueType  # 2
+"""The cell is pending."""
+CELL_STATUS_PROCESSING: CellStatus.ValueType  # 3
+"""The cell is processing."""
+CELL_STATUS_FAILED: CellStatus.ValueType  # 4
+"""The cell is failed."""
+CELL_STATUS_COMPLETED: CellStatus.ValueType  # 5
+"""The cell is completed."""
+global___CellStatus = CellStatus
 
 @typing_extensions.final
 class Table(google.protobuf.message.Message):
@@ -473,6 +511,7 @@ class Cell(google.protobuf.message.Message):
 
     UID_FIELD_NUMBER: builtins.int
     COLUMN_UID_FIELD_NUMBER: builtins.int
+    ROW_UID_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
     STRING_VALUE_FIELD_NUMBER: builtins.int
@@ -485,10 +524,13 @@ class Cell(google.protobuf.message.Message):
     AUDIO_VALUE_FIELD_NUMBER: builtins.int
     NULL_VALUE_FIELD_NUMBER: builtins.int
     METADATA_FIELD_NUMBER: builtins.int
+    STATUS_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """The unique identifier of the cell."""
     column_uid: builtins.str
     """The unique identifier of the column this cell belongs to."""
+    row_uid: builtins.str
+    """The row that this cell belongs to."""
     @property
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """The timestamp when the cell was last updated."""
@@ -524,11 +566,14 @@ class Cell(google.protobuf.message.Message):
     @property
     def metadata(self) -> google.protobuf.struct_pb2.Struct:
         """Additional metadata for the cell."""
+    status: global___CellStatus.ValueType
+    """The status of the cell."""
     def __init__(
         self,
         *,
         uid: builtins.str = ...,
         column_uid: builtins.str = ...,
+        row_uid: builtins.str = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         type: builtins.str = ...,
         string_value: global___StringCell | None = ...,
@@ -541,9 +586,10 @@ class Cell(google.protobuf.message.Message):
         audio_value: global___AudioCell | None = ...,
         null_value: global___NullCell | None = ...,
         metadata: google.protobuf.struct_pb2.Struct | None = ...,
+        status: global___CellStatus.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["audio_value", b"audio_value", "boolean_value", b"boolean_value", "document_value", b"document_value", "file_value", b"file_value", "image_value", b"image_value", "metadata", b"metadata", "null_value", b"null_value", "number_value", b"number_value", "string_value", b"string_value", "update_time", b"update_time", "value", b"value", "video_value", b"video_value"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["audio_value", b"audio_value", "boolean_value", b"boolean_value", "column_uid", b"column_uid", "document_value", b"document_value", "file_value", b"file_value", "image_value", b"image_value", "metadata", b"metadata", "null_value", b"null_value", "number_value", b"number_value", "string_value", b"string_value", "type", b"type", "uid", b"uid", "update_time", b"update_time", "value", b"value", "video_value", b"video_value"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["audio_value", b"audio_value", "boolean_value", b"boolean_value", "column_uid", b"column_uid", "document_value", b"document_value", "file_value", b"file_value", "image_value", b"image_value", "metadata", b"metadata", "null_value", b"null_value", "number_value", b"number_value", "row_uid", b"row_uid", "status", b"status", "string_value", b"string_value", "type", b"type", "uid", b"uid", "update_time", b"update_time", "value", b"value", "video_value", b"video_value"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["value", b"value"]) -> typing_extensions.Literal["string_value", "number_value", "boolean_value", "file_value", "document_value", "image_value", "video_value", "audio_value", "null_value"] | None: ...
 
 global___Cell = Cell
@@ -1129,3 +1175,334 @@ class ExportResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["data", b"data"]) -> None: ...
 
 global___ExportResponse = ExportResponse
+
+@typing_extensions.final
+class GetTableEventsRequest(google.protobuf.message.Message):
+    """GetTableEventsRequest represents a request to fetch events for a table."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    TABLE_UID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The ID of the namespace that owns the table."""
+    table_uid: builtins.str
+    """The UID of the table to fetch events for."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        table_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "table_uid", b"table_uid"]) -> None: ...
+
+global___GetTableEventsRequest = GetTableEventsRequest
+
+@typing_extensions.final
+class GetTableEventsResponse(google.protobuf.message.Message):
+    """GetTableEventsResponse contains the events for a table."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    EVENT_FIELD_NUMBER: builtins.int
+    @property
+    def event(self) -> global___TableEvent:
+        """The events for the table."""
+    def __init__(
+        self,
+        *,
+        event: global___TableEvent | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["event", b"event"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["event", b"event"]) -> None: ...
+
+global___GetTableEventsResponse = GetTableEventsResponse
+
+@typing_extensions.final
+class TableEvent(google.protobuf.message.Message):
+    """TableEvent represents an event for a table."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    EVENT_FIELD_NUMBER: builtins.int
+    ID_FIELD_NUMBER: builtins.int
+    TABLE_UPDATED_EVENT_FIELD_NUMBER: builtins.int
+    TABLE_DELETED_EVENT_FIELD_NUMBER: builtins.int
+    COLUMN_DEFINITIONS_UPDATED_EVENT_FIELD_NUMBER: builtins.int
+    ROW_INSERTED_EVENT_FIELD_NUMBER: builtins.int
+    ROW_UPDATED_EVENT_FIELD_NUMBER: builtins.int
+    ROW_DELETED_EVENT_FIELD_NUMBER: builtins.int
+    ROWS_MOVED_EVENT_FIELD_NUMBER: builtins.int
+    CELL_UPDATED_EVENT_FIELD_NUMBER: builtins.int
+    event: builtins.str
+    """The event type.
+    In text/event-stream format, this maps to the `event` field.
+    """
+    id: builtins.str
+    """The ID of the event.
+    In text/event-stream format, this maps to the `id` field.
+    """
+    @property
+    def table_updated_event(self) -> global___TableUpdatedEvent:
+        """The table that was updated."""
+    @property
+    def table_deleted_event(self) -> global___TableDeletedEvent:
+        """The table that was deleted."""
+    @property
+    def column_definitions_updated_event(self) -> global___ColumnDefinitionsUpdatedEvent:
+        """The column definitions that were updated."""
+    @property
+    def row_inserted_event(self) -> global___RowInsertedEvent:
+        """The row that was inserted."""
+    @property
+    def row_updated_event(self) -> global___RowUpdatedEvent:
+        """The row that was updated."""
+    @property
+    def row_deleted_event(self) -> global___RowDeletedEvent:
+        """The row that was deleted."""
+    @property
+    def rows_moved_event(self) -> global___RowsMovedEvent:
+        """The rows that were moved."""
+    @property
+    def cell_updated_event(self) -> global___CellUpdatedEvent:
+        """The cell that was updated."""
+    def __init__(
+        self,
+        *,
+        event: builtins.str = ...,
+        id: builtins.str = ...,
+        table_updated_event: global___TableUpdatedEvent | None = ...,
+        table_deleted_event: global___TableDeletedEvent | None = ...,
+        column_definitions_updated_event: global___ColumnDefinitionsUpdatedEvent | None = ...,
+        row_inserted_event: global___RowInsertedEvent | None = ...,
+        row_updated_event: global___RowUpdatedEvent | None = ...,
+        row_deleted_event: global___RowDeletedEvent | None = ...,
+        rows_moved_event: global___RowsMovedEvent | None = ...,
+        cell_updated_event: global___CellUpdatedEvent | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["cell_updated_event", b"cell_updated_event", "column_definitions_updated_event", b"column_definitions_updated_event", "data", b"data", "row_deleted_event", b"row_deleted_event", "row_inserted_event", b"row_inserted_event", "row_updated_event", b"row_updated_event", "rows_moved_event", b"rows_moved_event", "table_deleted_event", b"table_deleted_event", "table_updated_event", b"table_updated_event"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cell_updated_event", b"cell_updated_event", "column_definitions_updated_event", b"column_definitions_updated_event", "data", b"data", "event", b"event", "id", b"id", "row_deleted_event", b"row_deleted_event", "row_inserted_event", b"row_inserted_event", "row_updated_event", b"row_updated_event", "rows_moved_event", b"rows_moved_event", "table_deleted_event", b"table_deleted_event", "table_updated_event", b"table_updated_event"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["data", b"data"]) -> typing_extensions.Literal["table_updated_event", "table_deleted_event", "column_definitions_updated_event", "row_inserted_event", "row_updated_event", "row_deleted_event", "rows_moved_event", "cell_updated_event"] | None: ...
+
+global___TableEvent = TableEvent
+
+@typing_extensions.final
+class TableUpdatedEvent(google.protobuf.message.Message):
+    """TableUpdatedEvent represents an event for a table being updated."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TABLE_FIELD_NUMBER: builtins.int
+    @property
+    def table(self) -> global___Table:
+        """The table that was updated."""
+    def __init__(
+        self,
+        *,
+        table: global___Table | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["table", b"table"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["table", b"table"]) -> None: ...
+
+global___TableUpdatedEvent = TableUpdatedEvent
+
+@typing_extensions.final
+class TableDeletedEvent(google.protobuf.message.Message):
+    """TableDeletedEvent represents an event for a table being deleted."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___TableDeletedEvent = TableDeletedEvent
+
+@typing_extensions.final
+class ColumnDefinitionsUpdatedEvent(google.protobuf.message.Message):
+    """ColumnDefinitionsUpdatedEvent represents an event for column definitions being updated."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    @typing_extensions.final
+    class ColumnDefinitionsEntry(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        KEY_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        key: builtins.str
+        @property
+        def value(self) -> global___ColumnDefinition: ...
+        def __init__(
+            self,
+            *,
+            key: builtins.str = ...,
+            value: global___ColumnDefinition | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["value", b"value"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
+
+    COLUMN_DEFINITIONS_FIELD_NUMBER: builtins.int
+    @property
+    def column_definitions(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___ColumnDefinition]:
+        """The column definitions that were updated."""
+    def __init__(
+        self,
+        *,
+        column_definitions: collections.abc.Mapping[builtins.str, global___ColumnDefinition] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["column_definitions", b"column_definitions"]) -> None: ...
+
+global___ColumnDefinitionsUpdatedEvent = ColumnDefinitionsUpdatedEvent
+
+@typing_extensions.final
+class RowInsertedEvent(google.protobuf.message.Message):
+    """RowInsertedEvent represents an event for a row being inserted."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    ROW_FIELD_NUMBER: builtins.int
+    BEFORE_ROW_UID_FIELD_NUMBER: builtins.int
+    @property
+    def row(self) -> global___Row:
+        """The row that was inserted.
+        Note: Only the row metadata is returned, not the cell data.
+        """
+    before_row_uid: builtins.str
+    """The unique identifier of the row that was inserted before."""
+    def __init__(
+        self,
+        *,
+        row: global___Row | None = ...,
+        before_row_uid: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["row", b"row"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["before_row_uid", b"before_row_uid", "row", b"row"]) -> None: ...
+
+global___RowInsertedEvent = RowInsertedEvent
+
+@typing_extensions.final
+class RowUpdatedEvent(google.protobuf.message.Message):
+    """RowUpdatedEvent represents an event for a row being updated."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    ROW_FIELD_NUMBER: builtins.int
+    @property
+    def row(self) -> global___Row:
+        """The row that was updated.
+        Note: Only the row metadata is returned, not the cell data.
+        """
+    def __init__(
+        self,
+        *,
+        row: global___Row | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["row", b"row"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["row", b"row"]) -> None: ...
+
+global___RowUpdatedEvent = RowUpdatedEvent
+
+@typing_extensions.final
+class RowDeletedEvent(google.protobuf.message.Message):
+    """RowDeletedEvent represents an event for a row being deleted."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    ROW_UID_FIELD_NUMBER: builtins.int
+    row_uid: builtins.str
+    """The unique identifier of the row that was deleted."""
+    def __init__(
+        self,
+        *,
+        row_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["row_uid", b"row_uid"]) -> None: ...
+
+global___RowDeletedEvent = RowDeletedEvent
+
+@typing_extensions.final
+class RowsMovedEvent(google.protobuf.message.Message):
+    """RowsMovedEvent represents an event for multiple rows being moved."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    ROW_UIDS_FIELD_NUMBER: builtins.int
+    BEFORE_ROW_UID_FIELD_NUMBER: builtins.int
+    @property
+    def row_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """The unique identifiers of the rows that were moved."""
+    before_row_uid: builtins.str
+    """The unique identifier of the row that was moved before."""
+    def __init__(
+        self,
+        *,
+        row_uids: collections.abc.Iterable[builtins.str] | None = ...,
+        before_row_uid: builtins.str | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_before_row_uid", b"_before_row_uid", "before_row_uid", b"before_row_uid"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_before_row_uid", b"_before_row_uid", "before_row_uid", b"before_row_uid", "row_uids", b"row_uids"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_before_row_uid", b"_before_row_uid"]) -> typing_extensions.Literal["before_row_uid"] | None: ...
+
+global___RowsMovedEvent = RowsMovedEvent
+
+@typing_extensions.final
+class CellUpdatedEvent(google.protobuf.message.Message):
+    """CellUpdatedEvent represents an event for a cell being updated."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CELL_FIELD_NUMBER: builtins.int
+    DELTA_MODE_FIELD_NUMBER: builtins.int
+    @property
+    def cell(self) -> global___Cell:
+        """The cell that was updated."""
+    delta_mode: builtins.bool
+    """Whether the event is a delta update.
+    Only cells with string type can be returned in delta mode. Delta mode returns
+    only the changes made to the cell value rather than the full value.
+    """
+    def __init__(
+        self,
+        *,
+        cell: global___Cell | None = ...,
+        delta_mode: builtins.bool = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["cell", b"cell"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cell", b"cell", "delta_mode", b"delta_mode"]) -> None: ...
+
+global___CellUpdatedEvent = CellUpdatedEvent
+
+@typing_extensions.final
+class GenerateMockTableRequest(google.protobuf.message.Message):
+    """GenerateMockTableRequest represents a request to generate mock table data."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    TABLE_UID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The ID of the namespace that owns the table."""
+    table_uid: builtins.str
+    """The UID of the table to generate mock data for."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        table_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "table_uid", b"table_uid"]) -> None: ...
+
+global___GenerateMockTableRequest = GenerateMockTableRequest
+
+@typing_extensions.final
+class GenerateMockTableResponse(google.protobuf.message.Message):
+    """GenerateMockTableResponse is an empty response for generating mock table data."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___GenerateMockTableResponse = GenerateMockTableResponse

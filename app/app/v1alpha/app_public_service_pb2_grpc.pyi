@@ -227,6 +227,14 @@ class AppPublicServiceStub:
 
     Moves a row to a new position in a table.
     """
+    GetTableEvents: grpc.UnaryStreamMultiCallable[
+        app.app.v1alpha.table_pb2.GetTableEventsRequest,
+        app.app.v1alpha.table_pb2.GetTableEventsResponse,
+    ]
+    """Get table events
+
+    Returns a list of events for a table.
+    """
     Export: grpc.UnaryUnaryMultiCallable[
         app.app.v1alpha.table_pb2.ExportRequest,
         app.app.v1alpha.table_pb2.ExportResponse,
@@ -234,6 +242,16 @@ class AppPublicServiceStub:
     """Export table
 
     Exports table data.
+    """
+    GenerateMockTable: grpc.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.GenerateMockTableRequest,
+        app.app.v1alpha.table_pb2.GenerateMockTableResponse,
+    ]
+    """Generate mock table
+
+    Generates mock table data.
+    This API is only available for internal use to generate mock row data for testing purposes.
+    It should not be used in production environments.
     """
 
 class AppPublicServiceAsyncStub:
@@ -443,6 +461,14 @@ class AppPublicServiceAsyncStub:
 
     Moves a row to a new position in a table.
     """
+    GetTableEvents: grpc.aio.UnaryStreamMultiCallable[
+        app.app.v1alpha.table_pb2.GetTableEventsRequest,
+        app.app.v1alpha.table_pb2.GetTableEventsResponse,
+    ]
+    """Get table events
+
+    Returns a list of events for a table.
+    """
     Export: grpc.aio.UnaryUnaryMultiCallable[
         app.app.v1alpha.table_pb2.ExportRequest,
         app.app.v1alpha.table_pb2.ExportResponse,
@@ -450,6 +476,16 @@ class AppPublicServiceAsyncStub:
     """Export table
 
     Exports table data.
+    """
+    GenerateMockTable: grpc.aio.UnaryUnaryMultiCallable[
+        app.app.v1alpha.table_pb2.GenerateMockTableRequest,
+        app.app.v1alpha.table_pb2.GenerateMockTableResponse,
+    ]
+    """Generate mock table
+
+    Generates mock table data.
+    This API is only available for internal use to generate mock row data for testing purposes.
+    It should not be used in production environments.
     """
 
 class AppPublicServiceServicer(metaclass=abc.ABCMeta):
@@ -710,6 +746,16 @@ class AppPublicServiceServicer(metaclass=abc.ABCMeta):
         Moves a row to a new position in a table.
         """
     @abc.abstractmethod
+    def GetTableEvents(
+        self,
+        request: app.app.v1alpha.table_pb2.GetTableEventsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[collections.abc.Iterator[app.app.v1alpha.table_pb2.GetTableEventsResponse], collections.abc.AsyncIterator[app.app.v1alpha.table_pb2.GetTableEventsResponse]]:
+        """Get table events
+
+        Returns a list of events for a table.
+        """
+    @abc.abstractmethod
     def Export(
         self,
         request: app.app.v1alpha.table_pb2.ExportRequest,
@@ -718,6 +764,18 @@ class AppPublicServiceServicer(metaclass=abc.ABCMeta):
         """Export table
 
         Exports table data.
+        """
+    @abc.abstractmethod
+    def GenerateMockTable(
+        self,
+        request: app.app.v1alpha.table_pb2.GenerateMockTableRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[app.app.v1alpha.table_pb2.GenerateMockTableResponse, collections.abc.Awaitable[app.app.v1alpha.table_pb2.GenerateMockTableResponse]]:
+        """Generate mock table
+
+        Generates mock table data.
+        This API is only available for internal use to generate mock row data for testing purposes.
+        It should not be used in production environments.
         """
 
 def add_AppPublicServiceServicer_to_server(servicer: AppPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
