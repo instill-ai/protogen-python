@@ -483,6 +483,7 @@ class Cell(google.protobuf.message.Message):
     IMAGE_VALUE_FIELD_NUMBER: builtins.int
     VIDEO_VALUE_FIELD_NUMBER: builtins.int
     AUDIO_VALUE_FIELD_NUMBER: builtins.int
+    NULL_VALUE_FIELD_NUMBER: builtins.int
     METADATA_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """The unique identifier of the cell."""
@@ -518,6 +519,9 @@ class Cell(google.protobuf.message.Message):
     def audio_value(self) -> global___AudioCell:
         """The value of the cell as a url of an audio resource."""
     @property
+    def null_value(self) -> global___NullCell:
+        """The value of the cell as a null cell."""
+    @property
     def metadata(self) -> google.protobuf.struct_pb2.Struct:
         """Additional metadata for the cell."""
     def __init__(
@@ -535,13 +539,26 @@ class Cell(google.protobuf.message.Message):
         image_value: global___ImageCell | None = ...,
         video_value: global___VideoCell | None = ...,
         audio_value: global___AudioCell | None = ...,
+        null_value: global___NullCell | None = ...,
         metadata: google.protobuf.struct_pb2.Struct | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["audio_value", b"audio_value", "boolean_value", b"boolean_value", "document_value", b"document_value", "file_value", b"file_value", "image_value", b"image_value", "metadata", b"metadata", "number_value", b"number_value", "string_value", b"string_value", "update_time", b"update_time", "value", b"value", "video_value", b"video_value"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["audio_value", b"audio_value", "boolean_value", b"boolean_value", "column_uid", b"column_uid", "document_value", b"document_value", "file_value", b"file_value", "image_value", b"image_value", "metadata", b"metadata", "number_value", b"number_value", "string_value", b"string_value", "type", b"type", "uid", b"uid", "update_time", b"update_time", "value", b"value", "video_value", b"video_value"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["value", b"value"]) -> typing_extensions.Literal["string_value", "number_value", "boolean_value", "file_value", "document_value", "image_value", "video_value", "audio_value"] | None: ...
+    def HasField(self, field_name: typing_extensions.Literal["audio_value", b"audio_value", "boolean_value", b"boolean_value", "document_value", b"document_value", "file_value", b"file_value", "image_value", b"image_value", "metadata", b"metadata", "null_value", b"null_value", "number_value", b"number_value", "string_value", b"string_value", "update_time", b"update_time", "value", b"value", "video_value", b"video_value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["audio_value", b"audio_value", "boolean_value", b"boolean_value", "column_uid", b"column_uid", "document_value", b"document_value", "file_value", b"file_value", "image_value", b"image_value", "metadata", b"metadata", "null_value", b"null_value", "number_value", b"number_value", "string_value", b"string_value", "type", b"type", "uid", b"uid", "update_time", b"update_time", "value", b"value", "video_value", b"video_value"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["value", b"value"]) -> typing_extensions.Literal["string_value", "number_value", "boolean_value", "file_value", "document_value", "image_value", "video_value", "audio_value", "null_value"] | None: ...
 
 global___Cell = Cell
+
+@typing_extensions.final
+class NullCell(google.protobuf.message.Message):
+    """NullCell represents a null cell."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___NullCell = NullCell
 
 @typing_extensions.final
 class StringCell(google.protobuf.message.Message):
