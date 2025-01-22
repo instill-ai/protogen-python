@@ -349,7 +349,9 @@ class ColumnDefinition(google.protobuf.message.Message):
     type: builtins.str
     """The type of the column."""
     order: builtins.int
-    """The order of the column in the table."""
+    """The order of the column in the table, starting at 1. This determines the column's position
+    when displaying or processing table data.
+    """
     def __init__(
         self,
         *,
@@ -776,6 +778,7 @@ class Row(google.protobuf.message.Message):
 
     UID_FIELD_NUMBER: builtins.int
     CELLS_FIELD_NUMBER: builtins.int
+    ORDER_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     uid: builtins.str
@@ -783,6 +786,10 @@ class Row(google.protobuf.message.Message):
     @property
     def cells(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___Cell]:
         """Map of column names to their cell values."""
+    order: builtins.int
+    """The order of the row in the table, starting at 1. This determines the row's position
+    when displaying or processing table data.
+    """
     @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """The timestamp when the row was created."""
@@ -794,11 +801,12 @@ class Row(google.protobuf.message.Message):
         *,
         uid: builtins.str = ...,
         cells: collections.abc.Mapping[builtins.str, global___Cell] | None = ...,
+        order: builtins.int = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cells", b"cells", "create_time", b"create_time", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cells", b"cells", "create_time", b"create_time", "order", b"order", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
 
 global___Row = Row
 
