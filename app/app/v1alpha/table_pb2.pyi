@@ -1489,17 +1489,23 @@ class GenerateMockTableRequest(google.protobuf.message.Message):
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     TABLE_UID_FIELD_NUMBER: builtins.int
+    NUM_ROWS_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """The ID of the namespace that owns the table."""
     table_uid: builtins.str
     """The UID of the table to generate mock data for."""
+    num_rows: builtins.int
+    """The number of rows to generate."""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         table_uid: builtins.str = ...,
+        num_rows: builtins.int | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "table_uid", b"table_uid"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_num_rows", b"_num_rows", "num_rows", b"num_rows"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_num_rows", b"_num_rows", "namespace_id", b"namespace_id", "num_rows", b"num_rows", "table_uid", b"table_uid"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_num_rows", b"_num_rows"]) -> typing_extensions.Literal["num_rows"] | None: ...
 
 global___GenerateMockTableRequest = GenerateMockTableRequest
 
