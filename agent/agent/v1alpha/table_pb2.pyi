@@ -57,29 +57,29 @@ CELL_STATUS_COMPLETED: CellStatus.ValueType  # 5
 """The cell is completed."""
 global___CellStatus = CellStatus
 
-class _ExportType:
+class _ExportFormat:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _ExportTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ExportType.ValueType], builtins.type):
+class _ExportFormatEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ExportFormat.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-    EXPORT_TYPE_UNSPECIFIED: _ExportType.ValueType  # 0
-    """The type is not specified."""
-    EXPORT_TYPE_CSV: _ExportType.ValueType  # 1
-    """The type is CSV."""
-    EXPORT_TYPE_PARQUET: _ExportType.ValueType  # 2
-    """The type is Parquet."""
+    EXPORT_FORMAT_UNSPECIFIED: _ExportFormat.ValueType  # 0
+    """The format is not specified."""
+    EXPORT_FORMAT_CSV: _ExportFormat.ValueType  # 1
+    """The format is CSV."""
+    EXPORT_FORMAT_PARQUET: _ExportFormat.ValueType  # 2
+    """The format is Parquet."""
 
-class ExportType(_ExportType, metaclass=_ExportTypeEnumTypeWrapper):
-    """ExportType represents the type to export the data in."""
+class ExportFormat(_ExportFormat, metaclass=_ExportFormatEnumTypeWrapper):
+    """ExportFormat represents the format to export the data in."""
 
-EXPORT_TYPE_UNSPECIFIED: ExportType.ValueType  # 0
-"""The type is not specified."""
-EXPORT_TYPE_CSV: ExportType.ValueType  # 1
-"""The type is CSV."""
-EXPORT_TYPE_PARQUET: ExportType.ValueType  # 2
-"""The type is Parquet."""
-global___ExportType = ExportType
+EXPORT_FORMAT_UNSPECIFIED: ExportFormat.ValueType  # 0
+"""The format is not specified."""
+EXPORT_FORMAT_CSV: ExportFormat.ValueType  # 1
+"""The format is CSV."""
+EXPORT_FORMAT_PARQUET: ExportFormat.ValueType  # 2
+"""The format is Parquet."""
+global___ExportFormat = ExportFormat
 
 @typing_extensions.final
 class Table(google.protobuf.message.Message):
@@ -1172,21 +1172,21 @@ class ExportTableRequest(google.protobuf.message.Message):
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     TABLE_UID_FIELD_NUMBER: builtins.int
-    TYPE_FIELD_NUMBER: builtins.int
+    FORMAT_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """The ID of the namespace that owns the table."""
     table_uid: builtins.str
     """The UID of the table to export."""
-    type: global___ExportType.ValueType
-    """The type to export the data in."""
+    format: global___ExportFormat.ValueType
+    """The format to export the data in."""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         table_uid: builtins.str = ...,
-        type: global___ExportType.ValueType = ...,
+        format: global___ExportFormat.ValueType = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "table_uid", b"table_uid", "type", b"type"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["format", b"format", "namespace_id", b"namespace_id", "table_uid", b"table_uid"]) -> None: ...
 
 global___ExportTableRequest = ExportTableRequest
 
