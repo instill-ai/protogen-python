@@ -235,9 +235,9 @@ class AgentPublicServiceStub:
 
     Returns a list of events for a table.
     """
-    Export: grpc.UnaryUnaryMultiCallable[
-        agent.agent.v1alpha.table_pb2.ExportRequest,
-        agent.agent.v1alpha.table_pb2.ExportResponse,
+    ExportTable: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.ExportTableRequest,
+        agent.agent.v1alpha.table_pb2.ExportTableResponse,
     ]
     """Export table
 
@@ -469,9 +469,9 @@ class AgentPublicServiceAsyncStub:
 
     Returns a list of events for a table.
     """
-    Export: grpc.aio.UnaryUnaryMultiCallable[
-        agent.agent.v1alpha.table_pb2.ExportRequest,
-        agent.agent.v1alpha.table_pb2.ExportResponse,
+    ExportTable: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.ExportTableRequest,
+        agent.agent.v1alpha.table_pb2.ExportTableResponse,
     ]
     """Export table
 
@@ -756,11 +756,11 @@ class AgentPublicServiceServicer(metaclass=abc.ABCMeta):
         Returns a list of events for a table.
         """
     @abc.abstractmethod
-    def Export(
+    def ExportTable(
         self,
-        request: agent.agent.v1alpha.table_pb2.ExportRequest,
+        request: agent.agent.v1alpha.table_pb2.ExportTableRequest,
         context: _ServicerContext,
-    ) -> typing.Union[agent.agent.v1alpha.table_pb2.ExportResponse, collections.abc.Awaitable[agent.agent.v1alpha.table_pb2.ExportResponse]]:
+    ) -> typing.Union[agent.agent.v1alpha.table_pb2.ExportTableResponse, collections.abc.Awaitable[agent.agent.v1alpha.table_pb2.ExportTableResponse]]:
         """Export table
 
         Exports table data.

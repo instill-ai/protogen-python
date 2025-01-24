@@ -148,10 +148,10 @@ class AgentPublicServiceStub(object):
                 request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GetTableEventsRequest.SerializeToString,
                 response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GetTableEventsResponse.FromString,
                 )
-        self.Export = channel.unary_unary(
-                '/agent.agent.v1alpha.AgentPublicService/Export',
-                request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ExportRequest.SerializeToString,
-                response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ExportResponse.FromString,
+        self.ExportTable = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/ExportTable',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ExportTableRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ExportTableResponse.FromString,
                 )
         self.GenerateMockTable = channel.unary_unary(
                 '/agent.agent.v1alpha.AgentPublicService/GenerateMockTable',
@@ -401,7 +401,7 @@ class AgentPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def Export(self, request, context):
+    def ExportTable(self, request, context):
         """Export table
 
         Exports table data.
@@ -554,10 +554,10 @@ def add_AgentPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GetTableEventsRequest.FromString,
                     response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GetTableEventsResponse.SerializeToString,
             ),
-            'Export': grpc.unary_unary_rpc_method_handler(
-                    servicer.Export,
-                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ExportRequest.FromString,
-                    response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ExportResponse.SerializeToString,
+            'ExportTable': grpc.unary_unary_rpc_method_handler(
+                    servicer.ExportTable,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ExportTableRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ExportTableResponse.SerializeToString,
             ),
             'GenerateMockTable': grpc.unary_unary_rpc_method_handler(
                     servicer.GenerateMockTable,
@@ -1019,7 +1019,7 @@ class AgentPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def Export(request,
+    def ExportTable(request,
             target,
             options=(),
             channel_credentials=None,
@@ -1029,9 +1029,9 @@ class AgentPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/Export',
-            agent_dot_agent_dot_v1alpha_dot_table__pb2.ExportRequest.SerializeToString,
-            agent_dot_agent_dot_v1alpha_dot_table__pb2.ExportResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/ExportTable',
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.ExportTableRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.ExportTableResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

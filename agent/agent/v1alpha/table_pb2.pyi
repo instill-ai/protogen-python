@@ -57,6 +57,30 @@ CELL_STATUS_COMPLETED: CellStatus.ValueType  # 5
 """The cell is completed."""
 global___CellStatus = CellStatus
 
+class _ExportType:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _ExportTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ExportType.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    EXPORT_TYPE_UNSPECIFIED: _ExportType.ValueType  # 0
+    """The type is not specified."""
+    EXPORT_TYPE_CSV: _ExportType.ValueType  # 1
+    """The type is CSV."""
+    EXPORT_TYPE_PARQUET: _ExportType.ValueType  # 2
+    """The type is Parquet."""
+
+class ExportType(_ExportType, metaclass=_ExportTypeEnumTypeWrapper):
+    """ExportType represents the type to export the data in."""
+
+EXPORT_TYPE_UNSPECIFIED: ExportType.ValueType  # 0
+"""The type is not specified."""
+EXPORT_TYPE_CSV: ExportType.ValueType  # 1
+"""The type is CSV."""
+EXPORT_TYPE_PARQUET: ExportType.ValueType  # 2
+"""The type is Parquet."""
+global___ExportType = ExportType
+
 @typing_extensions.final
 class Table(google.protobuf.message.Message):
     """Table represents a table resource."""
@@ -1141,8 +1165,8 @@ class MoveRowsResponse(google.protobuf.message.Message):
 global___MoveRowsResponse = MoveRowsResponse
 
 @typing_extensions.final
-class ExportRequest(google.protobuf.message.Message):
-    """ExportRequest represents a request to export table data."""
+class ExportTableRequest(google.protobuf.message.Message):
+    """ExportTableRequest represents a request to export table data."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1153,22 +1177,22 @@ class ExportRequest(google.protobuf.message.Message):
     """The ID of the namespace that owns the table."""
     table_uid: builtins.str
     """The UID of the table to export."""
-    type: builtins.str
-    """The format to export the data in (csv, parquet)."""
+    type: global___ExportType.ValueType
+    """The type to export the data in."""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         table_uid: builtins.str = ...,
-        type: builtins.str = ...,
+        type: global___ExportType.ValueType = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "table_uid", b"table_uid", "type", b"type"]) -> None: ...
 
-global___ExportRequest = ExportRequest
+global___ExportTableRequest = ExportTableRequest
 
 @typing_extensions.final
-class ExportResponse(google.protobuf.message.Message):
-    """ExportResponse is an empty response for exporting table data."""
+class ExportTableResponse(google.protobuf.message.Message):
+    """ExportTableResponse is an empty response for exporting table data."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1182,7 +1206,7 @@ class ExportResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["data", b"data"]) -> None: ...
 
-global___ExportResponse = ExportResponse
+global___ExportTableResponse = ExportTableResponse
 
 @typing_extensions.final
 class GetTableEventsRequest(google.protobuf.message.Message):
