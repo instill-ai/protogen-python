@@ -107,7 +107,7 @@ global___ReadinessResponse = ReadinessResponse
 
 @typing_extensions.final
 class Session(google.protobuf.message.Message):
-    """Session represents a unique session whenever a new instance of VDP service
+    """Session represents a unique session whenever a new instance of Instill Core service
     gets started. The usage server returns a token that should be used as part of
     the challenge when sending a report with data collected from this session
     """

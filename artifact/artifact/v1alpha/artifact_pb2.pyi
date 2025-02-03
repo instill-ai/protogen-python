@@ -307,7 +307,7 @@ class RepositoryTag(google.protobuf.message.Message):
 
     An implementation of the [OCI Distribution Specification](https://github.com/opencontainers/distribution-spec?tab=readme-ov-file)
     is used to manage versioned content. The main use for repositories is storing
-    container images that can be used to deploy AI models or VDP pipelines.
+    container images that can be used to deploy AI models or pipelines.
 
     The ID of a repository has 2 segments, the owner (an Instill user or
     organization) and the content ID (the AI model or pipeline ID), e.g.

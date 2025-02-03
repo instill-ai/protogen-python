@@ -1161,9 +1161,9 @@ class PipelineUsageRecord(google.protobuf.message.Message):
     RECORD_TIME_FIELD_NUMBER: builtins.int
     VALUE_FIELD_NUMBER: builtins.int
     request_id: builtins.str
-    """A unique request id given by vdp when trigger the pipeline."""
+    """A unique request id given by Instill Core when trigger the pipeline."""
     operation_id: builtins.str
-    """A unique operation id given by vdp"""
+    """A unique operation id given by Instill Core"""
     status: builtins.str
     """The HTTP status received when user trigger the pipeline"""
     @property
