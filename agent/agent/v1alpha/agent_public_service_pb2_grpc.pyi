@@ -115,6 +115,30 @@ class AgentPublicServiceStub:
     This method is intended for real-time conversation with a chatbot
     and the response needs to be processed incrementally.
     """
+    BindChatTable: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.BindChatTableRequest,
+        agent.agent.v1alpha.table_pb2.BindChatTableResponse,
+    ]
+    """Bind table to chat
+
+    Binds a table to a chat.
+    """
+    UnbindChatTable: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.UnbindChatTableRequest,
+        agent.agent.v1alpha.table_pb2.UnbindChatTableResponse,
+    ]
+    """Unbind table from chat
+
+    Unbinds a table from a chat.
+    """
+    ListChatTables: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.ListChatTablesRequest,
+        agent.agent.v1alpha.table_pb2.ListChatTablesResponse,
+    ]
+    """List chat tables
+
+    Returns a list of tables bound to a chat.
+    """
     ListTables: grpc.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.table_pb2.ListTablesRequest,
         agent.agent.v1alpha.table_pb2.ListTablesResponse,
@@ -348,6 +372,30 @@ class AgentPublicServiceAsyncStub:
     Chat sends a message asynchronously and streams back the response.
     This method is intended for real-time conversation with a chatbot
     and the response needs to be processed incrementally.
+    """
+    BindChatTable: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.BindChatTableRequest,
+        agent.agent.v1alpha.table_pb2.BindChatTableResponse,
+    ]
+    """Bind table to chat
+
+    Binds a table to a chat.
+    """
+    UnbindChatTable: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.UnbindChatTableRequest,
+        agent.agent.v1alpha.table_pb2.UnbindChatTableResponse,
+    ]
+    """Unbind table from chat
+
+    Unbinds a table from a chat.
+    """
+    ListChatTables: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.ListChatTablesRequest,
+        agent.agent.v1alpha.table_pb2.ListChatTablesResponse,
+    ]
+    """List chat tables
+
+    Returns a list of tables bound to a chat.
     """
     ListTables: grpc.aio.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.table_pb2.ListTablesRequest,
@@ -604,6 +652,36 @@ class AgentPublicServiceServicer(metaclass=abc.ABCMeta):
         Chat sends a message asynchronously and streams back the response.
         This method is intended for real-time conversation with a chatbot
         and the response needs to be processed incrementally.
+        """
+    @abc.abstractmethod
+    def BindChatTable(
+        self,
+        request: agent.agent.v1alpha.table_pb2.BindChatTableRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.table_pb2.BindChatTableResponse, collections.abc.Awaitable[agent.agent.v1alpha.table_pb2.BindChatTableResponse]]:
+        """Bind table to chat
+
+        Binds a table to a chat.
+        """
+    @abc.abstractmethod
+    def UnbindChatTable(
+        self,
+        request: agent.agent.v1alpha.table_pb2.UnbindChatTableRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.table_pb2.UnbindChatTableResponse, collections.abc.Awaitable[agent.agent.v1alpha.table_pb2.UnbindChatTableResponse]]:
+        """Unbind table from chat
+
+        Unbinds a table from a chat.
+        """
+    @abc.abstractmethod
+    def ListChatTables(
+        self,
+        request: agent.agent.v1alpha.table_pb2.ListChatTablesRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.table_pb2.ListChatTablesResponse, collections.abc.Awaitable[agent.agent.v1alpha.table_pb2.ListChatTablesResponse]]:
+        """List chat tables
+
+        Returns a list of tables bound to a chat.
         """
     @abc.abstractmethod
     def ListTables(

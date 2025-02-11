@@ -87,6 +87,22 @@ class Table(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
+    class AgentConfig(google.protobuf.message.Message):
+        """The configuration for the agent."""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        ENABLE_FAITHFULNESS_CHECKING_FIELD_NUMBER: builtins.int
+        enable_faithfulness_checking: builtins.bool
+        """Whether to enable faithfulness checking for the table."""
+        def __init__(
+            self,
+            *,
+            enable_faithfulness_checking: builtins.bool = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["enable_faithfulness_checking", b"enable_faithfulness_checking"]) -> None: ...
+
     UID_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
     TITLE_FIELD_NUMBER: builtins.int
@@ -94,6 +110,7 @@ class Table(google.protobuf.message.Message):
     METADATA_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
+    AGENT_CONFIG_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """The unique identifier of the table."""
     id: builtins.str
@@ -111,6 +128,9 @@ class Table(google.protobuf.message.Message):
     @property
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """The timestamp when the table was last updated."""
+    @property
+    def agent_config(self) -> global___Table.AgentConfig:
+        """The configuration for the agent."""
     def __init__(
         self,
         *,
@@ -121,9 +141,10 @@ class Table(google.protobuf.message.Message):
         metadata: google.protobuf.struct_pb2.Struct | None = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        agent_config: global___Table.AgentConfig | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "metadata", b"metadata", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "description", b"description", "id", b"id", "metadata", b"metadata", "title", b"title", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "create_time", b"create_time", "metadata", b"metadata", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "create_time", b"create_time", "description", b"description", "id", b"id", "metadata", b"metadata", "title", b"title", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
 
 global___Table = Table
 
@@ -359,10 +380,55 @@ class ColumnDefinition(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    class _Sort:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _SortEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ColumnDefinition._Sort.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        SORT_UNSPECIFIED: ColumnDefinition._Sort.ValueType  # 0
+        """The sort is not specified."""
+        SORT_ASCENDING: ColumnDefinition._Sort.ValueType  # 1
+        """The sort is ascending."""
+        SORT_DESCENDING: ColumnDefinition._Sort.ValueType  # 2
+        """The sort is descending."""
+
+    class Sort(_Sort, metaclass=_SortEnumTypeWrapper):
+        """The sort of the column."""
+
+    SORT_UNSPECIFIED: ColumnDefinition.Sort.ValueType  # 0
+    """The sort is not specified."""
+    SORT_ASCENDING: ColumnDefinition.Sort.ValueType  # 1
+    """The sort is ascending."""
+    SORT_DESCENDING: ColumnDefinition.Sort.ValueType  # 2
+    """The sort is descending."""
+
+    @typing_extensions.final
+    class AgentConfig(google.protobuf.message.Message):
+        """The configuration for the agent."""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        INSTRUCTIONS_FIELD_NUMBER: builtins.int
+        ENABLE_WEB_SEARCH_FIELD_NUMBER: builtins.int
+        instructions: builtins.str
+        """The instructions for the agent."""
+        enable_web_search: builtins.bool
+        """Whether to enable web search for the agent."""
+        def __init__(
+            self,
+            *,
+            instructions: builtins.str = ...,
+            enable_web_search: builtins.bool = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["enable_web_search", b"enable_web_search", "instructions", b"instructions"]) -> None: ...
+
     COLUMN_UID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
     ORDER_FIELD_NUMBER: builtins.int
+    AGENT_CONFIG_FIELD_NUMBER: builtins.int
+    SORT_FIELD_NUMBER: builtins.int
     column_uid: builtins.str
     """The unique identifier of the column."""
     name: builtins.str
@@ -376,6 +442,11 @@ class ColumnDefinition(google.protobuf.message.Message):
     """The order of the column in the table, starting at 1. This determines the column's position
     when displaying or processing table data.
     """
+    @property
+    def agent_config(self) -> global___ColumnDefinition.AgentConfig:
+        """The configuration for the agent."""
+    sort: global___ColumnDefinition.Sort.ValueType
+    """The sort of the column."""
     def __init__(
         self,
         *,
@@ -383,8 +454,11 @@ class ColumnDefinition(google.protobuf.message.Message):
         name: builtins.str = ...,
         type: builtins.str = ...,
         order: builtins.int = ...,
+        agent_config: global___ColumnDefinition.AgentConfig | None = ...,
+        sort: global___ColumnDefinition.Sort.ValueType = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["column_uid", b"column_uid", "name", b"name", "order", b"order", "type", b"type"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "column_uid", b"column_uid", "name", b"name", "order", b"order", "sort", b"sort", "type", b"type"]) -> None: ...
 
 global___ColumnDefinition = ColumnDefinition
 
@@ -535,6 +609,26 @@ class Cell(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
+    class FaithfulnessCheckingResult(google.protobuf.message.Message):
+        """The faithfulness checking result for the cell."""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        RESULT_FIELD_NUMBER: builtins.int
+        CONFIDENCE_SCORE_FIELD_NUMBER: builtins.int
+        result: builtins.str
+        """The text of the faithfulness checking result."""
+        confidence_score: builtins.float
+        """The confidence score for the faithfulness checking result."""
+        def __init__(
+            self,
+            *,
+            result: builtins.str = ...,
+            confidence_score: builtins.float = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["confidence_score", b"confidence_score", "result", b"result"]) -> None: ...
+
     UID_FIELD_NUMBER: builtins.int
     COLUMN_UID_FIELD_NUMBER: builtins.int
     ROW_UID_FIELD_NUMBER: builtins.int
@@ -551,6 +645,7 @@ class Cell(google.protobuf.message.Message):
     NULL_VALUE_FIELD_NUMBER: builtins.int
     METADATA_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
+    FAITHFULNESS_CHECKING_RESULT_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """The unique identifier of the cell."""
     column_uid: builtins.str
@@ -594,6 +689,9 @@ class Cell(google.protobuf.message.Message):
         """Additional metadata for the cell."""
     status: global___CellStatus.ValueType
     """The status of the cell."""
+    @property
+    def faithfulness_checking_result(self) -> global___Cell.FaithfulnessCheckingResult:
+        """The faithfulness checking result for the cell."""
     def __init__(
         self,
         *,
@@ -613,9 +711,10 @@ class Cell(google.protobuf.message.Message):
         null_value: global___NullCell | None = ...,
         metadata: google.protobuf.struct_pb2.Struct | None = ...,
         status: global___CellStatus.ValueType = ...,
+        faithfulness_checking_result: global___Cell.FaithfulnessCheckingResult | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["audio_value", b"audio_value", "boolean_value", b"boolean_value", "document_value", b"document_value", "file_value", b"file_value", "image_value", b"image_value", "metadata", b"metadata", "null_value", b"null_value", "number_value", b"number_value", "string_value", b"string_value", "update_time", b"update_time", "value", b"value", "video_value", b"video_value"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["audio_value", b"audio_value", "boolean_value", b"boolean_value", "column_uid", b"column_uid", "document_value", b"document_value", "file_value", b"file_value", "image_value", b"image_value", "metadata", b"metadata", "null_value", b"null_value", "number_value", b"number_value", "row_uid", b"row_uid", "status", b"status", "string_value", b"string_value", "type", b"type", "uid", b"uid", "update_time", b"update_time", "value", b"value", "video_value", b"video_value"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["audio_value", b"audio_value", "boolean_value", b"boolean_value", "document_value", b"document_value", "faithfulness_checking_result", b"faithfulness_checking_result", "file_value", b"file_value", "image_value", b"image_value", "metadata", b"metadata", "null_value", b"null_value", "number_value", b"number_value", "string_value", b"string_value", "update_time", b"update_time", "value", b"value", "video_value", b"video_value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["audio_value", b"audio_value", "boolean_value", b"boolean_value", "column_uid", b"column_uid", "document_value", b"document_value", "faithfulness_checking_result", b"faithfulness_checking_result", "file_value", b"file_value", "image_value", b"image_value", "metadata", b"metadata", "null_value", b"null_value", "number_value", b"number_value", "row_uid", b"row_uid", "status", b"status", "string_value", b"string_value", "type", b"type", "uid", b"uid", "update_time", b"update_time", "value", b"value", "video_value", b"video_value"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["value", b"value"]) -> typing_extensions.Literal["string_value", "number_value", "boolean_value", "file_value", "document_value", "image_value", "video_value", "audio_value", "null_value"] | None: ...
 
 global___Cell = Cell
@@ -1511,24 +1610,58 @@ class GenerateMockTableRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    class _Mode:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _ModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[GenerateMockTableRequest._Mode.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        MODE_UNSPECIFIED: GenerateMockTableRequest._Mode.ValueType  # 0
+        """The mode is not specified."""
+        MODE_FILE: GenerateMockTableRequest._Mode.ValueType  # 1
+        """The mode is to generate mock data for a file-type table."""
+        MODE_SHEET: GenerateMockTableRequest._Mode.ValueType  # 2
+        """The mode is to generate mock data for a sheet-type table."""
+
+    class Mode(_Mode, metaclass=_ModeEnumTypeWrapper):
+        """The mode to generate mock data."""
+
+    MODE_UNSPECIFIED: GenerateMockTableRequest.Mode.ValueType  # 0
+    """The mode is not specified."""
+    MODE_FILE: GenerateMockTableRequest.Mode.ValueType  # 1
+    """The mode is to generate mock data for a file-type table."""
+    MODE_SHEET: GenerateMockTableRequest.Mode.ValueType  # 2
+    """The mode is to generate mock data for a sheet-type table."""
+
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     TABLE_UID_FIELD_NUMBER: builtins.int
     NUM_ROWS_FIELD_NUMBER: builtins.int
+    ENABLE_FAITHFULNESS_CHECKING_FIELD_NUMBER: builtins.int
+    MODE_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """The ID of the namespace that owns the table."""
     table_uid: builtins.str
     """The UID of the table to generate mock data for."""
     num_rows: builtins.int
     """The number of rows to generate."""
+    enable_faithfulness_checking: builtins.bool
+    """Whether to enable faithfulness checking for the mock data."""
+    mode: global___GenerateMockTableRequest.Mode.ValueType
+    """The mode to generate mock data."""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         table_uid: builtins.str = ...,
         num_rows: builtins.int | None = ...,
+        enable_faithfulness_checking: builtins.bool | None = ...,
+        mode: global___GenerateMockTableRequest.Mode.ValueType = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_num_rows", b"_num_rows", "num_rows", b"num_rows"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_num_rows", b"_num_rows", "namespace_id", b"namespace_id", "num_rows", b"num_rows", "table_uid", b"table_uid"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_enable_faithfulness_checking", b"_enable_faithfulness_checking", "_num_rows", b"_num_rows", "enable_faithfulness_checking", b"enable_faithfulness_checking", "num_rows", b"num_rows"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_enable_faithfulness_checking", b"_enable_faithfulness_checking", "_num_rows", b"_num_rows", "enable_faithfulness_checking", b"enable_faithfulness_checking", "mode", b"mode", "namespace_id", b"namespace_id", "num_rows", b"num_rows", "table_uid", b"table_uid"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_enable_faithfulness_checking", b"_enable_faithfulness_checking"]) -> typing_extensions.Literal["enable_faithfulness_checking"] | None: ...
+    @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_num_rows", b"_num_rows"]) -> typing_extensions.Literal["num_rows"] | None: ...
 
 global___GenerateMockTableRequest = GenerateMockTableRequest
@@ -1544,3 +1677,120 @@ class GenerateMockTableResponse(google.protobuf.message.Message):
     ) -> None: ...
 
 global___GenerateMockTableResponse = GenerateMockTableResponse
+
+@typing_extensions.final
+class BindChatTableRequest(google.protobuf.message.Message):
+    """BindChatTableRequest represents a request to bind a table to a chat."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    CHAT_UID_FIELD_NUMBER: builtins.int
+    TABLE_UID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The ID of the namespace that owns the table."""
+    chat_uid: builtins.str
+    """The UID of the chat to bind the table to."""
+    table_uid: builtins.str
+    """The UID of the table to bind to the chat."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        chat_uid: builtins.str = ...,
+        table_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chat_uid", b"chat_uid", "namespace_id", b"namespace_id", "table_uid", b"table_uid"]) -> None: ...
+
+global___BindChatTableRequest = BindChatTableRequest
+
+@typing_extensions.final
+class BindChatTableResponse(google.protobuf.message.Message):
+    """BindChatTableResponse is an empty response for binding a table to a chat."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___BindChatTableResponse = BindChatTableResponse
+
+@typing_extensions.final
+class UnbindChatTableRequest(google.protobuf.message.Message):
+    """UnbindChatTableRequest represents a request to unbind a table from a chat."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    CHAT_UID_FIELD_NUMBER: builtins.int
+    TABLE_UID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The ID of the namespace that owns the table."""
+    chat_uid: builtins.str
+    """The UID of the chat to unbind the table from."""
+    table_uid: builtins.str
+    """The UID of the table to unbind from the chat."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        chat_uid: builtins.str = ...,
+        table_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chat_uid", b"chat_uid", "namespace_id", b"namespace_id", "table_uid", b"table_uid"]) -> None: ...
+
+global___UnbindChatTableRequest = UnbindChatTableRequest
+
+@typing_extensions.final
+class UnbindChatTableResponse(google.protobuf.message.Message):
+    """UnbindChatTableResponse is an empty response for unbinding a table from a chat."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___UnbindChatTableResponse = UnbindChatTableResponse
+
+@typing_extensions.final
+class ListChatTablesRequest(google.protobuf.message.Message):
+    """ListChatTablesRequest represents a request to list tables bound to a chat."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    CHAT_UID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The ID of the namespace that owns the table."""
+    chat_uid: builtins.str
+    """The UID of the chat to list tables for."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        chat_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chat_uid", b"chat_uid", "namespace_id", b"namespace_id"]) -> None: ...
+
+global___ListChatTablesRequest = ListChatTablesRequest
+
+@typing_extensions.final
+class ListChatTablesResponse(google.protobuf.message.Message):
+    """ListChatTablesResponse contains the list of tables bound to a chat."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TABLES_FIELD_NUMBER: builtins.int
+    @property
+    def tables(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Table]:
+        """The tables bound to the chat."""
+    def __init__(
+        self,
+        *,
+        tables: collections.abc.Iterable[global___Table] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["tables", b"tables"]) -> None: ...
+
+global___ListChatTablesResponse = ListChatTablesResponse

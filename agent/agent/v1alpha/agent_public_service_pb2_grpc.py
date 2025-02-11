@@ -73,6 +73,21 @@ class AgentPublicServiceStub(object):
                 request_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatRequest.SerializeToString,
                 response_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatResponse.FromString,
                 )
+        self.BindChatTable = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/BindChatTable',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.BindChatTableRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.BindChatTableResponse.FromString,
+                )
+        self.UnbindChatTable = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/UnbindChatTable',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.UnbindChatTableRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.UnbindChatTableResponse.FromString,
+                )
+        self.ListChatTables = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/ListChatTables',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListChatTablesRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListChatTablesResponse.FromString,
+                )
         self.ListTables = channel.unary_unary(
                 '/agent.agent.v1alpha.AgentPublicService/ListTables',
                 request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListTablesRequest.SerializeToString,
@@ -261,6 +276,33 @@ class AgentPublicServiceServicer(object):
         Chat sends a message asynchronously and streams back the response.
         This method is intended for real-time conversation with a chatbot
         and the response needs to be processed incrementally.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def BindChatTable(self, request, context):
+        """Bind table to chat
+
+        Binds a table to a chat.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UnbindChatTable(self, request, context):
+        """Unbind table from chat
+
+        Unbinds a table from a chat.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListChatTables(self, request, context):
+        """List chat tables
+
+        Returns a list of tables bound to a chat.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -478,6 +520,21 @@ def add_AgentPublicServiceServicer_to_server(servicer, server):
                     servicer.Chat,
                     request_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatRequest.FromString,
                     response_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatResponse.SerializeToString,
+            ),
+            'BindChatTable': grpc.unary_unary_rpc_method_handler(
+                    servicer.BindChatTable,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.BindChatTableRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.BindChatTableResponse.SerializeToString,
+            ),
+            'UnbindChatTable': grpc.unary_unary_rpc_method_handler(
+                    servicer.UnbindChatTable,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.UnbindChatTableRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.UnbindChatTableResponse.SerializeToString,
+            ),
+            'ListChatTables': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListChatTables,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListChatTablesRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListChatTablesResponse.SerializeToString,
             ),
             'ListTables': grpc.unary_unary_rpc_method_handler(
                     servicer.ListTables,
@@ -760,6 +817,57 @@ class AgentPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/Chat',
             agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatRequest.SerializeToString,
             agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def BindChatTable(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/BindChatTable',
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.BindChatTableRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.BindChatTableResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UnbindChatTable(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/UnbindChatTable',
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.UnbindChatTableRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.UnbindChatTableResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListChatTables(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/ListChatTables',
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.ListChatTablesRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.ListChatTablesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
