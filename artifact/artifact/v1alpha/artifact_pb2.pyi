@@ -69,6 +69,8 @@ class _FileProcessStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapp
     """completed"""
     FILE_PROCESS_STATUS_FAILED: _FileProcessStatus.ValueType  # 7
     """failed"""
+    FILE_PROCESS_STATUS_SUMMARIZING: _FileProcessStatus.ValueType  # 8
+    """file is summarizing"""
 
 class FileProcessStatus(_FileProcessStatus, metaclass=_FileProcessStatusEnumTypeWrapper):
     """file embedding process status"""
@@ -89,6 +91,8 @@ FILE_PROCESS_STATUS_COMPLETED: FileProcessStatus.ValueType  # 6
 """completed"""
 FILE_PROCESS_STATUS_FAILED: FileProcessStatus.ValueType  # 7
 """failed"""
+FILE_PROCESS_STATUS_SUMMARIZING: FileProcessStatus.ValueType  # 8
+"""file is summarizing"""
 global___FileProcessStatus = FileProcessStatus
 
 class _FileType:
