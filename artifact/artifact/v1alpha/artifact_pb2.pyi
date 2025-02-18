@@ -783,6 +783,7 @@ class Catalog(google.protobuf.message.Message):
     TOTAL_FILES_FIELD_NUMBER: builtins.int
     TOTAL_TOKENS_FIELD_NUMBER: builtins.int
     USED_STORAGE_FIELD_NUMBER: builtins.int
+    SUMMARIZING_PIPELINES_FIELD_NUMBER: builtins.int
     catalog_uid: builtins.str
     """The catalog uid."""
     catalog_id: builtins.str
@@ -818,6 +819,9 @@ class Catalog(google.protobuf.message.Message):
     """The total tokens in catalog."""
     used_storage: builtins.int
     """The current used storage in catalog."""
+    @property
+    def summarizing_pipelines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """The catalog summarizing pipelines."""
     def __init__(
         self,
         *,
@@ -836,8 +840,9 @@ class Catalog(google.protobuf.message.Message):
         total_files: builtins.int = ...,
         total_tokens: builtins.int = ...,
         used_storage: builtins.int = ...,
+        summarizing_pipelines: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "catalog_uid", b"catalog_uid", "converting_pipelines", b"converting_pipelines", "create_time", b"create_time", "description", b"description", "downstream_apps", b"downstream_apps", "embedding_pipelines", b"embedding_pipelines", "name", b"name", "owner_name", b"owner_name", "splitting_pipelines", b"splitting_pipelines", "tags", b"tags", "total_files", b"total_files", "total_tokens", b"total_tokens", "update_time", b"update_time", "used_storage", b"used_storage"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "catalog_uid", b"catalog_uid", "converting_pipelines", b"converting_pipelines", "create_time", b"create_time", "description", b"description", "downstream_apps", b"downstream_apps", "embedding_pipelines", b"embedding_pipelines", "name", b"name", "owner_name", b"owner_name", "splitting_pipelines", b"splitting_pipelines", "summarizing_pipelines", b"summarizing_pipelines", "tags", b"tags", "total_files", b"total_files", "total_tokens", b"total_tokens", "update_time", b"update_time", "used_storage", b"used_storage"]) -> None: ...
 
 global___Catalog = Catalog
 
