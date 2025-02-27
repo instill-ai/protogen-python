@@ -65,6 +65,14 @@ class AgentPublicServiceStub:
 
     Updates a chat.
     """
+    GetChat: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.chat_pb2.GetChatRequest,
+        agent.agent.v1alpha.chat_pb2.GetChatResponse,
+    ]
+    """Get a chat
+
+    Gets a chat.
+    """
     DeleteChat: grpc.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.chat_pb2.DeleteChatRequest,
         agent.agent.v1alpha.chat_pb2.DeleteChatResponse,
@@ -322,6 +330,14 @@ class AgentPublicServiceAsyncStub:
     """Update a chat
 
     Updates a chat.
+    """
+    GetChat: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.chat_pb2.GetChatRequest,
+        agent.agent.v1alpha.chat_pb2.GetChatResponse,
+    ]
+    """Get a chat
+
+    Gets a chat.
     """
     DeleteChat: grpc.aio.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.chat_pb2.DeleteChatRequest,
@@ -590,6 +606,16 @@ class AgentPublicServiceServicer(metaclass=abc.ABCMeta):
         """Update a chat
 
         Updates a chat.
+        """
+    @abc.abstractmethod
+    def GetChat(
+        self,
+        request: agent.agent.v1alpha.chat_pb2.GetChatRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.chat_pb2.GetChatResponse, collections.abc.Awaitable[agent.agent.v1alpha.chat_pb2.GetChatResponse]]:
+        """Get a chat
+
+        Gets a chat.
         """
     @abc.abstractmethod
     def DeleteChat(

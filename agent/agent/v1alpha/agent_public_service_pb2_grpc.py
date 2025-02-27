@@ -43,6 +43,11 @@ class AgentPublicServiceStub(object):
                 request_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.UpdateChatRequest.SerializeToString,
                 response_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.UpdateChatResponse.FromString,
                 )
+        self.GetChat = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/GetChat',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.GetChatRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.GetChatResponse.FromString,
+                )
         self.DeleteChat = channel.unary_unary(
                 '/agent.agent.v1alpha.AgentPublicService/DeleteChat',
                 request_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.DeleteChatRequest.SerializeToString,
@@ -220,6 +225,15 @@ class AgentPublicServiceServicer(object):
         """Update a chat
 
         Updates a chat.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetChat(self, request, context):
+        """Get a chat
+
+        Gets a chat.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -491,6 +505,11 @@ def add_AgentPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.UpdateChatRequest.FromString,
                     response_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.UpdateChatResponse.SerializeToString,
             ),
+            'GetChat': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetChat,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.GetChatRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.GetChatResponse.SerializeToString,
+            ),
             'DeleteChat': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteChat,
                     request_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.DeleteChatRequest.FromString,
@@ -715,6 +734,23 @@ class AgentPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/UpdateChat',
             agent_dot_agent_dot_v1alpha_dot_chat__pb2.UpdateChatRequest.SerializeToString,
             agent_dot_agent_dot_v1alpha_dot_chat__pb2.UpdateChatResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetChat(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/GetChat',
+            agent_dot_agent_dot_v1alpha_dot_chat__pb2.GetChatRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_chat__pb2.GetChatResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

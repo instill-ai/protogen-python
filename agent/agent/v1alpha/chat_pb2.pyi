@@ -96,6 +96,7 @@ class Chat(google.protobuf.message.Message):
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     DELETE_TIME_FIELD_NUMBER: builtins.int
+    CATALOG_ID_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """unique identifier of the conversation created by the system."""
     namespace_id: builtins.str
@@ -114,6 +115,8 @@ class Chat(google.protobuf.message.Message):
     @property
     def delete_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """chat delete time."""
+    catalog_id: builtins.str
+    """catalog id"""
     def __init__(
         self,
         *,
@@ -124,9 +127,10 @@ class Chat(google.protobuf.message.Message):
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        catalog_id: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "create_time", b"create_time", "delete_time", b"delete_time", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "chat_display_name", b"chat_display_name", "create_time", b"create_time", "delete_time", b"delete_time", "namespace_id", b"namespace_id", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "catalog_id", b"catalog_id", "chat_display_name", b"chat_display_name", "create_time", b"create_time", "delete_time", b"delete_time", "namespace_id", b"namespace_id", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
 
 global___Chat = Chat
 
@@ -253,6 +257,7 @@ class CreateChatRequest(google.protobuf.message.Message):
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     CHAT_DISPLAY_NAME_FIELD_NUMBER: builtins.int
     AGENT_CONFIG_FIELD_NUMBER: builtins.int
+    CATALOG_ID_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """namespace id"""
     chat_display_name: builtins.str
@@ -260,15 +265,18 @@ class CreateChatRequest(google.protobuf.message.Message):
     @property
     def agent_config(self) -> global___AgentConfig:
         """agent config"""
+    catalog_id: builtins.str
+    """catalog id"""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         chat_display_name: builtins.str = ...,
         agent_config: global___AgentConfig | None = ...,
+        catalog_id: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "chat_display_name", b"chat_display_name", "namespace_id", b"namespace_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "catalog_id", b"catalog_id", "chat_display_name", b"chat_display_name", "namespace_id", b"namespace_id"]) -> None: ...
 
 global___CreateChatRequest = CreateChatRequest
 
@@ -406,6 +414,48 @@ class UpdateChatResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["chat", b"chat"]) -> None: ...
 
 global___UpdateChatResponse = UpdateChatResponse
+
+@typing_extensions.final
+class GetChatRequest(google.protobuf.message.Message):
+    """GetChatRequest is used to get a chat"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    CHAT_UID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """namespace id"""
+    chat_uid: builtins.str
+    """chat uid"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        chat_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chat_uid", b"chat_uid", "namespace_id", b"namespace_id"]) -> None: ...
+
+global___GetChatRequest = GetChatRequest
+
+@typing_extensions.final
+class GetChatResponse(google.protobuf.message.Message):
+    """GetChatResponse returns the chat"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CHAT_FIELD_NUMBER: builtins.int
+    @property
+    def chat(self) -> global___Chat:
+        """chat"""
+    def __init__(
+        self,
+        *,
+        chat: global___Chat | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["chat", b"chat"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chat", b"chat"]) -> None: ...
+
+global___GetChatResponse = GetChatResponse
 
 @typing_extensions.final
 class DeleteChatRequest(google.protobuf.message.Message):
