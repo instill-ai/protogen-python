@@ -21,6 +21,38 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+class _Type:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _TypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Type.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    TYPE_UNSPECIFIED: _Type.ValueType  # 0
+    """The type is not specified."""
+    TYPE_STRING: _Type.ValueType  # 1
+    """The type is a string."""
+    TYPE_NUMBER: _Type.ValueType  # 2
+    """The type is a number."""
+    TYPE_BOOLEAN: _Type.ValueType  # 3
+    """The type is a boolean."""
+    TYPE_FILE: _Type.ValueType  # 4
+    """The type is a url of a file resource."""
+
+class Type(_Type, metaclass=_TypeEnumTypeWrapper):
+    """The type of the column."""
+
+TYPE_UNSPECIFIED: Type.ValueType  # 0
+"""The type is not specified."""
+TYPE_STRING: Type.ValueType  # 1
+"""The type is a string."""
+TYPE_NUMBER: Type.ValueType  # 2
+"""The type is a number."""
+TYPE_BOOLEAN: Type.ValueType  # 3
+"""The type is a boolean."""
+TYPE_FILE: Type.ValueType  # 4
+"""The type is a url of a file resource."""
+global___Type = Type
+
 class _CellStatus:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
@@ -31,13 +63,15 @@ class _CellStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enu
     """The cell status is not specified."""
     CELL_STATUS_IDLE: _CellStatus.ValueType  # 1
     """The cell is idle."""
-    CELL_STATUS_PENDING: _CellStatus.ValueType  # 2
+    CELL_STATUS_UPLOADING: _CellStatus.ValueType  # 2
+    """The cell is uploading (only for file cells)."""
+    CELL_STATUS_PENDING: _CellStatus.ValueType  # 3
     """The cell is pending."""
-    CELL_STATUS_PROCESSING: _CellStatus.ValueType  # 3
+    CELL_STATUS_PROCESSING: _CellStatus.ValueType  # 4
     """The cell is processing."""
-    CELL_STATUS_FAILED: _CellStatus.ValueType  # 4
+    CELL_STATUS_FAILED: _CellStatus.ValueType  # 5
     """The cell is failed."""
-    CELL_STATUS_COMPLETED: _CellStatus.ValueType  # 5
+    CELL_STATUS_COMPLETED: _CellStatus.ValueType  # 6
     """The cell is completed."""
 
 class CellStatus(_CellStatus, metaclass=_CellStatusEnumTypeWrapper):
@@ -47,13 +81,15 @@ CELL_STATUS_UNSPECIFIED: CellStatus.ValueType  # 0
 """The cell status is not specified."""
 CELL_STATUS_IDLE: CellStatus.ValueType  # 1
 """The cell is idle."""
-CELL_STATUS_PENDING: CellStatus.ValueType  # 2
+CELL_STATUS_UPLOADING: CellStatus.ValueType  # 2
+"""The cell is uploading (only for file cells)."""
+CELL_STATUS_PENDING: CellStatus.ValueType  # 3
 """The cell is pending."""
-CELL_STATUS_PROCESSING: CellStatus.ValueType  # 3
+CELL_STATUS_PROCESSING: CellStatus.ValueType  # 4
 """The cell is processing."""
-CELL_STATUS_FAILED: CellStatus.ValueType  # 4
+CELL_STATUS_FAILED: CellStatus.ValueType  # 5
 """The cell is failed."""
-CELL_STATUS_COMPLETED: CellStatus.ValueType  # 5
+CELL_STATUS_COMPLETED: CellStatus.ValueType  # 6
 """The cell is completed."""
 global___CellStatus = CellStatus
 
@@ -93,15 +129,15 @@ class Table(google.protobuf.message.Message):
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-        ENABLE_FAITHFULNESS_CHECKING_FIELD_NUMBER: builtins.int
-        enable_faithfulness_checking: builtins.bool
-        """Whether to enable faithfulness checking for the table."""
+        ENABLE_TRANSPARENCY_FIELD_NUMBER: builtins.int
+        enable_transparency: builtins.bool
+        """Whether to enable transparency for the table."""
         def __init__(
             self,
             *,
-            enable_faithfulness_checking: builtins.bool = ...,
+            enable_transparency: builtins.bool = ...,
         ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["enable_faithfulness_checking", b"enable_faithfulness_checking"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["enable_transparency", b"enable_transparency"]) -> None: ...
 
     UID_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
@@ -410,18 +446,14 @@ class ColumnDefinition(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
         INSTRUCTIONS_FIELD_NUMBER: builtins.int
-        ENABLE_WEB_SEARCH_FIELD_NUMBER: builtins.int
         instructions: builtins.str
         """The instructions for the agent."""
-        enable_web_search: builtins.bool
-        """Whether to enable web search for the agent."""
         def __init__(
             self,
             *,
             instructions: builtins.str = ...,
-            enable_web_search: builtins.bool = ...,
         ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["enable_web_search", b"enable_web_search", "instructions", b"instructions"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["instructions", b"instructions"]) -> None: ...
 
     COLUMN_UID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
@@ -436,7 +468,7 @@ class ColumnDefinition(google.protobuf.message.Message):
     The name of the column. If this differs from the key in the ColumnDefinitions map,
     the key will be updated to match this value.
     """
-    type: builtins.str
+    type: global___Type.ValueType
     """The type of the column."""
     order: builtins.int
     """The order of the column in the table, starting at 1. This determines the column's position
@@ -452,7 +484,7 @@ class ColumnDefinition(google.protobuf.message.Message):
         *,
         column_uid: builtins.str = ...,
         name: builtins.str = ...,
-        type: builtins.str = ...,
+        type: global___Type.ValueType = ...,
         order: builtins.int = ...,
         agent_config: global___ColumnDefinition.AgentConfig | None = ...,
         sort: global___ColumnDefinition.Sort.ValueType = ...,
@@ -610,24 +642,75 @@ class Cell(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     @typing_extensions.final
-    class FaithfulnessCheckingResult(google.protobuf.message.Message):
-        """The faithfulness checking result for the cell."""
+    class Transparency(google.protobuf.message.Message):
+        """The transparency of the cell."""
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-        RESULT_FIELD_NUMBER: builtins.int
-        CONFIDENCE_SCORE_FIELD_NUMBER: builtins.int
-        result: builtins.str
-        """The text of the faithfulness checking result."""
-        confidence_score: builtins.float
-        """The confidence score for the faithfulness checking result."""
+        TEXT_FIELD_NUMBER: builtins.int
+        text: builtins.str
+        """The text of the transparency."""
         def __init__(
             self,
             *,
-            result: builtins.str = ...,
-            confidence_score: builtins.float = ...,
+            text: builtins.str = ...,
         ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["confidence_score", b"confidence_score", "result", b"result"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["text", b"text"]) -> None: ...
+
+    @typing_extensions.final
+    class Citation(google.protobuf.message.Message):
+        """The citations for the cell."""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        class _Type:
+            ValueType = typing.NewType("ValueType", builtins.int)
+            V: typing_extensions.TypeAlias = ValueType
+
+        class _TypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Cell.Citation._Type.ValueType], builtins.type):
+            DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+            TYPE_UNSPECIFIED: Cell.Citation._Type.ValueType  # 0
+            """The type is not specified."""
+            TYPE_WEB: Cell.Citation._Type.ValueType  # 1
+            """The type is a url of a web page."""
+            TYPE_FILE: Cell.Citation._Type.ValueType  # 2
+            """The type is a url of a file resource."""
+            TYPE_TABLE: Cell.Citation._Type.ValueType  # 3
+            """The type is a url of a table resource."""
+
+        class Type(_Type, metaclass=_TypeEnumTypeWrapper):
+            """The type of the citation."""
+
+        TYPE_UNSPECIFIED: Cell.Citation.Type.ValueType  # 0
+        """The type is not specified."""
+        TYPE_WEB: Cell.Citation.Type.ValueType  # 1
+        """The type is a url of a web page."""
+        TYPE_FILE: Cell.Citation.Type.ValueType  # 2
+        """The type is a url of a file resource."""
+        TYPE_TABLE: Cell.Citation.Type.ValueType  # 3
+        """The type is a url of a table resource."""
+
+        TYPE_FIELD_NUMBER: builtins.int
+        URL_FIELD_NUMBER: builtins.int
+        TITLE_FIELD_NUMBER: builtins.int
+        SUMMARY_FIELD_NUMBER: builtins.int
+        type: global___Cell.Citation.Type.ValueType
+        """The type of the citation."""
+        url: builtins.str
+        """The url of the citation."""
+        title: builtins.str
+        """The title of the citation."""
+        summary: builtins.str
+        """The summary of the citation."""
+        def __init__(
+            self,
+            *,
+            type: global___Cell.Citation.Type.ValueType = ...,
+            url: builtins.str = ...,
+            title: builtins.str = ...,
+            summary: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["summary", b"summary", "title", b"title", "type", b"type", "url", b"url"]) -> None: ...
 
     UID_FIELD_NUMBER: builtins.int
     COLUMN_UID_FIELD_NUMBER: builtins.int
@@ -638,14 +721,10 @@ class Cell(google.protobuf.message.Message):
     NUMBER_VALUE_FIELD_NUMBER: builtins.int
     BOOLEAN_VALUE_FIELD_NUMBER: builtins.int
     FILE_VALUE_FIELD_NUMBER: builtins.int
-    DOCUMENT_VALUE_FIELD_NUMBER: builtins.int
-    IMAGE_VALUE_FIELD_NUMBER: builtins.int
-    VIDEO_VALUE_FIELD_NUMBER: builtins.int
-    AUDIO_VALUE_FIELD_NUMBER: builtins.int
-    NULL_VALUE_FIELD_NUMBER: builtins.int
     METADATA_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
-    FAITHFULNESS_CHECKING_RESULT_FIELD_NUMBER: builtins.int
+    CITATIONS_FIELD_NUMBER: builtins.int
+    TRANSPARENCY_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """The unique identifier of the cell."""
     column_uid: builtins.str
@@ -655,7 +734,7 @@ class Cell(google.protobuf.message.Message):
     @property
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """The timestamp when the cell was last updated."""
-    type: builtins.str
+    type: global___Type.ValueType
     """The type of the cell's value."""
     @property
     def string_value(self) -> global___StringCell:
@@ -670,28 +749,16 @@ class Cell(google.protobuf.message.Message):
     def file_value(self) -> global___FileCell:
         """The value of the cell as a url of a file resource."""
     @property
-    def document_value(self) -> global___DocumentCell:
-        """The value of the cell as a url of a document resource."""
-    @property
-    def image_value(self) -> global___ImageCell:
-        """The value of the cell as a url of an image resource."""
-    @property
-    def video_value(self) -> global___VideoCell:
-        """The value of the cell as a url of a video resource."""
-    @property
-    def audio_value(self) -> global___AudioCell:
-        """The value of the cell as a url of an audio resource."""
-    @property
-    def null_value(self) -> global___NullCell:
-        """The value of the cell as a null cell."""
-    @property
     def metadata(self) -> google.protobuf.struct_pb2.Struct:
         """Additional metadata for the cell."""
     status: global___CellStatus.ValueType
     """The status of the cell."""
     @property
-    def faithfulness_checking_result(self) -> global___Cell.FaithfulnessCheckingResult:
-        """The faithfulness checking result for the cell."""
+    def citations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Cell.Citation]:
+        """The citations for the cell."""
+    @property
+    def transparency(self) -> global___Cell.Transparency:
+        """The transparency of the cell."""
     def __init__(
         self,
         *,
@@ -699,23 +766,19 @@ class Cell(google.protobuf.message.Message):
         column_uid: builtins.str = ...,
         row_uid: builtins.str = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        type: builtins.str = ...,
+        type: global___Type.ValueType = ...,
         string_value: global___StringCell | None = ...,
         number_value: global___NumberCell | None = ...,
         boolean_value: global___BooleanCell | None = ...,
         file_value: global___FileCell | None = ...,
-        document_value: global___DocumentCell | None = ...,
-        image_value: global___ImageCell | None = ...,
-        video_value: global___VideoCell | None = ...,
-        audio_value: global___AudioCell | None = ...,
-        null_value: global___NullCell | None = ...,
         metadata: google.protobuf.struct_pb2.Struct | None = ...,
         status: global___CellStatus.ValueType = ...,
-        faithfulness_checking_result: global___Cell.FaithfulnessCheckingResult | None = ...,
+        citations: collections.abc.Iterable[global___Cell.Citation] | None = ...,
+        transparency: global___Cell.Transparency | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["audio_value", b"audio_value", "boolean_value", b"boolean_value", "document_value", b"document_value", "faithfulness_checking_result", b"faithfulness_checking_result", "file_value", b"file_value", "image_value", b"image_value", "metadata", b"metadata", "null_value", b"null_value", "number_value", b"number_value", "string_value", b"string_value", "update_time", b"update_time", "value", b"value", "video_value", b"video_value"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["audio_value", b"audio_value", "boolean_value", b"boolean_value", "column_uid", b"column_uid", "document_value", b"document_value", "faithfulness_checking_result", b"faithfulness_checking_result", "file_value", b"file_value", "image_value", b"image_value", "metadata", b"metadata", "null_value", b"null_value", "number_value", b"number_value", "row_uid", b"row_uid", "status", b"status", "string_value", b"string_value", "type", b"type", "uid", b"uid", "update_time", b"update_time", "value", b"value", "video_value", b"video_value"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["value", b"value"]) -> typing_extensions.Literal["string_value", "number_value", "boolean_value", "file_value", "document_value", "image_value", "video_value", "audio_value", "null_value"] | None: ...
+    def HasField(self, field_name: typing_extensions.Literal["boolean_value", b"boolean_value", "file_value", b"file_value", "metadata", b"metadata", "number_value", b"number_value", "string_value", b"string_value", "transparency", b"transparency", "update_time", b"update_time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["boolean_value", b"boolean_value", "citations", b"citations", "column_uid", b"column_uid", "file_value", b"file_value", "metadata", b"metadata", "number_value", b"number_value", "row_uid", b"row_uid", "status", b"status", "string_value", b"string_value", "transparency", b"transparency", "type", b"type", "uid", b"uid", "update_time", b"update_time", "value", b"value"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["value", b"value"]) -> typing_extensions.Literal["string_value", "number_value", "boolean_value", "file_value"] | None: ...
 
 global___Cell = Cell
 
@@ -792,88 +855,24 @@ class FileCell(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     URL_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
+    MIME_TYPE_FIELD_NUMBER: builtins.int
     url: builtins.str
     """The URL of the file resource."""
+    name: builtins.str
+    """File Name"""
+    mime_type: builtins.str
+    """MIME type of the file."""
     def __init__(
         self,
         *,
         url: builtins.str = ...,
+        name: builtins.str = ...,
+        mime_type: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["url", b"url"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["mime_type", b"mime_type", "name", b"name", "url", b"url"]) -> None: ...
 
 global___FileCell = FileCell
-
-@typing_extensions.final
-class DocumentCell(google.protobuf.message.Message):
-    """DocumentCell represents a cell with a url of a document resource."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    URL_FIELD_NUMBER: builtins.int
-    url: builtins.str
-    """The URL of the document resource."""
-    def __init__(
-        self,
-        *,
-        url: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["url", b"url"]) -> None: ...
-
-global___DocumentCell = DocumentCell
-
-@typing_extensions.final
-class ImageCell(google.protobuf.message.Message):
-    """ImageCell represents a cell with a url of an image resource."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    URL_FIELD_NUMBER: builtins.int
-    url: builtins.str
-    """The URL of the image resource."""
-    def __init__(
-        self,
-        *,
-        url: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["url", b"url"]) -> None: ...
-
-global___ImageCell = ImageCell
-
-@typing_extensions.final
-class VideoCell(google.protobuf.message.Message):
-    """VideoCell represents a cell with a url of a video resource."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    URL_FIELD_NUMBER: builtins.int
-    url: builtins.str
-    """The URL of the video resource."""
-    def __init__(
-        self,
-        *,
-        url: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["url", b"url"]) -> None: ...
-
-global___VideoCell = VideoCell
-
-@typing_extensions.final
-class AudioCell(google.protobuf.message.Message):
-    """AudioCell represents a cell with a url of an audio resource."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    URL_FIELD_NUMBER: builtins.int
-    url: builtins.str
-    """The URL of the audio resource."""
-    def __init__(
-        self,
-        *,
-        url: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["url", b"url"]) -> None: ...
-
-global___AudioCell = AudioCell
 
 @typing_extensions.final
 class Row(google.protobuf.message.Message):
@@ -1636,7 +1635,7 @@ class GenerateMockTableRequest(google.protobuf.message.Message):
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     TABLE_UID_FIELD_NUMBER: builtins.int
     NUM_ROWS_FIELD_NUMBER: builtins.int
-    ENABLE_FAITHFULNESS_CHECKING_FIELD_NUMBER: builtins.int
+    ENABLE_TRANSPARENCY_FIELD_NUMBER: builtins.int
     MODE_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """The ID of the namespace that owns the table."""
@@ -1644,8 +1643,8 @@ class GenerateMockTableRequest(google.protobuf.message.Message):
     """The UID of the table to generate mock data for."""
     num_rows: builtins.int
     """The number of rows to generate."""
-    enable_faithfulness_checking: builtins.bool
-    """Whether to enable faithfulness checking for the mock data."""
+    enable_transparency: builtins.bool
+    """Whether to enable transparency for the mock data."""
     mode: global___GenerateMockTableRequest.Mode.ValueType
     """The mode to generate mock data."""
     def __init__(
@@ -1654,13 +1653,13 @@ class GenerateMockTableRequest(google.protobuf.message.Message):
         namespace_id: builtins.str = ...,
         table_uid: builtins.str = ...,
         num_rows: builtins.int | None = ...,
-        enable_faithfulness_checking: builtins.bool | None = ...,
+        enable_transparency: builtins.bool | None = ...,
         mode: global___GenerateMockTableRequest.Mode.ValueType = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_enable_faithfulness_checking", b"_enable_faithfulness_checking", "_num_rows", b"_num_rows", "enable_faithfulness_checking", b"enable_faithfulness_checking", "num_rows", b"num_rows"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_enable_faithfulness_checking", b"_enable_faithfulness_checking", "_num_rows", b"_num_rows", "enable_faithfulness_checking", b"enable_faithfulness_checking", "mode", b"mode", "namespace_id", b"namespace_id", "num_rows", b"num_rows", "table_uid", b"table_uid"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_enable_transparency", b"_enable_transparency", "_num_rows", b"_num_rows", "enable_transparency", b"enable_transparency", "num_rows", b"num_rows"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_enable_transparency", b"_enable_transparency", "_num_rows", b"_num_rows", "enable_transparency", b"enable_transparency", "mode", b"mode", "namespace_id", b"namespace_id", "num_rows", b"num_rows", "table_uid", b"table_uid"]) -> None: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_enable_faithfulness_checking", b"_enable_faithfulness_checking"]) -> typing_extensions.Literal["enable_faithfulness_checking"] | None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_enable_transparency", b"_enable_transparency"]) -> typing_extensions.Literal["enable_transparency"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_num_rows", b"_num_rows"]) -> typing_extensions.Literal["num_rows"] | None: ...
 
