@@ -301,6 +301,50 @@ class GetSourceFileResponse(google.protobuf.message.Message):
 global___GetSourceFileResponse = GetSourceFileResponse
 
 @typing_extensions.final
+class GetFileSummaryRequest(google.protobuf.message.Message):
+    """get file summary request"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    CATALOG_ID_FIELD_NUMBER: builtins.int
+    FILE_UID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """owner/namespace id"""
+    catalog_id: builtins.str
+    """catalog id"""
+    file_uid: builtins.str
+    """unique identifier of the original uploaded file"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        catalog_id: builtins.str = ...,
+        file_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "file_uid", b"file_uid", "namespace_id", b"namespace_id"]) -> None: ...
+
+global___GetFileSummaryRequest = GetFileSummaryRequest
+
+@typing_extensions.final
+class GetFileSummaryResponse(google.protobuf.message.Message):
+    """get file summary response"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    SUMMARY_FIELD_NUMBER: builtins.int
+    summary: builtins.str
+    """summary of the file"""
+    def __init__(
+        self,
+        *,
+        summary: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["summary", b"summary"]) -> None: ...
+
+global___GetFileSummaryResponse = GetFileSummaryResponse
+
+@typing_extensions.final
 class SearchSourceFilesRequest(google.protobuf.message.Message):
     """search source file request"""
 

@@ -131,6 +131,14 @@ class ArtifactPublicServiceStub:
 
     Gets the single-source-of-truth file of a catalog.
     """
+    GetFileSummary: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.chunk_pb2.GetFileSummaryRequest,
+        artifact.artifact.v1alpha.chunk_pb2.GetFileSummaryResponse,
+    ]
+    """Get summary from a catalog file
+
+    Gets summary from a catalog file
+    """
     SearchSourceFiles: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.SearchSourceFilesRequest,
         artifact.artifact.v1alpha.chunk_pb2.SearchSourceFilesResponse,
@@ -312,6 +320,14 @@ class ArtifactPublicServiceAsyncStub:
     """Get catalog single-source-of-truth file
 
     Gets the single-source-of-truth file of a catalog.
+    """
+    GetFileSummary: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.chunk_pb2.GetFileSummaryRequest,
+        artifact.artifact.v1alpha.chunk_pb2.GetFileSummaryResponse,
+    ]
+    """Get summary from a catalog file
+
+    Gets summary from a catalog file
     """
     SearchSourceFiles: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.SearchSourceFilesRequest,
@@ -520,6 +536,16 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         """Get catalog single-source-of-truth file
 
         Gets the single-source-of-truth file of a catalog.
+        """
+    @abc.abstractmethod
+    def GetFileSummary(
+        self,
+        request: artifact.artifact.v1alpha.chunk_pb2.GetFileSummaryRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.chunk_pb2.GetFileSummaryResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.chunk_pb2.GetFileSummaryResponse]]:
+        """Get summary from a catalog file
+
+        Gets summary from a catalog file
         """
     @abc.abstractmethod
     def SearchSourceFiles(

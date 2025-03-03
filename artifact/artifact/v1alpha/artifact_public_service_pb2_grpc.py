@@ -85,6 +85,11 @@ class ArtifactPublicServiceStub(object):
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetSourceFileRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetSourceFileResponse.FromString,
                 )
+        self.GetFileSummary = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/GetFileSummary',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetFileSummaryRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetFileSummaryResponse.FromString,
+                )
         self.SearchSourceFiles = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/SearchSourceFiles',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchSourceFilesRequest.SerializeToString,
@@ -254,6 +259,15 @@ class ArtifactPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetFileSummary(self, request, context):
+        """Get summary from a catalog file
+
+        Gets summary from a catalog file
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def SearchSourceFiles(self, request, context):
         """Search single-source-of-truth files
 
@@ -402,6 +416,11 @@ def add_ArtifactPublicServiceServicer_to_server(servicer, server):
                     servicer.GetSourceFile,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetSourceFileRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetSourceFileResponse.SerializeToString,
+            ),
+            'GetFileSummary': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetFileSummary,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetFileSummaryRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetFileSummaryResponse.SerializeToString,
             ),
             'SearchSourceFiles': grpc.unary_unary_rpc_method_handler(
                     servicer.SearchSourceFiles,
@@ -678,6 +697,23 @@ class ArtifactPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/GetSourceFile',
             artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetSourceFileRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetSourceFileResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetFileSummary(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/GetFileSummary',
+            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetFileSummaryRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetFileSummaryResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
