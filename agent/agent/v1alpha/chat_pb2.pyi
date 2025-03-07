@@ -28,20 +28,24 @@ class _CitationTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._E
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     CITATION_TYPE_UNSPECIFIED: _CitationType.ValueType  # 0
     """Unspecified citation type"""
-    CITATION_TYPE_CHUNK: _CitationType.ValueType  # 1
-    """Chunk-based citation"""
+    CITATION_TYPE_FILE: _CitationType.ValueType  # 1
+    """file citation"""
     CITATION_TYPE_URL: _CitationType.ValueType  # 2
     """URL-based citation"""
+    CITATION_TYPE_CELL: _CitationType.ValueType  # 3
+    """cell-based citation"""
 
 class CitationType(_CitationType, metaclass=_CitationTypeEnumTypeWrapper):
     """type of the citations message"""
 
 CITATION_TYPE_UNSPECIFIED: CitationType.ValueType  # 0
 """Unspecified citation type"""
-CITATION_TYPE_CHUNK: CitationType.ValueType  # 1
-"""Chunk-based citation"""
+CITATION_TYPE_FILE: CitationType.ValueType  # 1
+"""file citation"""
 CITATION_TYPE_URL: CitationType.ValueType  # 2
 """URL-based citation"""
+CITATION_TYPE_CELL: CitationType.ValueType  # 3
+"""cell-based citation"""
 global___CitationType = CitationType
 
 @typing_extensions.final
@@ -145,31 +149,42 @@ class Citation(google.protobuf.message.Message):
     URL_FIELD_NUMBER: builtins.int
     CHUNK_UID_FIELD_NUMBER: builtins.int
     FILE_UID_FIELD_NUMBER: builtins.int
+    OBJECT_UID_FIELD_NUMBER: builtins.int
+    SUMMARY_FIELD_NUMBER: builtins.int
     type: global___CitationType.ValueType
     """Type of citation"""
     name: builtins.str
     """Name of the citation"""
     url: builtins.str
-    """URL of the citation (only applicable for URL-type citations)"""
-    chunk_uid: builtins.str
-    """Chunk UID (only applicable for chunk-type citations)"""
+    """URL of the citation (only applicable for URL and cell type citations)"""
+    @property
+    def chunk_uid(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """Chunk UID (only applicable for file type citations)"""
     file_uid: builtins.str
-    """File UID (only applicable for chunk-type citations)"""
+    """File UID (only applicable for file type citations)"""
+    object_uid: builtins.str
+    """Object UID for download (only applicable for file type citations)"""
+    summary: builtins.str
+    """File summary (only applicable for file type citations)"""
     def __init__(
         self,
         *,
         type: global___CitationType.ValueType = ...,
         name: builtins.str = ...,
         url: builtins.str | None = ...,
-        chunk_uid: builtins.str | None = ...,
+        chunk_uid: collections.abc.Iterable[builtins.str] | None = ...,
         file_uid: builtins.str | None = ...,
+        object_uid: builtins.str | None = ...,
+        summary: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_chunk_uid", b"_chunk_uid", "_file_uid", b"_file_uid", "_url", b"_url", "chunk_uid", b"chunk_uid", "file_uid", b"file_uid", "url", b"url"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_chunk_uid", b"_chunk_uid", "_file_uid", b"_file_uid", "_url", b"_url", "chunk_uid", b"chunk_uid", "file_uid", b"file_uid", "name", b"name", "type", b"type", "url", b"url"]) -> None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_chunk_uid", b"_chunk_uid"]) -> typing_extensions.Literal["chunk_uid"] | None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_file_uid", b"_file_uid", "_object_uid", b"_object_uid", "_summary", b"_summary", "_url", b"_url", "file_uid", b"file_uid", "object_uid", b"object_uid", "summary", b"summary", "url", b"url"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_file_uid", b"_file_uid", "_object_uid", b"_object_uid", "_summary", b"_summary", "_url", b"_url", "chunk_uid", b"chunk_uid", "file_uid", b"file_uid", "name", b"name", "object_uid", b"object_uid", "summary", b"summary", "type", b"type", "url", b"url"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_file_uid", b"_file_uid"]) -> typing_extensions.Literal["file_uid"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_object_uid", b"_object_uid"]) -> typing_extensions.Literal["object_uid"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_summary", b"_summary"]) -> typing_extensions.Literal["summary"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_url", b"_url"]) -> typing_extensions.Literal["url"] | None: ...
 
