@@ -151,6 +151,7 @@ class Citation(google.protobuf.message.Message):
     FILE_UID_FIELD_NUMBER: builtins.int
     OBJECT_UID_FIELD_NUMBER: builtins.int
     SUMMARY_FIELD_NUMBER: builtins.int
+    NUMBER_FIELD_NUMBER: builtins.int
     type: global___CitationType.ValueType
     """Type of citation"""
     name: builtins.str
@@ -166,6 +167,8 @@ class Citation(google.protobuf.message.Message):
     """Object UID for download (only applicable for file type citations)"""
     summary: builtins.str
     """File summary (only applicable for file type citations)"""
+    number: builtins.int
+    """Citation number"""
     def __init__(
         self,
         *,
@@ -176,9 +179,10 @@ class Citation(google.protobuf.message.Message):
         file_uid: builtins.str | None = ...,
         object_uid: builtins.str | None = ...,
         summary: builtins.str | None = ...,
+        number: builtins.int = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_file_uid", b"_file_uid", "_object_uid", b"_object_uid", "_summary", b"_summary", "_url", b"_url", "file_uid", b"file_uid", "object_uid", b"object_uid", "summary", b"summary", "url", b"url"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_file_uid", b"_file_uid", "_object_uid", b"_object_uid", "_summary", b"_summary", "_url", b"_url", "chunk_uid", b"chunk_uid", "file_uid", b"file_uid", "name", b"name", "object_uid", b"object_uid", "summary", b"summary", "type", b"type", "url", b"url"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_file_uid", b"_file_uid", "_object_uid", b"_object_uid", "_summary", b"_summary", "_url", b"_url", "chunk_uid", b"chunk_uid", "file_uid", b"file_uid", "name", b"name", "number", b"number", "object_uid", b"object_uid", "summary", b"summary", "type", b"type", "url", b"url"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_file_uid", b"_file_uid"]) -> typing_extensions.Literal["file_uid"] | None: ...
     @typing.overload
