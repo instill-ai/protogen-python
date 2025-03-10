@@ -147,50 +147,30 @@ class Citation(google.protobuf.message.Message):
     TYPE_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     URL_FIELD_NUMBER: builtins.int
-    CHUNK_UID_FIELD_NUMBER: builtins.int
-    FILE_UID_FIELD_NUMBER: builtins.int
-    OBJECT_UID_FIELD_NUMBER: builtins.int
-    SUMMARY_FIELD_NUMBER: builtins.int
     NUMBER_FIELD_NUMBER: builtins.int
+    SUMMARY_FIELD_NUMBER: builtins.int
     type: global___CitationType.ValueType
     """Type of citation"""
     name: builtins.str
     """Name of the citation"""
     url: builtins.str
-    """URL of the citation (only applicable for URL and cell type citations)"""
-    @property
-    def chunk_uid(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """Chunk UID (only applicable for file type citations)"""
-    file_uid: builtins.str
-    """File UID (only applicable for file type citations)"""
-    object_uid: builtins.str
-    """Object UID for download (only applicable for file type citations)"""
-    summary: builtins.str
-    """File summary (only applicable for file type citations)"""
+    """URL of the citation, can be web url, cell url or object-uid"""
     number: builtins.int
     """Citation number"""
+    summary: builtins.str
+    """File summary (only applicable for file type citations)"""
     def __init__(
         self,
         *,
         type: global___CitationType.ValueType = ...,
         name: builtins.str = ...,
-        url: builtins.str | None = ...,
-        chunk_uid: collections.abc.Iterable[builtins.str] | None = ...,
-        file_uid: builtins.str | None = ...,
-        object_uid: builtins.str | None = ...,
-        summary: builtins.str | None = ...,
+        url: builtins.str = ...,
         number: builtins.int = ...,
+        summary: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_file_uid", b"_file_uid", "_object_uid", b"_object_uid", "_summary", b"_summary", "_url", b"_url", "file_uid", b"file_uid", "object_uid", b"object_uid", "summary", b"summary", "url", b"url"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_file_uid", b"_file_uid", "_object_uid", b"_object_uid", "_summary", b"_summary", "_url", b"_url", "chunk_uid", b"chunk_uid", "file_uid", b"file_uid", "name", b"name", "number", b"number", "object_uid", b"object_uid", "summary", b"summary", "type", b"type", "url", b"url"]) -> None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_file_uid", b"_file_uid"]) -> typing_extensions.Literal["file_uid"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_object_uid", b"_object_uid"]) -> typing_extensions.Literal["object_uid"] | None: ...
-    @typing.overload
+    def HasField(self, field_name: typing_extensions.Literal["_summary", b"_summary", "summary", b"summary"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_summary", b"_summary", "name", b"name", "number", b"number", "summary", b"summary", "type", b"type", "url", b"url"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_summary", b"_summary"]) -> typing_extensions.Literal["summary"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_url", b"_url"]) -> typing_extensions.Literal["url"] | None: ...
 
 global___Citation = Citation
 
