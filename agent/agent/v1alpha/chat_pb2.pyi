@@ -29,9 +29,9 @@ class _CitationTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._E
     CITATION_TYPE_UNSPECIFIED: _CitationType.ValueType  # 0
     """Unspecified citation type"""
     CITATION_TYPE_FILE: _CitationType.ValueType  # 1
-    """file citation"""
-    CITATION_TYPE_URL: _CitationType.ValueType  # 2
-    """URL-based citation"""
+    """file-based citation"""
+    CITATION_TYPE_WEB: _CitationType.ValueType  # 2
+    """web-based citation"""
     CITATION_TYPE_CELL: _CitationType.ValueType  # 3
     """cell-based citation"""
 
@@ -41,9 +41,9 @@ class CitationType(_CitationType, metaclass=_CitationTypeEnumTypeWrapper):
 CITATION_TYPE_UNSPECIFIED: CitationType.ValueType  # 0
 """Unspecified citation type"""
 CITATION_TYPE_FILE: CitationType.ValueType  # 1
-"""file citation"""
-CITATION_TYPE_URL: CitationType.ValueType  # 2
-"""URL-based citation"""
+"""file-based citation"""
+CITATION_TYPE_WEB: CitationType.ValueType  # 2
+"""web-based citation"""
 CITATION_TYPE_CELL: CitationType.ValueType  # 3
 """cell-based citation"""
 global___CitationType = CitationType
