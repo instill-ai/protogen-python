@@ -750,20 +750,25 @@ class ChatRequest(google.protobuf.message.Message):
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     CHAT_UID_FIELD_NUMBER: builtins.int
     MESSAGE_FIELD_NUMBER: builtins.int
+    FILE_UIDS_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """namespace id"""
     chat_uid: builtins.str
     """chat uid"""
     message: builtins.str
     """User message"""
+    @property
+    def file_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """file UIDs"""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         chat_uid: builtins.str = ...,
         message: builtins.str = ...,
+        file_uids: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["chat_uid", b"chat_uid", "message", b"message", "namespace_id", b"namespace_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chat_uid", b"chat_uid", "file_uids", b"file_uids", "message", b"message", "namespace_id", b"namespace_id"]) -> None: ...
 
 global___ChatRequest = ChatRequest
 
