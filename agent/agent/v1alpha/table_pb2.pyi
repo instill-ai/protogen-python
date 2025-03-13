@@ -61,37 +61,49 @@ class _CellStatus:
 class _CellStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CellStatus.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     CELL_STATUS_UNSPECIFIED: _CellStatus.ValueType  # 0
-    """The cell status is not specified."""
+    """The cell status is not specified or unknown."""
     CELL_STATUS_IDLE: _CellStatus.ValueType  # 1
-    """The cell is idle."""
-    CELL_STATUS_UPLOADING: _CellStatus.ValueType  # 2
-    """The cell is uploading (only for file cells)."""
-    CELL_STATUS_PENDING: _CellStatus.ValueType  # 3
-    """The cell is pending."""
-    CELL_STATUS_PROCESSING: _CellStatus.ValueType  # 4
-    """The cell is processing."""
-    CELL_STATUS_FAILED: _CellStatus.ValueType  # 5
-    """The cell is failed."""
-    CELL_STATUS_COMPLETED: _CellStatus.ValueType  # 6
-    """The cell is completed."""
+    """The cell is in a stable, ready state with no active processing."""
+    CELL_STATUS_DATA_UPLOADING: _CellStatus.ValueType  # 2
+    """The cell's file data is currently being uploaded to the server.
+    This status only applies to cells with file type values.
+    """
+    CELL_STATUS_DATA_PENDING: _CellStatus.ValueType  # 3
+    """The cell's data is queued for processing but has not started yet."""
+    CELL_STATUS_DATA_PROCESSING: _CellStatus.ValueType  # 4
+    """The cell's data is actively being processed."""
+    CELL_STATUS_DATA_FAILED: _CellStatus.ValueType  # 5
+    """The cell's data processing encountered an error and failed to complete."""
+    CELL_STATUS_TRANSPARENCY_PENDING: _CellStatus.ValueType  # 6
+    """The cell's transparency information is queued for generation but has not started yet."""
+    CELL_STATUS_TRANSPARENCY_PROCESSING: _CellStatus.ValueType  # 7
+    """The cell's transparency information is actively being generated."""
+    CELL_STATUS_TRANSPARENCY_FAILED: _CellStatus.ValueType  # 8
+    """The cell's transparency generation encountered an error and failed to complete."""
 
 class CellStatus(_CellStatus, metaclass=_CellStatusEnumTypeWrapper):
-    """CellStatus represents the status of a cell."""
+    """CellStatus represents the processing state of a cell."""
 
 CELL_STATUS_UNSPECIFIED: CellStatus.ValueType  # 0
-"""The cell status is not specified."""
+"""The cell status is not specified or unknown."""
 CELL_STATUS_IDLE: CellStatus.ValueType  # 1
-"""The cell is idle."""
-CELL_STATUS_UPLOADING: CellStatus.ValueType  # 2
-"""The cell is uploading (only for file cells)."""
-CELL_STATUS_PENDING: CellStatus.ValueType  # 3
-"""The cell is pending."""
-CELL_STATUS_PROCESSING: CellStatus.ValueType  # 4
-"""The cell is processing."""
-CELL_STATUS_FAILED: CellStatus.ValueType  # 5
-"""The cell is failed."""
-CELL_STATUS_COMPLETED: CellStatus.ValueType  # 6
-"""The cell is completed."""
+"""The cell is in a stable, ready state with no active processing."""
+CELL_STATUS_DATA_UPLOADING: CellStatus.ValueType  # 2
+"""The cell's file data is currently being uploaded to the server.
+This status only applies to cells with file type values.
+"""
+CELL_STATUS_DATA_PENDING: CellStatus.ValueType  # 3
+"""The cell's data is queued for processing but has not started yet."""
+CELL_STATUS_DATA_PROCESSING: CellStatus.ValueType  # 4
+"""The cell's data is actively being processed."""
+CELL_STATUS_DATA_FAILED: CellStatus.ValueType  # 5
+"""The cell's data processing encountered an error and failed to complete."""
+CELL_STATUS_TRANSPARENCY_PENDING: CellStatus.ValueType  # 6
+"""The cell's transparency information is queued for generation but has not started yet."""
+CELL_STATUS_TRANSPARENCY_PROCESSING: CellStatus.ValueType  # 7
+"""The cell's transparency information is actively being generated."""
+CELL_STATUS_TRANSPARENCY_FAILED: CellStatus.ValueType  # 8
+"""The cell's transparency generation encountered an error and failed to complete."""
 global___CellStatus = CellStatus
 
 class _ExportFormat:
