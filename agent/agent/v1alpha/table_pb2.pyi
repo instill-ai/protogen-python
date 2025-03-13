@@ -800,23 +800,27 @@ class FileCell(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    NAMESPACE_FIELD_NUMBER: builtins.int
     FILE_UID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     MIME_TYPE_FIELD_NUMBER: builtins.int
+    namespace: builtins.str
+    """The namespace of the file resource."""
     file_uid: builtins.str
     """The UID of the file resource."""
     name: builtins.str
-    """File Name"""
+    """File name"""
     mime_type: builtins.str
     """MIME type of the file."""
     def __init__(
         self,
         *,
+        namespace: builtins.str = ...,
         file_uid: builtins.str = ...,
         name: builtins.str = ...,
         mime_type: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["file_uid", b"file_uid", "mime_type", b"mime_type", "name", b"name"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file_uid", b"file_uid", "mime_type", b"mime_type", "name", b"name", "namespace", b"namespace"]) -> None: ...
 
 global___FileCell = FileCell
 

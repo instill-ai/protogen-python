@@ -32,8 +32,8 @@ class _CitationTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._E
     """file-based citation"""
     CITATION_TYPE_WEB: _CitationType.ValueType  # 2
     """web-based citation"""
-    CITATION_TYPE_CELL: _CitationType.ValueType  # 3
-    """cell-based citation"""
+    CITATION_TYPE_TABLE: _CitationType.ValueType  # 3
+    """table-based citation"""
 
 class CitationType(_CitationType, metaclass=_CitationTypeEnumTypeWrapper):
     """type of the citations message"""
@@ -44,8 +44,8 @@ CITATION_TYPE_FILE: CitationType.ValueType  # 1
 """file-based citation"""
 CITATION_TYPE_WEB: CitationType.ValueType  # 2
 """web-based citation"""
-CITATION_TYPE_CELL: CitationType.ValueType  # 3
-"""cell-based citation"""
+CITATION_TYPE_TABLE: CitationType.ValueType  # 3
+"""table-based citation"""
 global___CitationType = CitationType
 
 @typing_extensions.final
