@@ -790,3 +790,240 @@ class ChatResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["outputs", b"outputs"]) -> None: ...
 
 global___ChatResponse = ChatResponse
+
+@typing_extensions.final
+class ChatStartedEvent(google.protobuf.message.Message):
+    """ChatStartedEvent represents an event for a chat started"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CREATE_TIME_FIELD_NUMBER: builtins.int
+    @property
+    def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """The time when chat start"""
+    def __init__(
+        self,
+        *,
+        create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["create_time", b"create_time"]) -> None: ...
+
+global___ChatStartedEvent = ChatStartedEvent
+
+@typing_extensions.final
+class ChatStatusUpdatedEvent(google.protobuf.message.Message):
+    """ChatStatusUpdatedEvent represents an event for a chat status change"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CREATE_TIME_FIELD_NUMBER: builtins.int
+    CHAT_STATUS_FIELD_NUMBER: builtins.int
+    @property
+    def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """The time when chat status change"""
+    chat_status: builtins.str
+    """The updated chat status"""
+    def __init__(
+        self,
+        *,
+        create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        chat_status: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chat_status", b"chat_status", "create_time", b"create_time"]) -> None: ...
+
+global___ChatStatusUpdatedEvent = ChatStatusUpdatedEvent
+
+@typing_extensions.final
+class ChatOutputUpdatedEvent(google.protobuf.message.Message):
+    """ChatOutputUpdatedEvent represents an event for chat has new output"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CREATE_TIME_FIELD_NUMBER: builtins.int
+    OUTPUT_CHUNK_DELTA_FIELD_NUMBER: builtins.int
+    @property
+    def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """The time when chat has new output"""
+    output_chunk_delta: builtins.str
+    """The output chunk delta"""
+    def __init__(
+        self,
+        *,
+        create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        output_chunk_delta: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "output_chunk_delta", b"output_chunk_delta"]) -> None: ...
+
+global___ChatOutputUpdatedEvent = ChatOutputUpdatedEvent
+
+@typing_extensions.final
+class ChatNameUpdatedEvent(google.protobuf.message.Message):
+    """ChatNameUpdatedEvent represents an event for chat name change"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CREATE_TIME_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
+    @property
+    def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """The time when chat name change"""
+    name: builtins.str
+    """The updated chat name"""
+    def __init__(
+        self,
+        *,
+        create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        name: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "name", b"name"]) -> None: ...
+
+global___ChatNameUpdatedEvent = ChatNameUpdatedEvent
+
+@typing_extensions.final
+class ChatReplanTriggeredEvent(google.protobuf.message.Message):
+    """ChatReplanTriggeredEvent represents an event for a triggered replan"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CREATE_TIME_FIELD_NUMBER: builtins.int
+    NUMBER_OF_REPLAN_FIELD_NUMBER: builtins.int
+    @property
+    def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """The time when replan trigger"""
+    number_of_replan: builtins.int
+    """The current number of replan"""
+    def __init__(
+        self,
+        *,
+        create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        number_of_replan: builtins.int = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "number_of_replan", b"number_of_replan"]) -> None: ...
+
+global___ChatReplanTriggeredEvent = ChatReplanTriggeredEvent
+
+@typing_extensions.final
+class ChatCitationListUpdatedEvent(google.protobuf.message.Message):
+    """ChatCitationListUpdatedEvent represents an event for a citation list output"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CREATE_TIME_FIELD_NUMBER: builtins.int
+    CITATIONS_FIELD_NUMBER: builtins.int
+    @property
+    def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """The time when citation list output"""
+    @property
+    def citations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Citation]:
+        """The citation list"""
+    def __init__(
+        self,
+        *,
+        create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        citations: collections.abc.Iterable[global___Citation] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["citations", b"citations", "create_time", b"create_time"]) -> None: ...
+
+global___ChatCitationListUpdatedEvent = ChatCitationListUpdatedEvent
+
+@typing_extensions.final
+class ChatTableCreatedEvent(google.protobuf.message.Message):
+    """ChatTableCreatedEvent represents an event for a table creation"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CREATE_TIME_FIELD_NUMBER: builtins.int
+    TABLE_UID_FIELD_NUMBER: builtins.int
+    @property
+    def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """The time when table is created"""
+    table_uid: builtins.str
+    """The created table uid"""
+    def __init__(
+        self,
+        *,
+        create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        table_uid: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "table_uid", b"table_uid"]) -> None: ...
+
+global___ChatTableCreatedEvent = ChatTableCreatedEvent
+
+@typing_extensions.final
+class ChatErrorUpdatedEvent(google.protobuf.message.Message):
+    """ChatErrorUpdatedEvent represents an event for an error"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CREATE_TIME_FIELD_NUMBER: builtins.int
+    ERROR_TYPE_FIELD_NUMBER: builtins.int
+    ERROR_FIELD_NUMBER: builtins.int
+    @property
+    def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """The time when error triggered"""
+    error_type: builtins.str
+    """The error type"""
+    error: builtins.str
+    """The error message"""
+    def __init__(
+        self,
+        *,
+        create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        error_type: builtins.str = ...,
+        error: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "error", b"error", "error_type", b"error_type"]) -> None: ...
+
+global___ChatErrorUpdatedEvent = ChatErrorUpdatedEvent
+
+@typing_extensions.final
+class ChatDebugOutputUpdatedEvent(google.protobuf.message.Message):
+    """ChatDebugOutputUpdatedEvent represents an event for debug log"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CREATE_TIME_FIELD_NUMBER: builtins.int
+    DEBUG_OUTPUT_FIELD_NUMBER: builtins.int
+    @property
+    def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """The time when debug log output"""
+    debug_output: builtins.str
+    """The debug output"""
+    def __init__(
+        self,
+        *,
+        create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        debug_output: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "debug_output", b"debug_output"]) -> None: ...
+
+global___ChatDebugOutputUpdatedEvent = ChatDebugOutputUpdatedEvent
+
+@typing_extensions.final
+class ChatEndedEvent(google.protobuf.message.Message):
+    """ChatEndedEvent represents an event when chat ends"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CREATE_TIME_FIELD_NUMBER: builtins.int
+    @property
+    def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """The time when chat ends"""
+    def __init__(
+        self,
+        *,
+        create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["create_time", b"create_time"]) -> None: ...
+
+global___ChatEndedEvent = ChatEndedEvent
