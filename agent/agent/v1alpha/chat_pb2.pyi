@@ -48,6 +48,38 @@ CITATION_TYPE_TABLE: CitationType.ValueType  # 3
 """table-based citation"""
 global___CitationType = CitationType
 
+class _CitationExtractMethodType:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _CitationExtractMethodTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CitationExtractMethodType.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    CITATION_EXTRACT_METHOD_TYPE_UNSPECIFIED: _CitationExtractMethodType.ValueType  # 0
+    """Unspecified citation extract method"""
+    CITATION_EXTRACT_METHOD_TYPE_SELF: _CitationExtractMethodType.ValueType  # 1
+    """self generated"""
+    CITATION_EXTRACT_METHOD_TYPE_WEB: _CitationExtractMethodType.ValueType  # 2
+    """extract from web search tool"""
+    CITATION_EXTRACT_METHOD_TYPE_RAG: _CitationExtractMethodType.ValueType  # 3
+    """extract from RAG tool"""
+    CITATION_EXTRACT_METHOD_TYPE_DEEP_ANALYSIS: _CitationExtractMethodType.ValueType  # 4
+    """extract from deep analysis tool"""
+
+class CitationExtractMethodType(_CitationExtractMethodType, metaclass=_CitationExtractMethodTypeEnumTypeWrapper):
+    """type of the citations message extract method"""
+
+CITATION_EXTRACT_METHOD_TYPE_UNSPECIFIED: CitationExtractMethodType.ValueType  # 0
+"""Unspecified citation extract method"""
+CITATION_EXTRACT_METHOD_TYPE_SELF: CitationExtractMethodType.ValueType  # 1
+"""self generated"""
+CITATION_EXTRACT_METHOD_TYPE_WEB: CitationExtractMethodType.ValueType  # 2
+"""extract from web search tool"""
+CITATION_EXTRACT_METHOD_TYPE_RAG: CitationExtractMethodType.ValueType  # 3
+"""extract from RAG tool"""
+CITATION_EXTRACT_METHOD_TYPE_DEEP_ANALYSIS: CitationExtractMethodType.ValueType  # 4
+"""extract from deep analysis tool"""
+global___CitationExtractMethodType = CitationExtractMethodType
+
 @typing_extensions.final
 class AgentConfig(google.protobuf.message.Message):
     """AgentConfig represents the config for the chat agent."""
@@ -149,6 +181,7 @@ class Citation(google.protobuf.message.Message):
     URL_FIELD_NUMBER: builtins.int
     NUMBER_FIELD_NUMBER: builtins.int
     SUMMARY_FIELD_NUMBER: builtins.int
+    EXTRACT_METHOD_FIELD_NUMBER: builtins.int
     type: global___CitationType.ValueType
     """Type of citation"""
     name: builtins.str
@@ -159,6 +192,8 @@ class Citation(google.protobuf.message.Message):
     """Citation number"""
     summary: builtins.str
     """File summary (only applicable for file type citations)"""
+    extract_method: global___CitationExtractMethodType.ValueType
+    """Citation extract method type"""
     def __init__(
         self,
         *,
@@ -167,9 +202,10 @@ class Citation(google.protobuf.message.Message):
         url: builtins.str = ...,
         number: builtins.int = ...,
         summary: builtins.str | None = ...,
+        extract_method: global___CitationExtractMethodType.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_summary", b"_summary", "summary", b"summary"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_summary", b"_summary", "name", b"name", "number", b"number", "summary", b"summary", "type", b"type", "url", b"url"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_summary", b"_summary", "extract_method", b"extract_method", "name", b"name", "number", b"number", "summary", b"summary", "type", b"type", "url", b"url"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_summary", b"_summary"]) -> typing_extensions.Literal["summary"] | None: ...
 
 global___Citation = Citation
