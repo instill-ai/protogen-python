@@ -238,3 +238,47 @@ class GetFileCatalogResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["chunks", b"chunks", "metadata", b"metadata", "original_data", b"original_data", "text", b"text"]) -> None: ...
 
 global___GetFileCatalogResponse = GetFileCatalogResponse
+
+@typing_extensions.final
+class GetChatFileRequest(google.protobuf.message.Message):
+    """GetChatFileRequest"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    CATALOG_ID_FIELD_NUMBER: builtins.int
+    FILE_ID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """id of the namespace"""
+    catalog_id: builtins.str
+    """id of the catalog"""
+    file_id: builtins.str
+    """id of the file(i.e. file name)"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        catalog_id: builtins.str = ...,
+        file_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "file_id", b"file_id", "namespace_id", b"namespace_id"]) -> None: ...
+
+global___GetChatFileRequest = GetChatFileRequest
+
+@typing_extensions.final
+class GetChatFileResponse(google.protobuf.message.Message):
+    """GetChatFileResponse"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    MARKDOWN_FIELD_NUMBER: builtins.int
+    markdown: builtins.str
+    """converted markdown content"""
+    def __init__(
+        self,
+        *,
+        markdown: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["markdown", b"markdown"]) -> None: ...
+
+global___GetChatFileResponse = GetChatFileResponse

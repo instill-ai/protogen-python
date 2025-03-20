@@ -4,6 +4,7 @@ isort:skip_file
 """
 import abc
 import artifact.artifact.v1alpha.artifact_pb2
+import artifact.artifact.v1alpha.file_catalog_pb2
 import collections.abc
 import grpc
 import grpc.aio
@@ -69,6 +70,11 @@ class ArtifactPrivateServiceStub:
         artifact.artifact.v1alpha.artifact_pb2.UpdateObjectResponse,
     ]
     """Update Object"""
+    GetChatFile: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileRequest,
+        artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileResponse,
+    ]
+    """Get Chat file"""
 
 class ArtifactPrivateServiceAsyncStub:
     """ArtifactPrivateService exposes the private endpoints that allow clients to
@@ -121,6 +127,11 @@ class ArtifactPrivateServiceAsyncStub:
         artifact.artifact.v1alpha.artifact_pb2.UpdateObjectResponse,
     ]
     """Update Object"""
+    GetChatFile: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileRequest,
+        artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileResponse,
+    ]
+    """Get Chat file"""
 
 class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
     """ArtifactPrivateService exposes the private endpoints that allow clients to
@@ -187,5 +198,12 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.UpdateObjectResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.UpdateObjectResponse]]:
         """Update Object"""
+    @abc.abstractmethod
+    def GetChatFile(
+        self,
+        request: artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileResponse]]:
+        """Get Chat file"""
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer: ArtifactPrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

@@ -3,6 +3,7 @@
 import grpc
 
 from artifact.artifact.v1alpha import artifact_pb2 as artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2
+from artifact.artifact.v1alpha import file_catalog_pb2 as artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2
 
 
 class ArtifactPrivateServiceStub(object):
@@ -50,6 +51,11 @@ class ArtifactPrivateServiceStub(object):
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateObject',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateObjectRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateObjectResponse.FromString,
+                )
+        self.GetChatFile = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPrivateService/GetChatFile',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetChatFileRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetChatFileResponse.FromString,
                 )
 
 
@@ -116,6 +122,13 @@ class ArtifactPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetChatFile(self, request, context):
+        """Get Chat file
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -153,6 +166,11 @@ def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
                     servicer.UpdateObject,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateObjectRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateObjectResponse.SerializeToString,
+            ),
+            'GetChatFile': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetChatFile,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetChatFileRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetChatFileResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -282,5 +300,22 @@ class ArtifactPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateObject',
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateObjectRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateObjectResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetChatFile(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/GetChatFile',
+            artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetChatFileRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetChatFileResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
