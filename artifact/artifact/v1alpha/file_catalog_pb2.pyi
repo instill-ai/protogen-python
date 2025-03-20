@@ -272,12 +272,12 @@ class GetChatFileResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     MARKDOWN_FIELD_NUMBER: builtins.int
-    markdown: builtins.str
+    markdown: builtins.bytes
     """converted markdown content"""
     def __init__(
         self,
         *,
-        markdown: builtins.str = ...,
+        markdown: builtins.bytes = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["markdown", b"markdown"]) -> None: ...
 
