@@ -459,14 +459,18 @@ class ColumnDefinition(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
         INSTRUCTIONS_FIELD_NUMBER: builtins.int
+        ENABLE_WEB_SEARCH_FIELD_NUMBER: builtins.int
         instructions: builtins.str
         """The instructions for the agent."""
+        enable_web_search: builtins.bool
+        """Whether to enable web search for the column."""
         def __init__(
             self,
             *,
             instructions: builtins.str = ...,
+            enable_web_search: builtins.bool = ...,
         ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["instructions", b"instructions"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["enable_web_search", b"enable_web_search", "instructions", b"instructions"]) -> None: ...
 
     COLUMN_UID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
