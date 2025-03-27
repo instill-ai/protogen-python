@@ -110,7 +110,7 @@ global___View = View
 class Sharing(google.protobuf.message.Message):
     """Sharing contains the information to share a resource with other users.
 
-    For more information, see [Share Pipelines](https://www.instill.tech/docs/pipeline/share-pipeline).
+    For more information, see [Share Pipelines](https://instill-ai.dev/docs/pipeline/share-pipeline).
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor

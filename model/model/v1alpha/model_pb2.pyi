@@ -55,7 +55,7 @@ class _StateEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumType
 
 class State(_State, metaclass=_StateEnumTypeWrapper):
     """State describes the state of a model. See [Deploy
-    Models](https://www.instill.tech/docs/latest/model/deploy) for more
+    Models](https://instill-ai.dev/docs/latest/model/deploy) for more
     information.
     """
 

@@ -655,7 +655,7 @@ class PipelinePublicServiceServicer(object):
         The pipeline is identified by its resource name, formed by the parent namespace
         and ID of the pipeline.
 
-        For more information, see [Run NamespacePipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+        For more information, see [Run NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -686,7 +686,7 @@ class PipelinePublicServiceServicer(object):
         The pipeline is identified by its resource name, formed by the parent namespace
         and ID of the pipeline.
 
-        For more information, see [Run NamespacePipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+        For more information, see [Run NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -962,7 +962,7 @@ class PipelinePublicServiceServicer(object):
         The pipeline is identified by its resource name, formed by the parent user
         and ID of the pipeline.
 
-        For more information, see [Run Pipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+        For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -993,7 +993,7 @@ class PipelinePublicServiceServicer(object):
         The pipeline is identified by its resource name, formed by the parent user
         and ID of the pipeline.
 
-        For more information, see [Run Pipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+        For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1209,7 +1209,7 @@ class PipelinePublicServiceServicer(object):
         The pipeline is identified by its resource name, formed by the parent
         organization and ID of the pipeline.
 
-        For more information, see [Run Pipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+        For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1225,7 +1225,7 @@ class PipelinePublicServiceServicer(object):
         The pipeline is identified by its resource name, formed by the parent
         organization and ID of the pipeline.
 
-        For more information, see [Run Pipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+        For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1242,7 +1242,7 @@ class PipelinePublicServiceServicer(object):
         The pipeline is identified by its resource name, formed by the parent
         organization and ID of the pipeline.
 
-        For more information, see [Run Pipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+        For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

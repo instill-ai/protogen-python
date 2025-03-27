@@ -199,7 +199,7 @@ class Pipeline(google.protobuf.message.Message):
     """A Pipeline is an end-to-end workflow that automates a sequence of components
     to process data.
 
-    For more information, see [Pipeline](https://www.instill.tech/docs/pipeline/introduction) in
+    For more information, see [Pipeline](https://instill-ai.dev/docs/pipeline/introduction) in
     the official documentation.
     """
 

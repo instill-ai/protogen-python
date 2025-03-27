@@ -247,7 +247,7 @@ class MgmtPublicServiceStub:
     ]
     """Get the remaining Instill Credit
 
-    This endpoint returns the remaining [Instill Credit](https://www.instill.tech/docs/cloud/credit) of a given user or
+    This endpoint returns the remaining [Instill Credit](https://instill-ai.dev/docs/cloud/credit) of a given user or
     organization. The requested credit owner must be either the authenticated
     user or an organization they belong to.
 
@@ -620,7 +620,7 @@ class MgmtPublicServiceAsyncStub:
     ]
     """Get the remaining Instill Credit
 
-    This endpoint returns the remaining [Instill Credit](https://www.instill.tech/docs/cloud/credit) of a given user or
+    This endpoint returns the remaining [Instill Credit](https://instill-ai.dev/docs/cloud/credit) of a given user or
     organization. The requested credit owner must be either the authenticated
     user or an organization they belong to.
 
@@ -1047,7 +1047,7 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditResponse]]:
         """Get the remaining Instill Credit
 
-        This endpoint returns the remaining [Instill Credit](https://www.instill.tech/docs/cloud/credit) of a given user or
+        This endpoint returns the remaining [Instill Credit](https://instill-ai.dev/docs/cloud/credit) of a given user or
         organization. The requested credit owner must be either the authenticated
         user or an organization they belong to.
 

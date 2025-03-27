@@ -177,7 +177,7 @@ class PipelinePublicServiceStub:
     The pipeline is identified by its resource name, formed by the parent namespace
     and ID of the pipeline.
 
-    For more information, see [Run NamespacePipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+    For more information, see [Run NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     TriggerNamespacePipelineWithStream: grpc.UnaryStreamMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineWithStreamRequest,
@@ -206,7 +206,7 @@ class PipelinePublicServiceStub:
     The pipeline is identified by its resource name, formed by the parent namespace
     and ID of the pipeline.
 
-    For more information, see [Run NamespacePipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+    For more information, see [Run NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     CreateNamespacePipelineRelease: grpc.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineReleaseRequest,
@@ -459,7 +459,7 @@ class PipelinePublicServiceStub:
     The pipeline is identified by its resource name, formed by the parent user
     and ID of the pipeline.
 
-    For more information, see [Run Pipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+    For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     TriggerUserPipelineWithStream: grpc.UnaryStreamMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineWithStreamRequest,
@@ -488,7 +488,7 @@ class PipelinePublicServiceStub:
     The pipeline is identified by its resource name, formed by the parent user
     and ID of the pipeline.
 
-    For more information, see [Run Pipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+    For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     CreateUserPipelineRelease: grpc.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.CreateUserPipelineReleaseRequest,
@@ -687,7 +687,7 @@ class PipelinePublicServiceStub:
     The pipeline is identified by its resource name, formed by the parent
     organization and ID of the pipeline.
 
-    For more information, see [Run Pipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+    For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     TriggerOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineRequest,
@@ -702,7 +702,7 @@ class PipelinePublicServiceStub:
     The pipeline is identified by its resource name, formed by the parent
     organization and ID of the pipeline.
 
-    For more information, see [Run Pipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+    For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     TriggerAsyncOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.TriggerAsyncOrganizationPipelineRequest,
@@ -718,7 +718,7 @@ class PipelinePublicServiceStub:
     The pipeline is identified by its resource name, formed by the parent
     organization and ID of the pipeline.
 
-    For more information, see [Run Pipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+    For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     CreateOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.CreateOrganizationPipelineReleaseRequest,
@@ -1184,7 +1184,7 @@ class PipelinePublicServiceAsyncStub:
     The pipeline is identified by its resource name, formed by the parent namespace
     and ID of the pipeline.
 
-    For more information, see [Run NamespacePipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+    For more information, see [Run NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     TriggerNamespacePipelineWithStream: grpc.aio.UnaryStreamMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineWithStreamRequest,
@@ -1213,7 +1213,7 @@ class PipelinePublicServiceAsyncStub:
     The pipeline is identified by its resource name, formed by the parent namespace
     and ID of the pipeline.
 
-    For more information, see [Run NamespacePipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+    For more information, see [Run NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     CreateNamespacePipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineReleaseRequest,
@@ -1466,7 +1466,7 @@ class PipelinePublicServiceAsyncStub:
     The pipeline is identified by its resource name, formed by the parent user
     and ID of the pipeline.
 
-    For more information, see [Run Pipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+    For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     TriggerUserPipelineWithStream: grpc.aio.UnaryStreamMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineWithStreamRequest,
@@ -1495,7 +1495,7 @@ class PipelinePublicServiceAsyncStub:
     The pipeline is identified by its resource name, formed by the parent user
     and ID of the pipeline.
 
-    For more information, see [Run Pipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+    For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     CreateUserPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.CreateUserPipelineReleaseRequest,
@@ -1694,7 +1694,7 @@ class PipelinePublicServiceAsyncStub:
     The pipeline is identified by its resource name, formed by the parent
     organization and ID of the pipeline.
 
-    For more information, see [Run Pipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+    For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     TriggerOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineRequest,
@@ -1709,7 +1709,7 @@ class PipelinePublicServiceAsyncStub:
     The pipeline is identified by its resource name, formed by the parent
     organization and ID of the pipeline.
 
-    For more information, see [Run Pipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+    For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     TriggerAsyncOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.TriggerAsyncOrganizationPipelineRequest,
@@ -1725,7 +1725,7 @@ class PipelinePublicServiceAsyncStub:
     The pipeline is identified by its resource name, formed by the parent
     organization and ID of the pipeline.
 
-    For more information, see [Run Pipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+    For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     CreateOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.CreateOrganizationPipelineReleaseRequest,
@@ -2221,7 +2221,7 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         The pipeline is identified by its resource name, formed by the parent namespace
         and ID of the pipeline.
 
-        For more information, see [Run NamespacePipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+        For more information, see [Run NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
     @abc.abstractmethod
     def TriggerNamespacePipelineWithStream(
@@ -2254,7 +2254,7 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         The pipeline is identified by its resource name, formed by the parent namespace
         and ID of the pipeline.
 
-        For more information, see [Run NamespacePipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+        For more information, see [Run NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
     @abc.abstractmethod
     def CreateNamespacePipelineRelease(
@@ -2553,7 +2553,7 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         The pipeline is identified by its resource name, formed by the parent user
         and ID of the pipeline.
 
-        For more information, see [Run Pipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+        For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
     @abc.abstractmethod
     def TriggerUserPipelineWithStream(
@@ -2586,7 +2586,7 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         The pipeline is identified by its resource name, formed by the parent user
         and ID of the pipeline.
 
-        For more information, see [Run Pipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+        For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
     @abc.abstractmethod
     def CreateUserPipelineRelease(
@@ -2819,7 +2819,7 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         The pipeline is identified by its resource name, formed by the parent
         organization and ID of the pipeline.
 
-        For more information, see [Run Pipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+        For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
     @abc.abstractmethod
     def TriggerOrganizationPipeline(
@@ -2836,7 +2836,7 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         The pipeline is identified by its resource name, formed by the parent
         organization and ID of the pipeline.
 
-        For more information, see [Run Pipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+        For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
     @abc.abstractmethod
     def TriggerAsyncOrganizationPipeline(
@@ -2854,7 +2854,7 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         The pipeline is identified by its resource name, formed by the parent
         organization and ID of the pipeline.
 
-        For more information, see [Run Pipeline](https://www.instill.tech/docs/pipeline/run-pipeline).
+        For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
     @abc.abstractmethod
     def CreateOrganizationPipelineRelease(
