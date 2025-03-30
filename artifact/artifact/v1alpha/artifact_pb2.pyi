@@ -1055,6 +1055,8 @@ class File(google.protobuf.message.Message):
     TOTAL_TOKENS_FIELD_NUMBER: builtins.int
     EXTERNAL_METADATA_FIELD_NUMBER: builtins.int
     OBJECT_UID_FIELD_NUMBER: builtins.int
+    SUMMARY_FIELD_NUMBER: builtins.int
+    DOWNLOAD_URL_FIELD_NUMBER: builtins.int
     file_uid: builtins.str
     """file uid"""
     name: builtins.str
@@ -1097,6 +1099,10 @@ class File(google.protobuf.message.Message):
     """objectUid in blob storage. user can upload to blob storage directly, then put objectUid here.
     then no need the base64 encoding for the file content.
     """
+    summary: builtins.str
+    """summary of the file"""
+    download_url: builtins.str
+    """download url of the file"""
     def __init__(
         self,
         *,
@@ -1118,9 +1124,11 @@ class File(google.protobuf.message.Message):
         total_tokens: builtins.int = ...,
         external_metadata: google.protobuf.struct_pb2.Struct | None = ...,
         object_uid: builtins.str = ...,
+        summary: builtins.str = ...,
+        download_url: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_external_metadata", b"_external_metadata", "create_time", b"create_time", "delete_time", b"delete_time", "external_metadata", b"external_metadata", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_external_metadata", b"_external_metadata", "catalog_uid", b"catalog_uid", "content", b"content", "create_time", b"create_time", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "external_metadata", b"external_metadata", "file_uid", b"file_uid", "name", b"name", "object_uid", b"object_uid", "owner_uid", b"owner_uid", "process_outcome", b"process_outcome", "process_status", b"process_status", "retrievable", b"retrievable", "size", b"size", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_external_metadata", b"_external_metadata", "catalog_uid", b"catalog_uid", "content", b"content", "create_time", b"create_time", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "download_url", b"download_url", "external_metadata", b"external_metadata", "file_uid", b"file_uid", "name", b"name", "object_uid", b"object_uid", "owner_uid", b"owner_uid", "process_outcome", b"process_outcome", "process_status", b"process_status", "retrievable", b"retrievable", "size", b"size", "summary", b"summary", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_external_metadata", b"_external_metadata"]) -> typing_extensions.Literal["external_metadata"] | None: ...
 
 global___File = File
@@ -1340,6 +1348,52 @@ class ListCatalogFilesResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["files", b"files", "filter", b"filter", "next_page_token", b"next_page_token", "page_size", b"page_size", "total_size", b"total_size"]) -> None: ...
 
 global___ListCatalogFilesResponse = ListCatalogFilesResponse
+
+@typing_extensions.final
+class GetCatalogFileRequest(google.protobuf.message.Message):
+    """GetCatalogFileRequest represents a request to get a catalog file."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    CATALOG_ID_FIELD_NUMBER: builtins.int
+    FILE_UID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The namespace id."""
+    catalog_id: builtins.str
+    """The catalog id."""
+    file_uid: builtins.str
+    """The file uid."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        catalog_id: builtins.str = ...,
+        file_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "file_uid", b"file_uid", "namespace_id", b"namespace_id"]) -> None: ...
+
+global___GetCatalogFileRequest = GetCatalogFileRequest
+
+@typing_extensions.final
+class GetCatalogFileResponse(google.protobuf.message.Message):
+    """GetCatalogFileResponse represents a response for getting a catalog file."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_FIELD_NUMBER: builtins.int
+    @property
+    def file(self) -> global___File:
+        """The file."""
+    def __init__(
+        self,
+        *,
+        file: global___File | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["file", b"file"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file", b"file"]) -> None: ...
+
+global___GetCatalogFileResponse = GetCatalogFileResponse
 
 @typing_extensions.final
 class CatalogRun(google.protobuf.message.Message):

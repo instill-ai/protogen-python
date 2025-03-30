@@ -70,6 +70,11 @@ class ArtifactPublicServiceStub(object):
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogFilesRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogFilesResponse.FromString,
                 )
+        self.GetCatalogFile = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/GetCatalogFile',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetCatalogFileRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetCatalogFileResponse.FromString,
+                )
         self.ListChunks = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/ListChunks',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ListChunksRequest.SerializeToString,
@@ -227,6 +232,15 @@ class ArtifactPublicServiceServicer(object):
         """List catalog files
 
         Returns a paginated list of catalog files.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetCatalogFile(self, request, context):
+        """Get catalog file
+
+        Gets the file of a catalog.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -401,6 +415,11 @@ def add_ArtifactPublicServiceServicer_to_server(servicer, server):
                     servicer.ListCatalogFiles,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogFilesRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogFilesResponse.SerializeToString,
+            ),
+            'GetCatalogFile': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetCatalogFile,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetCatalogFileRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetCatalogFileResponse.SerializeToString,
             ),
             'ListChunks': grpc.unary_unary_rpc_method_handler(
                     servicer.ListChunks,
@@ -646,6 +665,23 @@ class ArtifactPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ListCatalogFiles',
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogFilesRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogFilesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetCatalogFile(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/GetCatalogFile',
+            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetCatalogFileRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetCatalogFileResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

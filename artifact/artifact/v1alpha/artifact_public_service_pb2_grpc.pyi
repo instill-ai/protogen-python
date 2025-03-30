@@ -107,6 +107,14 @@ class ArtifactPublicServiceStub:
 
     Returns a paginated list of catalog files.
     """
+    GetCatalogFile: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.GetCatalogFileRequest,
+        artifact.artifact.v1alpha.artifact_pb2.GetCatalogFileResponse,
+    ]
+    """Get catalog file
+
+    Gets the file of a catalog.
+    """
     ListChunks: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.ListChunksRequest,
         artifact.artifact.v1alpha.chunk_pb2.ListChunksResponse,
@@ -296,6 +304,14 @@ class ArtifactPublicServiceAsyncStub:
     """List catalog files
 
     Returns a paginated list of catalog files.
+    """
+    GetCatalogFile: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.GetCatalogFileRequest,
+        artifact.artifact.v1alpha.artifact_pb2.GetCatalogFileResponse,
+    ]
+    """Get catalog file
+
+    Gets the file of a catalog.
     """
     ListChunks: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.ListChunksRequest,
@@ -506,6 +522,16 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         """List catalog files
 
         Returns a paginated list of catalog files.
+        """
+    @abc.abstractmethod
+    def GetCatalogFile(
+        self,
+        request: artifact.artifact.v1alpha.artifact_pb2.GetCatalogFileRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.GetCatalogFileResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.GetCatalogFileResponse]]:
+        """Get catalog file
+
+        Gets the file of a catalog.
         """
     @abc.abstractmethod
     def ListChunks(
