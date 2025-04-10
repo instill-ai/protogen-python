@@ -49,9 +49,13 @@ class _StateEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumType
     resources for the model
     """
     STATE_SCALING_UP: _State.ValueType  # 7
-    """Scaling Up is the transition state when the system is provisioning compute resource for this model instance."""
+    """Scaling Up is the transition state when the system is provisioning compute
+    resource for this model instance.
+    """
     STATE_SCALING_DOWN: _State.ValueType  # 8
-    """Scaling is the transition state when the system is releasing compute resource for this model instance."""
+    """Scaling is the transition state when the system is releasing compute
+    resource for this model instance.
+    """
 
 class State(_State, metaclass=_StateEnumTypeWrapper):
     """State describes the state of a model. See [Deploy
@@ -74,9 +78,13 @@ STATE_STARTING: State.ValueType  # 6
 resources for the model
 """
 STATE_SCALING_UP: State.ValueType  # 7
-"""Scaling Up is the transition state when the system is provisioning compute resource for this model instance."""
+"""Scaling Up is the transition state when the system is provisioning compute
+resource for this model instance.
+"""
 STATE_SCALING_DOWN: State.ValueType  # 8
-"""Scaling is the transition state when the system is releasing compute resource for this model instance."""
+"""Scaling is the transition state when the system is releasing compute
+resource for this model instance.
+"""
 global___State = State
 
 @typing_extensions.final
@@ -483,8 +491,9 @@ class ListModelsRequest(google.protobuf.message.Message):
     visibility: global___Model.Visibility.ValueType
     """Limit results to pipelines with the specified visibility."""
     order_by: builtins.str
-    """Order by field, with options for ordering by `id`, `create_time` or `update_time`.
-    Format: `order_by=id` or `order_by=create_time desc`, default is `asc`.
+    """Order by field, with options for ordering by `id`, `create_time` or
+    `update_time`. Format: `order_by=id` or `order_by=create_time desc`,
+    default is `asc`.
     """
     def __init__(
         self,
@@ -624,8 +633,9 @@ class ListNamespaceModelsRequest(google.protobuf.message.Message):
     visibility: global___Model.Visibility.ValueType
     """Limit results to pipelines with the specified visibility."""
     order_by: builtins.str
-    """Order by field, with options for ordering by `id`, `create_time` or `update_time`.
-    Format: `order_by=id` or `order_by=create_time desc`, default is `asc`.
+    """Order by field, with options for ordering by `id`, `create_time` or
+    `update_time`. Format: `order_by=id` or `order_by=create_time desc`,
+    default is `asc`.
     """
     def __init__(
         self,
@@ -687,7 +697,9 @@ global___ListNamespaceModelsResponse = ListNamespaceModelsResponse
 
 @typing_extensions.final
 class CreateNamespaceModelRequest(google.protobuf.message.Message):
-    """CreateNamespaceModelRequest represents a request from a namespace to create a model."""
+    """CreateNamespaceModelRequest represents a request from a namespace to create a
+    model.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -924,7 +936,9 @@ global___RenameNamespaceModelResponse = RenameNamespaceModelResponse
 
 @typing_extensions.final
 class WatchNamespaceModelRequest(google.protobuf.message.Message):
-    """WatchNamespaceModelRequest represents a request to fetch current state of a model"""
+    """WatchNamespaceModelRequest represents a request to fetch current state of a
+    model
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -972,8 +986,8 @@ global___WatchNamespaceModelResponse = WatchNamespaceModelResponse
 
 @typing_extensions.final
 class WatchNamespaceLatestModelRequest(google.protobuf.message.Message):
-    """WatchNamespaceNamespaceLatestModelRequest represents a request to fetch current state of
-    the latest model version.
+    """WatchNamespaceNamespaceLatestModelRequest represents a request to fetch
+    current state of the latest model version.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -996,7 +1010,9 @@ global___WatchNamespaceLatestModelRequest = WatchNamespaceLatestModelRequest
 
 @typing_extensions.final
 class WatchNamespaceLatestModelResponse(google.protobuf.message.Message):
-    """WatchNamespaceLatestModelResponse contains the state of the latest model version."""
+    """WatchNamespaceLatestModelResponse contains the state of the latest model
+    version.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1018,8 +1034,8 @@ global___WatchNamespaceLatestModelResponse = WatchNamespaceLatestModelResponse
 
 @typing_extensions.final
 class ListNamespaceModelVersionsRequest(google.protobuf.message.Message):
-    """ListNamespaceModelVersionsRequest represents a request to list all the versions
-    of a model namespace of a namespace.
+    """ListNamespaceModelVersionsRequest represents a request to list all the
+    versions of a model namespace of a namespace.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1088,7 +1104,8 @@ global___ListNamespaceModelVersionsResponse = ListNamespaceModelVersionsResponse
 
 @typing_extensions.final
 class DeleteNamespaceModelVersionRequest(google.protobuf.message.Message):
-    """DeleteNamespaceModelVersionRequest represents a request to delete a model version
+    """DeleteNamespaceModelVersionRequest represents a request to delete a model
+    version
      owned by a namespace.
     """
 
@@ -1128,7 +1145,9 @@ global___DeleteNamespaceModelVersionResponse = DeleteNamespaceModelVersionRespon
 
 @typing_extensions.final
 class TriggerNamespaceModelRequest(google.protobuf.message.Message):
-    """TriggerNamespaceModelRequest represents a request to trigger a model inference."""
+    """TriggerNamespaceModelRequest represents a request to trigger a model
+    inference.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1182,8 +1201,8 @@ global___TriggerNamespaceModelResponse = TriggerNamespaceModelResponse
 
 @typing_extensions.final
 class TriggerAsyncNamespaceModelRequest(google.protobuf.message.Message):
-    """TriggerAsyncNamespaceModelRequest represents a request to trigger a model inference
-    asynchronously.
+    """TriggerAsyncNamespaceModelRequest represents a request to trigger a model
+    inference asynchronously.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1237,8 +1256,8 @@ global___TriggerAsyncNamespaceModelResponse = TriggerAsyncNamespaceModelResponse
 
 @typing_extensions.final
 class TriggerNamespaceLatestModelRequest(google.protobuf.message.Message):
-    """TriggerNamespaceLatestModelRequest represents a request to trigger a model inference
-    with the latest uploaded version.
+    """TriggerNamespaceLatestModelRequest represents a request to trigger a model
+    inference with the latest uploaded version.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1289,8 +1308,8 @@ global___TriggerNamespaceLatestModelResponse = TriggerNamespaceLatestModelRespon
 
 @typing_extensions.final
 class TriggerAsyncNamespaceLatestModelRequest(google.protobuf.message.Message):
-    """TriggerAsyncNamespaceLatestModelRequest represents a request to trigger a model inference
-    asynchronously with the latest uploaded version.
+    """TriggerAsyncNamespaceLatestModelRequest represents a request to trigger a
+    model inference asynchronously with the latest uploaded version.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1318,8 +1337,8 @@ global___TriggerAsyncNamespaceLatestModelRequest = TriggerAsyncNamespaceLatestMo
 
 @typing_extensions.final
 class TriggerAsyncNamespaceLatestModelResponse(google.protobuf.message.Message):
-    """TriggerAsyncNamespaceLatestModelResponse contains the information to access the
-    status of an asynchronous model inference.
+    """TriggerAsyncNamespaceLatestModelResponse contains the information to access
+    the status of an asynchronous model inference.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1340,8 +1359,8 @@ global___TriggerAsyncNamespaceLatestModelResponse = TriggerAsyncNamespaceLatestM
 
 @typing_extensions.final
 class TriggerNamespaceModelBinaryFileUploadRequest(google.protobuf.message.Message):
-    """TriggerNamespaceModelBinaryFileUploadRequest represents a request trigger a model
-    inference by uploading a binary file as the input.
+    """TriggerNamespaceModelBinaryFileUploadRequest represents a request trigger a
+    model inference by uploading a binary file as the input.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1373,7 +1392,9 @@ global___TriggerNamespaceModelBinaryFileUploadRequest = TriggerNamespaceModelBin
 
 @typing_extensions.final
 class TriggerNamespaceModelBinaryFileUploadResponse(google.protobuf.message.Message):
-    """TriggerNamespaceModelBinaryFileUploadResponse contains the model inference results."""
+    """TriggerNamespaceModelBinaryFileUploadResponse contains the model inference
+    results.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1396,8 +1417,8 @@ global___TriggerNamespaceModelBinaryFileUploadResponse = TriggerNamespaceModelBi
 
 @typing_extensions.final
 class TriggerNamespaceLatestModelBinaryFileUploadRequest(google.protobuf.message.Message):
-    """TriggerNamespaceModelLatestBinaryFileUploadRequest represents a request trigger a model
-    inference by uploading a binary file as the input.
+    """TriggerNamespaceModelLatestBinaryFileUploadRequest represents a request
+    trigger a model inference by uploading a binary file as the input.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1425,7 +1446,9 @@ global___TriggerNamespaceLatestModelBinaryFileUploadRequest = TriggerNamespaceLa
 
 @typing_extensions.final
 class TriggerNamespaceLatestModelBinaryFileUploadResponse(google.protobuf.message.Message):
-    """TriggerNamespaceLatestModelBinaryFileUploadResponse contains the model inference results."""
+    """TriggerNamespaceLatestModelBinaryFileUploadResponse contains the model
+    inference results.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1450,8 +1473,8 @@ global___TriggerNamespaceLatestModelBinaryFileUploadResponse = TriggerNamespaceL
 
 @typing_extensions.final
 class GetNamespaceLatestModelOperationRequest(google.protobuf.message.Message):
-    """GetNamespaceLatestModelOperationRequest represents a request to fetch the latest long-running
-    operation performed on a model for a namespace.
+    """GetNamespaceLatestModelOperationRequest represents a request to fetch the
+    latest long-running operation performed on a model for a namespace.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1464,7 +1487,9 @@ class GetNamespaceLatestModelOperationRequest(google.protobuf.message.Message):
     model_id: builtins.str
     """Model ID"""
     view: model.model.v1alpha.model_definition_pb2.View.ValueType
-    """View allows clients to specify the desired operation result in the response."""
+    """View allows clients to specify the desired operation result in the
+    response.
+    """
     def __init__(
         self,
         *,
@@ -1480,8 +1505,8 @@ global___GetNamespaceLatestModelOperationRequest = GetNamespaceLatestModelOperat
 
 @typing_extensions.final
 class GetNamespaceLatestModelOperationResponse(google.protobuf.message.Message):
-    """GetNamespaceLatestModelOperationResponse represents a response to query a long-running
-    operation.
+    """GetNamespaceLatestModelOperationResponse represents a response to query a
+    long-running operation.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1502,8 +1527,9 @@ global___GetNamespaceLatestModelOperationResponse = GetNamespaceLatestModelOpera
 
 @typing_extensions.final
 class GetNamespaceModelOperationRequest(google.protobuf.message.Message):
-    """GetNamespaceModelOperationRequest represents a request to fetch the long-running
-    operation performed on a particular model version for a namespace.
+    """GetNamespaceModelOperationRequest represents a request to fetch the
+    long-running operation performed on a particular model version for a
+    namespace.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1519,7 +1545,9 @@ class GetNamespaceModelOperationRequest(google.protobuf.message.Message):
     version: builtins.str
     """Model version"""
     view: model.model.v1alpha.model_definition_pb2.View.ValueType
-    """View allows clients to specify the desired operation result in the response."""
+    """View allows clients to specify the desired operation result in the
+    response.
+    """
     def __init__(
         self,
         *,
@@ -1536,8 +1564,8 @@ global___GetNamespaceModelOperationRequest = GetNamespaceModelOperationRequest
 
 @typing_extensions.final
 class GetNamespaceModelOperationResponse(google.protobuf.message.Message):
-    """GetNamespaceModelOperationResponse represents a response to query a long-running
-    operation.
+    """GetNamespaceModelOperationResponse represents a response to query a
+    long-running operation.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1558,7 +1586,9 @@ global___GetNamespaceModelOperationResponse = GetNamespaceModelOperationResponse
 
 @typing_extensions.final
 class DeployNamespaceModelAdminRequest(google.protobuf.message.Message):
-    """DeployNamespaceModelAdminRequest represents a request to deploy a model to online state"""
+    """DeployNamespaceModelAdminRequest represents a request to deploy a model to
+    online state
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1600,8 +1630,8 @@ global___DeployNamespaceModelAdminResponse = DeployNamespaceModelAdminResponse
 
 @typing_extensions.final
 class UndeployNamespaceModelAdminRequest(google.protobuf.message.Message):
-    """UndeployNamespaceModelAdminRequest represents a request to undeploy a model to offline
-    state
+    """UndeployNamespaceModelAdminRequest represents a request to undeploy a model
+    to offline state
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1632,7 +1662,9 @@ global___UndeployNamespaceModelAdminRequest = UndeployNamespaceModelAdminRequest
 
 @typing_extensions.final
 class UndeployNamespaceModelAdminResponse(google.protobuf.message.Message):
-    """UndeployNamespaceModelAdminResponse represents a response for a undeployed model"""
+    """UndeployNamespaceModelAdminResponse represents a response for a undeployed
+    model
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1725,8 +1757,9 @@ class ListUserModelsRequest(google.protobuf.message.Message):
     visibility: global___Model.Visibility.ValueType
     """Limit results to pipelines with the specified visibility."""
     order_by: builtins.str
-    """Order by field, with options for ordering by `id`, `create_time` or `update_time`.
-    Format: `order_by=id` or `order_by=create_time desc`, default is `asc`.
+    """Order by field, with options for ordering by `id`, `create_time` or
+    `update_time`. Format: `order_by=id` or `order_by=create_time desc`,
+    default is `asc`.
     """
     def __init__(
         self,
@@ -2230,8 +2263,8 @@ global___TriggerUserModelResponse = TriggerUserModelResponse
 
 @typing_extensions.final
 class TriggerAsyncUserModelRequest(google.protobuf.message.Message):
-    """TriggerAsyncUserModelRequest represents a request to trigger a model inference
-    asynchronously.
+    """TriggerAsyncUserModelRequest represents a request to trigger a model
+    inference asynchronously.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -2284,8 +2317,8 @@ global___TriggerAsyncUserModelResponse = TriggerAsyncUserModelResponse
 
 @typing_extensions.final
 class TriggerUserLatestModelRequest(google.protobuf.message.Message):
-    """TriggerUserLatestModelRequest represents a request to trigger a model inference
-    with the latest uploaded version.
+    """TriggerUserLatestModelRequest represents a request to trigger a model
+    inference with the latest uploaded version.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -2335,8 +2368,8 @@ global___TriggerUserLatestModelResponse = TriggerUserLatestModelResponse
 
 @typing_extensions.final
 class TriggerAsyncUserLatestModelRequest(google.protobuf.message.Message):
-    """TriggerAsyncUserLatestModelRequest represents a request to trigger a model inference
-    asynchronously with the latest uploaded version.
+    """TriggerAsyncUserLatestModelRequest represents a request to trigger a model
+    inference asynchronously with the latest uploaded version.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -2417,7 +2450,9 @@ global___TriggerUserModelBinaryFileUploadRequest = TriggerUserModelBinaryFileUpl
 
 @typing_extensions.final
 class TriggerUserModelBinaryFileUploadResponse(google.protobuf.message.Message):
-    """TriggerUserModelBinaryFileUploadResponse contains the model inference results."""
+    """TriggerUserModelBinaryFileUploadResponse contains the model inference
+    results.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2444,7 +2479,8 @@ class CreateOrganizationModelRequest(google.protobuf.message.Message):
      Organization methods
     //////////////////////////////////
 
-    CreateOrganizationModelRequest represents a request from an organization to create a model.
+    CreateOrganizationModelRequest represents a request from an organization to
+    create a model.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -2528,8 +2564,9 @@ class ListOrganizationModelsRequest(google.protobuf.message.Message):
     visibility: global___Model.Visibility.ValueType
     """Limit results to pipelines with the specified visibility."""
     order_by: builtins.str
-    """Order by field, with options for ordering by `id`, `create_time` or `update_time`.
-    Format: `order_by=id` or `order_by=create_time desc`, default is `asc`.
+    """Order by field, with options for ordering by `id`, `create_time` or
+    `update_time`. Format: `order_by=id` or `order_by=create_time desc`,
+    default is `asc`.
     """
     def __init__(
         self,
@@ -2591,8 +2628,8 @@ global___ListOrganizationModelsResponse = ListOrganizationModelsResponse
 
 @typing_extensions.final
 class GetOrganizationModelRequest(google.protobuf.message.Message):
-    """GetOrganizationModelRequest represents a request to fetch the details of a model
-    owned by an organization.
+    """GetOrganizationModelRequest represents a request to fetch the details of a
+    model owned by an organization.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -2600,8 +2637,8 @@ class GetOrganizationModelRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """The resource name of the model, which allows its access by parent organization
-    and ID.
+    """The resource name of the model, which allows its access by parent
+    organization and ID.
     - Format: `organizations/{organization.id}/models/{model.id}`.
     """
     view: model.model.v1alpha.model_definition_pb2.View.ValueType
@@ -2640,8 +2677,8 @@ global___GetOrganizationModelResponse = GetOrganizationModelResponse
 
 @typing_extensions.final
 class UpdateOrganizationModelRequest(google.protobuf.message.Message):
-    """UpdateOrganizationModelRequest represents a request to update a model owned by an
-    organization.
+    """UpdateOrganizationModelRequest represents a request to update a model owned
+    by an organization.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -2691,16 +2728,16 @@ global___UpdateOrganizationModelResponse = UpdateOrganizationModelResponse
 
 @typing_extensions.final
 class DeleteOrganizationModelRequest(google.protobuf.message.Message):
-    """DeleteOrganizationModelRequest represents a request to delete a model owned by an
-    organization.
+    """DeleteOrganizationModelRequest represents a request to delete a model owned
+    by an organization.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """The resource name of the model, which allows its access by parent organization
-    and ID.
+    """The resource name of the model, which allows its access by parent
+    organization and ID.
     - Format: `organizations/{organization.id}/models/{model.id}`.
     """
     def __init__(
@@ -2733,8 +2770,8 @@ class RenameOrganizationModelRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     NEW_MODEL_ID_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """The resource name of the model, which allows its access by parent organization
-    and ID.
+    """The resource name of the model, which allows its access by parent
+    organization and ID.
     - Format: `organizations/{organization.id}/models/{model.id}`.
     """
     new_model_id: builtins.str
@@ -2773,15 +2810,17 @@ global___RenameOrganizationModelResponse = RenameOrganizationModelResponse
 
 @typing_extensions.final
 class WatchOrganizationModelRequest(google.protobuf.message.Message):
-    """WatchOrganizationModelRequest represents a request to fetch current state of a model."""
+    """WatchOrganizationModelRequest represents a request to fetch current state of
+    a model.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     VERSION_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """The resource name of the model, which allows its access by parent organization
-    and ID.
+    """The resource name of the model, which allows its access by parent
+    organization and ID.
     - Format: `organizations/{organization.id}/models/{model.id}`.
     """
     version: builtins.str
@@ -2820,16 +2859,16 @@ global___WatchOrganizationModelResponse = WatchOrganizationModelResponse
 
 @typing_extensions.final
 class WatchOrganizationLatestModelRequest(google.protobuf.message.Message):
-    """WatchOrganizationLatestModelRequest represents a request to fetch current state of
-    the latest model version
+    """WatchOrganizationLatestModelRequest represents a request to fetch current
+    state of the latest model version
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """The resource name of the model, which allows its access by parent organization
-    and ID.
+    """The resource name of the model, which allows its access by parent
+    organization and ID.
     - Format: `organizations/{organization.id}/models/{model.id}`.
     """
     def __init__(
@@ -2843,7 +2882,9 @@ global___WatchOrganizationLatestModelRequest = WatchOrganizationLatestModelReque
 
 @typing_extensions.final
 class WatchOrganizationLatestModelResponse(google.protobuf.message.Message):
-    """WatchOrganizationLatestModelResponse contains the state of the latest model version."""
+    """WatchOrganizationLatestModelResponse contains the state of the latest model
+    version.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2865,8 +2906,8 @@ global___WatchOrganizationLatestModelResponse = WatchOrganizationLatestModelResp
 
 @typing_extensions.final
 class ListOrganizationModelVersionsRequest(google.protobuf.message.Message):
-    """ListOrganizationModelVersionsRequest represents a request to list all the versions
-    of a model namespace of an organization.
+    """ListOrganizationModelVersionsRequest represents a request to list all the
+    versions of a model namespace of an organization.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -2936,7 +2977,8 @@ global___ListOrganizationModelVersionsResponse = ListOrganizationModelVersionsRe
 
 @typing_extensions.final
 class DeleteOrganizationModelVersionRequest(google.protobuf.message.Message):
-    """DeleteOrganizationModelVersionRequest represents a request to delete a model version
+    """DeleteOrganizationModelVersionRequest represents a request to delete a model
+    version
      owned by an organization.
     """
 
@@ -2977,7 +3019,9 @@ global___DeleteOrganizationModelVersionResponse = DeleteOrganizationModelVersion
 
 @typing_extensions.final
 class TriggerOrganizationModelRequest(google.protobuf.message.Message):
-    """TriggerOrganizationModelRequest represents a request to trigger a model inference."""
+    """TriggerOrganizationModelRequest represents a request to trigger a model
+    inference.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2985,8 +3029,8 @@ class TriggerOrganizationModelRequest(google.protobuf.message.Message):
     VERSION_FIELD_NUMBER: builtins.int
     TASK_INPUTS_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """The resource name of the model , which allows its access by parent organization
-    and ID.
+    """The resource name of the model , which allows its access by parent
+    organization and ID.
     - Format: `organizations/{organization.id}/models/{model.id}`.
     """
     version: builtins.str
@@ -3030,8 +3074,8 @@ global___TriggerOrganizationModelResponse = TriggerOrganizationModelResponse
 
 @typing_extensions.final
 class TriggerAsyncOrganizationModelRequest(google.protobuf.message.Message):
-    """TriggerAsyncOrganizationModelRequest represents a request to trigger a model inference
-    asynchronously
+    """TriggerAsyncOrganizationModelRequest represents a request to trigger a model
+    inference asynchronously
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -3040,8 +3084,8 @@ class TriggerAsyncOrganizationModelRequest(google.protobuf.message.Message):
     VERSION_FIELD_NUMBER: builtins.int
     TASK_INPUTS_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """The resource name of the model , which allows its access by parent organization
-    and ID.
+    """The resource name of the model , which allows its access by parent
+    organization and ID.
     - Format: `organizations/{organization.id}/models/{model.id}`.
     """
     version: builtins.str
@@ -3084,15 +3128,17 @@ global___TriggerAsyncOrganizationModelResponse = TriggerAsyncOrganizationModelRe
 
 @typing_extensions.final
 class TriggerOrganizationLatestModelRequest(google.protobuf.message.Message):
-    """TriggerOrganizationLatestModelRequest represents a request to trigger a model inference."""
+    """TriggerOrganizationLatestModelRequest represents a request to trigger a model
+    inference.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
     TASK_INPUTS_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """The resource name of the model , which allows its access by parent organization
-    and ID.
+    """The resource name of the model , which allows its access by parent
+    organization and ID.
     - Format: `organizations/{organization.id}/models/{model.id}`.
     """
     @property
@@ -3133,8 +3179,8 @@ global___TriggerOrganizationLatestModelResponse = TriggerOrganizationLatestModel
 
 @typing_extensions.final
 class TriggerAsyncOrganizationLatestModelRequest(google.protobuf.message.Message):
-    """TriggerAsyncOrganizationLatestModelRequest represents a request to trigger a model inference
-    asynchronously
+    """TriggerAsyncOrganizationLatestModelRequest represents a request to trigger a
+    model inference asynchronously
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -3142,8 +3188,8 @@ class TriggerAsyncOrganizationLatestModelRequest(google.protobuf.message.Message
     NAME_FIELD_NUMBER: builtins.int
     TASK_INPUTS_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """The resource name of the model , which allows its access by parent organization
-    and ID.
+    """The resource name of the model , which allows its access by parent
+    organization and ID.
     - Format: `organizations/{organization.id}/models/{model.id}`.
     """
     @property
@@ -3161,8 +3207,8 @@ global___TriggerAsyncOrganizationLatestModelRequest = TriggerAsyncOrganizationLa
 
 @typing_extensions.final
 class TriggerAsyncOrganizationLatestModelResponse(google.protobuf.message.Message):
-    """TriggerAsyncOrganizationLatestModelResponse contains the information to access the
-    status of an asynchronous model inference.
+    """TriggerAsyncOrganizationLatestModelResponse contains the information to
+    access the status of an asynchronous model inference.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -3183,8 +3229,8 @@ global___TriggerAsyncOrganizationLatestModelResponse = TriggerAsyncOrganizationL
 
 @typing_extensions.final
 class TriggerOrganizationModelBinaryFileUploadRequest(google.protobuf.message.Message):
-    """TriggerOrganizationModelBinaryFileUploadRequest represents a request trigger a model
-    inference by uploading a binary file as the input.
+    """TriggerOrganizationModelBinaryFileUploadRequest represents a request trigger
+    a model inference by uploading a binary file as the input.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -3193,8 +3239,8 @@ class TriggerOrganizationModelBinaryFileUploadRequest(google.protobuf.message.Me
     VERSION_FIELD_NUMBER: builtins.int
     TASK_INPUTS_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """The resource name of the model , which allows its access by parent organization
-    and ID.
+    """The resource name of the model , which allows its access by parent
+    organization and ID.
     - Format: `organizations/{organization.id}/models/{model.id}`.
     """
     version: builtins.str
@@ -3215,7 +3261,9 @@ global___TriggerOrganizationModelBinaryFileUploadRequest = TriggerOrganizationMo
 
 @typing_extensions.final
 class TriggerOrganizationModelBinaryFileUploadResponse(google.protobuf.message.Message):
-    """TriggerOrganizationModelBinaryFileUploadResponse contains the model inference results."""
+    """TriggerOrganizationModelBinaryFileUploadResponse contains the model inference
+    results.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -3286,7 +3334,9 @@ global___GetModelOperationResponse = GetModelOperationResponse
 
 @typing_extensions.final
 class LatestOperation(google.protobuf.message.Message):
-    """LatestOperation represents an internal message for GetLatestModelOperation Response"""
+    """LatestOperation represents an internal message for GetLatestModelOperation
+    Response
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -3311,8 +3361,8 @@ global___LatestOperation = LatestOperation
 
 @typing_extensions.final
 class GetUserLatestModelOperationRequest(google.protobuf.message.Message):
-    """GetUserLatestModelOperationRequest represents a request to fetch the latest long-running
-    operation performed on a model for a user.
+    """GetUserLatestModelOperationRequest represents a request to fetch the latest
+    long-running operation performed on a model for a user.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -3325,7 +3375,9 @@ class GetUserLatestModelOperationRequest(google.protobuf.message.Message):
     - Format: `users/{user.id}/models/{model.id}`.
     """
     view: model.model.v1alpha.model_definition_pb2.View.ValueType
-    """View allows clients to specify the desired operation result in the response."""
+    """View allows clients to specify the desired operation result in the
+    response.
+    """
     def __init__(
         self,
         *,
@@ -3340,8 +3392,8 @@ global___GetUserLatestModelOperationRequest = GetUserLatestModelOperationRequest
 
 @typing_extensions.final
 class GetUserLatestModelOperationResponse(google.protobuf.message.Message):
-    """GetUserLatestModelOperationRequest represents a request to query a long-running
-    operation.
+    """GetUserLatestModelOperationRequest represents a request to query a
+    long-running operation.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -3362,8 +3414,8 @@ global___GetUserLatestModelOperationResponse = GetUserLatestModelOperationRespon
 
 @typing_extensions.final
 class GetOrganizationLatestModelOperationRequest(google.protobuf.message.Message):
-    """GetOrganizationLatestModelOperationRequest represents a request to fetch the latest long-running
-    operation performed on a model for a user.
+    """GetOrganizationLatestModelOperationRequest represents a request to fetch the
+    latest long-running operation performed on a model for a user.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -3371,12 +3423,14 @@ class GetOrganizationLatestModelOperationRequest(google.protobuf.message.Message
     NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """The resource name of the model, which allows its access by parent organization
-    and ID.
+    """The resource name of the model, which allows its access by parent
+    organization and ID.
     - Format: `organizations/{organization.id}/models/{model.id}`.
     """
     view: model.model.v1alpha.model_definition_pb2.View.ValueType
-    """View allows clients to specify the desired operation result in the response."""
+    """View allows clients to specify the desired operation result in the
+    response.
+    """
     def __init__(
         self,
         *,
@@ -3391,8 +3445,8 @@ global___GetOrganizationLatestModelOperationRequest = GetOrganizationLatestModel
 
 @typing_extensions.final
 class GetOrganizationLatestModelOperationResponse(google.protobuf.message.Message):
-    """GetOrganizationLatestModelOperationRequest represents a request to query a long-running
-    operation.
+    """GetOrganizationLatestModelOperationRequest represents a request to query a
+    long-running operation.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -3585,7 +3639,9 @@ global___LookUpModelAdminResponse = LookUpModelAdminResponse
 
 @typing_extensions.final
 class DeployUserModelAdminRequest(google.protobuf.message.Message):
-    """DeployUserModelAdminRequest represents a request to deploy a model to online state"""
+    """DeployUserModelAdminRequest represents a request to deploy a model to online
+    state
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -3626,7 +3682,9 @@ global___DeployUserModelAdminResponse = DeployUserModelAdminResponse
 
 @typing_extensions.final
 class DeployOrganizationModelAdminRequest(google.protobuf.message.Message):
-    """DeployOrganizationModelAdminRequest represents a request to deploy a model to online state"""
+    """DeployOrganizationModelAdminRequest represents a request to deploy a model to
+    online state
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -3655,7 +3713,9 @@ global___DeployOrganizationModelAdminRequest = DeployOrganizationModelAdminReque
 
 @typing_extensions.final
 class DeployOrganizationModelAdminResponse(google.protobuf.message.Message):
-    """DeployOrganizationModelAdminResponse represents a response for a deployed model"""
+    """DeployOrganizationModelAdminResponse represents a response for a deployed
+    model
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -3667,8 +3727,8 @@ global___DeployOrganizationModelAdminResponse = DeployOrganizationModelAdminResp
 
 @typing_extensions.final
 class UndeployUserModelAdminRequest(google.protobuf.message.Message):
-    """UndeployUserModelAdminRequest represents a request to undeploy a model to offline
-    state
+    """UndeployUserModelAdminRequest represents a request to undeploy a model to
+    offline state
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -3710,8 +3770,8 @@ global___UndeployUserModelAdminResponse = UndeployUserModelAdminResponse
 
 @typing_extensions.final
 class UndeployOrganizationModelAdminRequest(google.protobuf.message.Message):
-    """UndeployOrganizationModelAdminRequest represents a request to undeploy a model to offline
-    state
+    """UndeployOrganizationModelAdminRequest represents a request to undeploy a
+    model to offline state
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -3741,7 +3801,9 @@ global___UndeployOrganizationModelAdminRequest = UndeployOrganizationModelAdminR
 
 @typing_extensions.final
 class UndeployOrganizationModelAdminResponse(google.protobuf.message.Message):
-    """UndeployOrganizationModelAdminResponse represents a response for a undeployed model"""
+    """UndeployOrganizationModelAdminResponse represents a response for a undeployed
+    model
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -3785,9 +3847,13 @@ class ModelRun(google.protobuf.message.Message):
     def end_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Run end time."""
     runner_id: builtins.str
-    """Runner ID. If current viewing requester does not have enough permission, it will return null."""
+    """Runner ID. If current viewing requester does not have enough permission, it
+    will return null.
+    """
     credit_amount: builtins.float
-    """The amount of Instill Credit consumed by the run. This field will only be present on Instill Cloud."""
+    """The amount of Instill Credit consumed by the run. This field will only be
+    present on Instill Cloud.
+    """
     error: builtins.str
     """Error message occurred during model run."""
     @property
@@ -3910,7 +3976,9 @@ global___ListModelRunsRequest = ListModelRunsRequest
 
 @typing_extensions.final
 class ListModelRunsByRequesterRequest(google.protobuf.message.Message):
-    """ListModelRunsByRequesterRequest is the request message for ListModelRunsByRequester."""
+    """ListModelRunsByRequesterRequest is the request message for
+    ListModelRunsByRequester.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -4015,7 +4083,9 @@ global___ListModelRunsResponse = ListModelRunsResponse
 
 @typing_extensions.final
 class ListModelRunsByRequesterResponse(google.protobuf.message.Message):
-    """ListModelRunsByRequesterResponse is the request message for ListModelRunsByRequester."""
+    """ListModelRunsByRequesterResponse is the request message for
+    ListModelRunsByRequester.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
