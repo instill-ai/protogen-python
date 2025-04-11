@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from model.model.v1alpha import model_ray_serve_pb2 as model_dot_model_dot_v1alpha_dot_model__ray__serve__pb2
+from model.ray import serve_pb2 as model_dot_ray_dot_serve__pb2
 
 
 class RayServeAPIServiceStub(object):
@@ -15,14 +15,14 @@ class RayServeAPIServiceStub(object):
             channel: A grpc.Channel.
         """
         self.ListApplications = channel.unary_unary(
-                '/model.model.v1alpha.RayServeAPIService/ListApplications',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__ray__serve__pb2.ListApplicationsRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__ray__serve__pb2.ListApplicationsResponse.FromString,
+                '/ray.serve.RayServeAPIService/ListApplications',
+                request_serializer=model_dot_ray_dot_serve__pb2.ListApplicationsRequest.SerializeToString,
+                response_deserializer=model_dot_ray_dot_serve__pb2.ListApplicationsResponse.FromString,
                 )
         self.Healthz = channel.unary_unary(
-                '/model.model.v1alpha.RayServeAPIService/Healthz',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__ray__serve__pb2.HealthzRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__ray__serve__pb2.HealthzResponse.FromString,
+                '/ray.serve.RayServeAPIService/Healthz',
+                request_serializer=model_dot_ray_dot_serve__pb2.HealthzRequest.SerializeToString,
+                response_deserializer=model_dot_ray_dot_serve__pb2.HealthzResponse.FromString,
                 )
 
 
@@ -46,17 +46,17 @@ def add_RayServeAPIServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'ListApplications': grpc.unary_unary_rpc_method_handler(
                     servicer.ListApplications,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__ray__serve__pb2.ListApplicationsRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__ray__serve__pb2.ListApplicationsResponse.SerializeToString,
+                    request_deserializer=model_dot_ray_dot_serve__pb2.ListApplicationsRequest.FromString,
+                    response_serializer=model_dot_ray_dot_serve__pb2.ListApplicationsResponse.SerializeToString,
             ),
             'Healthz': grpc.unary_unary_rpc_method_handler(
                     servicer.Healthz,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__ray__serve__pb2.HealthzRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__ray__serve__pb2.HealthzResponse.SerializeToString,
+                    request_deserializer=model_dot_ray_dot_serve__pb2.HealthzRequest.FromString,
+                    response_serializer=model_dot_ray_dot_serve__pb2.HealthzResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'model.model.v1alpha.RayServeAPIService', rpc_method_handlers)
+            'ray.serve.RayServeAPIService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -75,9 +75,9 @@ class RayServeAPIService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.RayServeAPIService/ListApplications',
-            model_dot_model_dot_v1alpha_dot_model__ray__serve__pb2.ListApplicationsRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__ray__serve__pb2.ListApplicationsResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/ray.serve.RayServeAPIService/ListApplications',
+            model_dot_ray_dot_serve__pb2.ListApplicationsRequest.SerializeToString,
+            model_dot_ray_dot_serve__pb2.ListApplicationsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -92,8 +92,8 @@ class RayServeAPIService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.RayServeAPIService/Healthz',
-            model_dot_model_dot_v1alpha_dot_model__ray__serve__pb2.HealthzRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__ray__serve__pb2.HealthzResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/ray.serve.RayServeAPIService/Healthz',
+            model_dot_ray_dot_serve__pb2.HealthzRequest.SerializeToString,
+            model_dot_ray_dot_serve__pb2.HealthzResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

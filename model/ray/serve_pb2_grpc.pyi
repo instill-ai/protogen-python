@@ -19,7 +19,7 @@ import abc
 import collections.abc
 import grpc
 import grpc.aio
-import model.model.v1alpha.model_ray_serve_pb2
+import model.ray.serve_pb2
 import typing
 
 _T = typing.TypeVar('_T')
@@ -33,36 +33,36 @@ class _ServicerContext(grpc.ServicerContext, grpc.aio.ServicerContext):  # type:
 class RayServeAPIServiceStub:
     def __init__(self, channel: typing.Union[grpc.Channel, grpc.aio.Channel]) -> None: ...
     ListApplications: grpc.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_ray_serve_pb2.ListApplicationsRequest,
-        model.model.v1alpha.model_ray_serve_pb2.ListApplicationsResponse,
+        model.ray.serve_pb2.ListApplicationsRequest,
+        model.ray.serve_pb2.ListApplicationsResponse,
     ]
     Healthz: grpc.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_ray_serve_pb2.HealthzRequest,
-        model.model.v1alpha.model_ray_serve_pb2.HealthzResponse,
+        model.ray.serve_pb2.HealthzRequest,
+        model.ray.serve_pb2.HealthzResponse,
     ]
 
 class RayServeAPIServiceAsyncStub:
     ListApplications: grpc.aio.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_ray_serve_pb2.ListApplicationsRequest,
-        model.model.v1alpha.model_ray_serve_pb2.ListApplicationsResponse,
+        model.ray.serve_pb2.ListApplicationsRequest,
+        model.ray.serve_pb2.ListApplicationsResponse,
     ]
     Healthz: grpc.aio.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_ray_serve_pb2.HealthzRequest,
-        model.model.v1alpha.model_ray_serve_pb2.HealthzResponse,
+        model.ray.serve_pb2.HealthzRequest,
+        model.ray.serve_pb2.HealthzResponse,
     ]
 
 class RayServeAPIServiceServicer(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def ListApplications(
         self,
-        request: model.model.v1alpha.model_ray_serve_pb2.ListApplicationsRequest,
+        request: model.ray.serve_pb2.ListApplicationsRequest,
         context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_ray_serve_pb2.ListApplicationsResponse, collections.abc.Awaitable[model.model.v1alpha.model_ray_serve_pb2.ListApplicationsResponse]]: ...
+    ) -> typing.Union[model.ray.serve_pb2.ListApplicationsResponse, collections.abc.Awaitable[model.ray.serve_pb2.ListApplicationsResponse]]: ...
     @abc.abstractmethod
     def Healthz(
         self,
-        request: model.model.v1alpha.model_ray_serve_pb2.HealthzRequest,
+        request: model.ray.serve_pb2.HealthzRequest,
         context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_ray_serve_pb2.HealthzResponse, collections.abc.Awaitable[model.model.v1alpha.model_ray_serve_pb2.HealthzResponse]]: ...
+    ) -> typing.Union[model.ray.serve_pb2.HealthzResponse, collections.abc.Awaitable[model.ray.serve_pb2.HealthzResponse]]: ...
 
 def add_RayServeAPIServiceServicer_to_server(servicer: RayServeAPIServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
