@@ -6,7 +6,7 @@ import abc
 import collections.abc
 import grpc
 import grpc.aio
-import model.model.v1alpha.model_ray_user_defined_pb2
+import model.ray.v1alpha.user_defined_pb2
 import typing
 
 _T = typing.TypeVar('_T')
@@ -22,8 +22,8 @@ class RayUserDefinedServiceStub:
 
     def __init__(self, channel: typing.Union[grpc.Channel, grpc.aio.Channel]) -> None: ...
     __call__: grpc.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_ray_user_defined_pb2.CallRequest,
-        model.model.v1alpha.model_ray_user_defined_pb2.CallResponse,
+        model.ray.v1alpha.user_defined_pb2.CallRequest,
+        model.ray.v1alpha.user_defined_pb2.CallResponse,
     ]
     """Trigger method is the default trigger entry for ray deployment
     Ray doesn't comply with the naming convention of protobuf, so we need to
@@ -34,8 +34,8 @@ class RayUserDefinedServiceAsyncStub:
     """Ray user defined service for internal process"""
 
     __call__: grpc.aio.UnaryUnaryMultiCallable[
-        model.model.v1alpha.model_ray_user_defined_pb2.CallRequest,
-        model.model.v1alpha.model_ray_user_defined_pb2.CallResponse,
+        model.ray.v1alpha.user_defined_pb2.CallRequest,
+        model.ray.v1alpha.user_defined_pb2.CallResponse,
     ]
     """Trigger method is the default trigger entry for ray deployment
     Ray doesn't comply with the naming convention of protobuf, so we need to
@@ -48,9 +48,9 @@ class RayUserDefinedServiceServicer(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def __call__(
         self,
-        request: model.model.v1alpha.model_ray_user_defined_pb2.CallRequest,
+        request: model.ray.v1alpha.user_defined_pb2.CallRequest,
         context: _ServicerContext,
-    ) -> typing.Union[model.model.v1alpha.model_ray_user_defined_pb2.CallResponse, collections.abc.Awaitable[model.model.v1alpha.model_ray_user_defined_pb2.CallResponse]]:
+    ) -> typing.Union[model.ray.v1alpha.user_defined_pb2.CallResponse, collections.abc.Awaitable[model.ray.v1alpha.user_defined_pb2.CallResponse]]:
         """Trigger method is the default trigger entry for ray deployment
         Ray doesn't comply with the naming convention of protobuf, so we need to
         buf:lint:ignore RPC_PASCAL_CASE

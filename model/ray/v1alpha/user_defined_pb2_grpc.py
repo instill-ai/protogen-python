@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from model.model.v1alpha import model_ray_user_defined_pb2 as model_dot_model_dot_v1alpha_dot_model__ray__user__defined__pb2
+from model.ray.v1alpha import user_defined_pb2 as model_dot_ray_dot_v1alpha_dot_user__defined__pb2
 
 
 class RayUserDefinedServiceStub(object):
@@ -16,9 +16,9 @@ class RayUserDefinedServiceStub(object):
             channel: A grpc.Channel.
         """
         self.__call__ = channel.unary_unary(
-                '/model.model.v1alpha.RayUserDefinedService/__call__',
-                request_serializer=model_dot_model_dot_v1alpha_dot_model__ray__user__defined__pb2.CallRequest.SerializeToString,
-                response_deserializer=model_dot_model_dot_v1alpha_dot_model__ray__user__defined__pb2.CallResponse.FromString,
+                '/model.ray.v1alpha.RayUserDefinedService/__call__',
+                request_serializer=model_dot_ray_dot_v1alpha_dot_user__defined__pb2.CallRequest.SerializeToString,
+                response_deserializer=model_dot_ray_dot_v1alpha_dot_user__defined__pb2.CallResponse.FromString,
                 )
 
 
@@ -40,12 +40,12 @@ def add_RayUserDefinedServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             '__call__': grpc.unary_unary_rpc_method_handler(
                     servicer.__call__,
-                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__ray__user__defined__pb2.CallRequest.FromString,
-                    response_serializer=model_dot_model_dot_v1alpha_dot_model__ray__user__defined__pb2.CallResponse.SerializeToString,
+                    request_deserializer=model_dot_ray_dot_v1alpha_dot_user__defined__pb2.CallRequest.FromString,
+                    response_serializer=model_dot_ray_dot_v1alpha_dot_user__defined__pb2.CallResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'model.model.v1alpha.RayUserDefinedService', rpc_method_handlers)
+            'model.ray.v1alpha.RayUserDefinedService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -65,8 +65,8 @@ class RayUserDefinedService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.RayUserDefinedService/__call__',
-            model_dot_model_dot_v1alpha_dot_model__ray__user__defined__pb2.CallRequest.SerializeToString,
-            model_dot_model_dot_v1alpha_dot_model__ray__user__defined__pb2.CallResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/model.ray.v1alpha.RayUserDefinedService/__call__',
+            model_dot_ray_dot_v1alpha_dot_user__defined__pb2.CallRequest.SerializeToString,
+            model_dot_ray_dot_v1alpha_dot_user__defined__pb2.CallResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

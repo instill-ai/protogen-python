@@ -66,3 +66,128 @@ class RayServeAPIServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.ray.serve_pb2.HealthzResponse, collections.abc.Awaitable[model.ray.serve_pb2.HealthzResponse]]: ...
 
 def add_RayServeAPIServiceServicer_to_server(servicer: RayServeAPIServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
+
+class UserDefinedServiceStub:
+    def __init__(self, channel: typing.Union[grpc.Channel, grpc.aio.Channel]) -> None: ...
+    __call__: grpc.UnaryUnaryMultiCallable[
+        model.ray.serve_pb2.UserDefinedMessage,
+        model.ray.serve_pb2.UserDefinedResponse,
+    ]
+    Method1: grpc.UnaryUnaryMultiCallable[
+        model.ray.serve_pb2.UserDefinedMessage,
+        model.ray.serve_pb2.UserDefinedResponse,
+    ]
+    Method2: grpc.UnaryUnaryMultiCallable[
+        model.ray.serve_pb2.UserDefinedMessage2,
+        model.ray.serve_pb2.UserDefinedResponse2,
+    ]
+    Streaming: grpc.UnaryStreamMultiCallable[
+        model.ray.serve_pb2.UserDefinedMessage,
+        model.ray.serve_pb2.UserDefinedResponse,
+    ]
+
+class UserDefinedServiceAsyncStub:
+    __call__: grpc.aio.UnaryUnaryMultiCallable[
+        model.ray.serve_pb2.UserDefinedMessage,
+        model.ray.serve_pb2.UserDefinedResponse,
+    ]
+    Method1: grpc.aio.UnaryUnaryMultiCallable[
+        model.ray.serve_pb2.UserDefinedMessage,
+        model.ray.serve_pb2.UserDefinedResponse,
+    ]
+    Method2: grpc.aio.UnaryUnaryMultiCallable[
+        model.ray.serve_pb2.UserDefinedMessage2,
+        model.ray.serve_pb2.UserDefinedResponse2,
+    ]
+    Streaming: grpc.aio.UnaryStreamMultiCallable[
+        model.ray.serve_pb2.UserDefinedMessage,
+        model.ray.serve_pb2.UserDefinedResponse,
+    ]
+
+class UserDefinedServiceServicer(metaclass=abc.ABCMeta):
+    @abc.abstractmethod
+    def __call__(
+        self,
+        request: model.ray.serve_pb2.UserDefinedMessage,
+        context: _ServicerContext,
+    ) -> typing.Union[model.ray.serve_pb2.UserDefinedResponse, collections.abc.Awaitable[model.ray.serve_pb2.UserDefinedResponse]]: ...
+    @abc.abstractmethod
+    def Method1(
+        self,
+        request: model.ray.serve_pb2.UserDefinedMessage,
+        context: _ServicerContext,
+    ) -> typing.Union[model.ray.serve_pb2.UserDefinedResponse, collections.abc.Awaitable[model.ray.serve_pb2.UserDefinedResponse]]: ...
+    @abc.abstractmethod
+    def Method2(
+        self,
+        request: model.ray.serve_pb2.UserDefinedMessage2,
+        context: _ServicerContext,
+    ) -> typing.Union[model.ray.serve_pb2.UserDefinedResponse2, collections.abc.Awaitable[model.ray.serve_pb2.UserDefinedResponse2]]: ...
+    @abc.abstractmethod
+    def Streaming(
+        self,
+        request: model.ray.serve_pb2.UserDefinedMessage,
+        context: _ServicerContext,
+    ) -> typing.Union[collections.abc.Iterator[model.ray.serve_pb2.UserDefinedResponse], collections.abc.AsyncIterator[model.ray.serve_pb2.UserDefinedResponse]]: ...
+
+def add_UserDefinedServiceServicer_to_server(servicer: UserDefinedServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
+
+class FruitServiceStub:
+    def __init__(self, channel: typing.Union[grpc.Channel, grpc.aio.Channel]) -> None: ...
+    FruitStand: grpc.UnaryUnaryMultiCallable[
+        model.ray.serve_pb2.FruitAmounts,
+        model.ray.serve_pb2.FruitCosts,
+    ]
+
+class FruitServiceAsyncStub:
+    FruitStand: grpc.aio.UnaryUnaryMultiCallable[
+        model.ray.serve_pb2.FruitAmounts,
+        model.ray.serve_pb2.FruitCosts,
+    ]
+
+class FruitServiceServicer(metaclass=abc.ABCMeta):
+    @abc.abstractmethod
+    def FruitStand(
+        self,
+        request: model.ray.serve_pb2.FruitAmounts,
+        context: _ServicerContext,
+    ) -> typing.Union[model.ray.serve_pb2.FruitCosts, collections.abc.Awaitable[model.ray.serve_pb2.FruitCosts]]: ...
+
+def add_FruitServiceServicer_to_server(servicer: FruitServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
+
+class RayServeBenchmarkServiceStub:
+    def __init__(self, channel: typing.Union[grpc.Channel, grpc.aio.Channel]) -> None: ...
+    grpc_call: grpc.UnaryUnaryMultiCallable[
+        model.ray.serve_pb2.ArrayData,
+        model.ray.serve_pb2.ModelOutput,
+    ]
+    call_with_string: grpc.UnaryUnaryMultiCallable[
+        model.ray.serve_pb2.StringData,
+        model.ray.serve_pb2.ModelOutput,
+    ]
+
+class RayServeBenchmarkServiceAsyncStub:
+    grpc_call: grpc.aio.UnaryUnaryMultiCallable[
+        model.ray.serve_pb2.ArrayData,
+        model.ray.serve_pb2.ModelOutput,
+    ]
+    call_with_string: grpc.aio.UnaryUnaryMultiCallable[
+        model.ray.serve_pb2.StringData,
+        model.ray.serve_pb2.ModelOutput,
+    ]
+
+class RayServeBenchmarkServiceServicer(metaclass=abc.ABCMeta):
+    @abc.abstractmethod
+    def grpc_call(
+        self,
+        request: model.ray.serve_pb2.ArrayData,
+        context: _ServicerContext,
+    ) -> typing.Union[model.ray.serve_pb2.ModelOutput, collections.abc.Awaitable[model.ray.serve_pb2.ModelOutput]]: ...
+    @abc.abstractmethod
+    def call_with_string(
+        self,
+        request: model.ray.serve_pb2.StringData,
+        context: _ServicerContext,
+    ) -> typing.Union[model.ray.serve_pb2.ModelOutput, collections.abc.Awaitable[model.ray.serve_pb2.ModelOutput]]: ...
+
+def add_RayServeBenchmarkServiceServicer_to_server(servicer: RayServeBenchmarkServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

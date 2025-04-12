@@ -94,8 +94,9 @@ class _DeploymentStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrappe
     """
     DEPLOYMENT_STATUS_HEALTHY: _DeploymentStatus.ValueType  # 1
     DEPLOYMENT_STATUS_UNHEALTHY: _DeploymentStatus.ValueType  # 2
-    DEPLOYMENT_STATUS_UPSCALING: _DeploymentStatus.ValueType  # 3
-    DEPLOYMENT_STATUS_DOWNSCALING: _DeploymentStatus.ValueType  # 4
+    DEPLOYMENT_STATUS_DEPLOY_FAILED: _DeploymentStatus.ValueType  # 3
+    DEPLOYMENT_STATUS_UPSCALING: _DeploymentStatus.ValueType  # 4
+    DEPLOYMENT_STATUS_DOWNSCALING: _DeploymentStatus.ValueType  # 5
 
 class DeploymentStatus(_DeploymentStatus, metaclass=_DeploymentStatusEnumTypeWrapper): ...
 
@@ -105,8 +106,9 @@ dashboard/client/src/type/serve.ts in sync with this enum
 """
 DEPLOYMENT_STATUS_HEALTHY: DeploymentStatus.ValueType  # 1
 DEPLOYMENT_STATUS_UNHEALTHY: DeploymentStatus.ValueType  # 2
-DEPLOYMENT_STATUS_UPSCALING: DeploymentStatus.ValueType  # 3
-DEPLOYMENT_STATUS_DOWNSCALING: DeploymentStatus.ValueType  # 4
+DEPLOYMENT_STATUS_DEPLOY_FAILED: DeploymentStatus.ValueType  # 3
+DEPLOYMENT_STATUS_UPSCALING: DeploymentStatus.ValueType  # 4
+DEPLOYMENT_STATUS_DOWNSCALING: DeploymentStatus.ValueType  # 5
 global___DeploymentStatus = DeploymentStatus
 
 class _DeploymentStatusTrigger:
@@ -177,7 +179,6 @@ class AutoscalingConfig(google.protobuf.message.Message):
 
     MIN_REPLICAS_FIELD_NUMBER: builtins.int
     MAX_REPLICAS_FIELD_NUMBER: builtins.int
-    TARGET_NUM_ONGOING_REQUESTS_PER_REPLICA_FIELD_NUMBER: builtins.int
     METRICS_INTERVAL_S_FIELD_NUMBER: builtins.int
     LOOK_BACK_PERIOD_S_FIELD_NUMBER: builtins.int
     SMOOTHING_FACTOR_FIELD_NUMBER: builtins.int
@@ -186,18 +187,16 @@ class AutoscalingConfig(google.protobuf.message.Message):
     INITIAL_REPLICAS_FIELD_NUMBER: builtins.int
     UPSCALE_SMOOTHING_FACTOR_FIELD_NUMBER: builtins.int
     DOWNSCALE_SMOOTHING_FACTOR_FIELD_NUMBER: builtins.int
-    SERIALIZED_POLICY_DEF_FIELD_NUMBER: builtins.int
-    POLICY_FIELD_NUMBER: builtins.int
+    _SERIALIZED_POLICY_DEF_FIELD_NUMBER: builtins.int
+    _POLICY_FIELD_NUMBER: builtins.int
+    TARGET_ONGOING_REQUESTS_FIELD_NUMBER: builtins.int
+    UPSCALING_FACTOR_FIELD_NUMBER: builtins.int
+    DOWNSCALING_FACTOR_FIELD_NUMBER: builtins.int
     min_replicas: builtins.int
     """Minimal number of replicas, must be a non-negative integer."""
     max_replicas: builtins.int
     """Maximal number of replicas, must be a non-negative integer and greater or
     equals to min_replicas.
-    """
-    target_num_ongoing_requests_per_replica: builtins.float
-    """Target number of in flight requests per replicas. This is the primary
-    configuration knob for replica autoscaler. Lower the number, the more
-    rapidly will the replicas being scaled up. Must be a non-negative integer.
     """
     metrics_interval_s: builtins.float
     """The frequency of how long does each replica sending metrics to autoscaler."""
@@ -206,7 +205,7 @@ class AutoscalingConfig(google.protobuf.message.Message):
     metrics on.
     """
     smoothing_factor: builtins.float
-    """The multiplicative "gain" factor to limit scaling decisions."""
+    """[DEPRECATED] Use `upscaling_factor` and/or `downscaling_factor` instead."""
     downscale_delay_s: builtins.float
     """How long to wait before scaling down replicas."""
     upscale_delay_s: builtins.float
@@ -216,22 +215,30 @@ class AutoscalingConfig(google.protobuf.message.Message):
     non-negative.
     """
     upscale_smoothing_factor: builtins.float
-    """The multiplicative "gain" factor to limit upscale."""
+    """[DEPRECATED] Use `upscaling_factor` instead."""
     downscale_smoothing_factor: builtins.float
-    """The multiplicative "gain" factor to limit downscale."""
-    serialized_policy_def: builtins.bytes
+    """[DEPRECATED] Use `downscaling_factor` instead."""
+    _serialized_policy_def: builtins.bytes
     """The cloudpickled policy definition."""
-    policy: builtins.str
+    _policy: builtins.str
     """The import path of the policy if user passed a string. Will be the
     concatenation of the policy module and the policy name if user passed a
     callable.
     """
+    target_ongoing_requests: builtins.float
+    """Target number of in flight requests per replica. This is the primary
+    configuration knob for replica autoscaler. Lower the number, the more
+    rapidly the replicas scales up. Must be a non-negative integer.
+    """
+    upscaling_factor: builtins.float
+    """The multiplicative "gain" factor to limit upscale."""
+    downscaling_factor: builtins.float
+    """The multiplicative "gain" factor to limit downscale."""
     def __init__(
         self,
         *,
         min_replicas: builtins.int = ...,
         max_replicas: builtins.int = ...,
-        target_num_ongoing_requests_per_replica: builtins.float = ...,
         metrics_interval_s: builtins.float = ...,
         look_back_period_s: builtins.float = ...,
         smoothing_factor: builtins.float = ...,
@@ -240,17 +247,24 @@ class AutoscalingConfig(google.protobuf.message.Message):
         initial_replicas: builtins.int | None = ...,
         upscale_smoothing_factor: builtins.float | None = ...,
         downscale_smoothing_factor: builtins.float | None = ...,
-        serialized_policy_def: builtins.bytes = ...,
-        policy: builtins.str = ...,
+        _serialized_policy_def: builtins.bytes = ...,
+        _policy: builtins.str = ...,
+        target_ongoing_requests: builtins.float = ...,
+        upscaling_factor: builtins.float | None = ...,
+        downscaling_factor: builtins.float | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_downscale_smoothing_factor", b"_downscale_smoothing_factor", "_initial_replicas", b"_initial_replicas", "_upscale_smoothing_factor", b"_upscale_smoothing_factor", "downscale_smoothing_factor", b"downscale_smoothing_factor", "initial_replicas", b"initial_replicas", "upscale_smoothing_factor", b"upscale_smoothing_factor"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_downscale_smoothing_factor", b"_downscale_smoothing_factor", "_initial_replicas", b"_initial_replicas", "_upscale_smoothing_factor", b"_upscale_smoothing_factor", "downscale_delay_s", b"downscale_delay_s", "downscale_smoothing_factor", b"downscale_smoothing_factor", "initial_replicas", b"initial_replicas", "look_back_period_s", b"look_back_period_s", "max_replicas", b"max_replicas", "metrics_interval_s", b"metrics_interval_s", "min_replicas", b"min_replicas", "policy", b"policy", "serialized_policy_def", b"serialized_policy_def", "smoothing_factor", b"smoothing_factor", "target_num_ongoing_requests_per_replica", b"target_num_ongoing_requests_per_replica", "upscale_delay_s", b"upscale_delay_s", "upscale_smoothing_factor", b"upscale_smoothing_factor"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_downscale_smoothing_factor", b"_downscale_smoothing_factor", "_downscaling_factor", b"_downscaling_factor", "_initial_replicas", b"_initial_replicas", "_upscale_smoothing_factor", b"_upscale_smoothing_factor", "_upscaling_factor", b"_upscaling_factor", "downscale_smoothing_factor", b"downscale_smoothing_factor", "downscaling_factor", b"downscaling_factor", "initial_replicas", b"initial_replicas", "upscale_smoothing_factor", b"upscale_smoothing_factor", "upscaling_factor", b"upscaling_factor"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_downscale_smoothing_factor", b"_downscale_smoothing_factor", "_downscaling_factor", b"_downscaling_factor", "_initial_replicas", b"_initial_replicas", "_policy", b"_policy", "_serialized_policy_def", b"_serialized_policy_def", "_upscale_smoothing_factor", b"_upscale_smoothing_factor", "_upscaling_factor", b"_upscaling_factor", "downscale_delay_s", b"downscale_delay_s", "downscale_smoothing_factor", b"downscale_smoothing_factor", "downscaling_factor", b"downscaling_factor", "initial_replicas", b"initial_replicas", "look_back_period_s", b"look_back_period_s", "max_replicas", b"max_replicas", "metrics_interval_s", b"metrics_interval_s", "min_replicas", b"min_replicas", "smoothing_factor", b"smoothing_factor", "target_ongoing_requests", b"target_ongoing_requests", "upscale_delay_s", b"upscale_delay_s", "upscale_smoothing_factor", b"upscale_smoothing_factor", "upscaling_factor", b"upscaling_factor"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_downscale_smoothing_factor", b"_downscale_smoothing_factor"]) -> typing_extensions.Literal["downscale_smoothing_factor"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_downscaling_factor", b"_downscaling_factor"]) -> typing_extensions.Literal["downscaling_factor"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_initial_replicas", b"_initial_replicas"]) -> typing_extensions.Literal["initial_replicas"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_upscale_smoothing_factor", b"_upscale_smoothing_factor"]) -> typing_extensions.Literal["upscale_smoothing_factor"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_upscaling_factor", b"_upscaling_factor"]) -> typing_extensions.Literal["upscaling_factor"] | None: ...
 
 global___AutoscalingConfig = AutoscalingConfig
 
@@ -262,10 +276,13 @@ class LoggingConfig(google.protobuf.message.Message):
     LOG_LEVEL_FIELD_NUMBER: builtins.int
     LOGS_DIR_FIELD_NUMBER: builtins.int
     ENABLE_ACCESS_LOG_FIELD_NUMBER: builtins.int
+    ADDITIONAL_LOG_STANDARD_ATTRS_FIELD_NUMBER: builtins.int
     encoding: global___EncodingType.ValueType
     log_level: builtins.str
     logs_dir: builtins.str
     enable_access_log: builtins.bool
+    @property
+    def additional_log_standard_attrs(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
     def __init__(
         self,
         *,
@@ -273,8 +290,9 @@ class LoggingConfig(google.protobuf.message.Message):
         log_level: builtins.str = ...,
         logs_dir: builtins.str = ...,
         enable_access_log: builtins.bool = ...,
+        additional_log_standard_attrs: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["enable_access_log", b"enable_access_log", "encoding", b"encoding", "log_level", b"log_level", "logs_dir", b"logs_dir"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["additional_log_standard_attrs", b"additional_log_standard_attrs", "enable_access_log", b"enable_access_log", "encoding", b"encoding", "log_level", b"log_level", "logs_dir", b"logs_dir"]) -> None: ...
 
 global___LoggingConfig = LoggingConfig
 
@@ -288,7 +306,8 @@ class DeploymentConfig(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NUM_REPLICAS_FIELD_NUMBER: builtins.int
-    MAX_CONCURRENT_QUERIES_FIELD_NUMBER: builtins.int
+    MAX_ONGOING_REQUESTS_FIELD_NUMBER: builtins.int
+    MAX_QUEUED_REQUESTS_FIELD_NUMBER: builtins.int
     USER_CONFIG_FIELD_NUMBER: builtins.int
     GRACEFUL_SHUTDOWN_WAIT_LOOP_S_FIELD_NUMBER: builtins.int
     GRACEFUL_SHUTDOWN_TIMEOUT_S_FIELD_NUMBER: builtins.int
@@ -302,12 +321,14 @@ class DeploymentConfig(google.protobuf.message.Message):
     LOGGING_CONFIG_FIELD_NUMBER: builtins.int
     num_replicas: builtins.int
     """The number of processes to start up that will handle requests to this
-    deployment. Defaults to 1.
+    deployment.
     """
-    max_concurrent_queries: builtins.int
+    max_ongoing_requests: builtins.int
     """The maximum number of queries that will be sent to a replica of this
-    deployment without receiving a response. Defaults to 100.
+    deployment without receiving a response.
     """
+    max_queued_requests: builtins.int
+    """The maximum number of requests that will be queued in deployment handles."""
     user_config: builtins.bytes
     """Arguments to pass to the reconfigure method of the deployment. The
     reconfigure method is called if user_config is not None.
@@ -340,7 +361,8 @@ class DeploymentConfig(google.protobuf.message.Message):
         self,
         *,
         num_replicas: builtins.int = ...,
-        max_concurrent_queries: builtins.int = ...,
+        max_ongoing_requests: builtins.int = ...,
+        max_queued_requests: builtins.int = ...,
         user_config: builtins.bytes = ...,
         graceful_shutdown_wait_loop_s: builtins.float = ...,
         graceful_shutdown_timeout_s: builtins.float = ...,
@@ -354,7 +376,7 @@ class DeploymentConfig(google.protobuf.message.Message):
         logging_config: global___LoggingConfig | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["autoscaling_config", b"autoscaling_config", "logging_config", b"logging_config"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["autoscaling_config", b"autoscaling_config", "deployment_language", b"deployment_language", "graceful_shutdown_timeout_s", b"graceful_shutdown_timeout_s", "graceful_shutdown_wait_loop_s", b"graceful_shutdown_wait_loop_s", "health_check_period_s", b"health_check_period_s", "health_check_timeout_s", b"health_check_timeout_s", "is_cross_language", b"is_cross_language", "logging_config", b"logging_config", "max_concurrent_queries", b"max_concurrent_queries", "num_replicas", b"num_replicas", "user_config", b"user_config", "user_configured_option_names", b"user_configured_option_names", "version", b"version"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["autoscaling_config", b"autoscaling_config", "deployment_language", b"deployment_language", "graceful_shutdown_timeout_s", b"graceful_shutdown_timeout_s", "graceful_shutdown_wait_loop_s", b"graceful_shutdown_wait_loop_s", "health_check_period_s", b"health_check_period_s", "health_check_timeout_s", b"health_check_timeout_s", "is_cross_language", b"is_cross_language", "logging_config", b"logging_config", "max_ongoing_requests", b"max_ongoing_requests", "max_queued_requests", b"max_queued_requests", "num_replicas", b"num_replicas", "user_config", b"user_config", "user_configured_option_names", b"user_configured_option_names", "version", b"version"]) -> None: ...
 
 global___DeploymentConfig = DeploymentConfig
 
@@ -379,13 +401,13 @@ class RequestMetadata(google.protobuf.message.Message):
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     REQUEST_ID_FIELD_NUMBER: builtins.int
-    ENDPOINT_FIELD_NUMBER: builtins.int
+    INTERNAL_REQUEST_ID_FIELD_NUMBER: builtins.int
     CALL_METHOD_FIELD_NUMBER: builtins.int
     CONTEXT_FIELD_NUMBER: builtins.int
     MULTIPLEXED_MODEL_ID_FIELD_NUMBER: builtins.int
     ROUTE_FIELD_NUMBER: builtins.int
     request_id: builtins.str
-    endpoint: builtins.str
+    internal_request_id: builtins.str
     call_method: builtins.str
     @property
     def context(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]: ...
@@ -395,13 +417,13 @@ class RequestMetadata(google.protobuf.message.Message):
         self,
         *,
         request_id: builtins.str = ...,
-        endpoint: builtins.str = ...,
+        internal_request_id: builtins.str = ...,
         call_method: builtins.str = ...,
         context: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         multiplexed_model_id: builtins.str = ...,
         route: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["call_method", b"call_method", "context", b"context", "endpoint", b"endpoint", "multiplexed_model_id", b"multiplexed_model_id", "request_id", b"request_id", "route", b"route"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["call_method", b"call_method", "context", b"context", "internal_request_id", b"internal_request_id", "multiplexed_model_id", b"multiplexed_model_id", "request_id", b"request_id", "route", b"route"]) -> None: ...
 
 global___RequestMetadata = RequestMetadata
 
@@ -597,6 +619,25 @@ class ActorNameList(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["names", b"names"]) -> None: ...
 
 global___ActorNameList = ActorNameList
+
+@typing_extensions.final
+class DeploymentTargetInfo(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    REPLICA_NAMES_FIELD_NUMBER: builtins.int
+    IS_AVAILABLE_FIELD_NUMBER: builtins.int
+    @property
+    def replica_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
+    is_available: builtins.bool
+    def __init__(
+        self,
+        *,
+        replica_names: collections.abc.Iterable[builtins.str] | None = ...,
+        is_available: builtins.bool = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["is_available", b"is_available", "replica_names", b"replica_names"]) -> None: ...
+
+global___DeploymentTargetInfo = DeploymentTargetInfo
 
 @typing_extensions.final
 class DeploymentVersion(google.protobuf.message.Message):
@@ -889,3 +930,193 @@ class HealthzResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["message", b"message"]) -> None: ...
 
 global___HealthzResponse = HealthzResponse
+
+@typing_extensions.final
+class UserDefinedMessage(google.protobuf.message.Message):
+    """Used for gRPC related tests"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    FOO_FIELD_NUMBER: builtins.int
+    NUM_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    foo: builtins.str
+    num: builtins.int
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        foo: builtins.str = ...,
+        num: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["foo", b"foo", "name", b"name", "num", b"num"]) -> None: ...
+
+global___UserDefinedMessage = UserDefinedMessage
+
+@typing_extensions.final
+class UserDefinedResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    GREETING_FIELD_NUMBER: builtins.int
+    NUM_X2_FIELD_NUMBER: builtins.int
+    greeting: builtins.str
+    num_x2: builtins.int
+    def __init__(
+        self,
+        *,
+        greeting: builtins.str = ...,
+        num_x2: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["greeting", b"greeting", "num_x2", b"num_x2"]) -> None: ...
+
+global___UserDefinedResponse = UserDefinedResponse
+
+@typing_extensions.final
+class UserDefinedMessage2(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___UserDefinedMessage2 = UserDefinedMessage2
+
+@typing_extensions.final
+class UserDefinedResponse2(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    GREETING_FIELD_NUMBER: builtins.int
+    greeting: builtins.str
+    def __init__(
+        self,
+        *,
+        greeting: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["greeting", b"greeting"]) -> None: ...
+
+global___UserDefinedResponse2 = UserDefinedResponse2
+
+@typing_extensions.final
+class FruitAmounts(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    ORANGE_FIELD_NUMBER: builtins.int
+    APPLE_FIELD_NUMBER: builtins.int
+    BANANA_FIELD_NUMBER: builtins.int
+    orange: builtins.int
+    apple: builtins.int
+    banana: builtins.int
+    def __init__(
+        self,
+        *,
+        orange: builtins.int = ...,
+        apple: builtins.int = ...,
+        banana: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["apple", b"apple", "banana", b"banana", "orange", b"orange"]) -> None: ...
+
+global___FruitAmounts = FruitAmounts
+
+@typing_extensions.final
+class FruitCosts(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    COSTS_FIELD_NUMBER: builtins.int
+    costs: builtins.float
+    def __init__(
+        self,
+        *,
+        costs: builtins.float = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["costs", b"costs"]) -> None: ...
+
+global___FruitCosts = FruitCosts
+
+@typing_extensions.final
+class ArrayData(google.protobuf.message.Message):
+    """Used for gRPC benchmark"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NUMS_FIELD_NUMBER: builtins.int
+    @property
+    def nums(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.float]: ...
+    def __init__(
+        self,
+        *,
+        nums: collections.abc.Iterable[builtins.float] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["nums", b"nums"]) -> None: ...
+
+global___ArrayData = ArrayData
+
+@typing_extensions.final
+class StringData(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    DATA_FIELD_NUMBER: builtins.int
+    data: builtins.str
+    def __init__(
+        self,
+        *,
+        data: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["data", b"data"]) -> None: ...
+
+global___StringData = StringData
+
+@typing_extensions.final
+class ModelOutput(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OUTPUT_FIELD_NUMBER: builtins.int
+    output: builtins.float
+    def __init__(
+        self,
+        *,
+        output: builtins.float = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["output", b"output"]) -> None: ...
+
+global___ModelOutput = ModelOutput
+
+@typing_extensions.final
+class DeploymentArgs(google.protobuf.message.Message):
+    """The required deployment parameters when deploying an application."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    DEPLOYMENT_NAME_FIELD_NUMBER: builtins.int
+    DEPLOYMENT_CONFIG_FIELD_NUMBER: builtins.int
+    REPLICA_CONFIG_FIELD_NUMBER: builtins.int
+    DEPLOYER_JOB_ID_FIELD_NUMBER: builtins.int
+    ROUTE_PREFIX_FIELD_NUMBER: builtins.int
+    INGRESS_FIELD_NUMBER: builtins.int
+    DOCS_PATH_FIELD_NUMBER: builtins.int
+    deployment_name: builtins.str
+    deployment_config: builtins.bytes
+    replica_config: builtins.bytes
+    deployer_job_id: builtins.str
+    route_prefix: builtins.str
+    ingress: builtins.bool
+    docs_path: builtins.str
+    def __init__(
+        self,
+        *,
+        deployment_name: builtins.str = ...,
+        deployment_config: builtins.bytes = ...,
+        replica_config: builtins.bytes = ...,
+        deployer_job_id: builtins.str = ...,
+        route_prefix: builtins.str | None = ...,
+        ingress: builtins.bool = ...,
+        docs_path: builtins.str | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_docs_path", b"_docs_path", "_route_prefix", b"_route_prefix", "docs_path", b"docs_path", "route_prefix", b"route_prefix"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_docs_path", b"_docs_path", "_route_prefix", b"_route_prefix", "deployer_job_id", b"deployer_job_id", "deployment_config", b"deployment_config", "deployment_name", b"deployment_name", "docs_path", b"docs_path", "ingress", b"ingress", "replica_config", b"replica_config", "route_prefix", b"route_prefix"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_docs_path", b"_docs_path"]) -> typing_extensions.Literal["docs_path"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_route_prefix", b"_route_prefix"]) -> typing_extensions.Literal["route_prefix"] | None: ...
+
+global___DeploymentArgs = DeploymentArgs
