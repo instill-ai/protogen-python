@@ -37,7 +37,9 @@ class _TypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeW
     TYPE_BOOLEAN: _Type.ValueType  # 3
     """The type is a boolean."""
     TYPE_FILE: _Type.ValueType  # 4
-    """The type is a url of a file resource."""
+    """The type is a file resource."""
+    TYPE_DOCUMENT: _Type.ValueType  # 5
+    """The type is a document resource."""
 
 class Type(_Type, metaclass=_TypeEnumTypeWrapper):
     """The type of the column."""
@@ -51,7 +53,9 @@ TYPE_NUMBER: Type.ValueType  # 2
 TYPE_BOOLEAN: Type.ValueType  # 3
 """The type is a boolean."""
 TYPE_FILE: Type.ValueType  # 4
-"""The type is a url of a file resource."""
+"""The type is a file resource."""
+TYPE_DOCUMENT: Type.ValueType  # 5
+"""The type is a document resource."""
 global___Type = Type
 
 class _CellStatus:
@@ -105,6 +109,30 @@ CELL_STATUS_TRANSPARENCY_PROCESSING: CellStatus.ValueType  # 7
 CELL_STATUS_TRANSPARENCY_FAILED: CellStatus.ValueType  # 8
 """The cell's transparency generation encountered an error and failed to complete."""
 global___CellStatus = CellStatus
+
+class _LockState:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _LockStateEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_LockState.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    LOCK_STATE_UNSPECIFIED: _LockState.ValueType  # 0
+    """The lock state is not specified."""
+    LOCK_STATE_LOCKED: _LockState.ValueType  # 1
+    """The cell is locked."""
+    LOCK_STATE_UNLOCKED: _LockState.ValueType  # 2
+    """The cell is unlocked."""
+
+class LockState(_LockState, metaclass=_LockStateEnumTypeWrapper):
+    """The lock state of a cell."""
+
+LOCK_STATE_UNSPECIFIED: LockState.ValueType  # 0
+"""The lock state is not specified."""
+LOCK_STATE_LOCKED: LockState.ValueType  # 1
+"""The cell is locked."""
+LOCK_STATE_UNLOCKED: LockState.ValueType  # 2
+"""The cell is unlocked."""
+global___LockState = LockState
 
 class _ExportFormat:
     ValueType = typing.NewType("ValueType", builtins.int)
@@ -458,19 +486,47 @@ class ColumnDefinition(google.protobuf.message.Message):
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+        @typing_extensions.final
+        class Context(google.protobuf.message.Message):
+            """The context for the agent."""
+
+            DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+            COLUMNS_FIELD_NUMBER: builtins.int
+            @property
+            def columns(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+                """The column names to include in the context."""
+            def __init__(
+                self,
+                *,
+                columns: collections.abc.Iterable[builtins.str] | None = ...,
+            ) -> None: ...
+            def ClearField(self, field_name: typing_extensions.Literal["columns", b"columns"]) -> None: ...
+
         INSTRUCTIONS_FIELD_NUMBER: builtins.int
         ENABLE_WEB_SEARCH_FIELD_NUMBER: builtins.int
+        ENABLE_AUTOMATIC_COMPUTATION_FIELD_NUMBER: builtins.int
+        CONTEXT_FIELD_NUMBER: builtins.int
         instructions: builtins.str
         """The instructions for the agent."""
         enable_web_search: builtins.bool
         """Whether to enable web search for the column."""
+        enable_automatic_computation: builtins.bool
+        """Whether to enable automatic computation for the column."""
+        @property
+        def context(self) -> global___ColumnDefinition.AgentConfig.Context:
+            """The context for the agent. This setting is only used if enable_automatic_computation is true."""
         def __init__(
             self,
             *,
             instructions: builtins.str = ...,
             enable_web_search: builtins.bool = ...,
+            enable_automatic_computation: builtins.bool | None = ...,
+            context: global___ColumnDefinition.AgentConfig.Context | None = ...,
         ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["enable_web_search", b"enable_web_search", "instructions", b"instructions"]) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["_enable_automatic_computation", b"_enable_automatic_computation", "context", b"context", "enable_automatic_computation", b"enable_automatic_computation"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["_enable_automatic_computation", b"_enable_automatic_computation", "context", b"context", "enable_automatic_computation", b"enable_automatic_computation", "enable_web_search", b"enable_web_search", "instructions", b"instructions"]) -> None: ...
+        def WhichOneof(self, oneof_group: typing_extensions.Literal["_enable_automatic_computation", b"_enable_automatic_computation"]) -> typing_extensions.Literal["enable_automatic_computation"] | None: ...
 
     COLUMN_UID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
@@ -560,7 +616,7 @@ class GetColumnDefinitionsResponse(google.protobuf.message.Message):
     COLUMN_DEFINITIONS_FIELD_NUMBER: builtins.int
     @property
     def column_definitions(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___ColumnDefinition]:
-        """Map of column names to their definitions."""
+        """Map of column UID to their definitions."""
     def __init__(
         self,
         *,
@@ -603,7 +659,7 @@ class UpdateColumnDefinitionsRequest(google.protobuf.message.Message):
     """The UID of the table whose columns to update."""
     @property
     def column_definitions(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___ColumnDefinition]:
-        """Map of column names to their new definitions."""
+        """Map of column UID to their new definitions."""
     def __init__(
         self,
         *,
@@ -642,7 +698,7 @@ class UpdateColumnDefinitionsResponse(google.protobuf.message.Message):
     COLUMN_DEFINITIONS_FIELD_NUMBER: builtins.int
     @property
     def column_definitions(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___ColumnDefinition]:
-        """The updated column definitions."""
+        """Map of column UID to the updated definitions."""
     def __init__(
         self,
         *,
@@ -651,6 +707,90 @@ class UpdateColumnDefinitionsResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["column_definitions", b"column_definitions"]) -> None: ...
 
 global___UpdateColumnDefinitionsResponse = UpdateColumnDefinitionsResponse
+
+@typing_extensions.final
+class GetColumnDefinitionRequest(google.protobuf.message.Message):
+    """GetColumnDefinitionRequest represents a request to fetch a column definition."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    TABLE_UID_FIELD_NUMBER: builtins.int
+    COLUMN_UID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The ID of the namespace that owns the table."""
+    table_uid: builtins.str
+    """The UID of the table whose column definition to fetch."""
+    column_uid: builtins.str
+    """The UID of the column whose definition to fetch."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        table_uid: builtins.str = ...,
+        column_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["column_uid", b"column_uid", "namespace_id", b"namespace_id", "table_uid", b"table_uid"]) -> None: ...
+
+global___GetColumnDefinitionRequest = GetColumnDefinitionRequest
+
+@typing_extensions.final
+class GetColumnDefinitionResponse(google.protobuf.message.Message):
+    """GetColumnDefinitionResponse contains the requested column definition."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    COLUMN_DEFINITION_FIELD_NUMBER: builtins.int
+    @property
+    def column_definition(self) -> global___ColumnDefinition:
+        """The column definition."""
+    def __init__(
+        self,
+        *,
+        column_definition: global___ColumnDefinition | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["column_definition", b"column_definition"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["column_definition", b"column_definition"]) -> None: ...
+
+global___GetColumnDefinitionResponse = GetColumnDefinitionResponse
+
+@typing_extensions.final
+class RecomputeColumnRequest(google.protobuf.message.Message):
+    """RecomputeColumnRequest represents a request to recompute a column."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    TABLE_UID_FIELD_NUMBER: builtins.int
+    COLUMN_UID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The ID of the namespace that owns the table."""
+    table_uid: builtins.str
+    """The UID of the table whose column to recompute."""
+    column_uid: builtins.str
+    """The UID of the column to recompute."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        table_uid: builtins.str = ...,
+        column_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["column_uid", b"column_uid", "namespace_id", b"namespace_id", "table_uid", b"table_uid"]) -> None: ...
+
+global___RecomputeColumnRequest = RecomputeColumnRequest
+
+@typing_extensions.final
+class RecomputeColumnResponse(google.protobuf.message.Message):
+    """RecomputeColumnResponse is an empty response for recomputing a column."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___RecomputeColumnResponse = RecomputeColumnResponse
 
 @typing_extensions.final
 class Cell(google.protobuf.message.Message):
@@ -683,10 +823,12 @@ class Cell(google.protobuf.message.Message):
     NUMBER_VALUE_FIELD_NUMBER: builtins.int
     BOOLEAN_VALUE_FIELD_NUMBER: builtins.int
     FILE_VALUE_FIELD_NUMBER: builtins.int
+    DOCUMENT_VALUE_FIELD_NUMBER: builtins.int
     METADATA_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
     CITATIONS_FIELD_NUMBER: builtins.int
     TRANSPARENCY_FIELD_NUMBER: builtins.int
+    LOCK_STATE_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """The unique identifier of the cell."""
     column_uid: builtins.str
@@ -709,7 +851,15 @@ class Cell(google.protobuf.message.Message):
         """The value of the cell as a boolean."""
     @property
     def file_value(self) -> global___FileCell:
-        """The value of the cell as a url of a file resource."""
+        """The value of the cell as a file resource. This can represent various file types
+        such as images, documents, audio, or other binary data.
+        """
+    @property
+    def document_value(self) -> global___DocumentCell:
+        """The value of the cell as a document resource. The document resource is a
+        file resource that is specifically designed for document types, such as
+        TXT, Markdown, PDF, DOC, and PPT.
+        """
     @property
     def metadata(self) -> google.protobuf.struct_pb2.Struct:
         """Additional metadata for the cell."""
@@ -721,6 +871,8 @@ class Cell(google.protobuf.message.Message):
     @property
     def transparency(self) -> global___Cell.Transparency:
         """The transparency of the cell."""
+    lock_state: global___LockState.ValueType
+    """The lock state of the cell."""
     def __init__(
         self,
         *,
@@ -733,14 +885,16 @@ class Cell(google.protobuf.message.Message):
         number_value: global___NumberCell | None = ...,
         boolean_value: global___BooleanCell | None = ...,
         file_value: global___FileCell | None = ...,
+        document_value: global___DocumentCell | None = ...,
         metadata: google.protobuf.struct_pb2.Struct | None = ...,
         status: global___CellStatus.ValueType = ...,
         citations: collections.abc.Iterable[agent.agent.v1alpha.chat_pb2.Citation] | None = ...,
         transparency: global___Cell.Transparency | None = ...,
+        lock_state: global___LockState.ValueType = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["boolean_value", b"boolean_value", "file_value", b"file_value", "metadata", b"metadata", "number_value", b"number_value", "string_value", b"string_value", "transparency", b"transparency", "update_time", b"update_time", "value", b"value"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["boolean_value", b"boolean_value", "citations", b"citations", "column_uid", b"column_uid", "file_value", b"file_value", "metadata", b"metadata", "number_value", b"number_value", "row_uid", b"row_uid", "status", b"status", "string_value", b"string_value", "transparency", b"transparency", "type", b"type", "uid", b"uid", "update_time", b"update_time", "value", b"value"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["value", b"value"]) -> typing_extensions.Literal["string_value", "number_value", "boolean_value", "file_value"] | None: ...
+    def HasField(self, field_name: typing_extensions.Literal["boolean_value", b"boolean_value", "document_value", b"document_value", "file_value", b"file_value", "metadata", b"metadata", "number_value", b"number_value", "string_value", b"string_value", "transparency", b"transparency", "update_time", b"update_time", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["boolean_value", b"boolean_value", "citations", b"citations", "column_uid", b"column_uid", "document_value", b"document_value", "file_value", b"file_value", "lock_state", b"lock_state", "metadata", b"metadata", "number_value", b"number_value", "row_uid", b"row_uid", "status", b"status", "string_value", b"string_value", "transparency", b"transparency", "type", b"type", "uid", b"uid", "update_time", b"update_time", "value", b"value"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["value", b"value"]) -> typing_extensions.Literal["string_value", "number_value", "boolean_value", "file_value", "document_value"] | None: ...
 
 global___Cell = Cell
 
@@ -763,14 +917,27 @@ class StringCell(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUE_FIELD_NUMBER: builtins.int
+    USER_INPUT_FIELD_NUMBER: builtins.int
+    COMPUTED_VALUE_FIELD_NUMBER: builtins.int
     value: builtins.str
     """The value of the cell as a string."""
+    user_input: builtins.str
+    """The value of the cell that directly set by the user."""
+    computed_value: builtins.str
+    """The value of the cell that was computed by the automatic computation."""
     def __init__(
         self,
         *,
         value: builtins.str = ...,
+        user_input: builtins.str | None = ...,
+        computed_value: builtins.str | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["value", b"value"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_computed_value", b"_computed_value", "_user_input", b"_user_input", "computed_value", b"computed_value", "user_input", b"user_input"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_computed_value", b"_computed_value", "_user_input", b"_user_input", "computed_value", b"computed_value", "user_input", b"user_input", "value", b"value"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_computed_value", b"_computed_value"]) -> typing_extensions.Literal["computed_value"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_user_input", b"_user_input"]) -> typing_extensions.Literal["user_input"] | None: ...
 
 global___StringCell = StringCell
 
@@ -781,14 +948,27 @@ class NumberCell(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUE_FIELD_NUMBER: builtins.int
+    USER_INPUT_FIELD_NUMBER: builtins.int
+    COMPUTED_VALUE_FIELD_NUMBER: builtins.int
     value: builtins.float
     """The value of the cell as a number."""
+    user_input: builtins.float
+    """The value of the cell that directly set by the user."""
+    computed_value: builtins.float
+    """The value of the cell that was computed by the automatic computation."""
     def __init__(
         self,
         *,
         value: builtins.float = ...,
+        user_input: builtins.float | None = ...,
+        computed_value: builtins.float | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["value", b"value"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_computed_value", b"_computed_value", "_user_input", b"_user_input", "computed_value", b"computed_value", "user_input", b"user_input"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_computed_value", b"_computed_value", "_user_input", b"_user_input", "computed_value", b"computed_value", "user_input", b"user_input", "value", b"value"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_computed_value", b"_computed_value"]) -> typing_extensions.Literal["computed_value"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_user_input", b"_user_input"]) -> typing_extensions.Literal["user_input"] | None: ...
 
 global___NumberCell = NumberCell
 
@@ -799,20 +979,33 @@ class BooleanCell(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     VALUE_FIELD_NUMBER: builtins.int
+    USER_INPUT_FIELD_NUMBER: builtins.int
+    COMPUTED_VALUE_FIELD_NUMBER: builtins.int
     value: builtins.bool
     """The value of the cell as a boolean."""
+    user_input: builtins.bool
+    """The value of the cell that directly set by the user."""
+    computed_value: builtins.bool
+    """The value of the cell that was computed by the automatic computation."""
     def __init__(
         self,
         *,
         value: builtins.bool = ...,
+        user_input: builtins.bool | None = ...,
+        computed_value: builtins.bool | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["value", b"value"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_computed_value", b"_computed_value", "_user_input", b"_user_input", "computed_value", b"computed_value", "user_input", b"user_input"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_computed_value", b"_computed_value", "_user_input", b"_user_input", "computed_value", b"computed_value", "user_input", b"user_input", "value", b"value"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_computed_value", b"_computed_value"]) -> typing_extensions.Literal["computed_value"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_user_input", b"_user_input"]) -> typing_extensions.Literal["user_input"] | None: ...
 
 global___BooleanCell = BooleanCell
 
 @typing_extensions.final
 class FileCell(google.protobuf.message.Message):
-    """FileCell represents a cell with a url of a file resource."""
+    """FileCell represents a cell with a file resource."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -824,7 +1017,7 @@ class FileCell(google.protobuf.message.Message):
     namespace: builtins.str
     """The namespace of the file resource."""
     file_uid: builtins.str
-    """The UID of the file resource."""
+    """The File UID of the file resource."""
     object_uid: builtins.str
     """The UID of the raw object that the file resource belongs to."""
     name: builtins.str
@@ -843,6 +1036,40 @@ class FileCell(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["file_uid", b"file_uid", "mime_type", b"mime_type", "name", b"name", "namespace", b"namespace", "object_uid", b"object_uid"]) -> None: ...
 
 global___FileCell = FileCell
+
+@typing_extensions.final
+class DocumentCell(google.protobuf.message.Message):
+    """DocumentCell represents a cell with a document resource."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_FIELD_NUMBER: builtins.int
+    FILE_UID_FIELD_NUMBER: builtins.int
+    OBJECT_UID_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
+    MIME_TYPE_FIELD_NUMBER: builtins.int
+    namespace: builtins.str
+    """The namespace of the document resource."""
+    file_uid: builtins.str
+    """The File UID of the document resource."""
+    object_uid: builtins.str
+    """The UID of the raw object that the document resource belongs to."""
+    name: builtins.str
+    """File name"""
+    mime_type: builtins.str
+    """MIME type of the document."""
+    def __init__(
+        self,
+        *,
+        namespace: builtins.str = ...,
+        file_uid: builtins.str = ...,
+        object_uid: builtins.str = ...,
+        name: builtins.str = ...,
+        mime_type: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file_uid", b"file_uid", "mime_type", b"mime_type", "name", b"name", "namespace", b"namespace", "object_uid", b"object_uid"]) -> None: ...
+
+global___DocumentCell = DocumentCell
 
 @typing_extensions.final
 class Row(google.protobuf.message.Message):
@@ -877,7 +1104,7 @@ class Row(google.protobuf.message.Message):
     """The unique identifier of the row."""
     @property
     def cells(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, global___Cell]:
-        """Map of column names to their cell values."""
+        """Map of column UID to their cell values."""
     order: builtins.int
     """The order of the row in the table, starting at 1. This determines the row's position
     when displaying or processing table data.
@@ -1065,6 +1292,52 @@ class UpdateRowResponse(google.protobuf.message.Message):
 global___UpdateRowResponse = UpdateRowResponse
 
 @typing_extensions.final
+class GetRowRequest(google.protobuf.message.Message):
+    """GetRowRequest represents a request to get a row."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    TABLE_UID_FIELD_NUMBER: builtins.int
+    ROW_UID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The ID of the namespace that owns the table."""
+    table_uid: builtins.str
+    """The UID of the table containing the row."""
+    row_uid: builtins.str
+    """The unique identifier of the row to get."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        table_uid: builtins.str = ...,
+        row_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "row_uid", b"row_uid", "table_uid", b"table_uid"]) -> None: ...
+
+global___GetRowRequest = GetRowRequest
+
+@typing_extensions.final
+class GetRowResponse(google.protobuf.message.Message):
+    """GetRowResponse contains the requested row."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    ROW_FIELD_NUMBER: builtins.int
+    @property
+    def row(self) -> global___Row:
+        """The row resource."""
+    def __init__(
+        self,
+        *,
+        row: global___Row | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["row", b"row"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["row", b"row"]) -> None: ...
+
+global___GetRowResponse = GetRowResponse
+
+@typing_extensions.final
 class UpdateRowsRequest(google.protobuf.message.Message):
     """UpdateRowsRequest represents a request to update multiple rows."""
 
@@ -1231,6 +1504,312 @@ class MoveRowsResponse(google.protobuf.message.Message):
     ) -> None: ...
 
 global___MoveRowsResponse = MoveRowsResponse
+
+@typing_extensions.final
+class GetCellRequest(google.protobuf.message.Message):
+    """GetCellRequest represents a request to get a cell."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    TABLE_UID_FIELD_NUMBER: builtins.int
+    ROW_UID_FIELD_NUMBER: builtins.int
+    CELL_UID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The ID of the namespace that owns the table."""
+    table_uid: builtins.str
+    """The UID of the table containing the row."""
+    row_uid: builtins.str
+    """The unique identifier of the row containing the cell."""
+    cell_uid: builtins.str
+    """The unique identifier of the cell to get."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        table_uid: builtins.str = ...,
+        row_uid: builtins.str = ...,
+        cell_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cell_uid", b"cell_uid", "namespace_id", b"namespace_id", "row_uid", b"row_uid", "table_uid", b"table_uid"]) -> None: ...
+
+global___GetCellRequest = GetCellRequest
+
+@typing_extensions.final
+class GetCellResponse(google.protobuf.message.Message):
+    """GetCellResponse contains the requested cell."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CELL_FIELD_NUMBER: builtins.int
+    @property
+    def cell(self) -> global___Cell:
+        """The cell resource."""
+    def __init__(
+        self,
+        *,
+        cell: global___Cell | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["cell", b"cell"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cell", b"cell"]) -> None: ...
+
+global___GetCellResponse = GetCellResponse
+
+@typing_extensions.final
+class UpdateCellRequest(google.protobuf.message.Message):
+    """UpdateCellRequest represents a request to update a cell."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    TABLE_UID_FIELD_NUMBER: builtins.int
+    ROW_UID_FIELD_NUMBER: builtins.int
+    CELL_UID_FIELD_NUMBER: builtins.int
+    CELL_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The ID of the namespace that owns the table."""
+    table_uid: builtins.str
+    """The UID of the table containing the row."""
+    row_uid: builtins.str
+    """The unique identifier of the row containing the cell."""
+    cell_uid: builtins.str
+    """The unique identifier of the cell to update."""
+    @property
+    def cell(self) -> global___Cell:
+        """The new cell data."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        table_uid: builtins.str = ...,
+        row_uid: builtins.str = ...,
+        cell_uid: builtins.str = ...,
+        cell: global___Cell | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["cell", b"cell"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cell", b"cell", "cell_uid", b"cell_uid", "namespace_id", b"namespace_id", "row_uid", b"row_uid", "table_uid", b"table_uid"]) -> None: ...
+
+global___UpdateCellRequest = UpdateCellRequest
+
+@typing_extensions.final
+class UpdateCellResponse(google.protobuf.message.Message):
+    """UpdateCellResponse contains the updated cell."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CELL_FIELD_NUMBER: builtins.int
+    @property
+    def cell(self) -> global___Cell:
+        """The updated cell resource."""
+    def __init__(
+        self,
+        *,
+        cell: global___Cell | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["cell", b"cell"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cell", b"cell"]) -> None: ...
+
+global___UpdateCellResponse = UpdateCellResponse
+
+@typing_extensions.final
+class RecomputeCellRequest(google.protobuf.message.Message):
+    """RecomputeCellRequest represents a request to recompute a cell."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    TABLE_UID_FIELD_NUMBER: builtins.int
+    ROW_UID_FIELD_NUMBER: builtins.int
+    CELL_UID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The ID of the namespace that owns the table."""
+    table_uid: builtins.str
+    """The UID of the table containing the cell."""
+    row_uid: builtins.str
+    """The unique identifier of the row containing the cell."""
+    cell_uid: builtins.str
+    """The unique identifier of the cell to recompute."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        table_uid: builtins.str = ...,
+        row_uid: builtins.str = ...,
+        cell_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cell_uid", b"cell_uid", "namespace_id", b"namespace_id", "row_uid", b"row_uid", "table_uid", b"table_uid"]) -> None: ...
+
+global___RecomputeCellRequest = RecomputeCellRequest
+
+@typing_extensions.final
+class RecomputeCellResponse(google.protobuf.message.Message):
+    """RecomputeCellResponse contains the updated cell."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CELL_FIELD_NUMBER: builtins.int
+    @property
+    def cell(self) -> global___Cell:
+        """The updated cell resource."""
+    def __init__(
+        self,
+        *,
+        cell: global___Cell | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["cell", b"cell"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cell", b"cell"]) -> None: ...
+
+global___RecomputeCellResponse = RecomputeCellResponse
+
+@typing_extensions.final
+class ResetCellRequest(google.protobuf.message.Message):
+    """ResetCellRequest represents a request to reset a cell."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    TABLE_UID_FIELD_NUMBER: builtins.int
+    ROW_UID_FIELD_NUMBER: builtins.int
+    CELL_UID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The ID of the namespace that owns the table."""
+    table_uid: builtins.str
+    """The UID of the table containing the cell."""
+    row_uid: builtins.str
+    """The unique identifier of the row containing the cell."""
+    cell_uid: builtins.str
+    """The unique identifier of the cell to reset."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        table_uid: builtins.str = ...,
+        row_uid: builtins.str = ...,
+        cell_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cell_uid", b"cell_uid", "namespace_id", b"namespace_id", "row_uid", b"row_uid", "table_uid", b"table_uid"]) -> None: ...
+
+global___ResetCellRequest = ResetCellRequest
+
+@typing_extensions.final
+class ResetCellResponse(google.protobuf.message.Message):
+    """ResetCellResponse is an empty response for resetting a cell."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CELL_FIELD_NUMBER: builtins.int
+    @property
+    def cell(self) -> global___Cell:
+        """The updated cell resource."""
+    def __init__(
+        self,
+        *,
+        cell: global___Cell | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["cell", b"cell"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cell", b"cell"]) -> None: ...
+
+global___ResetCellResponse = ResetCellResponse
+
+@typing_extensions.final
+class LockCellRequest(google.protobuf.message.Message):
+    """LockCellRequest represents a request to lock a cell."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    TABLE_UID_FIELD_NUMBER: builtins.int
+    ROW_UID_FIELD_NUMBER: builtins.int
+    CELL_UID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The ID of the namespace that owns the table."""
+    table_uid: builtins.str
+    """The UID of the table containing the cell."""
+    row_uid: builtins.str
+    """The unique identifier of the row containing the cell."""
+    cell_uid: builtins.str
+    """The unique identifier of the cell to lock."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        table_uid: builtins.str = ...,
+        row_uid: builtins.str = ...,
+        cell_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cell_uid", b"cell_uid", "namespace_id", b"namespace_id", "row_uid", b"row_uid", "table_uid", b"table_uid"]) -> None: ...
+
+global___LockCellRequest = LockCellRequest
+
+@typing_extensions.final
+class LockCellResponse(google.protobuf.message.Message):
+    """LockCellResponse is an empty response for locking a cell."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CELL_FIELD_NUMBER: builtins.int
+    @property
+    def cell(self) -> global___Cell:
+        """The updated cell resource."""
+    def __init__(
+        self,
+        *,
+        cell: global___Cell | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["cell", b"cell"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cell", b"cell"]) -> None: ...
+
+global___LockCellResponse = LockCellResponse
+
+@typing_extensions.final
+class UnlockCellRequest(google.protobuf.message.Message):
+    """UnlockCellRequest represents a request to unlock a cell."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    TABLE_UID_FIELD_NUMBER: builtins.int
+    ROW_UID_FIELD_NUMBER: builtins.int
+    CELL_UID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The ID of the namespace that owns the table."""
+    table_uid: builtins.str
+    """The UID of the table containing the cell."""
+    row_uid: builtins.str
+    """The unique identifier of the row containing the cell."""
+    cell_uid: builtins.str
+    """The unique identifier of the cell to unlock."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        table_uid: builtins.str = ...,
+        row_uid: builtins.str = ...,
+        cell_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cell_uid", b"cell_uid", "namespace_id", b"namespace_id", "row_uid", b"row_uid", "table_uid", b"table_uid"]) -> None: ...
+
+global___UnlockCellRequest = UnlockCellRequest
+
+@typing_extensions.final
+class UnlockCellResponse(google.protobuf.message.Message):
+    """UnlockCellResponse is an empty response for unlocking a cell."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CELL_FIELD_NUMBER: builtins.int
+    @property
+    def cell(self) -> global___Cell:
+        """The updated cell resource."""
+    def __init__(
+        self,
+        *,
+        cell: global___Cell | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["cell", b"cell"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cell", b"cell"]) -> None: ...
+
+global___UnlockCellResponse = UnlockCellResponse
 
 @typing_extensions.final
 class ExportTableRequest(google.protobuf.message.Message):

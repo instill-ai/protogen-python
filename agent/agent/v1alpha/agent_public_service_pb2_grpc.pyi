@@ -201,7 +201,26 @@ class AgentPublicServiceStub:
     ]
     """Update column definitions
 
-    Updates column definitions for a table.
+    Updates column definitions for a table. When updating the column
+    definitions, if the column's agent instructions are updated, the existing
+    cells in that column will be cleared and recomputed. This ensures that all
+    data reflects the latest instructions.
+    """
+    GetColumnDefinition: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.GetColumnDefinitionRequest,
+        agent.agent.v1alpha.table_pb2.GetColumnDefinitionResponse,
+    ]
+    """Get column definition
+
+    Gets a column definition for a table.
+    """
+    RecomputeColumn: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.RecomputeColumnRequest,
+        agent.agent.v1alpha.table_pb2.RecomputeColumnResponse,
+    ]
+    """Recompute column
+
+    Recomputes all the cells in a column.
     """
     ListRows: grpc.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.table_pb2.ListRowsRequest,
@@ -210,6 +229,14 @@ class AgentPublicServiceStub:
     """List rows
 
     Returns list of rows.
+    """
+    GetRow: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.GetRowRequest,
+        agent.agent.v1alpha.table_pb2.GetRowResponse,
+    ]
+    """Get row
+
+    Gets a row from a table.
     """
     InsertRow: grpc.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.table_pb2.InsertRowRequest,
@@ -258,6 +285,56 @@ class AgentPublicServiceStub:
     """Move row
 
     Moves a row to a new position in a table.
+    """
+    GetCell: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.GetCellRequest,
+        agent.agent.v1alpha.table_pb2.GetCellResponse,
+    ]
+    """Get cell
+
+    Gets a cell from a table.
+    """
+    UpdateCell: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.UpdateCellRequest,
+        agent.agent.v1alpha.table_pb2.UpdateCellResponse,
+    ]
+    """Update cell
+
+    Updates a cell in a table.
+    """
+    ResetCell: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.ResetCellRequest,
+        agent.agent.v1alpha.table_pb2.ResetCellResponse,
+    ]
+    """Reset cell
+
+    Resets a cell in a table. Resetting a cell clears its user input and
+    reverts to using the computed value if available. This operation only
+    affects cells that have a user input set.
+    """
+    RecomputeCell: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.RecomputeCellRequest,
+        agent.agent.v1alpha.table_pb2.RecomputeCellResponse,
+    ]
+    """Recompute cell
+
+    Recomputes a cell in a table.
+    """
+    LockCell: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.LockCellRequest,
+        agent.agent.v1alpha.table_pb2.LockCellResponse,
+    ]
+    """Lock cell
+
+    Locks a cell in a table.
+    """
+    UnlockCell: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.UnlockCellRequest,
+        agent.agent.v1alpha.table_pb2.UnlockCellResponse,
+    ]
+    """Unlock cell
+
+    Unlocks a cell in a table.
     """
     GetTableEvents: grpc.UnaryStreamMultiCallable[
         agent.agent.v1alpha.table_pb2.GetTableEventsRequest,
@@ -467,7 +544,26 @@ class AgentPublicServiceAsyncStub:
     ]
     """Update column definitions
 
-    Updates column definitions for a table.
+    Updates column definitions for a table. When updating the column
+    definitions, if the column's agent instructions are updated, the existing
+    cells in that column will be cleared and recomputed. This ensures that all
+    data reflects the latest instructions.
+    """
+    GetColumnDefinition: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.GetColumnDefinitionRequest,
+        agent.agent.v1alpha.table_pb2.GetColumnDefinitionResponse,
+    ]
+    """Get column definition
+
+    Gets a column definition for a table.
+    """
+    RecomputeColumn: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.RecomputeColumnRequest,
+        agent.agent.v1alpha.table_pb2.RecomputeColumnResponse,
+    ]
+    """Recompute column
+
+    Recomputes all the cells in a column.
     """
     ListRows: grpc.aio.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.table_pb2.ListRowsRequest,
@@ -476,6 +572,14 @@ class AgentPublicServiceAsyncStub:
     """List rows
 
     Returns list of rows.
+    """
+    GetRow: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.GetRowRequest,
+        agent.agent.v1alpha.table_pb2.GetRowResponse,
+    ]
+    """Get row
+
+    Gets a row from a table.
     """
     InsertRow: grpc.aio.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.table_pb2.InsertRowRequest,
@@ -524,6 +628,56 @@ class AgentPublicServiceAsyncStub:
     """Move row
 
     Moves a row to a new position in a table.
+    """
+    GetCell: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.GetCellRequest,
+        agent.agent.v1alpha.table_pb2.GetCellResponse,
+    ]
+    """Get cell
+
+    Gets a cell from a table.
+    """
+    UpdateCell: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.UpdateCellRequest,
+        agent.agent.v1alpha.table_pb2.UpdateCellResponse,
+    ]
+    """Update cell
+
+    Updates a cell in a table.
+    """
+    ResetCell: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.ResetCellRequest,
+        agent.agent.v1alpha.table_pb2.ResetCellResponse,
+    ]
+    """Reset cell
+
+    Resets a cell in a table. Resetting a cell clears its user input and
+    reverts to using the computed value if available. This operation only
+    affects cells that have a user input set.
+    """
+    RecomputeCell: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.RecomputeCellRequest,
+        agent.agent.v1alpha.table_pb2.RecomputeCellResponse,
+    ]
+    """Recompute cell
+
+    Recomputes a cell in a table.
+    """
+    LockCell: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.LockCellRequest,
+        agent.agent.v1alpha.table_pb2.LockCellResponse,
+    ]
+    """Lock cell
+
+    Locks a cell in a table.
+    """
+    UnlockCell: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.UnlockCellRequest,
+        agent.agent.v1alpha.table_pb2.UnlockCellResponse,
+    ]
+    """Unlock cell
+
+    Unlocks a cell in a table.
     """
     GetTableEvents: grpc.aio.UnaryStreamMultiCallable[
         agent.agent.v1alpha.table_pb2.GetTableEventsRequest,
@@ -777,7 +931,30 @@ class AgentPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[agent.agent.v1alpha.table_pb2.UpdateColumnDefinitionsResponse, collections.abc.Awaitable[agent.agent.v1alpha.table_pb2.UpdateColumnDefinitionsResponse]]:
         """Update column definitions
 
-        Updates column definitions for a table.
+        Updates column definitions for a table. When updating the column
+        definitions, if the column's agent instructions are updated, the existing
+        cells in that column will be cleared and recomputed. This ensures that all
+        data reflects the latest instructions.
+        """
+    @abc.abstractmethod
+    def GetColumnDefinition(
+        self,
+        request: agent.agent.v1alpha.table_pb2.GetColumnDefinitionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.table_pb2.GetColumnDefinitionResponse, collections.abc.Awaitable[agent.agent.v1alpha.table_pb2.GetColumnDefinitionResponse]]:
+        """Get column definition
+
+        Gets a column definition for a table.
+        """
+    @abc.abstractmethod
+    def RecomputeColumn(
+        self,
+        request: agent.agent.v1alpha.table_pb2.RecomputeColumnRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.table_pb2.RecomputeColumnResponse, collections.abc.Awaitable[agent.agent.v1alpha.table_pb2.RecomputeColumnResponse]]:
+        """Recompute column
+
+        Recomputes all the cells in a column.
         """
     @abc.abstractmethod
     def ListRows(
@@ -788,6 +965,16 @@ class AgentPublicServiceServicer(metaclass=abc.ABCMeta):
         """List rows
 
         Returns list of rows.
+        """
+    @abc.abstractmethod
+    def GetRow(
+        self,
+        request: agent.agent.v1alpha.table_pb2.GetRowRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.table_pb2.GetRowResponse, collections.abc.Awaitable[agent.agent.v1alpha.table_pb2.GetRowResponse]]:
+        """Get row
+
+        Gets a row from a table.
         """
     @abc.abstractmethod
     def InsertRow(
@@ -848,6 +1035,68 @@ class AgentPublicServiceServicer(metaclass=abc.ABCMeta):
         """Move row
 
         Moves a row to a new position in a table.
+        """
+    @abc.abstractmethod
+    def GetCell(
+        self,
+        request: agent.agent.v1alpha.table_pb2.GetCellRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.table_pb2.GetCellResponse, collections.abc.Awaitable[agent.agent.v1alpha.table_pb2.GetCellResponse]]:
+        """Get cell
+
+        Gets a cell from a table.
+        """
+    @abc.abstractmethod
+    def UpdateCell(
+        self,
+        request: agent.agent.v1alpha.table_pb2.UpdateCellRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.table_pb2.UpdateCellResponse, collections.abc.Awaitable[agent.agent.v1alpha.table_pb2.UpdateCellResponse]]:
+        """Update cell
+
+        Updates a cell in a table.
+        """
+    @abc.abstractmethod
+    def ResetCell(
+        self,
+        request: agent.agent.v1alpha.table_pb2.ResetCellRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.table_pb2.ResetCellResponse, collections.abc.Awaitable[agent.agent.v1alpha.table_pb2.ResetCellResponse]]:
+        """Reset cell
+
+        Resets a cell in a table. Resetting a cell clears its user input and
+        reverts to using the computed value if available. This operation only
+        affects cells that have a user input set.
+        """
+    @abc.abstractmethod
+    def RecomputeCell(
+        self,
+        request: agent.agent.v1alpha.table_pb2.RecomputeCellRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.table_pb2.RecomputeCellResponse, collections.abc.Awaitable[agent.agent.v1alpha.table_pb2.RecomputeCellResponse]]:
+        """Recompute cell
+
+        Recomputes a cell in a table.
+        """
+    @abc.abstractmethod
+    def LockCell(
+        self,
+        request: agent.agent.v1alpha.table_pb2.LockCellRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.table_pb2.LockCellResponse, collections.abc.Awaitable[agent.agent.v1alpha.table_pb2.LockCellResponse]]:
+        """Lock cell
+
+        Locks a cell in a table.
+        """
+    @abc.abstractmethod
+    def UnlockCell(
+        self,
+        request: agent.agent.v1alpha.table_pb2.UnlockCellRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.table_pb2.UnlockCellResponse, collections.abc.Awaitable[agent.agent.v1alpha.table_pb2.UnlockCellResponse]]:
+        """Unlock cell
+
+        Unlocks a cell in a table.
         """
     @abc.abstractmethod
     def GetTableEvents(

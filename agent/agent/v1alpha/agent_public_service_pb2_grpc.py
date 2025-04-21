@@ -128,10 +128,25 @@ class AgentPublicServiceStub(object):
                 request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.UpdateColumnDefinitionsRequest.SerializeToString,
                 response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.UpdateColumnDefinitionsResponse.FromString,
                 )
+        self.GetColumnDefinition = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/GetColumnDefinition',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GetColumnDefinitionRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GetColumnDefinitionResponse.FromString,
+                )
+        self.RecomputeColumn = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/RecomputeColumn',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.RecomputeColumnRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.RecomputeColumnResponse.FromString,
+                )
         self.ListRows = channel.unary_unary(
                 '/agent.agent.v1alpha.AgentPublicService/ListRows',
                 request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListRowsRequest.SerializeToString,
                 response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListRowsResponse.FromString,
+                )
+        self.GetRow = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/GetRow',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GetRowRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GetRowResponse.FromString,
                 )
         self.InsertRow = channel.unary_unary(
                 '/agent.agent.v1alpha.AgentPublicService/InsertRow',
@@ -162,6 +177,36 @@ class AgentPublicServiceStub(object):
                 '/agent.agent.v1alpha.AgentPublicService/MoveRows',
                 request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.MoveRowsRequest.SerializeToString,
                 response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.MoveRowsResponse.FromString,
+                )
+        self.GetCell = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/GetCell',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GetCellRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GetCellResponse.FromString,
+                )
+        self.UpdateCell = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/UpdateCell',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.UpdateCellRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.UpdateCellResponse.FromString,
+                )
+        self.ResetCell = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/ResetCell',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ResetCellRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ResetCellResponse.FromString,
+                )
+        self.RecomputeCell = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/RecomputeCell',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.RecomputeCellRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.RecomputeCellResponse.FromString,
+                )
+        self.LockCell = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/LockCell',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.LockCellRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.LockCellResponse.FromString,
+                )
+        self.UnlockCell = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/UnlockCell',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.UnlockCellRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.UnlockCellResponse.FromString,
                 )
         self.GetTableEvents = channel.unary_stream(
                 '/agent.agent.v1alpha.AgentPublicService/GetTableEvents',
@@ -379,7 +424,28 @@ class AgentPublicServiceServicer(object):
     def UpdateColumnDefinitions(self, request, context):
         """Update column definitions
 
-        Updates column definitions for a table.
+        Updates column definitions for a table. When updating the column
+        definitions, if the column's agent instructions are updated, the existing
+        cells in that column will be cleared and recomputed. This ensures that all
+        data reflects the latest instructions.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetColumnDefinition(self, request, context):
+        """Get column definition
+
+        Gets a column definition for a table.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RecomputeColumn(self, request, context):
+        """Recompute column
+
+        Recomputes all the cells in a column.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -389,6 +455,15 @@ class AgentPublicServiceServicer(object):
         """List rows
 
         Returns list of rows.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetRow(self, request, context):
+        """Get row
+
+        Gets a row from a table.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -443,6 +518,62 @@ class AgentPublicServiceServicer(object):
         """Move row
 
         Moves a row to a new position in a table.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetCell(self, request, context):
+        """Get cell
+
+        Gets a cell from a table.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateCell(self, request, context):
+        """Update cell
+
+        Updates a cell in a table.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ResetCell(self, request, context):
+        """Reset cell
+
+        Resets a cell in a table. Resetting a cell clears its user input and
+        reverts to using the computed value if available. This operation only
+        affects cells that have a user input set.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RecomputeCell(self, request, context):
+        """Recompute cell
+
+        Recomputes a cell in a table.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def LockCell(self, request, context):
+        """Lock cell
+
+        Locks a cell in a table.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UnlockCell(self, request, context):
+        """Unlock cell
+
+        Unlocks a cell in a table.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -590,10 +721,25 @@ def add_AgentPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.UpdateColumnDefinitionsRequest.FromString,
                     response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.UpdateColumnDefinitionsResponse.SerializeToString,
             ),
+            'GetColumnDefinition': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetColumnDefinition,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GetColumnDefinitionRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GetColumnDefinitionResponse.SerializeToString,
+            ),
+            'RecomputeColumn': grpc.unary_unary_rpc_method_handler(
+                    servicer.RecomputeColumn,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.RecomputeColumnRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.RecomputeColumnResponse.SerializeToString,
+            ),
             'ListRows': grpc.unary_unary_rpc_method_handler(
                     servicer.ListRows,
                     request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListRowsRequest.FromString,
                     response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListRowsResponse.SerializeToString,
+            ),
+            'GetRow': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetRow,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GetRowRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GetRowResponse.SerializeToString,
             ),
             'InsertRow': grpc.unary_unary_rpc_method_handler(
                     servicer.InsertRow,
@@ -624,6 +770,36 @@ def add_AgentPublicServiceServicer_to_server(servicer, server):
                     servicer.MoveRows,
                     request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.MoveRowsRequest.FromString,
                     response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.MoveRowsResponse.SerializeToString,
+            ),
+            'GetCell': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetCell,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GetCellRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GetCellResponse.SerializeToString,
+            ),
+            'UpdateCell': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateCell,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.UpdateCellRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.UpdateCellResponse.SerializeToString,
+            ),
+            'ResetCell': grpc.unary_unary_rpc_method_handler(
+                    servicer.ResetCell,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ResetCellRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ResetCellResponse.SerializeToString,
+            ),
+            'RecomputeCell': grpc.unary_unary_rpc_method_handler(
+                    servicer.RecomputeCell,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.RecomputeCellRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.RecomputeCellResponse.SerializeToString,
+            ),
+            'LockCell': grpc.unary_unary_rpc_method_handler(
+                    servicer.LockCell,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.LockCellRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.LockCellResponse.SerializeToString,
+            ),
+            'UnlockCell': grpc.unary_unary_rpc_method_handler(
+                    servicer.UnlockCell,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.UnlockCellRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.UnlockCellResponse.SerializeToString,
             ),
             'GetTableEvents': grpc.unary_stream_rpc_method_handler(
                     servicer.GetTableEvents,
@@ -1027,6 +1203,40 @@ class AgentPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def GetColumnDefinition(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/GetColumnDefinition',
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.GetColumnDefinitionRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.GetColumnDefinitionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RecomputeColumn(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/RecomputeColumn',
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.RecomputeColumnRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.RecomputeColumnResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def ListRows(request,
             target,
             options=(),
@@ -1040,6 +1250,23 @@ class AgentPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/ListRows',
             agent_dot_agent_dot_v1alpha_dot_table__pb2.ListRowsRequest.SerializeToString,
             agent_dot_agent_dot_v1alpha_dot_table__pb2.ListRowsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetRow(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/GetRow',
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.GetRowRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.GetRowResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1142,6 +1369,108 @@ class AgentPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/MoveRows',
             agent_dot_agent_dot_v1alpha_dot_table__pb2.MoveRowsRequest.SerializeToString,
             agent_dot_agent_dot_v1alpha_dot_table__pb2.MoveRowsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetCell(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/GetCell',
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.GetCellRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.GetCellResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateCell(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/UpdateCell',
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.UpdateCellRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.UpdateCellResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ResetCell(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/ResetCell',
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.ResetCellRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.ResetCellResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RecomputeCell(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/RecomputeCell',
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.RecomputeCellRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.RecomputeCellResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def LockCell(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/LockCell',
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.LockCellRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.LockCellResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UnlockCell(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/UnlockCell',
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.UnlockCellRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.UnlockCellResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
