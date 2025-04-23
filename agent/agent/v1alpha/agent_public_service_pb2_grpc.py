@@ -53,30 +53,15 @@ class AgentPublicServiceStub(object):
                 request_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.DeleteChatRequest.SerializeToString,
                 response_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.DeleteChatResponse.FromString,
                 )
-        self.CreateMessage = channel.unary_unary(
-                '/agent.agent.v1alpha.AgentPublicService/CreateMessage',
-                request_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.CreateMessageRequest.SerializeToString,
-                response_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.CreateMessageResponse.FromString,
-                )
         self.ListMessages = channel.unary_unary(
                 '/agent.agent.v1alpha.AgentPublicService/ListMessages',
                 request_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ListMessagesRequest.SerializeToString,
                 response_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ListMessagesResponse.FromString,
                 )
-        self.UpdateMessage = channel.unary_unary(
-                '/agent.agent.v1alpha.AgentPublicService/UpdateMessage',
-                request_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.UpdateMessageRequest.SerializeToString,
-                response_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.UpdateMessageResponse.FromString,
-                )
-        self.DeleteMessage = channel.unary_unary(
-                '/agent.agent.v1alpha.AgentPublicService/DeleteMessage',
-                request_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.DeleteMessageRequest.SerializeToString,
-                response_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.DeleteMessageResponse.FromString,
-                )
-        self.Chat = channel.unary_unary(
-                '/agent.agent.v1alpha.AgentPublicService/Chat',
-                request_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatRequest.SerializeToString,
-                response_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatResponse.FromString,
+        self.ChatWithAgent = channel.unary_stream(
+                '/agent.agent.v1alpha.AgentPublicService/ChatWithAgent',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatWithAgentRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatWithAgentResponse.FromString,
                 )
         self.BindChatTable = channel.unary_unary(
                 '/agent.agent.v1alpha.AgentPublicService/BindChatTable',
@@ -117,6 +102,16 @@ class AgentPublicServiceStub(object):
                 '/agent.agent.v1alpha.AgentPublicService/DeleteTable',
                 request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.DeleteTableRequest.SerializeToString,
                 response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.DeleteTableResponse.FromString,
+                )
+        self.ChatWithTableBuilderAgent = channel.unary_stream(
+                '/agent.agent.v1alpha.AgentPublicService/ChatWithTableBuilderAgent',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ChatWithTableBuilderAgentRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ChatWithTableBuilderAgentResponse.FromString,
+                )
+        self.ListTableBuilderAgentMessages = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/ListTableBuilderAgentMessages',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListTableBuilderAgentMessagesRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListTableBuilderAgentMessagesResponse.FromString,
                 )
         self.GetColumnDefinitions = channel.unary_unary(
                 '/agent.agent.v1alpha.AgentPublicService/GetColumnDefinitions',
@@ -218,11 +213,6 @@ class AgentPublicServiceStub(object):
                 request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ExportTableRequest.SerializeToString,
                 response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ExportTableResponse.FromString,
                 )
-        self.GenerateMockTable = channel.unary_unary(
-                '/agent.agent.v1alpha.AgentPublicService/GenerateMockTable',
-                request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GenerateMockTableRequest.SerializeToString,
-                response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GenerateMockTableResponse.FromString,
-                )
 
 
 class AgentPublicServiceServicer(object):
@@ -293,15 +283,6 @@ class AgentPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def CreateMessage(self, request, context):
-        """Create a message
-
-        Creates a message.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def ListMessages(self, request, context):
         """List messages
 
@@ -311,30 +292,10 @@ class AgentPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UpdateMessage(self, request, context):
-        """Update a message
+    def ChatWithAgent(self, request, context):
+        """Chat with agent
 
-        Updates a message.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def DeleteMessage(self, request, context):
-        """Delete a message
-
-        Deletes a message.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def Chat(self, request, context):
-        """Chat
-
-        Chat sends a message asynchronously and streams back the response.
-        This method is intended for real-time conversation with a chatbot
-        and the response needs to be processed incrementally.
+        Chat with the agent.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -407,6 +368,24 @@ class AgentPublicServiceServicer(object):
         """Delete table
 
         Deletes a table.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ChatWithTableBuilderAgent(self, request, context):
+        """Chat with table builder agent
+
+        Chat with the table builder agent.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListTableBuilderAgentMessages(self, request, context):
+        """List table builder agent messages
+
+        Lists the messages from the table builder agent.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -597,17 +576,6 @@ class AgentPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GenerateMockTable(self, request, context):
-        """Generate mock table
-
-        Generates mock table data.
-        This API is only available for internal use to generate mock row data for testing purposes.
-        It should not be used in production environments.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_AgentPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -646,30 +614,15 @@ def add_AgentPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.DeleteChatRequest.FromString,
                     response_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.DeleteChatResponse.SerializeToString,
             ),
-            'CreateMessage': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreateMessage,
-                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.CreateMessageRequest.FromString,
-                    response_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.CreateMessageResponse.SerializeToString,
-            ),
             'ListMessages': grpc.unary_unary_rpc_method_handler(
                     servicer.ListMessages,
                     request_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ListMessagesRequest.FromString,
                     response_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ListMessagesResponse.SerializeToString,
             ),
-            'UpdateMessage': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateMessage,
-                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.UpdateMessageRequest.FromString,
-                    response_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.UpdateMessageResponse.SerializeToString,
-            ),
-            'DeleteMessage': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteMessage,
-                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.DeleteMessageRequest.FromString,
-                    response_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.DeleteMessageResponse.SerializeToString,
-            ),
-            'Chat': grpc.unary_unary_rpc_method_handler(
-                    servicer.Chat,
-                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatRequest.FromString,
-                    response_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatResponse.SerializeToString,
+            'ChatWithAgent': grpc.unary_stream_rpc_method_handler(
+                    servicer.ChatWithAgent,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatWithAgentRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatWithAgentResponse.SerializeToString,
             ),
             'BindChatTable': grpc.unary_unary_rpc_method_handler(
                     servicer.BindChatTable,
@@ -710,6 +663,16 @@ def add_AgentPublicServiceServicer_to_server(servicer, server):
                     servicer.DeleteTable,
                     request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.DeleteTableRequest.FromString,
                     response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.DeleteTableResponse.SerializeToString,
+            ),
+            'ChatWithTableBuilderAgent': grpc.unary_stream_rpc_method_handler(
+                    servicer.ChatWithTableBuilderAgent,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ChatWithTableBuilderAgentRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ChatWithTableBuilderAgentResponse.SerializeToString,
+            ),
+            'ListTableBuilderAgentMessages': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListTableBuilderAgentMessages,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListTableBuilderAgentMessagesRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListTableBuilderAgentMessagesResponse.SerializeToString,
             ),
             'GetColumnDefinitions': grpc.unary_unary_rpc_method_handler(
                     servicer.GetColumnDefinitions,
@@ -810,11 +773,6 @@ def add_AgentPublicServiceServicer_to_server(servicer, server):
                     servicer.ExportTable,
                     request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ExportTableRequest.FromString,
                     response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ExportTableResponse.SerializeToString,
-            ),
-            'GenerateMockTable': grpc.unary_unary_rpc_method_handler(
-                    servicer.GenerateMockTable,
-                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GenerateMockTableRequest.FromString,
-                    response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GenerateMockTableResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -948,23 +906,6 @@ class AgentPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def CreateMessage(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/CreateMessage',
-            agent_dot_agent_dot_v1alpha_dot_chat__pb2.CreateMessageRequest.SerializeToString,
-            agent_dot_agent_dot_v1alpha_dot_chat__pb2.CreateMessageResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def ListMessages(request,
             target,
             options=(),
@@ -982,7 +923,7 @@ class AgentPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UpdateMessage(request,
+    def ChatWithAgent(request,
             target,
             options=(),
             channel_credentials=None,
@@ -992,43 +933,9 @@ class AgentPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/UpdateMessage',
-            agent_dot_agent_dot_v1alpha_dot_chat__pb2.UpdateMessageRequest.SerializeToString,
-            agent_dot_agent_dot_v1alpha_dot_chat__pb2.UpdateMessageResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def DeleteMessage(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/DeleteMessage',
-            agent_dot_agent_dot_v1alpha_dot_chat__pb2.DeleteMessageRequest.SerializeToString,
-            agent_dot_agent_dot_v1alpha_dot_chat__pb2.DeleteMessageResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def Chat(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/Chat',
-            agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatRequest.SerializeToString,
-            agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatResponse.FromString,
+        return grpc.experimental.unary_stream(request, target, '/agent.agent.v1alpha.AgentPublicService/ChatWithAgent',
+            agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatWithAgentRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatWithAgentResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1165,6 +1072,40 @@ class AgentPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/DeleteTable',
             agent_dot_agent_dot_v1alpha_dot_table__pb2.DeleteTableRequest.SerializeToString,
             agent_dot_agent_dot_v1alpha_dot_table__pb2.DeleteTableResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ChatWithTableBuilderAgent(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/agent.agent.v1alpha.AgentPublicService/ChatWithTableBuilderAgent',
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.ChatWithTableBuilderAgentRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.ChatWithTableBuilderAgentResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListTableBuilderAgentMessages(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/ListTableBuilderAgentMessages',
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.ListTableBuilderAgentMessagesRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.ListTableBuilderAgentMessagesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1505,22 +1446,5 @@ class AgentPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/ExportTable',
             agent_dot_agent_dot_v1alpha_dot_table__pb2.ExportTableRequest.SerializeToString,
             agent_dot_agent_dot_v1alpha_dot_table__pb2.ExportTableResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GenerateMockTable(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/GenerateMockTable',
-            agent_dot_agent_dot_v1alpha_dot_table__pb2.GenerateMockTableRequest.SerializeToString,
-            agent_dot_agent_dot_v1alpha_dot_table__pb2.GenerateMockTableResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

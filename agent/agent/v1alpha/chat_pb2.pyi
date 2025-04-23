@@ -527,64 +527,6 @@ class DeleteChatResponse(google.protobuf.message.Message):
 global___DeleteChatResponse = DeleteChatResponse
 
 @typing_extensions.final
-class CreateMessageRequest(google.protobuf.message.Message):
-    """CreateMessageRequest is used to create a new message"""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    CHAT_UID_FIELD_NUMBER: builtins.int
-    CONTENT_FIELD_NUMBER: builtins.int
-    ROLE_FIELD_NUMBER: builtins.int
-    TYPE_FIELD_NUMBER: builtins.int
-    namespace_id: builtins.str
-    """namespace id"""
-    chat_uid: builtins.str
-    """chag uid"""
-    content: builtins.str
-    """message content"""
-    role: builtins.str
-    """message role"""
-    type: global___Message.MessageType.ValueType
-    """message type"""
-    def __init__(
-        self,
-        *,
-        namespace_id: builtins.str = ...,
-        chat_uid: builtins.str = ...,
-        content: builtins.str = ...,
-        role: builtins.str = ...,
-        type: global___Message.MessageType.ValueType = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["chat_uid", b"chat_uid", "content", b"content", "namespace_id", b"namespace_id", "role", b"role", "type", b"type"]) -> None: ...
-
-global___CreateMessageRequest = CreateMessageRequest
-
-@typing_extensions.final
-class CreateMessageResponse(google.protobuf.message.Message):
-    """CreateMessageResponse returns the created message"""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    CHAT_UID_FIELD_NUMBER: builtins.int
-    MESSAGE_FIELD_NUMBER: builtins.int
-    chat_uid: builtins.str
-    """chat uid"""
-    @property
-    def message(self) -> global___Message:
-        """message"""
-    def __init__(
-        self,
-        *,
-        chat_uid: builtins.str = ...,
-        message: global___Message | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["message", b"message"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["chat_uid", b"chat_uid", "message", b"message"]) -> None: ...
-
-global___CreateMessageResponse = CreateMessageResponse
-
-@typing_extensions.final
 class MessageSenderProfile(google.protobuf.message.Message):
     """MessageSenderProfile describes the public data of a message sender.
     refer to core.mgmt.v1beta.UserProfile for more details.
@@ -688,96 +630,8 @@ class ListMessagesResponse(google.protobuf.message.Message):
 global___ListMessagesResponse = ListMessagesResponse
 
 @typing_extensions.final
-class UpdateMessageRequest(google.protobuf.message.Message):
-    """UpdateMessageRequest is used to update a message"""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    CHAT_UID_FIELD_NUMBER: builtins.int
-    MESSAGE_UID_FIELD_NUMBER: builtins.int
-    CONTENT_FIELD_NUMBER: builtins.int
-    namespace_id: builtins.str
-    """namespace id"""
-    chat_uid: builtins.str
-    """chat uid"""
-    message_uid: builtins.str
-    """message uid"""
-    content: builtins.str
-    """new message content"""
-    def __init__(
-        self,
-        *,
-        namespace_id: builtins.str = ...,
-        chat_uid: builtins.str = ...,
-        message_uid: builtins.str = ...,
-        content: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["chat_uid", b"chat_uid", "content", b"content", "message_uid", b"message_uid", "namespace_id", b"namespace_id"]) -> None: ...
-
-global___UpdateMessageRequest = UpdateMessageRequest
-
-@typing_extensions.final
-class UpdateMessageResponse(google.protobuf.message.Message):
-    """UpdateMessageResponse returns the updated message"""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    MESSAGE_FIELD_NUMBER: builtins.int
-    @property
-    def message(self) -> global___Message:
-        """message"""
-    def __init__(
-        self,
-        *,
-        message: global___Message | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["message", b"message"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["message", b"message"]) -> None: ...
-
-global___UpdateMessageResponse = UpdateMessageResponse
-
-@typing_extensions.final
-class DeleteMessageRequest(google.protobuf.message.Message):
-    """DeleteMessageRequest is used to delete a message"""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    CHAT_UID_FIELD_NUMBER: builtins.int
-    MESSAGE_UID_FIELD_NUMBER: builtins.int
-    namespace_id: builtins.str
-    """namespace id"""
-    chat_uid: builtins.str
-    """chat uid"""
-    message_uid: builtins.str
-    """message uid"""
-    def __init__(
-        self,
-        *,
-        namespace_id: builtins.str = ...,
-        chat_uid: builtins.str = ...,
-        message_uid: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["chat_uid", b"chat_uid", "message_uid", b"message_uid", "namespace_id", b"namespace_id"]) -> None: ...
-
-global___DeleteMessageRequest = DeleteMessageRequest
-
-@typing_extensions.final
-class DeleteMessageResponse(google.protobuf.message.Message):
-    """DeleteMessageResponse is empty as no content needs to be returned"""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    def __init__(
-        self,
-    ) -> None: ...
-
-global___DeleteMessageResponse = DeleteMessageResponse
-
-@typing_extensions.final
-class ChatRequest(google.protobuf.message.Message):
-    """ChatRequest represents a request to send a message
+class ChatWithAgentRequest(google.protobuf.message.Message):
+    """ChatWithAgentRequest represents a request to send a message
     to a chatbot synchronously and streams back the results.
     """
 
@@ -815,11 +669,11 @@ class ChatRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["chat_uid", b"chat_uid", "enable_web_search", b"enable_web_search", "file_uids", b"file_uids", "message", b"message", "namespace_id", b"namespace_id", "object_uids", b"object_uids"]) -> None: ...
 
-global___ChatRequest = ChatRequest
+global___ChatWithAgentRequest = ChatWithAgentRequest
 
 @typing_extensions.final
-class ChatResponse(google.protobuf.message.Message):
-    """ChatResponse contains the chatbot response."""
+class ChatWithAgentResponse(google.protobuf.message.Message):
+    """ChatWithAgentResponse contains the chatbot response."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -834,7 +688,85 @@ class ChatResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["outputs", b"outputs"]) -> None: ...
 
-global___ChatResponse = ChatResponse
+global___ChatWithAgentResponse = ChatWithAgentResponse
+
+@typing_extensions.final
+class ChatEvent(google.protobuf.message.Message):
+    """ChatEvent represents an event for a chat."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    EVENT_FIELD_NUMBER: builtins.int
+    ID_FIELD_NUMBER: builtins.int
+    CHAT_STARTED_EVENT_FIELD_NUMBER: builtins.int
+    CHAT_STATUS_UPDATED_EVENT_FIELD_NUMBER: builtins.int
+    CHAT_OUTPUT_UPDATED_EVENT_FIELD_NUMBER: builtins.int
+    CHAT_NAME_UPDATED_EVENT_FIELD_NUMBER: builtins.int
+    CHAT_REPLAN_TRIGGERED_EVENT_FIELD_NUMBER: builtins.int
+    CHAT_CITATION_LIST_UPDATED_EVENT_FIELD_NUMBER: builtins.int
+    CHAT_TABLE_CREATED_EVENT_FIELD_NUMBER: builtins.int
+    CHAT_ERROR_UPDATED_EVENT_FIELD_NUMBER: builtins.int
+    CHAT_DEBUG_OUTPUT_UPDATED_EVENT_FIELD_NUMBER: builtins.int
+    CHAT_ENDED_EVENT_FIELD_NUMBER: builtins.int
+    event: builtins.str
+    """The event type.
+    In text/event-stream format, this maps to the `event` field.
+    """
+    id: builtins.str
+    """The ID of the event.
+    In text/event-stream format, this maps to the `id` field.
+    """
+    @property
+    def chat_started_event(self) -> global___ChatStartedEvent:
+        """The chat was started."""
+    @property
+    def chat_status_updated_event(self) -> global___ChatStatusUpdatedEvent:
+        """The chat status was updated."""
+    @property
+    def chat_output_updated_event(self) -> global___ChatOutputUpdatedEvent:
+        """The chat output was updated."""
+    @property
+    def chat_name_updated_event(self) -> global___ChatNameUpdatedEvent:
+        """The chat name was updated."""
+    @property
+    def chat_replan_triggered_event(self) -> global___ChatReplanTriggeredEvent:
+        """The chat replan was triggered."""
+    @property
+    def chat_citation_list_updated_event(self) -> global___ChatCitationListUpdatedEvent:
+        """The chat citation list was updated."""
+    @property
+    def chat_table_created_event(self) -> global___ChatTableCreatedEvent:
+        """The table was created."""
+    @property
+    def chat_error_updated_event(self) -> global___ChatErrorUpdatedEvent:
+        """The error was updated."""
+    @property
+    def chat_debug_output_updated_event(self) -> global___ChatDebugOutputUpdatedEvent:
+        """The debug output was updated."""
+    @property
+    def chat_ended_event(self) -> global___ChatEndedEvent:
+        """The chat ended."""
+    def __init__(
+        self,
+        *,
+        event: builtins.str = ...,
+        id: builtins.str = ...,
+        chat_started_event: global___ChatStartedEvent | None = ...,
+        chat_status_updated_event: global___ChatStatusUpdatedEvent | None = ...,
+        chat_output_updated_event: global___ChatOutputUpdatedEvent | None = ...,
+        chat_name_updated_event: global___ChatNameUpdatedEvent | None = ...,
+        chat_replan_triggered_event: global___ChatReplanTriggeredEvent | None = ...,
+        chat_citation_list_updated_event: global___ChatCitationListUpdatedEvent | None = ...,
+        chat_table_created_event: global___ChatTableCreatedEvent | None = ...,
+        chat_error_updated_event: global___ChatErrorUpdatedEvent | None = ...,
+        chat_debug_output_updated_event: global___ChatDebugOutputUpdatedEvent | None = ...,
+        chat_ended_event: global___ChatEndedEvent | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["chat_citation_list_updated_event", b"chat_citation_list_updated_event", "chat_debug_output_updated_event", b"chat_debug_output_updated_event", "chat_ended_event", b"chat_ended_event", "chat_error_updated_event", b"chat_error_updated_event", "chat_name_updated_event", b"chat_name_updated_event", "chat_output_updated_event", b"chat_output_updated_event", "chat_replan_triggered_event", b"chat_replan_triggered_event", "chat_started_event", b"chat_started_event", "chat_status_updated_event", b"chat_status_updated_event", "chat_table_created_event", b"chat_table_created_event", "data", b"data"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chat_citation_list_updated_event", b"chat_citation_list_updated_event", "chat_debug_output_updated_event", b"chat_debug_output_updated_event", "chat_ended_event", b"chat_ended_event", "chat_error_updated_event", b"chat_error_updated_event", "chat_name_updated_event", b"chat_name_updated_event", "chat_output_updated_event", b"chat_output_updated_event", "chat_replan_triggered_event", b"chat_replan_triggered_event", "chat_started_event", b"chat_started_event", "chat_status_updated_event", b"chat_status_updated_event", "chat_table_created_event", b"chat_table_created_event", "data", b"data", "event", b"event", "id", b"id"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["data", b"data"]) -> typing_extensions.Literal["chat_started_event", "chat_status_updated_event", "chat_output_updated_event", "chat_name_updated_event", "chat_replan_triggered_event", "chat_citation_list_updated_event", "chat_table_created_event", "chat_error_updated_event", "chat_debug_output_updated_event", "chat_ended_event"] | None: ...
+
+global___ChatEvent = ChatEvent
 
 @typing_extensions.final
 class ChatStartedEvent(google.protobuf.message.Message):

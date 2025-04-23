@@ -81,14 +81,6 @@ class AgentPublicServiceStub:
 
     Deletes a chat.
     """
-    CreateMessage: grpc.UnaryUnaryMultiCallable[
-        agent.agent.v1alpha.chat_pb2.CreateMessageRequest,
-        agent.agent.v1alpha.chat_pb2.CreateMessageResponse,
-    ]
-    """Create a message
-
-    Creates a message.
-    """
     ListMessages: grpc.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.chat_pb2.ListMessagesRequest,
         agent.agent.v1alpha.chat_pb2.ListMessagesResponse,
@@ -97,31 +89,13 @@ class AgentPublicServiceStub:
 
     Returns a paginated list of messages.
     """
-    UpdateMessage: grpc.UnaryUnaryMultiCallable[
-        agent.agent.v1alpha.chat_pb2.UpdateMessageRequest,
-        agent.agent.v1alpha.chat_pb2.UpdateMessageResponse,
+    ChatWithAgent: grpc.UnaryStreamMultiCallable[
+        agent.agent.v1alpha.chat_pb2.ChatWithAgentRequest,
+        agent.agent.v1alpha.chat_pb2.ChatWithAgentResponse,
     ]
-    """Update a message
+    """Chat with agent
 
-    Updates a message.
-    """
-    DeleteMessage: grpc.UnaryUnaryMultiCallable[
-        agent.agent.v1alpha.chat_pb2.DeleteMessageRequest,
-        agent.agent.v1alpha.chat_pb2.DeleteMessageResponse,
-    ]
-    """Delete a message
-
-    Deletes a message.
-    """
-    Chat: grpc.UnaryUnaryMultiCallable[
-        agent.agent.v1alpha.chat_pb2.ChatRequest,
-        agent.agent.v1alpha.chat_pb2.ChatResponse,
-    ]
-    """Chat
-
-    Chat sends a message asynchronously and streams back the response.
-    This method is intended for real-time conversation with a chatbot
-    and the response needs to be processed incrementally.
+    Chat with the agent.
     """
     BindChatTable: grpc.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.table_pb2.BindChatTableRequest,
@@ -186,6 +160,22 @@ class AgentPublicServiceStub:
     """Delete table
 
     Deletes a table.
+    """
+    ChatWithTableBuilderAgent: grpc.UnaryStreamMultiCallable[
+        agent.agent.v1alpha.table_pb2.ChatWithTableBuilderAgentRequest,
+        agent.agent.v1alpha.table_pb2.ChatWithTableBuilderAgentResponse,
+    ]
+    """Chat with table builder agent
+
+    Chat with the table builder agent.
+    """
+    ListTableBuilderAgentMessages: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.ListTableBuilderAgentMessagesRequest,
+        agent.agent.v1alpha.table_pb2.ListTableBuilderAgentMessagesResponse,
+    ]
+    """List table builder agent messages
+
+    Lists the messages from the table builder agent.
     """
     GetColumnDefinitions: grpc.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.table_pb2.GetColumnDefinitionsRequest,
@@ -352,16 +342,6 @@ class AgentPublicServiceStub:
 
     Exports table data.
     """
-    GenerateMockTable: grpc.UnaryUnaryMultiCallable[
-        agent.agent.v1alpha.table_pb2.GenerateMockTableRequest,
-        agent.agent.v1alpha.table_pb2.GenerateMockTableResponse,
-    ]
-    """Generate mock table
-
-    Generates mock table data.
-    This API is only available for internal use to generate mock row data for testing purposes.
-    It should not be used in production environments.
-    """
 
 class AgentPublicServiceAsyncStub:
     """AgentPublicService exposes the public endpoints that allow clients to
@@ -424,14 +404,6 @@ class AgentPublicServiceAsyncStub:
 
     Deletes a chat.
     """
-    CreateMessage: grpc.aio.UnaryUnaryMultiCallable[
-        agent.agent.v1alpha.chat_pb2.CreateMessageRequest,
-        agent.agent.v1alpha.chat_pb2.CreateMessageResponse,
-    ]
-    """Create a message
-
-    Creates a message.
-    """
     ListMessages: grpc.aio.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.chat_pb2.ListMessagesRequest,
         agent.agent.v1alpha.chat_pb2.ListMessagesResponse,
@@ -440,31 +412,13 @@ class AgentPublicServiceAsyncStub:
 
     Returns a paginated list of messages.
     """
-    UpdateMessage: grpc.aio.UnaryUnaryMultiCallable[
-        agent.agent.v1alpha.chat_pb2.UpdateMessageRequest,
-        agent.agent.v1alpha.chat_pb2.UpdateMessageResponse,
+    ChatWithAgent: grpc.aio.UnaryStreamMultiCallable[
+        agent.agent.v1alpha.chat_pb2.ChatWithAgentRequest,
+        agent.agent.v1alpha.chat_pb2.ChatWithAgentResponse,
     ]
-    """Update a message
+    """Chat with agent
 
-    Updates a message.
-    """
-    DeleteMessage: grpc.aio.UnaryUnaryMultiCallable[
-        agent.agent.v1alpha.chat_pb2.DeleteMessageRequest,
-        agent.agent.v1alpha.chat_pb2.DeleteMessageResponse,
-    ]
-    """Delete a message
-
-    Deletes a message.
-    """
-    Chat: grpc.aio.UnaryUnaryMultiCallable[
-        agent.agent.v1alpha.chat_pb2.ChatRequest,
-        agent.agent.v1alpha.chat_pb2.ChatResponse,
-    ]
-    """Chat
-
-    Chat sends a message asynchronously and streams back the response.
-    This method is intended for real-time conversation with a chatbot
-    and the response needs to be processed incrementally.
+    Chat with the agent.
     """
     BindChatTable: grpc.aio.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.table_pb2.BindChatTableRequest,
@@ -529,6 +483,22 @@ class AgentPublicServiceAsyncStub:
     """Delete table
 
     Deletes a table.
+    """
+    ChatWithTableBuilderAgent: grpc.aio.UnaryStreamMultiCallable[
+        agent.agent.v1alpha.table_pb2.ChatWithTableBuilderAgentRequest,
+        agent.agent.v1alpha.table_pb2.ChatWithTableBuilderAgentResponse,
+    ]
+    """Chat with table builder agent
+
+    Chat with the table builder agent.
+    """
+    ListTableBuilderAgentMessages: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.ListTableBuilderAgentMessagesRequest,
+        agent.agent.v1alpha.table_pb2.ListTableBuilderAgentMessagesResponse,
+    ]
+    """List table builder agent messages
+
+    Lists the messages from the table builder agent.
     """
     GetColumnDefinitions: grpc.aio.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.table_pb2.GetColumnDefinitionsRequest,
@@ -695,16 +665,6 @@ class AgentPublicServiceAsyncStub:
 
     Exports table data.
     """
-    GenerateMockTable: grpc.aio.UnaryUnaryMultiCallable[
-        agent.agent.v1alpha.table_pb2.GenerateMockTableRequest,
-        agent.agent.v1alpha.table_pb2.GenerateMockTableResponse,
-    ]
-    """Generate mock table
-
-    Generates mock table data.
-    This API is only available for internal use to generate mock row data for testing purposes.
-    It should not be used in production environments.
-    """
 
 class AgentPublicServiceServicer(metaclass=abc.ABCMeta):
     """AgentPublicService exposes the public endpoints that allow clients to
@@ -782,16 +742,6 @@ class AgentPublicServiceServicer(metaclass=abc.ABCMeta):
         Deletes a chat.
         """
     @abc.abstractmethod
-    def CreateMessage(
-        self,
-        request: agent.agent.v1alpha.chat_pb2.CreateMessageRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[agent.agent.v1alpha.chat_pb2.CreateMessageResponse, collections.abc.Awaitable[agent.agent.v1alpha.chat_pb2.CreateMessageResponse]]:
-        """Create a message
-
-        Creates a message.
-        """
-    @abc.abstractmethod
     def ListMessages(
         self,
         request: agent.agent.v1alpha.chat_pb2.ListMessagesRequest,
@@ -802,36 +752,14 @@ class AgentPublicServiceServicer(metaclass=abc.ABCMeta):
         Returns a paginated list of messages.
         """
     @abc.abstractmethod
-    def UpdateMessage(
+    def ChatWithAgent(
         self,
-        request: agent.agent.v1alpha.chat_pb2.UpdateMessageRequest,
+        request: agent.agent.v1alpha.chat_pb2.ChatWithAgentRequest,
         context: _ServicerContext,
-    ) -> typing.Union[agent.agent.v1alpha.chat_pb2.UpdateMessageResponse, collections.abc.Awaitable[agent.agent.v1alpha.chat_pb2.UpdateMessageResponse]]:
-        """Update a message
+    ) -> typing.Union[collections.abc.Iterator[agent.agent.v1alpha.chat_pb2.ChatWithAgentResponse], collections.abc.AsyncIterator[agent.agent.v1alpha.chat_pb2.ChatWithAgentResponse]]:
+        """Chat with agent
 
-        Updates a message.
-        """
-    @abc.abstractmethod
-    def DeleteMessage(
-        self,
-        request: agent.agent.v1alpha.chat_pb2.DeleteMessageRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[agent.agent.v1alpha.chat_pb2.DeleteMessageResponse, collections.abc.Awaitable[agent.agent.v1alpha.chat_pb2.DeleteMessageResponse]]:
-        """Delete a message
-
-        Deletes a message.
-        """
-    @abc.abstractmethod
-    def Chat(
-        self,
-        request: agent.agent.v1alpha.chat_pb2.ChatRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[agent.agent.v1alpha.chat_pb2.ChatResponse, collections.abc.Awaitable[agent.agent.v1alpha.chat_pb2.ChatResponse]]:
-        """Chat
-
-        Chat sends a message asynchronously and streams back the response.
-        This method is intended for real-time conversation with a chatbot
-        and the response needs to be processed incrementally.
+        Chat with the agent.
         """
     @abc.abstractmethod
     def BindChatTable(
@@ -912,6 +840,26 @@ class AgentPublicServiceServicer(metaclass=abc.ABCMeta):
         """Delete table
 
         Deletes a table.
+        """
+    @abc.abstractmethod
+    def ChatWithTableBuilderAgent(
+        self,
+        request: agent.agent.v1alpha.table_pb2.ChatWithTableBuilderAgentRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[collections.abc.Iterator[agent.agent.v1alpha.table_pb2.ChatWithTableBuilderAgentResponse], collections.abc.AsyncIterator[agent.agent.v1alpha.table_pb2.ChatWithTableBuilderAgentResponse]]:
+        """Chat with table builder agent
+
+        Chat with the table builder agent.
+        """
+    @abc.abstractmethod
+    def ListTableBuilderAgentMessages(
+        self,
+        request: agent.agent.v1alpha.table_pb2.ListTableBuilderAgentMessagesRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.table_pb2.ListTableBuilderAgentMessagesResponse, collections.abc.Awaitable[agent.agent.v1alpha.table_pb2.ListTableBuilderAgentMessagesResponse]]:
+        """List table builder agent messages
+
+        Lists the messages from the table builder agent.
         """
     @abc.abstractmethod
     def GetColumnDefinitions(
@@ -1117,18 +1065,6 @@ class AgentPublicServiceServicer(metaclass=abc.ABCMeta):
         """Export table
 
         Exports table data.
-        """
-    @abc.abstractmethod
-    def GenerateMockTable(
-        self,
-        request: agent.agent.v1alpha.table_pb2.GenerateMockTableRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[agent.agent.v1alpha.table_pb2.GenerateMockTableResponse, collections.abc.Awaitable[agent.agent.v1alpha.table_pb2.GenerateMockTableResponse]]:
-        """Generate mock table
-
-        Generates mock table data.
-        This API is only available for internal use to generate mock row data for testing purposes.
-        It should not be used in production environments.
         """
 
 def add_AgentPublicServiceServicer_to_server(servicer: AgentPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
