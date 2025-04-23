@@ -788,6 +788,7 @@ class ChatRequest(google.protobuf.message.Message):
     MESSAGE_FIELD_NUMBER: builtins.int
     FILE_UIDS_FIELD_NUMBER: builtins.int
     ENABLE_WEB_SEARCH_FIELD_NUMBER: builtins.int
+    OBJECT_UIDS_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """namespace id"""
     chat_uid: builtins.str
@@ -799,6 +800,9 @@ class ChatRequest(google.protobuf.message.Message):
         """file UIDs"""
     enable_web_search: builtins.bool
     """Whether to enable web search for the chat."""
+    @property
+    def object_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """object UIDs"""
     def __init__(
         self,
         *,
@@ -807,8 +811,9 @@ class ChatRequest(google.protobuf.message.Message):
         message: builtins.str = ...,
         file_uids: collections.abc.Iterable[builtins.str] | None = ...,
         enable_web_search: builtins.bool = ...,
+        object_uids: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["chat_uid", b"chat_uid", "enable_web_search", b"enable_web_search", "file_uids", b"file_uids", "message", b"message", "namespace_id", b"namespace_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chat_uid", b"chat_uid", "enable_web_search", b"enable_web_search", "file_uids", b"file_uids", "message", b"message", "namespace_id", b"namespace_id", "object_uids", b"object_uids"]) -> None: ...
 
 global___ChatRequest = ChatRequest
 
