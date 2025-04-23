@@ -492,16 +492,16 @@ class ColumnDefinition(google.protobuf.message.Message):
 
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-            COLUMNS_FIELD_NUMBER: builtins.int
+            COLUMN_UIDS_FIELD_NUMBER: builtins.int
             @property
-            def columns(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-                """The column names to include in the context."""
+            def column_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+                """The column uids to include in the context."""
             def __init__(
                 self,
                 *,
-                columns: collections.abc.Iterable[builtins.str] | None = ...,
+                column_uids: collections.abc.Iterable[builtins.str] | None = ...,
             ) -> None: ...
-            def ClearField(self, field_name: typing_extensions.Literal["columns", b"columns"]) -> None: ...
+            def ClearField(self, field_name: typing_extensions.Literal["column_uids", b"column_uids"]) -> None: ...
 
         INSTRUCTIONS_FIELD_NUMBER: builtins.int
         ENABLE_WEB_SEARCH_FIELD_NUMBER: builtins.int
