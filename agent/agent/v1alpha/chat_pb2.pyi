@@ -637,12 +637,30 @@ class ChatWithAgentRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
+    class Context(google.protobuf.message.Message):
+        """The context for the chat."""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        TABLE_UIDS_FIELD_NUMBER: builtins.int
+        @property
+        def table_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+            """The table uids to include in the context."""
+        def __init__(
+            self,
+            *,
+            table_uids: collections.abc.Iterable[builtins.str] | None = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["table_uids", b"table_uids"]) -> None: ...
+
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     CHAT_UID_FIELD_NUMBER: builtins.int
     MESSAGE_FIELD_NUMBER: builtins.int
     FILE_UIDS_FIELD_NUMBER: builtins.int
     ENABLE_WEB_SEARCH_FIELD_NUMBER: builtins.int
     OBJECT_UIDS_FIELD_NUMBER: builtins.int
+    CONTEXT_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """namespace id"""
     chat_uid: builtins.str
@@ -657,6 +675,9 @@ class ChatWithAgentRequest(google.protobuf.message.Message):
     @property
     def object_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """object UIDs"""
+    @property
+    def context(self) -> global___ChatWithAgentRequest.Context:
+        """The context for the agent."""
     def __init__(
         self,
         *,
@@ -666,8 +687,10 @@ class ChatWithAgentRequest(google.protobuf.message.Message):
         file_uids: collections.abc.Iterable[builtins.str] | None = ...,
         enable_web_search: builtins.bool = ...,
         object_uids: collections.abc.Iterable[builtins.str] | None = ...,
+        context: global___ChatWithAgentRequest.Context | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["chat_uid", b"chat_uid", "enable_web_search", b"enable_web_search", "file_uids", b"file_uids", "message", b"message", "namespace_id", b"namespace_id", "object_uids", b"object_uids"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["context", b"context"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chat_uid", b"chat_uid", "context", b"context", "enable_web_search", b"enable_web_search", "file_uids", b"file_uids", "message", b"message", "namespace_id", b"namespace_id", "object_uids", b"object_uids"]) -> None: ...
 
 global___ChatWithAgentRequest = ChatWithAgentRequest
 
