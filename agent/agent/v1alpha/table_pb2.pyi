@@ -188,6 +188,7 @@ class Table(google.protobuf.message.Message):
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     AGENT_CONFIG_FIELD_NUMBER: builtins.int
+    DRAFT_MODE_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """The unique identifier of the table."""
     id: builtins.str
@@ -208,6 +209,8 @@ class Table(google.protobuf.message.Message):
     @property
     def agent_config(self) -> global___Table.AgentConfig:
         """The configuration for the agent."""
+    draft_mode: builtins.bool
+    """Whether to enable draft mode for the table."""
     def __init__(
         self,
         *,
@@ -219,9 +222,10 @@ class Table(google.protobuf.message.Message):
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         agent_config: global___Table.AgentConfig | None = ...,
+        draft_mode: builtins.bool = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "create_time", b"create_time", "metadata", b"metadata", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "create_time", b"create_time", "description", b"description", "id", b"id", "metadata", b"metadata", "title", b"title", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "create_time", b"create_time", "description", b"description", "draft_mode", b"draft_mode", "id", b"id", "metadata", b"metadata", "title", b"title", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
 
 global___Table = Table
 
