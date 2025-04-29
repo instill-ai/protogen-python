@@ -766,6 +766,8 @@ class ChatEvent(google.protobuf.message.Message):
     CHAT_ERROR_UPDATED_EVENT_FIELD_NUMBER: builtins.int
     CHAT_DEBUG_OUTPUT_UPDATED_EVENT_FIELD_NUMBER: builtins.int
     CHAT_ENDED_EVENT_FIELD_NUMBER: builtins.int
+    CHAT_ATTACHMENTS_UPDATED_EVENT_FIELD_NUMBER: builtins.int
+    CHAT_CONTEXT_UPDATED_EVENT_FIELD_NUMBER: builtins.int
     event: builtins.str
     """The event type.
     In text/event-stream format, this maps to the `event` field.
@@ -804,6 +806,12 @@ class ChatEvent(google.protobuf.message.Message):
     @property
     def chat_ended_event(self) -> global___ChatEndedEvent:
         """The chat ended."""
+    @property
+    def chat_attachments_updated_event(self) -> global___ChatAttachmentsUpdatedEvent:
+        """The chat attachments were updated."""
+    @property
+    def chat_context_updated_event(self) -> global___ChatContextUpdatedEvent:
+        """The chat context was updated."""
     def __init__(
         self,
         *,
@@ -819,10 +827,12 @@ class ChatEvent(google.protobuf.message.Message):
         chat_error_updated_event: global___ChatErrorUpdatedEvent | None = ...,
         chat_debug_output_updated_event: global___ChatDebugOutputUpdatedEvent | None = ...,
         chat_ended_event: global___ChatEndedEvent | None = ...,
+        chat_attachments_updated_event: global___ChatAttachmentsUpdatedEvent | None = ...,
+        chat_context_updated_event: global___ChatContextUpdatedEvent | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["chat_citation_list_updated_event", b"chat_citation_list_updated_event", "chat_debug_output_updated_event", b"chat_debug_output_updated_event", "chat_ended_event", b"chat_ended_event", "chat_error_updated_event", b"chat_error_updated_event", "chat_name_updated_event", b"chat_name_updated_event", "chat_output_updated_event", b"chat_output_updated_event", "chat_replan_triggered_event", b"chat_replan_triggered_event", "chat_started_event", b"chat_started_event", "chat_status_updated_event", b"chat_status_updated_event", "chat_table_created_event", b"chat_table_created_event", "data", b"data"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["chat_citation_list_updated_event", b"chat_citation_list_updated_event", "chat_debug_output_updated_event", b"chat_debug_output_updated_event", "chat_ended_event", b"chat_ended_event", "chat_error_updated_event", b"chat_error_updated_event", "chat_name_updated_event", b"chat_name_updated_event", "chat_output_updated_event", b"chat_output_updated_event", "chat_replan_triggered_event", b"chat_replan_triggered_event", "chat_started_event", b"chat_started_event", "chat_status_updated_event", b"chat_status_updated_event", "chat_table_created_event", b"chat_table_created_event", "data", b"data", "event", b"event", "id", b"id"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["data", b"data"]) -> typing_extensions.Literal["chat_started_event", "chat_status_updated_event", "chat_output_updated_event", "chat_name_updated_event", "chat_replan_triggered_event", "chat_citation_list_updated_event", "chat_table_created_event", "chat_error_updated_event", "chat_debug_output_updated_event", "chat_ended_event"] | None: ...
+    def HasField(self, field_name: typing_extensions.Literal["chat_attachments_updated_event", b"chat_attachments_updated_event", "chat_citation_list_updated_event", b"chat_citation_list_updated_event", "chat_context_updated_event", b"chat_context_updated_event", "chat_debug_output_updated_event", b"chat_debug_output_updated_event", "chat_ended_event", b"chat_ended_event", "chat_error_updated_event", b"chat_error_updated_event", "chat_name_updated_event", b"chat_name_updated_event", "chat_output_updated_event", b"chat_output_updated_event", "chat_replan_triggered_event", b"chat_replan_triggered_event", "chat_started_event", b"chat_started_event", "chat_status_updated_event", b"chat_status_updated_event", "chat_table_created_event", b"chat_table_created_event", "data", b"data"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chat_attachments_updated_event", b"chat_attachments_updated_event", "chat_citation_list_updated_event", b"chat_citation_list_updated_event", "chat_context_updated_event", b"chat_context_updated_event", "chat_debug_output_updated_event", b"chat_debug_output_updated_event", "chat_ended_event", b"chat_ended_event", "chat_error_updated_event", b"chat_error_updated_event", "chat_name_updated_event", b"chat_name_updated_event", "chat_output_updated_event", b"chat_output_updated_event", "chat_replan_triggered_event", b"chat_replan_triggered_event", "chat_started_event", b"chat_started_event", "chat_status_updated_event", b"chat_status_updated_event", "chat_table_created_event", b"chat_table_created_event", "data", b"data", "event", b"event", "id", b"id"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["data", b"data"]) -> typing_extensions.Literal["chat_started_event", "chat_status_updated_event", "chat_output_updated_event", "chat_name_updated_event", "chat_replan_triggered_event", "chat_citation_list_updated_event", "chat_table_created_event", "chat_error_updated_event", "chat_debug_output_updated_event", "chat_ended_event", "chat_attachments_updated_event", "chat_context_updated_event"] | None: ...
 
 global___ChatEvent = ChatEvent
 
@@ -966,6 +976,56 @@ class ChatCitationListUpdatedEvent(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["citations", b"citations", "create_time", b"create_time"]) -> None: ...
 
 global___ChatCitationListUpdatedEvent = ChatCitationListUpdatedEvent
+
+@typing_extensions.final
+class ChatAttachmentsUpdatedEvent(google.protobuf.message.Message):
+    """ChatAttachmentsUpdatedEvent represents an event for a attachment list output"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CREATE_TIME_FIELD_NUMBER: builtins.int
+    ATTACHMENTS_FIELD_NUMBER: builtins.int
+    @property
+    def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """The time when attachment list updated"""
+    @property
+    def attachments(self) -> global___ChatAttachments:
+        """The attachments"""
+    def __init__(
+        self,
+        *,
+        create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        attachments: global___ChatAttachments | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["attachments", b"attachments", "create_time", b"create_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["attachments", b"attachments", "create_time", b"create_time"]) -> None: ...
+
+global___ChatAttachmentsUpdatedEvent = ChatAttachmentsUpdatedEvent
+
+@typing_extensions.final
+class ChatContextUpdatedEvent(google.protobuf.message.Message):
+    """ChatContextUpdatedEvent represents an event for a context updated"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CREATE_TIME_FIELD_NUMBER: builtins.int
+    CONTEXT_FIELD_NUMBER: builtins.int
+    @property
+    def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """The time when context updated"""
+    @property
+    def context(self) -> global___ChatContext:
+        """The context"""
+    def __init__(
+        self,
+        *,
+        create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        context: global___ChatContext | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["context", b"context", "create_time", b"create_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["context", b"context", "create_time", b"create_time"]) -> None: ...
+
+global___ChatContextUpdatedEvent = ChatContextUpdatedEvent
 
 @typing_extensions.final
 class ChatTableCreatedEvent(google.protobuf.message.Message):
