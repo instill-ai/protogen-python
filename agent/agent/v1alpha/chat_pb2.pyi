@@ -244,6 +244,9 @@ class Message(google.protobuf.message.Message):
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     MSG_SENDER_UID_FIELD_NUMBER: builtins.int
     CITATIONS_FIELD_NUMBER: builtins.int
+    CONTEXT_FIELD_NUMBER: builtins.int
+    ATTACHMENTS_FIELD_NUMBER: builtins.int
+    ENABLE_WEB_SEARCH_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """message uid"""
     chat_uid: builtins.str
@@ -264,7 +267,15 @@ class Message(google.protobuf.message.Message):
     """message sender uid(only for user messages)"""
     @property
     def citations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Citation]:
-        """citations(only for agent messages)"""
+        """citations (only for agent messages)"""
+    @property
+    def context(self) -> global___ChatContext:
+        """context for the message"""
+    @property
+    def attachments(self) -> global___ChatAttachments:
+        """attachments for the message"""
+    enable_web_search: builtins.bool
+    """enable web search (only for user messages)"""
     def __init__(
         self,
         *,
@@ -277,11 +288,52 @@ class Message(google.protobuf.message.Message):
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         msg_sender_uid: builtins.str = ...,
         citations: collections.abc.Iterable[global___Citation] | None = ...,
+        context: global___ChatContext | None = ...,
+        attachments: global___ChatAttachments | None = ...,
+        enable_web_search: builtins.bool = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["chat_uid", b"chat_uid", "citations", b"citations", "content", b"content", "create_time", b"create_time", "msg_sender_uid", b"msg_sender_uid", "role", b"role", "type", b"type", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["attachments", b"attachments", "context", b"context", "create_time", b"create_time", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["attachments", b"attachments", "chat_uid", b"chat_uid", "citations", b"citations", "content", b"content", "context", b"context", "create_time", b"create_time", "enable_web_search", b"enable_web_search", "msg_sender_uid", b"msg_sender_uid", "role", b"role", "type", b"type", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
 
 global___Message = Message
+
+@typing_extensions.final
+class ChatContext(google.protobuf.message.Message):
+    """The context for the message."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TABLE_UIDS_FIELD_NUMBER: builtins.int
+    @property
+    def table_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """The table uids to include in the context."""
+    def __init__(
+        self,
+        *,
+        table_uids: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["table_uids", b"table_uids"]) -> None: ...
+
+global___ChatContext = ChatContext
+
+@typing_extensions.final
+class ChatAttachments(google.protobuf.message.Message):
+    """ChatAttachments represents the attachment for the message"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_URLS_FIELD_NUMBER: builtins.int
+    @property
+    def file_urls(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """file urls (only for user messages)"""
+    def __init__(
+        self,
+        *,
+        file_urls: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file_urls", b"file_urls"]) -> None: ...
+
+global___ChatAttachments = ChatAttachments
 
 @typing_extensions.final
 class CreateChatRequest(google.protobuf.message.Message):
@@ -637,23 +689,6 @@ class ChatWithAgentRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    @typing_extensions.final
-    class Context(google.protobuf.message.Message):
-        """The context for the chat."""
-
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        TABLE_UIDS_FIELD_NUMBER: builtins.int
-        @property
-        def table_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-            """The table uids to include in the context."""
-        def __init__(
-            self,
-            *,
-            table_uids: collections.abc.Iterable[builtins.str] | None = ...,
-        ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["table_uids", b"table_uids"]) -> None: ...
-
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     CHAT_UID_FIELD_NUMBER: builtins.int
     MESSAGE_FIELD_NUMBER: builtins.int
@@ -676,8 +711,8 @@ class ChatWithAgentRequest(google.protobuf.message.Message):
     def object_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """object UIDs"""
     @property
-    def context(self) -> global___ChatWithAgentRequest.Context:
-        """The context for the agent."""
+    def context(self) -> global___ChatContext:
+        """The context for the chat."""
     def __init__(
         self,
         *,
@@ -687,7 +722,7 @@ class ChatWithAgentRequest(google.protobuf.message.Message):
         file_uids: collections.abc.Iterable[builtins.str] | None = ...,
         enable_web_search: builtins.bool = ...,
         object_uids: collections.abc.Iterable[builtins.str] | None = ...,
-        context: global___ChatWithAgentRequest.Context | None = ...,
+        context: global___ChatContext | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["context", b"context"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["chat_uid", b"chat_uid", "context", b"context", "enable_web_search", b"enable_web_search", "file_uids", b"file_uids", "message", b"message", "namespace_id", b"namespace_id", "object_uids", b"object_uids"]) -> None: ...
