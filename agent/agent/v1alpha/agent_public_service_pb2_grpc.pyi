@@ -162,16 +162,16 @@ class AgentPublicServiceStub:
     Deletes a table.
     """
     ChatWithTableBuilderAgent: grpc.UnaryStreamMultiCallable[
-        agent.agent.v1alpha.table_pb2.ChatWithTableBuilderAgentRequest,
-        agent.agent.v1alpha.table_pb2.ChatWithTableBuilderAgentResponse,
+        agent.agent.v1alpha.chat_pb2.ChatWithTableBuilderAgentRequest,
+        agent.agent.v1alpha.chat_pb2.ChatWithTableBuilderAgentResponse,
     ]
     """Chat with table builder agent
 
     Chat with the table builder agent.
     """
     ListTableBuilderAgentMessages: grpc.UnaryUnaryMultiCallable[
-        agent.agent.v1alpha.table_pb2.ListTableBuilderAgentMessagesRequest,
-        agent.agent.v1alpha.table_pb2.ListTableBuilderAgentMessagesResponse,
+        agent.agent.v1alpha.chat_pb2.ListTableBuilderAgentMessagesRequest,
+        agent.agent.v1alpha.chat_pb2.ListTableBuilderAgentMessagesResponse,
     ]
     """List table builder agent messages
 
@@ -485,16 +485,16 @@ class AgentPublicServiceAsyncStub:
     Deletes a table.
     """
     ChatWithTableBuilderAgent: grpc.aio.UnaryStreamMultiCallable[
-        agent.agent.v1alpha.table_pb2.ChatWithTableBuilderAgentRequest,
-        agent.agent.v1alpha.table_pb2.ChatWithTableBuilderAgentResponse,
+        agent.agent.v1alpha.chat_pb2.ChatWithTableBuilderAgentRequest,
+        agent.agent.v1alpha.chat_pb2.ChatWithTableBuilderAgentResponse,
     ]
     """Chat with table builder agent
 
     Chat with the table builder agent.
     """
     ListTableBuilderAgentMessages: grpc.aio.UnaryUnaryMultiCallable[
-        agent.agent.v1alpha.table_pb2.ListTableBuilderAgentMessagesRequest,
-        agent.agent.v1alpha.table_pb2.ListTableBuilderAgentMessagesResponse,
+        agent.agent.v1alpha.chat_pb2.ListTableBuilderAgentMessagesRequest,
+        agent.agent.v1alpha.chat_pb2.ListTableBuilderAgentMessagesResponse,
     ]
     """List table builder agent messages
 
@@ -844,9 +844,9 @@ class AgentPublicServiceServicer(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def ChatWithTableBuilderAgent(
         self,
-        request: agent.agent.v1alpha.table_pb2.ChatWithTableBuilderAgentRequest,
+        request: agent.agent.v1alpha.chat_pb2.ChatWithTableBuilderAgentRequest,
         context: _ServicerContext,
-    ) -> typing.Union[collections.abc.Iterator[agent.agent.v1alpha.table_pb2.ChatWithTableBuilderAgentResponse], collections.abc.AsyncIterator[agent.agent.v1alpha.table_pb2.ChatWithTableBuilderAgentResponse]]:
+    ) -> typing.Union[collections.abc.Iterator[agent.agent.v1alpha.chat_pb2.ChatWithTableBuilderAgentResponse], collections.abc.AsyncIterator[agent.agent.v1alpha.chat_pb2.ChatWithTableBuilderAgentResponse]]:
         """Chat with table builder agent
 
         Chat with the table builder agent.
@@ -854,9 +854,9 @@ class AgentPublicServiceServicer(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def ListTableBuilderAgentMessages(
         self,
-        request: agent.agent.v1alpha.table_pb2.ListTableBuilderAgentMessagesRequest,
+        request: agent.agent.v1alpha.chat_pb2.ListTableBuilderAgentMessagesRequest,
         context: _ServicerContext,
-    ) -> typing.Union[agent.agent.v1alpha.table_pb2.ListTableBuilderAgentMessagesResponse, collections.abc.Awaitable[agent.agent.v1alpha.table_pb2.ListTableBuilderAgentMessagesResponse]]:
+    ) -> typing.Union[agent.agent.v1alpha.chat_pb2.ListTableBuilderAgentMessagesResponse, collections.abc.Awaitable[agent.agent.v1alpha.chat_pb2.ListTableBuilderAgentMessagesResponse]]:
         """List table builder agent messages
 
         Lists the messages from the table builder agent.

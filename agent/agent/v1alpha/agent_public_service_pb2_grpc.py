@@ -105,13 +105,13 @@ class AgentPublicServiceStub(object):
                 )
         self.ChatWithTableBuilderAgent = channel.unary_stream(
                 '/agent.agent.v1alpha.AgentPublicService/ChatWithTableBuilderAgent',
-                request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ChatWithTableBuilderAgentRequest.SerializeToString,
-                response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ChatWithTableBuilderAgentResponse.FromString,
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatWithTableBuilderAgentRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatWithTableBuilderAgentResponse.FromString,
                 )
         self.ListTableBuilderAgentMessages = channel.unary_unary(
                 '/agent.agent.v1alpha.AgentPublicService/ListTableBuilderAgentMessages',
-                request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListTableBuilderAgentMessagesRequest.SerializeToString,
-                response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListTableBuilderAgentMessagesResponse.FromString,
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ListTableBuilderAgentMessagesRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ListTableBuilderAgentMessagesResponse.FromString,
                 )
         self.GetColumnDefinitions = channel.unary_unary(
                 '/agent.agent.v1alpha.AgentPublicService/GetColumnDefinitions',
@@ -666,13 +666,13 @@ def add_AgentPublicServiceServicer_to_server(servicer, server):
             ),
             'ChatWithTableBuilderAgent': grpc.unary_stream_rpc_method_handler(
                     servicer.ChatWithTableBuilderAgent,
-                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ChatWithTableBuilderAgentRequest.FromString,
-                    response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ChatWithTableBuilderAgentResponse.SerializeToString,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatWithTableBuilderAgentRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatWithTableBuilderAgentResponse.SerializeToString,
             ),
             'ListTableBuilderAgentMessages': grpc.unary_unary_rpc_method_handler(
                     servicer.ListTableBuilderAgentMessages,
-                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListTableBuilderAgentMessagesRequest.FromString,
-                    response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListTableBuilderAgentMessagesResponse.SerializeToString,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ListTableBuilderAgentMessagesRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ListTableBuilderAgentMessagesResponse.SerializeToString,
             ),
             'GetColumnDefinitions': grpc.unary_unary_rpc_method_handler(
                     servicer.GetColumnDefinitions,
@@ -1087,8 +1087,8 @@ class AgentPublicService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/agent.agent.v1alpha.AgentPublicService/ChatWithTableBuilderAgent',
-            agent_dot_agent_dot_v1alpha_dot_table__pb2.ChatWithTableBuilderAgentRequest.SerializeToString,
-            agent_dot_agent_dot_v1alpha_dot_table__pb2.ChatWithTableBuilderAgentResponse.FromString,
+            agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatWithTableBuilderAgentRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatWithTableBuilderAgentResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1104,8 +1104,8 @@ class AgentPublicService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/ListTableBuilderAgentMessages',
-            agent_dot_agent_dot_v1alpha_dot_table__pb2.ListTableBuilderAgentMessagesRequest.SerializeToString,
-            agent_dot_agent_dot_v1alpha_dot_table__pb2.ListTableBuilderAgentMessagesResponse.FromString,
+            agent_dot_agent_dot_v1alpha_dot_chat__pb2.ListTableBuilderAgentMessagesRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_chat__pb2.ListTableBuilderAgentMessagesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
