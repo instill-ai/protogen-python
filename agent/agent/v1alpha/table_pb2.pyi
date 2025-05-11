@@ -452,6 +452,67 @@ class DeleteTableResponse(google.protobuf.message.Message):
 global___DeleteTableResponse = DeleteTableResponse
 
 @typing_extensions.final
+class NumberFormat(google.protobuf.message.Message):
+    """NumberFormat defines the display format for number type columns."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    class _Format:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _FormatEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[NumberFormat._Format.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        FORMAT_UNSPECIFIED: NumberFormat._Format.ValueType  # 0
+        """Default number format with no specific formatting applied."""
+        FORMAT_PLAIN: NumberFormat._Format.ValueType  # 1
+        """Plain number format without any separators or special formatting."""
+        FORMAT_COMMAS: NumberFormat._Format.ValueType  # 2
+        """Number format with commas as thousand separators (e.g., 1,234,567)."""
+        FORMAT_CURRENCY: NumberFormat._Format.ValueType  # 3
+        """Currency format that displays values with a currency symbol."""
+        FORMAT_PERCENTAGE: NumberFormat._Format.ValueType  # 4
+        """Percentage format that displays values with a percent symbol."""
+
+    class Format(_Format, metaclass=_FormatEnumTypeWrapper):
+        """Format specifies the visual representation of numbers in the column."""
+
+    FORMAT_UNSPECIFIED: NumberFormat.Format.ValueType  # 0
+    """Default number format with no specific formatting applied."""
+    FORMAT_PLAIN: NumberFormat.Format.ValueType  # 1
+    """Plain number format without any separators or special formatting."""
+    FORMAT_COMMAS: NumberFormat.Format.ValueType  # 2
+    """Number format with commas as thousand separators (e.g., 1,234,567)."""
+    FORMAT_CURRENCY: NumberFormat.Format.ValueType  # 3
+    """Currency format that displays values with a currency symbol."""
+    FORMAT_PERCENTAGE: NumberFormat.Format.ValueType  # 4
+    """Percentage format that displays values with a percent symbol."""
+
+    FORMAT_FIELD_NUMBER: builtins.int
+    DECIMAL_PLACES_FIELD_NUMBER: builtins.int
+    CURRENCY_CODE_FIELD_NUMBER: builtins.int
+    format: global___NumberFormat.Format.ValueType
+    """The specific format to apply to numbers in this column."""
+    decimal_places: builtins.int
+    """Number of decimal places to display (e.g., 2 would show 1.23).
+    If not specified, a default appropriate to the format will be used.
+    """
+    currency_code: builtins.str
+    """ISO 4217 currency code (e.g., "USD", "EUR", "JPY") for currency format.
+    Required when format is FORMAT_CURRENCY, ignored for other formats.
+    """
+    def __init__(
+        self,
+        *,
+        format: global___NumberFormat.Format.ValueType = ...,
+        decimal_places: builtins.int = ...,
+        currency_code: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["currency_code", b"currency_code", "decimal_places", b"decimal_places", "format", b"format"]) -> None: ...
+
+global___NumberFormat = NumberFormat
+
+@typing_extensions.final
 class ColumnDefinition(google.protobuf.message.Message):
     """ColumnDefinition represents a column definition in a table."""
 
@@ -535,6 +596,7 @@ class ColumnDefinition(google.protobuf.message.Message):
     AGENT_CONFIG_FIELD_NUMBER: builtins.int
     SORT_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
+    NUMBER_FORMAT_FIELD_NUMBER: builtins.int
     column_uid: builtins.str
     """The unique identifier of the column."""
     name: builtins.str
@@ -555,6 +617,9 @@ class ColumnDefinition(google.protobuf.message.Message):
     """The sort of the column."""
     description: builtins.str
     """The description for the column."""
+    @property
+    def number_format(self) -> global___NumberFormat:
+        """Format for number type columns."""
     def __init__(
         self,
         *,
@@ -565,9 +630,11 @@ class ColumnDefinition(google.protobuf.message.Message):
         agent_config: global___ColumnDefinition.AgentConfig | None = ...,
         sort: global___ColumnDefinition.Sort.ValueType = ...,
         description: builtins.str = ...,
+        number_format: global___NumberFormat | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "column_uid", b"column_uid", "description", b"description", "name", b"name", "order", b"order", "sort", b"sort", "type", b"type"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "format", b"format", "number_format", b"number_format"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "column_uid", b"column_uid", "description", b"description", "format", b"format", "name", b"name", "number_format", b"number_format", "order", b"order", "sort", b"sort", "type", b"type"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["format", b"format"]) -> typing_extensions.Literal["number_format"] | None: ...
 
 global___ColumnDefinition = ColumnDefinition
 
