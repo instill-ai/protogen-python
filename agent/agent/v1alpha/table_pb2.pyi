@@ -589,6 +589,76 @@ class ColumnDefinition(google.protobuf.message.Message):
         def ClearField(self, field_name: typing_extensions.Literal["_enable_automatic_computation", b"_enable_automatic_computation", "context", b"context", "enable_automatic_computation", b"enable_automatic_computation", "enable_web_search", b"enable_web_search", "instructions", b"instructions"]) -> None: ...
         def WhichOneof(self, oneof_group: typing_extensions.Literal["_enable_automatic_computation", b"_enable_automatic_computation"]) -> typing_extensions.Literal["enable_automatic_computation"] | None: ...
 
+    @typing_extensions.final
+    class Selection(google.protobuf.message.Message):
+        """The selection settings of the column."""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        class _SelectionType:
+            ValueType = typing.NewType("ValueType", builtins.int)
+            V: typing_extensions.TypeAlias = ValueType
+
+        class _SelectionTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ColumnDefinition.Selection._SelectionType.ValueType], builtins.type):
+            DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+            SELECTION_TYPE_UNSPECIFIED: ColumnDefinition.Selection._SelectionType.ValueType  # 0
+            """The selection is not specified."""
+            SELECTION_TYPE_NONE: ColumnDefinition.Selection._SelectionType.ValueType  # 1
+            """No selection."""
+            SELECTION_TYPE_SINGLE: ColumnDefinition.Selection._SelectionType.ValueType  # 2
+            """The selection is a single value."""
+
+        class SelectionType(_SelectionType, metaclass=_SelectionTypeEnumTypeWrapper):
+            """The type of the selection."""
+
+        SELECTION_TYPE_UNSPECIFIED: ColumnDefinition.Selection.SelectionType.ValueType  # 0
+        """The selection is not specified."""
+        SELECTION_TYPE_NONE: ColumnDefinition.Selection.SelectionType.ValueType  # 1
+        """No selection."""
+        SELECTION_TYPE_SINGLE: ColumnDefinition.Selection.SelectionType.ValueType  # 2
+        """The selection is a single value."""
+
+        @typing_extensions.final
+        class Option(google.protobuf.message.Message):
+            """An option for the selection."""
+
+            DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+            STRING_VALUE_FIELD_NUMBER: builtins.int
+            NUMBER_VALUE_FIELD_NUMBER: builtins.int
+            COLOR_FIELD_NUMBER: builtins.int
+            string_value: builtins.str
+            """The value of the cell as a string."""
+            number_value: builtins.float
+            """The value of the cell as a number."""
+            color: builtins.str
+            """Display color of the option."""
+            def __init__(
+                self,
+                *,
+                string_value: builtins.str = ...,
+                number_value: builtins.float = ...,
+                color: builtins.str = ...,
+            ) -> None: ...
+            def HasField(self, field_name: typing_extensions.Literal["number_value", b"number_value", "string_value", b"string_value", "value", b"value"]) -> builtins.bool: ...
+            def ClearField(self, field_name: typing_extensions.Literal["color", b"color", "number_value", b"number_value", "string_value", b"string_value", "value", b"value"]) -> None: ...
+            def WhichOneof(self, oneof_group: typing_extensions.Literal["value", b"value"]) -> typing_extensions.Literal["string_value", "number_value"] | None: ...
+
+        TYPE_FIELD_NUMBER: builtins.int
+        OPTIONS_FIELD_NUMBER: builtins.int
+        type: global___ColumnDefinition.Selection.SelectionType.ValueType
+        """The selection of the column."""
+        @property
+        def options(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ColumnDefinition.Selection.Option]:
+            """The options for the selection."""
+        def __init__(
+            self,
+            *,
+            type: global___ColumnDefinition.Selection.SelectionType.ValueType = ...,
+            options: collections.abc.Iterable[global___ColumnDefinition.Selection.Option] | None = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["options", b"options", "type", b"type"]) -> None: ...
+
     COLUMN_UID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
@@ -597,6 +667,7 @@ class ColumnDefinition(google.protobuf.message.Message):
     SORT_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     NUMBER_FORMAT_FIELD_NUMBER: builtins.int
+    SELECTION_FIELD_NUMBER: builtins.int
     column_uid: builtins.str
     """The unique identifier of the column."""
     name: builtins.str
@@ -620,6 +691,9 @@ class ColumnDefinition(google.protobuf.message.Message):
     @property
     def number_format(self) -> global___NumberFormat:
         """Format for number type columns."""
+    @property
+    def selection(self) -> global___ColumnDefinition.Selection:
+        """The selection settings of the column."""
     def __init__(
         self,
         *,
@@ -631,9 +705,10 @@ class ColumnDefinition(google.protobuf.message.Message):
         sort: global___ColumnDefinition.Sort.ValueType = ...,
         description: builtins.str = ...,
         number_format: global___NumberFormat | None = ...,
+        selection: global___ColumnDefinition.Selection | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "format", b"format", "number_format", b"number_format"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "column_uid", b"column_uid", "description", b"description", "format", b"format", "name", b"name", "number_format", b"number_format", "order", b"order", "sort", b"sort", "type", b"type"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "format", b"format", "number_format", b"number_format", "selection", b"selection"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "column_uid", b"column_uid", "description", b"description", "format", b"format", "name", b"name", "number_format", b"number_format", "order", b"order", "selection", b"selection", "sort", b"sort", "type", b"type"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["format", b"format"]) -> typing_extensions.Literal["number_format"] | None: ...
 
 global___ColumnDefinition = ColumnDefinition
