@@ -1160,6 +1160,8 @@ class FileCell(google.protobuf.message.Message):
     OBJECT_UID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     MIME_TYPE_FIELD_NUMBER: builtins.int
+    CATALOG_ID_FIELD_NUMBER: builtins.int
+    FILE_URL_FIELD_NUMBER: builtins.int
     namespace: builtins.str
     """The namespace of the file resource."""
     file_uid: builtins.str
@@ -1170,6 +1172,10 @@ class FileCell(google.protobuf.message.Message):
     """File name"""
     mime_type: builtins.str
     """MIME type of the file."""
+    catalog_id: builtins.str
+    """The catalog ID of the file resource."""
+    file_url: builtins.str
+    """The URL of the file resource."""
     def __init__(
         self,
         *,
@@ -1178,8 +1184,10 @@ class FileCell(google.protobuf.message.Message):
         object_uid: builtins.str = ...,
         name: builtins.str = ...,
         mime_type: builtins.str = ...,
+        catalog_id: builtins.str = ...,
+        file_url: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["file_uid", b"file_uid", "mime_type", b"mime_type", "name", b"name", "namespace", b"namespace", "object_uid", b"object_uid"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "file_uid", b"file_uid", "file_url", b"file_url", "mime_type", b"mime_type", "name", b"name", "namespace", b"namespace", "object_uid", b"object_uid"]) -> None: ...
 
 global___FileCell = FileCell
 
