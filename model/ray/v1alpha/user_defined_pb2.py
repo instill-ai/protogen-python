@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$model/ray/v1alpha/user_defined.proto\x12\x11model.ray.v1alpha\x1a\x1cgoogle/protobuf/struct.proto\"G\n\x0b\x43\x61llRequest\x12\x38\n\x0btask_inputs\x18\x01 \x03(\x0b\x32\x17.google.protobuf.StructR\ntaskInputs\"J\n\x0c\x43\x61llResponse\x12:\n\x0ctask_outputs\x18\x01 \x03(\x0b\x32\x17.google.protobuf.StructR\x0btaskOutputs2d\n\x15RayUserDefinedService\x12K\n\x08__call__\x12\x1e.model.ray.v1alpha.CallRequest\x1a\x1f.model.ray.v1alpha.CallResponseB\xcf\x01\n\x15\x63om.model.ray.v1alphaB\x10UserDefinedProtoP\x01Z>github.com/instill-ai/protogen-go/model/ray/v1alpha;rayv1alpha\xa2\x02\x03MRX\xaa\x02\x11Model.Ray.V1alpha\xca\x02\x11Model\\Ray\\V1alpha\xe2\x02\x1dModel\\Ray\\V1alpha\\GPBMetadata\xea\x02\x13Model::Ray::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$model/ray/v1alpha/user_defined.proto\x12\x11model.ray.v1alpha\x1a\x1cgoogle/protobuf/struct.proto\"G\n\x0b\x43\x61llRequest\x12\x38\n\x0btask_inputs\x18\x01 \x03(\x0b\x32\x17.google.protobuf.StructR\ntaskInputs\"J\n\x0c\x43\x61llResponse\x12:\n\x0ctask_outputs\x18\x01 \x03(\x0b\x32\x17.google.protobuf.StructR\x0btaskOutputs2a\n\x12UserDefinedService\x12K\n\x08__call__\x12\x1e.model.ray.v1alpha.CallRequest\x1a\x1f.model.ray.v1alpha.CallResponseB\xcf\x01\n\x15\x63om.model.ray.v1alphaB\x10UserDefinedProtoP\x01Z>github.com/instill-ai/protogen-go/model/ray/v1alpha;rayv1alpha\xa2\x02\x03MRX\xaa\x02\x11Model.Ray.V1alpha\xca\x02\x11Model\\Ray\\V1alpha\xe2\x02\x1dModel\\Ray\\V1alpha\\GPBMetadata\xea\x02\x13Model::Ray::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -27,6 +27,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_CALLREQUEST']._serialized_end=160
   _globals['_CALLRESPONSE']._serialized_start=162
   _globals['_CALLRESPONSE']._serialized_end=236
-  _globals['_RAYUSERDEFINEDSERVICE']._serialized_start=238
-  _globals['_RAYUSERDEFINEDSERVICE']._serialized_end=338
+  _globals['_USERDEFINEDSERVICE']._serialized_start=238
+  _globals['_USERDEFINEDSERVICE']._serialized_end=335
 # @@protoc_insertion_point(module_scope)

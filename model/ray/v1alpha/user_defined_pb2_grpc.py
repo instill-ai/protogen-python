@@ -5,8 +5,8 @@ import grpc
 from model.ray.v1alpha import user_defined_pb2 as model_dot_ray_dot_v1alpha_dot_user__defined__pb2
 
 
-class RayUserDefinedServiceStub(object):
-    """Ray user defined service for internal process
+class UserDefinedServiceStub(object):
+    """User defined service for internal process
     """
 
     def __init__(self, channel):
@@ -16,14 +16,14 @@ class RayUserDefinedServiceStub(object):
             channel: A grpc.Channel.
         """
         self.__call__ = channel.unary_unary(
-                '/model.ray.v1alpha.RayUserDefinedService/__call__',
+                '/model.ray.v1alpha.UserDefinedService/__call__',
                 request_serializer=model_dot_ray_dot_v1alpha_dot_user__defined__pb2.CallRequest.SerializeToString,
                 response_deserializer=model_dot_ray_dot_v1alpha_dot_user__defined__pb2.CallResponse.FromString,
                 )
 
 
-class RayUserDefinedServiceServicer(object):
-    """Ray user defined service for internal process
+class UserDefinedServiceServicer(object):
+    """User defined service for internal process
     """
 
     def __call__(self, request, context):
@@ -36,7 +36,7 @@ class RayUserDefinedServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_RayUserDefinedServiceServicer_to_server(servicer, server):
+def add_UserDefinedServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             '__call__': grpc.unary_unary_rpc_method_handler(
                     servicer.__call__,
@@ -45,13 +45,13 @@ def add_RayUserDefinedServiceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'model.ray.v1alpha.RayUserDefinedService', rpc_method_handlers)
+            'model.ray.v1alpha.UserDefinedService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class RayUserDefinedService(object):
-    """Ray user defined service for internal process
+class UserDefinedService(object):
+    """User defined service for internal process
     """
 
     @staticmethod
@@ -65,7 +65,7 @@ class RayUserDefinedService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.ray.v1alpha.RayUserDefinedService/__call__',
+        return grpc.experimental.unary_unary(request, target, '/model.ray.v1alpha.UserDefinedService/__call__',
             model_dot_ray_dot_v1alpha_dot_user__defined__pb2.CallRequest.SerializeToString,
             model_dot_ray_dot_v1alpha_dot_user__defined__pb2.CallResponse.FromString,
             options, channel_credentials,

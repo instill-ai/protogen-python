@@ -17,8 +17,8 @@ class _MaybeAsyncIterator(collections.abc.AsyncIterator[_T], collections.abc.Ite
 class _ServicerContext(grpc.ServicerContext, grpc.aio.ServicerContext):  # type: ignore
     ...
 
-class RayUserDefinedServiceStub:
-    """Ray user defined service for internal process"""
+class UserDefinedServiceStub:
+    """User defined service for internal process"""
 
     def __init__(self, channel: typing.Union[grpc.Channel, grpc.aio.Channel]) -> None: ...
     __call__: grpc.UnaryUnaryMultiCallable[
@@ -30,8 +30,8 @@ class RayUserDefinedServiceStub:
     buf:lint:ignore RPC_PASCAL_CASE
     """
 
-class RayUserDefinedServiceAsyncStub:
-    """Ray user defined service for internal process"""
+class UserDefinedServiceAsyncStub:
+    """User defined service for internal process"""
 
     __call__: grpc.aio.UnaryUnaryMultiCallable[
         model.ray.v1alpha.user_defined_pb2.CallRequest,
@@ -42,8 +42,8 @@ class RayUserDefinedServiceAsyncStub:
     buf:lint:ignore RPC_PASCAL_CASE
     """
 
-class RayUserDefinedServiceServicer(metaclass=abc.ABCMeta):
-    """Ray user defined service for internal process"""
+class UserDefinedServiceServicer(metaclass=abc.ABCMeta):
+    """User defined service for internal process"""
 
     @abc.abstractmethod
     def __call__(
@@ -56,4 +56,4 @@ class RayUserDefinedServiceServicer(metaclass=abc.ABCMeta):
         buf:lint:ignore RPC_PASCAL_CASE
         """
 
-def add_RayUserDefinedServiceServicer_to_server(servicer: RayUserDefinedServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
+def add_UserDefinedServiceServicer_to_server(servicer: UserDefinedServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
