@@ -191,7 +191,10 @@ class Table(google.protobuf.message.Message):
     uid: builtins.str
     """The unique identifier of the table."""
     title: builtins.str
-    """The title of the table."""
+    """The title of the table.
+    If the table is in draft mode, the title is optional.
+    If the table is not in draft mode, the title is required.
+    """
     description: builtins.str
     """A description of the table."""
     @property
