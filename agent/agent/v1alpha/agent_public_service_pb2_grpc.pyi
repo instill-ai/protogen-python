@@ -121,6 +121,22 @@ class AgentPublicServiceStub:
 
     Returns a list of tables bound to a chat.
     """
+    ListTableTemplates: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.ListTableTemplatesRequest,
+        agent.agent.v1alpha.table_pb2.ListTableTemplatesResponse,
+    ]
+    """List table templates
+
+    Returns a paginated list of table templates.
+    """
+    GetTableTemplate: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.GetTableTemplateRequest,
+        agent.agent.v1alpha.table_pb2.GetTableTemplateResponse,
+    ]
+    """Get table template
+
+    Returns a table template.
+    """
     ListTables: grpc.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.table_pb2.ListTablesRequest,
         agent.agent.v1alpha.table_pb2.ListTablesResponse,
@@ -128,6 +144,14 @@ class AgentPublicServiceStub:
     """List tables
 
     Returns a paginated list of tables.
+    """
+    CreateTableFromTemplate: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.CreateTableFromTemplateRequest,
+        agent.agent.v1alpha.table_pb2.CreateTableFromTemplateResponse,
+    ]
+    """Create a table from a table template
+
+    Creates a table from a table template.
     """
     CreateTable: grpc.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.table_pb2.CreateTableRequest,
@@ -444,6 +468,22 @@ class AgentPublicServiceAsyncStub:
 
     Returns a list of tables bound to a chat.
     """
+    ListTableTemplates: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.ListTableTemplatesRequest,
+        agent.agent.v1alpha.table_pb2.ListTableTemplatesResponse,
+    ]
+    """List table templates
+
+    Returns a paginated list of table templates.
+    """
+    GetTableTemplate: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.GetTableTemplateRequest,
+        agent.agent.v1alpha.table_pb2.GetTableTemplateResponse,
+    ]
+    """Get table template
+
+    Returns a table template.
+    """
     ListTables: grpc.aio.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.table_pb2.ListTablesRequest,
         agent.agent.v1alpha.table_pb2.ListTablesResponse,
@@ -451,6 +491,14 @@ class AgentPublicServiceAsyncStub:
     """List tables
 
     Returns a paginated list of tables.
+    """
+    CreateTableFromTemplate: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.CreateTableFromTemplateRequest,
+        agent.agent.v1alpha.table_pb2.CreateTableFromTemplateResponse,
+    ]
+    """Create a table from a table template
+
+    Creates a table from a table template.
     """
     CreateTable: grpc.aio.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.table_pb2.CreateTableRequest,
@@ -792,6 +840,26 @@ class AgentPublicServiceServicer(metaclass=abc.ABCMeta):
         Returns a list of tables bound to a chat.
         """
     @abc.abstractmethod
+    def ListTableTemplates(
+        self,
+        request: agent.agent.v1alpha.table_pb2.ListTableTemplatesRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.table_pb2.ListTableTemplatesResponse, collections.abc.Awaitable[agent.agent.v1alpha.table_pb2.ListTableTemplatesResponse]]:
+        """List table templates
+
+        Returns a paginated list of table templates.
+        """
+    @abc.abstractmethod
+    def GetTableTemplate(
+        self,
+        request: agent.agent.v1alpha.table_pb2.GetTableTemplateRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.table_pb2.GetTableTemplateResponse, collections.abc.Awaitable[agent.agent.v1alpha.table_pb2.GetTableTemplateResponse]]:
+        """Get table template
+
+        Returns a table template.
+        """
+    @abc.abstractmethod
     def ListTables(
         self,
         request: agent.agent.v1alpha.table_pb2.ListTablesRequest,
@@ -800,6 +868,16 @@ class AgentPublicServiceServicer(metaclass=abc.ABCMeta):
         """List tables
 
         Returns a paginated list of tables.
+        """
+    @abc.abstractmethod
+    def CreateTableFromTemplate(
+        self,
+        request: agent.agent.v1alpha.table_pb2.CreateTableFromTemplateRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.table_pb2.CreateTableFromTemplateResponse, collections.abc.Awaitable[agent.agent.v1alpha.table_pb2.CreateTableFromTemplateResponse]]:
+        """Create a table from a table template
+
+        Creates a table from a table template.
         """
     @abc.abstractmethod
     def CreateTable(
