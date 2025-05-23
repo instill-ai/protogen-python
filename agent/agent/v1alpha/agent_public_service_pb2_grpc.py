@@ -78,16 +78,6 @@ class AgentPublicServiceStub(object):
                 request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListChatTablesRequest.SerializeToString,
                 response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListChatTablesResponse.FromString,
                 )
-        self.ListTableTemplates = channel.unary_unary(
-                '/agent.agent.v1alpha.AgentPublicService/ListTableTemplates',
-                request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListTableTemplatesRequest.SerializeToString,
-                response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListTableTemplatesResponse.FromString,
-                )
-        self.GetTableTemplate = channel.unary_unary(
-                '/agent.agent.v1alpha.AgentPublicService/GetTableTemplate',
-                request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GetTableTemplateRequest.SerializeToString,
-                response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GetTableTemplateResponse.FromString,
-                )
         self.ListTables = channel.unary_unary(
                 '/agent.agent.v1alpha.AgentPublicService/ListTables',
                 request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListTablesRequest.SerializeToString,
@@ -338,24 +328,6 @@ class AgentPublicServiceServicer(object):
         """List chat tables
 
         Returns a list of tables bound to a chat.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ListTableTemplates(self, request, context):
-        """List table templates
-
-        Returns a paginated list of table templates.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetTableTemplate(self, request, context):
-        """Get table template
-
-        Returns a table template.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -680,16 +652,6 @@ def add_AgentPublicServiceServicer_to_server(servicer, server):
                     servicer.ListChatTables,
                     request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListChatTablesRequest.FromString,
                     response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListChatTablesResponse.SerializeToString,
-            ),
-            'ListTableTemplates': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListTableTemplates,
-                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListTableTemplatesRequest.FromString,
-                    response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListTableTemplatesResponse.SerializeToString,
-            ),
-            'GetTableTemplate': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetTableTemplate,
-                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GetTableTemplateRequest.FromString,
-                    response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GetTableTemplateResponse.SerializeToString,
             ),
             'ListTables': grpc.unary_unary_rpc_method_handler(
                     servicer.ListTables,
@@ -1044,40 +1006,6 @@ class AgentPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/ListChatTables',
             agent_dot_agent_dot_v1alpha_dot_table__pb2.ListChatTablesRequest.SerializeToString,
             agent_dot_agent_dot_v1alpha_dot_table__pb2.ListChatTablesResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ListTableTemplates(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/ListTableTemplates',
-            agent_dot_agent_dot_v1alpha_dot_table__pb2.ListTableTemplatesRequest.SerializeToString,
-            agent_dot_agent_dot_v1alpha_dot_table__pb2.ListTableTemplatesResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetTableTemplate(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/GetTableTemplate',
-            agent_dot_agent_dot_v1alpha_dot_table__pb2.GetTableTemplateRequest.SerializeToString,
-            agent_dot_agent_dot_v1alpha_dot_table__pb2.GetTableTemplateResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

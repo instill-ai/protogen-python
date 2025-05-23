@@ -180,6 +180,22 @@ class Table(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["enable_transparency", b"enable_transparency"]) -> None: ...
 
+    @typing_extensions.final
+    class Permission(google.protobuf.message.Message):
+        """Permission defines how a table can be used."""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        CAN_EDIT_FIELD_NUMBER: builtins.int
+        can_edit: builtins.bool
+        """Defines whether the table can be modified."""
+        def __init__(
+            self,
+            *,
+            can_edit: builtins.bool = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["can_edit", b"can_edit"]) -> None: ...
+
     UID_FIELD_NUMBER: builtins.int
     TITLE_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
@@ -188,6 +204,7 @@ class Table(google.protobuf.message.Message):
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     AGENT_CONFIG_FIELD_NUMBER: builtins.int
     DRAFT_MODE_FIELD_NUMBER: builtins.int
+    PERMISSION_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """The unique identifier of the table."""
     title: builtins.str
@@ -211,6 +228,9 @@ class Table(google.protobuf.message.Message):
         """The configuration for the agent."""
     draft_mode: builtins.bool
     """Whether to enable draft mode for the table."""
+    @property
+    def permission(self) -> global___Table.Permission:
+        """Permission defines how a table can be used."""
     def __init__(
         self,
         *,
@@ -222,92 +242,12 @@ class Table(google.protobuf.message.Message):
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         agent_config: global___Table.AgentConfig | None = ...,
         draft_mode: builtins.bool = ...,
+        permission: global___Table.Permission | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "create_time", b"create_time", "metadata", b"metadata", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "create_time", b"create_time", "description", b"description", "draft_mode", b"draft_mode", "metadata", b"metadata", "title", b"title", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "create_time", b"create_time", "metadata", b"metadata", "permission", b"permission", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "create_time", b"create_time", "description", b"description", "draft_mode", b"draft_mode", "metadata", b"metadata", "permission", b"permission", "title", b"title", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
 
 global___Table = Table
-
-@typing_extensions.final
-class ListTableTemplatesRequest(google.protobuf.message.Message):
-    """ListTableTemplatesRequest represents a request to list table templates."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    PAGE_SIZE_FIELD_NUMBER: builtins.int
-    page_token: builtins.str
-    """The page token for pagination."""
-    page_size: builtins.int
-    """The maximum number of table templates to return."""
-    def __init__(
-        self,
-        *,
-        page_token: builtins.str = ...,
-        page_size: builtins.int = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
-
-global___ListTableTemplatesRequest = ListTableTemplatesRequest
-
-@typing_extensions.final
-class ListTableTemplatesResponse(google.protobuf.message.Message):
-    """ListTableTemplatesResponse contains the list of table templates."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    TABLE_TEMPLATES_FIELD_NUMBER: builtins.int
-    @property
-    def table_templates(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Table]:
-        """The list of table templates."""
-    def __init__(
-        self,
-        *,
-        table_templates: collections.abc.Iterable[global___Table] | None = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["table_templates", b"table_templates"]) -> None: ...
-
-global___ListTableTemplatesResponse = ListTableTemplatesResponse
-
-@typing_extensions.final
-class GetTableTemplateRequest(google.protobuf.message.Message):
-    """GetTableTemplateRequest represents a request to get a table template."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    TABLE_TEMPLATE_UID_FIELD_NUMBER: builtins.int
-    table_template_uid: builtins.str
-    """The UID of the table template to get."""
-    def __init__(
-        self,
-        *,
-        table_template_uid: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["table_template_uid", b"table_template_uid"]) -> None: ...
-
-global___GetTableTemplateRequest = GetTableTemplateRequest
-
-@typing_extensions.final
-class GetTableTemplateResponse(google.protobuf.message.Message):
-    """TableTemplate represents a table template.
-    GetTableTemplateResponse contains the requested table template.
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    TABLE_TEMPLATE_FIELD_NUMBER: builtins.int
-    @property
-    def table_template(self) -> global___Table:
-        """The table template."""
-    def __init__(
-        self,
-        *,
-        table_template: global___Table | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["table_template", b"table_template"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["table_template", b"table_template"]) -> None: ...
-
-global___GetTableTemplateResponse = GetTableTemplateResponse
 
 @typing_extensions.final
 class CreateTableFromTemplateRequest(google.protobuf.message.Message):
@@ -316,22 +256,28 @@ class CreateTableFromTemplateRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    TABLE_TEMPLATE_UID_FIELD_NUMBER: builtins.int
-    TITLE_FIELD_NUMBER: builtins.int
+    TABLE_FIELD_NUMBER: builtins.int
+    TEMPLATE_NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    TEMPLATE_TABLE_UID_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """The ID of the namespace that owns the table."""
-    table_template_uid: builtins.str
-    """The UID of the table template to create the table from."""
-    title: builtins.str
-    """The title of the table."""
+    @property
+    def table(self) -> global___Table:
+        """The table resource to create."""
+    template_namespace_id: builtins.str
+    """The ID of the table namespace to create the table from."""
+    template_table_uid: builtins.str
+    """The ID of the table to create the table from."""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
-        table_template_uid: builtins.str = ...,
-        title: builtins.str = ...,
+        table: global___Table | None = ...,
+        template_namespace_id: builtins.str = ...,
+        template_table_uid: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "table_template_uid", b"table_template_uid", "title", b"title"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["table", b"table"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "table", b"table", "template_namespace_id", b"template_namespace_id", "template_table_uid", b"template_table_uid"]) -> None: ...
 
 global___CreateTableFromTemplateRequest = CreateTableFromTemplateRequest
 
