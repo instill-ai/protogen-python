@@ -5,6 +5,7 @@ isort:skip_file
 import abc
 import agent.agent.v1alpha.agent_pb2
 import agent.agent.v1alpha.chat_pb2
+import agent.agent.v1alpha.folder_pb2
 import agent.agent.v1alpha.table_pb2
 import collections.abc
 import grpc
@@ -350,6 +351,46 @@ class AgentPublicServiceStub:
 
     Exports table data.
     """
+    ListFolders: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.folder_pb2.ListFoldersRequest,
+        agent.agent.v1alpha.folder_pb2.ListFoldersResponse,
+    ]
+    """List folders
+
+    Returns a list of folders.
+    """
+    CreateFolder: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.folder_pb2.CreateFolderRequest,
+        agent.agent.v1alpha.folder_pb2.CreateFolderResponse,
+    ]
+    """Create folder
+
+    Creates a folder.
+    """
+    GetFolder: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.folder_pb2.GetFolderRequest,
+        agent.agent.v1alpha.folder_pb2.GetFolderResponse,
+    ]
+    """Get folder
+
+    Gets a folder.
+    """
+    UpdateFolder: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.folder_pb2.UpdateFolderRequest,
+        agent.agent.v1alpha.folder_pb2.UpdateFolderResponse,
+    ]
+    """Update folder
+
+    Updates a folder.
+    """
+    DeleteFolder: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.folder_pb2.DeleteFolderRequest,
+        agent.agent.v1alpha.folder_pb2.DeleteFolderResponse,
+    ]
+    """Delete folder
+
+    Deletes a folder.
+    """
 
 class AgentPublicServiceAsyncStub:
     """AgentPublicService exposes the public endpoints that allow clients to
@@ -680,6 +721,46 @@ class AgentPublicServiceAsyncStub:
     """Export table
 
     Exports table data.
+    """
+    ListFolders: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.folder_pb2.ListFoldersRequest,
+        agent.agent.v1alpha.folder_pb2.ListFoldersResponse,
+    ]
+    """List folders
+
+    Returns a list of folders.
+    """
+    CreateFolder: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.folder_pb2.CreateFolderRequest,
+        agent.agent.v1alpha.folder_pb2.CreateFolderResponse,
+    ]
+    """Create folder
+
+    Creates a folder.
+    """
+    GetFolder: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.folder_pb2.GetFolderRequest,
+        agent.agent.v1alpha.folder_pb2.GetFolderResponse,
+    ]
+    """Get folder
+
+    Gets a folder.
+    """
+    UpdateFolder: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.folder_pb2.UpdateFolderRequest,
+        agent.agent.v1alpha.folder_pb2.UpdateFolderResponse,
+    ]
+    """Update folder
+
+    Updates a folder.
+    """
+    DeleteFolder: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.folder_pb2.DeleteFolderRequest,
+        agent.agent.v1alpha.folder_pb2.DeleteFolderResponse,
+    ]
+    """Delete folder
+
+    Deletes a folder.
     """
 
 class AgentPublicServiceServicer(metaclass=abc.ABCMeta):
@@ -1091,6 +1172,56 @@ class AgentPublicServiceServicer(metaclass=abc.ABCMeta):
         """Export table
 
         Exports table data.
+        """
+    @abc.abstractmethod
+    def ListFolders(
+        self,
+        request: agent.agent.v1alpha.folder_pb2.ListFoldersRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.folder_pb2.ListFoldersResponse, collections.abc.Awaitable[agent.agent.v1alpha.folder_pb2.ListFoldersResponse]]:
+        """List folders
+
+        Returns a list of folders.
+        """
+    @abc.abstractmethod
+    def CreateFolder(
+        self,
+        request: agent.agent.v1alpha.folder_pb2.CreateFolderRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.folder_pb2.CreateFolderResponse, collections.abc.Awaitable[agent.agent.v1alpha.folder_pb2.CreateFolderResponse]]:
+        """Create folder
+
+        Creates a folder.
+        """
+    @abc.abstractmethod
+    def GetFolder(
+        self,
+        request: agent.agent.v1alpha.folder_pb2.GetFolderRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.folder_pb2.GetFolderResponse, collections.abc.Awaitable[agent.agent.v1alpha.folder_pb2.GetFolderResponse]]:
+        """Get folder
+
+        Gets a folder.
+        """
+    @abc.abstractmethod
+    def UpdateFolder(
+        self,
+        request: agent.agent.v1alpha.folder_pb2.UpdateFolderRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.folder_pb2.UpdateFolderResponse, collections.abc.Awaitable[agent.agent.v1alpha.folder_pb2.UpdateFolderResponse]]:
+        """Update folder
+
+        Updates a folder.
+        """
+    @abc.abstractmethod
+    def DeleteFolder(
+        self,
+        request: agent.agent.v1alpha.folder_pb2.DeleteFolderRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.folder_pb2.DeleteFolderResponse, collections.abc.Awaitable[agent.agent.v1alpha.folder_pb2.DeleteFolderResponse]]:
+        """Delete folder
+
+        Deletes a folder.
         """
 
 def add_AgentPublicServiceServicer_to_server(servicer: AgentPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

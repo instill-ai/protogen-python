@@ -205,6 +205,7 @@ class Table(google.protobuf.message.Message):
     AGENT_CONFIG_FIELD_NUMBER: builtins.int
     DRAFT_MODE_FIELD_NUMBER: builtins.int
     PERMISSION_FIELD_NUMBER: builtins.int
+    CATALOG_ID_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """The unique identifier of the table."""
     title: builtins.str
@@ -231,6 +232,8 @@ class Table(google.protobuf.message.Message):
     @property
     def permission(self) -> global___Table.Permission:
         """Permission defines how a table can be used."""
+    catalog_id: builtins.str
+    """The ID of the catalog that this table is bound to."""
     def __init__(
         self,
         *,
@@ -243,9 +246,10 @@ class Table(google.protobuf.message.Message):
         agent_config: global___Table.AgentConfig | None = ...,
         draft_mode: builtins.bool = ...,
         permission: global___Table.Permission | None = ...,
+        catalog_id: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "create_time", b"create_time", "metadata", b"metadata", "permission", b"permission", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "create_time", b"create_time", "description", b"description", "draft_mode", b"draft_mode", "metadata", b"metadata", "permission", b"permission", "title", b"title", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "catalog_id", b"catalog_id", "create_time", b"create_time", "description", b"description", "draft_mode", b"draft_mode", "metadata", b"metadata", "permission", b"permission", "title", b"title", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
 
 global___Table = Table
 
@@ -744,6 +748,7 @@ class ColumnDefinition(google.protobuf.message.Message):
     DESCRIPTION_FIELD_NUMBER: builtins.int
     NUMBER_FORMAT_FIELD_NUMBER: builtins.int
     SELECTION_FIELD_NUMBER: builtins.int
+    METADATA_FIELD_NUMBER: builtins.int
     column_uid: builtins.str
     """The unique identifier of the column."""
     name: builtins.str
@@ -770,6 +775,9 @@ class ColumnDefinition(google.protobuf.message.Message):
     @property
     def selection(self) -> global___ColumnDefinition.Selection:
         """The selection settings of the column."""
+    @property
+    def metadata(self) -> google.protobuf.struct_pb2.Struct:
+        """The metadata of the column."""
     def __init__(
         self,
         *,
@@ -782,9 +790,10 @@ class ColumnDefinition(google.protobuf.message.Message):
         description: builtins.str = ...,
         number_format: global___NumberFormat | None = ...,
         selection: global___ColumnDefinition.Selection | None = ...,
+        metadata: google.protobuf.struct_pb2.Struct | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "format", b"format", "number_format", b"number_format", "selection", b"selection"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "column_uid", b"column_uid", "description", b"description", "format", b"format", "name", b"name", "number_format", b"number_format", "order", b"order", "selection", b"selection", "sort", b"sort", "type", b"type"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "format", b"format", "metadata", b"metadata", "number_format", b"number_format", "selection", b"selection"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "column_uid", b"column_uid", "description", b"description", "format", b"format", "metadata", b"metadata", "name", b"name", "number_format", b"number_format", "order", b"order", "selection", b"selection", "sort", b"sort", "type", b"type"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["format", b"format"]) -> typing_extensions.Literal["number_format"] | None: ...
 
 global___ColumnDefinition = ColumnDefinition

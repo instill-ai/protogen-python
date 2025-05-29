@@ -4,6 +4,7 @@ import grpc
 
 from agent.agent.v1alpha import agent_pb2 as agent_dot_agent_dot_v1alpha_dot_agent__pb2
 from agent.agent.v1alpha import chat_pb2 as agent_dot_agent_dot_v1alpha_dot_chat__pb2
+from agent.agent.v1alpha import folder_pb2 as agent_dot_agent_dot_v1alpha_dot_folder__pb2
 from agent.agent.v1alpha import table_pb2 as agent_dot_agent_dot_v1alpha_dot_table__pb2
 
 
@@ -217,6 +218,31 @@ class AgentPublicServiceStub(object):
                 '/agent.agent.v1alpha.AgentPublicService/ExportTable',
                 request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ExportTableRequest.SerializeToString,
                 response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ExportTableResponse.FromString,
+                )
+        self.ListFolders = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/ListFolders',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.ListFoldersRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.ListFoldersResponse.FromString,
+                )
+        self.CreateFolder = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/CreateFolder',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.CreateFolderRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.CreateFolderResponse.FromString,
+                )
+        self.GetFolder = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/GetFolder',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.GetFolderRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.GetFolderResponse.FromString,
+                )
+        self.UpdateFolder = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/UpdateFolder',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.UpdateFolderRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.UpdateFolderResponse.FromString,
+                )
+        self.DeleteFolder = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/DeleteFolder',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.DeleteFolderRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.DeleteFolderResponse.FromString,
                 )
 
 
@@ -590,6 +616,51 @@ class AgentPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListFolders(self, request, context):
+        """List folders
+
+        Returns a list of folders.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateFolder(self, request, context):
+        """Create folder
+
+        Creates a folder.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetFolder(self, request, context):
+        """Get folder
+
+        Gets a folder.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateFolder(self, request, context):
+        """Update folder
+
+        Updates a folder.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteFolder(self, request, context):
+        """Delete folder
+
+        Deletes a folder.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_AgentPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -792,6 +863,31 @@ def add_AgentPublicServiceServicer_to_server(servicer, server):
                     servicer.ExportTable,
                     request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ExportTableRequest.FromString,
                     response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ExportTableResponse.SerializeToString,
+            ),
+            'ListFolders': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListFolders,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.ListFoldersRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.ListFoldersResponse.SerializeToString,
+            ),
+            'CreateFolder': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateFolder,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.CreateFolderRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.CreateFolderResponse.SerializeToString,
+            ),
+            'GetFolder': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetFolder,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.GetFolderRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.GetFolderResponse.SerializeToString,
+            ),
+            'UpdateFolder': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateFolder,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.UpdateFolderRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.UpdateFolderResponse.SerializeToString,
+            ),
+            'DeleteFolder': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteFolder,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.DeleteFolderRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.DeleteFolderResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1482,5 +1578,90 @@ class AgentPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/ExportTable',
             agent_dot_agent_dot_v1alpha_dot_table__pb2.ExportTableRequest.SerializeToString,
             agent_dot_agent_dot_v1alpha_dot_table__pb2.ExportTableResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListFolders(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/ListFolders',
+            agent_dot_agent_dot_v1alpha_dot_folder__pb2.ListFoldersRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_folder__pb2.ListFoldersResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateFolder(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/CreateFolder',
+            agent_dot_agent_dot_v1alpha_dot_folder__pb2.CreateFolderRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_folder__pb2.CreateFolderResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetFolder(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/GetFolder',
+            agent_dot_agent_dot_v1alpha_dot_folder__pb2.GetFolderRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_folder__pb2.GetFolderResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateFolder(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/UpdateFolder',
+            agent_dot_agent_dot_v1alpha_dot_folder__pb2.UpdateFolderRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_folder__pb2.UpdateFolderResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteFolder(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/DeleteFolder',
+            agent_dot_agent_dot_v1alpha_dot_folder__pb2.DeleteFolderRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_folder__pb2.DeleteFolderResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
