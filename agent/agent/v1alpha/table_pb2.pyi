@@ -1148,11 +1148,8 @@ class StringCell(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    VALUE_FIELD_NUMBER: builtins.int
     USER_INPUT_FIELD_NUMBER: builtins.int
     COMPUTED_VALUE_FIELD_NUMBER: builtins.int
-    value: builtins.str
-    """The value of the cell as a string."""
     user_input: builtins.str
     """The value of the cell that directly set by the user."""
     computed_value: builtins.str
@@ -1160,12 +1157,11 @@ class StringCell(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        value: builtins.str = ...,
         user_input: builtins.str | None = ...,
         computed_value: builtins.str | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_computed_value", b"_computed_value", "_user_input", b"_user_input", "computed_value", b"computed_value", "user_input", b"user_input"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_computed_value", b"_computed_value", "_user_input", b"_user_input", "computed_value", b"computed_value", "user_input", b"user_input", "value", b"value"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_computed_value", b"_computed_value", "_user_input", b"_user_input", "computed_value", b"computed_value", "user_input", b"user_input"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_computed_value", b"_computed_value"]) -> typing_extensions.Literal["computed_value"] | None: ...
     @typing.overload
@@ -1179,11 +1175,8 @@ class NumberCell(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    VALUE_FIELD_NUMBER: builtins.int
     USER_INPUT_FIELD_NUMBER: builtins.int
     COMPUTED_VALUE_FIELD_NUMBER: builtins.int
-    value: builtins.float
-    """The value of the cell as a number."""
     user_input: builtins.float
     """The value of the cell that directly set by the user."""
     computed_value: builtins.float
@@ -1191,12 +1184,11 @@ class NumberCell(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        value: builtins.float = ...,
         user_input: builtins.float | None = ...,
         computed_value: builtins.float | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_computed_value", b"_computed_value", "_user_input", b"_user_input", "computed_value", b"computed_value", "user_input", b"user_input"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_computed_value", b"_computed_value", "_user_input", b"_user_input", "computed_value", b"computed_value", "user_input", b"user_input", "value", b"value"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_computed_value", b"_computed_value", "_user_input", b"_user_input", "computed_value", b"computed_value", "user_input", b"user_input"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_computed_value", b"_computed_value"]) -> typing_extensions.Literal["computed_value"] | None: ...
     @typing.overload
@@ -1210,11 +1202,8 @@ class BooleanCell(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    VALUE_FIELD_NUMBER: builtins.int
     USER_INPUT_FIELD_NUMBER: builtins.int
     COMPUTED_VALUE_FIELD_NUMBER: builtins.int
-    value: builtins.bool
-    """The value of the cell as a boolean."""
     user_input: builtins.bool
     """The value of the cell that directly set by the user."""
     computed_value: builtins.bool
@@ -1222,12 +1211,11 @@ class BooleanCell(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        value: builtins.bool = ...,
         user_input: builtins.bool | None = ...,
         computed_value: builtins.bool | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_computed_value", b"_computed_value", "_user_input", b"_user_input", "computed_value", b"computed_value", "user_input", b"user_input"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_computed_value", b"_computed_value", "_user_input", b"_user_input", "computed_value", b"computed_value", "user_input", b"user_input", "value", b"value"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_computed_value", b"_computed_value", "_user_input", b"_user_input", "computed_value", b"computed_value", "user_input", b"user_input"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_computed_value", b"_computed_value"]) -> typing_extensions.Literal["computed_value"] | None: ...
     @typing.overload
