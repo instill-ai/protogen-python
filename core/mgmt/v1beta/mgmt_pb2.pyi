@@ -2813,8 +2813,8 @@ class UserSubscription(google.protobuf.message.Message):
         """Unspecified plan."""
         PLAN_FREE: UserSubscription._Plan.ValueType  # 1
         """Free plan."""
-        PLAN_PRO: UserSubscription._Plan.ValueType  # 2
-        """Pro plan."""
+        PLAN_STARTER: UserSubscription._Plan.ValueType  # 3
+        """Starter plan."""
 
     class Plan(_Plan, metaclass=_PlanEnumTypeWrapper):
         """Enumerates the plan types for the user subscription."""
@@ -2823,8 +2823,8 @@ class UserSubscription(google.protobuf.message.Message):
     """Unspecified plan."""
     PLAN_FREE: UserSubscription.Plan.ValueType  # 1
     """Free plan."""
-    PLAN_PRO: UserSubscription.Plan.ValueType  # 2
-    """Pro plan."""
+    PLAN_STARTER: UserSubscription.Plan.ValueType  # 3
+    """Starter plan."""
 
     PLAN_FIELD_NUMBER: builtins.int
     DETAIL_FIELD_NUMBER: builtins.int
