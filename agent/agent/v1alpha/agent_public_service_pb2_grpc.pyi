@@ -319,6 +319,14 @@ class AgentPublicServiceStub:
 
     Recomputes a cell in a table.
     """
+    ListCellAutofillAgentMessages: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.ListCellAutofillAgentMessagesRequest,
+        agent.agent.v1alpha.table_pb2.ListCellAutofillAgentMessagesResponse,
+    ]
+    """List cell messages
+
+    Lists the internal LLM messages that used to generate the cell value.
+    """
     LockCell: grpc.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.table_pb2.LockCellRequest,
         agent.agent.v1alpha.table_pb2.LockCellResponse,
@@ -689,6 +697,14 @@ class AgentPublicServiceAsyncStub:
     """Recompute cell
 
     Recomputes a cell in a table.
+    """
+    ListCellAutofillAgentMessages: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.ListCellAutofillAgentMessagesRequest,
+        agent.agent.v1alpha.table_pb2.ListCellAutofillAgentMessagesResponse,
+    ]
+    """List cell messages
+
+    Lists the internal LLM messages that used to generate the cell value.
     """
     LockCell: grpc.aio.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.table_pb2.LockCellRequest,
@@ -1132,6 +1148,16 @@ class AgentPublicServiceServicer(metaclass=abc.ABCMeta):
         """Recompute cell
 
         Recomputes a cell in a table.
+        """
+    @abc.abstractmethod
+    def ListCellAutofillAgentMessages(
+        self,
+        request: agent.agent.v1alpha.table_pb2.ListCellAutofillAgentMessagesRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.table_pb2.ListCellAutofillAgentMessagesResponse, collections.abc.Awaitable[agent.agent.v1alpha.table_pb2.ListCellAutofillAgentMessagesResponse]]:
+        """List cell messages
+
+        Lists the internal LLM messages that used to generate the cell value.
         """
     @abc.abstractmethod
     def LockCell(

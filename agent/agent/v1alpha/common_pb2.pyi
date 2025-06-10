@@ -3,9 +3,13 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
+import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
+import google.protobuf.struct_pb2
+import google.protobuf.timestamp_pb2
 import sys
 import typing
 
@@ -115,3 +119,138 @@ class Citation(google.protobuf.message.Message):
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_summary", b"_summary"]) -> typing_extensions.Literal["summary"] | None: ...
 
 global___Citation = Citation
+
+@typing_extensions.final
+class ChatContext(google.protobuf.message.Message):
+    """The context for the message."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TABLE_UIDS_FIELD_NUMBER: builtins.int
+    @property
+    def table_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """The table uids to include in the context."""
+    def __init__(
+        self,
+        *,
+        table_uids: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["table_uids", b"table_uids"]) -> None: ...
+
+global___ChatContext = ChatContext
+
+@typing_extensions.final
+class ChatAttachments(google.protobuf.message.Message):
+    """ChatAttachments represents the attachment for the message"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_URLS_FIELD_NUMBER: builtins.int
+    @property
+    def file_urls(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """file urls (only for user messages)"""
+    def __init__(
+        self,
+        *,
+        file_urls: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file_urls", b"file_urls"]) -> None: ...
+
+global___ChatAttachments = ChatAttachments
+
+@typing_extensions.final
+class Message(google.protobuf.message.Message):
+    """Message represents a single message in a conversation"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    class _MessageType:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _MessageTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Message._MessageType.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        MESSAGE_TYPE_UNSPECIFIED: Message._MessageType.ValueType  # 0
+        """unspecified"""
+        MESSAGE_TYPE_TEXT: Message._MessageType.ValueType  # 1
+        """text"""
+
+    class MessageType(_MessageType, metaclass=_MessageTypeEnumTypeWrapper):
+        """message type"""
+
+    MESSAGE_TYPE_UNSPECIFIED: Message.MessageType.ValueType  # 0
+    """unspecified"""
+    MESSAGE_TYPE_TEXT: Message.MessageType.ValueType  # 1
+    """text"""
+
+    UID_FIELD_NUMBER: builtins.int
+    CHAT_UID_FIELD_NUMBER: builtins.int
+    CONTENT_FIELD_NUMBER: builtins.int
+    ROLE_FIELD_NUMBER: builtins.int
+    TYPE_FIELD_NUMBER: builtins.int
+    CREATE_TIME_FIELD_NUMBER: builtins.int
+    UPDATE_TIME_FIELD_NUMBER: builtins.int
+    MSG_SENDER_UID_FIELD_NUMBER: builtins.int
+    CITATIONS_FIELD_NUMBER: builtins.int
+    CONTEXT_FIELD_NUMBER: builtins.int
+    ATTACHMENTS_FIELD_NUMBER: builtins.int
+    ENABLE_WEB_SEARCH_FIELD_NUMBER: builtins.int
+    INTERNAL_FIELD_NUMBER: builtins.int
+    RAW_MESSAGE_FIELD_NUMBER: builtins.int
+    uid: builtins.str
+    """message uid"""
+    chat_uid: builtins.str
+    """chat uid"""
+    content: builtins.str
+    """message content"""
+    role: builtins.str
+    """message role e.g., "user" or "assistant" or "agent" """
+    type: global___Message.MessageType.ValueType
+    """message type"""
+    @property
+    def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """creation time of the message"""
+    @property
+    def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """update time of the message"""
+    msg_sender_uid: builtins.str
+    """message sender uid(only for user messages)"""
+    @property
+    def citations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Citation]:
+        """citations (only for agent messages)"""
+    @property
+    def context(self) -> global___ChatContext:
+        """context for the message"""
+    @property
+    def attachments(self) -> global___ChatAttachments:
+        """attachments for the message"""
+    enable_web_search: builtins.bool
+    """enable web search (only for user messages)"""
+    internal: builtins.bool
+    """internal flag for the message, if true, the message is the intermediate message happened in the LLM flow."""
+    @property
+    def raw_message(self) -> google.protobuf.struct_pb2.Struct:
+        """raw message for the message"""
+    def __init__(
+        self,
+        *,
+        uid: builtins.str = ...,
+        chat_uid: builtins.str = ...,
+        content: builtins.str = ...,
+        role: builtins.str = ...,
+        type: global___Message.MessageType.ValueType = ...,
+        create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        msg_sender_uid: builtins.str = ...,
+        citations: collections.abc.Iterable[global___Citation] | None = ...,
+        context: global___ChatContext | None = ...,
+        attachments: global___ChatAttachments | None = ...,
+        enable_web_search: builtins.bool = ...,
+        internal: builtins.bool = ...,
+        raw_message: google.protobuf.struct_pb2.Struct | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_raw_message", b"_raw_message", "attachments", b"attachments", "context", b"context", "create_time", b"create_time", "raw_message", b"raw_message", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_raw_message", b"_raw_message", "attachments", b"attachments", "chat_uid", b"chat_uid", "citations", b"citations", "content", b"content", "context", b"context", "create_time", b"create_time", "enable_web_search", b"enable_web_search", "internal", b"internal", "msg_sender_uid", b"msg_sender_uid", "raw_message", b"raw_message", "role", b"role", "type", b"type", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_raw_message", b"_raw_message"]) -> typing_extensions.Literal["raw_message"] | None: ...
+
+global___Message = Message

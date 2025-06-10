@@ -199,6 +199,11 @@ class AgentPublicServiceStub(object):
                 request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.RecomputeCellRequest.SerializeToString,
                 response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.RecomputeCellResponse.FromString,
                 )
+        self.ListCellAutofillAgentMessages = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/ListCellAutofillAgentMessages',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListCellAutofillAgentMessagesRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListCellAutofillAgentMessagesResponse.FromString,
+                )
         self.LockCell = channel.unary_unary(
                 '/agent.agent.v1alpha.AgentPublicService/LockCell',
                 request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.LockCellRequest.SerializeToString,
@@ -580,6 +585,15 @@ class AgentPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListCellAutofillAgentMessages(self, request, context):
+        """List cell messages
+
+        Lists the internal LLM messages that used to generate the cell value.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def LockCell(self, request, context):
         """Lock cell
 
@@ -843,6 +857,11 @@ def add_AgentPublicServiceServicer_to_server(servicer, server):
                     servicer.RecomputeCell,
                     request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.RecomputeCellRequest.FromString,
                     response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.RecomputeCellResponse.SerializeToString,
+            ),
+            'ListCellAutofillAgentMessages': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListCellAutofillAgentMessages,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListCellAutofillAgentMessagesRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.ListCellAutofillAgentMessagesResponse.SerializeToString,
             ),
             'LockCell': grpc.unary_unary_rpc_method_handler(
                     servicer.LockCell,
@@ -1510,6 +1529,23 @@ class AgentPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/RecomputeCell',
             agent_dot_agent_dot_v1alpha_dot_table__pb2.RecomputeCellRequest.SerializeToString,
             agent_dot_agent_dot_v1alpha_dot_table__pb2.RecomputeCellResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListCellAutofillAgentMessages(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/ListCellAutofillAgentMessages',
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.ListCellAutofillAgentMessagesRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.ListCellAutofillAgentMessagesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

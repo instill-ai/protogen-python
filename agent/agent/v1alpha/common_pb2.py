@@ -12,9 +12,11 @@ _sym_db = _symbol_database.Default()
 
 
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
+from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n agent/agent/v1alpha/common.proto\x12\x13\x61gent.agent.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\"\x9a\x02\n\x08\x43itation\x12\x35\n\x04type\x18\x01 \x01(\x0e\x32!.agent.agent.v1alpha.CitationTypeR\x04type\x12\x17\n\x04name\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03url\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x03url\x12\x1b\n\x06number\x18\x04 \x01(\rB\x03\xe0\x41\x03R\x06number\x12\"\n\x07summary\x18\x05 \x01(\tB\x03\xe0\x41\x03H\x00R\x07summary\x88\x01\x01\x12Z\n\x0e\x65xtract_method\x18\x06 \x01(\x0e\x32..agent.agent.v1alpha.CitationExtractMethodTypeB\x03\xe0\x41\x03R\rextractMethodB\n\n\x08_summary*u\n\x0c\x43itationType\x12\x1d\n\x19\x43ITATION_TYPE_UNSPECIFIED\x10\x00\x12\x16\n\x12\x43ITATION_TYPE_FILE\x10\x01\x12\x15\n\x11\x43ITATION_TYPE_WEB\x10\x02\x12\x17\n\x13\x43ITATION_TYPE_TABLE\x10\x03*\xec\x01\n\x19\x43itationExtractMethodType\x12,\n(CITATION_EXTRACT_METHOD_TYPE_UNSPECIFIED\x10\x00\x12%\n!CITATION_EXTRACT_METHOD_TYPE_SELF\x10\x01\x12$\n CITATION_EXTRACT_METHOD_TYPE_WEB\x10\x02\x12$\n CITATION_EXTRACT_METHOD_TYPE_RAG\x10\x03\x12.\n*CITATION_EXTRACT_METHOD_TYPE_DEEP_ANALYSIS\x10\x04\x42\xd8\x01\n\x17\x63om.agent.agent.v1alphaB\x0b\x43ommonProtoP\x01ZBgithub.com/instill-ai/protogen-go/agent/agent/v1alpha;agentv1alpha\xa2\x02\x03\x41\x41X\xaa\x02\x13\x41gent.Agent.V1alpha\xca\x02\x13\x41gent\\Agent\\V1alpha\xe2\x02\x1f\x41gent\\Agent\\V1alpha\\GPBMetadata\xea\x02\x15\x41gent::Agent::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n agent/agent/v1alpha/common.proto\x12\x13\x61gent.agent.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9a\x02\n\x08\x43itation\x12\x35\n\x04type\x18\x01 \x01(\x0e\x32!.agent.agent.v1alpha.CitationTypeR\x04type\x12\x17\n\x04name\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03url\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x03url\x12\x1b\n\x06number\x18\x04 \x01(\rB\x03\xe0\x41\x03R\x06number\x12\"\n\x07summary\x18\x05 \x01(\tB\x03\xe0\x41\x03H\x00R\x07summary\x88\x01\x01\x12Z\n\x0e\x65xtract_method\x18\x06 \x01(\x0e\x32..agent.agent.v1alpha.CitationExtractMethodTypeB\x03\xe0\x41\x03R\rextractMethodB\n\n\x08_summary\"1\n\x0b\x43hatContext\x12\"\n\ntable_uids\x18\x01 \x03(\tB\x03\xe0\x41\x01R\ttableUids\"3\n\x0f\x43hatAttachments\x12 \n\tfile_urls\x18\x01 \x03(\tB\x03\xe0\x41\x03R\x08\x66ileUrls\"\xa4\x06\n\x07Message\x12\x15\n\x03uid\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x1e\n\x08\x63hat_uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x07\x63hatUid\x12\x1d\n\x07\x63ontent\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x07\x63ontent\x12\x17\n\x04role\x18\x04 \x01(\tB\x03\xe0\x41\x02R\x04role\x12\x41\n\x04type\x18\x05 \x01(\x0e\x32(.agent.agent.v1alpha.Message.MessageTypeB\x03\xe0\x41\x02R\x04type\x12@\n\x0b\x63reate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\x12)\n\x0emsg_sender_uid\x18\x08 \x01(\tB\x03\xe0\x41\x03R\x0cmsgSenderUid\x12@\n\tcitations\x18\t \x03(\x0b\x32\x1d.agent.agent.v1alpha.CitationB\x03\xe0\x41\x03R\tcitations\x12?\n\x07\x63ontext\x18\n \x01(\x0b\x32 .agent.agent.v1alpha.ChatContextB\x03\xe0\x41\x03R\x07\x63ontext\x12K\n\x0b\x61ttachments\x18\x0b \x01(\x0b\x32$.agent.agent.v1alpha.ChatAttachmentsB\x03\xe0\x41\x03R\x0b\x61ttachments\x12/\n\x11\x65nable_web_search\x18\x0c \x01(\x08\x42\x03\xe0\x41\x03R\x0f\x65nableWebSearch\x12\x1f\n\x08internal\x18\r \x01(\x08\x42\x03\xe0\x41\x03R\x08internal\x12\x42\n\x0braw_message\x18\x0e \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x03H\x00R\nrawMessage\x88\x01\x01\"B\n\x0bMessageType\x12\x1c\n\x18MESSAGE_TYPE_UNSPECIFIED\x10\x00\x12\x15\n\x11MESSAGE_TYPE_TEXT\x10\x01\x42\x0e\n\x0c_raw_message*u\n\x0c\x43itationType\x12\x1d\n\x19\x43ITATION_TYPE_UNSPECIFIED\x10\x00\x12\x16\n\x12\x43ITATION_TYPE_FILE\x10\x01\x12\x15\n\x11\x43ITATION_TYPE_WEB\x10\x02\x12\x17\n\x13\x43ITATION_TYPE_TABLE\x10\x03*\xec\x01\n\x19\x43itationExtractMethodType\x12,\n(CITATION_EXTRACT_METHOD_TYPE_UNSPECIFIED\x10\x00\x12%\n!CITATION_EXTRACT_METHOD_TYPE_SELF\x10\x01\x12$\n CITATION_EXTRACT_METHOD_TYPE_WEB\x10\x02\x12$\n CITATION_EXTRACT_METHOD_TYPE_RAG\x10\x03\x12.\n*CITATION_EXTRACT_METHOD_TYPE_DEEP_ANALYSIS\x10\x04\x42\xd8\x01\n\x17\x63om.agent.agent.v1alphaB\x0b\x43ommonProtoP\x01ZBgithub.com/instill-ai/protogen-go/agent/agent/v1alpha;agentv1alpha\xa2\x02\x03\x41\x41X\xaa\x02\x13\x41gent.Agent.V1alpha\xca\x02\x13\x41gent\\Agent\\V1alpha\xe2\x02\x1f\x41gent\\Agent\\V1alpha\\GPBMetadata\xea\x02\x15\x41gent::Agent::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,10 +35,50 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _CITATION.fields_by_name['summary']._serialized_options = b'\340A\003'
   _CITATION.fields_by_name['extract_method']._options = None
   _CITATION.fields_by_name['extract_method']._serialized_options = b'\340A\003'
-  _globals['_CITATIONTYPE']._serialized_start=375
-  _globals['_CITATIONTYPE']._serialized_end=492
-  _globals['_CITATIONEXTRACTMETHODTYPE']._serialized_start=495
-  _globals['_CITATIONEXTRACTMETHODTYPE']._serialized_end=731
-  _globals['_CITATION']._serialized_start=91
-  _globals['_CITATION']._serialized_end=373
+  _CHATCONTEXT.fields_by_name['table_uids']._options = None
+  _CHATCONTEXT.fields_by_name['table_uids']._serialized_options = b'\340A\001'
+  _CHATATTACHMENTS.fields_by_name['file_urls']._options = None
+  _CHATATTACHMENTS.fields_by_name['file_urls']._serialized_options = b'\340A\003'
+  _MESSAGE.fields_by_name['uid']._options = None
+  _MESSAGE.fields_by_name['uid']._serialized_options = b'\340A\003'
+  _MESSAGE.fields_by_name['chat_uid']._options = None
+  _MESSAGE.fields_by_name['chat_uid']._serialized_options = b'\340A\003'
+  _MESSAGE.fields_by_name['content']._options = None
+  _MESSAGE.fields_by_name['content']._serialized_options = b'\340A\002'
+  _MESSAGE.fields_by_name['role']._options = None
+  _MESSAGE.fields_by_name['role']._serialized_options = b'\340A\002'
+  _MESSAGE.fields_by_name['type']._options = None
+  _MESSAGE.fields_by_name['type']._serialized_options = b'\340A\002'
+  _MESSAGE.fields_by_name['create_time']._options = None
+  _MESSAGE.fields_by_name['create_time']._serialized_options = b'\340A\003'
+  _MESSAGE.fields_by_name['update_time']._options = None
+  _MESSAGE.fields_by_name['update_time']._serialized_options = b'\340A\003'
+  _MESSAGE.fields_by_name['msg_sender_uid']._options = None
+  _MESSAGE.fields_by_name['msg_sender_uid']._serialized_options = b'\340A\003'
+  _MESSAGE.fields_by_name['citations']._options = None
+  _MESSAGE.fields_by_name['citations']._serialized_options = b'\340A\003'
+  _MESSAGE.fields_by_name['context']._options = None
+  _MESSAGE.fields_by_name['context']._serialized_options = b'\340A\003'
+  _MESSAGE.fields_by_name['attachments']._options = None
+  _MESSAGE.fields_by_name['attachments']._serialized_options = b'\340A\003'
+  _MESSAGE.fields_by_name['enable_web_search']._options = None
+  _MESSAGE.fields_by_name['enable_web_search']._serialized_options = b'\340A\003'
+  _MESSAGE.fields_by_name['internal']._options = None
+  _MESSAGE.fields_by_name['internal']._serialized_options = b'\340A\003'
+  _MESSAGE.fields_by_name['raw_message']._options = None
+  _MESSAGE.fields_by_name['raw_message']._serialized_options = b'\340A\003'
+  _globals['_CITATIONTYPE']._serialized_start=1349
+  _globals['_CITATIONTYPE']._serialized_end=1466
+  _globals['_CITATIONEXTRACTMETHODTYPE']._serialized_start=1469
+  _globals['_CITATIONEXTRACTMETHODTYPE']._serialized_end=1705
+  _globals['_CITATION']._serialized_start=154
+  _globals['_CITATION']._serialized_end=436
+  _globals['_CHATCONTEXT']._serialized_start=438
+  _globals['_CHATCONTEXT']._serialized_end=487
+  _globals['_CHATATTACHMENTS']._serialized_start=489
+  _globals['_CHATATTACHMENTS']._serialized_end=540
+  _globals['_MESSAGE']._serialized_start=543
+  _globals['_MESSAGE']._serialized_end=1347
+  _globals['_MESSAGE_MESSAGETYPE']._serialized_start=1265
+  _globals['_MESSAGE_MESSAGETYPE']._serialized_end=1331
 # @@protoc_insertion_point(module_scope)

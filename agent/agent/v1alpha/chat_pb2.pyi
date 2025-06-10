@@ -8,14 +8,13 @@ import builtins
 import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
-import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.struct_pb2
 import google.protobuf.timestamp_pb2
 import sys
 import typing
 
-if sys.version_info >= (3, 10):
+if sys.version_info >= (3, 8):
     import typing as typing_extensions
 else:
     import typing_extensions
@@ -111,131 +110,6 @@ class Chat(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "catalog_id", b"catalog_id", "chat_display_name", b"chat_display_name", "create_time", b"create_time", "delete_time", b"delete_time", "namespace_id", b"namespace_id", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
 
 global___Chat = Chat
-
-@typing_extensions.final
-class Message(google.protobuf.message.Message):
-    """Message represents a single message in a conversation"""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    class _MessageType:
-        ValueType = typing.NewType("ValueType", builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-
-    class _MessageTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Message._MessageType.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        MESSAGE_TYPE_UNSPECIFIED: Message._MessageType.ValueType  # 0
-        """unspecified"""
-        MESSAGE_TYPE_TEXT: Message._MessageType.ValueType  # 1
-        """text"""
-
-    class MessageType(_MessageType, metaclass=_MessageTypeEnumTypeWrapper):
-        """message type"""
-
-    MESSAGE_TYPE_UNSPECIFIED: Message.MessageType.ValueType  # 0
-    """unspecified"""
-    MESSAGE_TYPE_TEXT: Message.MessageType.ValueType  # 1
-    """text"""
-
-    UID_FIELD_NUMBER: builtins.int
-    CHAT_UID_FIELD_NUMBER: builtins.int
-    CONTENT_FIELD_NUMBER: builtins.int
-    ROLE_FIELD_NUMBER: builtins.int
-    TYPE_FIELD_NUMBER: builtins.int
-    CREATE_TIME_FIELD_NUMBER: builtins.int
-    UPDATE_TIME_FIELD_NUMBER: builtins.int
-    MSG_SENDER_UID_FIELD_NUMBER: builtins.int
-    CITATIONS_FIELD_NUMBER: builtins.int
-    CONTEXT_FIELD_NUMBER: builtins.int
-    ATTACHMENTS_FIELD_NUMBER: builtins.int
-    ENABLE_WEB_SEARCH_FIELD_NUMBER: builtins.int
-    uid: builtins.str
-    """message uid"""
-    chat_uid: builtins.str
-    """chat uid"""
-    content: builtins.str
-    """message content"""
-    role: builtins.str
-    """message role e.g., "user" or "assistant" or "agent" """
-    type: global___Message.MessageType.ValueType
-    """message type"""
-    @property
-    def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """creation time of the message"""
-    @property
-    def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """update time of the message"""
-    msg_sender_uid: builtins.str
-    """message sender uid(only for user messages)"""
-    @property
-    def citations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[agent.agent.v1alpha.common_pb2.Citation]:
-        """citations (only for agent messages)"""
-    @property
-    def context(self) -> global___ChatContext:
-        """context for the message"""
-    @property
-    def attachments(self) -> global___ChatAttachments:
-        """attachments for the message"""
-    enable_web_search: builtins.bool
-    """enable web search (only for user messages)"""
-    def __init__(
-        self,
-        *,
-        uid: builtins.str = ...,
-        chat_uid: builtins.str = ...,
-        content: builtins.str = ...,
-        role: builtins.str = ...,
-        type: global___Message.MessageType.ValueType = ...,
-        create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        msg_sender_uid: builtins.str = ...,
-        citations: collections.abc.Iterable[agent.agent.v1alpha.common_pb2.Citation] | None = ...,
-        context: global___ChatContext | None = ...,
-        attachments: global___ChatAttachments | None = ...,
-        enable_web_search: builtins.bool = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["attachments", b"attachments", "context", b"context", "create_time", b"create_time", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["attachments", b"attachments", "chat_uid", b"chat_uid", "citations", b"citations", "content", b"content", "context", b"context", "create_time", b"create_time", "enable_web_search", b"enable_web_search", "msg_sender_uid", b"msg_sender_uid", "role", b"role", "type", b"type", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
-
-global___Message = Message
-
-@typing_extensions.final
-class ChatContext(google.protobuf.message.Message):
-    """The context for the message."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    TABLE_UIDS_FIELD_NUMBER: builtins.int
-    @property
-    def table_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The table uids to include in the context."""
-    def __init__(
-        self,
-        *,
-        table_uids: collections.abc.Iterable[builtins.str] | None = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["table_uids", b"table_uids"]) -> None: ...
-
-global___ChatContext = ChatContext
-
-@typing_extensions.final
-class ChatAttachments(google.protobuf.message.Message):
-    """ChatAttachments represents the attachment for the message"""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    FILE_URLS_FIELD_NUMBER: builtins.int
-    @property
-    def file_urls(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """file urls (only for user messages)"""
-    def __init__(
-        self,
-        *,
-        file_urls: collections.abc.Iterable[builtins.str] | None = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["file_urls", b"file_urls"]) -> None: ...
-
-global___ChatAttachments = ChatAttachments
 
 @typing_extensions.final
 class CreateChatRequest(google.protobuf.message.Message):
@@ -528,6 +402,7 @@ class ListMessagesRequest(google.protobuf.message.Message):
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     IF_ALL_FIELD_NUMBER: builtins.int
+    RETURN_RAW_MESSAGES_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """namespace id"""
     chat_uid: builtins.str
@@ -538,6 +413,8 @@ class ListMessagesRequest(google.protobuf.message.Message):
     """page token"""
     if_all: builtins.bool
     """If true, all messages will be returned. This has higher priority over page_size and page_token."""
+    return_raw_messages: builtins.bool
+    """If true, the raw messages will be returned."""
     def __init__(
         self,
         *,
@@ -546,8 +423,9 @@ class ListMessagesRequest(google.protobuf.message.Message):
         page_size: builtins.int = ...,
         page_token: builtins.str = ...,
         if_all: builtins.bool = ...,
+        return_raw_messages: builtins.bool = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["chat_uid", b"chat_uid", "if_all", b"if_all", "namespace_id", b"namespace_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chat_uid", b"chat_uid", "if_all", b"if_all", "namespace_id", b"namespace_id", "page_size", b"page_size", "page_token", b"page_token", "return_raw_messages", b"return_raw_messages"]) -> None: ...
 
 global___ListMessagesRequest = ListMessagesRequest
 
@@ -562,7 +440,7 @@ class ListMessagesResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     SENDER_PROFILES_FIELD_NUMBER: builtins.int
     @property
-    def messages(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Message]:
+    def messages(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[agent.agent.v1alpha.common_pb2.Message]:
         """messages"""
     next_page_token: builtins.str
     """next page token"""
@@ -574,7 +452,7 @@ class ListMessagesResponse(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        messages: collections.abc.Iterable[global___Message] | None = ...,
+        messages: collections.abc.Iterable[agent.agent.v1alpha.common_pb2.Message] | None = ...,
         next_page_token: builtins.str = ...,
         total_size: builtins.int = ...,
         sender_profiles: collections.abc.Iterable[global___MessageSenderProfile] | None = ...,
@@ -613,7 +491,7 @@ class ChatWithAgentRequest(google.protobuf.message.Message):
     def object_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """object UIDs"""
     @property
-    def context(self) -> global___ChatContext:
+    def context(self) -> agent.agent.v1alpha.common_pb2.ChatContext:
         """The context for the chat."""
     def __init__(
         self,
@@ -624,7 +502,7 @@ class ChatWithAgentRequest(google.protobuf.message.Message):
         file_uids: collections.abc.Iterable[builtins.str] | None = ...,
         enable_web_search: builtins.bool = ...,
         object_uids: collections.abc.Iterable[builtins.str] | None = ...,
-        context: global___ChatContext | None = ...,
+        context: agent.agent.v1alpha.common_pb2.ChatContext | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["context", b"context"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["chat_uid", b"chat_uid", "context", b"context", "enable_web_search", b"enable_web_search", "file_uids", b"file_uids", "message", b"message", "namespace_id", b"namespace_id", "object_uids", b"object_uids"]) -> None: ...
@@ -679,6 +557,7 @@ class ListTableBuilderAgentMessagesRequest(google.protobuf.message.Message):
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     IF_ALL_FIELD_NUMBER: builtins.int
+    RETURN_RAW_MESSAGES_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """namespace id"""
     table_uid: builtins.str
@@ -689,6 +568,8 @@ class ListTableBuilderAgentMessagesRequest(google.protobuf.message.Message):
     """page token"""
     if_all: builtins.bool
     """If true, all messages will be returned. This has higher priority over page_size and page_token."""
+    return_raw_messages: builtins.bool
+    """If true, the raw messages will be returned."""
     def __init__(
         self,
         *,
@@ -697,8 +578,9 @@ class ListTableBuilderAgentMessagesRequest(google.protobuf.message.Message):
         page_size: builtins.int = ...,
         page_token: builtins.str = ...,
         if_all: builtins.bool = ...,
+        return_raw_messages: builtins.bool = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["if_all", b"if_all", "namespace_id", b"namespace_id", "page_size", b"page_size", "page_token", b"page_token", "table_uid", b"table_uid"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["if_all", b"if_all", "namespace_id", b"namespace_id", "page_size", b"page_size", "page_token", b"page_token", "return_raw_messages", b"return_raw_messages", "table_uid", b"table_uid"]) -> None: ...
 
 global___ListTableBuilderAgentMessagesRequest = ListTableBuilderAgentMessagesRequest
 
@@ -713,7 +595,7 @@ class ListTableBuilderAgentMessagesResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     SENDER_PROFILES_FIELD_NUMBER: builtins.int
     @property
-    def messages(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Message]:
+    def messages(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[agent.agent.v1alpha.common_pb2.Message]:
         """messages"""
     next_page_token: builtins.str
     """next page token"""
@@ -725,7 +607,7 @@ class ListTableBuilderAgentMessagesResponse(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        messages: collections.abc.Iterable[global___Message] | None = ...,
+        messages: collections.abc.Iterable[agent.agent.v1alpha.common_pb2.Message] | None = ...,
         next_page_token: builtins.str = ...,
         total_size: builtins.int = ...,
         sender_profiles: collections.abc.Iterable[global___MessageSenderProfile] | None = ...,
@@ -1026,13 +908,13 @@ class ChatAttachmentsUpdatedEvent(google.protobuf.message.Message):
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """The time when attachment list updated"""
     @property
-    def attachments(self) -> global___ChatAttachments:
+    def attachments(self) -> agent.agent.v1alpha.common_pb2.ChatAttachments:
         """The attachments"""
     def __init__(
         self,
         *,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        attachments: global___ChatAttachments | None = ...,
+        attachments: agent.agent.v1alpha.common_pb2.ChatAttachments | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["attachments", b"attachments", "create_time", b"create_time"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["attachments", b"attachments", "create_time", b"create_time"]) -> None: ...
@@ -1051,13 +933,13 @@ class ChatContextUpdatedEvent(google.protobuf.message.Message):
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """The time when context updated"""
     @property
-    def context(self) -> global___ChatContext:
+    def context(self) -> agent.agent.v1alpha.common_pb2.ChatContext:
         """The context"""
     def __init__(
         self,
         *,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        context: global___ChatContext | None = ...,
+        context: agent.agent.v1alpha.common_pb2.ChatContext | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["context", b"context", "create_time", b"create_time"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["context", b"context", "create_time", b"create_time"]) -> None: ...

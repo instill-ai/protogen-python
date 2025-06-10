@@ -1940,6 +1940,79 @@ class ResetCellResponse(google.protobuf.message.Message):
 global___ResetCellResponse = ResetCellResponse
 
 @typing_extensions.final
+class ListCellAutofillAgentMessagesRequest(google.protobuf.message.Message):
+    """ListCellAutofillAgentMessagesRequest is used to list messages in a conversation"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    TABLE_UID_FIELD_NUMBER: builtins.int
+    ROW_UID_FIELD_NUMBER: builtins.int
+    CELL_UID_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    IF_ALL_FIELD_NUMBER: builtins.int
+    RETURN_RAW_MESSAGES_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The ID of the namespace that owns the table."""
+    table_uid: builtins.str
+    """The UID of the table containing the cell."""
+    row_uid: builtins.str
+    """The unique identifier of the row containing the cell."""
+    cell_uid: builtins.str
+    """The unique identifier of the cell to reset."""
+    page_size: builtins.int
+    """page size"""
+    page_token: builtins.str
+    """page token"""
+    if_all: builtins.bool
+    """If true, all messages will be returned. This has higher priority over page_size and page_token."""
+    return_raw_messages: builtins.bool
+    """If true, the raw messages will be returned."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        table_uid: builtins.str = ...,
+        row_uid: builtins.str = ...,
+        cell_uid: builtins.str = ...,
+        page_size: builtins.int = ...,
+        page_token: builtins.str = ...,
+        if_all: builtins.bool = ...,
+        return_raw_messages: builtins.bool = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cell_uid", b"cell_uid", "if_all", b"if_all", "namespace_id", b"namespace_id", "page_size", b"page_size", "page_token", b"page_token", "return_raw_messages", b"return_raw_messages", "row_uid", b"row_uid", "table_uid", b"table_uid"]) -> None: ...
+
+global___ListCellAutofillAgentMessagesRequest = ListCellAutofillAgentMessagesRequest
+
+@typing_extensions.final
+class ListCellAutofillAgentMessagesResponse(google.protobuf.message.Message):
+    """ListCellAutofillAgentMessagesResponse is a response to a request to list messages in a cell."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    MESSAGES_FIELD_NUMBER: builtins.int
+    NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    @property
+    def messages(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[agent.agent.v1alpha.common_pb2.Message]:
+        """The messages in the cell."""
+    next_page_token: builtins.str
+    """The token for the next page of results."""
+    total_size: builtins.int
+    """The total number of messages."""
+    def __init__(
+        self,
+        *,
+        messages: collections.abc.Iterable[agent.agent.v1alpha.common_pb2.Message] | None = ...,
+        next_page_token: builtins.str = ...,
+        total_size: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["messages", b"messages", "next_page_token", b"next_page_token", "total_size", b"total_size"]) -> None: ...
+
+global___ListCellAutofillAgentMessagesResponse = ListCellAutofillAgentMessagesResponse
+
+@typing_extensions.final
 class LockCellRequest(google.protobuf.message.Message):
     """LockCellRequest represents a request to lock a cell."""
 
