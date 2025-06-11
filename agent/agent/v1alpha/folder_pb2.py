@@ -17,7 +17,7 @@ from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n agent/agent/v1alpha/folder.proto\x12\x13\x61gent.agent.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb7\x03\n\x06\x46older\x12\x15\n\x03uid\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x17\n\x04name\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x04name\x12%\n\x0b\x64\x65scription\x18\x03 \x01(\tB\x03\xe0\x41\x01R\x0b\x64\x65scription\x12\x38\n\x08metadata\x18\x04 \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x01R\x08metadata\x12@\n\x0b\x63reate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\x12\"\n\ncatalog_id\x18\x07 \x01(\tB\x03\xe0\x41\x03R\tcatalogId\x12K\n\npermission\x18\x08 \x01(\x0b\x32&.agent.agent.v1alpha.Folder.PermissionB\x03\xe0\x41\x03R\npermission\x1a\'\n\nPermission\x12\x19\n\x08\x63\x61n_edit\x18\x01 \x01(\x08R\x07\x63\x61nEdit\"\x82\x01\n\x12ListFoldersRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\"\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01R\tpageToken\x12 \n\tpage_size\x18\x03 \x01(\x05\x42\x03\xe0\x41\x01R\x08pageSize\"\xa2\x01\n\x13ListFoldersResponse\x12:\n\x07\x66olders\x18\x01 \x03(\x0b\x32\x1b.agent.agent.v1alpha.FolderB\x03\xe0\x41\x03R\x07\x66olders\x12+\n\x0fnext_page_token\x18\x02 \x01(\tB\x03\xe0\x41\x03R\rnextPageToken\x12\"\n\ntotal_size\x18\x03 \x01(\x05\x42\x03\xe0\x41\x03R\ttotalSize\"w\n\x13\x43reateFolderRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\x38\n\x06\x66older\x18\x02 \x01(\x0b\x32\x1b.agent.agent.v1alpha.FolderB\x03\xe0\x41\x02R\x06\x66older\"P\n\x14\x43reateFolderResponse\x12\x38\n\x06\x66older\x18\x01 \x01(\x0b\x32\x1b.agent.agent.v1alpha.FolderB\x03\xe0\x41\x03R\x06\x66older\"^\n\x10GetFolderRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\"\n\nfolder_uid\x18\x02 \x01(\tB\x03\xe0\x41\x02R\tfolderUid\"M\n\x11GetFolderResponse\x12\x38\n\x06\x66older\x18\x01 \x01(\x0b\x32\x1b.agent.agent.v1alpha.FolderB\x03\xe0\x41\x03R\x06\x66older\"\xd8\x01\n\x13UpdateFolderRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\"\n\nfolder_uid\x18\x02 \x01(\tB\x03\xe0\x41\x02R\tfolderUid\x12\x33\n\x06\x66older\x18\x03 \x01(\x0b\x32\x1b.agent.agent.v1alpha.FolderR\x06\x66older\x12@\n\x0bupdate_mask\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\nupdateMask\"P\n\x14UpdateFolderResponse\x12\x38\n\x06\x66older\x18\x01 \x01(\x0b\x32\x1b.agent.agent.v1alpha.FolderB\x03\xe0\x41\x03R\x06\x66older\"a\n\x13\x44\x65leteFolderRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\"\n\nfolder_uid\x18\x02 \x01(\tB\x03\xe0\x41\x02R\tfolderUid\"\x16\n\x14\x44\x65leteFolderResponseB\xd8\x01\n\x17\x63om.agent.agent.v1alphaB\x0b\x46olderProtoP\x01ZBgithub.com/instill-ai/protogen-go/agent/agent/v1alpha;agentv1alpha\xa2\x02\x03\x41\x41X\xaa\x02\x13\x41gent.Agent.V1alpha\xca\x02\x13\x41gent\\Agent\\V1alpha\xe2\x02\x1f\x41gent\\Agent\\V1alpha\\GPBMetadata\xea\x02\x15\x41gent::Agent::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n agent/agent/v1alpha/folder.proto\x12\x13\x61gent.agent.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x81\x04\n\x06\x46older\x12\x15\n\x03uid\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x17\n\x04name\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x04name\x12%\n\x0b\x64\x65scription\x18\x03 \x01(\tB\x03\xe0\x41\x01R\x0b\x64\x65scription\x12\x38\n\x08metadata\x18\x04 \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x01R\x08metadata\x12@\n\x0b\x63reate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\x12\"\n\ncatalog_id\x18\x07 \x01(\tB\x03\xe0\x41\x03R\tcatalogId\x12K\n\npermission\x18\x08 \x01(\x0b\x32&.agent.agent.v1alpha.Folder.PermissionB\x03\xe0\x41\x03R\npermission\x12H\n\x0c\x63\x61talog_info\x18\t \x01(\x0b\x32 .agent.agent.v1alpha.CatalogInfoB\x03\xe0\x41\x03R\x0b\x63\x61talogInfo\x1a\'\n\nPermission\x12\x19\n\x08\x63\x61n_edit\x18\x01 \x01(\x08R\x07\x63\x61nEdit\"`\n\x0b\x43\x61talogInfo\x12\"\n\nfile_count\x18\x01 \x01(\x05\x42\x03\xe0\x41\x03R\tfileCount\x12-\n\x10total_size_bytes\x18\x02 \x01(\x03\x42\x03\xe0\x41\x03R\x0etotalSizeBytes\"\x82\x01\n\x12ListFoldersRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\"\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01R\tpageToken\x12 \n\tpage_size\x18\x03 \x01(\x05\x42\x03\xe0\x41\x01R\x08pageSize\"\xa2\x01\n\x13ListFoldersResponse\x12:\n\x07\x66olders\x18\x01 \x03(\x0b\x32\x1b.agent.agent.v1alpha.FolderB\x03\xe0\x41\x03R\x07\x66olders\x12+\n\x0fnext_page_token\x18\x02 \x01(\tB\x03\xe0\x41\x03R\rnextPageToken\x12\"\n\ntotal_size\x18\x03 \x01(\x05\x42\x03\xe0\x41\x03R\ttotalSize\"w\n\x13\x43reateFolderRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\x38\n\x06\x66older\x18\x02 \x01(\x0b\x32\x1b.agent.agent.v1alpha.FolderB\x03\xe0\x41\x02R\x06\x66older\"P\n\x14\x43reateFolderResponse\x12\x38\n\x06\x66older\x18\x01 \x01(\x0b\x32\x1b.agent.agent.v1alpha.FolderB\x03\xe0\x41\x03R\x06\x66older\"^\n\x10GetFolderRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\"\n\nfolder_uid\x18\x02 \x01(\tB\x03\xe0\x41\x02R\tfolderUid\"M\n\x11GetFolderResponse\x12\x38\n\x06\x66older\x18\x01 \x01(\x0b\x32\x1b.agent.agent.v1alpha.FolderB\x03\xe0\x41\x03R\x06\x66older\"\xd8\x01\n\x13UpdateFolderRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\"\n\nfolder_uid\x18\x02 \x01(\tB\x03\xe0\x41\x02R\tfolderUid\x12\x33\n\x06\x66older\x18\x03 \x01(\x0b\x32\x1b.agent.agent.v1alpha.FolderR\x06\x66older\x12@\n\x0bupdate_mask\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\nupdateMask\"P\n\x14UpdateFolderResponse\x12\x38\n\x06\x66older\x18\x01 \x01(\x0b\x32\x1b.agent.agent.v1alpha.FolderB\x03\xe0\x41\x03R\x06\x66older\"a\n\x13\x44\x65leteFolderRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\"\n\nfolder_uid\x18\x02 \x01(\tB\x03\xe0\x41\x02R\tfolderUid\"\x16\n\x14\x44\x65leteFolderResponseB\xd8\x01\n\x17\x63om.agent.agent.v1alphaB\x0b\x46olderProtoP\x01ZBgithub.com/instill-ai/protogen-go/agent/agent/v1alpha;agentv1alpha\xa2\x02\x03\x41\x41X\xaa\x02\x13\x41gent.Agent.V1alpha\xca\x02\x13\x41gent\\Agent\\V1alpha\xe2\x02\x1f\x41gent\\Agent\\V1alpha\\GPBMetadata\xea\x02\x15\x41gent::Agent::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -42,6 +42,12 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _FOLDER.fields_by_name['catalog_id']._serialized_options = b'\340A\003'
   _FOLDER.fields_by_name['permission']._options = None
   _FOLDER.fields_by_name['permission']._serialized_options = b'\340A\003'
+  _FOLDER.fields_by_name['catalog_info']._options = None
+  _FOLDER.fields_by_name['catalog_info']._serialized_options = b'\340A\003'
+  _CATALOGINFO.fields_by_name['file_count']._options = None
+  _CATALOGINFO.fields_by_name['file_count']._serialized_options = b'\340A\003'
+  _CATALOGINFO.fields_by_name['total_size_bytes']._options = None
+  _CATALOGINFO.fields_by_name['total_size_bytes']._serialized_options = b'\340A\003'
   _LISTFOLDERSREQUEST.fields_by_name['namespace_id']._options = None
   _LISTFOLDERSREQUEST.fields_by_name['namespace_id']._serialized_options = b'\340A\002'
   _LISTFOLDERSREQUEST.fields_by_name['page_token']._options = None
@@ -79,27 +85,29 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _DELETEFOLDERREQUEST.fields_by_name['folder_uid']._options = None
   _DELETEFOLDERREQUEST.fields_by_name['folder_uid']._serialized_options = b'\340A\002'
   _globals['_FOLDER']._serialized_start=188
-  _globals['_FOLDER']._serialized_end=627
-  _globals['_FOLDER_PERMISSION']._serialized_start=588
-  _globals['_FOLDER_PERMISSION']._serialized_end=627
-  _globals['_LISTFOLDERSREQUEST']._serialized_start=630
-  _globals['_LISTFOLDERSREQUEST']._serialized_end=760
-  _globals['_LISTFOLDERSRESPONSE']._serialized_start=763
-  _globals['_LISTFOLDERSRESPONSE']._serialized_end=925
-  _globals['_CREATEFOLDERREQUEST']._serialized_start=927
-  _globals['_CREATEFOLDERREQUEST']._serialized_end=1046
-  _globals['_CREATEFOLDERRESPONSE']._serialized_start=1048
-  _globals['_CREATEFOLDERRESPONSE']._serialized_end=1128
-  _globals['_GETFOLDERREQUEST']._serialized_start=1130
-  _globals['_GETFOLDERREQUEST']._serialized_end=1224
-  _globals['_GETFOLDERRESPONSE']._serialized_start=1226
-  _globals['_GETFOLDERRESPONSE']._serialized_end=1303
-  _globals['_UPDATEFOLDERREQUEST']._serialized_start=1306
-  _globals['_UPDATEFOLDERREQUEST']._serialized_end=1522
-  _globals['_UPDATEFOLDERRESPONSE']._serialized_start=1524
-  _globals['_UPDATEFOLDERRESPONSE']._serialized_end=1604
-  _globals['_DELETEFOLDERREQUEST']._serialized_start=1606
-  _globals['_DELETEFOLDERREQUEST']._serialized_end=1703
-  _globals['_DELETEFOLDERRESPONSE']._serialized_start=1705
-  _globals['_DELETEFOLDERRESPONSE']._serialized_end=1727
+  _globals['_FOLDER']._serialized_end=701
+  _globals['_FOLDER_PERMISSION']._serialized_start=662
+  _globals['_FOLDER_PERMISSION']._serialized_end=701
+  _globals['_CATALOGINFO']._serialized_start=703
+  _globals['_CATALOGINFO']._serialized_end=799
+  _globals['_LISTFOLDERSREQUEST']._serialized_start=802
+  _globals['_LISTFOLDERSREQUEST']._serialized_end=932
+  _globals['_LISTFOLDERSRESPONSE']._serialized_start=935
+  _globals['_LISTFOLDERSRESPONSE']._serialized_end=1097
+  _globals['_CREATEFOLDERREQUEST']._serialized_start=1099
+  _globals['_CREATEFOLDERREQUEST']._serialized_end=1218
+  _globals['_CREATEFOLDERRESPONSE']._serialized_start=1220
+  _globals['_CREATEFOLDERRESPONSE']._serialized_end=1300
+  _globals['_GETFOLDERREQUEST']._serialized_start=1302
+  _globals['_GETFOLDERREQUEST']._serialized_end=1396
+  _globals['_GETFOLDERRESPONSE']._serialized_start=1398
+  _globals['_GETFOLDERRESPONSE']._serialized_end=1475
+  _globals['_UPDATEFOLDERREQUEST']._serialized_start=1478
+  _globals['_UPDATEFOLDERREQUEST']._serialized_end=1694
+  _globals['_UPDATEFOLDERRESPONSE']._serialized_start=1696
+  _globals['_UPDATEFOLDERRESPONSE']._serialized_end=1776
+  _globals['_DELETEFOLDERREQUEST']._serialized_start=1778
+  _globals['_DELETEFOLDERREQUEST']._serialized_end=1875
+  _globals['_DELETEFOLDERRESPONSE']._serialized_start=1877
+  _globals['_DELETEFOLDERRESPONSE']._serialized_end=1899
 # @@protoc_insertion_point(module_scope)

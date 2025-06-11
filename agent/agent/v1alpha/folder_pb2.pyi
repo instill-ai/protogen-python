@@ -49,6 +49,7 @@ class Folder(google.protobuf.message.Message):
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     CATALOG_ID_FIELD_NUMBER: builtins.int
     PERMISSION_FIELD_NUMBER: builtins.int
+    CATALOG_INFO_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """The unique identifier of the folder."""
     name: builtins.str
@@ -69,6 +70,9 @@ class Folder(google.protobuf.message.Message):
     @property
     def permission(self) -> global___Folder.Permission:
         """Permission defines how a folder can be used."""
+    @property
+    def catalog_info(self) -> global___CatalogInfo:
+        """The information about the catalog."""
     def __init__(
         self,
         *,
@@ -80,11 +84,34 @@ class Folder(google.protobuf.message.Message):
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         catalog_id: builtins.str = ...,
         permission: global___Folder.Permission | None = ...,
+        catalog_info: global___CatalogInfo | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "metadata", b"metadata", "permission", b"permission", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "create_time", b"create_time", "description", b"description", "metadata", b"metadata", "name", b"name", "permission", b"permission", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["catalog_info", b"catalog_info", "create_time", b"create_time", "metadata", b"metadata", "permission", b"permission", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "catalog_info", b"catalog_info", "create_time", b"create_time", "description", b"description", "metadata", b"metadata", "name", b"name", "permission", b"permission", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
 
 global___Folder = Folder
+
+@typing_extensions.final
+class CatalogInfo(google.protobuf.message.Message):
+    """CatalogInfo contains the information about the catalog."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_COUNT_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_BYTES_FIELD_NUMBER: builtins.int
+    file_count: builtins.int
+    """The number of files in the catalog."""
+    total_size_bytes: builtins.int
+    """The total size of all files in the catalog in bytes."""
+    def __init__(
+        self,
+        *,
+        file_count: builtins.int = ...,
+        total_size_bytes: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file_count", b"file_count", "total_size_bytes", b"total_size_bytes"]) -> None: ...
+
+global___CatalogInfo = CatalogInfo
 
 @typing_extensions.final
 class ListFoldersRequest(google.protobuf.message.Message):
