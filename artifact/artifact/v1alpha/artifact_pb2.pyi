@@ -857,6 +857,7 @@ class CreateCatalogRequest(google.protobuf.message.Message):
     DESCRIPTION_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
+    CONVERTING_PIPELINES_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """The catalog's owner(namespaces)."""
     name: builtins.str
@@ -868,6 +869,34 @@ class CreateCatalogRequest(google.protobuf.message.Message):
         """The catalog tags."""
     type: global___CatalogType.ValueType
     """The catalog type. default is PERSISTENT"""
+    @property
+    def converting_pipelines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """Pipelines used for converting documents (i.e., files with pdf, doc* or
+        ppt* extension) to Markdown. The pipelines must have the following
+        variable and output fields:
+        ```
+        variable:
+          document_input:
+            title: document-input
+            description: Upload a document (PDF/DOCX/DOC/PPTX/PPT)
+            type: file
+        ```
+        ```
+        output:
+         convert_result:
+           title: convert-result
+           value: ${merge-markdown-refinement.output.results[0]}
+        ```
+        Other variable and output fields will be ignored.
+
+        The pipelines will be executed in order until one produces a successful,
+        non-empty result.
+
+        If no pipelines are provided, a default pipeline will be used. For
+        non-document catalog files, the conversion pipeline is deterministic (such
+        files are typically trivial to convert and don't require a dedicated
+        pipeline to improve the conversion performance).
+        """
     def __init__(
         self,
         *,
@@ -876,8 +905,9 @@ class CreateCatalogRequest(google.protobuf.message.Message):
         description: builtins.str = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
         type: global___CatalogType.ValueType = ...,
+        converting_pipelines: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "name", b"name", "namespace_id", b"namespace_id", "tags", b"tags", "type", b"type"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["converting_pipelines", b"converting_pipelines", "description", b"description", "name", b"name", "namespace_id", b"namespace_id", "tags", b"tags", "type", b"type"]) -> None: ...
 
 global___CreateCatalogRequest = CreateCatalogRequest
 
