@@ -872,8 +872,9 @@ class CreateCatalogRequest(google.protobuf.message.Message):
     @property
     def converting_pipelines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Pipelines used for converting documents (i.e., files with pdf, doc[x] or
-        ppt[x] extension) to Markdown. The pipelines must have the following
-        variable and output fields:
+        ppt[x] extension) to Markdown. The strings in the list identify the
+        pipelines and MUST have the format `{namespaceID}/{pipelineID}@{version}`.
+        The pipeline recipes MUST have the following variable and output fields:
         ```yaml variable
         variable:
           document_input:
