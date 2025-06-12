@@ -871,17 +871,17 @@ class CreateCatalogRequest(google.protobuf.message.Message):
     """The catalog type. default is PERSISTENT"""
     @property
     def converting_pipelines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """Pipelines used for converting documents (i.e., files with pdf, doc* or
-        ppt* extension) to Markdown. The pipelines must have the following
+        """Pipelines used for converting documents (i.e., files with pdf, doc[x] or
+        ppt[x] extension) to Markdown. The pipelines must have the following
         variable and output fields:
-        ```
+        ```yaml variable
         variable:
           document_input:
             title: document-input
             description: Upload a document (PDF/DOCX/DOC/PPTX/PPT)
             type: file
         ```
-        ```
+        ```yaml output
         output:
          convert_result:
            title: convert-result
