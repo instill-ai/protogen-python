@@ -145,16 +145,48 @@ class ChatAttachments(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    FILE_URLS_FIELD_NUMBER: builtins.int
+    @typing_extensions.final
+    class FileAttachment(google.protobuf.message.Message):
+        """FileAttachment represents the file attachment for the message."""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        FILE_NAME_FIELD_NUMBER: builtins.int
+        FILE_SIZE_FIELD_NUMBER: builtins.int
+        CONTENT_TYPE_FIELD_NUMBER: builtins.int
+        FILE_EXTENSION_FIELD_NUMBER: builtins.int
+        DOWNLOAD_URL_FIELD_NUMBER: builtins.int
+        file_name: builtins.str
+        """file name"""
+        file_size: builtins.int
+        """file size"""
+        content_type: builtins.str
+        """file type"""
+        file_extension: builtins.str
+        """file extension"""
+        download_url: builtins.str
+        """file download url"""
+        def __init__(
+            self,
+            *,
+            file_name: builtins.str = ...,
+            file_size: builtins.int = ...,
+            content_type: builtins.str = ...,
+            file_extension: builtins.str = ...,
+            download_url: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["content_type", b"content_type", "download_url", b"download_url", "file_extension", b"file_extension", "file_name", b"file_name", "file_size", b"file_size"]) -> None: ...
+
+    FILE_ATTACHMENTS_FIELD_NUMBER: builtins.int
     @property
-    def file_urls(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+    def file_attachments(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ChatAttachments.FileAttachment]:
         """file urls (only for user messages)"""
     def __init__(
         self,
         *,
-        file_urls: collections.abc.Iterable[builtins.str] | None = ...,
+        file_attachments: collections.abc.Iterable[global___ChatAttachments.FileAttachment] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["file_urls", b"file_urls"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file_attachments", b"file_attachments"]) -> None: ...
 
 global___ChatAttachments = ChatAttachments
 
