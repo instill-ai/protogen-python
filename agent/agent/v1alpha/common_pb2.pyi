@@ -126,16 +126,42 @@ class ChatContext(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
+    class FolderFiles(google.protobuf.message.Message):
+        """Represents specific files within a folder."""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        FOLDER_UID_FIELD_NUMBER: builtins.int
+        FILE_UIDS_FIELD_NUMBER: builtins.int
+        folder_uid: builtins.str
+        """The folder containing the files"""
+        @property
+        def file_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+            """Specific file UIDs within the folder, leave empty to include all files in the folder"""
+        def __init__(
+            self,
+            *,
+            folder_uid: builtins.str = ...,
+            file_uids: collections.abc.Iterable[builtins.str] | None = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["file_uids", b"file_uids", "folder_uid", b"folder_uid"]) -> None: ...
+
     TABLE_UIDS_FIELD_NUMBER: builtins.int
+    FOLDER_FILES_FIELD_NUMBER: builtins.int
     @property
     def table_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """The table uids to include in the context."""
+    @property
+    def folder_files(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ChatContext.FolderFiles]:
+        """The folders and files to include in the context."""
     def __init__(
         self,
         *,
         table_uids: collections.abc.Iterable[builtins.str] | None = ...,
+        folder_files: collections.abc.Iterable[global___ChatContext.FolderFiles] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["table_uids", b"table_uids"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["folder_files", b"folder_files", "table_uids", b"table_uids"]) -> None: ...
 
 global___ChatContext = ChatContext
 
