@@ -16,7 +16,7 @@ from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n agent/agent/v1alpha/common.proto\x12\x13\x61gent.agent.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9a\x02\n\x08\x43itation\x12\x35\n\x04type\x18\x01 \x01(\x0e\x32!.agent.agent.v1alpha.CitationTypeR\x04type\x12\x17\n\x04name\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03url\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x03url\x12\x1b\n\x06number\x18\x04 \x01(\rB\x03\xe0\x41\x03R\x06number\x12\"\n\x07summary\x18\x05 \x01(\tB\x03\xe0\x41\x03H\x00R\x07summary\x88\x01\x01\x12Z\n\x0e\x65xtract_method\x18\x06 \x01(\x0e\x32..agent.agent.v1alpha.CitationExtractMethodTypeB\x03\xe0\x41\x03R\rextractMethodB\n\n\x08_summary\"\xdc\x01\n\x0b\x43hatContext\x12\"\n\ntable_uids\x18\x01 \x03(\tB\x03\xe0\x41\x01R\ttableUids\x12T\n\x0c\x66older_files\x18\x02 \x03(\x0b\x32,.agent.agent.v1alpha.ChatContext.FolderFilesB\x03\xe0\x41\x01R\x0b\x66olderFiles\x1aS\n\x0b\x46olderFiles\x12\"\n\nfolder_uid\x18\x01 \x01(\tB\x03\xe0\x41\x02R\tfolderUid\x12 \n\tfile_uids\x18\x02 \x03(\tB\x03\xe0\x41\x01R\x08\x66ileUids\"\xc9\x02\n\x0f\x43hatAttachments\x12\x63\n\x10\x66ile_attachments\x18\x01 \x03(\x0b\x32\x33.agent.agent.v1alpha.ChatAttachments.FileAttachmentB\x03\xe0\x41\x03R\x0f\x66ileAttachments\x1a\xd0\x01\n\x0e\x46ileAttachment\x12 \n\tfile_name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x08\x66ileName\x12 \n\tfile_size\x18\x02 \x01(\x04\x42\x03\xe0\x41\x03R\x08\x66ileSize\x12&\n\x0c\x63ontent_type\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x0b\x63ontentType\x12*\n\x0e\x66ile_extension\x18\x04 \x01(\tB\x03\xe0\x41\x03R\rfileExtension\x12&\n\x0c\x64ownload_url\x18\x05 \x01(\tB\x03\xe0\x41\x03R\x0b\x64ownloadUrl\"\xa4\x06\n\x07Message\x12\x15\n\x03uid\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x1e\n\x08\x63hat_uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x07\x63hatUid\x12\x1d\n\x07\x63ontent\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x07\x63ontent\x12\x17\n\x04role\x18\x04 \x01(\tB\x03\xe0\x41\x02R\x04role\x12\x41\n\x04type\x18\x05 \x01(\x0e\x32(.agent.agent.v1alpha.Message.MessageTypeB\x03\xe0\x41\x02R\x04type\x12@\n\x0b\x63reate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\x12)\n\x0emsg_sender_uid\x18\x08 \x01(\tB\x03\xe0\x41\x03R\x0cmsgSenderUid\x12@\n\tcitations\x18\t \x03(\x0b\x32\x1d.agent.agent.v1alpha.CitationB\x03\xe0\x41\x03R\tcitations\x12?\n\x07\x63ontext\x18\n \x01(\x0b\x32 .agent.agent.v1alpha.ChatContextB\x03\xe0\x41\x03R\x07\x63ontext\x12K\n\x0b\x61ttachments\x18\x0b \x01(\x0b\x32$.agent.agent.v1alpha.ChatAttachmentsB\x03\xe0\x41\x03R\x0b\x61ttachments\x12/\n\x11\x65nable_web_search\x18\x0c \x01(\x08\x42\x03\xe0\x41\x03R\x0f\x65nableWebSearch\x12\x1f\n\x08internal\x18\r \x01(\x08\x42\x03\xe0\x41\x03R\x08internal\x12\x42\n\x0braw_message\x18\x0e \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x03H\x00R\nrawMessage\x88\x01\x01\"B\n\x0bMessageType\x12\x1c\n\x18MESSAGE_TYPE_UNSPECIFIED\x10\x00\x12\x15\n\x11MESSAGE_TYPE_TEXT\x10\x01\x42\x0e\n\x0c_raw_message*u\n\x0c\x43itationType\x12\x1d\n\x19\x43ITATION_TYPE_UNSPECIFIED\x10\x00\x12\x16\n\x12\x43ITATION_TYPE_FILE\x10\x01\x12\x15\n\x11\x43ITATION_TYPE_WEB\x10\x02\x12\x17\n\x13\x43ITATION_TYPE_TABLE\x10\x03*\xec\x01\n\x19\x43itationExtractMethodType\x12,\n(CITATION_EXTRACT_METHOD_TYPE_UNSPECIFIED\x10\x00\x12%\n!CITATION_EXTRACT_METHOD_TYPE_SELF\x10\x01\x12$\n CITATION_EXTRACT_METHOD_TYPE_WEB\x10\x02\x12$\n CITATION_EXTRACT_METHOD_TYPE_RAG\x10\x03\x12.\n*CITATION_EXTRACT_METHOD_TYPE_DEEP_ANALYSIS\x10\x04\x42\xd8\x01\n\x17\x63om.agent.agent.v1alphaB\x0b\x43ommonProtoP\x01ZBgithub.com/instill-ai/protogen-go/agent/agent/v1alpha;agentv1alpha\xa2\x02\x03\x41\x41X\xaa\x02\x13\x41gent.Agent.V1alpha\xca\x02\x13\x41gent\\Agent\\V1alpha\xe2\x02\x1f\x41gent\\Agent\\V1alpha\\GPBMetadata\xea\x02\x15\x41gent::Agent::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n agent/agent/v1alpha/common.proto\x12\x13\x61gent.agent.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9a\x02\n\x08\x43itation\x12\x35\n\x04type\x18\x01 \x01(\x0e\x32!.agent.agent.v1alpha.CitationTypeR\x04type\x12\x17\n\x04name\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x15\n\x03url\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x03url\x12\x1b\n\x06number\x18\x04 \x01(\rB\x03\xe0\x41\x03R\x06number\x12\"\n\x07summary\x18\x05 \x01(\tB\x03\xe0\x41\x03H\x00R\x07summary\x88\x01\x01\x12Z\n\x0e\x65xtract_method\x18\x06 \x01(\x0e\x32..agent.agent.v1alpha.CitationExtractMethodTypeB\x03\xe0\x41\x03R\rextractMethodB\n\n\x08_summary\"\xe5\x02\n\x0b\x43hatContext\x12\"\n\ntable_uids\x18\x01 \x03(\tB\x03\xe0\x41\x01R\ttableUids\x12\x46\n\x07\x66olders\x18\x02 \x03(\x0b\x32\'.agent.agent.v1alpha.ChatContext.FolderB\x03\xe0\x41\x01R\x07\x66olders\x12I\n\x08\x63\x61talogs\x18\x03 \x03(\x0b\x32(.agent.agent.v1alpha.ChatContext.CatalogB\x03\xe0\x41\x01R\x08\x63\x61talogs\x1aN\n\x06\x46older\x12\"\n\nfolder_uid\x18\x01 \x01(\tB\x03\xe0\x41\x02R\tfolderUid\x12 \n\tfile_uids\x18\x02 \x03(\tB\x03\xe0\x41\x01R\x08\x66ileUids\x1aO\n\x07\x43\x61talog\x12\"\n\ncatalog_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\tcatalogId\x12 \n\tfile_uids\x18\x02 \x03(\tB\x03\xe0\x41\x01R\x08\x66ileUids\"\xc9\x02\n\x0f\x43hatAttachments\x12\x63\n\x10\x66ile_attachments\x18\x01 \x03(\x0b\x32\x33.agent.agent.v1alpha.ChatAttachments.FileAttachmentB\x03\xe0\x41\x03R\x0f\x66ileAttachments\x1a\xd0\x01\n\x0e\x46ileAttachment\x12 \n\tfile_name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x08\x66ileName\x12 \n\tfile_size\x18\x02 \x01(\x04\x42\x03\xe0\x41\x03R\x08\x66ileSize\x12&\n\x0c\x63ontent_type\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x0b\x63ontentType\x12*\n\x0e\x66ile_extension\x18\x04 \x01(\tB\x03\xe0\x41\x03R\rfileExtension\x12&\n\x0c\x64ownload_url\x18\x05 \x01(\tB\x03\xe0\x41\x03R\x0b\x64ownloadUrl\"\xa4\x06\n\x07Message\x12\x15\n\x03uid\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x1e\n\x08\x63hat_uid\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x07\x63hatUid\x12\x1d\n\x07\x63ontent\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x07\x63ontent\x12\x17\n\x04role\x18\x04 \x01(\tB\x03\xe0\x41\x02R\x04role\x12\x41\n\x04type\x18\x05 \x01(\x0e\x32(.agent.agent.v1alpha.Message.MessageTypeB\x03\xe0\x41\x02R\x04type\x12@\n\x0b\x63reate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\x12)\n\x0emsg_sender_uid\x18\x08 \x01(\tB\x03\xe0\x41\x03R\x0cmsgSenderUid\x12@\n\tcitations\x18\t \x03(\x0b\x32\x1d.agent.agent.v1alpha.CitationB\x03\xe0\x41\x03R\tcitations\x12?\n\x07\x63ontext\x18\n \x01(\x0b\x32 .agent.agent.v1alpha.ChatContextB\x03\xe0\x41\x03R\x07\x63ontext\x12K\n\x0b\x61ttachments\x18\x0b \x01(\x0b\x32$.agent.agent.v1alpha.ChatAttachmentsB\x03\xe0\x41\x03R\x0b\x61ttachments\x12/\n\x11\x65nable_web_search\x18\x0c \x01(\x08\x42\x03\xe0\x41\x03R\x0f\x65nableWebSearch\x12\x1f\n\x08internal\x18\r \x01(\x08\x42\x03\xe0\x41\x03R\x08internal\x12\x42\n\x0braw_message\x18\x0e \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x03H\x00R\nrawMessage\x88\x01\x01\"B\n\x0bMessageType\x12\x1c\n\x18MESSAGE_TYPE_UNSPECIFIED\x10\x00\x12\x15\n\x11MESSAGE_TYPE_TEXT\x10\x01\x42\x0e\n\x0c_raw_message*u\n\x0c\x43itationType\x12\x1d\n\x19\x43ITATION_TYPE_UNSPECIFIED\x10\x00\x12\x16\n\x12\x43ITATION_TYPE_FILE\x10\x01\x12\x15\n\x11\x43ITATION_TYPE_WEB\x10\x02\x12\x17\n\x13\x43ITATION_TYPE_TABLE\x10\x03*\xec\x01\n\x19\x43itationExtractMethodType\x12,\n(CITATION_EXTRACT_METHOD_TYPE_UNSPECIFIED\x10\x00\x12%\n!CITATION_EXTRACT_METHOD_TYPE_SELF\x10\x01\x12$\n CITATION_EXTRACT_METHOD_TYPE_WEB\x10\x02\x12$\n CITATION_EXTRACT_METHOD_TYPE_RAG\x10\x03\x12.\n*CITATION_EXTRACT_METHOD_TYPE_DEEP_ANALYSIS\x10\x04\x42\xd8\x01\n\x17\x63om.agent.agent.v1alphaB\x0b\x43ommonProtoP\x01ZBgithub.com/instill-ai/protogen-go/agent/agent/v1alpha;agentv1alpha\xa2\x02\x03\x41\x41X\xaa\x02\x13\x41gent.Agent.V1alpha\xca\x02\x13\x41gent\\Agent\\V1alpha\xe2\x02\x1f\x41gent\\Agent\\V1alpha\\GPBMetadata\xea\x02\x15\x41gent::Agent::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -35,14 +35,20 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _CITATION.fields_by_name['summary']._serialized_options = b'\340A\003'
   _CITATION.fields_by_name['extract_method']._options = None
   _CITATION.fields_by_name['extract_method']._serialized_options = b'\340A\003'
-  _CHATCONTEXT_FOLDERFILES.fields_by_name['folder_uid']._options = None
-  _CHATCONTEXT_FOLDERFILES.fields_by_name['folder_uid']._serialized_options = b'\340A\002'
-  _CHATCONTEXT_FOLDERFILES.fields_by_name['file_uids']._options = None
-  _CHATCONTEXT_FOLDERFILES.fields_by_name['file_uids']._serialized_options = b'\340A\001'
+  _CHATCONTEXT_FOLDER.fields_by_name['folder_uid']._options = None
+  _CHATCONTEXT_FOLDER.fields_by_name['folder_uid']._serialized_options = b'\340A\002'
+  _CHATCONTEXT_FOLDER.fields_by_name['file_uids']._options = None
+  _CHATCONTEXT_FOLDER.fields_by_name['file_uids']._serialized_options = b'\340A\001'
+  _CHATCONTEXT_CATALOG.fields_by_name['catalog_id']._options = None
+  _CHATCONTEXT_CATALOG.fields_by_name['catalog_id']._serialized_options = b'\340A\002'
+  _CHATCONTEXT_CATALOG.fields_by_name['file_uids']._options = None
+  _CHATCONTEXT_CATALOG.fields_by_name['file_uids']._serialized_options = b'\340A\001'
   _CHATCONTEXT.fields_by_name['table_uids']._options = None
   _CHATCONTEXT.fields_by_name['table_uids']._serialized_options = b'\340A\001'
-  _CHATCONTEXT.fields_by_name['folder_files']._options = None
-  _CHATCONTEXT.fields_by_name['folder_files']._serialized_options = b'\340A\001'
+  _CHATCONTEXT.fields_by_name['folders']._options = None
+  _CHATCONTEXT.fields_by_name['folders']._serialized_options = b'\340A\001'
+  _CHATCONTEXT.fields_by_name['catalogs']._options = None
+  _CHATCONTEXT.fields_by_name['catalogs']._serialized_options = b'\340A\001'
   _CHATATTACHMENTS_FILEATTACHMENT.fields_by_name['file_name']._options = None
   _CHATATTACHMENTS_FILEATTACHMENT.fields_by_name['file_name']._serialized_options = b'\340A\003'
   _CHATATTACHMENTS_FILEATTACHMENT.fields_by_name['file_size']._options = None
@@ -83,22 +89,24 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _MESSAGE.fields_by_name['internal']._serialized_options = b'\340A\003'
   _MESSAGE.fields_by_name['raw_message']._options = None
   _MESSAGE.fields_by_name['raw_message']._serialized_options = b'\340A\003'
-  _globals['_CITATIONTYPE']._serialized_start=1800
-  _globals['_CITATIONTYPE']._serialized_end=1917
-  _globals['_CITATIONEXTRACTMETHODTYPE']._serialized_start=1920
-  _globals['_CITATIONEXTRACTMETHODTYPE']._serialized_end=2156
+  _globals['_CITATIONTYPE']._serialized_start=1937
+  _globals['_CITATIONTYPE']._serialized_end=2054
+  _globals['_CITATIONEXTRACTMETHODTYPE']._serialized_start=2057
+  _globals['_CITATIONEXTRACTMETHODTYPE']._serialized_end=2293
   _globals['_CITATION']._serialized_start=154
   _globals['_CITATION']._serialized_end=436
   _globals['_CHATCONTEXT']._serialized_start=439
-  _globals['_CHATCONTEXT']._serialized_end=659
-  _globals['_CHATCONTEXT_FOLDERFILES']._serialized_start=576
-  _globals['_CHATCONTEXT_FOLDERFILES']._serialized_end=659
-  _globals['_CHATATTACHMENTS']._serialized_start=662
-  _globals['_CHATATTACHMENTS']._serialized_end=991
-  _globals['_CHATATTACHMENTS_FILEATTACHMENT']._serialized_start=783
-  _globals['_CHATATTACHMENTS_FILEATTACHMENT']._serialized_end=991
-  _globals['_MESSAGE']._serialized_start=994
-  _globals['_MESSAGE']._serialized_end=1798
-  _globals['_MESSAGE_MESSAGETYPE']._serialized_start=1716
-  _globals['_MESSAGE_MESSAGETYPE']._serialized_end=1782
+  _globals['_CHATCONTEXT']._serialized_end=796
+  _globals['_CHATCONTEXT_FOLDER']._serialized_start=637
+  _globals['_CHATCONTEXT_FOLDER']._serialized_end=715
+  _globals['_CHATCONTEXT_CATALOG']._serialized_start=717
+  _globals['_CHATCONTEXT_CATALOG']._serialized_end=796
+  _globals['_CHATATTACHMENTS']._serialized_start=799
+  _globals['_CHATATTACHMENTS']._serialized_end=1128
+  _globals['_CHATATTACHMENTS_FILEATTACHMENT']._serialized_start=920
+  _globals['_CHATATTACHMENTS_FILEATTACHMENT']._serialized_end=1128
+  _globals['_MESSAGE']._serialized_start=1131
+  _globals['_MESSAGE']._serialized_end=1935
+  _globals['_MESSAGE_MESSAGETYPE']._serialized_start=1853
+  _globals['_MESSAGE_MESSAGETYPE']._serialized_end=1919
 # @@protoc_insertion_point(module_scope)

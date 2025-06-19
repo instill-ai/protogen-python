@@ -127,8 +127,8 @@ class ChatContext(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     @typing_extensions.final
-    class FolderFiles(google.protobuf.message.Message):
-        """Represents specific files within a folder."""
+    class Folder(google.protobuf.message.Message):
+        """Represents a folder."""
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -147,21 +147,47 @@ class ChatContext(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["file_uids", b"file_uids", "folder_uid", b"folder_uid"]) -> None: ...
 
+    @typing_extensions.final
+    class Catalog(google.protobuf.message.Message):
+        """Represents a catalog."""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        CATALOG_ID_FIELD_NUMBER: builtins.int
+        FILE_UIDS_FIELD_NUMBER: builtins.int
+        catalog_id: builtins.str
+        """The catalog containing the files"""
+        @property
+        def file_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+            """Specific file UIDs within the catalog, leave empty to include all files in the catalog"""
+        def __init__(
+            self,
+            *,
+            catalog_id: builtins.str = ...,
+            file_uids: collections.abc.Iterable[builtins.str] | None = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "file_uids", b"file_uids"]) -> None: ...
+
     TABLE_UIDS_FIELD_NUMBER: builtins.int
-    FOLDER_FILES_FIELD_NUMBER: builtins.int
+    FOLDERS_FIELD_NUMBER: builtins.int
+    CATALOGS_FIELD_NUMBER: builtins.int
     @property
     def table_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """The table uids to include in the context."""
     @property
-    def folder_files(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ChatContext.FolderFiles]:
-        """The folders and files to include in the context."""
+    def folders(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ChatContext.Folder]:
+        """The folders to include in the context."""
+    @property
+    def catalogs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ChatContext.Catalog]:
+        """The catalogs to include in the context."""
     def __init__(
         self,
         *,
         table_uids: collections.abc.Iterable[builtins.str] | None = ...,
-        folder_files: collections.abc.Iterable[global___ChatContext.FolderFiles] | None = ...,
+        folders: collections.abc.Iterable[global___ChatContext.Folder] | None = ...,
+        catalogs: collections.abc.Iterable[global___ChatContext.Catalog] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["folder_files", b"folder_files", "table_uids", b"table_uids"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalogs", b"catalogs", "folders", b"folders", "table_uids", b"table_uids"]) -> None: ...
 
 global___ChatContext = ChatContext
 
