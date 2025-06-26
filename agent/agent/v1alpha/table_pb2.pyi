@@ -2643,3 +2643,68 @@ class ListChatTablesResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["tables", b"tables"]) -> None: ...
 
 global___ListChatTablesResponse = ListChatTablesResponse
+
+@typing_extensions.final
+class SuggestColumnDefinitionRequest(google.protobuf.message.Message):
+    """SuggestColumnDefinitionRequest represents a request to suggest a column definition."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    TABLE_UID_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
+    TYPE_FIELD_NUMBER: builtins.int
+    ENABLE_AUTOMATIC_COMPUTATION_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The ID of the namespace that owns the table."""
+    table_uid: builtins.str
+    """The UID of the table to suggest a column definition for."""
+    name: builtins.str
+    """The name of the column."""
+    type: global___Type.ValueType
+    """The type of the column.
+    If not provided, the agent will suggest the type.
+    If provided, the agent will use this value as the type setting.
+    """
+    enable_automatic_computation: builtins.bool
+    """Whether to enable automatic computation for the column.
+    If not provided, the agent will suggest whether to enable it or not.
+    If provided, the agent will use this value as the enable_automatic_computation setting.
+    """
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        table_uid: builtins.str = ...,
+        name: builtins.str = ...,
+        type: global___Type.ValueType | None = ...,
+        enable_automatic_computation: builtins.bool | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_enable_automatic_computation", b"_enable_automatic_computation", "_type", b"_type", "enable_automatic_computation", b"enable_automatic_computation", "type", b"type"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_enable_automatic_computation", b"_enable_automatic_computation", "_type", b"_type", "enable_automatic_computation", b"enable_automatic_computation", "name", b"name", "namespace_id", b"namespace_id", "table_uid", b"table_uid", "type", b"type"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_enable_automatic_computation", b"_enable_automatic_computation"]) -> typing_extensions.Literal["enable_automatic_computation"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_type", b"_type"]) -> typing_extensions.Literal["type"] | None: ...
+
+global___SuggestColumnDefinitionRequest = SuggestColumnDefinitionRequest
+
+@typing_extensions.final
+class SuggestColumnDefinitionResponse(google.protobuf.message.Message):
+    """SuggestColumnDefinitionResponse represents a response to a request to suggest a column definition."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    COLUMN_DEFINITION_FIELD_NUMBER: builtins.int
+    @property
+    def column_definition(self) -> global___ColumnDefinition:
+        """The suggested column definition."""
+    def __init__(
+        self,
+        *,
+        column_definition: global___ColumnDefinition | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["column_definition", b"column_definition"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["column_definition", b"column_definition"]) -> None: ...
+
+global___SuggestColumnDefinitionResponse = SuggestColumnDefinitionResponse

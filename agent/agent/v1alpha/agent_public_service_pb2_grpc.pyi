@@ -205,6 +205,14 @@ class AgentPublicServiceStub:
     cells in that column will be cleared and recomputed. This ensures that all
     data reflects the latest instructions.
     """
+    SuggestColumnDefinition: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.SuggestColumnDefinitionRequest,
+        agent.agent.v1alpha.table_pb2.SuggestColumnDefinitionResponse,
+    ]
+    """Suggest column definition
+
+    Suggests a column definition based on existing table columns and user input.
+    """
     GetColumnDefinition: grpc.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.table_pb2.GetColumnDefinitionRequest,
         agent.agent.v1alpha.table_pb2.GetColumnDefinitionResponse,
@@ -583,6 +591,14 @@ class AgentPublicServiceAsyncStub:
     definitions, if the column's agent instructions are updated, the existing
     cells in that column will be cleared and recomputed. This ensures that all
     data reflects the latest instructions.
+    """
+    SuggestColumnDefinition: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.SuggestColumnDefinitionRequest,
+        agent.agent.v1alpha.table_pb2.SuggestColumnDefinitionResponse,
+    ]
+    """Suggest column definition
+
+    Suggests a column definition based on existing table columns and user input.
     """
     GetColumnDefinition: grpc.aio.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.table_pb2.GetColumnDefinitionRequest,
@@ -1006,6 +1022,16 @@ class AgentPublicServiceServicer(metaclass=abc.ABCMeta):
         definitions, if the column's agent instructions are updated, the existing
         cells in that column will be cleared and recomputed. This ensures that all
         data reflects the latest instructions.
+        """
+    @abc.abstractmethod
+    def SuggestColumnDefinition(
+        self,
+        request: agent.agent.v1alpha.table_pb2.SuggestColumnDefinitionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.table_pb2.SuggestColumnDefinitionResponse, collections.abc.Awaitable[agent.agent.v1alpha.table_pb2.SuggestColumnDefinitionResponse]]:
+        """Suggest column definition
+
+        Suggests a column definition based on existing table columns and user input.
         """
     @abc.abstractmethod
     def GetColumnDefinition(
