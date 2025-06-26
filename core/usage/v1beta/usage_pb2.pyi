@@ -107,9 +107,10 @@ global___ReadinessResponse = ReadinessResponse
 
 @typing_extensions.final
 class Session(google.protobuf.message.Message):
-    """Session represents a unique session whenever a new instance of Instill Core service
-    gets started. The usage server returns a token that should be used as part of
-    the challenge when sending a report with data collected from this session
+    """Session represents a unique session whenever a new instance of Instill Core
+    service gets started. The usage server returns a token that should be used as
+    part of the challenge when sending a report with data collected from this
+    session
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -125,7 +126,7 @@ class Session(google.protobuf.message.Message):
         SERVICE_MGMT: Session._Service.ValueType  # 1
         """Service: MGMT"""
         SERVICE_CONNECTOR: Session._Service.ValueType  # 2
-        """Service: CONNECTOR"""
+        """Service: CONNECTOR (Deprecated)"""
         SERVICE_MODEL: Session._Service.ValueType  # 3
         """Service: MODEL"""
         SERVICE_PIPELINE: Session._Service.ValueType  # 4
@@ -141,7 +142,7 @@ class Session(google.protobuf.message.Message):
     SERVICE_MGMT: Session.Service.ValueType  # 1
     """Service: MGMT"""
     SERVICE_CONNECTOR: Session.Service.ValueType  # 2
-    """Service: CONNECTOR"""
+    """Service: CONNECTOR (Deprecated)"""
     SERVICE_MODEL: Session.Service.ValueType  # 3
     """Service: MODEL"""
     SERVICE_PIPELINE: Session.Service.ValueType  # 4
@@ -352,7 +353,7 @@ class ModelUsageData(google.protobuf.message.Message):
             USER_UID_FIELD_NUMBER: builtins.int
             USER_TYPE_FIELD_NUMBER: builtins.int
             model_uid: builtins.str
-            """UID for the trigged model"""
+            """UID for the triggered model"""
             trigger_uid: builtins.str
             """UID for the trigger log"""
             @property

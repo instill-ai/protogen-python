@@ -17,7 +17,7 @@ from google.api import client_pb2 as google_dot_api_dot_client__pb2
 from google.api import visibility_pb2 as google_dot_api_dot_visibility__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%core/usage/v1beta/usage_service.proto\x12\x11\x63ore.usage.v1beta\x1a\x1d\x63ore/usage/v1beta/usage.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1bgoogle/api/visibility.proto2\xce\x04\n\x0cUsageService\x12\x87\x01\n\x08Liveness\x12\".core.usage.v1beta.LivenessRequest\x1a#.core.usage.v1beta.LivenessResponse\"2\x82\xd3\xe4\x93\x02,\x12\x12/v1beta/__livenessZ\x16\x12\x14/v1beta/health/usage\x12s\n\tReadiness\x12#.core.usage.v1beta.ReadinessRequest\x1a$.core.usage.v1beta.ReadinessResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\x12\x13/v1beta/__readiness\x12\x85\x01\n\rCreateSession\x12\'.core.usage.v1beta.CreateSessionRequest\x1a(.core.usage.v1beta.CreateSessionResponse\"!\x82\xd3\xe4\x93\x02\x1b\"\x10/v1beta/sessions:\x07session\x12\x8f\x01\n\x11SendSessionReport\x12+.core.usage.v1beta.SendSessionReportRequest\x1a,.core.usage.v1beta.SendSessionReportResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\"\x0f/v1beta/reports:\x06report\x1a%\xca\x41\x12usage.instill.tech\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNALB\xd1\x01\n\x15\x63om.core.usage.v1betaB\x11UsageServiceProtoP\x01Z?github.com/instill-ai/protogen-go/core/usage/v1beta;usagev1beta\xa2\x02\x03\x43UX\xaa\x02\x11\x43ore.Usage.V1beta\xca\x02\x11\x43ore\\Usage\\V1beta\xe2\x02\x1d\x43ore\\Usage\\V1beta\\GPBMetadata\xea\x02\x13\x43ore::Usage::V1betab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%core/usage/v1beta/usage_service.proto\x12\x11\x63ore.usage.v1beta\x1a\x1d\x63ore/usage/v1beta/usage.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1bgoogle/api/visibility.proto2\xd0\x04\n\x0cUsageService\x12\x87\x01\n\x08Liveness\x12\".core.usage.v1beta.LivenessRequest\x1a#.core.usage.v1beta.LivenessResponse\"2\x82\xd3\xe4\x93\x02,\x12\x12/v1beta/__livenessZ\x16\x12\x14/v1beta/health/usage\x12s\n\tReadiness\x12#.core.usage.v1beta.ReadinessRequest\x1a$.core.usage.v1beta.ReadinessResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\x12\x13/v1beta/__readiness\x12\x85\x01\n\rCreateSession\x12\'.core.usage.v1beta.CreateSessionRequest\x1a(.core.usage.v1beta.CreateSessionResponse\"!\x82\xd3\xe4\x93\x02\x1b\"\x10/v1beta/sessions:\x07session\x12\x8f\x01\n\x11SendSessionReport\x12+.core.usage.v1beta.SendSessionReportRequest\x1a,.core.usage.v1beta.SendSessionReportResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\"\x0f/v1beta/reports:\x06report\x1a\'\xca\x41\x14usage.instill-ai.com\xfa\xd2\xe4\x93\x02\n\x12\x08INTERNALB\xd1\x01\n\x15\x63om.core.usage.v1betaB\x11UsageServiceProtoP\x01Z?github.com/instill-ai/protogen-go/core/usage/v1beta;usagev1beta\xa2\x02\x03\x43UX\xaa\x02\x11\x43ore.Usage.V1beta\xca\x02\x11\x43ore\\Usage\\V1beta\xe2\x02\x1d\x43ore\\Usage\\V1beta\\GPBMetadata\xea\x02\x13\x43ore::Usage::V1betab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -27,7 +27,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\025com.core.usage.v1betaB\021UsageServiceProtoP\001Z?github.com/instill-ai/protogen-go/core/usage/v1beta;usagev1beta\242\002\003CUX\252\002\021Core.Usage.V1beta\312\002\021Core\\Usage\\V1beta\342\002\035Core\\Usage\\V1beta\\GPBMetadata\352\002\023Core::Usage::V1beta'
   _USAGESERVICE._options = None
-  _USAGESERVICE._serialized_options = b'\312A\022usage.instill.tech\372\322\344\223\002\n\022\010INTERNAL'
+  _USAGESERVICE._serialized_options = b'\312A\024usage.instill-ai.com\372\322\344\223\002\n\022\010INTERNAL'
   _USAGESERVICE.methods_by_name['Liveness']._options = None
   _USAGESERVICE.methods_by_name['Liveness']._serialized_options = b'\202\323\344\223\002,\022\022/v1beta/__livenessZ\026\022\024/v1beta/health/usage'
   _USAGESERVICE.methods_by_name['Readiness']._options = None
@@ -37,5 +37,5 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _USAGESERVICE.methods_by_name['SendSessionReport']._options = None
   _USAGESERVICE.methods_by_name['SendSessionReport']._serialized_options = b'\202\323\344\223\002\031\"\017/v1beta/reports:\006report'
   _globals['_USAGESERVICE']._serialized_start=176
-  _globals['_USAGESERVICE']._serialized_end=766
+  _globals['_USAGESERVICE']._serialized_end=768
 # @@protoc_insertion_point(module_scope)
