@@ -134,6 +134,11 @@ class AgentPublicServiceStub(object):
                 request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.SuggestColumnDefinitionRequest.SerializeToString,
                 response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.SuggestColumnDefinitionResponse.FromString,
                 )
+        self.EnhanceColumnDefinitionInstructions = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/EnhanceColumnDefinitionInstructions',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.EnhanceColumnDefinitionInstructionsRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.EnhanceColumnDefinitionInstructionsResponse.FromString,
+                )
         self.GetColumnDefinition = channel.unary_unary(
                 '/agent.agent.v1alpha.AgentPublicService/GetColumnDefinition',
                 request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.GetColumnDefinitionRequest.SerializeToString,
@@ -466,6 +471,15 @@ class AgentPublicServiceServicer(object):
         """Suggest column definition
 
         Suggests a column definition based on existing table columns and user input.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def EnhanceColumnDefinitionInstructions(self, request, context):
+        """Enhance column definition instructions
+
+        Enhances the instructions of a column definition.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -806,6 +820,11 @@ def add_AgentPublicServiceServicer_to_server(servicer, server):
                     servicer.SuggestColumnDefinition,
                     request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.SuggestColumnDefinitionRequest.FromString,
                     response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.SuggestColumnDefinitionResponse.SerializeToString,
+            ),
+            'EnhanceColumnDefinitionInstructions': grpc.unary_unary_rpc_method_handler(
+                    servicer.EnhanceColumnDefinitionInstructions,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.EnhanceColumnDefinitionInstructionsRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.EnhanceColumnDefinitionInstructionsResponse.SerializeToString,
             ),
             'GetColumnDefinition': grpc.unary_unary_rpc_method_handler(
                     servicer.GetColumnDefinition,
@@ -1327,6 +1346,23 @@ class AgentPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/SuggestColumnDefinition',
             agent_dot_agent_dot_v1alpha_dot_table__pb2.SuggestColumnDefinitionRequest.SerializeToString,
             agent_dot_agent_dot_v1alpha_dot_table__pb2.SuggestColumnDefinitionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def EnhanceColumnDefinitionInstructions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/EnhanceColumnDefinitionInstructions',
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.EnhanceColumnDefinitionInstructionsRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_table__pb2.EnhanceColumnDefinitionInstructionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

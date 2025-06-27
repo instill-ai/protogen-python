@@ -213,6 +213,14 @@ class AgentPublicServiceStub:
 
     Suggests a column definition based on existing table columns and user input.
     """
+    EnhanceColumnDefinitionInstructions: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.EnhanceColumnDefinitionInstructionsRequest,
+        agent.agent.v1alpha.table_pb2.EnhanceColumnDefinitionInstructionsResponse,
+    ]
+    """Enhance column definition instructions
+
+    Enhances the instructions of a column definition.
+    """
     GetColumnDefinition: grpc.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.table_pb2.GetColumnDefinitionRequest,
         agent.agent.v1alpha.table_pb2.GetColumnDefinitionResponse,
@@ -599,6 +607,14 @@ class AgentPublicServiceAsyncStub:
     """Suggest column definition
 
     Suggests a column definition based on existing table columns and user input.
+    """
+    EnhanceColumnDefinitionInstructions: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.table_pb2.EnhanceColumnDefinitionInstructionsRequest,
+        agent.agent.v1alpha.table_pb2.EnhanceColumnDefinitionInstructionsResponse,
+    ]
+    """Enhance column definition instructions
+
+    Enhances the instructions of a column definition.
     """
     GetColumnDefinition: grpc.aio.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.table_pb2.GetColumnDefinitionRequest,
@@ -1032,6 +1048,16 @@ class AgentPublicServiceServicer(metaclass=abc.ABCMeta):
         """Suggest column definition
 
         Suggests a column definition based on existing table columns and user input.
+        """
+    @abc.abstractmethod
+    def EnhanceColumnDefinitionInstructions(
+        self,
+        request: agent.agent.v1alpha.table_pb2.EnhanceColumnDefinitionInstructionsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.table_pb2.EnhanceColumnDefinitionInstructionsResponse, collections.abc.Awaitable[agent.agent.v1alpha.table_pb2.EnhanceColumnDefinitionInstructionsResponse]]:
+        """Enhance column definition instructions
+
+        Enhances the instructions of a column definition.
         """
     @abc.abstractmethod
     def GetColumnDefinition(

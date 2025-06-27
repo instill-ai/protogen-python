@@ -594,6 +594,78 @@ class NumberFormat(google.protobuf.message.Message):
 global___NumberFormat = NumberFormat
 
 @typing_extensions.final
+class Selection(google.protobuf.message.Message):
+    """The selection settings of the column."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    class _SelectionType:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _SelectionTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Selection._SelectionType.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        SELECTION_TYPE_UNSPECIFIED: Selection._SelectionType.ValueType  # 0
+        """The selection is not specified."""
+        SELECTION_TYPE_NONE: Selection._SelectionType.ValueType  # 1
+        """No selection."""
+        SELECTION_TYPE_SINGLE: Selection._SelectionType.ValueType  # 2
+        """The selection is a single value."""
+
+    class SelectionType(_SelectionType, metaclass=_SelectionTypeEnumTypeWrapper):
+        """The type of the selection."""
+
+    SELECTION_TYPE_UNSPECIFIED: Selection.SelectionType.ValueType  # 0
+    """The selection is not specified."""
+    SELECTION_TYPE_NONE: Selection.SelectionType.ValueType  # 1
+    """No selection."""
+    SELECTION_TYPE_SINGLE: Selection.SelectionType.ValueType  # 2
+    """The selection is a single value."""
+
+    @typing_extensions.final
+    class Option(google.protobuf.message.Message):
+        """An option for the selection."""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        STRING_VALUE_FIELD_NUMBER: builtins.int
+        NUMBER_VALUE_FIELD_NUMBER: builtins.int
+        COLOR_FIELD_NUMBER: builtins.int
+        string_value: builtins.str
+        """The value of the cell as a string."""
+        number_value: builtins.float
+        """The value of the cell as a number."""
+        color: builtins.str
+        """Display color of the option."""
+        def __init__(
+            self,
+            *,
+            string_value: builtins.str = ...,
+            number_value: builtins.float = ...,
+            color: builtins.str = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["number_value", b"number_value", "string_value", b"string_value", "value", b"value"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["color", b"color", "number_value", b"number_value", "string_value", b"string_value", "value", b"value"]) -> None: ...
+        def WhichOneof(self, oneof_group: typing_extensions.Literal["value", b"value"]) -> typing_extensions.Literal["string_value", "number_value"] | None: ...
+
+    TYPE_FIELD_NUMBER: builtins.int
+    OPTIONS_FIELD_NUMBER: builtins.int
+    type: global___Selection.SelectionType.ValueType
+    """The selection of the column."""
+    @property
+    def options(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Selection.Option]:
+        """The options for the selection."""
+    def __init__(
+        self,
+        *,
+        type: global___Selection.SelectionType.ValueType = ...,
+        options: collections.abc.Iterable[global___Selection.Option] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["options", b"options", "type", b"type"]) -> None: ...
+
+global___Selection = Selection
+
+@typing_extensions.final
 class ColumnDefinition(google.protobuf.message.Message):
     """ColumnDefinition represents a column definition in a table."""
 
@@ -670,76 +742,6 @@ class ColumnDefinition(google.protobuf.message.Message):
         def ClearField(self, field_name: typing_extensions.Literal["_enable_automatic_computation", b"_enable_automatic_computation", "context", b"context", "enable_automatic_computation", b"enable_automatic_computation", "enable_web_search", b"enable_web_search", "instructions", b"instructions"]) -> None: ...
         def WhichOneof(self, oneof_group: typing_extensions.Literal["_enable_automatic_computation", b"_enable_automatic_computation"]) -> typing_extensions.Literal["enable_automatic_computation"] | None: ...
 
-    @typing_extensions.final
-    class Selection(google.protobuf.message.Message):
-        """The selection settings of the column."""
-
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        class _SelectionType:
-            ValueType = typing.NewType("ValueType", builtins.int)
-            V: typing_extensions.TypeAlias = ValueType
-
-        class _SelectionTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ColumnDefinition.Selection._SelectionType.ValueType], builtins.type):
-            DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-            SELECTION_TYPE_UNSPECIFIED: ColumnDefinition.Selection._SelectionType.ValueType  # 0
-            """The selection is not specified."""
-            SELECTION_TYPE_NONE: ColumnDefinition.Selection._SelectionType.ValueType  # 1
-            """No selection."""
-            SELECTION_TYPE_SINGLE: ColumnDefinition.Selection._SelectionType.ValueType  # 2
-            """The selection is a single value."""
-
-        class SelectionType(_SelectionType, metaclass=_SelectionTypeEnumTypeWrapper):
-            """The type of the selection."""
-
-        SELECTION_TYPE_UNSPECIFIED: ColumnDefinition.Selection.SelectionType.ValueType  # 0
-        """The selection is not specified."""
-        SELECTION_TYPE_NONE: ColumnDefinition.Selection.SelectionType.ValueType  # 1
-        """No selection."""
-        SELECTION_TYPE_SINGLE: ColumnDefinition.Selection.SelectionType.ValueType  # 2
-        """The selection is a single value."""
-
-        @typing_extensions.final
-        class Option(google.protobuf.message.Message):
-            """An option for the selection."""
-
-            DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-            STRING_VALUE_FIELD_NUMBER: builtins.int
-            NUMBER_VALUE_FIELD_NUMBER: builtins.int
-            COLOR_FIELD_NUMBER: builtins.int
-            string_value: builtins.str
-            """The value of the cell as a string."""
-            number_value: builtins.float
-            """The value of the cell as a number."""
-            color: builtins.str
-            """Display color of the option."""
-            def __init__(
-                self,
-                *,
-                string_value: builtins.str = ...,
-                number_value: builtins.float = ...,
-                color: builtins.str = ...,
-            ) -> None: ...
-            def HasField(self, field_name: typing_extensions.Literal["number_value", b"number_value", "string_value", b"string_value", "value", b"value"]) -> builtins.bool: ...
-            def ClearField(self, field_name: typing_extensions.Literal["color", b"color", "number_value", b"number_value", "string_value", b"string_value", "value", b"value"]) -> None: ...
-            def WhichOneof(self, oneof_group: typing_extensions.Literal["value", b"value"]) -> typing_extensions.Literal["string_value", "number_value"] | None: ...
-
-        TYPE_FIELD_NUMBER: builtins.int
-        OPTIONS_FIELD_NUMBER: builtins.int
-        type: global___ColumnDefinition.Selection.SelectionType.ValueType
-        """The selection of the column."""
-        @property
-        def options(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ColumnDefinition.Selection.Option]:
-            """The options for the selection."""
-        def __init__(
-            self,
-            *,
-            type: global___ColumnDefinition.Selection.SelectionType.ValueType = ...,
-            options: collections.abc.Iterable[global___ColumnDefinition.Selection.Option] | None = ...,
-        ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["options", b"options", "type", b"type"]) -> None: ...
-
     COLUMN_UID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
@@ -774,7 +776,7 @@ class ColumnDefinition(google.protobuf.message.Message):
     def number_format(self) -> global___NumberFormat:
         """Format for number type columns."""
     @property
-    def selection(self) -> global___ColumnDefinition.Selection:
+    def selection(self) -> global___Selection:
         """The selection settings of the column."""
     @property
     def metadata(self) -> google.protobuf.struct_pb2.Struct:
@@ -790,7 +792,7 @@ class ColumnDefinition(google.protobuf.message.Message):
         sort: global___ColumnDefinition.Sort.ValueType = ...,
         description: builtins.str = ...,
         number_format: global___NumberFormat | None = ...,
-        selection: global___ColumnDefinition.Selection | None = ...,
+        selection: global___Selection | None = ...,
         metadata: google.protobuf.struct_pb2.Struct | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["agent_config", b"agent_config", "format", b"format", "metadata", b"metadata", "number_format", b"number_format", "selection", b"selection"]) -> builtins.bool: ...
@@ -2658,6 +2660,7 @@ class SuggestColumnDefinitionRequest(google.protobuf.message.Message):
     TABLE_UID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
+    SELECTION_FIELD_NUMBER: builtins.int
     ENABLE_AUTOMATIC_COMPUTATION_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """The ID of the namespace that owns the table."""
@@ -2670,6 +2673,12 @@ class SuggestColumnDefinitionRequest(google.protobuf.message.Message):
     If not provided, the agent will suggest the type.
     If provided, the agent will use this value as the type setting.
     """
+    @property
+    def selection(self) -> global___Selection:
+        """The selection settings of the column.
+        If not provided, the agent will suggest the selection.
+        If provided, the agent will use this value as the selection setting.
+        """
     enable_automatic_computation: builtins.bool
     """Whether to enable automatic computation for the column.
     If not provided, the agent will suggest whether to enable it or not.
@@ -2682,12 +2691,15 @@ class SuggestColumnDefinitionRequest(google.protobuf.message.Message):
         table_uid: builtins.str = ...,
         name: builtins.str = ...,
         type: global___Type.ValueType | None = ...,
+        selection: global___Selection | None = ...,
         enable_automatic_computation: builtins.bool | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_enable_automatic_computation", b"_enable_automatic_computation", "_type", b"_type", "enable_automatic_computation", b"enable_automatic_computation", "type", b"type"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_enable_automatic_computation", b"_enable_automatic_computation", "_type", b"_type", "enable_automatic_computation", b"enable_automatic_computation", "name", b"name", "namespace_id", b"namespace_id", "table_uid", b"table_uid", "type", b"type"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_enable_automatic_computation", b"_enable_automatic_computation", "_selection", b"_selection", "_type", b"_type", "enable_automatic_computation", b"enable_automatic_computation", "selection", b"selection", "type", b"type"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_enable_automatic_computation", b"_enable_automatic_computation", "_selection", b"_selection", "_type", b"_type", "enable_automatic_computation", b"enable_automatic_computation", "name", b"name", "namespace_id", b"namespace_id", "selection", b"selection", "table_uid", b"table_uid", "type", b"type"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_enable_automatic_computation", b"_enable_automatic_computation"]) -> typing_extensions.Literal["enable_automatic_computation"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_selection", b"_selection"]) -> typing_extensions.Literal["selection"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_type", b"_type"]) -> typing_extensions.Literal["type"] | None: ...
 
@@ -2699,16 +2711,86 @@ class SuggestColumnDefinitionResponse(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    SUCCESS_FIELD_NUMBER: builtins.int
     COLUMN_DEFINITION_FIELD_NUMBER: builtins.int
+    ERROR_MESSAGE_FIELD_NUMBER: builtins.int
+    success: builtins.bool
+    """Whether the suggestion is successful."""
     @property
     def column_definition(self) -> global___ColumnDefinition:
         """The suggested column definition."""
+    error_message: builtins.str
+    """The error message of the suggestion."""
     def __init__(
         self,
         *,
+        success: builtins.bool = ...,
         column_definition: global___ColumnDefinition | None = ...,
+        error_message: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["column_definition", b"column_definition"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["column_definition", b"column_definition"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["column_definition", b"column_definition", "error_message", b"error_message", "success", b"success"]) -> None: ...
 
 global___SuggestColumnDefinitionResponse = SuggestColumnDefinitionResponse
+
+@typing_extensions.final
+class EnhanceColumnDefinitionInstructionsRequest(google.protobuf.message.Message):
+    """EnhanceColumnDefinitionInstructionsRequest represents a request to enhance the instruction of a column definition."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    TABLE_UID_FIELD_NUMBER: builtins.int
+    COLUMN_UID_FIELD_NUMBER: builtins.int
+    COLUMN_DEFINITION_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The ID of the namespace that owns the table."""
+    table_uid: builtins.str
+    """The UID of the table to enhance a column definition for."""
+    column_uid: builtins.str
+    """The UID of the column to be enhanced.
+    Please provide this field if you want to enhance the instruction of an existing column definition.
+    Ignore it if you want to enhance the instruction of a non-created column in the new column creation flow.
+    """
+    @property
+    def column_definition(self) -> global___ColumnDefinition:
+        """The column definition to be enhanced."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        table_uid: builtins.str = ...,
+        column_uid: builtins.str | None = ...,
+        column_definition: global___ColumnDefinition | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_column_uid", b"_column_uid", "column_definition", b"column_definition", "column_uid", b"column_uid"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_column_uid", b"_column_uid", "column_definition", b"column_definition", "column_uid", b"column_uid", "namespace_id", b"namespace_id", "table_uid", b"table_uid"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_column_uid", b"_column_uid"]) -> typing_extensions.Literal["column_uid"] | None: ...
+
+global___EnhanceColumnDefinitionInstructionsRequest = EnhanceColumnDefinitionInstructionsRequest
+
+@typing_extensions.final
+class EnhanceColumnDefinitionInstructionsResponse(google.protobuf.message.Message):
+    """EnhanceColumnDefinitionInstructionsResponse represents a response to a request to enhance the instruction of a column definition."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    SUCCESS_FIELD_NUMBER: builtins.int
+    INSTRUCTIONS_FIELD_NUMBER: builtins.int
+    ERROR_MESSAGE_FIELD_NUMBER: builtins.int
+    success: builtins.bool
+    """Whether the enhancement is successful."""
+    instructions: builtins.str
+    """The enhanced instructions."""
+    error_message: builtins.str
+    """The error message of the enhancement."""
+    def __init__(
+        self,
+        *,
+        success: builtins.bool = ...,
+        instructions: builtins.str = ...,
+        error_message: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["error_message", b"error_message", "instructions", b"instructions", "success", b"success"]) -> None: ...
+
+global___EnhanceColumnDefinitionInstructionsResponse = EnhanceColumnDefinitionInstructionsResponse
