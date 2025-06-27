@@ -1061,6 +1061,7 @@ class Cell(google.protobuf.message.Message):
     CITATIONS_FIELD_NUMBER: builtins.int
     TRANSPARENCY_FIELD_NUMBER: builtins.int
     LOCK_STATE_FIELD_NUMBER: builtins.int
+    ERROR_MESSAGE_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """The unique identifier of the cell."""
     column_uid: builtins.str
@@ -1105,6 +1106,8 @@ class Cell(google.protobuf.message.Message):
         """The transparency of the cell."""
     lock_state: global___LockState.ValueType
     """The lock state of the cell."""
+    error_message: builtins.str
+    """The error message of the cell."""
     def __init__(
         self,
         *,
@@ -1123,9 +1126,10 @@ class Cell(google.protobuf.message.Message):
         citations: collections.abc.Iterable[agent.agent.v1alpha.common_pb2.Citation] | None = ...,
         transparency: global___Cell.Transparency | None = ...,
         lock_state: global___LockState.ValueType = ...,
+        error_message: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["boolean_value", b"boolean_value", "document_value", b"document_value", "file_value", b"file_value", "metadata", b"metadata", "number_value", b"number_value", "string_value", b"string_value", "transparency", b"transparency", "update_time", b"update_time", "value", b"value"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["boolean_value", b"boolean_value", "citations", b"citations", "column_uid", b"column_uid", "document_value", b"document_value", "file_value", b"file_value", "lock_state", b"lock_state", "metadata", b"metadata", "number_value", b"number_value", "row_uid", b"row_uid", "status", b"status", "string_value", b"string_value", "transparency", b"transparency", "type", b"type", "uid", b"uid", "update_time", b"update_time", "value", b"value"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["boolean_value", b"boolean_value", "citations", b"citations", "column_uid", b"column_uid", "document_value", b"document_value", "error_message", b"error_message", "file_value", b"file_value", "lock_state", b"lock_state", "metadata", b"metadata", "number_value", b"number_value", "row_uid", b"row_uid", "status", b"status", "string_value", b"string_value", "transparency", b"transparency", "type", b"type", "uid", b"uid", "update_time", b"update_time", "value", b"value"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["value", b"value"]) -> typing_extensions.Literal["string_value", "number_value", "boolean_value", "file_value", "document_value"] | None: ...
 
 global___Cell = Cell
