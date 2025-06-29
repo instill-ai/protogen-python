@@ -58,6 +58,66 @@ TYPE_DOCUMENT: Type.ValueType  # 5
 """The type is a document resource."""
 global___Type = Type
 
+class _Color:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _ColorEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Color.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    COLOR_UNSPECIFIED: _Color.ValueType  # 0
+    """The color is not specified."""
+    COLOR_DEFAULT: _Color.ValueType  # 1
+    """Default - #F8F9FC"""
+    COLOR_LIGHT_NEUTRAL: _Color.ValueType  # 2
+    """Light neutral - #F1F3F9"""
+    COLOR_DARK_NEUTRAL: _Color.ValueType  # 3
+    """Dark neutral - #3F444D"""
+    COLOR_LIGHT_BLUE: _Color.ValueType  # 4
+    """Light blue - #F0F5FF"""
+    COLOR_DARK_BLUE: _Color.ValueType  # 5
+    """Dark blue - #316FED"""
+    COLOR_LIGHT_GREEN: _Color.ValueType  # 6
+    """Light green - #EAFBF5"""
+    COLOR_DARK_GREEN: _Color.ValueType  # 7
+    """Dark green - #23956F"""
+    COLOR_LIGHT_PURPLE: _Color.ValueType  # 8
+    """Light purple - #F8F5FF"""
+    COLOR_DARK_PURPLE: _Color.ValueType  # 9
+    """Dark purple - #8B55F7"""
+    COLOR_LIGHT_YELLOW: _Color.ValueType  # 10
+    """Light yellow - #FFF8EB"""
+    COLOR_LIGHT_RED: _Color.ValueType  # 11
+    """Light red - #FEF1F2"""
+
+class Color(_Color, metaclass=_ColorEnumTypeWrapper):
+    """Color represents a color."""
+
+COLOR_UNSPECIFIED: Color.ValueType  # 0
+"""The color is not specified."""
+COLOR_DEFAULT: Color.ValueType  # 1
+"""Default - #F8F9FC"""
+COLOR_LIGHT_NEUTRAL: Color.ValueType  # 2
+"""Light neutral - #F1F3F9"""
+COLOR_DARK_NEUTRAL: Color.ValueType  # 3
+"""Dark neutral - #3F444D"""
+COLOR_LIGHT_BLUE: Color.ValueType  # 4
+"""Light blue - #F0F5FF"""
+COLOR_DARK_BLUE: Color.ValueType  # 5
+"""Dark blue - #316FED"""
+COLOR_LIGHT_GREEN: Color.ValueType  # 6
+"""Light green - #EAFBF5"""
+COLOR_DARK_GREEN: Color.ValueType  # 7
+"""Dark green - #23956F"""
+COLOR_LIGHT_PURPLE: Color.ValueType  # 8
+"""Light purple - #F8F5FF"""
+COLOR_DARK_PURPLE: Color.ValueType  # 9
+"""Dark purple - #8B55F7"""
+COLOR_LIGHT_YELLOW: Color.ValueType  # 10
+"""Light yellow - #FFF8EB"""
+COLOR_LIGHT_RED: Color.ValueType  # 11
+"""Light red - #FEF1F2"""
+global___Color = Color
+
 class _CellStatus:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
@@ -635,14 +695,14 @@ class Selection(google.protobuf.message.Message):
         """The value of the cell as a string."""
         number_value: builtins.float
         """The value of the cell as a number."""
-        color: builtins.str
+        color: global___Color.ValueType
         """Display color of the option."""
         def __init__(
             self,
             *,
             string_value: builtins.str = ...,
             number_value: builtins.float = ...,
-            color: builtins.str = ...,
+            color: global___Color.ValueType = ...,
         ) -> None: ...
         def HasField(self, field_name: typing_extensions.Literal["number_value", b"number_value", "string_value", b"string_value", "value", b"value"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["color", b"color", "number_value", b"number_value", "string_value", b"string_value", "value", b"value"]) -> None: ...
