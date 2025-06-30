@@ -1121,3 +1121,164 @@ class ChatEndedEvent(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["create_time", b"create_time"]) -> None: ...
 
 global___ChatEndedEvent = ChatEndedEvent
+
+@typing_extensions.final
+class FileOption(google.protobuf.message.Message):
+    """FileOption represents a file option."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_UID_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
+    CONTENT_TYPE_FIELD_NUMBER: builtins.int
+    SUMMARY_FIELD_NUMBER: builtins.int
+    file_uid: builtins.str
+    """The UID of the file."""
+    name: builtins.str
+    """The name of the file."""
+    content_type: builtins.str
+    """The file content type."""
+    summary: builtins.str
+    """The file summary."""
+    def __init__(
+        self,
+        *,
+        file_uid: builtins.str = ...,
+        name: builtins.str = ...,
+        content_type: builtins.str = ...,
+        summary: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["content_type", b"content_type", "file_uid", b"file_uid", "name", b"name", "summary", b"summary"]) -> None: ...
+
+global___FileOption = FileOption
+
+@typing_extensions.final
+class FolderOption(google.protobuf.message.Message):
+    """FolderOption represents a folder option."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FOLDER_UID_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
+    FILE_OPTIONS_FIELD_NUMBER: builtins.int
+    folder_uid: builtins.str
+    """The UID of the folder."""
+    name: builtins.str
+    """The name of the folder."""
+    description: builtins.str
+    """The folder description."""
+    @property
+    def file_options(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___FileOption]:
+        """The UIDs of the files in the folder."""
+    def __init__(
+        self,
+        *,
+        folder_uid: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        file_options: collections.abc.Iterable[global___FileOption] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "file_options", b"file_options", "folder_uid", b"folder_uid", "name", b"name"]) -> None: ...
+
+global___FolderOption = FolderOption
+
+@typing_extensions.final
+class CatalogOption(google.protobuf.message.Message):
+    """CatalogOption represents a catalog option."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CATALOG_UID_FIELD_NUMBER: builtins.int
+    CATALOG_ID_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
+    FILE_OPTIONS_FIELD_NUMBER: builtins.int
+    catalog_uid: builtins.str
+    """The UID of the catalog."""
+    catalog_id: builtins.str
+    """The ID of the catalog."""
+    description: builtins.str
+    """The catalog description."""
+    @property
+    def file_options(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___FileOption]:
+        """The UIDs of the files in the catalog."""
+    def __init__(
+        self,
+        *,
+        catalog_uid: builtins.str = ...,
+        catalog_id: builtins.str = ...,
+        description: builtins.str = ...,
+        file_options: collections.abc.Iterable[global___FileOption] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "catalog_uid", b"catalog_uid", "description", b"description", "file_options", b"file_options"]) -> None: ...
+
+global___CatalogOption = CatalogOption
+
+@typing_extensions.final
+class TableOption(google.protobuf.message.Message):
+    """TableOption represents a table option."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TABLE_UID_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
+    table_uid: builtins.str
+    """The UID of the table."""
+    description: builtins.str
+    """The table description."""
+    def __init__(
+        self,
+        *,
+        table_uid: builtins.str = ...,
+        description: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "table_uid", b"table_uid"]) -> None: ...
+
+global___TableOption = TableOption
+
+@typing_extensions.final
+class ListContextOptionsRequest(google.protobuf.message.Message):
+    """ListContextOptionsRequest represents a request to list context options."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The namespace ID."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id"]) -> None: ...
+
+global___ListContextOptionsRequest = ListContextOptionsRequest
+
+@typing_extensions.final
+class ListContextOptionsResponse(google.protobuf.message.Message):
+    """ListContextOptionsResponse represents a response to a request to list context options."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FOLDER_OPTIONS_FIELD_NUMBER: builtins.int
+    CATALOG_OPTIONS_FIELD_NUMBER: builtins.int
+    TABLE_OPTIONS_FIELD_NUMBER: builtins.int
+    @property
+    def folder_options(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___FolderOption]:
+        """The folder options."""
+    @property
+    def catalog_options(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CatalogOption]:
+        """The catalog options."""
+    @property
+    def table_options(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TableOption]:
+        """The table options."""
+    def __init__(
+        self,
+        *,
+        folder_options: collections.abc.Iterable[global___FolderOption] | None = ...,
+        catalog_options: collections.abc.Iterable[global___CatalogOption] | None = ...,
+        table_options: collections.abc.Iterable[global___TableOption] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_options", b"catalog_options", "folder_options", b"folder_options", "table_options", b"table_options"]) -> None: ...
+
+global___ListContextOptionsResponse = ListContextOptionsResponse

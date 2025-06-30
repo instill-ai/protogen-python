@@ -98,6 +98,14 @@ class AgentPublicServiceStub:
 
     Chat with the agent.
     """
+    ListContextOptions: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.chat_pb2.ListContextOptionsRequest,
+        agent.agent.v1alpha.chat_pb2.ListContextOptionsResponse,
+    ]
+    """List context options
+
+    This is a helper endpoint to list context options for chat.
+    """
     BindChatTable: grpc.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.table_pb2.BindChatTableRequest,
         agent.agent.v1alpha.table_pb2.BindChatTableResponse,
@@ -492,6 +500,14 @@ class AgentPublicServiceAsyncStub:
     """Chat with agent
 
     Chat with the agent.
+    """
+    ListContextOptions: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.chat_pb2.ListContextOptionsRequest,
+        agent.agent.v1alpha.chat_pb2.ListContextOptionsResponse,
+    ]
+    """List context options
+
+    This is a helper endpoint to list context options for chat.
     """
     BindChatTable: grpc.aio.UnaryUnaryMultiCallable[
         agent.agent.v1alpha.table_pb2.BindChatTableRequest,
@@ -905,6 +921,16 @@ class AgentPublicServiceServicer(metaclass=abc.ABCMeta):
         """Chat with agent
 
         Chat with the agent.
+        """
+    @abc.abstractmethod
+    def ListContextOptions(
+        self,
+        request: agent.agent.v1alpha.chat_pb2.ListContextOptionsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.chat_pb2.ListContextOptionsResponse, collections.abc.Awaitable[agent.agent.v1alpha.chat_pb2.ListContextOptionsResponse]]:
+        """List context options
+
+        This is a helper endpoint to list context options for chat.
         """
     @abc.abstractmethod
     def BindChatTable(

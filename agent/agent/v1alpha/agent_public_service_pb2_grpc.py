@@ -64,6 +64,11 @@ class AgentPublicServiceStub(object):
                 request_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatWithAgentRequest.SerializeToString,
                 response_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatWithAgentResponse.FromString,
                 )
+        self.ListContextOptions = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/ListContextOptions',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ListContextOptionsRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ListContextOptionsResponse.FromString,
+                )
         self.BindChatTable = channel.unary_unary(
                 '/agent.agent.v1alpha.AgentPublicService/BindChatTable',
                 request_serializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.BindChatTableRequest.SerializeToString,
@@ -342,6 +347,15 @@ class AgentPublicServiceServicer(object):
         """Chat with agent
 
         Chat with the agent.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListContextOptions(self, request, context):
+        """List context options
+
+        This is a helper endpoint to list context options for chat.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -751,6 +765,11 @@ def add_AgentPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatWithAgentRequest.FromString,
                     response_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatWithAgentResponse.SerializeToString,
             ),
+            'ListContextOptions': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListContextOptions,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ListContextOptionsRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_chat__pb2.ListContextOptionsResponse.SerializeToString,
+            ),
             'BindChatTable': grpc.unary_unary_rpc_method_handler(
                     servicer.BindChatTable,
                     request_deserializer=agent_dot_agent_dot_v1alpha_dot_table__pb2.BindChatTableRequest.FromString,
@@ -1108,6 +1127,23 @@ class AgentPublicService(object):
         return grpc.experimental.unary_stream(request, target, '/agent.agent.v1alpha.AgentPublicService/ChatWithAgent',
             agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatWithAgentRequest.SerializeToString,
             agent_dot_agent_dot_v1alpha_dot_chat__pb2.ChatWithAgentResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListContextOptions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/ListContextOptions',
+            agent_dot_agent_dot_v1alpha_dot_chat__pb2.ListContextOptionsRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_chat__pb2.ListContextOptionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
