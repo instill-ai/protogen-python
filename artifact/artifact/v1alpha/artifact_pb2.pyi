@@ -979,6 +979,7 @@ class UpdateCatalogRequest(google.protobuf.message.Message):
     DESCRIPTION_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    CONVERTING_PIPELINES_FIELD_NUMBER: builtins.int
     catalog_id: builtins.str
     """The catalog id."""
     description: builtins.str
@@ -988,6 +989,35 @@ class UpdateCatalogRequest(google.protobuf.message.Message):
         """The catalog tags."""
     namespace_id: builtins.str
     """The catalog owner(namespace)."""
+    @property
+    def converting_pipelines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """Pipelines used for converting documents (i.e., files with pdf, doc[x] or
+        ppt[x] extension) to Markdown. The strings in the list identify the
+        pipelines and MUST have the format `{namespaceID}/{pipelineID}@{version}`.
+        The pipeline recipes MUST have the following variable and output fields:
+        ```yaml variable
+        variable:
+          document_input:
+            title: document-input
+            description: Upload a document (PDF/DOCX/DOC/PPTX/PPT)
+            type: file
+        ```
+        ```yaml output
+        output:
+         convert_result:
+           title: convert-result
+           value: ${merge-markdown-refinement.output.results[0]}
+        ```
+        Other variable and output fields will be ignored.
+
+        The pipelines will be executed in order until one produces a successful,
+        non-empty result.
+
+        If no pipelines are provided, a default pipeline will be used. For
+        non-document catalog files, the conversion pipeline is deterministic (such
+        files are typically trivial to convert and don't require a dedicated
+        pipeline to improve the conversion performance).
+        """
     def __init__(
         self,
         *,
@@ -995,8 +1025,9 @@ class UpdateCatalogRequest(google.protobuf.message.Message):
         description: builtins.str = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
         namespace_id: builtins.str = ...,
+        converting_pipelines: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "description", b"description", "namespace_id", b"namespace_id", "tags", b"tags"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "converting_pipelines", b"converting_pipelines", "description", b"description", "namespace_id", b"namespace_id", "tags", b"tags"]) -> None: ...
 
 global___UpdateCatalogRequest = UpdateCatalogRequest
 
