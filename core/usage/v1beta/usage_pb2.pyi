@@ -242,7 +242,7 @@ global___MgmtUsageData = MgmtUsageData
 
 @typing_extensions.final
 class ConnectorUsageData(google.protobuf.message.Message):
-    """Connector service usage data"""
+    """Connector service usage data (Deprecated)"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -584,7 +584,7 @@ class SessionReport(google.protobuf.message.Message):
         """Management service usage data"""
     @property
     def connector_usage_data(self) -> global___ConnectorUsageData:
-        """Connector service usage data"""
+        """Connector service usage data (Deprecated)"""
     @property
     def model_usage_data(self) -> global___ModelUsageData:
         """Model service usage data"""
