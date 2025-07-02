@@ -153,9 +153,9 @@ class ChatContext(google.protobuf.message.Message):
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-        CATALOG_ID_FIELD_NUMBER: builtins.int
+        CATALOG_UID_FIELD_NUMBER: builtins.int
         FILE_UIDS_FIELD_NUMBER: builtins.int
-        catalog_id: builtins.str
+        catalog_uid: builtins.str
         """The catalog containing the files"""
         @property
         def file_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
@@ -163,10 +163,10 @@ class ChatContext(google.protobuf.message.Message):
         def __init__(
             self,
             *,
-            catalog_id: builtins.str = ...,
+            catalog_uid: builtins.str = ...,
             file_uids: collections.abc.Iterable[builtins.str] | None = ...,
         ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "file_uids", b"file_uids"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["catalog_uid", b"catalog_uid", "file_uids", b"file_uids"]) -> None: ...
 
     @typing_extensions.final
     class Table(google.protobuf.message.Message):
