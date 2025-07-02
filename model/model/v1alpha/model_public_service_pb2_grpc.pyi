@@ -108,7 +108,8 @@ class ModelPublicServiceStub:
     ]
     """Get a model
 
-    Returns the detail of a model, accessing it by the model ID and its parent namespace.
+    Returns the detail of a model, accessing it by the model ID and its parent
+    namespace.
     """
     UpdateNamespaceModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.UpdateNamespaceModelRequest,
@@ -146,9 +147,9 @@ class ModelPublicServiceStub:
     ]
     """Watch the state of a model version
 
-    Returns the state of a model. The model resource allocation and scaling actions take some
-    time, during which a model will be in various state. This endpoint
-    allows clients to track the state.
+    Returns the state of a model. The model resource allocation and scaling
+    actions take some time, during which a model will be in various state. This
+    endpoint allows clients to track the state.
     """
     WatchNamespaceLatestModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.WatchNamespaceLatestModelRequest,
@@ -156,9 +157,9 @@ class ModelPublicServiceStub:
     ]
     """Watch the state of the latest model version
 
-    Returns the state of the latest model version. The model resource allocation and scaling actions
-    take some time, during which a model will be in various state. This endpoint
-    allows clients to track the state.
+    Returns the state of the latest model version. The model resource
+    allocation and scaling actions take some time, during which a model will be
+    in various state. This endpoint allows clients to track the state.
     """
     ListNamespaceModelVersions: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.ListNamespaceModelVersionsRequest,
@@ -166,8 +167,8 @@ class ModelPublicServiceStub:
     ]
     """List namespace model versions
 
-    Returns a paginated list of version of a model namespace that belong to the specified namespace.
-    Contains model version and digest.
+    Returns a paginated list of version of a model namespace that belong to the
+    specified namespace. Contains model version and digest.
     """
     DeleteNamespaceModelVersion: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.DeleteNamespaceModelVersionRequest,
@@ -175,8 +176,8 @@ class ModelPublicServiceStub:
     ]
     """Delete a model version
 
-    Deletes a model version, accesing it by its resource name, which is defined by the
-    parent namespace and the ID of the model, and version.
+    Deletes a model version, accesing it by its resource name, which is defined
+    by the parent namespace and the ID of the model, and version.
     """
     TriggerNamespaceModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerNamespaceModelRequest,
@@ -202,8 +203,8 @@ class ModelPublicServiceStub:
     ]
     """Trigger model inference
 
-    Triggers the latest deployed model version to infer the result of a set of task or
-    questions.
+    Triggers the latest deployed model version to infer the result of a set of
+    task or questions.
     """
     TriggerAsyncNamespaceLatestModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerAsyncNamespaceLatestModelRequest,
@@ -211,8 +212,8 @@ class ModelPublicServiceStub:
     ]
     """Trigger model inference asynchronously
 
-    Triggers the latest deployed model version to infer the result of a set of task or
-    questions.
+    Triggers the latest deployed model version to infer the result of a set of
+    task or questions.
     """
     TriggerNamespaceModelBinaryFileUpload: grpc.StreamUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerNamespaceModelBinaryFileUploadRequest,
@@ -229,8 +230,8 @@ class ModelPublicServiceStub:
     ]
     """Trigger model inference with a binary input
 
-    Triggers the latest deployed model version to infer the result of a set of task or
-    questions, submitted as a binary file.
+    Triggers the latest deployed model version to infer the result of a set of
+    task or questions, submitted as a binary file.
     """
     GetNamespaceModelOperation: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetNamespaceModelOperationRequest,
@@ -290,7 +291,8 @@ class ModelPublicServiceStub:
     ]
     """Get a model
 
-    Returns the detail of a model, accessing it by the model ID and its parent user.
+    Returns the detail of a model, accessing it by the model ID and its parent
+    user.
     """
     UpdateUserModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.UpdateUserModelRequest,
@@ -328,9 +330,9 @@ class ModelPublicServiceStub:
     ]
     """Watch the state of a model version
 
-    Returns the state of a model. The model resource allocation and scaling actions take some
-    time, during which a model will be in various state. This endpoint
-    allows clients to track the state.
+    Returns the state of a model. The model resource allocation and scaling
+    actions take some time, during which a model will be in various state. This
+    endpoint allows clients to track the state.
     """
     WatchUserLatestModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.WatchUserLatestModelRequest,
@@ -338,9 +340,9 @@ class ModelPublicServiceStub:
     ]
     """Watch the state of the latest model version
 
-    Returns the state of the latest model version. The model resource allocation and scaling actions
-    take some time, during which a model will be in various state. This endpoint
-    allows clients to track the state.
+    Returns the state of the latest model version. The model resource
+    allocation and scaling actions take some time, during which a model will be
+    in various state. This endpoint allows clients to track the state.
     """
     ListUserModelVersions: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.ListUserModelVersionsRequest,
@@ -348,8 +350,8 @@ class ModelPublicServiceStub:
     ]
     """List user model versions
 
-    Returns a paginated list of version of a model namespace that belong to the specified user.
-    Contains model version and digest.
+    Returns a paginated list of version of a model namespace that belong to the
+    specified user. Contains model version and digest.
     """
     DeleteUserModelVersion: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.DeleteUserModelVersionRequest,
@@ -357,8 +359,8 @@ class ModelPublicServiceStub:
     ]
     """Delete a model version
 
-    Deletes a model version, accesing it by its resource name, which is defined by the
-    parent user and the ID of the model, and version.
+    Deletes a model version, accesing it by its resource name, which is defined
+    by the parent user and the ID of the model, and version.
     """
     TriggerUserModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerUserModelRequest,
@@ -386,8 +388,8 @@ class ModelPublicServiceStub:
     ]
     """Trigger model inference
 
-    Triggers the latest deployed model version to infer the result of a set of task or
-    questions.
+    Triggers the latest deployed model version to infer the result of a set of
+    task or questions.
     """
     TriggerAsyncUserLatestModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerAsyncUserLatestModelRequest,
@@ -395,8 +397,8 @@ class ModelPublicServiceStub:
     ]
     """Trigger model inference asynchronously
 
-    Triggers the latest deployed model version to infer the result of a set of task or
-    questions.
+    Triggers the latest deployed model version to infer the result of a set of
+    task or questions.
     """
     TriggerUserModelBinaryFileUpload: grpc.StreamUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerUserModelBinaryFileUploadRequest,
@@ -413,9 +415,10 @@ class ModelPublicServiceStub:
     ]
     """List organization models
 
-    Returns a paginated list of models that belong to the specified organization. The
-    parent organization may be different from the authenticated organization, in which case
-    the results will contain the models that are visible to the latter.
+    Returns a paginated list of models that belong to the specified
+    organization. The parent organization may be different from the
+    authenticated organization, in which case the results will contain the
+    models that are visible to the latter.
     """
     CreateOrganizationModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.CreateOrganizationModelRequest,
@@ -435,7 +438,8 @@ class ModelPublicServiceStub:
     ]
     """Get a model
 
-    Returns the detail of a model, accessing it by the model ID and its parent organization.
+    Returns the detail of a model, accessing it by the model ID and its parent
+    organization.
     """
     UpdateOrganizationModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.UpdateOrganizationModelRequest,
@@ -473,9 +477,9 @@ class ModelPublicServiceStub:
     ]
     """Watch the state of a model version
 
-    Returns the state of a model.  The model resource allocation and scaling actions
-    take some time, during which a model will be in various state. This endpoint
-    allows clients to track the state.
+    Returns the state of a model.  The model resource allocation and scaling
+    actions take some time, during which a model will be in various state. This
+    endpoint allows clients to track the state.
     """
     WatchOrganizationLatestModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.WatchOrganizationLatestModelRequest,
@@ -483,9 +487,9 @@ class ModelPublicServiceStub:
     ]
     """Watch the state of the latest model version
 
-    Returns the state of the latest model version.  The model resource allocation and scaling actions
-    take some time, during which a model will be in various state. This endpoint
-    allows clients to track the state.
+    Returns the state of the latest model version.  The model resource
+    allocation and scaling actions take some time, during which a model will be
+    in various state. This endpoint allows clients to track the state.
     """
     ListOrganizationModelVersions: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.ListOrganizationModelVersionsRequest,
@@ -493,8 +497,8 @@ class ModelPublicServiceStub:
     ]
     """List organization model versions
 
-    Returns a paginated list of version of a model namespace that belong to the specified organization.
-    Contains model version and digest.
+    Returns a paginated list of version of a model namespace that belong to the
+    specified organization. Contains model version and digest.
     """
     DeleteOrganizationModelVersion: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.DeleteOrganizationModelVersionRequest,
@@ -502,8 +506,8 @@ class ModelPublicServiceStub:
     ]
     """Delete a model version
 
-    Deletes a model version, accesing it by its resource name, which is defined by the
-    parent organization and the ID of the model, and version.
+    Deletes a model version, accesing it by its resource name, which is defined
+    by the parent organization and the ID of the model, and version.
     """
     TriggerOrganizationModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerOrganizationModelRequest,
@@ -531,8 +535,8 @@ class ModelPublicServiceStub:
     ]
     """Trigger model inference
 
-    Triggers the latest deployed model version to infer the result of a set of task or
-    questions.
+    Triggers the latest deployed model version to infer the result of a set of
+    task or questions.
     """
     TriggerAsyncOrganizationLatestModel: grpc.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerAsyncOrganizationLatestModelRequest,
@@ -540,8 +544,8 @@ class ModelPublicServiceStub:
     ]
     """Trigger model inference asynchronously
 
-    Triggers the latest deployed model version to infer the result of a set of task or
-    questions.
+    Triggers the latest deployed model version to infer the result of a set of
+    task or questions.
     """
     TriggerOrganizationModelBinaryFileUpload: grpc.StreamUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerOrganizationModelBinaryFileUploadRequest,
@@ -565,7 +569,8 @@ class ModelPublicServiceStub:
         model.model.v1alpha.model_pb2.GetOrganizationLatestModelOperationRequest,
         model.model.v1alpha.model_pb2.GetOrganizationLatestModelOperationResponse,
     ]
-    """Get the details of the latest long-running operation from a organization model
+    """Get the details of the latest long-running operation from a organization
+    model
 
     This method allows requesters to request the status and outcome of
     long-running operations in a model, such as trigger.
@@ -681,7 +686,8 @@ class ModelPublicServiceAsyncStub:
     ]
     """Get a model
 
-    Returns the detail of a model, accessing it by the model ID and its parent namespace.
+    Returns the detail of a model, accessing it by the model ID and its parent
+    namespace.
     """
     UpdateNamespaceModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.UpdateNamespaceModelRequest,
@@ -719,9 +725,9 @@ class ModelPublicServiceAsyncStub:
     ]
     """Watch the state of a model version
 
-    Returns the state of a model. The model resource allocation and scaling actions take some
-    time, during which a model will be in various state. This endpoint
-    allows clients to track the state.
+    Returns the state of a model. The model resource allocation and scaling
+    actions take some time, during which a model will be in various state. This
+    endpoint allows clients to track the state.
     """
     WatchNamespaceLatestModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.WatchNamespaceLatestModelRequest,
@@ -729,9 +735,9 @@ class ModelPublicServiceAsyncStub:
     ]
     """Watch the state of the latest model version
 
-    Returns the state of the latest model version. The model resource allocation and scaling actions
-    take some time, during which a model will be in various state. This endpoint
-    allows clients to track the state.
+    Returns the state of the latest model version. The model resource
+    allocation and scaling actions take some time, during which a model will be
+    in various state. This endpoint allows clients to track the state.
     """
     ListNamespaceModelVersions: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.ListNamespaceModelVersionsRequest,
@@ -739,8 +745,8 @@ class ModelPublicServiceAsyncStub:
     ]
     """List namespace model versions
 
-    Returns a paginated list of version of a model namespace that belong to the specified namespace.
-    Contains model version and digest.
+    Returns a paginated list of version of a model namespace that belong to the
+    specified namespace. Contains model version and digest.
     """
     DeleteNamespaceModelVersion: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.DeleteNamespaceModelVersionRequest,
@@ -748,8 +754,8 @@ class ModelPublicServiceAsyncStub:
     ]
     """Delete a model version
 
-    Deletes a model version, accesing it by its resource name, which is defined by the
-    parent namespace and the ID of the model, and version.
+    Deletes a model version, accesing it by its resource name, which is defined
+    by the parent namespace and the ID of the model, and version.
     """
     TriggerNamespaceModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerNamespaceModelRequest,
@@ -775,8 +781,8 @@ class ModelPublicServiceAsyncStub:
     ]
     """Trigger model inference
 
-    Triggers the latest deployed model version to infer the result of a set of task or
-    questions.
+    Triggers the latest deployed model version to infer the result of a set of
+    task or questions.
     """
     TriggerAsyncNamespaceLatestModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerAsyncNamespaceLatestModelRequest,
@@ -784,8 +790,8 @@ class ModelPublicServiceAsyncStub:
     ]
     """Trigger model inference asynchronously
 
-    Triggers the latest deployed model version to infer the result of a set of task or
-    questions.
+    Triggers the latest deployed model version to infer the result of a set of
+    task or questions.
     """
     TriggerNamespaceModelBinaryFileUpload: grpc.aio.StreamUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerNamespaceModelBinaryFileUploadRequest,
@@ -802,8 +808,8 @@ class ModelPublicServiceAsyncStub:
     ]
     """Trigger model inference with a binary input
 
-    Triggers the latest deployed model version to infer the result of a set of task or
-    questions, submitted as a binary file.
+    Triggers the latest deployed model version to infer the result of a set of
+    task or questions, submitted as a binary file.
     """
     GetNamespaceModelOperation: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.GetNamespaceModelOperationRequest,
@@ -863,7 +869,8 @@ class ModelPublicServiceAsyncStub:
     ]
     """Get a model
 
-    Returns the detail of a model, accessing it by the model ID and its parent user.
+    Returns the detail of a model, accessing it by the model ID and its parent
+    user.
     """
     UpdateUserModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.UpdateUserModelRequest,
@@ -901,9 +908,9 @@ class ModelPublicServiceAsyncStub:
     ]
     """Watch the state of a model version
 
-    Returns the state of a model. The model resource allocation and scaling actions take some
-    time, during which a model will be in various state. This endpoint
-    allows clients to track the state.
+    Returns the state of a model. The model resource allocation and scaling
+    actions take some time, during which a model will be in various state. This
+    endpoint allows clients to track the state.
     """
     WatchUserLatestModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.WatchUserLatestModelRequest,
@@ -911,9 +918,9 @@ class ModelPublicServiceAsyncStub:
     ]
     """Watch the state of the latest model version
 
-    Returns the state of the latest model version. The model resource allocation and scaling actions
-    take some time, during which a model will be in various state. This endpoint
-    allows clients to track the state.
+    Returns the state of the latest model version. The model resource
+    allocation and scaling actions take some time, during which a model will be
+    in various state. This endpoint allows clients to track the state.
     """
     ListUserModelVersions: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.ListUserModelVersionsRequest,
@@ -921,8 +928,8 @@ class ModelPublicServiceAsyncStub:
     ]
     """List user model versions
 
-    Returns a paginated list of version of a model namespace that belong to the specified user.
-    Contains model version and digest.
+    Returns a paginated list of version of a model namespace that belong to the
+    specified user. Contains model version and digest.
     """
     DeleteUserModelVersion: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.DeleteUserModelVersionRequest,
@@ -930,8 +937,8 @@ class ModelPublicServiceAsyncStub:
     ]
     """Delete a model version
 
-    Deletes a model version, accesing it by its resource name, which is defined by the
-    parent user and the ID of the model, and version.
+    Deletes a model version, accesing it by its resource name, which is defined
+    by the parent user and the ID of the model, and version.
     """
     TriggerUserModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerUserModelRequest,
@@ -959,8 +966,8 @@ class ModelPublicServiceAsyncStub:
     ]
     """Trigger model inference
 
-    Triggers the latest deployed model version to infer the result of a set of task or
-    questions.
+    Triggers the latest deployed model version to infer the result of a set of
+    task or questions.
     """
     TriggerAsyncUserLatestModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerAsyncUserLatestModelRequest,
@@ -968,8 +975,8 @@ class ModelPublicServiceAsyncStub:
     ]
     """Trigger model inference asynchronously
 
-    Triggers the latest deployed model version to infer the result of a set of task or
-    questions.
+    Triggers the latest deployed model version to infer the result of a set of
+    task or questions.
     """
     TriggerUserModelBinaryFileUpload: grpc.aio.StreamUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerUserModelBinaryFileUploadRequest,
@@ -986,9 +993,10 @@ class ModelPublicServiceAsyncStub:
     ]
     """List organization models
 
-    Returns a paginated list of models that belong to the specified organization. The
-    parent organization may be different from the authenticated organization, in which case
-    the results will contain the models that are visible to the latter.
+    Returns a paginated list of models that belong to the specified
+    organization. The parent organization may be different from the
+    authenticated organization, in which case the results will contain the
+    models that are visible to the latter.
     """
     CreateOrganizationModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.CreateOrganizationModelRequest,
@@ -1008,7 +1016,8 @@ class ModelPublicServiceAsyncStub:
     ]
     """Get a model
 
-    Returns the detail of a model, accessing it by the model ID and its parent organization.
+    Returns the detail of a model, accessing it by the model ID and its parent
+    organization.
     """
     UpdateOrganizationModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.UpdateOrganizationModelRequest,
@@ -1046,9 +1055,9 @@ class ModelPublicServiceAsyncStub:
     ]
     """Watch the state of a model version
 
-    Returns the state of a model.  The model resource allocation and scaling actions
-    take some time, during which a model will be in various state. This endpoint
-    allows clients to track the state.
+    Returns the state of a model.  The model resource allocation and scaling
+    actions take some time, during which a model will be in various state. This
+    endpoint allows clients to track the state.
     """
     WatchOrganizationLatestModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.WatchOrganizationLatestModelRequest,
@@ -1056,9 +1065,9 @@ class ModelPublicServiceAsyncStub:
     ]
     """Watch the state of the latest model version
 
-    Returns the state of the latest model version.  The model resource allocation and scaling actions
-    take some time, during which a model will be in various state. This endpoint
-    allows clients to track the state.
+    Returns the state of the latest model version.  The model resource
+    allocation and scaling actions take some time, during which a model will be
+    in various state. This endpoint allows clients to track the state.
     """
     ListOrganizationModelVersions: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.ListOrganizationModelVersionsRequest,
@@ -1066,8 +1075,8 @@ class ModelPublicServiceAsyncStub:
     ]
     """List organization model versions
 
-    Returns a paginated list of version of a model namespace that belong to the specified organization.
-    Contains model version and digest.
+    Returns a paginated list of version of a model namespace that belong to the
+    specified organization. Contains model version and digest.
     """
     DeleteOrganizationModelVersion: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.DeleteOrganizationModelVersionRequest,
@@ -1075,8 +1084,8 @@ class ModelPublicServiceAsyncStub:
     ]
     """Delete a model version
 
-    Deletes a model version, accesing it by its resource name, which is defined by the
-    parent organization and the ID of the model, and version.
+    Deletes a model version, accesing it by its resource name, which is defined
+    by the parent organization and the ID of the model, and version.
     """
     TriggerOrganizationModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerOrganizationModelRequest,
@@ -1104,8 +1113,8 @@ class ModelPublicServiceAsyncStub:
     ]
     """Trigger model inference
 
-    Triggers the latest deployed model version to infer the result of a set of task or
-    questions.
+    Triggers the latest deployed model version to infer the result of a set of
+    task or questions.
     """
     TriggerAsyncOrganizationLatestModel: grpc.aio.UnaryUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerAsyncOrganizationLatestModelRequest,
@@ -1113,8 +1122,8 @@ class ModelPublicServiceAsyncStub:
     ]
     """Trigger model inference asynchronously
 
-    Triggers the latest deployed model version to infer the result of a set of task or
-    questions.
+    Triggers the latest deployed model version to infer the result of a set of
+    task or questions.
     """
     TriggerOrganizationModelBinaryFileUpload: grpc.aio.StreamUnaryMultiCallable[
         model.model.v1alpha.model_pb2.TriggerOrganizationModelBinaryFileUploadRequest,
@@ -1138,7 +1147,8 @@ class ModelPublicServiceAsyncStub:
         model.model.v1alpha.model_pb2.GetOrganizationLatestModelOperationRequest,
         model.model.v1alpha.model_pb2.GetOrganizationLatestModelOperationResponse,
     ]
-    """Get the details of the latest long-running operation from a organization model
+    """Get the details of the latest long-running operation from a organization
+    model
 
     This method allows requesters to request the status and outcome of
     long-running operations in a model, such as trigger.
@@ -1274,7 +1284,8 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.GetNamespaceModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.GetNamespaceModelResponse]]:
         """Get a model
 
-        Returns the detail of a model, accessing it by the model ID and its parent namespace.
+        Returns the detail of a model, accessing it by the model ID and its parent
+        namespace.
         """
     @abc.abstractmethod
     def UpdateNamespaceModel(
@@ -1320,9 +1331,9 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.WatchNamespaceModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.WatchNamespaceModelResponse]]:
         """Watch the state of a model version
 
-        Returns the state of a model. The model resource allocation and scaling actions take some
-        time, during which a model will be in various state. This endpoint
-        allows clients to track the state.
+        Returns the state of a model. The model resource allocation and scaling
+        actions take some time, during which a model will be in various state. This
+        endpoint allows clients to track the state.
         """
     @abc.abstractmethod
     def WatchNamespaceLatestModel(
@@ -1332,9 +1343,9 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.WatchNamespaceLatestModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.WatchNamespaceLatestModelResponse]]:
         """Watch the state of the latest model version
 
-        Returns the state of the latest model version. The model resource allocation and scaling actions
-        take some time, during which a model will be in various state. This endpoint
-        allows clients to track the state.
+        Returns the state of the latest model version. The model resource
+        allocation and scaling actions take some time, during which a model will be
+        in various state. This endpoint allows clients to track the state.
         """
     @abc.abstractmethod
     def ListNamespaceModelVersions(
@@ -1344,8 +1355,8 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.ListNamespaceModelVersionsResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.ListNamespaceModelVersionsResponse]]:
         """List namespace model versions
 
-        Returns a paginated list of version of a model namespace that belong to the specified namespace.
-        Contains model version and digest.
+        Returns a paginated list of version of a model namespace that belong to the
+        specified namespace. Contains model version and digest.
         """
     @abc.abstractmethod
     def DeleteNamespaceModelVersion(
@@ -1355,8 +1366,8 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.DeleteNamespaceModelVersionResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.DeleteNamespaceModelVersionResponse]]:
         """Delete a model version
 
-        Deletes a model version, accesing it by its resource name, which is defined by the
-        parent namespace and the ID of the model, and version.
+        Deletes a model version, accesing it by its resource name, which is defined
+        by the parent namespace and the ID of the model, and version.
         """
     @abc.abstractmethod
     def TriggerNamespaceModel(
@@ -1388,8 +1399,8 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.TriggerNamespaceLatestModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TriggerNamespaceLatestModelResponse]]:
         """Trigger model inference
 
-        Triggers the latest deployed model version to infer the result of a set of task or
-        questions.
+        Triggers the latest deployed model version to infer the result of a set of
+        task or questions.
         """
     @abc.abstractmethod
     def TriggerAsyncNamespaceLatestModel(
@@ -1399,8 +1410,8 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.TriggerAsyncNamespaceLatestModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TriggerAsyncNamespaceLatestModelResponse]]:
         """Trigger model inference asynchronously
 
-        Triggers the latest deployed model version to infer the result of a set of task or
-        questions.
+        Triggers the latest deployed model version to infer the result of a set of
+        task or questions.
         """
     @abc.abstractmethod
     def TriggerNamespaceModelBinaryFileUpload(
@@ -1421,8 +1432,8 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.TriggerNamespaceLatestModelBinaryFileUploadResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TriggerNamespaceLatestModelBinaryFileUploadResponse]]:
         """Trigger model inference with a binary input
 
-        Triggers the latest deployed model version to infer the result of a set of task or
-        questions, submitted as a binary file.
+        Triggers the latest deployed model version to infer the result of a set of
+        task or questions, submitted as a binary file.
         """
     @abc.abstractmethod
     def GetNamespaceModelOperation(
@@ -1494,7 +1505,8 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.GetUserModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.GetUserModelResponse]]:
         """Get a model
 
-        Returns the detail of a model, accessing it by the model ID and its parent user.
+        Returns the detail of a model, accessing it by the model ID and its parent
+        user.
         """
     @abc.abstractmethod
     def UpdateUserModel(
@@ -1540,9 +1552,9 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.WatchUserModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.WatchUserModelResponse]]:
         """Watch the state of a model version
 
-        Returns the state of a model. The model resource allocation and scaling actions take some
-        time, during which a model will be in various state. This endpoint
-        allows clients to track the state.
+        Returns the state of a model. The model resource allocation and scaling
+        actions take some time, during which a model will be in various state. This
+        endpoint allows clients to track the state.
         """
     @abc.abstractmethod
     def WatchUserLatestModel(
@@ -1552,9 +1564,9 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.WatchUserLatestModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.WatchUserLatestModelResponse]]:
         """Watch the state of the latest model version
 
-        Returns the state of the latest model version. The model resource allocation and scaling actions
-        take some time, during which a model will be in various state. This endpoint
-        allows clients to track the state.
+        Returns the state of the latest model version. The model resource
+        allocation and scaling actions take some time, during which a model will be
+        in various state. This endpoint allows clients to track the state.
         """
     @abc.abstractmethod
     def ListUserModelVersions(
@@ -1564,8 +1576,8 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.ListUserModelVersionsResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.ListUserModelVersionsResponse]]:
         """List user model versions
 
-        Returns a paginated list of version of a model namespace that belong to the specified user.
-        Contains model version and digest.
+        Returns a paginated list of version of a model namespace that belong to the
+        specified user. Contains model version and digest.
         """
     @abc.abstractmethod
     def DeleteUserModelVersion(
@@ -1575,8 +1587,8 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.DeleteUserModelVersionResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.DeleteUserModelVersionResponse]]:
         """Delete a model version
 
-        Deletes a model version, accesing it by its resource name, which is defined by the
-        parent user and the ID of the model, and version.
+        Deletes a model version, accesing it by its resource name, which is defined
+        by the parent user and the ID of the model, and version.
         """
     @abc.abstractmethod
     def TriggerUserModel(
@@ -1610,8 +1622,8 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.TriggerUserLatestModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TriggerUserLatestModelResponse]]:
         """Trigger model inference
 
-        Triggers the latest deployed model version to infer the result of a set of task or
-        questions.
+        Triggers the latest deployed model version to infer the result of a set of
+        task or questions.
         """
     @abc.abstractmethod
     def TriggerAsyncUserLatestModel(
@@ -1621,8 +1633,8 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.TriggerAsyncUserLatestModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TriggerAsyncUserLatestModelResponse]]:
         """Trigger model inference asynchronously
 
-        Triggers the latest deployed model version to infer the result of a set of task or
-        questions.
+        Triggers the latest deployed model version to infer the result of a set of
+        task or questions.
         """
     @abc.abstractmethod
     def TriggerUserModelBinaryFileUpload(
@@ -1643,9 +1655,10 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.ListOrganizationModelsResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.ListOrganizationModelsResponse]]:
         """List organization models
 
-        Returns a paginated list of models that belong to the specified organization. The
-        parent organization may be different from the authenticated organization, in which case
-        the results will contain the models that are visible to the latter.
+        Returns a paginated list of models that belong to the specified
+        organization. The parent organization may be different from the
+        authenticated organization, in which case the results will contain the
+        models that are visible to the latter.
         """
     @abc.abstractmethod
     def CreateOrganizationModel(
@@ -1669,7 +1682,8 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.GetOrganizationModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.GetOrganizationModelResponse]]:
         """Get a model
 
-        Returns the detail of a model, accessing it by the model ID and its parent organization.
+        Returns the detail of a model, accessing it by the model ID and its parent
+        organization.
         """
     @abc.abstractmethod
     def UpdateOrganizationModel(
@@ -1715,9 +1729,9 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.WatchOrganizationModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.WatchOrganizationModelResponse]]:
         """Watch the state of a model version
 
-        Returns the state of a model.  The model resource allocation and scaling actions
-        take some time, during which a model will be in various state. This endpoint
-        allows clients to track the state.
+        Returns the state of a model.  The model resource allocation and scaling
+        actions take some time, during which a model will be in various state. This
+        endpoint allows clients to track the state.
         """
     @abc.abstractmethod
     def WatchOrganizationLatestModel(
@@ -1727,9 +1741,9 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.WatchOrganizationLatestModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.WatchOrganizationLatestModelResponse]]:
         """Watch the state of the latest model version
 
-        Returns the state of the latest model version.  The model resource allocation and scaling actions
-        take some time, during which a model will be in various state. This endpoint
-        allows clients to track the state.
+        Returns the state of the latest model version.  The model resource
+        allocation and scaling actions take some time, during which a model will be
+        in various state. This endpoint allows clients to track the state.
         """
     @abc.abstractmethod
     def ListOrganizationModelVersions(
@@ -1739,8 +1753,8 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.ListOrganizationModelVersionsResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.ListOrganizationModelVersionsResponse]]:
         """List organization model versions
 
-        Returns a paginated list of version of a model namespace that belong to the specified organization.
-        Contains model version and digest.
+        Returns a paginated list of version of a model namespace that belong to the
+        specified organization. Contains model version and digest.
         """
     @abc.abstractmethod
     def DeleteOrganizationModelVersion(
@@ -1750,8 +1764,8 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.DeleteOrganizationModelVersionResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.DeleteOrganizationModelVersionResponse]]:
         """Delete a model version
 
-        Deletes a model version, accesing it by its resource name, which is defined by the
-        parent organization and the ID of the model, and version.
+        Deletes a model version, accesing it by its resource name, which is defined
+        by the parent organization and the ID of the model, and version.
         """
     @abc.abstractmethod
     def TriggerOrganizationModel(
@@ -1785,8 +1799,8 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.TriggerOrganizationLatestModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TriggerOrganizationLatestModelResponse]]:
         """Trigger model inference
 
-        Triggers the latest deployed model version to infer the result of a set of task or
-        questions.
+        Triggers the latest deployed model version to infer the result of a set of
+        task or questions.
         """
     @abc.abstractmethod
     def TriggerAsyncOrganizationLatestModel(
@@ -1796,8 +1810,8 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[model.model.v1alpha.model_pb2.TriggerAsyncOrganizationLatestModelResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.TriggerAsyncOrganizationLatestModelResponse]]:
         """Trigger model inference asynchronously
 
-        Triggers the latest deployed model version to infer the result of a set of task or
-        questions.
+        Triggers the latest deployed model version to infer the result of a set of
+        task or questions.
         """
     @abc.abstractmethod
     def TriggerOrganizationModelBinaryFileUpload(
@@ -1827,7 +1841,8 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         request: model.model.v1alpha.model_pb2.GetOrganizationLatestModelOperationRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.GetOrganizationLatestModelOperationResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.GetOrganizationLatestModelOperationResponse]]:
-        """Get the details of the latest long-running operation from a organization model
+        """Get the details of the latest long-running operation from a organization
+        model
 
         This method allows requesters to request the status and outcome of
         long-running operations in a model, such as trigger.

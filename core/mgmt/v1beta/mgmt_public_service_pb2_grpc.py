@@ -477,7 +477,8 @@ class MgmtPublicServiceServicer(object):
     def GetRemainingCredit(self, request, context):
         """Get the remaining Instill Credit
 
-        This endpoint returns the remaining [Instill Credit](https://instill-ai.dev/docs/cloud/credit) of a given user or
+        This endpoint returns the remaining [Instill
+        Credit](https://instill-ai.dev/docs/cloud/credit) of a given user or
         organization. The requested credit owner must be either the authenticated
         user or an organization they belong to.
 
@@ -560,7 +561,8 @@ class MgmtPublicServiceServicer(object):
 
         Get Auth token issuer
 
-        Returns the auth token issuer details. This operation requires admin permissions.
+        Returns the auth token issuer details. This operation requires admin
+        permissions.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

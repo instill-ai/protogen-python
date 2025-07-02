@@ -416,7 +416,8 @@ class ModelPublicServiceServicer(object):
     def GetNamespaceModel(self, request, context):
         """Get a model
 
-        Returns the detail of a model, accessing it by the model ID and its parent namespace.
+        Returns the detail of a model, accessing it by the model ID and its parent
+        namespace.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -458,9 +459,9 @@ class ModelPublicServiceServicer(object):
     def WatchNamespaceModel(self, request, context):
         """Watch the state of a model version
 
-        Returns the state of a model. The model resource allocation and scaling actions take some
-        time, during which a model will be in various state. This endpoint
-        allows clients to track the state.
+        Returns the state of a model. The model resource allocation and scaling
+        actions take some time, during which a model will be in various state. This
+        endpoint allows clients to track the state.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -469,9 +470,9 @@ class ModelPublicServiceServicer(object):
     def WatchNamespaceLatestModel(self, request, context):
         """Watch the state of the latest model version
 
-        Returns the state of the latest model version. The model resource allocation and scaling actions
-        take some time, during which a model will be in various state. This endpoint
-        allows clients to track the state.
+        Returns the state of the latest model version. The model resource
+        allocation and scaling actions take some time, during which a model will be
+        in various state. This endpoint allows clients to track the state.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -480,8 +481,8 @@ class ModelPublicServiceServicer(object):
     def ListNamespaceModelVersions(self, request, context):
         """List namespace model versions
 
-        Returns a paginated list of version of a model namespace that belong to the specified namespace.
-        Contains model version and digest.
+        Returns a paginated list of version of a model namespace that belong to the
+        specified namespace. Contains model version and digest.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -490,8 +491,8 @@ class ModelPublicServiceServicer(object):
     def DeleteNamespaceModelVersion(self, request, context):
         """Delete a model version
 
-        Deletes a model version, accesing it by its resource name, which is defined by the
-        parent namespace and the ID of the model, and version.
+        Deletes a model version, accesing it by its resource name, which is defined
+        by the parent namespace and the ID of the model, and version.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -520,8 +521,8 @@ class ModelPublicServiceServicer(object):
     def TriggerNamespaceLatestModel(self, request, context):
         """Trigger model inference
 
-        Triggers the latest deployed model version to infer the result of a set of task or
-        questions.
+        Triggers the latest deployed model version to infer the result of a set of
+        task or questions.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -530,8 +531,8 @@ class ModelPublicServiceServicer(object):
     def TriggerAsyncNamespaceLatestModel(self, request, context):
         """Trigger model inference asynchronously
 
-        Triggers the latest deployed model version to infer the result of a set of task or
-        questions.
+        Triggers the latest deployed model version to infer the result of a set of
+        task or questions.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -550,8 +551,8 @@ class ModelPublicServiceServicer(object):
     def TriggerNamespaceLatestModelBinaryFileUpload(self, request_iterator, context):
         """Trigger model inference with a binary input
 
-        Triggers the latest deployed model version to infer the result of a set of task or
-        questions, submitted as a binary file.
+        Triggers the latest deployed model version to infer the result of a set of
+        task or questions, submitted as a binary file.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -617,7 +618,8 @@ class ModelPublicServiceServicer(object):
     def GetUserModel(self, request, context):
         """Get a model
 
-        Returns the detail of a model, accessing it by the model ID and its parent user.
+        Returns the detail of a model, accessing it by the model ID and its parent
+        user.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -659,9 +661,9 @@ class ModelPublicServiceServicer(object):
     def WatchUserModel(self, request, context):
         """Watch the state of a model version
 
-        Returns the state of a model. The model resource allocation and scaling actions take some
-        time, during which a model will be in various state. This endpoint
-        allows clients to track the state.
+        Returns the state of a model. The model resource allocation and scaling
+        actions take some time, during which a model will be in various state. This
+        endpoint allows clients to track the state.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -670,9 +672,9 @@ class ModelPublicServiceServicer(object):
     def WatchUserLatestModel(self, request, context):
         """Watch the state of the latest model version
 
-        Returns the state of the latest model version. The model resource allocation and scaling actions
-        take some time, during which a model will be in various state. This endpoint
-        allows clients to track the state.
+        Returns the state of the latest model version. The model resource
+        allocation and scaling actions take some time, during which a model will be
+        in various state. This endpoint allows clients to track the state.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -681,8 +683,8 @@ class ModelPublicServiceServicer(object):
     def ListUserModelVersions(self, request, context):
         """List user model versions
 
-        Returns a paginated list of version of a model namespace that belong to the specified user.
-        Contains model version and digest.
+        Returns a paginated list of version of a model namespace that belong to the
+        specified user. Contains model version and digest.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -691,8 +693,8 @@ class ModelPublicServiceServicer(object):
     def DeleteUserModelVersion(self, request, context):
         """Delete a model version
 
-        Deletes a model version, accesing it by its resource name, which is defined by the
-        parent user and the ID of the model, and version.
+        Deletes a model version, accesing it by its resource name, which is defined
+        by the parent user and the ID of the model, and version.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -723,8 +725,8 @@ class ModelPublicServiceServicer(object):
     def TriggerUserLatestModel(self, request, context):
         """Trigger model inference
 
-        Triggers the latest deployed model version to infer the result of a set of task or
-        questions.
+        Triggers the latest deployed model version to infer the result of a set of
+        task or questions.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -733,8 +735,8 @@ class ModelPublicServiceServicer(object):
     def TriggerAsyncUserLatestModel(self, request, context):
         """Trigger model inference asynchronously
 
-        Triggers the latest deployed model version to infer the result of a set of task or
-        questions.
+        Triggers the latest deployed model version to infer the result of a set of
+        task or questions.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -753,9 +755,10 @@ class ModelPublicServiceServicer(object):
     def ListOrganizationModels(self, request, context):
         """List organization models
 
-        Returns a paginated list of models that belong to the specified organization. The
-        parent organization may be different from the authenticated organization, in which case
-        the results will contain the models that are visible to the latter.
+        Returns a paginated list of models that belong to the specified
+        organization. The parent organization may be different from the
+        authenticated organization, in which case the results will contain the
+        models that are visible to the latter.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -777,7 +780,8 @@ class ModelPublicServiceServicer(object):
     def GetOrganizationModel(self, request, context):
         """Get a model
 
-        Returns the detail of a model, accessing it by the model ID and its parent organization.
+        Returns the detail of a model, accessing it by the model ID and its parent
+        organization.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -819,9 +823,9 @@ class ModelPublicServiceServicer(object):
     def WatchOrganizationModel(self, request, context):
         """Watch the state of a model version
 
-        Returns the state of a model.  The model resource allocation and scaling actions
-        take some time, during which a model will be in various state. This endpoint
-        allows clients to track the state.
+        Returns the state of a model.  The model resource allocation and scaling
+        actions take some time, during which a model will be in various state. This
+        endpoint allows clients to track the state.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -830,9 +834,9 @@ class ModelPublicServiceServicer(object):
     def WatchOrganizationLatestModel(self, request, context):
         """Watch the state of the latest model version
 
-        Returns the state of the latest model version.  The model resource allocation and scaling actions
-        take some time, during which a model will be in various state. This endpoint
-        allows clients to track the state.
+        Returns the state of the latest model version.  The model resource
+        allocation and scaling actions take some time, during which a model will be
+        in various state. This endpoint allows clients to track the state.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -841,8 +845,8 @@ class ModelPublicServiceServicer(object):
     def ListOrganizationModelVersions(self, request, context):
         """List organization model versions
 
-        Returns a paginated list of version of a model namespace that belong to the specified organization.
-        Contains model version and digest.
+        Returns a paginated list of version of a model namespace that belong to the
+        specified organization. Contains model version and digest.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -851,8 +855,8 @@ class ModelPublicServiceServicer(object):
     def DeleteOrganizationModelVersion(self, request, context):
         """Delete a model version
 
-        Deletes a model version, accesing it by its resource name, which is defined by the
-        parent organization and the ID of the model, and version.
+        Deletes a model version, accesing it by its resource name, which is defined
+        by the parent organization and the ID of the model, and version.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -883,8 +887,8 @@ class ModelPublicServiceServicer(object):
     def TriggerOrganizationLatestModel(self, request, context):
         """Trigger model inference
 
-        Triggers the latest deployed model version to infer the result of a set of task or
-        questions.
+        Triggers the latest deployed model version to infer the result of a set of
+        task or questions.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -893,8 +897,8 @@ class ModelPublicServiceServicer(object):
     def TriggerAsyncOrganizationLatestModel(self, request, context):
         """Trigger model inference asynchronously
 
-        Triggers the latest deployed model version to infer the result of a set of task or
-        questions.
+        Triggers the latest deployed model version to infer the result of a set of
+        task or questions.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -921,7 +925,8 @@ class ModelPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetOrganizationLatestModelOperation(self, request, context):
-        """Get the details of the latest long-running operation from a organization model
+        """Get the details of the latest long-running operation from a organization
+        model
 
         This method allows requesters to request the status and outcome of
         long-running operations in a model, such as trigger.

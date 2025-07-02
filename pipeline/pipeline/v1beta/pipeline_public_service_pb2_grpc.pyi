@@ -101,8 +101,8 @@ class PipelinePublicServiceStub:
     """Update a pipeline
 
     Udpates a pipeline, accessing it by its resource name, which is defined by
-    the parent namespace and the ID of the pipeline. The authenticated namespace must be
-    the parent of the pipeline in order to modify it.
+    the parent namespace and the ID of the pipeline. The authenticated
+    namespace must be the parent of the pipeline in order to modify it.
 
     In REST requests, only the supplied pipeline fields will be taken into
     account when updating the resource.
@@ -114,8 +114,8 @@ class PipelinePublicServiceStub:
     """Delete a pipeline
 
     Deletes a pipeline, accesing it by its resource name, which is defined by
-    the parent namespace and the ID of the pipeline. The authenticated namespace must be
-    the parent of the pipeline in order to delete it.
+    the parent namespace and the ID of the pipeline. The authenticated
+    namespace must be the parent of the pipeline in order to delete it.
     """
     ValidateNamespacePipeline: grpc.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.ValidateNamespacePipelineRequest,
@@ -126,7 +126,8 @@ class PipelinePublicServiceStub:
     Validates a pipeline by its resource name, which is defined by the parent
     namespace and the ID of the pipeline.
 
-    Validation checks the recipe of the pipeline and the status of its components.
+    Validation checks the recipe of the pipeline and the status of its
+    components.
     """
     RenameNamespacePipeline: grpc.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.RenameNamespacePipelineRequest,
@@ -150,8 +151,8 @@ class PipelinePublicServiceStub:
     ]
     """Clone a pipeline
 
-    Clones a pipeline owned by a namespace. The new pipeline may have a different
-    parent, and this can be either a namespace or an organization.
+    Clones a pipeline owned by a namespace. The new pipeline may have a
+    different parent, and this can be either a namespace or an organization.
     """
     DispatchPipelineWebhookEvent: grpc.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.DispatchPipelineWebhookEventRequest,
@@ -159,10 +160,11 @@ class PipelinePublicServiceStub:
     ]
     """Dispatch Pipeline Webhook Event
 
-    Handles webhook events by routing them to the appropriate pipeline based on the webhook type and message.
-    The webhook type determines which component processes the event, while the message payload contains data
-    that triggers pipeline execution. The pipeline processes the event using configured handlers and returns
-    a response to the webhook sender.
+    Handles webhook events by routing them to the appropriate pipeline based on
+    the webhook type and message. The webhook type determines which component
+    processes the event, while the message payload contains data that triggers
+    pipeline execution. The pipeline processes the event using configured
+    handlers and returns a response to the webhook sender.
     """
     TriggerNamespacePipeline: grpc.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineRequest,
@@ -171,13 +173,14 @@ class PipelinePublicServiceStub:
     """Trigger a pipeline
 
     Triggers the execution of a pipeline synchronously, i.e., the result is
-    sent back to the namespace right after the data is processed. This method is
-    intended for real-time inference when low latency is of concern.
+    sent back to the namespace right after the data is processed. This method
+    is intended for real-time inference when low latency is of concern.
 
-    The pipeline is identified by its resource name, formed by the parent namespace
-    and ID of the pipeline.
+    The pipeline is identified by its resource name, formed by the parent
+    namespace and ID of the pipeline.
 
-    For more information, see [Run NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+    For more information, see [Run
+    NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     TriggerNamespacePipelineWithStream: grpc.UnaryStreamMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineWithStreamRequest,
@@ -185,12 +188,12 @@ class PipelinePublicServiceStub:
     ]
     """Trigger a pipeline via streaming
 
-    Triggers the execution of a pipeline asynchronously and streams back the response.
-    This method is intended for real-time inference when low latency is of concern
-    and the response needs to be processed incrementally.
+    Triggers the execution of a pipeline asynchronously and streams back the
+    response. This method is intended for real-time inference when low latency
+    is of concern and the response needs to be processed incrementally.
 
-    The pipeline is identified by its resource name, formed by the parent namespace
-    and ID of the pipeline.
+    The pipeline is identified by its resource name, formed by the parent
+    namespace and ID of the pipeline.
     """
     TriggerAsyncNamespacePipeline: grpc.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineRequest,
@@ -203,10 +206,11 @@ class PipelinePublicServiceStub:
     operation. This method is intended for cases that require long-running
     workloads.
 
-    The pipeline is identified by its resource name, formed by the parent namespace
-    and ID of the pipeline.
+    The pipeline is identified by its resource name, formed by the parent
+    namespace and ID of the pipeline.
 
-    For more information, see [Run NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+    For more information, see [Run
+    NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     CreateNamespacePipelineRelease: grpc.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineReleaseRequest,
@@ -268,8 +272,8 @@ class PipelinePublicServiceStub:
     ]
     """Clone a pipeline release
 
-    Clones a pipeline release owned by a namespace. The new pipeline may have a different
-    parent, and this can be either a namespace or an organization.
+    Clones a pipeline release owned by a namespace. The new pipeline may have a
+    different parent, and this can be either a namespace or an organization.
     """
     TriggerNamespacePipelineRelease: grpc.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineReleaseRequest,
@@ -282,8 +286,8 @@ class PipelinePublicServiceStub:
     at its latest release, this method allows the client to specified any
     committed release.
 
-    The pipeline is identified by its resource name, formed by its parent namespace
-    and ID.
+    The pipeline is identified by its resource name, formed by its parent
+    namespace and ID.
     """
     TriggerAsyncNamespacePipelineRelease: grpc.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineReleaseRequest,
@@ -296,8 +300,8 @@ class PipelinePublicServiceStub:
     at its latest release, this method allows the client to specified any
     committed release.
 
-    The pipeline is identified by its resource name, formed by its parent namespace
-    and ID.
+    The pipeline is identified by its resource name, formed by its parent
+    namespace and ID.
     """
     CreateNamespaceSecret: grpc.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.secret_pb2.CreateNamespaceSecretRequest,
@@ -393,8 +397,8 @@ class PipelinePublicServiceStub:
     ]
     """Get a pipeline owned by a user
 
-    Returns the details of a user-owned pipeline by its resource name, which is defined
-    by the parent user and the ID of the pipeline.
+    Returns the details of a user-owned pipeline by its resource name, which is
+    defined by the parent user and the ID of the pipeline.
     """
     UpdateUserPipeline: grpc.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.UpdateUserPipelineRequest,
@@ -428,7 +432,8 @@ class PipelinePublicServiceStub:
     Validates a pipeline by its resource name, which is defined by the parent
     user and the ID of the pipeline.
 
-    Validation checks the recipe of the pipeline and the status of its components.
+    Validation checks the recipe of the pipeline and the status of its
+    components.
     """
     RenameUserPipeline: grpc.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.RenameUserPipelineRequest,
@@ -459,7 +464,8 @@ class PipelinePublicServiceStub:
     The pipeline is identified by its resource name, formed by the parent user
     and ID of the pipeline.
 
-    For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+    For more information, see [Run
+    Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     TriggerUserPipelineWithStream: grpc.UnaryStreamMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineWithStreamRequest,
@@ -467,9 +473,9 @@ class PipelinePublicServiceStub:
     ]
     """Trigger a pipeline owned by a user and stream back the response
 
-    Triggers the execution of a pipeline asynchronously and streams back the response.
-    This method is intended for real-time inference when low latency is of concern
-    and the response needs to be processed incrementally.
+    Triggers the execution of a pipeline asynchronously and streams back the
+    response. This method is intended for real-time inference when low latency
+    is of concern and the response needs to be processed incrementally.
 
     The pipeline is identified by its resource name, formed by the parent user
     and ID of the pipeline.
@@ -488,7 +494,8 @@ class PipelinePublicServiceStub:
     The pipeline is identified by its resource name, formed by the parent user
     and ID of the pipeline.
 
-    For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+    For more information, see [Run
+    Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     CreateUserPipelineRelease: grpc.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.CreateUserPipelineReleaseRequest,
@@ -680,14 +687,15 @@ class PipelinePublicServiceStub:
     ]
     """Trigger a pipeline owned by an organization
 
-    Triggers the execution of a pipeline synchronously, i.e., the result is sent
-    back to the organization right after the data is processed. This method is
-    intended for real-time inference when low latency is of concern.
+    Triggers the execution of a pipeline synchronously, i.e., the result is
+    sent back to the organization right after the data is processed. This
+    method is intended for real-time inference when low latency is of concern.
 
     The pipeline is identified by its resource name, formed by the parent
     organization and ID of the pipeline.
 
-    For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+    For more information, see [Run
+    Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     TriggerOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineRequest,
@@ -695,14 +703,15 @@ class PipelinePublicServiceStub:
     ]
     """Trigger a pipeline owned by an organization
 
-    Triggers the execution of a pipeline synchronously, i.e., the result is sent
-    back to the organization right after the data is processed. This method is
-    intended for real-time inference when low latency is of concern.
+    Triggers the execution of a pipeline synchronously, i.e., the result is
+    sent back to the organization right after the data is processed. This
+    method is intended for real-time inference when low latency is of concern.
 
     The pipeline is identified by its resource name, formed by the parent
     organization and ID of the pipeline.
 
-    For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+    For more information, see [Run
+    Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     TriggerAsyncOrganizationPipeline: grpc.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.TriggerAsyncOrganizationPipelineRequest,
@@ -718,7 +727,8 @@ class PipelinePublicServiceStub:
     The pipeline is identified by its resource name, formed by the parent
     organization and ID of the pipeline.
 
-    For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+    For more information, see [Run
+    Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     CreateOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.CreateOrganizationPipelineReleaseRequest,
@@ -726,8 +736,8 @@ class PipelinePublicServiceStub:
     ]
     """Release a version of a pipeline owned by an organization
 
-    Commits the version of a pipeline, identified by its resource name, which is
-    formed by the parent organization and ID of the pipeline.
+    Commits the version of a pipeline, identified by its resource name, which
+    is formed by the parent organization and ID of the pipeline.
     """
     ListOrganizationPipelineReleases: grpc.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.ListOrganizationPipelineReleasesRequest,
@@ -762,8 +772,8 @@ class PipelinePublicServiceStub:
     ]
     """Delete a release in a pipeline owned by an organization
 
-    Deletes a pipeline release, where the pipeline is identified by its resource
-    name, formed by its parent organization and ID.
+    Deletes a pipeline release, where the pipeline is identified by its
+    resource name, formed by its parent organization and ID.
     """
     RestoreOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.RestoreOrganizationPipelineReleaseRequest,
@@ -786,8 +796,8 @@ class PipelinePublicServiceStub:
     its resource name, formed by the parent organization and ID. Since this is
     an output-only field, a custom method is required to modify it.
 
-    The pipeline release name will be updated accordingly, as it is  composed by
-    the pipeline name and the ID of the release (e.g.
+    The pipeline release name will be updated accordingly, as it is  composed
+    by the pipeline name and the ID of the release (e.g.
     `organizations/luigi/pipelines/pizza-recipe-generator/releases/v0.2.1`).
     """
     TriggerOrganizationPipelineRelease: grpc.UnaryUnaryMultiCallable[
@@ -1108,8 +1118,8 @@ class PipelinePublicServiceAsyncStub:
     """Update a pipeline
 
     Udpates a pipeline, accessing it by its resource name, which is defined by
-    the parent namespace and the ID of the pipeline. The authenticated namespace must be
-    the parent of the pipeline in order to modify it.
+    the parent namespace and the ID of the pipeline. The authenticated
+    namespace must be the parent of the pipeline in order to modify it.
 
     In REST requests, only the supplied pipeline fields will be taken into
     account when updating the resource.
@@ -1121,8 +1131,8 @@ class PipelinePublicServiceAsyncStub:
     """Delete a pipeline
 
     Deletes a pipeline, accesing it by its resource name, which is defined by
-    the parent namespace and the ID of the pipeline. The authenticated namespace must be
-    the parent of the pipeline in order to delete it.
+    the parent namespace and the ID of the pipeline. The authenticated
+    namespace must be the parent of the pipeline in order to delete it.
     """
     ValidateNamespacePipeline: grpc.aio.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.ValidateNamespacePipelineRequest,
@@ -1133,7 +1143,8 @@ class PipelinePublicServiceAsyncStub:
     Validates a pipeline by its resource name, which is defined by the parent
     namespace and the ID of the pipeline.
 
-    Validation checks the recipe of the pipeline and the status of its components.
+    Validation checks the recipe of the pipeline and the status of its
+    components.
     """
     RenameNamespacePipeline: grpc.aio.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.RenameNamespacePipelineRequest,
@@ -1157,8 +1168,8 @@ class PipelinePublicServiceAsyncStub:
     ]
     """Clone a pipeline
 
-    Clones a pipeline owned by a namespace. The new pipeline may have a different
-    parent, and this can be either a namespace or an organization.
+    Clones a pipeline owned by a namespace. The new pipeline may have a
+    different parent, and this can be either a namespace or an organization.
     """
     DispatchPipelineWebhookEvent: grpc.aio.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.DispatchPipelineWebhookEventRequest,
@@ -1166,10 +1177,11 @@ class PipelinePublicServiceAsyncStub:
     ]
     """Dispatch Pipeline Webhook Event
 
-    Handles webhook events by routing them to the appropriate pipeline based on the webhook type and message.
-    The webhook type determines which component processes the event, while the message payload contains data
-    that triggers pipeline execution. The pipeline processes the event using configured handlers and returns
-    a response to the webhook sender.
+    Handles webhook events by routing them to the appropriate pipeline based on
+    the webhook type and message. The webhook type determines which component
+    processes the event, while the message payload contains data that triggers
+    pipeline execution. The pipeline processes the event using configured
+    handlers and returns a response to the webhook sender.
     """
     TriggerNamespacePipeline: grpc.aio.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineRequest,
@@ -1178,13 +1190,14 @@ class PipelinePublicServiceAsyncStub:
     """Trigger a pipeline
 
     Triggers the execution of a pipeline synchronously, i.e., the result is
-    sent back to the namespace right after the data is processed. This method is
-    intended for real-time inference when low latency is of concern.
+    sent back to the namespace right after the data is processed. This method
+    is intended for real-time inference when low latency is of concern.
 
-    The pipeline is identified by its resource name, formed by the parent namespace
-    and ID of the pipeline.
+    The pipeline is identified by its resource name, formed by the parent
+    namespace and ID of the pipeline.
 
-    For more information, see [Run NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+    For more information, see [Run
+    NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     TriggerNamespacePipelineWithStream: grpc.aio.UnaryStreamMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineWithStreamRequest,
@@ -1192,12 +1205,12 @@ class PipelinePublicServiceAsyncStub:
     ]
     """Trigger a pipeline via streaming
 
-    Triggers the execution of a pipeline asynchronously and streams back the response.
-    This method is intended for real-time inference when low latency is of concern
-    and the response needs to be processed incrementally.
+    Triggers the execution of a pipeline asynchronously and streams back the
+    response. This method is intended for real-time inference when low latency
+    is of concern and the response needs to be processed incrementally.
 
-    The pipeline is identified by its resource name, formed by the parent namespace
-    and ID of the pipeline.
+    The pipeline is identified by its resource name, formed by the parent
+    namespace and ID of the pipeline.
     """
     TriggerAsyncNamespacePipeline: grpc.aio.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineRequest,
@@ -1210,10 +1223,11 @@ class PipelinePublicServiceAsyncStub:
     operation. This method is intended for cases that require long-running
     workloads.
 
-    The pipeline is identified by its resource name, formed by the parent namespace
-    and ID of the pipeline.
+    The pipeline is identified by its resource name, formed by the parent
+    namespace and ID of the pipeline.
 
-    For more information, see [Run NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+    For more information, see [Run
+    NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     CreateNamespacePipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineReleaseRequest,
@@ -1275,8 +1289,8 @@ class PipelinePublicServiceAsyncStub:
     ]
     """Clone a pipeline release
 
-    Clones a pipeline release owned by a namespace. The new pipeline may have a different
-    parent, and this can be either a namespace or an organization.
+    Clones a pipeline release owned by a namespace. The new pipeline may have a
+    different parent, and this can be either a namespace or an organization.
     """
     TriggerNamespacePipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineReleaseRequest,
@@ -1289,8 +1303,8 @@ class PipelinePublicServiceAsyncStub:
     at its latest release, this method allows the client to specified any
     committed release.
 
-    The pipeline is identified by its resource name, formed by its parent namespace
-    and ID.
+    The pipeline is identified by its resource name, formed by its parent
+    namespace and ID.
     """
     TriggerAsyncNamespacePipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineReleaseRequest,
@@ -1303,8 +1317,8 @@ class PipelinePublicServiceAsyncStub:
     at its latest release, this method allows the client to specified any
     committed release.
 
-    The pipeline is identified by its resource name, formed by its parent namespace
-    and ID.
+    The pipeline is identified by its resource name, formed by its parent
+    namespace and ID.
     """
     CreateNamespaceSecret: grpc.aio.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.secret_pb2.CreateNamespaceSecretRequest,
@@ -1400,8 +1414,8 @@ class PipelinePublicServiceAsyncStub:
     ]
     """Get a pipeline owned by a user
 
-    Returns the details of a user-owned pipeline by its resource name, which is defined
-    by the parent user and the ID of the pipeline.
+    Returns the details of a user-owned pipeline by its resource name, which is
+    defined by the parent user and the ID of the pipeline.
     """
     UpdateUserPipeline: grpc.aio.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.UpdateUserPipelineRequest,
@@ -1435,7 +1449,8 @@ class PipelinePublicServiceAsyncStub:
     Validates a pipeline by its resource name, which is defined by the parent
     user and the ID of the pipeline.
 
-    Validation checks the recipe of the pipeline and the status of its components.
+    Validation checks the recipe of the pipeline and the status of its
+    components.
     """
     RenameUserPipeline: grpc.aio.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.RenameUserPipelineRequest,
@@ -1466,7 +1481,8 @@ class PipelinePublicServiceAsyncStub:
     The pipeline is identified by its resource name, formed by the parent user
     and ID of the pipeline.
 
-    For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+    For more information, see [Run
+    Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     TriggerUserPipelineWithStream: grpc.aio.UnaryStreamMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineWithStreamRequest,
@@ -1474,9 +1490,9 @@ class PipelinePublicServiceAsyncStub:
     ]
     """Trigger a pipeline owned by a user and stream back the response
 
-    Triggers the execution of a pipeline asynchronously and streams back the response.
-    This method is intended for real-time inference when low latency is of concern
-    and the response needs to be processed incrementally.
+    Triggers the execution of a pipeline asynchronously and streams back the
+    response. This method is intended for real-time inference when low latency
+    is of concern and the response needs to be processed incrementally.
 
     The pipeline is identified by its resource name, formed by the parent user
     and ID of the pipeline.
@@ -1495,7 +1511,8 @@ class PipelinePublicServiceAsyncStub:
     The pipeline is identified by its resource name, formed by the parent user
     and ID of the pipeline.
 
-    For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+    For more information, see [Run
+    Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     CreateUserPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.CreateUserPipelineReleaseRequest,
@@ -1687,14 +1704,15 @@ class PipelinePublicServiceAsyncStub:
     ]
     """Trigger a pipeline owned by an organization
 
-    Triggers the execution of a pipeline synchronously, i.e., the result is sent
-    back to the organization right after the data is processed. This method is
-    intended for real-time inference when low latency is of concern.
+    Triggers the execution of a pipeline synchronously, i.e., the result is
+    sent back to the organization right after the data is processed. This
+    method is intended for real-time inference when low latency is of concern.
 
     The pipeline is identified by its resource name, formed by the parent
     organization and ID of the pipeline.
 
-    For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+    For more information, see [Run
+    Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     TriggerOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineRequest,
@@ -1702,14 +1720,15 @@ class PipelinePublicServiceAsyncStub:
     ]
     """Trigger a pipeline owned by an organization
 
-    Triggers the execution of a pipeline synchronously, i.e., the result is sent
-    back to the organization right after the data is processed. This method is
-    intended for real-time inference when low latency is of concern.
+    Triggers the execution of a pipeline synchronously, i.e., the result is
+    sent back to the organization right after the data is processed. This
+    method is intended for real-time inference when low latency is of concern.
 
     The pipeline is identified by its resource name, formed by the parent
     organization and ID of the pipeline.
 
-    For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+    For more information, see [Run
+    Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     TriggerAsyncOrganizationPipeline: grpc.aio.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.TriggerAsyncOrganizationPipelineRequest,
@@ -1725,7 +1744,8 @@ class PipelinePublicServiceAsyncStub:
     The pipeline is identified by its resource name, formed by the parent
     organization and ID of the pipeline.
 
-    For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+    For more information, see [Run
+    Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
     CreateOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.CreateOrganizationPipelineReleaseRequest,
@@ -1733,8 +1753,8 @@ class PipelinePublicServiceAsyncStub:
     ]
     """Release a version of a pipeline owned by an organization
 
-    Commits the version of a pipeline, identified by its resource name, which is
-    formed by the parent organization and ID of the pipeline.
+    Commits the version of a pipeline, identified by its resource name, which
+    is formed by the parent organization and ID of the pipeline.
     """
     ListOrganizationPipelineReleases: grpc.aio.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.ListOrganizationPipelineReleasesRequest,
@@ -1769,8 +1789,8 @@ class PipelinePublicServiceAsyncStub:
     ]
     """Delete a release in a pipeline owned by an organization
 
-    Deletes a pipeline release, where the pipeline is identified by its resource
-    name, formed by its parent organization and ID.
+    Deletes a pipeline release, where the pipeline is identified by its
+    resource name, formed by its parent organization and ID.
     """
     RestoreOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
         pipeline.pipeline.v1beta.pipeline_pb2.RestoreOrganizationPipelineReleaseRequest,
@@ -1793,8 +1813,8 @@ class PipelinePublicServiceAsyncStub:
     its resource name, formed by the parent organization and ID. Since this is
     an output-only field, a custom method is required to modify it.
 
-    The pipeline release name will be updated accordingly, as it is  composed by
-    the pipeline name and the ID of the release (e.g.
+    The pipeline release name will be updated accordingly, as it is  composed
+    by the pipeline name and the ID of the release (e.g.
     `organizations/luigi/pipelines/pizza-recipe-generator/releases/v0.2.1`).
     """
     TriggerOrganizationPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
@@ -2133,8 +2153,8 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         """Update a pipeline
 
         Udpates a pipeline, accessing it by its resource name, which is defined by
-        the parent namespace and the ID of the pipeline. The authenticated namespace must be
-        the parent of the pipeline in order to modify it.
+        the parent namespace and the ID of the pipeline. The authenticated
+        namespace must be the parent of the pipeline in order to modify it.
 
         In REST requests, only the supplied pipeline fields will be taken into
         account when updating the resource.
@@ -2148,8 +2168,8 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         """Delete a pipeline
 
         Deletes a pipeline, accesing it by its resource name, which is defined by
-        the parent namespace and the ID of the pipeline. The authenticated namespace must be
-        the parent of the pipeline in order to delete it.
+        the parent namespace and the ID of the pipeline. The authenticated
+        namespace must be the parent of the pipeline in order to delete it.
         """
     @abc.abstractmethod
     def ValidateNamespacePipeline(
@@ -2162,7 +2182,8 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         Validates a pipeline by its resource name, which is defined by the parent
         namespace and the ID of the pipeline.
 
-        Validation checks the recipe of the pipeline and the status of its components.
+        Validation checks the recipe of the pipeline and the status of its
+        components.
         """
     @abc.abstractmethod
     def RenameNamespacePipeline(
@@ -2190,8 +2211,8 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[pipeline.pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineResponse, collections.abc.Awaitable[pipeline.pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineResponse]]:
         """Clone a pipeline
 
-        Clones a pipeline owned by a namespace. The new pipeline may have a different
-        parent, and this can be either a namespace or an organization.
+        Clones a pipeline owned by a namespace. The new pipeline may have a
+        different parent, and this can be either a namespace or an organization.
         """
     @abc.abstractmethod
     def DispatchPipelineWebhookEvent(
@@ -2201,10 +2222,11 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[pipeline.pipeline.v1beta.pipeline_pb2.DispatchPipelineWebhookEventResponse, collections.abc.Awaitable[pipeline.pipeline.v1beta.pipeline_pb2.DispatchPipelineWebhookEventResponse]]:
         """Dispatch Pipeline Webhook Event
 
-        Handles webhook events by routing them to the appropriate pipeline based on the webhook type and message.
-        The webhook type determines which component processes the event, while the message payload contains data
-        that triggers pipeline execution. The pipeline processes the event using configured handlers and returns
-        a response to the webhook sender.
+        Handles webhook events by routing them to the appropriate pipeline based on
+        the webhook type and message. The webhook type determines which component
+        processes the event, while the message payload contains data that triggers
+        pipeline execution. The pipeline processes the event using configured
+        handlers and returns a response to the webhook sender.
         """
     @abc.abstractmethod
     def TriggerNamespacePipeline(
@@ -2215,13 +2237,14 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         """Trigger a pipeline
 
         Triggers the execution of a pipeline synchronously, i.e., the result is
-        sent back to the namespace right after the data is processed. This method is
-        intended for real-time inference when low latency is of concern.
+        sent back to the namespace right after the data is processed. This method
+        is intended for real-time inference when low latency is of concern.
 
-        The pipeline is identified by its resource name, formed by the parent namespace
-        and ID of the pipeline.
+        The pipeline is identified by its resource name, formed by the parent
+        namespace and ID of the pipeline.
 
-        For more information, see [Run NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+        For more information, see [Run
+        NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
     @abc.abstractmethod
     def TriggerNamespacePipelineWithStream(
@@ -2231,12 +2254,12 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[collections.abc.Iterator[pipeline.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineWithStreamResponse], collections.abc.AsyncIterator[pipeline.pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineWithStreamResponse]]:
         """Trigger a pipeline via streaming
 
-        Triggers the execution of a pipeline asynchronously and streams back the response.
-        This method is intended for real-time inference when low latency is of concern
-        and the response needs to be processed incrementally.
+        Triggers the execution of a pipeline asynchronously and streams back the
+        response. This method is intended for real-time inference when low latency
+        is of concern and the response needs to be processed incrementally.
 
-        The pipeline is identified by its resource name, formed by the parent namespace
-        and ID of the pipeline.
+        The pipeline is identified by its resource name, formed by the parent
+        namespace and ID of the pipeline.
         """
     @abc.abstractmethod
     def TriggerAsyncNamespacePipeline(
@@ -2251,10 +2274,11 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         operation. This method is intended for cases that require long-running
         workloads.
 
-        The pipeline is identified by its resource name, formed by the parent namespace
-        and ID of the pipeline.
+        The pipeline is identified by its resource name, formed by the parent
+        namespace and ID of the pipeline.
 
-        For more information, see [Run NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+        For more information, see [Run
+        NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
     @abc.abstractmethod
     def CreateNamespacePipelineRelease(
@@ -2328,8 +2352,8 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[pipeline.pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineReleaseResponse, collections.abc.Awaitable[pipeline.pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineReleaseResponse]]:
         """Clone a pipeline release
 
-        Clones a pipeline release owned by a namespace. The new pipeline may have a different
-        parent, and this can be either a namespace or an organization.
+        Clones a pipeline release owned by a namespace. The new pipeline may have a
+        different parent, and this can be either a namespace or an organization.
         """
     @abc.abstractmethod
     def TriggerNamespacePipelineRelease(
@@ -2344,8 +2368,8 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         at its latest release, this method allows the client to specified any
         committed release.
 
-        The pipeline is identified by its resource name, formed by its parent namespace
-        and ID.
+        The pipeline is identified by its resource name, formed by its parent
+        namespace and ID.
         """
     @abc.abstractmethod
     def TriggerAsyncNamespacePipelineRelease(
@@ -2360,8 +2384,8 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         at its latest release, this method allows the client to specified any
         committed release.
 
-        The pipeline is identified by its resource name, formed by its parent namespace
-        and ID.
+        The pipeline is identified by its resource name, formed by its parent
+        namespace and ID.
         """
     @abc.abstractmethod
     def CreateNamespaceSecret(
@@ -2477,8 +2501,8 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[pipeline.pipeline.v1beta.pipeline_pb2.GetUserPipelineResponse, collections.abc.Awaitable[pipeline.pipeline.v1beta.pipeline_pb2.GetUserPipelineResponse]]:
         """Get a pipeline owned by a user
 
-        Returns the details of a user-owned pipeline by its resource name, which is defined
-        by the parent user and the ID of the pipeline.
+        Returns the details of a user-owned pipeline by its resource name, which is
+        defined by the parent user and the ID of the pipeline.
         """
     @abc.abstractmethod
     def UpdateUserPipeline(
@@ -2518,7 +2542,8 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         Validates a pipeline by its resource name, which is defined by the parent
         user and the ID of the pipeline.
 
-        Validation checks the recipe of the pipeline and the status of its components.
+        Validation checks the recipe of the pipeline and the status of its
+        components.
         """
     @abc.abstractmethod
     def RenameUserPipeline(
@@ -2553,7 +2578,8 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         The pipeline is identified by its resource name, formed by the parent user
         and ID of the pipeline.
 
-        For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+        For more information, see [Run
+        Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
     @abc.abstractmethod
     def TriggerUserPipelineWithStream(
@@ -2563,9 +2589,9 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[collections.abc.Iterator[pipeline.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineWithStreamResponse], collections.abc.AsyncIterator[pipeline.pipeline.v1beta.pipeline_pb2.TriggerUserPipelineWithStreamResponse]]:
         """Trigger a pipeline owned by a user and stream back the response
 
-        Triggers the execution of a pipeline asynchronously and streams back the response.
-        This method is intended for real-time inference when low latency is of concern
-        and the response needs to be processed incrementally.
+        Triggers the execution of a pipeline asynchronously and streams back the
+        response. This method is intended for real-time inference when low latency
+        is of concern and the response needs to be processed incrementally.
 
         The pipeline is identified by its resource name, formed by the parent user
         and ID of the pipeline.
@@ -2586,7 +2612,8 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         The pipeline is identified by its resource name, formed by the parent user
         and ID of the pipeline.
 
-        For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+        For more information, see [Run
+        Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
     @abc.abstractmethod
     def CreateUserPipelineRelease(
@@ -2812,14 +2839,15 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[collections.abc.Iterator[pipeline.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineStreamResponse], collections.abc.AsyncIterator[pipeline.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineStreamResponse]]:
         """Trigger a pipeline owned by an organization
 
-        Triggers the execution of a pipeline synchronously, i.e., the result is sent
-        back to the organization right after the data is processed. This method is
-        intended for real-time inference when low latency is of concern.
+        Triggers the execution of a pipeline synchronously, i.e., the result is
+        sent back to the organization right after the data is processed. This
+        method is intended for real-time inference when low latency is of concern.
 
         The pipeline is identified by its resource name, formed by the parent
         organization and ID of the pipeline.
 
-        For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+        For more information, see [Run
+        Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
     @abc.abstractmethod
     def TriggerOrganizationPipeline(
@@ -2829,14 +2857,15 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[pipeline.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineResponse, collections.abc.Awaitable[pipeline.pipeline.v1beta.pipeline_pb2.TriggerOrganizationPipelineResponse]]:
         """Trigger a pipeline owned by an organization
 
-        Triggers the execution of a pipeline synchronously, i.e., the result is sent
-        back to the organization right after the data is processed. This method is
-        intended for real-time inference when low latency is of concern.
+        Triggers the execution of a pipeline synchronously, i.e., the result is
+        sent back to the organization right after the data is processed. This
+        method is intended for real-time inference when low latency is of concern.
 
         The pipeline is identified by its resource name, formed by the parent
         organization and ID of the pipeline.
 
-        For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+        For more information, see [Run
+        Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
     @abc.abstractmethod
     def TriggerAsyncOrganizationPipeline(
@@ -2854,7 +2883,8 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         The pipeline is identified by its resource name, formed by the parent
         organization and ID of the pipeline.
 
-        For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+        For more information, see [Run
+        Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
     @abc.abstractmethod
     def CreateOrganizationPipelineRelease(
@@ -2864,8 +2894,8 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[pipeline.pipeline.v1beta.pipeline_pb2.CreateOrganizationPipelineReleaseResponse, collections.abc.Awaitable[pipeline.pipeline.v1beta.pipeline_pb2.CreateOrganizationPipelineReleaseResponse]]:
         """Release a version of a pipeline owned by an organization
 
-        Commits the version of a pipeline, identified by its resource name, which is
-        formed by the parent organization and ID of the pipeline.
+        Commits the version of a pipeline, identified by its resource name, which
+        is formed by the parent organization and ID of the pipeline.
         """
     @abc.abstractmethod
     def ListOrganizationPipelineReleases(
@@ -2908,8 +2938,8 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[pipeline.pipeline.v1beta.pipeline_pb2.DeleteOrganizationPipelineReleaseResponse, collections.abc.Awaitable[pipeline.pipeline.v1beta.pipeline_pb2.DeleteOrganizationPipelineReleaseResponse]]:
         """Delete a release in a pipeline owned by an organization
 
-        Deletes a pipeline release, where the pipeline is identified by its resource
-        name, formed by its parent organization and ID.
+        Deletes a pipeline release, where the pipeline is identified by its
+        resource name, formed by its parent organization and ID.
         """
     @abc.abstractmethod
     def RestoreOrganizationPipelineRelease(
@@ -2936,8 +2966,8 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         its resource name, formed by the parent organization and ID. Since this is
         an output-only field, a custom method is required to modify it.
 
-        The pipeline release name will be updated accordingly, as it is  composed by
-        the pipeline name and the ID of the release (e.g.
+        The pipeline release name will be updated accordingly, as it is  composed
+        by the pipeline name and the ID of the release (e.g.
         `organizations/luigi/pipelines/pizza-recipe-generator/releases/v0.2.1`).
         """
     @abc.abstractmethod

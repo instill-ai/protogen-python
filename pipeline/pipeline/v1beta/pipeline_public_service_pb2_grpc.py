@@ -573,8 +573,8 @@ class PipelinePublicServiceServicer(object):
         """Update a pipeline
 
         Udpates a pipeline, accessing it by its resource name, which is defined by
-        the parent namespace and the ID of the pipeline. The authenticated namespace must be
-        the parent of the pipeline in order to modify it.
+        the parent namespace and the ID of the pipeline. The authenticated
+        namespace must be the parent of the pipeline in order to modify it.
 
         In REST requests, only the supplied pipeline fields will be taken into
         account when updating the resource.
@@ -587,8 +587,8 @@ class PipelinePublicServiceServicer(object):
         """Delete a pipeline
 
         Deletes a pipeline, accesing it by its resource name, which is defined by
-        the parent namespace and the ID of the pipeline. The authenticated namespace must be
-        the parent of the pipeline in order to delete it.
+        the parent namespace and the ID of the pipeline. The authenticated
+        namespace must be the parent of the pipeline in order to delete it.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -600,7 +600,8 @@ class PipelinePublicServiceServicer(object):
         Validates a pipeline by its resource name, which is defined by the parent
         namespace and the ID of the pipeline.
 
-        Validation checks the recipe of the pipeline and the status of its components.
+        Validation checks the recipe of the pipeline and the status of its
+        components.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -626,8 +627,8 @@ class PipelinePublicServiceServicer(object):
     def CloneNamespacePipeline(self, request, context):
         """Clone a pipeline
 
-        Clones a pipeline owned by a namespace. The new pipeline may have a different
-        parent, and this can be either a namespace or an organization.
+        Clones a pipeline owned by a namespace. The new pipeline may have a
+        different parent, and this can be either a namespace or an organization.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -636,10 +637,11 @@ class PipelinePublicServiceServicer(object):
     def DispatchPipelineWebhookEvent(self, request, context):
         """Dispatch Pipeline Webhook Event
 
-        Handles webhook events by routing them to the appropriate pipeline based on the webhook type and message.
-        The webhook type determines which component processes the event, while the message payload contains data
-        that triggers pipeline execution. The pipeline processes the event using configured handlers and returns
-        a response to the webhook sender.
+        Handles webhook events by routing them to the appropriate pipeline based on
+        the webhook type and message. The webhook type determines which component
+        processes the event, while the message payload contains data that triggers
+        pipeline execution. The pipeline processes the event using configured
+        handlers and returns a response to the webhook sender.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -649,13 +651,14 @@ class PipelinePublicServiceServicer(object):
         """Trigger a pipeline
 
         Triggers the execution of a pipeline synchronously, i.e., the result is
-        sent back to the namespace right after the data is processed. This method is
-        intended for real-time inference when low latency is of concern.
+        sent back to the namespace right after the data is processed. This method
+        is intended for real-time inference when low latency is of concern.
 
-        The pipeline is identified by its resource name, formed by the parent namespace
-        and ID of the pipeline.
+        The pipeline is identified by its resource name, formed by the parent
+        namespace and ID of the pipeline.
 
-        For more information, see [Run NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+        For more information, see [Run
+        NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -664,12 +667,12 @@ class PipelinePublicServiceServicer(object):
     def TriggerNamespacePipelineWithStream(self, request, context):
         """Trigger a pipeline via streaming
 
-        Triggers the execution of a pipeline asynchronously and streams back the response.
-        This method is intended for real-time inference when low latency is of concern
-        and the response needs to be processed incrementally.
+        Triggers the execution of a pipeline asynchronously and streams back the
+        response. This method is intended for real-time inference when low latency
+        is of concern and the response needs to be processed incrementally.
 
-        The pipeline is identified by its resource name, formed by the parent namespace
-        and ID of the pipeline.
+        The pipeline is identified by its resource name, formed by the parent
+        namespace and ID of the pipeline.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -683,10 +686,11 @@ class PipelinePublicServiceServicer(object):
         operation. This method is intended for cases that require long-running
         workloads.
 
-        The pipeline is identified by its resource name, formed by the parent namespace
-        and ID of the pipeline.
+        The pipeline is identified by its resource name, formed by the parent
+        namespace and ID of the pipeline.
 
-        For more information, see [Run NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+        For more information, see [Run
+        NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -754,8 +758,8 @@ class PipelinePublicServiceServicer(object):
     def CloneNamespacePipelineRelease(self, request, context):
         """Clone a pipeline release
 
-        Clones a pipeline release owned by a namespace. The new pipeline may have a different
-        parent, and this can be either a namespace or an organization.
+        Clones a pipeline release owned by a namespace. The new pipeline may have a
+        different parent, and this can be either a namespace or an organization.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -769,8 +773,8 @@ class PipelinePublicServiceServicer(object):
         at its latest release, this method allows the client to specified any
         committed release.
 
-        The pipeline is identified by its resource name, formed by its parent namespace
-        and ID.
+        The pipeline is identified by its resource name, formed by its parent
+        namespace and ID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -784,8 +788,8 @@ class PipelinePublicServiceServicer(object):
         at its latest release, this method allows the client to specified any
         committed release.
 
-        The pipeline is identified by its resource name, formed by its parent namespace
-        and ID.
+        The pipeline is identified by its resource name, formed by its parent
+        namespace and ID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -891,8 +895,8 @@ class PipelinePublicServiceServicer(object):
     def GetUserPipeline(self, request, context):
         """Get a pipeline owned by a user
 
-        Returns the details of a user-owned pipeline by its resource name, which is defined
-        by the parent user and the ID of the pipeline.
+        Returns the details of a user-owned pipeline by its resource name, which is
+        defined by the parent user and the ID of the pipeline.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -929,7 +933,8 @@ class PipelinePublicServiceServicer(object):
         Validates a pipeline by its resource name, which is defined by the parent
         user and the ID of the pipeline.
 
-        Validation checks the recipe of the pipeline and the status of its components.
+        Validation checks the recipe of the pipeline and the status of its
+        components.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -962,7 +967,8 @@ class PipelinePublicServiceServicer(object):
         The pipeline is identified by its resource name, formed by the parent user
         and ID of the pipeline.
 
-        For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+        For more information, see [Run
+        Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -971,9 +977,9 @@ class PipelinePublicServiceServicer(object):
     def TriggerUserPipelineWithStream(self, request, context):
         """Trigger a pipeline owned by a user and stream back the response
 
-        Triggers the execution of a pipeline asynchronously and streams back the response.
-        This method is intended for real-time inference when low latency is of concern
-        and the response needs to be processed incrementally.
+        Triggers the execution of a pipeline asynchronously and streams back the
+        response. This method is intended for real-time inference when low latency
+        is of concern and the response needs to be processed incrementally.
 
         The pipeline is identified by its resource name, formed by the parent user
         and ID of the pipeline.
@@ -993,7 +999,8 @@ class PipelinePublicServiceServicer(object):
         The pipeline is identified by its resource name, formed by the parent user
         and ID of the pipeline.
 
-        For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+        For more information, see [Run
+        Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1202,14 +1209,15 @@ class PipelinePublicServiceServicer(object):
     def TriggerOrganizationPipelineStream(self, request, context):
         """Trigger a pipeline owned by an organization
 
-        Triggers the execution of a pipeline synchronously, i.e., the result is sent
-        back to the organization right after the data is processed. This method is
-        intended for real-time inference when low latency is of concern.
+        Triggers the execution of a pipeline synchronously, i.e., the result is
+        sent back to the organization right after the data is processed. This
+        method is intended for real-time inference when low latency is of concern.
 
         The pipeline is identified by its resource name, formed by the parent
         organization and ID of the pipeline.
 
-        For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+        For more information, see [Run
+        Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1218,14 +1226,15 @@ class PipelinePublicServiceServicer(object):
     def TriggerOrganizationPipeline(self, request, context):
         """Trigger a pipeline owned by an organization
 
-        Triggers the execution of a pipeline synchronously, i.e., the result is sent
-        back to the organization right after the data is processed. This method is
-        intended for real-time inference when low latency is of concern.
+        Triggers the execution of a pipeline synchronously, i.e., the result is
+        sent back to the organization right after the data is processed. This
+        method is intended for real-time inference when low latency is of concern.
 
         The pipeline is identified by its resource name, formed by the parent
         organization and ID of the pipeline.
 
-        For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+        For more information, see [Run
+        Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1242,7 +1251,8 @@ class PipelinePublicServiceServicer(object):
         The pipeline is identified by its resource name, formed by the parent
         organization and ID of the pipeline.
 
-        For more information, see [Run Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+        For more information, see [Run
+        Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1251,8 +1261,8 @@ class PipelinePublicServiceServicer(object):
     def CreateOrganizationPipelineRelease(self, request, context):
         """Release a version of a pipeline owned by an organization
 
-        Commits the version of a pipeline, identified by its resource name, which is
-        formed by the parent organization and ID of the pipeline.
+        Commits the version of a pipeline, identified by its resource name, which
+        is formed by the parent organization and ID of the pipeline.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1291,8 +1301,8 @@ class PipelinePublicServiceServicer(object):
     def DeleteOrganizationPipelineRelease(self, request, context):
         """Delete a release in a pipeline owned by an organization
 
-        Deletes a pipeline release, where the pipeline is identified by its resource
-        name, formed by its parent organization and ID.
+        Deletes a pipeline release, where the pipeline is identified by its
+        resource name, formed by its parent organization and ID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1317,8 +1327,8 @@ class PipelinePublicServiceServicer(object):
         its resource name, formed by the parent organization and ID. Since this is
         an output-only field, a custom method is required to modify it.
 
-        The pipeline release name will be updated accordingly, as it is  composed by
-        the pipeline name and the ID of the release (e.g.
+        The pipeline release name will be updated accordingly, as it is  composed
+        by the pipeline name and the ID of the release (e.g.
         `organizations/luigi/pipelines/pizza-recipe-generator/releases/v0.2.1`).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
