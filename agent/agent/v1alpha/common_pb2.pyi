@@ -168,9 +168,31 @@ class ChatContext(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "file_uids", b"file_uids"]) -> None: ...
 
+    @typing_extensions.final
+    class Table(google.protobuf.message.Message):
+        """Represents a table."""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        TABLE_UID_FIELD_NUMBER: builtins.int
+        FILE_UIDS_FIELD_NUMBER: builtins.int
+        table_uid: builtins.str
+        """The table containing the files"""
+        @property
+        def file_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+            """Specific file UIDs within the table, leave empty to include all files in the table"""
+        def __init__(
+            self,
+            *,
+            table_uid: builtins.str = ...,
+            file_uids: collections.abc.Iterable[builtins.str] | None = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["file_uids", b"file_uids", "table_uid", b"table_uid"]) -> None: ...
+
     TABLE_UIDS_FIELD_NUMBER: builtins.int
     FOLDERS_FIELD_NUMBER: builtins.int
     CATALOGS_FIELD_NUMBER: builtins.int
+    TABLES_FIELD_NUMBER: builtins.int
     @property
     def table_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """The table uids to include in the context."""
@@ -180,14 +202,18 @@ class ChatContext(google.protobuf.message.Message):
     @property
     def catalogs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ChatContext.Catalog]:
         """The catalogs to include in the context."""
+    @property
+    def tables(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ChatContext.Table]:
+        """The tables to include in the context."""
     def __init__(
         self,
         *,
         table_uids: collections.abc.Iterable[builtins.str] | None = ...,
         folders: collections.abc.Iterable[global___ChatContext.Folder] | None = ...,
         catalogs: collections.abc.Iterable[global___ChatContext.Catalog] | None = ...,
+        tables: collections.abc.Iterable[global___ChatContext.Table] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalogs", b"catalogs", "folders", b"folders", "table_uids", b"table_uids"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalogs", b"catalogs", "folders", b"folders", "table_uids", b"table_uids", "tables", b"tables"]) -> None: ...
 
 global___ChatContext = ChatContext
 
