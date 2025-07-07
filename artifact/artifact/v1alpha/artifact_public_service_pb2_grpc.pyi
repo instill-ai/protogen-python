@@ -169,7 +169,7 @@ class ArtifactPublicServiceStub:
     ]
     """Retrieve similar chunks
 
-    Returns the similar chunks.
+    Returns the top-K most similar chunks to a text prompt.
     """
     QuestionAnswering: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringRequest,
@@ -183,9 +183,10 @@ class ArtifactPublicServiceStub:
         artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogRequest,
         artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogResponse,
     ]
-    """Get file catalog
+    """Get the catalog file.
 
-    Get the catalog file.
+    Returns a view of the file within the catalog, with the text and chunks it
+    generated after being processed.
     """
     ListCatalogRuns: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsRequest,
@@ -367,7 +368,7 @@ class ArtifactPublicServiceAsyncStub:
     ]
     """Retrieve similar chunks
 
-    Returns the similar chunks.
+    Returns the top-K most similar chunks to a text prompt.
     """
     QuestionAnswering: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringRequest,
@@ -381,9 +382,10 @@ class ArtifactPublicServiceAsyncStub:
         artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogRequest,
         artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogResponse,
     ]
-    """Get file catalog
+    """Get the catalog file.
 
-    Get the catalog file.
+    Returns a view of the file within the catalog, with the text and chunks it
+    generated after being processed.
     """
     ListCatalogRuns: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsRequest,
@@ -601,7 +603,7 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.chunk_pb2.SimilarityChunksSearchResponse]]:
         """Retrieve similar chunks
 
-        Returns the similar chunks.
+        Returns the top-K most similar chunks to a text prompt.
         """
     @abc.abstractmethod
     def QuestionAnswering(
@@ -619,9 +621,10 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         request: artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogResponse]]:
-        """Get file catalog
+        """Get the catalog file.
 
-        Get the catalog file.
+        Returns a view of the file within the catalog, with the text and chunks it
+        generated after being processed.
         """
     @abc.abstractmethod
     def ListCatalogRuns(

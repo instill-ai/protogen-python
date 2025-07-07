@@ -441,20 +441,25 @@ class SimilarityChunksSearchRequest(google.protobuf.message.Message):
     FILE_NAME_FIELD_NUMBER: builtins.int
     CONTENT_TYPE_FIELD_NUMBER: builtins.int
     FILE_MEDIA_TYPE_FIELD_NUMBER: builtins.int
+    FILE_UID_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """owner/namespace id"""
+    """ID of the namespace owning the catalog."""
     catalog_id: builtins.str
-    """catalog id"""
+    """ID of the catalog."""
     text_prompt: builtins.str
-    """text prompt"""
+    """Text prompt to look for similarities."""
     top_k: builtins.int
-    """top k"""
+    """Top K. Default value: 5."""
     file_name: builtins.str
-    """file name"""
+    """File name. This field is deprecated as the file ID isn't a unique
+    identifier within a catalog. The file UID should be used, instead.
+    """
     content_type: global___ContentType.ValueType
-    """content type"""
+    """Content type."""
     file_media_type: global___FileMediaType.ValueType
-    """file type"""
+    """File type."""
+    file_uid: builtins.str
+    """File UID."""
     def __init__(
         self,
         *,
@@ -465,8 +470,9 @@ class SimilarityChunksSearchRequest(google.protobuf.message.Message):
         file_name: builtins.str = ...,
         content_type: global___ContentType.ValueType = ...,
         file_media_type: global___FileMediaType.ValueType = ...,
+        file_uid: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "content_type", b"content_type", "file_media_type", b"file_media_type", "file_name", b"file_name", "namespace_id", b"namespace_id", "text_prompt", b"text_prompt", "top_k", b"top_k"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "content_type", b"content_type", "file_media_type", b"file_media_type", "file_name", b"file_name", "file_uid", b"file_uid", "namespace_id", b"namespace_id", "text_prompt", b"text_prompt", "top_k", b"top_k"]) -> None: ...
 
 global___SimilarityChunksSearchRequest = SimilarityChunksSearchRequest
 

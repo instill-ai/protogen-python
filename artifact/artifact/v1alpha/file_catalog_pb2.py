@@ -12,10 +12,11 @@ _sym_db = _symbol_database.Default()
 
 
 from artifact.artifact.v1alpha import artifact_pb2 as artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2
+from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,artifact/artifact/v1alpha/file_catalog.proto\x12\x19\x61rtifact.artifact.v1alpha\x1a(artifact/artifact/v1alpha/artifact.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8d\x01\n\x15GetFileCatalogRequest\x12!\n\x0cnamespace_id\x18\x01 \x01(\tR\x0bnamespaceId\x12\x1d\n\ncatalog_id\x18\x02 \x01(\tR\tcatalogId\x12\x17\n\x07\x66ile_id\x18\x03 \x01(\tR\x06\x66ileId\x12\x19\n\x08\x66ile_uid\x18\x04 \x01(\tR\x07\x66ileUid\"\x95\x0b\n\x16GetFileCatalogResponse\x12#\n\roriginal_data\x18\x01 \x01(\tR\x0coriginalData\x12V\n\x08metadata\x18\x02 \x01(\x0b\x32:.artifact.artifact.v1alpha.GetFileCatalogResponse.MetadataR\x08metadata\x12J\n\x04text\x18\x03 \x01(\x0b\x32\x36.artifact.artifact.v1alpha.GetFileCatalogResponse.TextR\x04text\x12O\n\x06\x63hunks\x18\x04 \x03(\x0b\x32\x37.artifact.artifact.v1alpha.GetFileCatalogResponse.ChunkR\x06\x63hunks\x1a\xc1\x02\n\x08Metadata\x12\x19\n\x08\x66ile_uid\x18\x01 \x01(\tR\x07\x66ileUid\x12\x17\n\x07\x66ile_id\x18\x02 \x01(\tR\x06\x66ileId\x12@\n\tfile_type\x18\x03 \x01(\x0e\x32#.artifact.artifact.v1alpha.FileTypeR\x08\x66ileType\x12\x1b\n\tfile_size\x18\x04 \x01(\x03R\x08\x66ileSize\x12\x44\n\x10\x66ile_upload_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0e\x66ileUploadTime\x12\\\n\x13\x66ile_process_status\x18\x06 \x01(\x0e\x32,.artifact.artifact.v1alpha.FileProcessStatusR\x11\x66ileProcessStatus\x1a\xc3\x02\n\x04Text\x12!\n\x0cpipeline_ids\x18\x01 \x03(\tR\x0bpipelineIds\x12/\n\x13transformed_content\x18\x02 \x01(\tR\x12transformedContent\x12\x41\n\x1dtransformed_content_chunk_num\x18\x03 \x01(\x05R\x1atransformedContentChunkNum\x12\x41\n\x1dtransformed_content_token_num\x18\x04 \x01(\x05R\x1atransformedContentTokenNum\x12\x61\n\x1ftransformed_content_update_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x1ctransformedContentUpdateTime\x1a\xd6\x02\n\x05\x43hunk\x12\x10\n\x03uid\x18\x01 \x01(\tR\x03uid\x12O\n\x04type\x18\x02 \x01(\x0e\x32;.artifact.artifact.v1alpha.GetFileCatalogResponse.ChunkTypeR\x04type\x12\x1b\n\tstart_pos\x18\x03 \x01(\x05R\x08startPos\x12\x17\n\x07\x65nd_pos\x18\x04 \x01(\x05R\x06\x65ndPos\x12\x18\n\x07\x63ontent\x18\x05 \x01(\tR\x07\x63ontent\x12\x1d\n\ntokens_num\x18\x06 \x01(\x05R\ttokensNum\x12\x1c\n\tembedding\x18\x07 \x03(\x02R\tembedding\x12;\n\x0b\x63reate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ncreateTime\x12 \n\x0bretrievable\x18\t \x01(\x08R\x0bretrievable\"~\n\tChunkType\x12\x1a\n\x16\x43HUNK_TYPE_UNSPECIFIED\x10\x00\x12\x13\n\x0f\x43HUNK_TYPE_TEXT\x10\x01\x12\x14\n\x10\x43HUNK_TYPE_IMAGE\x10\x02\x12\x14\n\x10\x43HUNK_TYPE_AUDIO\x10\x03\x12\x14\n\x10\x43HUNK_TYPE_VIDEO\x10\x04\"o\n\x12GetChatFileRequest\x12!\n\x0cnamespace_id\x18\x01 \x01(\tR\x0bnamespaceId\x12\x1d\n\ncatalog_id\x18\x02 \x01(\tR\tcatalogId\x12\x17\n\x07\x66ile_id\x18\x03 \x01(\tR\x06\x66ileId\"1\n\x13GetChatFileResponse\x12\x1a\n\x08markdown\x18\x01 \x01(\x0cR\x08markdownB\x84\x02\n\x1d\x63om.artifact.artifact.v1alphaB\x10\x46ileCatalogProtoP\x01ZKgithub.com/instill-ai/protogen-go/artifact/artifact/v1alpha;artifactv1alpha\xa2\x02\x03\x41\x41X\xaa\x02\x19\x41rtifact.Artifact.V1alpha\xca\x02\x19\x41rtifact\\Artifact\\V1alpha\xe2\x02%Artifact\\Artifact\\V1alpha\\GPBMetadata\xea\x02\x1b\x41rtifact::Artifact::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,artifact/artifact/v1alpha/file_catalog.proto\x12\x19\x61rtifact.artifact.v1alpha\x1a(artifact/artifact/v1alpha/artifact.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x83\x01\n\x15GetFileCatalogRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\"\n\ncatalog_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\tcatalogId\x12\x1e\n\x08\x66ile_uid\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x07\x66ileUid\"\x8d\x0b\n\x16GetFileCatalogResponse\x12(\n\roriginal_data\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x0coriginalData\x12h\n\rfile_metadata\x18\x02 \x01(\x0b\x32>.artifact.artifact.v1alpha.GetFileCatalogResponse.FileMetadataB\x03\xe0\x41\x03R\x0c\x66ileMetadata\x12O\n\x04text\x18\x03 \x01(\x0b\x32\x36.artifact.artifact.v1alpha.GetFileCatalogResponse.TextB\x03\xe0\x41\x03R\x04text\x12T\n\x06\x63hunks\x18\x04 \x03(\x0b\x32\x37.artifact.artifact.v1alpha.GetFileCatalogResponse.ChunkB\x03\xe0\x41\x03R\x06\x63hunks\x1a\xc2\x02\n\x0c\x46ileMetadata\x12\x15\n\x03uid\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x1f\n\x08\x66ilename\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x08\x66ilename\x12\x45\n\tfile_type\x18\x03 \x01(\x0e\x32#.artifact.artifact.v1alpha.FileTypeB\x03\xe0\x41\x03R\x08\x66ileType\x12\x17\n\x04size\x18\x04 \x01(\x03\x42\x03\xe0\x41\x03R\x04size\x12@\n\x0b\x63reate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12X\n\x0eprocess_status\x18\x06 \x01(\x0e\x32,.artifact.artifact.v1alpha.FileProcessStatusB\x03\xe0\x41\x03R\rprocessStatus\x1a\xd6\x01\n\x04Text\x12!\n\tpipelines\x18\x01 \x03(\tB\x03\xe0\x41\x03R\tpipelines\x12\x1d\n\x07\x63ontent\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x07\x63ontent\x12$\n\x0b\x63hunk_count\x18\x03 \x01(\x05\x42\x03\xe0\x41\x03R\nchunkCount\x12$\n\x0btoken_count\x18\x04 \x01(\x05\x42\x03\xe0\x41\x03R\ntokenCount\x12@\n\x0bupdate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\x1a\x99\x03\n\x05\x43hunk\x12\x15\n\x03uid\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12T\n\x04type\x18\x02 \x01(\x0e\x32;.artifact.artifact.v1alpha.GetFileCatalogResponse.ChunkTypeB\x03\xe0\x41\x03R\x04type\x12*\n\x0estart_position\x18\x03 \x01(\x05\x42\x03\xe0\x41\x03R\rstartPosition\x12&\n\x0c\x65nd_position\x18\x04 \x01(\x05\x42\x03\xe0\x41\x03R\x0b\x65ndPosition\x12\x1d\n\x07\x63ontent\x18\x05 \x01(\tB\x03\xe0\x41\x03R\x07\x63ontent\x12$\n\x0btoken_count\x18\x06 \x01(\x05\x42\x03\xe0\x41\x03R\ntokenCount\x12!\n\tembedding\x18\x07 \x03(\x02\x42\x03\xe0\x41\x03R\tembedding\x12@\n\x0b\x63reate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12%\n\x0bretrievable\x18\t \x01(\x08\x42\x03\xe0\x41\x03R\x0bretrievable\"~\n\tChunkType\x12\x1a\n\x16\x43HUNK_TYPE_UNSPECIFIED\x10\x00\x12\x13\n\x0f\x43HUNK_TYPE_TEXT\x10\x01\x12\x14\n\x10\x43HUNK_TYPE_IMAGE\x10\x02\x12\x14\n\x10\x43HUNK_TYPE_AUDIO\x10\x03\x12\x14\n\x10\x43HUNK_TYPE_VIDEO\x10\x04\":\n\x18GetFileAsMarkdownRequest\x12\x1e\n\x08\x66ile_uid\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x07\x66ileUid\"<\n\x19GetFileAsMarkdownResponse\x12\x1f\n\x08markdown\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x08markdown\"s\n\x12GetChatFileRequest\x12!\n\x0cnamespace_id\x18\x01 \x01(\tR\x0bnamespaceId\x12\x1d\n\ncatalog_id\x18\x02 \x01(\tR\tcatalogId\x12\x17\n\x07\x66ile_id\x18\x03 \x01(\tR\x06\x66ileId:\x02\x18\x01\"5\n\x13GetChatFileResponse\x12\x1a\n\x08markdown\x18\x01 \x01(\x0cR\x08markdown:\x02\x18\x01\x42\x84\x02\n\x1d\x63om.artifact.artifact.v1alphaB\x10\x46ileCatalogProtoP\x01ZKgithub.com/instill-ai/protogen-go/artifact/artifact/v1alpha;artifactv1alpha\xa2\x02\x03\x41\x41X\xaa\x02\x19\x41rtifact.Artifact.V1alpha\xca\x02\x19\x41rtifact\\Artifact\\V1alpha\xe2\x02%Artifact\\Artifact\\V1alpha\\GPBMetadata\xea\x02\x1b\x41rtifact::Artifact::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -24,20 +25,86 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\035com.artifact.artifact.v1alphaB\020FileCatalogProtoP\001ZKgithub.com/instill-ai/protogen-go/artifact/artifact/v1alpha;artifactv1alpha\242\002\003AAX\252\002\031Artifact.Artifact.V1alpha\312\002\031Artifact\\Artifact\\V1alpha\342\002%Artifact\\Artifact\\V1alpha\\GPBMetadata\352\002\033Artifact::Artifact::V1alpha'
-  _globals['_GETFILECATALOGREQUEST']._serialized_start=151
-  _globals['_GETFILECATALOGREQUEST']._serialized_end=292
-  _globals['_GETFILECATALOGRESPONSE']._serialized_start=295
-  _globals['_GETFILECATALOGRESPONSE']._serialized_end=1724
-  _globals['_GETFILECATALOGRESPONSE_METADATA']._serialized_start=604
-  _globals['_GETFILECATALOGRESPONSE_METADATA']._serialized_end=925
-  _globals['_GETFILECATALOGRESPONSE_TEXT']._serialized_start=928
-  _globals['_GETFILECATALOGRESPONSE_TEXT']._serialized_end=1251
-  _globals['_GETFILECATALOGRESPONSE_CHUNK']._serialized_start=1254
-  _globals['_GETFILECATALOGRESPONSE_CHUNK']._serialized_end=1596
-  _globals['_GETFILECATALOGRESPONSE_CHUNKTYPE']._serialized_start=1598
-  _globals['_GETFILECATALOGRESPONSE_CHUNKTYPE']._serialized_end=1724
-  _globals['_GETCHATFILEREQUEST']._serialized_start=1726
-  _globals['_GETCHATFILEREQUEST']._serialized_end=1837
-  _globals['_GETCHATFILERESPONSE']._serialized_start=1839
-  _globals['_GETCHATFILERESPONSE']._serialized_end=1888
+  _GETFILECATALOGREQUEST.fields_by_name['namespace_id']._options = None
+  _GETFILECATALOGREQUEST.fields_by_name['namespace_id']._serialized_options = b'\340A\002'
+  _GETFILECATALOGREQUEST.fields_by_name['catalog_id']._options = None
+  _GETFILECATALOGREQUEST.fields_by_name['catalog_id']._serialized_options = b'\340A\002'
+  _GETFILECATALOGREQUEST.fields_by_name['file_uid']._options = None
+  _GETFILECATALOGREQUEST.fields_by_name['file_uid']._serialized_options = b'\340A\002'
+  _GETFILECATALOGRESPONSE_FILEMETADATA.fields_by_name['uid']._options = None
+  _GETFILECATALOGRESPONSE_FILEMETADATA.fields_by_name['uid']._serialized_options = b'\340A\003'
+  _GETFILECATALOGRESPONSE_FILEMETADATA.fields_by_name['filename']._options = None
+  _GETFILECATALOGRESPONSE_FILEMETADATA.fields_by_name['filename']._serialized_options = b'\340A\003'
+  _GETFILECATALOGRESPONSE_FILEMETADATA.fields_by_name['file_type']._options = None
+  _GETFILECATALOGRESPONSE_FILEMETADATA.fields_by_name['file_type']._serialized_options = b'\340A\003'
+  _GETFILECATALOGRESPONSE_FILEMETADATA.fields_by_name['size']._options = None
+  _GETFILECATALOGRESPONSE_FILEMETADATA.fields_by_name['size']._serialized_options = b'\340A\003'
+  _GETFILECATALOGRESPONSE_FILEMETADATA.fields_by_name['create_time']._options = None
+  _GETFILECATALOGRESPONSE_FILEMETADATA.fields_by_name['create_time']._serialized_options = b'\340A\003'
+  _GETFILECATALOGRESPONSE_FILEMETADATA.fields_by_name['process_status']._options = None
+  _GETFILECATALOGRESPONSE_FILEMETADATA.fields_by_name['process_status']._serialized_options = b'\340A\003'
+  _GETFILECATALOGRESPONSE_TEXT.fields_by_name['pipelines']._options = None
+  _GETFILECATALOGRESPONSE_TEXT.fields_by_name['pipelines']._serialized_options = b'\340A\003'
+  _GETFILECATALOGRESPONSE_TEXT.fields_by_name['content']._options = None
+  _GETFILECATALOGRESPONSE_TEXT.fields_by_name['content']._serialized_options = b'\340A\003'
+  _GETFILECATALOGRESPONSE_TEXT.fields_by_name['chunk_count']._options = None
+  _GETFILECATALOGRESPONSE_TEXT.fields_by_name['chunk_count']._serialized_options = b'\340A\003'
+  _GETFILECATALOGRESPONSE_TEXT.fields_by_name['token_count']._options = None
+  _GETFILECATALOGRESPONSE_TEXT.fields_by_name['token_count']._serialized_options = b'\340A\003'
+  _GETFILECATALOGRESPONSE_TEXT.fields_by_name['update_time']._options = None
+  _GETFILECATALOGRESPONSE_TEXT.fields_by_name['update_time']._serialized_options = b'\340A\003'
+  _GETFILECATALOGRESPONSE_CHUNK.fields_by_name['uid']._options = None
+  _GETFILECATALOGRESPONSE_CHUNK.fields_by_name['uid']._serialized_options = b'\340A\003'
+  _GETFILECATALOGRESPONSE_CHUNK.fields_by_name['type']._options = None
+  _GETFILECATALOGRESPONSE_CHUNK.fields_by_name['type']._serialized_options = b'\340A\003'
+  _GETFILECATALOGRESPONSE_CHUNK.fields_by_name['start_position']._options = None
+  _GETFILECATALOGRESPONSE_CHUNK.fields_by_name['start_position']._serialized_options = b'\340A\003'
+  _GETFILECATALOGRESPONSE_CHUNK.fields_by_name['end_position']._options = None
+  _GETFILECATALOGRESPONSE_CHUNK.fields_by_name['end_position']._serialized_options = b'\340A\003'
+  _GETFILECATALOGRESPONSE_CHUNK.fields_by_name['content']._options = None
+  _GETFILECATALOGRESPONSE_CHUNK.fields_by_name['content']._serialized_options = b'\340A\003'
+  _GETFILECATALOGRESPONSE_CHUNK.fields_by_name['token_count']._options = None
+  _GETFILECATALOGRESPONSE_CHUNK.fields_by_name['token_count']._serialized_options = b'\340A\003'
+  _GETFILECATALOGRESPONSE_CHUNK.fields_by_name['embedding']._options = None
+  _GETFILECATALOGRESPONSE_CHUNK.fields_by_name['embedding']._serialized_options = b'\340A\003'
+  _GETFILECATALOGRESPONSE_CHUNK.fields_by_name['create_time']._options = None
+  _GETFILECATALOGRESPONSE_CHUNK.fields_by_name['create_time']._serialized_options = b'\340A\003'
+  _GETFILECATALOGRESPONSE_CHUNK.fields_by_name['retrievable']._options = None
+  _GETFILECATALOGRESPONSE_CHUNK.fields_by_name['retrievable']._serialized_options = b'\340A\003'
+  _GETFILECATALOGRESPONSE.fields_by_name['original_data']._options = None
+  _GETFILECATALOGRESPONSE.fields_by_name['original_data']._serialized_options = b'\340A\003'
+  _GETFILECATALOGRESPONSE.fields_by_name['file_metadata']._options = None
+  _GETFILECATALOGRESPONSE.fields_by_name['file_metadata']._serialized_options = b'\340A\003'
+  _GETFILECATALOGRESPONSE.fields_by_name['text']._options = None
+  _GETFILECATALOGRESPONSE.fields_by_name['text']._serialized_options = b'\340A\003'
+  _GETFILECATALOGRESPONSE.fields_by_name['chunks']._options = None
+  _GETFILECATALOGRESPONSE.fields_by_name['chunks']._serialized_options = b'\340A\003'
+  _GETFILEASMARKDOWNREQUEST.fields_by_name['file_uid']._options = None
+  _GETFILEASMARKDOWNREQUEST.fields_by_name['file_uid']._serialized_options = b'\340A\002'
+  _GETFILEASMARKDOWNRESPONSE.fields_by_name['markdown']._options = None
+  _GETFILEASMARKDOWNRESPONSE.fields_by_name['markdown']._serialized_options = b'\340A\003'
+  _GETCHATFILEREQUEST._options = None
+  _GETCHATFILEREQUEST._serialized_options = b'\030\001'
+  _GETCHATFILERESPONSE._options = None
+  _GETCHATFILERESPONSE._serialized_options = b'\030\001'
+  _globals['_GETFILECATALOGREQUEST']._serialized_start=184
+  _globals['_GETFILECATALOGREQUEST']._serialized_end=315
+  _globals['_GETFILECATALOGRESPONSE']._serialized_start=318
+  _globals['_GETFILECATALOGRESPONSE']._serialized_end=1739
+  _globals['_GETFILECATALOGRESPONSE_FILEMETADATA']._serialized_start=660
+  _globals['_GETFILECATALOGRESPONSE_FILEMETADATA']._serialized_end=982
+  _globals['_GETFILECATALOGRESPONSE_TEXT']._serialized_start=985
+  _globals['_GETFILECATALOGRESPONSE_TEXT']._serialized_end=1199
+  _globals['_GETFILECATALOGRESPONSE_CHUNK']._serialized_start=1202
+  _globals['_GETFILECATALOGRESPONSE_CHUNK']._serialized_end=1611
+  _globals['_GETFILECATALOGRESPONSE_CHUNKTYPE']._serialized_start=1613
+  _globals['_GETFILECATALOGRESPONSE_CHUNKTYPE']._serialized_end=1739
+  _globals['_GETFILEASMARKDOWNREQUEST']._serialized_start=1741
+  _globals['_GETFILEASMARKDOWNREQUEST']._serialized_end=1799
+  _globals['_GETFILEASMARKDOWNRESPONSE']._serialized_start=1801
+  _globals['_GETFILEASMARKDOWNRESPONSE']._serialized_end=1861
+  _globals['_GETCHATFILEREQUEST']._serialized_start=1863
+  _globals['_GETCHATFILEREQUEST']._serialized_end=1978
+  _globals['_GETCHATFILERESPONSE']._serialized_start=1980
+  _globals['_GETCHATFILERESPONSE']._serialized_end=2033
 # @@protoc_insertion_point(module_scope)

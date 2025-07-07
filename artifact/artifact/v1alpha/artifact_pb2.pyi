@@ -291,43 +291,7 @@ global___ReadinessResponse = ReadinessResponse
 
 @typing_extensions.final
 class RepositoryTag(google.protobuf.message.Message):
-    """
-
-    This API is under development and, therefore, some of its entities and
-    endpoints are not implemented yet. This section aims to give context about the
-    current interface and how it fits in the Artifact vision.
-
-    # Artifact
-
-    The Artifact domain is responsible of storing data that will later be used for
-    processing unstructured data. Artifact will support the following types of
-    data:
-
-    - Repositories
-    - Objects
-    - Vectors
-
-    ## Repositories
-
-    An implementation of the [OCI Distribution Specification](https://github.com/opencontainers/distribution-spec?tab=readme-ov-file)
-    is used to manage versioned content. The main use for repositories is storing
-    container images that can be used to deploy AI models or pipelines.
-
-    The ID of a repository has 2 segments, the owner (an Instill user or
-    organization) and the content ID (the AI model or pipeline ID), e.g.
-    `curious-wombat/llava-34b`.
-
-    ## Objects
-
-    Raw data is stored in binary blobs. Object storage allows users to upload data
-    (e.g. images, audio) that can be used by pipelines or to store the results or a
-    pipeline trigger.
-
-    ## Vectors
-
-    Vector embeddings have their own storage, which allows fast retrieval and similarity search.
-
-    RepositoryTag contains information about the version of some content in a
+    """RepositoryTag contains information about the version of some content in a
     repository.
     """
 

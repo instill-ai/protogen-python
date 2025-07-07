@@ -70,11 +70,24 @@ class ArtifactPrivateServiceStub:
         artifact.artifact.v1alpha.artifact_pb2.UpdateObjectResponse,
     ]
     """Update Object"""
+    GetFileAsMarkdown: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownRequest,
+        artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownResponse,
+    ]
+    """Get file as Markdown
+
+    Returns the Markdown representation of a file.
+    """
     GetChatFile: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileRequest,
         artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileResponse,
     ]
-    """Get Chat file"""
+    """Get file as Markdown (deprecated)
+
+    Returns the contents of a file conversion to Markdown as a binary blob.
+    This method is deprecated as it identifies the file by namespace and
+    filename instead of UID, which isn't a unique identifier anymore.
+    """
 
 class ArtifactPrivateServiceAsyncStub:
     """ArtifactPrivateService exposes the private endpoints that allow clients to
@@ -127,11 +140,24 @@ class ArtifactPrivateServiceAsyncStub:
         artifact.artifact.v1alpha.artifact_pb2.UpdateObjectResponse,
     ]
     """Update Object"""
+    GetFileAsMarkdown: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownRequest,
+        artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownResponse,
+    ]
+    """Get file as Markdown
+
+    Returns the Markdown representation of a file.
+    """
     GetChatFile: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileRequest,
         artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileResponse,
     ]
-    """Get Chat file"""
+    """Get file as Markdown (deprecated)
+
+    Returns the contents of a file conversion to Markdown as a binary blob.
+    This method is deprecated as it identifies the file by namespace and
+    filename instead of UID, which isn't a unique identifier anymore.
+    """
 
 class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
     """ArtifactPrivateService exposes the private endpoints that allow clients to
@@ -199,11 +225,26 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.UpdateObjectResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.UpdateObjectResponse]]:
         """Update Object"""
     @abc.abstractmethod
+    def GetFileAsMarkdown(
+        self,
+        request: artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownResponse]]:
+        """Get file as Markdown
+
+        Returns the Markdown representation of a file.
+        """
+    @abc.abstractmethod
     def GetChatFile(
         self,
         request: artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileResponse]]:
-        """Get Chat file"""
+        """Get file as Markdown (deprecated)
+
+        Returns the contents of a file conversion to Markdown as a binary blob.
+        This method is deprecated as it identifies the file by namespace and
+        filename instead of UID, which isn't a unique identifier anymore.
+        """
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer: ArtifactPrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

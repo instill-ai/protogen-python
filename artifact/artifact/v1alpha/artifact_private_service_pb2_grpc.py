@@ -52,6 +52,11 @@ class ArtifactPrivateServiceStub(object):
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateObjectRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateObjectResponse.FromString,
                 )
+        self.GetFileAsMarkdown = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPrivateService/GetFileAsMarkdown',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetFileAsMarkdownRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetFileAsMarkdownResponse.FromString,
+                )
         self.GetChatFile = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/GetChatFile',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetChatFileRequest.SerializeToString,
@@ -122,8 +127,21 @@ class ArtifactPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetFileAsMarkdown(self, request, context):
+        """Get file as Markdown
+
+        Returns the Markdown representation of a file.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetChatFile(self, request, context):
-        """Get Chat file
+        """Get file as Markdown (deprecated)
+
+        Returns the contents of a file conversion to Markdown as a binary blob.
+        This method is deprecated as it identifies the file by namespace and
+        filename instead of UID, which isn't a unique identifier anymore.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -166,6 +184,11 @@ def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
                     servicer.UpdateObject,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateObjectRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateObjectResponse.SerializeToString,
+            ),
+            'GetFileAsMarkdown': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetFileAsMarkdown,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetFileAsMarkdownRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetFileAsMarkdownResponse.SerializeToString,
             ),
             'GetChatFile': grpc.unary_unary_rpc_method_handler(
                     servicer.GetChatFile,
@@ -300,6 +323,23 @@ class ArtifactPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateObject',
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateObjectRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateObjectResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetFileAsMarkdown(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/GetFileAsMarkdown',
+            artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetFileAsMarkdownRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetFileAsMarkdownResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

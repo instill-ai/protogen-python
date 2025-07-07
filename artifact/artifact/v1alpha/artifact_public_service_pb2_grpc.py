@@ -303,7 +303,7 @@ class ArtifactPublicServiceServicer(object):
     def SimilarityChunksSearch(self, request, context):
         """Retrieve similar chunks
 
-        Returns the similar chunks.
+        Returns the top-K most similar chunks to a text prompt.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -319,9 +319,10 @@ class ArtifactPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetFileCatalog(self, request, context):
-        """Get file catalog
+        """Get the catalog file.
 
-        Get the catalog file.
+        Returns a view of the file within the catalog, with the text and chunks it
+        generated after being processed.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

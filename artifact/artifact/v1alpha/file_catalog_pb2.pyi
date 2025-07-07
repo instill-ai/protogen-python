@@ -22,37 +22,39 @@ DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 @typing_extensions.final
 class GetFileCatalogRequest(google.protobuf.message.Message):
-    """GetFileCatalogRequest"""
+    """GetFileCatalogRequest represents a request to view the processing outputs of
+    a file in a catalog.
+    Namespace ID and catalog ID are kept for backwards compatibility, but we
+    might consider flattening the structure.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     CATALOG_ID_FIELD_NUMBER: builtins.int
-    FILE_ID_FIELD_NUMBER: builtins.int
     FILE_UID_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """id of the namespace"""
+    """Namespace ID."""
     catalog_id: builtins.str
-    """id of the catalog"""
-    file_id: builtins.str
-    """id of the file(i.e. file name)"""
+    """Catalog ID."""
     file_uid: builtins.str
-    """Uid of the file"""
+    """File UID."""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         catalog_id: builtins.str = ...,
-        file_id: builtins.str = ...,
         file_uid: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "file_id", b"file_id", "file_uid", b"file_uid", "namespace_id", b"namespace_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "file_uid", b"file_uid", "namespace_id", b"namespace_id"]) -> None: ...
 
 global___GetFileCatalogRequest = GetFileCatalogRequest
 
 @typing_extensions.final
 class GetFileCatalogResponse(google.protobuf.message.Message):
-    """GetFileCatalogResponse"""
+    """GetFileCatalogResponse contains the processing outputs of a file in a
+    catalog.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -63,185 +65,225 @@ class GetFileCatalogResponse(google.protobuf.message.Message):
     class _ChunkTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[GetFileCatalogResponse._ChunkType.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         CHUNK_TYPE_UNSPECIFIED: GetFileCatalogResponse._ChunkType.ValueType  # 0
-        """unspecified"""
+        """Unspecified."""
         CHUNK_TYPE_TEXT: GetFileCatalogResponse._ChunkType.ValueType  # 1
-        """text"""
+        """Text."""
         CHUNK_TYPE_IMAGE: GetFileCatalogResponse._ChunkType.ValueType  # 2
-        """image"""
+        """Image."""
         CHUNK_TYPE_AUDIO: GetFileCatalogResponse._ChunkType.ValueType  # 3
-        """audio"""
+        """Audio."""
         CHUNK_TYPE_VIDEO: GetFileCatalogResponse._ChunkType.ValueType  # 4
-        """video"""
+        """Video."""
 
     class ChunkType(_ChunkType, metaclass=_ChunkTypeEnumTypeWrapper):
-        """chunk type"""
+        """ChunkType contains the different types of a chunk."""
 
     CHUNK_TYPE_UNSPECIFIED: GetFileCatalogResponse.ChunkType.ValueType  # 0
-    """unspecified"""
+    """Unspecified."""
     CHUNK_TYPE_TEXT: GetFileCatalogResponse.ChunkType.ValueType  # 1
-    """text"""
+    """Text."""
     CHUNK_TYPE_IMAGE: GetFileCatalogResponse.ChunkType.ValueType  # 2
-    """image"""
+    """Image."""
     CHUNK_TYPE_AUDIO: GetFileCatalogResponse.ChunkType.ValueType  # 3
-    """audio"""
+    """Audio."""
     CHUNK_TYPE_VIDEO: GetFileCatalogResponse.ChunkType.ValueType  # 4
-    """video"""
+    """Video."""
 
     @typing_extensions.final
-    class Metadata(google.protobuf.message.Message):
-        """metadata"""
+    class FileMetadata(google.protobuf.message.Message):
+        """FileMetadata contains information about the file."""
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-        FILE_UID_FIELD_NUMBER: builtins.int
-        FILE_ID_FIELD_NUMBER: builtins.int
+        UID_FIELD_NUMBER: builtins.int
+        FILENAME_FIELD_NUMBER: builtins.int
         FILE_TYPE_FIELD_NUMBER: builtins.int
-        FILE_SIZE_FIELD_NUMBER: builtins.int
-        FILE_UPLOAD_TIME_FIELD_NUMBER: builtins.int
-        FILE_PROCESS_STATUS_FIELD_NUMBER: builtins.int
-        file_uid: builtins.str
-        """file uid"""
-        file_id: builtins.str
-        """file id"""
+        SIZE_FIELD_NUMBER: builtins.int
+        CREATE_TIME_FIELD_NUMBER: builtins.int
+        PROCESS_STATUS_FIELD_NUMBER: builtins.int
+        uid: builtins.str
+        """File UID."""
+        filename: builtins.str
+        """Filename"""
         file_type: artifact.artifact.v1alpha.artifact_pb2.FileType.ValueType
-        """file type"""
-        file_size: builtins.int
-        """file size in bytes"""
+        """File Type."""
+        size: builtins.int
+        """Size."""
         @property
-        def file_upload_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-            """upload time"""
-        file_process_status: artifact.artifact.v1alpha.artifact_pb2.FileProcessStatus.ValueType
-        """file process status"""
+        def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+            """Creation timestamp"""
+        process_status: artifact.artifact.v1alpha.artifact_pb2.FileProcessStatus.ValueType
+        """Processing status of the file."""
         def __init__(
             self,
             *,
-            file_uid: builtins.str = ...,
-            file_id: builtins.str = ...,
+            uid: builtins.str = ...,
+            filename: builtins.str = ...,
             file_type: artifact.artifact.v1alpha.artifact_pb2.FileType.ValueType = ...,
-            file_size: builtins.int = ...,
-            file_upload_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-            file_process_status: artifact.artifact.v1alpha.artifact_pb2.FileProcessStatus.ValueType = ...,
+            size: builtins.int = ...,
+            create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+            process_status: artifact.artifact.v1alpha.artifact_pb2.FileProcessStatus.ValueType = ...,
         ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["file_upload_time", b"file_upload_time"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["file_id", b"file_id", "file_process_status", b"file_process_status", "file_size", b"file_size", "file_type", b"file_type", "file_uid", b"file_uid", "file_upload_time", b"file_upload_time"]) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "file_type", b"file_type", "filename", b"filename", "process_status", b"process_status", "size", b"size", "uid", b"uid"]) -> None: ...
 
     @typing_extensions.final
     class Text(google.protobuf.message.Message):
-        """text message"""
+        """Text contains the text representation of the file."""
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-        PIPELINE_IDS_FIELD_NUMBER: builtins.int
-        TRANSFORMED_CONTENT_FIELD_NUMBER: builtins.int
-        TRANSFORMED_CONTENT_CHUNK_NUM_FIELD_NUMBER: builtins.int
-        TRANSFORMED_CONTENT_TOKEN_NUM_FIELD_NUMBER: builtins.int
-        TRANSFORMED_CONTENT_UPDATE_TIME_FIELD_NUMBER: builtins.int
+        PIPELINES_FIELD_NUMBER: builtins.int
+        CONTENT_FIELD_NUMBER: builtins.int
+        CHUNK_COUNT_FIELD_NUMBER: builtins.int
+        TOKEN_COUNT_FIELD_NUMBER: builtins.int
+        UPDATE_TIME_FIELD_NUMBER: builtins.int
         @property
-        def pipeline_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-            """pipelines"""
-        transformed_content: builtins.str
-        """transformed content"""
-        transformed_content_chunk_num: builtins.int
-        """transformed content chunk number"""
-        transformed_content_token_num: builtins.int
-        """transformed content token number"""
+        def pipelines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+            """Pipelines used to process the file."""
+        content: builtins.str
+        """Text representation of the file."""
+        chunk_count: builtins.int
+        """Chunk count in the text."""
+        token_count: builtins.int
+        """Token count in the text"""
         @property
-        def transformed_content_update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-            """transformed content update time"""
+        def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+            """Last update timestamp for the text."""
         def __init__(
             self,
             *,
-            pipeline_ids: collections.abc.Iterable[builtins.str] | None = ...,
-            transformed_content: builtins.str = ...,
-            transformed_content_chunk_num: builtins.int = ...,
-            transformed_content_token_num: builtins.int = ...,
-            transformed_content_update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+            pipelines: collections.abc.Iterable[builtins.str] | None = ...,
+            content: builtins.str = ...,
+            chunk_count: builtins.int = ...,
+            token_count: builtins.int = ...,
+            update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["transformed_content_update_time", b"transformed_content_update_time"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["pipeline_ids", b"pipeline_ids", "transformed_content", b"transformed_content", "transformed_content_chunk_num", b"transformed_content_chunk_num", "transformed_content_token_num", b"transformed_content_token_num", "transformed_content_update_time", b"transformed_content_update_time"]) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["update_time", b"update_time"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["chunk_count", b"chunk_count", "content", b"content", "pipelines", b"pipelines", "token_count", b"token_count", "update_time", b"update_time"]) -> None: ...
 
     @typing_extensions.final
     class Chunk(google.protobuf.message.Message):
-        """chunk message"""
+        """Chunk is a delimited part of the converted text."""
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
         UID_FIELD_NUMBER: builtins.int
         TYPE_FIELD_NUMBER: builtins.int
-        START_POS_FIELD_NUMBER: builtins.int
-        END_POS_FIELD_NUMBER: builtins.int
+        START_POSITION_FIELD_NUMBER: builtins.int
+        END_POSITION_FIELD_NUMBER: builtins.int
         CONTENT_FIELD_NUMBER: builtins.int
-        TOKENS_NUM_FIELD_NUMBER: builtins.int
+        TOKEN_COUNT_FIELD_NUMBER: builtins.int
         EMBEDDING_FIELD_NUMBER: builtins.int
         CREATE_TIME_FIELD_NUMBER: builtins.int
         RETRIEVABLE_FIELD_NUMBER: builtins.int
         uid: builtins.str
-        """chunk uid"""
+        """Chunk UID."""
         type: global___GetFileCatalogResponse.ChunkType.ValueType
-        """chunk type. i.e. text, image, audio, and video"""
-        start_pos: builtins.int
-        """chunk start position"""
-        end_pos: builtins.int
-        """chunk end position"""
+        """Chunk type. I.e: text, image, audio, video."""
+        start_position: builtins.int
+        """Start position in the text."""
+        end_position: builtins.int
+        """End position in the text."""
         content: builtins.str
-        """chunk content"""
-        tokens_num: builtins.int
-        """chunk tokens num"""
+        """Content."""
+        token_count: builtins.int
+        """Token count in the chunk."""
         @property
         def embedding(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.float]:
-            """embedding. float32 array"""
+            """Chunk embedding."""
         @property
         def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-            """chunk create time"""
+            """Creation time of the chunk."""
         retrievable: builtins.bool
-        """chunk retrievable"""
+        """Retrievability of the chunk."""
         def __init__(
             self,
             *,
             uid: builtins.str = ...,
             type: global___GetFileCatalogResponse.ChunkType.ValueType = ...,
-            start_pos: builtins.int = ...,
-            end_pos: builtins.int = ...,
+            start_position: builtins.int = ...,
+            end_position: builtins.int = ...,
             content: builtins.str = ...,
-            tokens_num: builtins.int = ...,
+            token_count: builtins.int = ...,
             embedding: collections.abc.Iterable[builtins.float] | None = ...,
             create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
             retrievable: builtins.bool = ...,
         ) -> None: ...
         def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["content", b"content", "create_time", b"create_time", "embedding", b"embedding", "end_pos", b"end_pos", "retrievable", b"retrievable", "start_pos", b"start_pos", "tokens_num", b"tokens_num", "type", b"type", "uid", b"uid"]) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["content", b"content", "create_time", b"create_time", "embedding", b"embedding", "end_position", b"end_position", "retrievable", b"retrievable", "start_position", b"start_position", "token_count", b"token_count", "type", b"type", "uid", b"uid"]) -> None: ...
 
     ORIGINAL_DATA_FIELD_NUMBER: builtins.int
-    METADATA_FIELD_NUMBER: builtins.int
+    FILE_METADATA_FIELD_NUMBER: builtins.int
     TEXT_FIELD_NUMBER: builtins.int
     CHUNKS_FIELD_NUMBER: builtins.int
     original_data: builtins.str
-    """original data is encoded in base64"""
+    """Base-64 representation of the original file contents."""
     @property
-    def metadata(self) -> global___GetFileCatalogResponse.Metadata:
-        """file catalog"""
+    def file_metadata(self) -> global___GetFileCatalogResponse.FileMetadata:
+        """File metadata."""
     @property
     def text(self) -> global___GetFileCatalogResponse.Text:
-        """text"""
+        """Converted text."""
     @property
     def chunks(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___GetFileCatalogResponse.Chunk]:
-        """chunks"""
+        """Chunks."""
     def __init__(
         self,
         *,
         original_data: builtins.str = ...,
-        metadata: global___GetFileCatalogResponse.Metadata | None = ...,
+        file_metadata: global___GetFileCatalogResponse.FileMetadata | None = ...,
         text: global___GetFileCatalogResponse.Text | None = ...,
         chunks: collections.abc.Iterable[global___GetFileCatalogResponse.Chunk] | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["metadata", b"metadata", "text", b"text"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["chunks", b"chunks", "metadata", b"metadata", "original_data", b"original_data", "text", b"text"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["file_metadata", b"file_metadata", "text", b"text"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chunks", b"chunks", "file_metadata", b"file_metadata", "original_data", b"original_data", "text", b"text"]) -> None: ...
 
 global___GetFileCatalogResponse = GetFileCatalogResponse
 
 @typing_extensions.final
+class GetFileAsMarkdownRequest(google.protobuf.message.Message):
+    """GetFileAsMarkdownRequest represents a request to fetch the Markdown
+    representation of a file.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_UID_FIELD_NUMBER: builtins.int
+    file_uid: builtins.str
+    """File UID."""
+    def __init__(
+        self,
+        *,
+        file_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file_uid", b"file_uid"]) -> None: ...
+
+global___GetFileAsMarkdownRequest = GetFileAsMarkdownRequest
+
+@typing_extensions.final
+class GetFileAsMarkdownResponse(google.protobuf.message.Message):
+    """GetFileAsMarkdownResponse contains a blob with the Markdown representation
+    of a file.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    MARKDOWN_FIELD_NUMBER: builtins.int
+    markdown: builtins.str
+    """The Markdown representation of a file."""
+    def __init__(
+        self,
+        *,
+        markdown: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["markdown", b"markdown"]) -> None: ...
+
+global___GetFileAsMarkdownResponse = GetFileAsMarkdownResponse
+
+@typing_extensions.final
 class GetChatFileRequest(google.protobuf.message.Message):
-    """GetChatFileRequest"""
+    """GetChatFileRequest ..."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -267,7 +309,7 @@ global___GetChatFileRequest = GetChatFileRequest
 
 @typing_extensions.final
 class GetChatFileResponse(google.protobuf.message.Message):
-    """GetChatFileResponse"""
+    """GetChatFileResponse ..."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
