@@ -191,7 +191,10 @@ class MgmtPublicServiceStub:
     ]
     """Get the subscription of the authenticated user
 
-    Returns the subscription details of the authenticated user.
+    Returns the subscription details for the authenticated user's individual
+    plan. If several subscriptions exist (e.g. if the user upgraded to and
+    downgraded from a plan several times), the most recent subscription is
+    returned.
     """
     GetOrganizationSubscription: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionRequest,
@@ -199,7 +202,10 @@ class MgmtPublicServiceStub:
     ]
     """Get the subscription of an organization
 
-    Returns the subscription details of an organization.
+    Returns the subscription details for an organization's team plan. If
+    several subscriptions exist (e.g. if the organization has upgraded to and
+    downgraded from a plan several times), the most recent subscription is
+    returned.
     """
     CreateToken: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.CreateTokenRequest,
@@ -566,7 +572,10 @@ class MgmtPublicServiceAsyncStub:
     ]
     """Get the subscription of the authenticated user
 
-    Returns the subscription details of the authenticated user.
+    Returns the subscription details for the authenticated user's individual
+    plan. If several subscriptions exist (e.g. if the user upgraded to and
+    downgraded from a plan several times), the most recent subscription is
+    returned.
     """
     GetOrganizationSubscription: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionRequest,
@@ -574,7 +583,10 @@ class MgmtPublicServiceAsyncStub:
     ]
     """Get the subscription of an organization
 
-    Returns the subscription details of an organization.
+    Returns the subscription details for an organization's team plan. If
+    several subscriptions exist (e.g. if the organization has upgraded to and
+    downgraded from a plan several times), the most recent subscription is
+    returned.
     """
     CreateToken: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.CreateTokenRequest,
@@ -981,7 +993,10 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserSubscriptionResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserSubscriptionResponse]]:
         """Get the subscription of the authenticated user
 
-        Returns the subscription details of the authenticated user.
+        Returns the subscription details for the authenticated user's individual
+        plan. If several subscriptions exist (e.g. if the user upgraded to and
+        downgraded from a plan several times), the most recent subscription is
+        returned.
         """
     @abc.abstractmethod
     def GetOrganizationSubscription(
@@ -991,7 +1006,10 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionResponse]]:
         """Get the subscription of an organization
 
-        Returns the subscription details of an organization.
+        Returns the subscription details for an organization's team plan. If
+        several subscriptions exist (e.g. if the organization has upgraded to and
+        downgraded from a plan several times), the most recent subscription is
+        returned.
         """
     @abc.abstractmethod
     def CreateToken(

@@ -414,7 +414,10 @@ class MgmtPublicServiceServicer(object):
     def GetAuthenticatedUserSubscription(self, request, context):
         """Get the subscription of the authenticated user
 
-        Returns the subscription details of the authenticated user.
+        Returns the subscription details for the authenticated user's individual
+        plan. If several subscriptions exist (e.g. if the user upgraded to and
+        downgraded from a plan several times), the most recent subscription is
+        returned.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -423,7 +426,10 @@ class MgmtPublicServiceServicer(object):
     def GetOrganizationSubscription(self, request, context):
         """Get the subscription of an organization
 
-        Returns the subscription details of an organization.
+        Returns the subscription details for an organization's team plan. If
+        several subscriptions exist (e.g. if the organization has upgraded to and
+        downgraded from a plan several times), the most recent subscription is
+        returned.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

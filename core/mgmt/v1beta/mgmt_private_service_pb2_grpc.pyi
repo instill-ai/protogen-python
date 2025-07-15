@@ -67,12 +67,14 @@ class MgmtPrivateServiceStub:
         core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionAdminRequest,
         core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionAdminResponse,
     ]
-    """GetUserSubscriptionAdmin"""
+    """GetUserSubscriptionAdmin returns the subscription details of a user."""
     GetOrganizationSubscriptionAdmin: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminRequest,
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminResponse,
     ]
-    """GetOrganizationSubscriptionAdmin"""
+    """GetOrganizationSubscriptionAdmin returns the subscription details of an
+    organization.
+    """
     SubtractCreditAdmin: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.SubtractCreditAdminRequest,
         core.mgmt.v1beta.mgmt_pb2.SubtractCreditAdminResponse,
@@ -167,12 +169,14 @@ class MgmtPrivateServiceAsyncStub:
         core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionAdminRequest,
         core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionAdminResponse,
     ]
-    """GetUserSubscriptionAdmin"""
+    """GetUserSubscriptionAdmin returns the subscription details of a user."""
     GetOrganizationSubscriptionAdmin: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminRequest,
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminResponse,
     ]
-    """GetOrganizationSubscriptionAdmin"""
+    """GetOrganizationSubscriptionAdmin returns the subscription details of an
+    organization.
+    """
     SubtractCreditAdmin: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.SubtractCreditAdminRequest,
         core.mgmt.v1beta.mgmt_pb2.SubtractCreditAdminResponse,
@@ -281,14 +285,16 @@ class MgmtPrivateServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionAdminRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionAdminResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionAdminResponse]]:
-        """GetUserSubscriptionAdmin"""
+        """GetUserSubscriptionAdmin returns the subscription details of a user."""
     @abc.abstractmethod
     def GetOrganizationSubscriptionAdmin(
         self,
         request: core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminResponse]]:
-        """GetOrganizationSubscriptionAdmin"""
+        """GetOrganizationSubscriptionAdmin returns the subscription details of an
+        organization.
+        """
     @abc.abstractmethod
     def SubtractCreditAdmin(
         self,

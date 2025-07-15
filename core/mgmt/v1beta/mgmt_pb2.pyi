@@ -2701,7 +2701,7 @@ global___DeleteOrganizationMembershipResponse = DeleteOrganizationMembershipResp
 
 @typing_extensions.final
 class StripeSubscriptionDetail(google.protobuf.message.Message):
-    """StripeSubscriptionDetail describes the details of a subscription in Stripe."""
+    """StripeSubscriptionDetail ontains the details of a subscription in Stripe."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2714,43 +2714,67 @@ class StripeSubscriptionDetail(google.protobuf.message.Message):
         STATUS_UNSPECIFIED: StripeSubscriptionDetail._Status.ValueType  # 0
         """Unspecified status."""
         STATUS_INCOMPLETE: StripeSubscriptionDetail._Status.ValueType  # 1
-        """Incomplete."""
+        """The customer must do a payment-related action to activate the
+        subscription.
+        """
         STATUS_INCOMPLETE_EXPIRED: StripeSubscriptionDetail._Status.ValueType  # 2
-        """Incomplete Expired."""
+        """The subscription failed to activate because no successful payments were
+        registered in time.
+        """
         STATUS_TRIALING: StripeSubscriptionDetail._Status.ValueType  # 3
-        """Trialing."""
+        """The subscription is currently in a trial period."""
         STATUS_ACTIVE: StripeSubscriptionDetail._Status.ValueType  # 4
-        """Active."""
+        """The subscription is in good standing."""
         STATUS_PAST_DUE: StripeSubscriptionDetail._Status.ValueType  # 5
-        """Past due."""
+        """Payment on the latest finalised invoice either failed or wasn’t
+        attempted.
+        """
         STATUS_CANCELED: StripeSubscriptionDetail._Status.ValueType  # 6
-        """Canceled."""
+        """The subscription was cancelled by either the user or the admins."""
         STATUS_UNPAID: StripeSubscriptionDetail._Status.ValueType  # 7
-        """Unpaid."""
+        """The latest invoice hasn’t been paid but the subscription remains in
+        place.
+        """
         STATUS_PAUSED: StripeSubscriptionDetail._Status.ValueType  # 8
-        """Paused."""
+        """The subscription has ended its trial period without a default payment
+        method.
+        """
 
     class Status(_Status, metaclass=_StatusEnumTypeWrapper):
-        """Enumerates the status types for the user's subscription."""
+        """Enumerates the status types for the user's subscription. Please refer to
+        the [Stripe
+        documentation](https://docs.stripe.com/billing/subscriptions/overview#subscription-statuses)
+        for more details.
+        """
 
     STATUS_UNSPECIFIED: StripeSubscriptionDetail.Status.ValueType  # 0
     """Unspecified status."""
     STATUS_INCOMPLETE: StripeSubscriptionDetail.Status.ValueType  # 1
-    """Incomplete."""
+    """The customer must do a payment-related action to activate the
+    subscription.
+    """
     STATUS_INCOMPLETE_EXPIRED: StripeSubscriptionDetail.Status.ValueType  # 2
-    """Incomplete Expired."""
+    """The subscription failed to activate because no successful payments were
+    registered in time.
+    """
     STATUS_TRIALING: StripeSubscriptionDetail.Status.ValueType  # 3
-    """Trialing."""
+    """The subscription is currently in a trial period."""
     STATUS_ACTIVE: StripeSubscriptionDetail.Status.ValueType  # 4
-    """Active."""
+    """The subscription is in good standing."""
     STATUS_PAST_DUE: StripeSubscriptionDetail.Status.ValueType  # 5
-    """Past due."""
+    """Payment on the latest finalised invoice either failed or wasn’t
+    attempted.
+    """
     STATUS_CANCELED: StripeSubscriptionDetail.Status.ValueType  # 6
-    """Canceled."""
+    """The subscription was cancelled by either the user or the admins."""
     STATUS_UNPAID: StripeSubscriptionDetail.Status.ValueType  # 7
-    """Unpaid."""
+    """The latest invoice hasn’t been paid but the subscription remains in
+    place.
+    """
     STATUS_PAUSED: StripeSubscriptionDetail.Status.ValueType  # 8
-    """Paused."""
+    """The subscription has ended its trial period without a default payment
+    method.
+    """
 
     PRODUCT_NAME_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
@@ -2799,7 +2823,9 @@ global___StripeSubscriptionDetail = StripeSubscriptionDetail
 
 @typing_extensions.final
 class UserSubscription(google.protobuf.message.Message):
-    """UserSubscription details describe the plan (i.e., features) a user has access to."""
+    """UserSubscription details describe the plan of an individual user (i.e., the
+    features they have access to).
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2810,21 +2836,29 @@ class UserSubscription(google.protobuf.message.Message):
     class _PlanEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[UserSubscription._Plan.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         PLAN_UNSPECIFIED: UserSubscription._Plan.ValueType  # 0
-        """Unspecified plan."""
-        PLAN_FREE: UserSubscription._Plan.ValueType  # 1
-        """Free plan."""
+        """Empty value for Plan, it means that the user has no recorded
+        subscriptions.
+        """
         PLAN_STARTER: UserSubscription._Plan.ValueType  # 3
-        """Starter plan."""
+        """The starter plan is an individual plan for developers and early-stage
+        projects. This plan offers a free trial period that deoesn't require the
+        customer to have a default payment method. After the free trial period
+        is over, the subscription state will transition from trialing to paused.
+        """
 
     class Plan(_Plan, metaclass=_PlanEnumTypeWrapper):
         """Enumerates the plan types for the user subscription."""
 
     PLAN_UNSPECIFIED: UserSubscription.Plan.ValueType  # 0
-    """Unspecified plan."""
-    PLAN_FREE: UserSubscription.Plan.ValueType  # 1
-    """Free plan."""
+    """Empty value for Plan, it means that the user has no recorded
+    subscriptions.
+    """
     PLAN_STARTER: UserSubscription.Plan.ValueType  # 3
-    """Starter plan."""
+    """The starter plan is an individual plan for developers and early-stage
+    projects. This plan offers a free trial period that deoesn't require the
+    customer to have a default payment method. After the free trial period
+    is over, the subscription state will transition from trialing to paused.
+    """
 
     PLAN_FIELD_NUMBER: builtins.int
     DETAIL_FIELD_NUMBER: builtins.int
@@ -2846,7 +2880,9 @@ global___UserSubscription = UserSubscription
 
 @typing_extensions.final
 class OrganizationSubscription(google.protobuf.message.Message):
-    """OrganizationSubscription details describe the plan (i.e., features) an organization has access to."""
+    """OrganizationSubscription details describe the plan of an organization (i.e.
+    the features and purchased seats it has access to).
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2858,24 +2894,30 @@ class OrganizationSubscription(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         PLAN_UNSPECIFIED: OrganizationSubscription._Plan.ValueType  # 0
         """Unspecified plan."""
-        PLAN_FREE: OrganizationSubscription._Plan.ValueType  # 1
-        """Free plan."""
         PLAN_TEAM: OrganizationSubscription._Plan.ValueType  # 2
-        """Team plan."""
+        """The team plan is a subscription that offers collaboration features for
+        small teams.
+        """
         PLAN_ENTERPRISE: OrganizationSubscription._Plan.ValueType  # 3
-        """Enterprise plan."""
+        """The enterprise plan is a subscription for large teams and/or high-volume
+        deployments. This kind of subscription doesn't contain Stripe
+        subscription details.
+        """
 
     class Plan(_Plan, metaclass=_PlanEnumTypeWrapper):
         """Enumerates the plan types for the organization subscription."""
 
     PLAN_UNSPECIFIED: OrganizationSubscription.Plan.ValueType  # 0
     """Unspecified plan."""
-    PLAN_FREE: OrganizationSubscription.Plan.ValueType  # 1
-    """Free plan."""
     PLAN_TEAM: OrganizationSubscription.Plan.ValueType  # 2
-    """Team plan."""
+    """The team plan is a subscription that offers collaboration features for
+    small teams.
+    """
     PLAN_ENTERPRISE: OrganizationSubscription.Plan.ValueType  # 3
-    """Enterprise plan."""
+    """The enterprise plan is a subscription for large teams and/or high-volume
+    deployments. This kind of subscription doesn't contain Stripe
+    subscription details.
+    """
 
     PLAN_FIELD_NUMBER: builtins.int
     DETAIL_FIELD_NUMBER: builtins.int
@@ -2901,8 +2943,8 @@ global___OrganizationSubscription = OrganizationSubscription
 
 @typing_extensions.final
 class GetAuthenticatedUserSubscriptionRequest(google.protobuf.message.Message):
-    """GetAuthenticatedUserSubscriptionRequest represents a query to fetch the subscription
-    details of the authenticated user.
+    """GetAuthenticatedUserSubscriptionRequest represents a query to fetch the
+    subscription details of the authenticated user.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -2915,7 +2957,9 @@ global___GetAuthenticatedUserSubscriptionRequest = GetAuthenticatedUserSubscript
 
 @typing_extensions.final
 class GetAuthenticatedUserSubscriptionResponse(google.protobuf.message.Message):
-    """GetAuthenticatedUserSubscriptionResponse contains the requested subscription."""
+    """GetAuthenticatedUserSubscriptionResponse contains the requested
+    subscription.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2975,7 +3019,9 @@ global___GetOrganizationSubscriptionResponse = GetOrganizationSubscriptionRespon
 
 @typing_extensions.final
 class GetUserSubscriptionAdminRequest(google.protobuf.message.Message):
-    """GetUserSubscriptionAdminRequest"""
+    """GetUserSubscriptionAdminRequest represents a query to fetch the subscription
+    details of a user.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2993,14 +3039,14 @@ global___GetUserSubscriptionAdminRequest = GetUserSubscriptionAdminRequest
 
 @typing_extensions.final
 class GetUserSubscriptionAdminResponse(google.protobuf.message.Message):
-    """GetUserSubscriptionAdminResponse"""
+    """GetUserSubscriptionAdminResponse contains the requested subscription."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     SUBSCRIPTION_FIELD_NUMBER: builtins.int
     @property
     def subscription(self) -> global___UserSubscription:
-        """Subscription"""
+        """The subscription resource."""
     def __init__(
         self,
         *,
@@ -3013,7 +3059,9 @@ global___GetUserSubscriptionAdminResponse = GetUserSubscriptionAdminResponse
 
 @typing_extensions.final
 class GetOrganizationSubscriptionAdminRequest(google.protobuf.message.Message):
-    """GetOrganizationSubscriptionAdminRequest"""
+    """GetOrganizationSubscriptionAdminRequest represents a query to fetch the
+    subscription details of an organization.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -3031,14 +3079,16 @@ global___GetOrganizationSubscriptionAdminRequest = GetOrganizationSubscriptionAd
 
 @typing_extensions.final
 class GetOrganizationSubscriptionAdminResponse(google.protobuf.message.Message):
-    """GetOrganizationSubscriptionAdminResponse"""
+    """GetOrganizationSubscriptionAdminResponse contains the requested
+    subscription.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     SUBSCRIPTION_FIELD_NUMBER: builtins.int
     @property
     def subscription(self) -> global___OrganizationSubscription:
-        """Subscription"""
+        """The subscription resource."""
     def __init__(
         self,
         *,

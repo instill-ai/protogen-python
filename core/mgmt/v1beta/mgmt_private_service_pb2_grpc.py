@@ -130,14 +130,15 @@ class MgmtPrivateServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetUserSubscriptionAdmin(self, request, context):
-        """GetUserSubscriptionAdmin
+        """GetUserSubscriptionAdmin returns the subscription details of a user.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetOrganizationSubscriptionAdmin(self, request, context):
-        """GetOrganizationSubscriptionAdmin
+        """GetOrganizationSubscriptionAdmin returns the subscription details of an
+        organization.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
