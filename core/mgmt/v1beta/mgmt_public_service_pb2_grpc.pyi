@@ -165,7 +165,7 @@ class MgmtPublicServiceStub:
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationMembershipRequest,
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationMembershipResponse,
     ]
-    """Get a an organization membership
+    """Get an organization membership
 
     Returns the details of a user membership within an organization.
     """
@@ -173,7 +173,7 @@ class MgmtPublicServiceStub:
         core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationMembershipRequest,
         core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationMembershipResponse,
     ]
-    """Uppdate an organization membership
+    """Update an organization membership
 
     Updates a user membership within an organization.
     """
@@ -206,6 +206,16 @@ class MgmtPublicServiceStub:
     several subscriptions exist (e.g. if the organization has upgraded to and
     downgraded from a plan several times), the most recent subscription is
     returned.
+    """
+    ListSubscriptionFreeTrials: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.ListSubscriptionFreeTrialsRequest,
+        core.mgmt.v1beta.mgmt_pb2.ListSubscriptionFreeTrialsResponse,
+    ]
+    """List subscription free trials
+
+    Returns a list of the free trials of the authenticated user. The trials
+    might apply to different plans, including organization plans purchased by
+    the user.
     """
     CreateToken: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.CreateTokenRequest,
@@ -293,7 +303,7 @@ class MgmtPublicServiceStub:
     ]
     """List pipeline trigger time charts
 
-    Returns a timeline of pipline trigger counts for a given requester. The
+    Returns a timeline of pipeline trigger counts for a given requester. The
     response will contain one set of records (datapoints), representing the
     amount of triggers in a time bucket.
     """
@@ -394,10 +404,10 @@ class MgmtPublicServiceStub:
     ]
     """List pipeline trigger time charts
 
-    Returns a timeline of pipline trigger counts for the pipelines of a given
+    Returns a timeline of pipeline trigger counts for the pipelines of a given
     owner.
     NOTE: This method will soon be retired and replaced by
-    ListPipelineTriggerchartRecords.
+    ListPipelineTriggerChartRecords.
     """
 
 class MgmtPublicServiceAsyncStub:
@@ -546,7 +556,7 @@ class MgmtPublicServiceAsyncStub:
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationMembershipRequest,
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationMembershipResponse,
     ]
-    """Get a an organization membership
+    """Get an organization membership
 
     Returns the details of a user membership within an organization.
     """
@@ -554,7 +564,7 @@ class MgmtPublicServiceAsyncStub:
         core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationMembershipRequest,
         core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationMembershipResponse,
     ]
-    """Uppdate an organization membership
+    """Update an organization membership
 
     Updates a user membership within an organization.
     """
@@ -587,6 +597,16 @@ class MgmtPublicServiceAsyncStub:
     several subscriptions exist (e.g. if the organization has upgraded to and
     downgraded from a plan several times), the most recent subscription is
     returned.
+    """
+    ListSubscriptionFreeTrials: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.ListSubscriptionFreeTrialsRequest,
+        core.mgmt.v1beta.mgmt_pb2.ListSubscriptionFreeTrialsResponse,
+    ]
+    """List subscription free trials
+
+    Returns a list of the free trials of the authenticated user. The trials
+    might apply to different plans, including organization plans purchased by
+    the user.
     """
     CreateToken: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.CreateTokenRequest,
@@ -674,7 +694,7 @@ class MgmtPublicServiceAsyncStub:
     ]
     """List pipeline trigger time charts
 
-    Returns a timeline of pipline trigger counts for a given requester. The
+    Returns a timeline of pipeline trigger counts for a given requester. The
     response will contain one set of records (datapoints), representing the
     amount of triggers in a time bucket.
     """
@@ -775,10 +795,10 @@ class MgmtPublicServiceAsyncStub:
     ]
     """List pipeline trigger time charts
 
-    Returns a timeline of pipline trigger counts for the pipelines of a given
+    Returns a timeline of pipeline trigger counts for the pipelines of a given
     owner.
     NOTE: This method will soon be retired and replaced by
-    ListPipelineTriggerchartRecords.
+    ListPipelineTriggerChartRecords.
     """
 
 class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
@@ -961,7 +981,7 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.GetOrganizationMembershipRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetOrganizationMembershipResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetOrganizationMembershipResponse]]:
-        """Get a an organization membership
+        """Get an organization membership
 
         Returns the details of a user membership within an organization.
         """
@@ -971,7 +991,7 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         request: core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationMembershipRequest,
         context: _ServicerContext,
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationMembershipResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.UpdateOrganizationMembershipResponse]]:
-        """Uppdate an organization membership
+        """Update an organization membership
 
         Updates a user membership within an organization.
         """
@@ -1010,6 +1030,18 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         several subscriptions exist (e.g. if the organization has upgraded to and
         downgraded from a plan several times), the most recent subscription is
         returned.
+        """
+    @abc.abstractmethod
+    def ListSubscriptionFreeTrials(
+        self,
+        request: core.mgmt.v1beta.mgmt_pb2.ListSubscriptionFreeTrialsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.ListSubscriptionFreeTrialsResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.ListSubscriptionFreeTrialsResponse]]:
+        """List subscription free trials
+
+        Returns a list of the free trials of the authenticated user. The trials
+        might apply to different plans, including organization plans purchased by
+        the user.
         """
     @abc.abstractmethod
     def CreateToken(
@@ -1117,7 +1149,7 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsResponse, collections.abc.Awaitable[core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsResponse]]:
         """List pipeline trigger time charts
 
-        Returns a timeline of pipline trigger counts for a given requester. The
+        Returns a timeline of pipeline trigger counts for a given requester. The
         response will contain one set of records (datapoints), representing the
         amount of triggers in a time bucket.
         """
@@ -1238,10 +1270,10 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsV0Response, collections.abc.Awaitable[core.mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsV0Response]]:
         """List pipeline trigger time charts
 
-        Returns a timeline of pipline trigger counts for the pipelines of a given
+        Returns a timeline of pipeline trigger counts for the pipelines of a given
         owner.
         NOTE: This method will soon be retired and replaced by
-        ListPipelineTriggerchartRecords.
+        ListPipelineTriggerChartRecords.
         """
 
 def add_MgmtPublicServiceServicer_to_server(servicer: MgmtPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

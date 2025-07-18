@@ -773,7 +773,7 @@ global___ListOrganizationsAdminResponse = ListOrganizationsAdminResponse
 
 @typing_extensions.final
 class GetOrganizationAdminRequest(google.protobuf.message.Message):
-    """GetOrganizationAdminRequest represents a request to query a organization by admin"""
+    """GetOrganizationAdminRequest represents a request to query an organization by admin"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -797,14 +797,14 @@ global___GetOrganizationAdminRequest = GetOrganizationAdminRequest
 
 @typing_extensions.final
 class GetOrganizationAdminResponse(google.protobuf.message.Message):
-    """GetOrganizationAdminResponse represents a response for a organization resource"""
+    """GetOrganizationAdminResponse represents a response for an organization resource"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     ORGANIZATION_FIELD_NUMBER: builtins.int
     @property
     def organization(self) -> global___Organization:
-        """A organization resource"""
+        """An organization resource"""
     def __init__(
         self,
         *,
@@ -817,7 +817,7 @@ global___GetOrganizationAdminResponse = GetOrganizationAdminResponse
 
 @typing_extensions.final
 class LookUpOrganizationAdminRequest(google.protobuf.message.Message):
-    """LookUpOrganizationAdminRequest represents a request to query a organization via permalink by
+    """LookUpOrganizationAdminRequest represents a request to query an organization via permalink by
     admin
     """
 
@@ -843,14 +843,14 @@ global___LookUpOrganizationAdminRequest = LookUpOrganizationAdminRequest
 
 @typing_extensions.final
 class LookUpOrganizationAdminResponse(google.protobuf.message.Message):
-    """LookUpOrganizationAdminResponse represents a response for a organization resource by admin"""
+    """LookUpOrganizationAdminResponse represents a response for an organization resource by admin"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     ORGANIZATION_FIELD_NUMBER: builtins.int
     @property
     def organization(self) -> global___Organization:
-        """A organization resource"""
+        """An organization resource"""
     def __init__(
         self,
         *,
@@ -2701,7 +2701,7 @@ global___DeleteOrganizationMembershipResponse = DeleteOrganizationMembershipResp
 
 @typing_extensions.final
 class StripeSubscriptionDetail(google.protobuf.message.Message):
-    """StripeSubscriptionDetail ontains the details of a subscription in Stripe."""
+    """StripeSubscriptionDetail contains the details of a subscription in Stripe."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2784,6 +2784,7 @@ class StripeSubscriptionDetail(google.protobuf.message.Message):
     TRIAL_END_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
+    CURRENT_PERIOD_END_FIELD_NUMBER: builtins.int
     product_name: builtins.str
     """Product name associated with the subscription in Stripe."""
     id: builtins.str
@@ -2800,6 +2801,8 @@ class StripeSubscriptionDetail(google.protobuf.message.Message):
     """Status of the subscription."""
     description: builtins.str
     """Description of the subscription."""
+    current_period_end: builtins.int
+    """Timestamp indicating when the end of the current subscription period."""
     def __init__(
         self,
         *,
@@ -2811,9 +2814,10 @@ class StripeSubscriptionDetail(google.protobuf.message.Message):
         trial_end: builtins.int | None = ...,
         status: global___StripeSubscriptionDetail.Status.ValueType = ...,
         description: builtins.str = ...,
+        current_period_end: builtins.int = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_canceled_at", b"_canceled_at", "_trial_end", b"_trial_end", "canceled_at", b"canceled_at", "trial_end", b"trial_end"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_canceled_at", b"_canceled_at", "_trial_end", b"_trial_end", "canceled_at", b"canceled_at", "description", b"description", "id", b"id", "item_id", b"item_id", "price", b"price", "product_name", b"product_name", "status", b"status", "trial_end", b"trial_end"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_canceled_at", b"_canceled_at", "_trial_end", b"_trial_end", "canceled_at", b"canceled_at", "current_period_end", b"current_period_end", "description", b"description", "id", b"id", "item_id", b"item_id", "price", b"price", "product_name", b"product_name", "status", b"status", "trial_end", b"trial_end"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_canceled_at", b"_canceled_at"]) -> typing_extensions.Literal["canceled_at"] | None: ...
     @typing.overload
@@ -2841,7 +2845,7 @@ class UserSubscription(google.protobuf.message.Message):
         """
         PLAN_STARTER: UserSubscription._Plan.ValueType  # 3
         """The starter plan is an individual plan for developers and early-stage
-        projects. This plan offers a free trial period that deoesn't require the
+        projects. This plan offers a free trial period that doesn't require the
         customer to have a default payment method. After the free trial period
         is over, the subscription state will transition from trialing to paused.
         """
@@ -2855,7 +2859,7 @@ class UserSubscription(google.protobuf.message.Message):
     """
     PLAN_STARTER: UserSubscription.Plan.ValueType  # 3
     """The starter plan is an individual plan for developers and early-stage
-    projects. This plan offers a free trial period that deoesn't require the
+    projects. This plan offers a free trial period that doesn't require the
     customer to have a default payment method. After the free trial period
     is over, the subscription state will transition from trialing to paused.
     """
@@ -2922,6 +2926,7 @@ class OrganizationSubscription(google.protobuf.message.Message):
     PLAN_FIELD_NUMBER: builtins.int
     DETAIL_FIELD_NUMBER: builtins.int
     USED_SEATS_FIELD_NUMBER: builtins.int
+    AVAILABLE_SEATS_FIELD_NUMBER: builtins.int
     plan: global___OrganizationSubscription.Plan.ValueType
     """Plan identifier."""
     @property
@@ -2929,15 +2934,18 @@ class OrganizationSubscription(google.protobuf.message.Message):
         """Details of the associated Stripe subscription."""
     used_seats: builtins.int
     """Number of used seats within the organization subscription."""
+    available_seats: builtins.int
+    """Number of available seats within the organization subscription."""
     def __init__(
         self,
         *,
         plan: global___OrganizationSubscription.Plan.ValueType = ...,
         detail: global___StripeSubscriptionDetail | None = ...,
         used_seats: builtins.int = ...,
+        available_seats: builtins.int = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["detail", b"detail"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["detail", b"detail", "plan", b"plan", "used_seats", b"used_seats"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["available_seats", b"available_seats", "detail", b"detail", "plan", b"plan", "used_seats", b"used_seats"]) -> None: ...
 
 global___OrganizationSubscription = OrganizationSubscription
 
@@ -2978,6 +2986,85 @@ class GetAuthenticatedUserSubscriptionResponse(google.protobuf.message.Message):
 global___GetAuthenticatedUserSubscriptionResponse = GetAuthenticatedUserSubscriptionResponse
 
 @typing_extensions.final
+class ListSubscriptionFreeTrialsRequest(google.protobuf.message.Message):
+    """ListSubscriptionFreeTrialsRequest represents a query to fetch the free
+    trials of the authenticated user.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___ListSubscriptionFreeTrialsRequest = ListSubscriptionFreeTrialsRequest
+
+@typing_extensions.final
+class SubscriptionFreeTrial(google.protobuf.message.Message):
+    """SubscriptionFreeTrial represents a free trial for either a user or
+    organization subscription
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    USER_PLAN_FIELD_NUMBER: builtins.int
+    ORGANIZATION_PLAN_FIELD_NUMBER: builtins.int
+    OWNER_UID_FIELD_NUMBER: builtins.int
+    ORGANIZATION_UID_FIELD_NUMBER: builtins.int
+    TRIAL_END_FIELD_NUMBER: builtins.int
+    user_plan: global___UserSubscription.Plan.ValueType
+    """User subscription details"""
+    organization_plan: global___OrganizationSubscription.Plan.ValueType
+    """Organization subscription details"""
+    owner_uid: builtins.str
+    """The owner's unique identifier. This is the user (customer) that ordered
+    the subscription.
+    """
+    organization_uid: builtins.str
+    """If the subscription is a team plan, the value of this field will be set to
+    the organization UID that the subscription is linked to.
+    """
+    @property
+    def trial_end(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """When the trial ends."""
+    def __init__(
+        self,
+        *,
+        user_plan: global___UserSubscription.Plan.ValueType = ...,
+        organization_plan: global___OrganizationSubscription.Plan.ValueType = ...,
+        owner_uid: builtins.str = ...,
+        organization_uid: builtins.str | None = ...,
+        trial_end: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_organization_uid", b"_organization_uid", "organization_plan", b"organization_plan", "organization_uid", b"organization_uid", "plan", b"plan", "trial_end", b"trial_end", "user_plan", b"user_plan"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_organization_uid", b"_organization_uid", "organization_plan", b"organization_plan", "organization_uid", b"organization_uid", "owner_uid", b"owner_uid", "plan", b"plan", "trial_end", b"trial_end", "user_plan", b"user_plan"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_organization_uid", b"_organization_uid"]) -> typing_extensions.Literal["organization_uid"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["plan", b"plan"]) -> typing_extensions.Literal["user_plan", "organization_plan"] | None: ...
+
+global___SubscriptionFreeTrial = SubscriptionFreeTrial
+
+@typing_extensions.final
+class ListSubscriptionFreeTrialsResponse(google.protobuf.message.Message):
+    """ListSubscriptionFreeTrialsResponse contains the requested free trials."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FREE_TRIALS_FIELD_NUMBER: builtins.int
+    @property
+    def free_trials(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___SubscriptionFreeTrial]:
+        """A list of subscription free trials."""
+    def __init__(
+        self,
+        *,
+        free_trials: collections.abc.Iterable[global___SubscriptionFreeTrial] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["free_trials", b"free_trials"]) -> None: ...
+
+global___ListSubscriptionFreeTrialsResponse = ListSubscriptionFreeTrialsResponse
+
+@typing_extensions.final
 class GetOrganizationSubscriptionRequest(google.protobuf.message.Message):
     """GetOrganizationSubscriptionRequest represents a query to fetch the
     subscription details of an organization.
@@ -2987,7 +3074,7 @@ class GetOrganizationSubscriptionRequest(google.protobuf.message.Message):
 
     ORGANIZATION_ID_FIELD_NUMBER: builtins.int
     organization_id: builtins.str
-    """Oragnization ID"""
+    """Organization ID"""
     def __init__(
         self,
         *,
@@ -3067,7 +3154,7 @@ class GetOrganizationSubscriptionAdminRequest(google.protobuf.message.Message):
 
     ORGANIZATION_ID_FIELD_NUMBER: builtins.int
     organization_id: builtins.str
-    """Oragnization ID"""
+    """Organization ID"""
     def __init__(
         self,
         *,

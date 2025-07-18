@@ -218,7 +218,6 @@ class PipelineTriggerChartRecord(google.protobuf.message.Message):
     """PipelineTriggerChartRecord represents a timeline of pipeline triggers. It
     contains a collection of (timestamp, count) pairs that represent the total
     pipeline triggers in a given time bucket.
-    pipeline ID and time frame.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -228,7 +227,7 @@ class PipelineTriggerChartRecord(google.protobuf.message.Message):
     TRIGGER_COUNTS_FIELD_NUMBER: builtins.int
     REQUESTER_ID_FIELD_NUMBER: builtins.int
     pipeline_id: builtins.str
-    """This field will be present present when the information is grouped by pipeline."""
+    """This field will be present when the information is grouped by pipeline."""
     @property
     def time_buckets(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.timestamp_pb2.Timestamp]:
         """Time buckets."""
@@ -339,7 +338,7 @@ class ModelTriggerChartRecord(google.protobuf.message.Message):
     TRIGGER_COUNTS_FIELD_NUMBER: builtins.int
     REQUESTER_ID_FIELD_NUMBER: builtins.int
     model_id: builtins.str
-    """This field will be present present when the information is grouped by model."""
+    """This field will be present when the information is grouped by model."""
     @property
     def time_buckets(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.timestamp_pb2.Timestamp]:
         """Time buckets."""
@@ -824,8 +823,8 @@ class ListPipelineTriggerRecordsRequest(google.protobuf.message.Message):
     FILTER_FIELD_NUMBER: builtins.int
     page_size: builtins.int
     """The maximum number of triggers to return. If this parameter is unspecified,
-    at most 100 pipelines will be returned. The cap value for this parameter is
-    1000 (i.e. any value above that will be coerced to 100).
+    at most 100 triggers will be returned. The cap value for this parameter is
+    1000 (i.e. any value above that will be coerced to 1000).
     """
     page_token: builtins.str
     """Page token."""

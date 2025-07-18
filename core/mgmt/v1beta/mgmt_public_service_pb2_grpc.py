@@ -124,6 +124,11 @@ class MgmtPublicServiceStub(object):
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionResponse.FromString,
                 )
+        self.ListSubscriptionFreeTrials = channel.unary_unary(
+                '/core.mgmt.v1beta.MgmtPublicService/ListSubscriptionFreeTrials',
+                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListSubscriptionFreeTrialsRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListSubscriptionFreeTrialsResponse.FromString,
+                )
         self.CreateToken = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/CreateToken',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CreateTokenRequest.SerializeToString,
@@ -385,7 +390,7 @@ class MgmtPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetOrganizationMembership(self, request, context):
-        """Get a an organization membership
+        """Get an organization membership
 
         Returns the details of a user membership within an organization.
         """
@@ -394,7 +399,7 @@ class MgmtPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def UpdateOrganizationMembership(self, request, context):
-        """Uppdate an organization membership
+        """Update an organization membership
 
         Updates a user membership within an organization.
         """
@@ -430,6 +435,17 @@ class MgmtPublicServiceServicer(object):
         several subscriptions exist (e.g. if the organization has upgraded to and
         downgraded from a plan several times), the most recent subscription is
         returned.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListSubscriptionFreeTrials(self, request, context):
+        """List subscription free trials
+
+        Returns a list of the free trials of the authenticated user. The trials
+        might apply to different plans, including organization plans purchased by
+        the user.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -527,7 +543,7 @@ class MgmtPublicServiceServicer(object):
     def ListPipelineTriggerChartRecords(self, request, context):
         """List pipeline trigger time charts
 
-        Returns a timeline of pipline trigger counts for a given requester. The
+        Returns a timeline of pipeline trigger counts for a given requester. The
         response will contain one set of records (datapoints), representing the
         amount of triggers in a time bucket.
         """
@@ -638,10 +654,10 @@ class MgmtPublicServiceServicer(object):
     def ListPipelineTriggerChartRecordsV0(self, request, context):
         """List pipeline trigger time charts
 
-        Returns a timeline of pipline trigger counts for the pipelines of a given
+        Returns a timeline of pipeline trigger counts for the pipelines of a given
         owner.
         NOTE: This method will soon be retired and replaced by
-        ListPipelineTriggerchartRecords.
+        ListPipelineTriggerChartRecords.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -754,6 +770,11 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     servicer.GetOrganizationSubscription,
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionResponse.SerializeToString,
+            ),
+            'ListSubscriptionFreeTrials': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListSubscriptionFreeTrials,
+                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListSubscriptionFreeTrialsRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListSubscriptionFreeTrialsResponse.SerializeToString,
             ),
             'CreateToken': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateToken,
@@ -1223,6 +1244,23 @@ class MgmtPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/GetOrganizationSubscription',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListSubscriptionFreeTrials(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListSubscriptionFreeTrials',
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListSubscriptionFreeTrialsRequest.SerializeToString,
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListSubscriptionFreeTrialsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
