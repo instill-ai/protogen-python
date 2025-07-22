@@ -1954,6 +1954,22 @@ class Organization(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
+    class Stats(google.protobuf.message.Message):
+        """The Organization stats."""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        USER_COUNT_FIELD_NUMBER: builtins.int
+        user_count: builtins.int
+        """The number of users in the organization."""
+        def __init__(
+            self,
+            *,
+            user_count: builtins.int = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["user_count", b"user_count"]) -> None: ...
+
     NAME_FIELD_NUMBER: builtins.int
     UID_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
@@ -1962,6 +1978,7 @@ class Organization(google.protobuf.message.Message):
     OWNER_FIELD_NUMBER: builtins.int
     PROFILE_FIELD_NUMBER: builtins.int
     PERMISSION_FIELD_NUMBER: builtins.int
+    STATS_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The name of the organization, defined by its ID.
     - Format: `organization/{organization.id}`.
@@ -1991,6 +2008,9 @@ class Organization(google.protobuf.message.Message):
     @property
     def permission(self) -> global___Permission:
         """Permission"""
+    @property
+    def stats(self) -> global___Organization.Stats:
+        """The organization stats."""
     def __init__(
         self,
         *,
@@ -2002,9 +2022,10 @@ class Organization(google.protobuf.message.Message):
         owner: global___User | None = ...,
         profile: global___OrganizationProfile | None = ...,
         permission: global___Permission | None = ...,
+        stats: global___Organization.Stats | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "owner", b"owner", "permission", b"permission", "profile", b"profile", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "id", b"id", "name", b"name", "owner", b"owner", "permission", b"permission", "profile", b"profile", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "owner", b"owner", "permission", b"permission", "profile", b"profile", "stats", b"stats", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "id", b"id", "name", b"name", "owner", b"owner", "permission", b"permission", "profile", b"profile", "stats", b"stats", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
 
 global___Organization = Organization
 
