@@ -185,6 +185,14 @@ class MgmtPublicServiceStub:
 
     Deletes a user membership within an organization.
     """
+    InviteOrganizationMembers: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.InviteOrganizationMembersRequest,
+        core.mgmt.v1beta.mgmt_pb2.InviteOrganizationMembersResponse,
+    ]
+    """Invite members to an organization
+
+    Invites members to an organization.
+    """
     GetAuthenticatedUserSubscription: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserSubscriptionRequest,
         core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserSubscriptionResponse,
@@ -575,6 +583,14 @@ class MgmtPublicServiceAsyncStub:
     """Delete an organization membership
 
     Deletes a user membership within an organization.
+    """
+    InviteOrganizationMembers: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.InviteOrganizationMembersRequest,
+        core.mgmt.v1beta.mgmt_pb2.InviteOrganizationMembersResponse,
+    ]
+    """Invite members to an organization
+
+    Invites members to an organization.
     """
     GetAuthenticatedUserSubscription: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserSubscriptionRequest,
@@ -1004,6 +1020,16 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         """Delete an organization membership
 
         Deletes a user membership within an organization.
+        """
+    @abc.abstractmethod
+    def InviteOrganizationMembers(
+        self,
+        request: core.mgmt.v1beta.mgmt_pb2.InviteOrganizationMembersRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.InviteOrganizationMembersResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.InviteOrganizationMembersResponse]]:
+        """Invite members to an organization
+
+        Invites members to an organization.
         """
     @abc.abstractmethod
     def GetAuthenticatedUserSubscription(
