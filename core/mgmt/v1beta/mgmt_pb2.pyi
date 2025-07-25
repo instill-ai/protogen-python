@@ -496,6 +496,7 @@ class User(google.protobuf.message.Message):
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     PROFILE_FIELD_NUMBER: builtins.int
+    EMAIL_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The name of the user, defined by its ID.
     - Format: `users/{user.id}`.
@@ -521,6 +522,8 @@ class User(google.protobuf.message.Message):
     @property
     def profile(self) -> global___UserProfile:
         """Profile."""
+    email: builtins.str
+    """Email."""
     def __init__(
         self,
         *,
@@ -530,9 +533,10 @@ class User(google.protobuf.message.Message):
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         profile: global___UserProfile | None = ...,
+        email: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_uid", b"_uid", "create_time", b"create_time", "profile", b"profile", "uid", b"uid", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_uid", b"_uid", "create_time", b"create_time", "id", b"id", "name", b"name", "profile", b"profile", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_uid", b"_uid", "create_time", b"create_time", "email", b"email", "id", b"id", "name", b"name", "profile", b"profile", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_uid", b"_uid"]) -> typing_extensions.Literal["uid"] | None: ...
 
 global___User = User
