@@ -423,6 +423,38 @@ class AgentPublicServiceStub:
 
     Deletes a folder.
     """
+    CreateFolderFile: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.folder_pb2.CreateFolderFileRequest,
+        agent.agent.v1alpha.folder_pb2.CreateFolderFileResponse,
+    ]
+    """Create a file
+
+    Creates a file.
+    """
+    DeleteFolderFile: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.folder_pb2.DeleteFolderFileRequest,
+        agent.agent.v1alpha.folder_pb2.DeleteFolderFileResponse,
+    ]
+    """Delete a file
+
+    Deletes a file.
+    """
+    ListFolderFiles: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.folder_pb2.ListFolderFilesRequest,
+        agent.agent.v1alpha.folder_pb2.ListFolderFilesResponse,
+    ]
+    """List folder files
+
+    Returns a paginated list of folder files.
+    """
+    GetFolderFile: grpc.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.folder_pb2.GetFolderFileRequest,
+        agent.agent.v1alpha.folder_pb2.GetFolderFileResponse,
+    ]
+    """Get catalog file
+
+    Gets the file of a catalog.
+    """
 
 class AgentPublicServiceAsyncStub:
     """AgentPublicService exposes the public endpoints that allow clients to
@@ -825,6 +857,38 @@ class AgentPublicServiceAsyncStub:
     """Delete folder
 
     Deletes a folder.
+    """
+    CreateFolderFile: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.folder_pb2.CreateFolderFileRequest,
+        agent.agent.v1alpha.folder_pb2.CreateFolderFileResponse,
+    ]
+    """Create a file
+
+    Creates a file.
+    """
+    DeleteFolderFile: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.folder_pb2.DeleteFolderFileRequest,
+        agent.agent.v1alpha.folder_pb2.DeleteFolderFileResponse,
+    ]
+    """Delete a file
+
+    Deletes a file.
+    """
+    ListFolderFiles: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.folder_pb2.ListFolderFilesRequest,
+        agent.agent.v1alpha.folder_pb2.ListFolderFilesResponse,
+    ]
+    """List folder files
+
+    Returns a paginated list of folder files.
+    """
+    GetFolderFile: grpc.aio.UnaryUnaryMultiCallable[
+        agent.agent.v1alpha.folder_pb2.GetFolderFileRequest,
+        agent.agent.v1alpha.folder_pb2.GetFolderFileResponse,
+    ]
+    """Get catalog file
+
+    Gets the file of a catalog.
     """
 
 class AgentPublicServiceServicer(metaclass=abc.ABCMeta):
@@ -1326,6 +1390,46 @@ class AgentPublicServiceServicer(metaclass=abc.ABCMeta):
         """Delete folder
 
         Deletes a folder.
+        """
+    @abc.abstractmethod
+    def CreateFolderFile(
+        self,
+        request: agent.agent.v1alpha.folder_pb2.CreateFolderFileRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.folder_pb2.CreateFolderFileResponse, collections.abc.Awaitable[agent.agent.v1alpha.folder_pb2.CreateFolderFileResponse]]:
+        """Create a file
+
+        Creates a file.
+        """
+    @abc.abstractmethod
+    def DeleteFolderFile(
+        self,
+        request: agent.agent.v1alpha.folder_pb2.DeleteFolderFileRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.folder_pb2.DeleteFolderFileResponse, collections.abc.Awaitable[agent.agent.v1alpha.folder_pb2.DeleteFolderFileResponse]]:
+        """Delete a file
+
+        Deletes a file.
+        """
+    @abc.abstractmethod
+    def ListFolderFiles(
+        self,
+        request: agent.agent.v1alpha.folder_pb2.ListFolderFilesRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.folder_pb2.ListFolderFilesResponse, collections.abc.Awaitable[agent.agent.v1alpha.folder_pb2.ListFolderFilesResponse]]:
+        """List folder files
+
+        Returns a paginated list of folder files.
+        """
+    @abc.abstractmethod
+    def GetFolderFile(
+        self,
+        request: agent.agent.v1alpha.folder_pb2.GetFolderFileRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[agent.agent.v1alpha.folder_pb2.GetFolderFileResponse, collections.abc.Awaitable[agent.agent.v1alpha.folder_pb2.GetFolderFileResponse]]:
+        """Get catalog file
+
+        Gets the file of a catalog.
         """
 
 def add_AgentPublicServiceServicer_to_server(servicer: AgentPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

@@ -264,6 +264,26 @@ class AgentPublicServiceStub(object):
                 request_serializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.DeleteFolderRequest.SerializeToString,
                 response_deserializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.DeleteFolderResponse.FromString,
                 )
+        self.CreateFolderFile = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/CreateFolderFile',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.CreateFolderFileRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.CreateFolderFileResponse.FromString,
+                )
+        self.DeleteFolderFile = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/DeleteFolderFile',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.DeleteFolderFileRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.DeleteFolderFileResponse.FromString,
+                )
+        self.ListFolderFiles = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/ListFolderFiles',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.ListFolderFilesRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.ListFolderFilesResponse.FromString,
+                )
+        self.GetFolderFile = channel.unary_unary(
+                '/agent.agent.v1alpha.AgentPublicService/GetFolderFile',
+                request_serializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.GetFolderFileRequest.SerializeToString,
+                response_deserializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.GetFolderFileResponse.FromString,
+                )
 
 
 class AgentPublicServiceServicer(object):
@@ -717,6 +737,42 @@ class AgentPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateFolderFile(self, request, context):
+        """Create a file
+
+        Creates a file.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteFolderFile(self, request, context):
+        """Delete a file
+
+        Deletes a file.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListFolderFiles(self, request, context):
+        """List folder files
+
+        Returns a paginated list of folder files.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetFolderFile(self, request, context):
+        """Get catalog file
+
+        Gets the file of a catalog.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_AgentPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -964,6 +1020,26 @@ def add_AgentPublicServiceServicer_to_server(servicer, server):
                     servicer.DeleteFolder,
                     request_deserializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.DeleteFolderRequest.FromString,
                     response_serializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.DeleteFolderResponse.SerializeToString,
+            ),
+            'CreateFolderFile': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateFolderFile,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.CreateFolderFileRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.CreateFolderFileResponse.SerializeToString,
+            ),
+            'DeleteFolderFile': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteFolderFile,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.DeleteFolderFileRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.DeleteFolderFileResponse.SerializeToString,
+            ),
+            'ListFolderFiles': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListFolderFiles,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.ListFolderFilesRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.ListFolderFilesResponse.SerializeToString,
+            ),
+            'GetFolderFile': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetFolderFile,
+                    request_deserializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.GetFolderFileRequest.FromString,
+                    response_serializer=agent_dot_agent_dot_v1alpha_dot_folder__pb2.GetFolderFileResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1807,5 +1883,73 @@ class AgentPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/DeleteFolder',
             agent_dot_agent_dot_v1alpha_dot_folder__pb2.DeleteFolderRequest.SerializeToString,
             agent_dot_agent_dot_v1alpha_dot_folder__pb2.DeleteFolderResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateFolderFile(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/CreateFolderFile',
+            agent_dot_agent_dot_v1alpha_dot_folder__pb2.CreateFolderFileRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_folder__pb2.CreateFolderFileResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteFolderFile(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/DeleteFolderFile',
+            agent_dot_agent_dot_v1alpha_dot_folder__pb2.DeleteFolderFileRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_folder__pb2.DeleteFolderFileResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListFolderFiles(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/ListFolderFiles',
+            agent_dot_agent_dot_v1alpha_dot_folder__pb2.ListFolderFilesRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_folder__pb2.ListFolderFilesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetFolderFile(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/agent.agent.v1alpha.AgentPublicService/GetFolderFile',
+            agent_dot_agent_dot_v1alpha_dot_folder__pb2.GetFolderFileRequest.SerializeToString,
+            agent_dot_agent_dot_v1alpha_dot_folder__pb2.GetFolderFileResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
