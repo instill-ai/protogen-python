@@ -204,6 +204,14 @@ class MgmtPublicServiceStub:
     downgraded from a plan several times), the most recent subscription is
     returned.
     """
+    SyncAuthenticatedUserSubscription: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.SyncAuthenticatedUserSubscriptionRequest,
+        core.mgmt.v1beta.mgmt_pb2.SyncAuthenticatedUserSubscriptionResponse,
+    ]
+    """Sync the subscription of the authenticated user
+
+    Syncs the subscription of the authenticated user with Stripe.
+    """
     GetOrganizationSubscription: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionRequest,
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionResponse,
@@ -214,6 +222,14 @@ class MgmtPublicServiceStub:
     several subscriptions exist (e.g. if the organization has upgraded to and
     downgraded from a plan several times), the most recent subscription is
     returned.
+    """
+    SyncOrganizationSubscription: grpc.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.SyncOrganizationSubscriptionRequest,
+        core.mgmt.v1beta.mgmt_pb2.SyncOrganizationSubscriptionResponse,
+    ]
+    """Sync the subscription of an organization
+
+    Syncs the subscription of an organization with Stripe.
     """
     ListSubscriptionFreeTrials: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.ListSubscriptionFreeTrialsRequest,
@@ -603,6 +619,14 @@ class MgmtPublicServiceAsyncStub:
     downgraded from a plan several times), the most recent subscription is
     returned.
     """
+    SyncAuthenticatedUserSubscription: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.SyncAuthenticatedUserSubscriptionRequest,
+        core.mgmt.v1beta.mgmt_pb2.SyncAuthenticatedUserSubscriptionResponse,
+    ]
+    """Sync the subscription of the authenticated user
+
+    Syncs the subscription of the authenticated user with Stripe.
+    """
     GetOrganizationSubscription: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionRequest,
         core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionResponse,
@@ -613,6 +637,14 @@ class MgmtPublicServiceAsyncStub:
     several subscriptions exist (e.g. if the organization has upgraded to and
     downgraded from a plan several times), the most recent subscription is
     returned.
+    """
+    SyncOrganizationSubscription: grpc.aio.UnaryUnaryMultiCallable[
+        core.mgmt.v1beta.mgmt_pb2.SyncOrganizationSubscriptionRequest,
+        core.mgmt.v1beta.mgmt_pb2.SyncOrganizationSubscriptionResponse,
+    ]
+    """Sync the subscription of an organization
+
+    Syncs the subscription of an organization with Stripe.
     """
     ListSubscriptionFreeTrials: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.ListSubscriptionFreeTrialsRequest,
@@ -1045,6 +1077,16 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         returned.
         """
     @abc.abstractmethod
+    def SyncAuthenticatedUserSubscription(
+        self,
+        request: core.mgmt.v1beta.mgmt_pb2.SyncAuthenticatedUserSubscriptionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.SyncAuthenticatedUserSubscriptionResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.SyncAuthenticatedUserSubscriptionResponse]]:
+        """Sync the subscription of the authenticated user
+
+        Syncs the subscription of the authenticated user with Stripe.
+        """
+    @abc.abstractmethod
     def GetOrganizationSubscription(
         self,
         request: core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionRequest,
@@ -1056,6 +1098,16 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         several subscriptions exist (e.g. if the organization has upgraded to and
         downgraded from a plan several times), the most recent subscription is
         returned.
+        """
+    @abc.abstractmethod
+    def SyncOrganizationSubscription(
+        self,
+        request: core.mgmt.v1beta.mgmt_pb2.SyncOrganizationSubscriptionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.SyncOrganizationSubscriptionResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.SyncOrganizationSubscriptionResponse]]:
+        """Sync the subscription of an organization
+
+        Syncs the subscription of an organization with Stripe.
         """
     @abc.abstractmethod
     def ListSubscriptionFreeTrials(

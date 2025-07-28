@@ -124,10 +124,20 @@ class MgmtPublicServiceStub(object):
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserSubscriptionRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserSubscriptionResponse.FromString,
                 )
+        self.SyncAuthenticatedUserSubscription = channel.unary_unary(
+                '/core.mgmt.v1beta.MgmtPublicService/SyncAuthenticatedUserSubscription',
+                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SyncAuthenticatedUserSubscriptionRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SyncAuthenticatedUserSubscriptionResponse.FromString,
+                )
         self.GetOrganizationSubscription = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/GetOrganizationSubscription',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionResponse.FromString,
+                )
+        self.SyncOrganizationSubscription = channel.unary_unary(
+                '/core.mgmt.v1beta.MgmtPublicService/SyncOrganizationSubscription',
+                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SyncOrganizationSubscriptionRequest.SerializeToString,
+                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SyncOrganizationSubscriptionResponse.FromString,
                 )
         self.ListSubscriptionFreeTrials = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/ListSubscriptionFreeTrials',
@@ -442,6 +452,15 @@ class MgmtPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SyncAuthenticatedUserSubscription(self, request, context):
+        """Sync the subscription of the authenticated user
+
+        Syncs the subscription of the authenticated user with Stripe.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetOrganizationSubscription(self, request, context):
         """Get the subscription of an organization
 
@@ -449,6 +468,15 @@ class MgmtPublicServiceServicer(object):
         several subscriptions exist (e.g. if the organization has upgraded to and
         downgraded from a plan several times), the most recent subscription is
         returned.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SyncOrganizationSubscription(self, request, context):
+        """Sync the subscription of an organization
+
+        Syncs the subscription of an organization with Stripe.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -785,10 +813,20 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserSubscriptionRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserSubscriptionResponse.SerializeToString,
             ),
+            'SyncAuthenticatedUserSubscription': grpc.unary_unary_rpc_method_handler(
+                    servicer.SyncAuthenticatedUserSubscription,
+                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SyncAuthenticatedUserSubscriptionRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SyncAuthenticatedUserSubscriptionResponse.SerializeToString,
+            ),
             'GetOrganizationSubscription': grpc.unary_unary_rpc_method_handler(
                     servicer.GetOrganizationSubscription,
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionResponse.SerializeToString,
+            ),
+            'SyncOrganizationSubscription': grpc.unary_unary_rpc_method_handler(
+                    servicer.SyncOrganizationSubscription,
+                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SyncOrganizationSubscriptionRequest.FromString,
+                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SyncOrganizationSubscriptionResponse.SerializeToString,
             ),
             'ListSubscriptionFreeTrials': grpc.unary_unary_rpc_method_handler(
                     servicer.ListSubscriptionFreeTrials,
@@ -1267,6 +1305,23 @@ class MgmtPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def SyncAuthenticatedUserSubscription(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/SyncAuthenticatedUserSubscription',
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SyncAuthenticatedUserSubscriptionRequest.SerializeToString,
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SyncAuthenticatedUserSubscriptionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def GetOrganizationSubscription(request,
             target,
             options=(),
@@ -1280,6 +1335,23 @@ class MgmtPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/GetOrganizationSubscription',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SyncOrganizationSubscription(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/SyncOrganizationSubscription',
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SyncOrganizationSubscriptionRequest.SerializeToString,
+            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SyncOrganizationSubscriptionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

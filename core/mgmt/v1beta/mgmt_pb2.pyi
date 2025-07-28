@@ -3249,3 +3249,65 @@ class InviteOrganizationMembersResponse(google.protobuf.message.Message):
     ) -> None: ...
 
 global___InviteOrganizationMembersResponse = InviteOrganizationMembersResponse
+
+@typing_extensions.final
+class SyncAuthenticatedUserSubscriptionRequest(google.protobuf.message.Message):
+    """SyncAuthenticatedUserSubscriptionRequest represents a request to sync the
+    subscription of the authenticated user.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___SyncAuthenticatedUserSubscriptionRequest = SyncAuthenticatedUserSubscriptionRequest
+
+@typing_extensions.final
+class SyncAuthenticatedUserSubscriptionResponse(google.protobuf.message.Message):
+    """SyncAuthenticatedUserSubscriptionResponse represents a response to a request
+    to sync the subscription of the authenticated user.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___SyncAuthenticatedUserSubscriptionResponse = SyncAuthenticatedUserSubscriptionResponse
+
+@typing_extensions.final
+class SyncOrganizationSubscriptionRequest(google.protobuf.message.Message):
+    """SyncOrganizationSubscriptionRequest represents a request to sync the
+    subscription of an organization.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    ORGANIZATION_ID_FIELD_NUMBER: builtins.int
+    organization_id: builtins.str
+    """The organization ID."""
+    def __init__(
+        self,
+        *,
+        organization_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["organization_id", b"organization_id"]) -> None: ...
+
+global___SyncOrganizationSubscriptionRequest = SyncOrganizationSubscriptionRequest
+
+@typing_extensions.final
+class SyncOrganizationSubscriptionResponse(google.protobuf.message.Message):
+    """SyncOrganizationSubscriptionResponse represents a response to a request to
+    sync the subscription of an organization.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___SyncOrganizationSubscriptionResponse = SyncOrganizationSubscriptionResponse
