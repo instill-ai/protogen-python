@@ -382,6 +382,7 @@ class AuthenticatedUser(google.protobuf.message.Message):
     COOKIE_TOKEN_FIELD_NUMBER: builtins.int
     ONBOARDING_STATUS_FIELD_NUMBER: builtins.int
     PROFILE_FIELD_NUMBER: builtins.int
+    IS_ELIGIBLE_FOR_ORGANIZATION_TRIAL_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The name of the user, defined by its ID.
     - Format: `users/{user.id}`.
@@ -429,6 +430,8 @@ class AuthenticatedUser(google.protobuf.message.Message):
     @property
     def profile(self) -> global___UserProfile:
         """Profile."""
+    is_eligible_for_organization_trial: builtins.bool
+    """Is eligible for organization trial."""
     def __init__(
         self,
         *,
@@ -444,9 +447,10 @@ class AuthenticatedUser(google.protobuf.message.Message):
         cookie_token: builtins.str | None = ...,
         onboarding_status: global___OnboardingStatus.ValueType = ...,
         profile: global___UserProfile | None = ...,
+        is_eligible_for_organization_trial: builtins.bool = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_cookie_token", b"_cookie_token", "_role", b"_role", "_uid", b"_uid", "cookie_token", b"cookie_token", "create_time", b"create_time", "profile", b"profile", "role", b"role", "uid", b"uid", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_cookie_token", b"_cookie_token", "_role", b"_role", "_uid", b"_uid", "cookie_token", b"cookie_token", "create_time", b"create_time", "customer_id", b"customer_id", "email", b"email", "id", b"id", "name", b"name", "newsletter_subscription", b"newsletter_subscription", "onboarding_status", b"onboarding_status", "profile", b"profile", "role", b"role", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_cookie_token", b"_cookie_token", "_role", b"_role", "_uid", b"_uid", "cookie_token", b"cookie_token", "create_time", b"create_time", "customer_id", b"customer_id", "email", b"email", "id", b"id", "is_eligible_for_organization_trial", b"is_eligible_for_organization_trial", "name", b"name", "newsletter_subscription", b"newsletter_subscription", "onboarding_status", b"onboarding_status", "profile", b"profile", "role", b"role", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_cookie_token", b"_cookie_token"]) -> typing_extensions.Literal["cookie_token"] | None: ...
     @typing.overload
