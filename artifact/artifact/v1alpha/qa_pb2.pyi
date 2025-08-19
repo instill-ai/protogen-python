@@ -27,14 +27,21 @@ class QuestionAnsweringRequest(google.protobuf.message.Message):
     CATALOG_ID_FIELD_NUMBER: builtins.int
     QUESTION_FIELD_NUMBER: builtins.int
     TOP_K_FIELD_NUMBER: builtins.int
+    FILE_UIDS_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """id of the namespace"""
+    """ID of the namespace owning the catalog."""
     catalog_id: builtins.str
-    """id of the catalog"""
+    """ID of the catalog."""
     question: builtins.str
-    """question to be answered"""
+    """Text prompt with the question."""
     top_k: builtins.int
-    """top k default to 5"""
+    """Top K. Default value: 5."""
+    @property
+    def file_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """File UIDs. When this field is provided, the response will only use the
+        specified files to build the answer. The UIDs must be UUID-formatted
+        strings.
+        """
     def __init__(
         self,
         *,
@@ -42,8 +49,9 @@ class QuestionAnsweringRequest(google.protobuf.message.Message):
         catalog_id: builtins.str = ...,
         question: builtins.str = ...,
         top_k: builtins.int = ...,
+        file_uids: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "namespace_id", b"namespace_id", "question", b"question", "top_k", b"top_k"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "file_uids", b"file_uids", "namespace_id", b"namespace_id", "question", b"question", "top_k", b"top_k"]) -> None: ...
 
 global___QuestionAnsweringRequest = QuestionAnsweringRequest
 

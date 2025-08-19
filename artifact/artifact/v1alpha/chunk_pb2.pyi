@@ -442,6 +442,7 @@ class SimilarityChunksSearchRequest(google.protobuf.message.Message):
     CONTENT_TYPE_FIELD_NUMBER: builtins.int
     FILE_MEDIA_TYPE_FIELD_NUMBER: builtins.int
     FILE_UID_FIELD_NUMBER: builtins.int
+    FILE_UIDS_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """ID of the namespace owning the catalog."""
     catalog_id: builtins.str
@@ -453,13 +454,20 @@ class SimilarityChunksSearchRequest(google.protobuf.message.Message):
     file_name: builtins.str
     """File name. This field is deprecated as the file ID isn't a unique
     identifier within a catalog. The file UID should be used, instead.
+    When this file is provided, the service will search a file by UID and
+    it'll use the UID in the first match.
     """
     content_type: global___ContentType.ValueType
     """Content type."""
     file_media_type: global___FileMediaType.ValueType
     """File type."""
     file_uid: builtins.str
-    """File UID."""
+    """File UID. This field is deprecated, the file_uids should be used instead."""
+    @property
+    def file_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """File UIDs. When this field is provided, the response will return only
+        chunks that belong to the specified file UIDs.
+        """
     def __init__(
         self,
         *,
@@ -471,8 +479,9 @@ class SimilarityChunksSearchRequest(google.protobuf.message.Message):
         content_type: global___ContentType.ValueType = ...,
         file_media_type: global___FileMediaType.ValueType = ...,
         file_uid: builtins.str = ...,
+        file_uids: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "content_type", b"content_type", "file_media_type", b"file_media_type", "file_name", b"file_name", "file_uid", b"file_uid", "namespace_id", b"namespace_id", "text_prompt", b"text_prompt", "top_k", b"top_k"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "content_type", b"content_type", "file_media_type", b"file_media_type", "file_name", b"file_name", "file_uid", b"file_uid", "file_uids", b"file_uids", "namespace_id", b"namespace_id", "text_prompt", b"text_prompt", "top_k", b"top_k"]) -> None: ...
 
 global___SimilarityChunksSearchRequest = SimilarityChunksSearchRequest
 

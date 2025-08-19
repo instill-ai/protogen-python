@@ -1168,6 +1168,7 @@ class UploadCatalogFileRequest(google.protobuf.message.Message):
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     CATALOG_ID_FIELD_NUMBER: builtins.int
     FILE_FIELD_NUMBER: builtins.int
+    CONVERTING_PIPELINES_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """owner/namespace uid"""
     catalog_id: builtins.str
@@ -1175,15 +1176,48 @@ class UploadCatalogFileRequest(google.protobuf.message.Message):
     @property
     def file(self) -> global___File:
         """file"""
+    @property
+    def converting_pipelines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """Pipelines used for converting the document file (i.e., files with pdf,
+        doc[x] or ppt[x] extension) to Markdown. The strings in the list identify
+        the pipelines and MUST have the format
+        `{namespaceID}/{pipelineID}@{version}`.
+        The pipeline recipes MUST have the following variable and output fields:
+        ```yaml variable
+        variable:
+          document_input:
+            title: document-input
+            description: Upload a document (PDF/DOCX/DOC/PPTX/PPT)
+            type: file
+        ```
+        ```yaml output
+        output:
+         convert_result:
+           title: convert-result
+           value: ${merge-markdown-refinement.output.results[0]}
+        ```
+        Other variable and output fields will be ignored.
+
+        The pipelines will be executed in order until one produces a successful,
+        non-empty result.
+
+        If no pipelines are provided, the catalog's conversion pipelines will be
+        used (see the catalog creation request).
+
+        For non-document catalog files, the conversion pipeline is deterministic
+        (such files are typically trivial to convert and don't require a dedicated
+        pipeline to improve the conversion performance).
+        """
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         catalog_id: builtins.str = ...,
         file: global___File | None = ...,
+        converting_pipelines: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["file", b"file"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "file", b"file", "namespace_id", b"namespace_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "converting_pipelines", b"converting_pipelines", "file", b"file", "namespace_id", b"namespace_id"]) -> None: ...
 
 global___UploadCatalogFileRequest = UploadCatalogFileRequest
 

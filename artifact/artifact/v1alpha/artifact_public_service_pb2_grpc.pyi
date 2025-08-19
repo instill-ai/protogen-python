@@ -175,9 +175,10 @@ class ArtifactPublicServiceStub:
         artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringRequest,
         artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringResponse,
     ]
-    """Ask a question
+    """Answer a question
 
-    Asks a question.
+    Provides the response to the prompted question, returning contextual
+    information like the chunks used to build the answer.
     """
     GetFileCatalog: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogRequest,
@@ -374,9 +375,10 @@ class ArtifactPublicServiceAsyncStub:
         artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringRequest,
         artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringResponse,
     ]
-    """Ask a question
+    """Answer a question
 
-    Asks a question.
+    Provides the response to the prompted question, returning contextual
+    information like the chunks used to build the answer.
     """
     GetFileCatalog: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogRequest,
@@ -611,9 +613,10 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         request: artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringResponse]]:
-        """Ask a question
+        """Answer a question
 
-        Asks a question.
+        Provides the response to the prompted question, returning contextual
+        information like the chunks used to build the answer.
         """
     @abc.abstractmethod
     def GetFileCatalog(

@@ -310,9 +310,10 @@ class ArtifactPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def QuestionAnswering(self, request, context):
-        """Ask a question
+        """Answer a question
 
-        Asks a question.
+        Provides the response to the prompted question, returning contextual
+        information like the chunks used to build the answer.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
