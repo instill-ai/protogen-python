@@ -1083,6 +1083,7 @@ class File(google.protobuf.message.Message):
     OBJECT_UID_FIELD_NUMBER: builtins.int
     SUMMARY_FIELD_NUMBER: builtins.int
     DOWNLOAD_URL_FIELD_NUMBER: builtins.int
+    CONVERTING_PIPELINE_FIELD_NUMBER: builtins.int
     file_uid: builtins.str
     """file uid"""
     name: builtins.str
@@ -1129,53 +1130,6 @@ class File(google.protobuf.message.Message):
     """summary of the file"""
     download_url: builtins.str
     """download url of the file"""
-    def __init__(
-        self,
-        *,
-        file_uid: builtins.str = ...,
-        name: builtins.str = ...,
-        type: global___FileType.ValueType = ...,
-        process_status: global___FileProcessStatus.ValueType = ...,
-        process_outcome: builtins.str = ...,
-        retrievable: builtins.bool = ...,
-        content: builtins.str = ...,
-        owner_uid: builtins.str = ...,
-        creator_uid: builtins.str = ...,
-        catalog_uid: builtins.str = ...,
-        create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        size: builtins.int = ...,
-        total_chunks: builtins.int = ...,
-        total_tokens: builtins.int = ...,
-        external_metadata: google.protobuf.struct_pb2.Struct | None = ...,
-        object_uid: builtins.str = ...,
-        summary: builtins.str = ...,
-        download_url: builtins.str = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_external_metadata", b"_external_metadata", "create_time", b"create_time", "delete_time", b"delete_time", "external_metadata", b"external_metadata", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_external_metadata", b"_external_metadata", "catalog_uid", b"catalog_uid", "content", b"content", "create_time", b"create_time", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "download_url", b"download_url", "external_metadata", b"external_metadata", "file_uid", b"file_uid", "name", b"name", "object_uid", b"object_uid", "owner_uid", b"owner_uid", "process_outcome", b"process_outcome", "process_status", b"process_status", "retrievable", b"retrievable", "size", b"size", "summary", b"summary", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_external_metadata", b"_external_metadata"]) -> typing_extensions.Literal["external_metadata"] | None: ...
-
-global___File = File
-
-@typing_extensions.final
-class UploadCatalogFileRequest(google.protobuf.message.Message):
-    """upload file request"""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    CATALOG_ID_FIELD_NUMBER: builtins.int
-    FILE_FIELD_NUMBER: builtins.int
-    CONVERTING_PIPELINE_FIELD_NUMBER: builtins.int
-    namespace_id: builtins.str
-    """owner/namespace uid"""
-    catalog_id: builtins.str
-    """catalog id"""
-    @property
-    def file(self) -> global___File:
-        """file"""
     converting_pipeline: builtins.str
     """Pipeline used for converting the file to Markdown if the file is a
     document (i.e., a file with pdf, doc[x] or ppt[x] extension). The value
@@ -1208,13 +1162,62 @@ class UploadCatalogFileRequest(google.protobuf.message.Message):
     def __init__(
         self,
         *,
+        file_uid: builtins.str = ...,
+        name: builtins.str = ...,
+        type: global___FileType.ValueType = ...,
+        process_status: global___FileProcessStatus.ValueType = ...,
+        process_outcome: builtins.str = ...,
+        retrievable: builtins.bool = ...,
+        content: builtins.str = ...,
+        owner_uid: builtins.str = ...,
+        creator_uid: builtins.str = ...,
+        catalog_uid: builtins.str = ...,
+        create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        size: builtins.int = ...,
+        total_chunks: builtins.int = ...,
+        total_tokens: builtins.int = ...,
+        external_metadata: google.protobuf.struct_pb2.Struct | None = ...,
+        object_uid: builtins.str = ...,
+        summary: builtins.str = ...,
+        download_url: builtins.str = ...,
+        converting_pipeline: builtins.str | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_converting_pipeline", b"_converting_pipeline", "_external_metadata", b"_external_metadata", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "delete_time", b"delete_time", "external_metadata", b"external_metadata", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_converting_pipeline", b"_converting_pipeline", "_external_metadata", b"_external_metadata", "catalog_uid", b"catalog_uid", "content", b"content", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "download_url", b"download_url", "external_metadata", b"external_metadata", "file_uid", b"file_uid", "name", b"name", "object_uid", b"object_uid", "owner_uid", b"owner_uid", "process_outcome", b"process_outcome", "process_status", b"process_status", "retrievable", b"retrievable", "size", b"size", "summary", b"summary", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_converting_pipeline", b"_converting_pipeline"]) -> typing_extensions.Literal["converting_pipeline"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_external_metadata", b"_external_metadata"]) -> typing_extensions.Literal["external_metadata"] | None: ...
+
+global___File = File
+
+@typing_extensions.final
+class UploadCatalogFileRequest(google.protobuf.message.Message):
+    """upload file request"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    CATALOG_ID_FIELD_NUMBER: builtins.int
+    FILE_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """owner/namespace uid"""
+    catalog_id: builtins.str
+    """catalog id"""
+    @property
+    def file(self) -> global___File:
+        """file"""
+    def __init__(
+        self,
+        *,
         namespace_id: builtins.str = ...,
         catalog_id: builtins.str = ...,
         file: global___File | None = ...,
-        converting_pipeline: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["file", b"file"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "converting_pipeline", b"converting_pipeline", "file", b"file", "namespace_id", b"namespace_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "file", b"file", "namespace_id", b"namespace_id"]) -> None: ...
 
 global___UploadCatalogFileRequest = UploadCatalogFileRequest
 
