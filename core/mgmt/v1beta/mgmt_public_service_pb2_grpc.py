@@ -119,31 +119,6 @@ class MgmtPublicServiceStub(object):
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.InviteOrganizationMembersRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.InviteOrganizationMembersResponse.FromString,
                 )
-        self.GetAuthenticatedUserSubscription = channel.unary_unary(
-                '/core.mgmt.v1beta.MgmtPublicService/GetAuthenticatedUserSubscription',
-                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserSubscriptionRequest.SerializeToString,
-                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserSubscriptionResponse.FromString,
-                )
-        self.SyncAuthenticatedUserSubscription = channel.unary_unary(
-                '/core.mgmt.v1beta.MgmtPublicService/SyncAuthenticatedUserSubscription',
-                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SyncAuthenticatedUserSubscriptionRequest.SerializeToString,
-                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SyncAuthenticatedUserSubscriptionResponse.FromString,
-                )
-        self.GetOrganizationSubscription = channel.unary_unary(
-                '/core.mgmt.v1beta.MgmtPublicService/GetOrganizationSubscription',
-                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionRequest.SerializeToString,
-                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionResponse.FromString,
-                )
-        self.SyncOrganizationSubscription = channel.unary_unary(
-                '/core.mgmt.v1beta.MgmtPublicService/SyncOrganizationSubscription',
-                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SyncOrganizationSubscriptionRequest.SerializeToString,
-                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SyncOrganizationSubscriptionResponse.FromString,
-                )
-        self.ListSubscriptionFreeTrials = channel.unary_unary(
-                '/core.mgmt.v1beta.MgmtPublicService/ListSubscriptionFreeTrials',
-                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListSubscriptionFreeTrialsRequest.SerializeToString,
-                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListSubscriptionFreeTrialsResponse.FromString,
-                )
         self.CreateToken = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/CreateToken',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CreateTokenRequest.SerializeToString,
@@ -169,11 +144,6 @@ class MgmtPublicServiceStub(object):
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ValidateTokenRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ValidateTokenResponse.FromString,
                 )
-        self.GetRemainingCredit = channel.unary_unary(
-                '/core.mgmt.v1beta.MgmtPublicService/GetRemainingCredit',
-                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetRemainingCreditRequest.SerializeToString,
-                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetRemainingCreditResponse.FromString,
-                )
         self.CheckNamespace = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/CheckNamespace',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceRequest.SerializeToString,
@@ -198,11 +168,6 @@ class MgmtPublicServiceStub(object):
                 '/core.mgmt.v1beta.MgmtPublicService/ListModelTriggerChartRecords',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerChartRecordsRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerChartRecordsResponse.FromString,
-                )
-        self.ListCreditConsumptionChartRecords = channel.unary_unary(
-                '/core.mgmt.v1beta.MgmtPublicService/ListCreditConsumptionChartRecords',
-                request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListCreditConsumptionChartRecordsRequest.SerializeToString,
-                response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListCreditConsumptionChartRecordsResponse.FromString,
                 )
         self.AuthTokenIssuer = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/AuthTokenIssuer',
@@ -440,59 +405,6 @@ class MgmtPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetAuthenticatedUserSubscription(self, request, context):
-        """Get the subscription of the authenticated user
-
-        Returns the subscription details for the authenticated user's individual
-        plan. If several subscriptions exist (e.g. if the user upgraded to and
-        downgraded from a plan several times), the most recent subscription is
-        returned.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def SyncAuthenticatedUserSubscription(self, request, context):
-        """Sync the subscription of the authenticated user
-
-        Syncs the subscription of the authenticated user with Stripe.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetOrganizationSubscription(self, request, context):
-        """Get the subscription of an organization
-
-        Returns the subscription details for an organization's team plan. If
-        several subscriptions exist (e.g. if the organization has upgraded to and
-        downgraded from a plan several times), the most recent subscription is
-        returned.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def SyncOrganizationSubscription(self, request, context):
-        """Sync the subscription of an organization
-
-        Syncs the subscription of an organization with Stripe.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ListSubscriptionFreeTrials(self, request, context):
-        """List subscription free trials
-
-        Returns a list of the free trials of the authenticated user. The trials
-        might apply to different plans, including organization plans purchased by
-        the user.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def CreateToken(self, request, context):
         """Create an API token
 
@@ -533,20 +445,6 @@ class MgmtPublicServiceServicer(object):
         """Validate an API token
 
         Validates an API token.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetRemainingCredit(self, request, context):
-        """Get the remaining Instill Credit
-
-        This endpoint returns the remaining [Instill
-        Credit](https://instill-ai.dev/docs/cloud/credit) of a given user or
-        organization. The requested credit owner must be either the authenticated
-        user or an organization they belong to.
-
-        On Instill Core, this endpoint will return a 404 Not Found status.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -599,20 +497,6 @@ class MgmtPublicServiceServicer(object):
         Returns a timeline of model trigger counts for a given requester. The
         response will contain one set of records (datapoints), representing the
         amount of triggers in a time bucket.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ListCreditConsumptionChartRecords(self, request, context):
-        """List Instill Credit consumption time charts
-
-        Returns a timeline of Instill Credit consumption for a given owner. The
-        response will contain one set of records (datapoints) per consumption
-        source (e.g. "pipeline", "model"). Each datapoint represents the amount
-        consumed in a time bucket.
-
-        This endpoint is only exposed on Instill Cloud.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -808,31 +692,6 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.InviteOrganizationMembersRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.InviteOrganizationMembersResponse.SerializeToString,
             ),
-            'GetAuthenticatedUserSubscription': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetAuthenticatedUserSubscription,
-                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserSubscriptionRequest.FromString,
-                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserSubscriptionResponse.SerializeToString,
-            ),
-            'SyncAuthenticatedUserSubscription': grpc.unary_unary_rpc_method_handler(
-                    servicer.SyncAuthenticatedUserSubscription,
-                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SyncAuthenticatedUserSubscriptionRequest.FromString,
-                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SyncAuthenticatedUserSubscriptionResponse.SerializeToString,
-            ),
-            'GetOrganizationSubscription': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetOrganizationSubscription,
-                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionRequest.FromString,
-                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionResponse.SerializeToString,
-            ),
-            'SyncOrganizationSubscription': grpc.unary_unary_rpc_method_handler(
-                    servicer.SyncOrganizationSubscription,
-                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SyncOrganizationSubscriptionRequest.FromString,
-                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SyncOrganizationSubscriptionResponse.SerializeToString,
-            ),
-            'ListSubscriptionFreeTrials': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListSubscriptionFreeTrials,
-                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListSubscriptionFreeTrialsRequest.FromString,
-                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListSubscriptionFreeTrialsResponse.SerializeToString,
-            ),
             'CreateToken': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateToken,
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CreateTokenRequest.FromString,
@@ -858,11 +717,6 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ValidateTokenRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ValidateTokenResponse.SerializeToString,
             ),
-            'GetRemainingCredit': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetRemainingCredit,
-                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetRemainingCreditRequest.FromString,
-                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetRemainingCreditResponse.SerializeToString,
-            ),
             'CheckNamespace': grpc.unary_unary_rpc_method_handler(
                     servicer.CheckNamespace,
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceRequest.FromString,
@@ -887,11 +741,6 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     servicer.ListModelTriggerChartRecords,
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerChartRecordsRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerChartRecordsResponse.SerializeToString,
-            ),
-            'ListCreditConsumptionChartRecords': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListCreditConsumptionChartRecords,
-                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListCreditConsumptionChartRecordsRequest.FromString,
-                    response_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListCreditConsumptionChartRecordsResponse.SerializeToString,
             ),
             'AuthTokenIssuer': grpc.unary_unary_rpc_method_handler(
                     servicer.AuthTokenIssuer,
@@ -1288,91 +1137,6 @@ class MgmtPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetAuthenticatedUserSubscription(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/GetAuthenticatedUserSubscription',
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserSubscriptionRequest.SerializeToString,
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserSubscriptionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def SyncAuthenticatedUserSubscription(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/SyncAuthenticatedUserSubscription',
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SyncAuthenticatedUserSubscriptionRequest.SerializeToString,
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SyncAuthenticatedUserSubscriptionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetOrganizationSubscription(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/GetOrganizationSubscription',
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionRequest.SerializeToString,
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def SyncOrganizationSubscription(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/SyncOrganizationSubscription',
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SyncOrganizationSubscriptionRequest.SerializeToString,
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SyncOrganizationSubscriptionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ListSubscriptionFreeTrials(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListSubscriptionFreeTrials',
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListSubscriptionFreeTrialsRequest.SerializeToString,
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListSubscriptionFreeTrialsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def CreateToken(request,
             target,
             options=(),
@@ -1458,23 +1222,6 @@ class MgmtPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetRemainingCredit(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/GetRemainingCredit',
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetRemainingCreditRequest.SerializeToString,
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetRemainingCreditResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def CheckNamespace(request,
             target,
             options=(),
@@ -1556,23 +1303,6 @@ class MgmtPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListModelTriggerChartRecords',
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerChartRecordsRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerChartRecordsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ListCreditConsumptionChartRecords(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListCreditConsumptionChartRecords',
-            core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListCreditConsumptionChartRecordsRequest.SerializeToString,
-            core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListCreditConsumptionChartRecordsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

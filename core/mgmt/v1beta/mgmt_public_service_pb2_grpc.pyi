@@ -193,54 +193,6 @@ class MgmtPublicServiceStub:
 
     Invites members to an organization.
     """
-    GetAuthenticatedUserSubscription: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserSubscriptionRequest,
-        core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserSubscriptionResponse,
-    ]
-    """Get the subscription of the authenticated user
-
-    Returns the subscription details for the authenticated user's individual
-    plan. If several subscriptions exist (e.g. if the user upgraded to and
-    downgraded from a plan several times), the most recent subscription is
-    returned.
-    """
-    SyncAuthenticatedUserSubscription: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.SyncAuthenticatedUserSubscriptionRequest,
-        core.mgmt.v1beta.mgmt_pb2.SyncAuthenticatedUserSubscriptionResponse,
-    ]
-    """Sync the subscription of the authenticated user
-
-    Syncs the subscription of the authenticated user with Stripe.
-    """
-    GetOrganizationSubscription: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionRequest,
-        core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionResponse,
-    ]
-    """Get the subscription of an organization
-
-    Returns the subscription details for an organization's team plan. If
-    several subscriptions exist (e.g. if the organization has upgraded to and
-    downgraded from a plan several times), the most recent subscription is
-    returned.
-    """
-    SyncOrganizationSubscription: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.SyncOrganizationSubscriptionRequest,
-        core.mgmt.v1beta.mgmt_pb2.SyncOrganizationSubscriptionResponse,
-    ]
-    """Sync the subscription of an organization
-
-    Syncs the subscription of an organization with Stripe.
-    """
-    ListSubscriptionFreeTrials: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.ListSubscriptionFreeTrialsRequest,
-        core.mgmt.v1beta.mgmt_pb2.ListSubscriptionFreeTrialsResponse,
-    ]
-    """List subscription free trials
-
-    Returns a list of the free trials of the authenticated user. The trials
-    might apply to different plans, including organization plans purchased by
-    the user.
-    """
     CreateToken: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.CreateTokenRequest,
         core.mgmt.v1beta.mgmt_pb2.CreateTokenResponse,
@@ -280,19 +232,6 @@ class MgmtPublicServiceStub:
     """Validate an API token
 
     Validates an API token.
-    """
-    GetRemainingCredit: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditRequest,
-        core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditResponse,
-    ]
-    """Get the remaining Instill Credit
-
-    This endpoint returns the remaining [Instill
-    Credit](https://instill-ai.dev/docs/cloud/credit) of a given user or
-    organization. The requested credit owner must be either the authenticated
-    user or an organization they belong to.
-
-    On Instill Core, this endpoint will return a 404 Not Found status.
     """
     CheckNamespace: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.CheckNamespaceRequest,
@@ -340,19 +279,6 @@ class MgmtPublicServiceStub:
     Returns a timeline of model trigger counts for a given requester. The
     response will contain one set of records (datapoints), representing the
     amount of triggers in a time bucket.
-    """
-    ListCreditConsumptionChartRecords: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.metric_pb2.ListCreditConsumptionChartRecordsRequest,
-        core.mgmt.v1beta.metric_pb2.ListCreditConsumptionChartRecordsResponse,
-    ]
-    """List Instill Credit consumption time charts
-
-    Returns a timeline of Instill Credit consumption for a given owner. The
-    response will contain one set of records (datapoints) per consumption
-    source (e.g. "pipeline", "model"). Each datapoint represents the amount
-    consumed in a time bucket.
-
-    This endpoint is only exposed on Instill Cloud.
     """
     AuthTokenIssuer: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.AuthTokenIssuerRequest,
@@ -608,54 +534,6 @@ class MgmtPublicServiceAsyncStub:
 
     Invites members to an organization.
     """
-    GetAuthenticatedUserSubscription: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserSubscriptionRequest,
-        core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserSubscriptionResponse,
-    ]
-    """Get the subscription of the authenticated user
-
-    Returns the subscription details for the authenticated user's individual
-    plan. If several subscriptions exist (e.g. if the user upgraded to and
-    downgraded from a plan several times), the most recent subscription is
-    returned.
-    """
-    SyncAuthenticatedUserSubscription: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.SyncAuthenticatedUserSubscriptionRequest,
-        core.mgmt.v1beta.mgmt_pb2.SyncAuthenticatedUserSubscriptionResponse,
-    ]
-    """Sync the subscription of the authenticated user
-
-    Syncs the subscription of the authenticated user with Stripe.
-    """
-    GetOrganizationSubscription: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionRequest,
-        core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionResponse,
-    ]
-    """Get the subscription of an organization
-
-    Returns the subscription details for an organization's team plan. If
-    several subscriptions exist (e.g. if the organization has upgraded to and
-    downgraded from a plan several times), the most recent subscription is
-    returned.
-    """
-    SyncOrganizationSubscription: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.SyncOrganizationSubscriptionRequest,
-        core.mgmt.v1beta.mgmt_pb2.SyncOrganizationSubscriptionResponse,
-    ]
-    """Sync the subscription of an organization
-
-    Syncs the subscription of an organization with Stripe.
-    """
-    ListSubscriptionFreeTrials: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.ListSubscriptionFreeTrialsRequest,
-        core.mgmt.v1beta.mgmt_pb2.ListSubscriptionFreeTrialsResponse,
-    ]
-    """List subscription free trials
-
-    Returns a list of the free trials of the authenticated user. The trials
-    might apply to different plans, including organization plans purchased by
-    the user.
-    """
     CreateToken: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.CreateTokenRequest,
         core.mgmt.v1beta.mgmt_pb2.CreateTokenResponse,
@@ -695,19 +573,6 @@ class MgmtPublicServiceAsyncStub:
     """Validate an API token
 
     Validates an API token.
-    """
-    GetRemainingCredit: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditRequest,
-        core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditResponse,
-    ]
-    """Get the remaining Instill Credit
-
-    This endpoint returns the remaining [Instill
-    Credit](https://instill-ai.dev/docs/cloud/credit) of a given user or
-    organization. The requested credit owner must be either the authenticated
-    user or an organization they belong to.
-
-    On Instill Core, this endpoint will return a 404 Not Found status.
     """
     CheckNamespace: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.CheckNamespaceRequest,
@@ -755,19 +620,6 @@ class MgmtPublicServiceAsyncStub:
     Returns a timeline of model trigger counts for a given requester. The
     response will contain one set of records (datapoints), representing the
     amount of triggers in a time bucket.
-    """
-    ListCreditConsumptionChartRecords: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.metric_pb2.ListCreditConsumptionChartRecordsRequest,
-        core.mgmt.v1beta.metric_pb2.ListCreditConsumptionChartRecordsResponse,
-    ]
-    """List Instill Credit consumption time charts
-
-    Returns a timeline of Instill Credit consumption for a given owner. The
-    response will contain one set of records (datapoints) per consumption
-    source (e.g. "pipeline", "model"). Each datapoint represents the amount
-    consumed in a time bucket.
-
-    This endpoint is only exposed on Instill Cloud.
     """
     AuthTokenIssuer: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.AuthTokenIssuerRequest,
@@ -1064,64 +916,6 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         Invites members to an organization.
         """
     @abc.abstractmethod
-    def GetAuthenticatedUserSubscription(
-        self,
-        request: core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserSubscriptionRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserSubscriptionResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetAuthenticatedUserSubscriptionResponse]]:
-        """Get the subscription of the authenticated user
-
-        Returns the subscription details for the authenticated user's individual
-        plan. If several subscriptions exist (e.g. if the user upgraded to and
-        downgraded from a plan several times), the most recent subscription is
-        returned.
-        """
-    @abc.abstractmethod
-    def SyncAuthenticatedUserSubscription(
-        self,
-        request: core.mgmt.v1beta.mgmt_pb2.SyncAuthenticatedUserSubscriptionRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.SyncAuthenticatedUserSubscriptionResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.SyncAuthenticatedUserSubscriptionResponse]]:
-        """Sync the subscription of the authenticated user
-
-        Syncs the subscription of the authenticated user with Stripe.
-        """
-    @abc.abstractmethod
-    def GetOrganizationSubscription(
-        self,
-        request: core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionResponse]]:
-        """Get the subscription of an organization
-
-        Returns the subscription details for an organization's team plan. If
-        several subscriptions exist (e.g. if the organization has upgraded to and
-        downgraded from a plan several times), the most recent subscription is
-        returned.
-        """
-    @abc.abstractmethod
-    def SyncOrganizationSubscription(
-        self,
-        request: core.mgmt.v1beta.mgmt_pb2.SyncOrganizationSubscriptionRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.SyncOrganizationSubscriptionResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.SyncOrganizationSubscriptionResponse]]:
-        """Sync the subscription of an organization
-
-        Syncs the subscription of an organization with Stripe.
-        """
-    @abc.abstractmethod
-    def ListSubscriptionFreeTrials(
-        self,
-        request: core.mgmt.v1beta.mgmt_pb2.ListSubscriptionFreeTrialsRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.ListSubscriptionFreeTrialsResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.ListSubscriptionFreeTrialsResponse]]:
-        """List subscription free trials
-
-        Returns a list of the free trials of the authenticated user. The trials
-        might apply to different plans, including organization plans purchased by
-        the user.
-        """
-    @abc.abstractmethod
     def CreateToken(
         self,
         request: core.mgmt.v1beta.mgmt_pb2.CreateTokenRequest,
@@ -1170,21 +964,6 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         """Validate an API token
 
         Validates an API token.
-        """
-    @abc.abstractmethod
-    def GetRemainingCredit(
-        self,
-        request: core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditResponse]]:
-        """Get the remaining Instill Credit
-
-        This endpoint returns the remaining [Instill
-        Credit](https://instill-ai.dev/docs/cloud/credit) of a given user or
-        organization. The requested credit owner must be either the authenticated
-        user or an organization they belong to.
-
-        On Instill Core, this endpoint will return a 404 Not Found status.
         """
     @abc.abstractmethod
     def CheckNamespace(
@@ -1242,21 +1021,6 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         Returns a timeline of model trigger counts for a given requester. The
         response will contain one set of records (datapoints), representing the
         amount of triggers in a time bucket.
-        """
-    @abc.abstractmethod
-    def ListCreditConsumptionChartRecords(
-        self,
-        request: core.mgmt.v1beta.metric_pb2.ListCreditConsumptionChartRecordsRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.metric_pb2.ListCreditConsumptionChartRecordsResponse, collections.abc.Awaitable[core.mgmt.v1beta.metric_pb2.ListCreditConsumptionChartRecordsResponse]]:
-        """List Instill Credit consumption time charts
-
-        Returns a timeline of Instill Credit consumption for a given owner. The
-        response will contain one set of records (datapoints) per consumption
-        source (e.g. "pipeline", "model"). Each datapoint represents the amount
-        consumed in a time bucket.
-
-        This endpoint is only exposed on Instill Cloud.
         """
     @abc.abstractmethod
     def AuthTokenIssuer(

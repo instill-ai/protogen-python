@@ -45,26 +45,6 @@ class MgmtPrivateServiceStub(object):
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LookUpOrganizationAdminRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LookUpOrganizationAdminResponse.FromString,
                 )
-        self.GetUserSubscriptionAdmin = channel.unary_unary(
-                '/core.mgmt.v1beta.MgmtPrivateService/GetUserSubscriptionAdmin',
-                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserSubscriptionAdminRequest.SerializeToString,
-                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserSubscriptionAdminResponse.FromString,
-                )
-        self.GetOrganizationSubscriptionAdmin = channel.unary_unary(
-                '/core.mgmt.v1beta.MgmtPrivateService/GetOrganizationSubscriptionAdmin',
-                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionAdminRequest.SerializeToString,
-                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionAdminResponse.FromString,
-                )
-        self.SubtractCreditAdmin = channel.unary_unary(
-                '/core.mgmt.v1beta.MgmtPrivateService/SubtractCreditAdmin',
-                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditAdminRequest.SerializeToString,
-                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditAdminResponse.FromString,
-                )
-        self.GetRemainingCreditAdmin = channel.unary_unary(
-                '/core.mgmt.v1beta.MgmtPrivateService/GetRemainingCreditAdmin',
-                request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetRemainingCreditAdminRequest.SerializeToString,
-                response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetRemainingCreditAdminResponse.FromString,
-                )
         self.CheckNamespaceAdmin = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPrivateService/CheckNamespaceAdmin',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceAdminRequest.SerializeToString,
@@ -129,49 +109,6 @@ class MgmtPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetUserSubscriptionAdmin(self, request, context):
-        """GetUserSubscriptionAdmin returns the subscription details of a user.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetOrganizationSubscriptionAdmin(self, request, context):
-        """GetOrganizationSubscriptionAdmin returns the subscription details of an
-        organization.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def SubtractCreditAdmin(self, request, context):
-        """Subtract Instill Credit from a user or organization account.
-
-        This endpoint subtracts the specified amount of Instill Credit from an
-        account. This is intended for processes on Instill Cloud that consume
-        credit, such as the execution of pre-configured connectors.
-        Note that if the remaining credit in the account is less than the
-        requested amount, it will be subtracted anyways, leaving the account
-        credit at zero. A ResourceExhausted error will be returned in this case.
-
-        On Instill Core, this endpoint will return an Unimplemented status.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetRemainingCreditAdmin(self, request, context):
-        """Get the remaining Instill Credit by owner UID
-
-        This endpoint fetches the remaining unexpired credit of a user or
-        organization, referenced by UID.
-
-        On Instill Core, this endpoint will return a 404 Not Found status.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def CheckNamespaceAdmin(self, request, context):
         """Check if a namespace is in use
 
@@ -224,26 +161,6 @@ def add_MgmtPrivateServiceServicer_to_server(servicer, server):
                     servicer.LookUpOrganizationAdmin,
                     request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LookUpOrganizationAdminRequest.FromString,
                     response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LookUpOrganizationAdminResponse.SerializeToString,
-            ),
-            'GetUserSubscriptionAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetUserSubscriptionAdmin,
-                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserSubscriptionAdminRequest.FromString,
-                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserSubscriptionAdminResponse.SerializeToString,
-            ),
-            'GetOrganizationSubscriptionAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetOrganizationSubscriptionAdmin,
-                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionAdminRequest.FromString,
-                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionAdminResponse.SerializeToString,
-            ),
-            'SubtractCreditAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.SubtractCreditAdmin,
-                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditAdminRequest.FromString,
-                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditAdminResponse.SerializeToString,
-            ),
-            'GetRemainingCreditAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetRemainingCreditAdmin,
-                    request_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetRemainingCreditAdminRequest.FromString,
-                    response_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetRemainingCreditAdminResponse.SerializeToString,
             ),
             'CheckNamespaceAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.CheckNamespaceAdmin,
@@ -365,74 +282,6 @@ class MgmtPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPrivateService/LookUpOrganizationAdmin',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LookUpOrganizationAdminRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LookUpOrganizationAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetUserSubscriptionAdmin(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPrivateService/GetUserSubscriptionAdmin',
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserSubscriptionAdminRequest.SerializeToString,
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserSubscriptionAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetOrganizationSubscriptionAdmin(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPrivateService/GetOrganizationSubscriptionAdmin',
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionAdminRequest.SerializeToString,
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationSubscriptionAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def SubtractCreditAdmin(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPrivateService/SubtractCreditAdmin',
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditAdminRequest.SerializeToString,
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.SubtractCreditAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetRemainingCreditAdmin(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPrivateService/GetRemainingCreditAdmin',
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetRemainingCreditAdminRequest.SerializeToString,
-            core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetRemainingCreditAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

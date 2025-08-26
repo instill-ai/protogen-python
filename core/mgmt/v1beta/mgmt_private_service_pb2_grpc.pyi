@@ -63,44 +63,6 @@ class MgmtPrivateServiceStub:
     """LookUpOrganizationAdmin method receives a LookUpOrganizationAdminRequest message and
     returns a LookUpOrganizationAdminResponse
     """
-    GetUserSubscriptionAdmin: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionAdminRequest,
-        core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionAdminResponse,
-    ]
-    """GetUserSubscriptionAdmin returns the subscription details of a user."""
-    GetOrganizationSubscriptionAdmin: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminRequest,
-        core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminResponse,
-    ]
-    """GetOrganizationSubscriptionAdmin returns the subscription details of an
-    organization.
-    """
-    SubtractCreditAdmin: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.SubtractCreditAdminRequest,
-        core.mgmt.v1beta.mgmt_pb2.SubtractCreditAdminResponse,
-    ]
-    """Subtract Instill Credit from a user or organization account.
-
-    This endpoint subtracts the specified amount of Instill Credit from an
-    account. This is intended for processes on Instill Cloud that consume
-    credit, such as the execution of pre-configured connectors.
-    Note that if the remaining credit in the account is less than the
-    requested amount, it will be subtracted anyways, leaving the account
-    credit at zero. A ResourceExhausted error will be returned in this case.
-
-    On Instill Core, this endpoint will return an Unimplemented status.
-    """
-    GetRemainingCreditAdmin: grpc.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditAdminRequest,
-        core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditAdminResponse,
-    ]
-    """Get the remaining Instill Credit by owner UID
-
-    This endpoint fetches the remaining unexpired credit of a user or
-    organization, referenced by UID.
-
-    On Instill Core, this endpoint will return a 404 Not Found status.
-    """
     CheckNamespaceAdmin: grpc.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.CheckNamespaceAdminRequest,
         core.mgmt.v1beta.mgmt_pb2.CheckNamespaceAdminResponse,
@@ -164,44 +126,6 @@ class MgmtPrivateServiceAsyncStub:
     ]
     """LookUpOrganizationAdmin method receives a LookUpOrganizationAdminRequest message and
     returns a LookUpOrganizationAdminResponse
-    """
-    GetUserSubscriptionAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionAdminRequest,
-        core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionAdminResponse,
-    ]
-    """GetUserSubscriptionAdmin returns the subscription details of a user."""
-    GetOrganizationSubscriptionAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminRequest,
-        core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminResponse,
-    ]
-    """GetOrganizationSubscriptionAdmin returns the subscription details of an
-    organization.
-    """
-    SubtractCreditAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.SubtractCreditAdminRequest,
-        core.mgmt.v1beta.mgmt_pb2.SubtractCreditAdminResponse,
-    ]
-    """Subtract Instill Credit from a user or organization account.
-
-    This endpoint subtracts the specified amount of Instill Credit from an
-    account. This is intended for processes on Instill Cloud that consume
-    credit, such as the execution of pre-configured connectors.
-    Note that if the remaining credit in the account is less than the
-    requested amount, it will be subtracted anyways, leaving the account
-    credit at zero. A ResourceExhausted error will be returned in this case.
-
-    On Instill Core, this endpoint will return an Unimplemented status.
-    """
-    GetRemainingCreditAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditAdminRequest,
-        core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditAdminResponse,
-    ]
-    """Get the remaining Instill Credit by owner UID
-
-    This endpoint fetches the remaining unexpired credit of a user or
-    organization, referenced by UID.
-
-    On Instill Core, this endpoint will return a 404 Not Found status.
     """
     CheckNamespaceAdmin: grpc.aio.UnaryUnaryMultiCallable[
         core.mgmt.v1beta.mgmt_pb2.CheckNamespaceAdminRequest,
@@ -278,52 +202,6 @@ class MgmtPrivateServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.LookUpOrganizationAdminResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.LookUpOrganizationAdminResponse]]:
         """LookUpOrganizationAdmin method receives a LookUpOrganizationAdminRequest message and
         returns a LookUpOrganizationAdminResponse
-        """
-    @abc.abstractmethod
-    def GetUserSubscriptionAdmin(
-        self,
-        request: core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionAdminRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionAdminResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetUserSubscriptionAdminResponse]]:
-        """GetUserSubscriptionAdmin returns the subscription details of a user."""
-    @abc.abstractmethod
-    def GetOrganizationSubscriptionAdmin(
-        self,
-        request: core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetOrganizationSubscriptionAdminResponse]]:
-        """GetOrganizationSubscriptionAdmin returns the subscription details of an
-        organization.
-        """
-    @abc.abstractmethod
-    def SubtractCreditAdmin(
-        self,
-        request: core.mgmt.v1beta.mgmt_pb2.SubtractCreditAdminRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.SubtractCreditAdminResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.SubtractCreditAdminResponse]]:
-        """Subtract Instill Credit from a user or organization account.
-
-        This endpoint subtracts the specified amount of Instill Credit from an
-        account. This is intended for processes on Instill Cloud that consume
-        credit, such as the execution of pre-configured connectors.
-        Note that if the remaining credit in the account is less than the
-        requested amount, it will be subtracted anyways, leaving the account
-        credit at zero. A ResourceExhausted error will be returned in this case.
-
-        On Instill Core, this endpoint will return an Unimplemented status.
-        """
-    @abc.abstractmethod
-    def GetRemainingCreditAdmin(
-        self,
-        request: core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditAdminRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditAdminResponse, collections.abc.Awaitable[core.mgmt.v1beta.mgmt_pb2.GetRemainingCreditAdminResponse]]:
-        """Get the remaining Instill Credit by owner UID
-
-        This endpoint fetches the remaining unexpired credit of a user or
-        organization, referenced by UID.
-
-        On Instill Core, this endpoint will return a 404 Not Found status.
         """
     @abc.abstractmethod
     def CheckNamespaceAdmin(
