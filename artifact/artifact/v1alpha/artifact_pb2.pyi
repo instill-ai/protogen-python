@@ -1317,22 +1317,26 @@ global___ProcessCatalogFilesResponse = ProcessCatalogFilesResponse
 
 @typing_extensions.final
 class ListCatalogFilesFilter(google.protobuf.message.Message):
-    """list file filter
-    todo: support more parameters
+    """ListCatalogFilesFilter contains a set of properties to filter a catalog file
+    list by.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     FILE_UIDS_FIELD_NUMBER: builtins.int
+    PROCESS_STATUS_FIELD_NUMBER: builtins.int
     @property
     def file_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The file uids."""
+        """File UIDs."""
+    process_status: global___FileProcessStatus.ValueType
+    """Processing status of the files."""
     def __init__(
         self,
         *,
         file_uids: collections.abc.Iterable[builtins.str] | None = ...,
+        process_status: global___FileProcessStatus.ValueType = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["file_uids", b"file_uids"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file_uids", b"file_uids", "process_status", b"process_status"]) -> None: ...
 
 global___ListCatalogFilesFilter = ListCatalogFilesFilter
 
