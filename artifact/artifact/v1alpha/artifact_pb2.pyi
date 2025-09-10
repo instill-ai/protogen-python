@@ -1058,73 +1058,64 @@ class DeleteCatalogResponse(google.protobuf.message.Message):
 global___DeleteCatalogResponse = DeleteCatalogResponse
 
 @typing_extensions.final
-class FilePosition(google.protobuf.message.Message):
-    """FilePosition represents a position within a file using a specific unit.
-    The position can be multi-dimensional based on the unit type:
-    - 1 element for 1D positions (characters, pages, time)
-    - 2 elements for 2D positions (pixels: [x, y])
-    - N elements for N-dimensional positions
-    """
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    class _Unit:
-        ValueType = typing.NewType("ValueType", builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-
-    class _UnitEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[FilePosition._Unit.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        UNIT_UNSPECIFIED: FilePosition._Unit.ValueType  # 0
-        """Unspecified."""
-        UNIT_CHARACTER: FilePosition._Unit.ValueType  # 1
-        """Character positions (for Markdown and other text files)."""
-        UNIT_PAGE: FilePosition._Unit.ValueType  # 2
-        """Page positions (for documents)."""
-        UNIT_TIME_MS: FilePosition._Unit.ValueType  # 3
-        """Time positions in milliseconds (for audio/video files)."""
-        UNIT_PIXEL: FilePosition._Unit.ValueType  # 4
-        """Pixel positions (for images and other 2D content)."""
-
-    class Unit(_Unit, metaclass=_UnitEnumTypeWrapper):
-        """Unit describes the unit of measurement for a position within a file."""
-
-    UNIT_UNSPECIFIED: FilePosition.Unit.ValueType  # 0
-    """Unspecified."""
-    UNIT_CHARACTER: FilePosition.Unit.ValueType  # 1
-    """Character positions (for Markdown and other text files)."""
-    UNIT_PAGE: FilePosition.Unit.ValueType  # 2
-    """Page positions (for documents)."""
-    UNIT_TIME_MS: FilePosition.Unit.ValueType  # 3
-    """Time positions in milliseconds (for audio/video files)."""
-    UNIT_PIXEL: FilePosition.Unit.ValueType  # 4
-    """Pixel positions (for images and other 2D content)."""
-
-    UNIT_FIELD_NUMBER: builtins.int
-    COORDINATES_FIELD_NUMBER: builtins.int
-    unit: global___FilePosition.Unit.ValueType
-    """Unit of measurement for the position"""
-    @property
-    def coordinates(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.int]:
-        """Position coordinates as an array
-        For 1D: [position]
-        For 2D: [x, y]
-        For 3D: [x, y, z], etc.
-        """
-    def __init__(
-        self,
-        *,
-        unit: global___FilePosition.Unit.ValueType = ...,
-        coordinates: collections.abc.Iterable[builtins.int] | None = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["coordinates", b"coordinates", "unit", b"unit"]) -> None: ...
-
-global___FilePosition = FilePosition
-
-@typing_extensions.final
 class File(google.protobuf.message.Message):
     """file"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    @typing_extensions.final
+    class Position(google.protobuf.message.Message):
+        """Position represents a position within a file using a specific unit. The
+        number of dimensions of the position value depends on the unit type.
+        """
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        class _Unit:
+            ValueType = typing.NewType("ValueType", builtins.int)
+            V: typing_extensions.TypeAlias = ValueType
+
+        class _UnitEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[File.Position._Unit.ValueType], builtins.type):
+            DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+            UNIT_UNSPECIFIED: File.Position._Unit.ValueType  # 0
+            """Unspecified."""
+            UNIT_CHARACTER: File.Position._Unit.ValueType  # 1
+            """Character positions (for Markdown and other text files)."""
+            UNIT_PAGE: File.Position._Unit.ValueType  # 2
+            """Page positions (for documents)."""
+            UNIT_TIME_MS: File.Position._Unit.ValueType  # 3
+            """Time positions in milliseconds (for audio/video files)."""
+            UNIT_PIXEL: File.Position._Unit.ValueType  # 4
+            """Pixel positions (for images and other 2D content)."""
+
+        class Unit(_Unit, metaclass=_UnitEnumTypeWrapper):
+            """Unit of measurement for a position within a file."""
+
+        UNIT_UNSPECIFIED: File.Position.Unit.ValueType  # 0
+        """Unspecified."""
+        UNIT_CHARACTER: File.Position.Unit.ValueType  # 1
+        """Character positions (for Markdown and other text files)."""
+        UNIT_PAGE: File.Position.Unit.ValueType  # 2
+        """Page positions (for documents)."""
+        UNIT_TIME_MS: File.Position.Unit.ValueType  # 3
+        """Time positions in milliseconds (for audio/video files)."""
+        UNIT_PIXEL: File.Position.Unit.ValueType  # 4
+        """Pixel positions (for images and other 2D content)."""
+
+        UNIT_FIELD_NUMBER: builtins.int
+        COORDINATES_FIELD_NUMBER: builtins.int
+        unit: global___File.Position.Unit.ValueType
+        """Unit of measurement for the position."""
+        @property
+        def coordinates(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.int]:
+            """Position value."""
+        def __init__(
+            self,
+            *,
+            unit: global___File.Position.Unit.ValueType = ...,
+            coordinates: collections.abc.Iterable[builtins.int] | None = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["coordinates", b"coordinates", "unit", b"unit"]) -> None: ...
 
     FILE_UID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
@@ -1224,10 +1215,10 @@ class File(google.protobuf.message.Message):
     pipeline to improve the conversion performance).
     """
     @property
-    def length(self) -> global___FilePosition:
-        """Length of the file in the specified unit type. It is defined as a
-        FilePosition, so it reflects the number of positions (the unit will depend
-        on the file type) that can be accessed in the file.
+    def length(self) -> global___File.Position:
+        """Length of the file in the specified unit type. It is defined as the number
+        of positions (the unit will depend on the file type) that can be accessed
+        in the file.
         """
     def __init__(
         self,
@@ -1253,7 +1244,7 @@ class File(google.protobuf.message.Message):
         summary: builtins.str = ...,
         download_url: builtins.str = ...,
         converting_pipeline: builtins.str | None = ...,
-        length: global___FilePosition | None = ...,
+        length: global___File.Position | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_converting_pipeline", b"_converting_pipeline", "_external_metadata", b"_external_metadata", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "delete_time", b"delete_time", "external_metadata", b"external_metadata", "length", b"length", "update_time", b"update_time"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["_converting_pipeline", b"_converting_pipeline", "_external_metadata", b"_external_metadata", "catalog_uid", b"catalog_uid", "content", b"content", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "download_url", b"download_url", "external_metadata", b"external_metadata", "file_uid", b"file_uid", "length", b"length", "name", b"name", "object_uid", b"object_uid", "owner_uid", b"owner_uid", "process_outcome", b"process_outcome", "process_status", b"process_status", "retrievable", b"retrievable", "size", b"size", "summary", b"summary", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time"]) -> None: ...

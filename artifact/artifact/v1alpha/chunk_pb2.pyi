@@ -88,23 +88,23 @@ class Chunk(google.protobuf.message.Message):
 
     @typing_extensions.final
     class Reference(google.protobuf.message.Message):
-        """Reference represents the position of a chunk within its source file."""
+        """Reference represents the position of a chunk within a file."""
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
         START_FIELD_NUMBER: builtins.int
         END_FIELD_NUMBER: builtins.int
         @property
-        def start(self) -> artifact.artifact.v1alpha.artifact_pb2.FilePosition:
+        def start(self) -> artifact.artifact.v1alpha.artifact_pb2.File.Position:
             """Start position of the chunk within the file."""
         @property
-        def end(self) -> artifact.artifact.v1alpha.artifact_pb2.FilePosition:
+        def end(self) -> artifact.artifact.v1alpha.artifact_pb2.File.Position:
             """End position of the chunk within the file."""
         def __init__(
             self,
             *,
-            start: artifact.artifact.v1alpha.artifact_pb2.FilePosition | None = ...,
-            end: artifact.artifact.v1alpha.artifact_pb2.FilePosition | None = ...,
+            start: artifact.artifact.v1alpha.artifact_pb2.File.Position | None = ...,
+            end: artifact.artifact.v1alpha.artifact_pb2.File.Position | None = ...,
         ) -> None: ...
         def HasField(self, field_name: typing_extensions.Literal["end", b"end", "start", b"start"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["end", b"end", "start", b"start"]) -> None: ...
