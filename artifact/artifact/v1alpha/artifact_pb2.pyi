@@ -1065,8 +1065,8 @@ class File(google.protobuf.message.Message):
 
     @typing_extensions.final
     class Position(google.protobuf.message.Message):
-        """Position represents a position within a file using a specific unit. The
-        number of dimensions of the position value depends on the unit type.
+        """Position within a file, as coordinates in a a specific unit. The
+        number of dimensions of the coordinate depends on the unit type.
         """
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1082,7 +1082,9 @@ class File(google.protobuf.message.Message):
             UNIT_CHARACTER: File.Position._Unit.ValueType  # 1
             """Character positions (for Markdown and other text files)."""
             UNIT_PAGE: File.Position._Unit.ValueType  # 2
-            """Page positions (for documents)."""
+            """Page positions (for documents). For pages, positions are 1-indexed
+            (e.g., page 4 of 4) to align with document visualization standards.
+            """
             UNIT_TIME_MS: File.Position._Unit.ValueType  # 3
             """Time positions in milliseconds (for audio/video files)."""
             UNIT_PIXEL: File.Position._Unit.ValueType  # 4
@@ -1096,7 +1098,9 @@ class File(google.protobuf.message.Message):
         UNIT_CHARACTER: File.Position.Unit.ValueType  # 1
         """Character positions (for Markdown and other text files)."""
         UNIT_PAGE: File.Position.Unit.ValueType  # 2
-        """Page positions (for documents)."""
+        """Page positions (for documents). For pages, positions are 1-indexed
+        (e.g., page 4 of 4) to align with document visualization standards.
+        """
         UNIT_TIME_MS: File.Position.Unit.ValueType  # 3
         """Time positions in milliseconds (for audio/video files)."""
         UNIT_PIXEL: File.Position.Unit.ValueType  # 4
