@@ -835,10 +835,11 @@ class CreateCatalogRequest(google.protobuf.message.Message):
     """The catalog type. default is PERSISTENT"""
     @property
     def converting_pipelines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """Pipelines used for converting documents (i.e., files with pdf, doc[x] or
-        ppt[x] extension) to Markdown. The strings in the list identify the
-        pipelines and MUST have the format `{namespaceID}/{pipelineID}@{version}`.
-        The pipeline recipes MUST have the following variable and output fields:
+        """Pipelines used for converting page-based documents (i.e., files with pdf,
+        doc[x] or ppt[x] extension) to Markdown. The strings in the list identify
+        the pipelines and MUST have the format
+        `{namespaceID}/{pipelineID}@{version}`. The pipeline recipes MUST have the
+        following variable and output fields:
         ```yaml variable
         variable:
           document_input:
@@ -846,6 +847,7 @@ class CreateCatalogRequest(google.protobuf.message.Message):
             description: Upload a document (PDF/DOCX/DOC/PPTX/PPT)
             type: file
         ```
+        The `convert_result` output should be a list of strings, one per page.
         ```yaml output
         output:
          convert_result:
@@ -955,10 +957,11 @@ class UpdateCatalogRequest(google.protobuf.message.Message):
     """The catalog owner(namespace)."""
     @property
     def converting_pipelines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """Pipelines used for converting documents (i.e., files with pdf, doc[x] or
-        ppt[x] extension) to Markdown. The strings in the list identify the
-        pipelines and MUST have the format `{namespaceID}/{pipelineID}@{version}`.
-        The pipeline recipes MUST have the following variable and output fields:
+        """Pipelines used for converting page-based documents (i.e., files with pdf,
+        doc[x] or ppt[x] extension) to Markdown. The strings in the list identify
+        the pipelines and MUST have the format
+        `{namespaceID}/{pipelineID}@{version}`. The pipeline recipes MUST have the
+        following variable and output fields:
         ```yaml variable
         variable:
           document_input:
@@ -966,6 +969,7 @@ class UpdateCatalogRequest(google.protobuf.message.Message):
             description: Upload a document (PDF/DOCX/DOC/PPTX/PPT)
             type: file
         ```
+        The `convert_result` output should be a list of strings, one per page.
         ```yaml output
         output:
          convert_result:
@@ -1202,6 +1206,7 @@ class File(google.protobuf.message.Message):
         description: Upload a document (PDF/DOCX/DOC/PPTX/PPT)
         type: file
     ```
+    The `convert_result` output should be a list of strings, one per page.
     ```yaml output
     output:
      convert_result:
