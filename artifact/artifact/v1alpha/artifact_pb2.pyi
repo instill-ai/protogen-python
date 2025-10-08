@@ -1147,6 +1147,7 @@ class File(google.protobuf.message.Message):
     DOWNLOAD_URL_FIELD_NUMBER: builtins.int
     CONVERTING_PIPELINE_FIELD_NUMBER: builtins.int
     LENGTH_FIELD_NUMBER: builtins.int
+    TAGS_FIELD_NUMBER: builtins.int
     file_uid: builtins.str
     """file uid"""
     name: builtins.str
@@ -1229,6 +1230,9 @@ class File(google.protobuf.message.Message):
         of positions (the unit will depend on the file type) that can be accessed
         in the file.
         """
+    @property
+    def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """Array of tags associated with the file"""
     def __init__(
         self,
         *,
@@ -1254,9 +1258,10 @@ class File(google.protobuf.message.Message):
         download_url: builtins.str = ...,
         converting_pipeline: builtins.str | None = ...,
         length: global___File.Position | None = ...,
+        tags: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_converting_pipeline", b"_converting_pipeline", "_external_metadata", b"_external_metadata", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "delete_time", b"delete_time", "external_metadata", b"external_metadata", "length", b"length", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_converting_pipeline", b"_converting_pipeline", "_external_metadata", b"_external_metadata", "catalog_uid", b"catalog_uid", "content", b"content", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "download_url", b"download_url", "external_metadata", b"external_metadata", "file_uid", b"file_uid", "length", b"length", "name", b"name", "object_uid", b"object_uid", "owner_uid", b"owner_uid", "process_outcome", b"process_outcome", "process_status", b"process_status", "retrievable", b"retrievable", "size", b"size", "summary", b"summary", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_converting_pipeline", b"_converting_pipeline", "_external_metadata", b"_external_metadata", "catalog_uid", b"catalog_uid", "content", b"content", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "download_url", b"download_url", "external_metadata", b"external_metadata", "file_uid", b"file_uid", "length", b"length", "name", b"name", "object_uid", b"object_uid", "owner_uid", b"owner_uid", "process_outcome", b"process_outcome", "process_status", b"process_status", "retrievable", b"retrievable", "size", b"size", "summary", b"summary", "tags", b"tags", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_converting_pipeline", b"_converting_pipeline"]) -> typing_extensions.Literal["converting_pipeline"] | None: ...
     @typing.overload
@@ -1747,3 +1752,54 @@ class MoveFileToCatalogResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["file_uid", b"file_uid"]) -> None: ...
 
 global___MoveFileToCatalogResponse = MoveFileToCatalogResponse
+
+@typing_extensions.final
+class UpdateCatalogFileTagsRequest(google.protobuf.message.Message):
+    """Update catalog file tags request"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    CATALOG_ID_FIELD_NUMBER: builtins.int
+    FILE_UID_FIELD_NUMBER: builtins.int
+    TAGS_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """ID of the namespace owning the catalog."""
+    catalog_id: builtins.str
+    """ID of the catalog."""
+    file_uid: builtins.str
+    """Unique identifier of the file."""
+    @property
+    def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """Array of tags to associate with the file."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        catalog_id: builtins.str = ...,
+        file_uid: builtins.str = ...,
+        tags: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "file_uid", b"file_uid", "namespace_id", b"namespace_id", "tags", b"tags"]) -> None: ...
+
+global___UpdateCatalogFileTagsRequest = UpdateCatalogFileTagsRequest
+
+@typing_extensions.final
+class UpdateCatalogFileTagsResponse(google.protobuf.message.Message):
+    """Update catalog file tags response"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_FIELD_NUMBER: builtins.int
+    @property
+    def file(self) -> global___File:
+        """Updated file with tags."""
+    def __init__(
+        self,
+        *,
+        file: global___File | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["file", b"file"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file", b"file"]) -> None: ...
+
+global___UpdateCatalogFileTagsResponse = UpdateCatalogFileTagsResponse

@@ -221,6 +221,14 @@ class ArtifactPublicServiceStub:
 
     Moves a file to another catalog.
     """
+    UpdateCatalogFileTags: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.UpdateCatalogFileTagsRequest,
+        artifact.artifact.v1alpha.artifact_pb2.UpdateCatalogFileTagsResponse,
+    ]
+    """Update catalog file tags
+
+    Updates the tags associated with a catalog file.
+    """
 
 class ArtifactPublicServiceAsyncStub:
     """ArtifactPublicService exposes the public endpoints that allow clients to
@@ -420,6 +428,14 @@ class ArtifactPublicServiceAsyncStub:
     """Move file to another catalog
 
     Moves a file to another catalog.
+    """
+    UpdateCatalogFileTags: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.UpdateCatalogFileTagsRequest,
+        artifact.artifact.v1alpha.artifact_pb2.UpdateCatalogFileTagsResponse,
+    ]
+    """Update catalog file tags
+
+    Updates the tags associated with a catalog file.
     """
 
 class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
@@ -668,6 +684,16 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         """Move file to another catalog
 
         Moves a file to another catalog.
+        """
+    @abc.abstractmethod
+    def UpdateCatalogFileTags(
+        self,
+        request: artifact.artifact.v1alpha.artifact_pb2.UpdateCatalogFileTagsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.UpdateCatalogFileTagsResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.UpdateCatalogFileTagsResponse]]:
+        """Update catalog file tags
+
+        Updates the tags associated with a catalog file.
         """
 
 def add_ArtifactPublicServiceServicer_to_server(servicer: ArtifactPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

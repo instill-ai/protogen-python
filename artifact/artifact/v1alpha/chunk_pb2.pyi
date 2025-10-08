@@ -479,6 +479,7 @@ class SimilarityChunksSearchRequest(google.protobuf.message.Message):
     CONTENT_TYPE_FIELD_NUMBER: builtins.int
     FILE_MEDIA_TYPE_FIELD_NUMBER: builtins.int
     FILE_UIDS_FIELD_NUMBER: builtins.int
+    TAGS_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """ID of the namespace owning the catalog."""
     catalog_id: builtins.str
@@ -496,6 +497,11 @@ class SimilarityChunksSearchRequest(google.protobuf.message.Message):
         """File UIDs. When this field is provided, the response will return only
         chunks that belong to the specified file UIDs.
         """
+    @property
+    def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """Tags to filter by. When multiple tags are provided, OR logic is applied.
+        Note: File UID filter takes precedence over tags, as tags apply to files.
+        """
     def __init__(
         self,
         *,
@@ -506,8 +512,9 @@ class SimilarityChunksSearchRequest(google.protobuf.message.Message):
         content_type: global___ContentType.ValueType = ...,
         file_media_type: global___FileMediaType.ValueType = ...,
         file_uids: collections.abc.Iterable[builtins.str] | None = ...,
+        tags: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "content_type", b"content_type", "file_media_type", b"file_media_type", "file_uids", b"file_uids", "namespace_id", b"namespace_id", "text_prompt", b"text_prompt", "top_k", b"top_k"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "content_type", b"content_type", "file_media_type", b"file_media_type", "file_uids", b"file_uids", "namespace_id", b"namespace_id", "tags", b"tags", "text_prompt", b"text_prompt", "top_k", b"top_k"]) -> None: ...
 
 global___SimilarityChunksSearchRequest = SimilarityChunksSearchRequest
 
