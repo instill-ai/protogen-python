@@ -848,6 +848,26 @@ class Catalog(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
+    class EmbeddingConfig(google.protobuf.message.Message):
+        """EmbeddingConfig defines the embedding configuration for a catalog"""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        MODEL_FAMILY_FIELD_NUMBER: builtins.int
+        DIMENSIONALITY_FIELD_NUMBER: builtins.int
+        model_family: builtins.str
+        """The AI model family used for embeddings (e.g., "gemini", "openai")"""
+        dimensionality: builtins.int
+        """The dimensionality of the embedding vectors"""
+        def __init__(
+            self,
+            *,
+            model_family: builtins.str = ...,
+            dimensionality: builtins.int = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["dimensionality", b"dimensionality", "model_family", b"model_family"]) -> None: ...
+
     CATALOG_UID_FIELD_NUMBER: builtins.int
     CATALOG_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
@@ -864,6 +884,7 @@ class Catalog(google.protobuf.message.Message):
     TOTAL_TOKENS_FIELD_NUMBER: builtins.int
     USED_STORAGE_FIELD_NUMBER: builtins.int
     SUMMARIZING_PIPELINES_FIELD_NUMBER: builtins.int
+    EMBEDDING_CONFIG_FIELD_NUMBER: builtins.int
     catalog_uid: builtins.str
     """The catalog uid."""
     catalog_id: builtins.str
@@ -883,13 +904,19 @@ class Catalog(google.protobuf.message.Message):
         """The catalog tags."""
     @property
     def converting_pipelines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The catalog converting pipelines."""
+        """The catalog converting pipelines.
+        Deprecated: Conversion is now handled by AI providers.
+        """
     @property
     def splitting_pipelines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The catalog splitting pipelines."""
+        """The catalog splitting pipelines.
+        Deprecated: Chunking is now handled internally.
+        """
     @property
     def embedding_pipelines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The catalog embedding pipelines."""
+        """The catalog embedding pipelines.
+        Deprecated: Use embedding_config instead.
+        """
     @property
     def downstream_apps(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """The downstream apps"""
@@ -901,7 +928,12 @@ class Catalog(google.protobuf.message.Message):
     """The current used storage in catalog."""
     @property
     def summarizing_pipelines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The catalog summarizing pipelines."""
+        """The catalog summarizing pipelines.
+        Deprecated: Summarization is now handled by AI providers.
+        """
+    @property
+    def embedding_config(self) -> global___Catalog.EmbeddingConfig:
+        """The embedding configuration for the catalog."""
     def __init__(
         self,
         *,
@@ -921,8 +953,10 @@ class Catalog(google.protobuf.message.Message):
         total_tokens: builtins.int = ...,
         used_storage: builtins.int = ...,
         summarizing_pipelines: collections.abc.Iterable[builtins.str] | None = ...,
+        embedding_config: global___Catalog.EmbeddingConfig | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "catalog_uid", b"catalog_uid", "converting_pipelines", b"converting_pipelines", "create_time", b"create_time", "description", b"description", "downstream_apps", b"downstream_apps", "embedding_pipelines", b"embedding_pipelines", "name", b"name", "owner_name", b"owner_name", "splitting_pipelines", b"splitting_pipelines", "summarizing_pipelines", b"summarizing_pipelines", "tags", b"tags", "total_files", b"total_files", "total_tokens", b"total_tokens", "update_time", b"update_time", "used_storage", b"used_storage"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["embedding_config", b"embedding_config"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "catalog_uid", b"catalog_uid", "converting_pipelines", b"converting_pipelines", "create_time", b"create_time", "description", b"description", "downstream_apps", b"downstream_apps", "embedding_config", b"embedding_config", "embedding_pipelines", b"embedding_pipelines", "name", b"name", "owner_name", b"owner_name", "splitting_pipelines", b"splitting_pipelines", "summarizing_pipelines", b"summarizing_pipelines", "tags", b"tags", "total_files", b"total_files", "total_tokens", b"total_tokens", "update_time", b"update_time", "used_storage", b"used_storage"]) -> None: ...
 
 global___Catalog = Catalog
 
