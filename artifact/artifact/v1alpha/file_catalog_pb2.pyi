@@ -105,7 +105,7 @@ class GetFileCatalogResponse(google.protobuf.message.Message):
         """File UID."""
         filename: builtins.str
         """Filename"""
-        file_type: artifact.artifact.v1alpha.artifact_pb2.FileType.ValueType
+        file_type: artifact.artifact.v1alpha.artifact_pb2.File.Type.ValueType
         """File Type."""
         size: builtins.int
         """Size."""
@@ -119,7 +119,7 @@ class GetFileCatalogResponse(google.protobuf.message.Message):
             *,
             uid: builtins.str = ...,
             filename: builtins.str = ...,
-            file_type: artifact.artifact.v1alpha.artifact_pb2.FileType.ValueType = ...,
+            file_type: artifact.artifact.v1alpha.artifact_pb2.File.Type.ValueType = ...,
             size: builtins.int = ...,
             create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
             process_status: artifact.artifact.v1alpha.artifact_pb2.FileProcessStatus.ValueType = ...,

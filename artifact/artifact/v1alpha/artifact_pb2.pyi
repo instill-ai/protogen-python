@@ -99,189 +99,29 @@ FILE_PROCESS_STATUS_PROCESSING: FileProcessStatus.ValueType  # 9
 """file is being processed (parallel architecture: conversion + summarization)"""
 global___FileProcessStatus = FileProcessStatus
 
-class _FileType:
+class _ConvertedFileType:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _FileTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_FileType.ValueType], builtins.type):
+class _ConvertedFileTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ConvertedFileType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-    FILE_TYPE_UNSPECIFIED: _FileType.ValueType  # 0
+    CONVERTED_FILE_TYPE_UNSPECIFIED: _ConvertedFileType.ValueType  # 0
     """unspecified"""
-    FILE_TYPE_TEXT: _FileType.ValueType  # 1
-    """Text-based document types
-    text
-    """
-    FILE_TYPE_PDF: _FileType.ValueType  # 2
-    """PDF"""
-    FILE_TYPE_MARKDOWN: _FileType.ValueType  # 3
-    """MARKDOWN"""
-    FILE_TYPE_HTML: _FileType.ValueType  # 7
-    """HTML"""
-    FILE_TYPE_CSV: _FileType.ValueType  # 14
-    """CSV"""
-    FILE_TYPE_DOCX: _FileType.ValueType  # 8
-    """Microsoft Office document types
-    DOCX
-    """
-    FILE_TYPE_DOC: _FileType.ValueType  # 9
-    """DOC"""
-    FILE_TYPE_PPT: _FileType.ValueType  # 10
-    """PPT"""
-    FILE_TYPE_PPTX: _FileType.ValueType  # 11
-    """PPTX"""
-    FILE_TYPE_XLS: _FileType.ValueType  # 12
-    """XLS"""
-    FILE_TYPE_XLSX: _FileType.ValueType  # 13
-    """XLSX"""
-    FILE_TYPE_PNG: _FileType.ValueType  # 4
-    """Image types (supported by pipeline-backend/pkg/data/image.go)
-    PNG
-    """
-    FILE_TYPE_JPEG: _FileType.ValueType  # 5
-    """JPEG"""
-    FILE_TYPE_JPG: _FileType.ValueType  # 6
-    """JPG"""
-    FILE_TYPE_GIF: _FileType.ValueType  # 15
-    """GIF"""
-    FILE_TYPE_WEBP: _FileType.ValueType  # 16
-    """WEBP"""
-    FILE_TYPE_TIFF: _FileType.ValueType  # 17
-    """TIFF"""
-    FILE_TYPE_BMP: _FileType.ValueType  # 18
-    """BMP"""
-    FILE_TYPE_HEIC: _FileType.ValueType  # 19
-    """HEIC"""
-    FILE_TYPE_HEIF: _FileType.ValueType  # 20
-    """HEIF"""
-    FILE_TYPE_AVIF: _FileType.ValueType  # 21
-    """AVIF"""
-    FILE_TYPE_MP3: _FileType.ValueType  # 22
-    """Audio types (supported by pipeline-backend/pkg/data/audio.go)
-    MP3
-    """
-    FILE_TYPE_WAV: _FileType.ValueType  # 23
-    """WAV"""
-    FILE_TYPE_AAC: _FileType.ValueType  # 24
-    """AAC"""
-    FILE_TYPE_OGG: _FileType.ValueType  # 25
-    """OGG"""
-    FILE_TYPE_FLAC: _FileType.ValueType  # 26
-    """FLAC"""
-    FILE_TYPE_M4A: _FileType.ValueType  # 27
-    """M4A"""
-    FILE_TYPE_WMA: _FileType.ValueType  # 28
-    """WMA"""
-    FILE_TYPE_AIFF: _FileType.ValueType  # 29
-    """AIFF"""
-    FILE_TYPE_MP4: _FileType.ValueType  # 30
-    """Video types (supported by pipeline-backend/pkg/data/video.go)
-    MP4
-    """
-    FILE_TYPE_AVI: _FileType.ValueType  # 31
-    """AVI"""
-    FILE_TYPE_MOV: _FileType.ValueType  # 32
-    """MOV"""
-    FILE_TYPE_WEBM_VIDEO: _FileType.ValueType  # 33
-    """WEBM (video)"""
-    FILE_TYPE_MKV: _FileType.ValueType  # 34
-    """MKV"""
-    FILE_TYPE_FLV: _FileType.ValueType  # 35
-    """FLV"""
-    FILE_TYPE_WMV: _FileType.ValueType  # 36
-    """WMV"""
-    FILE_TYPE_MPEG: _FileType.ValueType  # 37
-    """MPEG"""
+    CONVERTED_FILE_TYPE_CONTENT: _ConvertedFileType.ValueType  # 1
+    """content"""
+    CONVERTED_FILE_TYPE_SUMMARY: _ConvertedFileType.ValueType  # 2
+    """summary"""
 
-class FileType(_FileType, metaclass=_FileTypeEnumTypeWrapper):
-    """file type"""
+class ConvertedFileType(_ConvertedFileType, metaclass=_ConvertedFileTypeEnumTypeWrapper):
+    """converted file type"""
 
-FILE_TYPE_UNSPECIFIED: FileType.ValueType  # 0
+CONVERTED_FILE_TYPE_UNSPECIFIED: ConvertedFileType.ValueType  # 0
 """unspecified"""
-FILE_TYPE_TEXT: FileType.ValueType  # 1
-"""Text-based document types
-text
-"""
-FILE_TYPE_PDF: FileType.ValueType  # 2
-"""PDF"""
-FILE_TYPE_MARKDOWN: FileType.ValueType  # 3
-"""MARKDOWN"""
-FILE_TYPE_HTML: FileType.ValueType  # 7
-"""HTML"""
-FILE_TYPE_CSV: FileType.ValueType  # 14
-"""CSV"""
-FILE_TYPE_DOCX: FileType.ValueType  # 8
-"""Microsoft Office document types
-DOCX
-"""
-FILE_TYPE_DOC: FileType.ValueType  # 9
-"""DOC"""
-FILE_TYPE_PPT: FileType.ValueType  # 10
-"""PPT"""
-FILE_TYPE_PPTX: FileType.ValueType  # 11
-"""PPTX"""
-FILE_TYPE_XLS: FileType.ValueType  # 12
-"""XLS"""
-FILE_TYPE_XLSX: FileType.ValueType  # 13
-"""XLSX"""
-FILE_TYPE_PNG: FileType.ValueType  # 4
-"""Image types (supported by pipeline-backend/pkg/data/image.go)
-PNG
-"""
-FILE_TYPE_JPEG: FileType.ValueType  # 5
-"""JPEG"""
-FILE_TYPE_JPG: FileType.ValueType  # 6
-"""JPG"""
-FILE_TYPE_GIF: FileType.ValueType  # 15
-"""GIF"""
-FILE_TYPE_WEBP: FileType.ValueType  # 16
-"""WEBP"""
-FILE_TYPE_TIFF: FileType.ValueType  # 17
-"""TIFF"""
-FILE_TYPE_BMP: FileType.ValueType  # 18
-"""BMP"""
-FILE_TYPE_HEIC: FileType.ValueType  # 19
-"""HEIC"""
-FILE_TYPE_HEIF: FileType.ValueType  # 20
-"""HEIF"""
-FILE_TYPE_AVIF: FileType.ValueType  # 21
-"""AVIF"""
-FILE_TYPE_MP3: FileType.ValueType  # 22
-"""Audio types (supported by pipeline-backend/pkg/data/audio.go)
-MP3
-"""
-FILE_TYPE_WAV: FileType.ValueType  # 23
-"""WAV"""
-FILE_TYPE_AAC: FileType.ValueType  # 24
-"""AAC"""
-FILE_TYPE_OGG: FileType.ValueType  # 25
-"""OGG"""
-FILE_TYPE_FLAC: FileType.ValueType  # 26
-"""FLAC"""
-FILE_TYPE_M4A: FileType.ValueType  # 27
-"""M4A"""
-FILE_TYPE_WMA: FileType.ValueType  # 28
-"""WMA"""
-FILE_TYPE_AIFF: FileType.ValueType  # 29
-"""AIFF"""
-FILE_TYPE_MP4: FileType.ValueType  # 30
-"""Video types (supported by pipeline-backend/pkg/data/video.go)
-MP4
-"""
-FILE_TYPE_AVI: FileType.ValueType  # 31
-"""AVI"""
-FILE_TYPE_MOV: FileType.ValueType  # 32
-"""MOV"""
-FILE_TYPE_WEBM_VIDEO: FileType.ValueType  # 33
-"""WEBM (video)"""
-FILE_TYPE_MKV: FileType.ValueType  # 34
-"""MKV"""
-FILE_TYPE_FLV: FileType.ValueType  # 35
-"""FLV"""
-FILE_TYPE_WMV: FileType.ValueType  # 36
-"""WMV"""
-FILE_TYPE_MPEG: FileType.ValueType  # 37
-"""MPEG"""
-global___FileType = FileType
+CONVERTED_FILE_TYPE_CONTENT: ConvertedFileType.ValueType  # 1
+"""content"""
+CONVERTED_FILE_TYPE_SUMMARY: ConvertedFileType.ValueType  # 2
+"""summary"""
+global___ConvertedFileType = ConvertedFileType
 
 class _CatalogRunAction:
     ValueType = typing.NewType("ValueType", builtins.int)
@@ -1213,9 +1053,192 @@ global___DeleteCatalogResponse = DeleteCatalogResponse
 
 @typing_extensions.final
 class File(google.protobuf.message.Message):
-    """file"""
+    """File represents a file in a catalog."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    class _Type:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _TypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[File._Type.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        TYPE_UNSPECIFIED: File._Type.ValueType  # 0
+        """unspecified"""
+        TYPE_TEXT: File._Type.ValueType  # 1
+        """Text-based document types
+        text
+        """
+        TYPE_PDF: File._Type.ValueType  # 2
+        """PDF"""
+        TYPE_MARKDOWN: File._Type.ValueType  # 3
+        """MARKDOWN"""
+        TYPE_HTML: File._Type.ValueType  # 7
+        """HTML"""
+        TYPE_CSV: File._Type.ValueType  # 14
+        """CSV"""
+        TYPE_DOCX: File._Type.ValueType  # 8
+        """Microsoft Office document types
+        DOCX
+        """
+        TYPE_DOC: File._Type.ValueType  # 9
+        """DOC"""
+        TYPE_PPT: File._Type.ValueType  # 10
+        """PPT"""
+        TYPE_PPTX: File._Type.ValueType  # 11
+        """PPTX"""
+        TYPE_XLS: File._Type.ValueType  # 12
+        """XLS"""
+        TYPE_XLSX: File._Type.ValueType  # 13
+        """XLSX"""
+        TYPE_PNG: File._Type.ValueType  # 4
+        """Image types (supported by pipeline-backend/pkg/data/image.go)
+        PNG
+        """
+        TYPE_JPEG: File._Type.ValueType  # 5
+        """JPEG"""
+        TYPE_JPG: File._Type.ValueType  # 6
+        """JPG"""
+        TYPE_GIF: File._Type.ValueType  # 15
+        """GIF"""
+        TYPE_WEBP: File._Type.ValueType  # 16
+        """WEBP"""
+        TYPE_TIFF: File._Type.ValueType  # 17
+        """TIFF"""
+        TYPE_BMP: File._Type.ValueType  # 18
+        """BMP"""
+        TYPE_HEIC: File._Type.ValueType  # 19
+        """HEIC"""
+        TYPE_HEIF: File._Type.ValueType  # 20
+        """HEIF"""
+        TYPE_AVIF: File._Type.ValueType  # 21
+        """AVIF"""
+        TYPE_MP3: File._Type.ValueType  # 22
+        """Audio types (supported by pipeline-backend/pkg/data/audio.go)
+        MP3
+        """
+        TYPE_WAV: File._Type.ValueType  # 23
+        """WAV"""
+        TYPE_AAC: File._Type.ValueType  # 24
+        """AAC"""
+        TYPE_OGG: File._Type.ValueType  # 25
+        """OGG"""
+        TYPE_FLAC: File._Type.ValueType  # 26
+        """FLAC"""
+        TYPE_M4A: File._Type.ValueType  # 27
+        """M4A"""
+        TYPE_WMA: File._Type.ValueType  # 28
+        """WMA"""
+        TYPE_AIFF: File._Type.ValueType  # 29
+        """AIFF"""
+        TYPE_MP4: File._Type.ValueType  # 30
+        """Video types (supported by pipeline-backend/pkg/data/video.go)
+        MP4
+        """
+        TYPE_AVI: File._Type.ValueType  # 31
+        """AVI"""
+        TYPE_MOV: File._Type.ValueType  # 32
+        """MOV"""
+        TYPE_WEBM_VIDEO: File._Type.ValueType  # 33
+        """WEBM (video)"""
+        TYPE_MKV: File._Type.ValueType  # 34
+        """MKV"""
+        TYPE_FLV: File._Type.ValueType  # 35
+        """FLV"""
+        TYPE_WMV: File._Type.ValueType  # 36
+        """WMV"""
+        TYPE_MPEG: File._Type.ValueType  # 37
+        """MPEG"""
+
+    class Type(_Type, metaclass=_TypeEnumTypeWrapper):
+        """Supported file types by the pipeline-backend."""
+
+    TYPE_UNSPECIFIED: File.Type.ValueType  # 0
+    """unspecified"""
+    TYPE_TEXT: File.Type.ValueType  # 1
+    """Text-based document types
+    text
+    """
+    TYPE_PDF: File.Type.ValueType  # 2
+    """PDF"""
+    TYPE_MARKDOWN: File.Type.ValueType  # 3
+    """MARKDOWN"""
+    TYPE_HTML: File.Type.ValueType  # 7
+    """HTML"""
+    TYPE_CSV: File.Type.ValueType  # 14
+    """CSV"""
+    TYPE_DOCX: File.Type.ValueType  # 8
+    """Microsoft Office document types
+    DOCX
+    """
+    TYPE_DOC: File.Type.ValueType  # 9
+    """DOC"""
+    TYPE_PPT: File.Type.ValueType  # 10
+    """PPT"""
+    TYPE_PPTX: File.Type.ValueType  # 11
+    """PPTX"""
+    TYPE_XLS: File.Type.ValueType  # 12
+    """XLS"""
+    TYPE_XLSX: File.Type.ValueType  # 13
+    """XLSX"""
+    TYPE_PNG: File.Type.ValueType  # 4
+    """Image types (supported by pipeline-backend/pkg/data/image.go)
+    PNG
+    """
+    TYPE_JPEG: File.Type.ValueType  # 5
+    """JPEG"""
+    TYPE_JPG: File.Type.ValueType  # 6
+    """JPG"""
+    TYPE_GIF: File.Type.ValueType  # 15
+    """GIF"""
+    TYPE_WEBP: File.Type.ValueType  # 16
+    """WEBP"""
+    TYPE_TIFF: File.Type.ValueType  # 17
+    """TIFF"""
+    TYPE_BMP: File.Type.ValueType  # 18
+    """BMP"""
+    TYPE_HEIC: File.Type.ValueType  # 19
+    """HEIC"""
+    TYPE_HEIF: File.Type.ValueType  # 20
+    """HEIF"""
+    TYPE_AVIF: File.Type.ValueType  # 21
+    """AVIF"""
+    TYPE_MP3: File.Type.ValueType  # 22
+    """Audio types (supported by pipeline-backend/pkg/data/audio.go)
+    MP3
+    """
+    TYPE_WAV: File.Type.ValueType  # 23
+    """WAV"""
+    TYPE_AAC: File.Type.ValueType  # 24
+    """AAC"""
+    TYPE_OGG: File.Type.ValueType  # 25
+    """OGG"""
+    TYPE_FLAC: File.Type.ValueType  # 26
+    """FLAC"""
+    TYPE_M4A: File.Type.ValueType  # 27
+    """M4A"""
+    TYPE_WMA: File.Type.ValueType  # 28
+    """WMA"""
+    TYPE_AIFF: File.Type.ValueType  # 29
+    """AIFF"""
+    TYPE_MP4: File.Type.ValueType  # 30
+    """Video types (supported by pipeline-backend/pkg/data/video.go)
+    MP4
+    """
+    TYPE_AVI: File.Type.ValueType  # 31
+    """AVI"""
+    TYPE_MOV: File.Type.ValueType  # 32
+    """MOV"""
+    TYPE_WEBM_VIDEO: File.Type.ValueType  # 33
+    """WEBM (video)"""
+    TYPE_MKV: File.Type.ValueType  # 34
+    """MKV"""
+    TYPE_FLV: File.Type.ValueType  # 35
+    """FLV"""
+    TYPE_WMV: File.Type.ValueType  # 36
+    """WMV"""
+    TYPE_MPEG: File.Type.ValueType  # 37
+    """MPEG"""
 
     @typing_extensions.final
     class Position(google.protobuf.message.Message):
@@ -1302,7 +1325,7 @@ class File(google.protobuf.message.Message):
     """file uid"""
     name: builtins.str
     """file name"""
-    type: global___FileType.ValueType
+    type: global___File.Type.ValueType
     """file type"""
     process_status: global___FileProcessStatus.ValueType
     """file process status"""
@@ -1391,7 +1414,7 @@ class File(google.protobuf.message.Message):
         *,
         file_uid: builtins.str = ...,
         name: builtins.str = ...,
-        type: global___FileType.ValueType = ...,
+        type: global___File.Type.ValueType = ...,
         process_status: global___FileProcessStatus.ValueType = ...,
         process_outcome: builtins.str = ...,
         retrievable: builtins.bool = ...,

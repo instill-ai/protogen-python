@@ -52,39 +52,38 @@ FILE_MEDIA_TYPE_VIDEO: FileMediaType.ValueType  # 4
 """Video."""
 global___FileMediaType = FileMediaType
 
-class _ContentType:
-    ValueType = typing.NewType("ValueType", builtins.int)
-    V: typing_extensions.TypeAlias = ValueType
-
-class _ContentTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ContentType.ValueType], builtins.type):
-    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-    CONTENT_TYPE_UNSPECIFIED: _ContentType.ValueType  # 0
-    """Unspecified."""
-    CONTENT_TYPE_CHUNK: _ContentType.ValueType  # 1
-    """Chunk."""
-    CONTENT_TYPE_SUMMARY: _ContentType.ValueType  # 2
-    """Summary."""
-    CONTENT_TYPE_AUGMENTED: _ContentType.ValueType  # 3
-    """Augmented."""
-
-class ContentType(_ContentType, metaclass=_ContentTypeEnumTypeWrapper):
-    """ContentType describes the type of a chunk content."""
-
-CONTENT_TYPE_UNSPECIFIED: ContentType.ValueType  # 0
-"""Unspecified."""
-CONTENT_TYPE_CHUNK: ContentType.ValueType  # 1
-"""Chunk."""
-CONTENT_TYPE_SUMMARY: ContentType.ValueType  # 2
-"""Summary."""
-CONTENT_TYPE_AUGMENTED: ContentType.ValueType  # 3
-"""Augmented."""
-global___ContentType = ContentType
-
 @typing_extensions.final
 class Chunk(google.protobuf.message.Message):
     """The Chunk message represents a chunk of data in the artifact system."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    class _Type:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _TypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Chunk._Type.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        TYPE_UNSPECIFIED: Chunk._Type.ValueType  # 0
+        """Unspecified."""
+        TYPE_CONTENT: Chunk._Type.ValueType  # 1
+        """Content."""
+        TYPE_SUMMARY: Chunk._Type.ValueType  # 2
+        """Summary."""
+        TYPE_AUGMENTED: Chunk._Type.ValueType  # 3
+        """Augmented."""
+
+    class Type(_Type, metaclass=_TypeEnumTypeWrapper):
+        """Type describes the type of a chunk content."""
+
+    TYPE_UNSPECIFIED: Chunk.Type.ValueType  # 0
+    """Unspecified."""
+    TYPE_CONTENT: Chunk.Type.ValueType  # 1
+    """Content."""
+    TYPE_SUMMARY: Chunk.Type.ValueType  # 2
+    """Summary."""
+    TYPE_AUGMENTED: Chunk.Type.ValueType  # 3
+    """Augmented."""
 
     @typing_extensions.final
     class Reference(google.protobuf.message.Message):
@@ -114,7 +113,7 @@ class Chunk(google.protobuf.message.Message):
     TOKENS_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
     ORIGINAL_FILE_UID_FIELD_NUMBER: builtins.int
-    CONTENT_TYPE_FIELD_NUMBER: builtins.int
+    TYPE_FIELD_NUMBER: builtins.int
     REFERENCE_FIELD_NUMBER: builtins.int
     MARKDOWN_REFERENCE_FIELD_NUMBER: builtins.int
     START_POS_FIELD_NUMBER: builtins.int
@@ -130,8 +129,8 @@ class Chunk(google.protobuf.message.Message):
         """creation time of the chunk"""
     original_file_uid: builtins.str
     """original file unique identifier"""
-    content_type: global___ContentType.ValueType
-    """content type"""
+    type: global___Chunk.Type.ValueType
+    """chunk type"""
     @property
     def reference(self) -> global___Chunk.Reference:
         """Reference to the position of the chunk within the original file."""
@@ -154,14 +153,14 @@ class Chunk(google.protobuf.message.Message):
         tokens: builtins.int = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         original_file_uid: builtins.str = ...,
-        content_type: global___ContentType.ValueType = ...,
+        type: global___Chunk.Type.ValueType = ...,
         reference: global___Chunk.Reference | None = ...,
         markdown_reference: global___Chunk.Reference | None = ...,
         start_pos: builtins.int = ...,
         end_pos: builtins.int = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "markdown_reference", b"markdown_reference", "reference", b"reference"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["chunk_uid", b"chunk_uid", "content_type", b"content_type", "create_time", b"create_time", "end_pos", b"end_pos", "markdown_reference", b"markdown_reference", "original_file_uid", b"original_file_uid", "reference", b"reference", "retrievable", b"retrievable", "start_pos", b"start_pos", "tokens", b"tokens"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chunk_uid", b"chunk_uid", "create_time", b"create_time", "end_pos", b"end_pos", "markdown_reference", b"markdown_reference", "original_file_uid", b"original_file_uid", "reference", b"reference", "retrievable", b"retrievable", "start_pos", b"start_pos", "tokens", b"tokens", "type", b"type"]) -> None: ...
 
 global___Chunk = Chunk
 
@@ -434,7 +433,7 @@ class SimilarityChunksSearchRequest(google.protobuf.message.Message):
     CATALOG_ID_FIELD_NUMBER: builtins.int
     TEXT_PROMPT_FIELD_NUMBER: builtins.int
     TOP_K_FIELD_NUMBER: builtins.int
-    CONTENT_TYPE_FIELD_NUMBER: builtins.int
+    TYPE_FIELD_NUMBER: builtins.int
     FILE_MEDIA_TYPE_FIELD_NUMBER: builtins.int
     FILE_UIDS_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
@@ -446,8 +445,8 @@ class SimilarityChunksSearchRequest(google.protobuf.message.Message):
     """Text prompt to look for similarities."""
     top_k: builtins.int
     """Top K. Default value: 5."""
-    content_type: global___ContentType.ValueType
-    """Content type."""
+    type: global___Chunk.Type.ValueType
+    """Chunk type."""
     file_media_type: global___FileMediaType.ValueType
     """File type."""
     @property
@@ -467,12 +466,12 @@ class SimilarityChunksSearchRequest(google.protobuf.message.Message):
         catalog_id: builtins.str = ...,
         text_prompt: builtins.str = ...,
         top_k: builtins.int = ...,
-        content_type: global___ContentType.ValueType = ...,
+        type: global___Chunk.Type.ValueType = ...,
         file_media_type: global___FileMediaType.ValueType = ...,
         file_uids: collections.abc.Iterable[builtins.str] | None = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "content_type", b"content_type", "file_media_type", b"file_media_type", "file_uids", b"file_uids", "namespace_id", b"namespace_id", "tags", b"tags", "text_prompt", b"text_prompt", "top_k", b"top_k"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "file_media_type", b"file_media_type", "file_uids", b"file_uids", "namespace_id", b"namespace_id", "tags", b"tags", "text_prompt", b"text_prompt", "top_k", b"top_k", "type", b"type"]) -> None: ...
 
 global___SimilarityChunksSearchRequest = SimilarityChunksSearchRequest
 
