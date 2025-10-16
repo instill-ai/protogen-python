@@ -1341,7 +1341,10 @@ class File(google.protobuf.message.Message):
     then no need the base64 encoding for the file content.
     """
     summary: builtins.str
-    """summary of the file"""
+    """Summary of the file.
+    Deprecated: Use the GetFileSummary API endpoint to retrieve file summaries.
+    This field now returns an empty string as summaries are stored separately in MinIO.
+    """
     download_url: builtins.str
     """download url of the file"""
     converting_pipeline: builtins.str
