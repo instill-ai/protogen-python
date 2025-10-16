@@ -214,48 +214,6 @@ class ListChunksResponse(google.protobuf.message.Message):
 global___ListChunksResponse = ListChunksResponse
 
 @typing_extensions.final
-class SearchChunksRequest(google.protobuf.message.Message):
-    """Search chunks request"""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    CHUNK_UIDS_FIELD_NUMBER: builtins.int
-    namespace_id: builtins.str
-    """owner/namespace id (not uid)"""
-    @property
-    def chunk_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """chunk uids"""
-    def __init__(
-        self,
-        *,
-        namespace_id: builtins.str = ...,
-        chunk_uids: collections.abc.Iterable[builtins.str] | None = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["chunk_uids", b"chunk_uids", "namespace_id", b"namespace_id"]) -> None: ...
-
-global___SearchChunksRequest = SearchChunksRequest
-
-@typing_extensions.final
-class SearchChunksResponse(google.protobuf.message.Message):
-    """Search chunks response"""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    CHUNKS_FIELD_NUMBER: builtins.int
-    @property
-    def chunks(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Chunk]:
-        """repeated chunks"""
-    def __init__(
-        self,
-        *,
-        chunks: collections.abc.Iterable[global___Chunk] | None = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["chunks", b"chunks"]) -> None: ...
-
-global___SearchChunksResponse = SearchChunksResponse
-
-@typing_extensions.final
 class SourceFile(google.protobuf.message.Message):
     """The SourceFile message represents a source file in the artifact system."""
 

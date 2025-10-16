@@ -80,11 +80,6 @@ class ArtifactPublicServiceStub(object):
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ListChunksRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ListChunksResponse.FromString,
                 )
-        self.SearchChunks = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/SearchChunks',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksResponse.FromString,
-                )
         self.GetSourceFile = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/GetSourceFile',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetSourceFileRequest.SerializeToString,
@@ -255,15 +250,6 @@ class ArtifactPublicServiceServicer(object):
         """List catalog chunks
 
         Returns a paginated list of catalog chunks.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def SearchChunks(self, request, context):
-        """Search catalog chunks
-
-        Returns a paginated list of catalog chunks based on search criteria.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -441,11 +427,6 @@ def add_ArtifactPublicServiceServicer_to_server(servicer, server):
                     servicer.ListChunks,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ListChunksRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ListChunksResponse.SerializeToString,
-            ),
-            'SearchChunks': grpc.unary_unary_rpc_method_handler(
-                    servicer.SearchChunks,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksResponse.SerializeToString,
             ),
             'GetSourceFile': grpc.unary_unary_rpc_method_handler(
                     servicer.GetSourceFile,
@@ -720,23 +701,6 @@ class ArtifactPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ListChunks',
             artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ListChunksRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ListChunksResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def SearchChunks(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/SearchChunks',
-            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

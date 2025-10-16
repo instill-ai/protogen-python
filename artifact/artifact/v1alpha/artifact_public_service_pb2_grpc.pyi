@@ -123,14 +123,6 @@ class ArtifactPublicServiceStub:
 
     Returns a paginated list of catalog chunks.
     """
-    SearchChunks: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.chunk_pb2.SearchChunksRequest,
-        artifact.artifact.v1alpha.chunk_pb2.SearchChunksResponse,
-    ]
-    """Search catalog chunks
-
-    Returns a paginated list of catalog chunks based on search criteria.
-    """
     GetSourceFile: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.GetSourceFileRequest,
         artifact.artifact.v1alpha.chunk_pb2.GetSourceFileResponse,
@@ -330,14 +322,6 @@ class ArtifactPublicServiceAsyncStub:
     """List catalog chunks
 
     Returns a paginated list of catalog chunks.
-    """
-    SearchChunks: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.chunk_pb2.SearchChunksRequest,
-        artifact.artifact.v1alpha.chunk_pb2.SearchChunksResponse,
-    ]
-    """Search catalog chunks
-
-    Returns a paginated list of catalog chunks based on search criteria.
     """
     GetSourceFile: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.chunk_pb2.GetSourceFileRequest,
@@ -562,16 +546,6 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         """List catalog chunks
 
         Returns a paginated list of catalog chunks.
-        """
-    @abc.abstractmethod
-    def SearchChunks(
-        self,
-        request: artifact.artifact.v1alpha.chunk_pb2.SearchChunksRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.chunk_pb2.SearchChunksResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.chunk_pb2.SearchChunksResponse]]:
-        """Search catalog chunks
-
-        Returns a paginated list of catalog chunks based on search criteria.
         """
     @abc.abstractmethod
     def GetSourceFile(
