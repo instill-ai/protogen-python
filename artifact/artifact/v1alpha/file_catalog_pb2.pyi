@@ -324,3 +324,89 @@ class GetChatFileResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["markdown", b"markdown"]) -> None: ...
 
 global___GetChatFileResponse = GetChatFileResponse
+
+@typing_extensions.final
+class GetFileAsMarkdownAdminRequest(google.protobuf.message.Message):
+    """Admin-only file catalog operations
+
+    GetFileAsMarkdownAdminRequest represents a request to fetch the Markdown
+    representation of a file (admin only).
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_UID_FIELD_NUMBER: builtins.int
+    file_uid: builtins.str
+    """File UID."""
+    def __init__(
+        self,
+        *,
+        file_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file_uid", b"file_uid"]) -> None: ...
+
+global___GetFileAsMarkdownAdminRequest = GetFileAsMarkdownAdminRequest
+
+@typing_extensions.final
+class GetFileAsMarkdownAdminResponse(google.protobuf.message.Message):
+    """GetFileAsMarkdownAdminResponse contains a blob with the Markdown representation
+    of a file (admin only).
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    MARKDOWN_FIELD_NUMBER: builtins.int
+    markdown: builtins.str
+    """The Markdown representation of a file."""
+    def __init__(
+        self,
+        *,
+        markdown: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["markdown", b"markdown"]) -> None: ...
+
+global___GetFileAsMarkdownAdminResponse = GetFileAsMarkdownAdminResponse
+
+@typing_extensions.final
+class GetChatFileAdminRequest(google.protobuf.message.Message):
+    """GetChatFileAdminRequest (admin only, deprecated)"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    CATALOG_ID_FIELD_NUMBER: builtins.int
+    FILE_ID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """id of the namespace"""
+    catalog_id: builtins.str
+    """id of the catalog"""
+    file_id: builtins.str
+    """id of the file"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        catalog_id: builtins.str = ...,
+        file_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "file_id", b"file_id", "namespace_id", b"namespace_id"]) -> None: ...
+
+global___GetChatFileAdminRequest = GetChatFileAdminRequest
+
+@typing_extensions.final
+class GetChatFileAdminResponse(google.protobuf.message.Message):
+    """GetChatFileAdminResponse (admin only, deprecated)"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    MARKDOWN_FIELD_NUMBER: builtins.int
+    markdown: builtins.bytes
+    """converted markdown content"""
+    def __init__(
+        self,
+        *,
+        markdown: builtins.bytes = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["markdown", b"markdown"]) -> None: ...
+
+global___GetChatFileAdminResponse = GetChatFileAdminResponse

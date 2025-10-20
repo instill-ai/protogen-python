@@ -475,6 +475,188 @@ class DeleteRepositoryTagResponse(google.protobuf.message.Message):
 global___DeleteRepositoryTagResponse = DeleteRepositoryTagResponse
 
 @typing_extensions.final
+class ListRepositoryTagsAdminRequest(google.protobuf.message.Message):
+    """Admin-only repository tag operations
+
+    ListRepositoryTagsAdminRequest represents a request to list repository tags (admin only).
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_FIELD_NUMBER: builtins.int
+    PARENT_FIELD_NUMBER: builtins.int
+    page_size: builtins.int
+    """The maximum number of tags to return. The default and cap values are 10
+    and 100, respectively.
+    """
+    page: builtins.int
+    """Page number."""
+    parent: builtins.str
+    """The repository holding the different versions of a given content.
+    - Format: `repositories/{repository.id}`.
+    - Example: `repositories/flaming-wombat/llama-2-7b`.
+    """
+    def __init__(
+        self,
+        *,
+        page_size: builtins.int | None = ...,
+        page: builtins.int | None = ...,
+        parent: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_page", b"_page", "_page_size", b"_page_size", "page", b"page", "page_size", b"page_size"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_page", b"_page", "_page_size", b"_page_size", "page", b"page", "page_size", b"page_size", "parent", b"parent"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page", b"_page"]) -> typing_extensions.Literal["page"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_size", b"_page_size"]) -> typing_extensions.Literal["page_size"] | None: ...
+
+global___ListRepositoryTagsAdminRequest = ListRepositoryTagsAdminRequest
+
+@typing_extensions.final
+class ListRepositoryTagsAdminResponse(google.protobuf.message.Message):
+    """ListRepositoryTagsAdminResponse contains a list of repository tags (admin only)."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TAGS_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_FIELD_NUMBER: builtins.int
+    @property
+    def tags(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___RepositoryTag]:
+        """A list of repository tags."""
+    total_size: builtins.int
+    """Total number of tags."""
+    page_size: builtins.int
+    """The requested page size."""
+    page: builtins.int
+    """The requested page offset."""
+    def __init__(
+        self,
+        *,
+        tags: collections.abc.Iterable[global___RepositoryTag] | None = ...,
+        total_size: builtins.int = ...,
+        page_size: builtins.int = ...,
+        page: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["page", b"page", "page_size", b"page_size", "tags", b"tags", "total_size", b"total_size"]) -> None: ...
+
+global___ListRepositoryTagsAdminResponse = ListRepositoryTagsAdminResponse
+
+@typing_extensions.final
+class GetRepositoryTagAdminRequest(google.protobuf.message.Message):
+    """GetRepositoryTagAdminRequest represents a request to get repository tag details (admin only)."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The name of the tag, defined by its parent repository and ID.
+    - Format: `repositories/{repository.id}/tags/{tag.id}`.
+    """
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
+
+global___GetRepositoryTagAdminRequest = GetRepositoryTagAdminRequest
+
+@typing_extensions.final
+class GetRepositoryTagAdminResponse(google.protobuf.message.Message):
+    """GetRepositoryTagAdminResponse contains the requested tag (admin only)."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TAG_FIELD_NUMBER: builtins.int
+    @property
+    def tag(self) -> global___RepositoryTag:
+        """The requested tag."""
+    def __init__(
+        self,
+        *,
+        tag: global___RepositoryTag | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["tag", b"tag"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["tag", b"tag"]) -> None: ...
+
+global___GetRepositoryTagAdminResponse = GetRepositoryTagAdminResponse
+
+@typing_extensions.final
+class CreateRepositoryTagAdminRequest(google.protobuf.message.Message):
+    """CreateRepositoryTagAdminRequest represents a request to create a repository tag (admin only)."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TAG_FIELD_NUMBER: builtins.int
+    @property
+    def tag(self) -> global___RepositoryTag:
+        """The tag information."""
+    def __init__(
+        self,
+        *,
+        tag: global___RepositoryTag | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["tag", b"tag"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["tag", b"tag"]) -> None: ...
+
+global___CreateRepositoryTagAdminRequest = CreateRepositoryTagAdminRequest
+
+@typing_extensions.final
+class CreateRepositoryTagAdminResponse(google.protobuf.message.Message):
+    """CreateRepositoryTagAdminResponse contains the created tag (admin only)."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TAG_FIELD_NUMBER: builtins.int
+    @property
+    def tag(self) -> global___RepositoryTag:
+        """The created tag."""
+    def __init__(
+        self,
+        *,
+        tag: global___RepositoryTag | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["tag", b"tag"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["tag", b"tag"]) -> None: ...
+
+global___CreateRepositoryTagAdminResponse = CreateRepositoryTagAdminResponse
+
+@typing_extensions.final
+class DeleteRepositoryTagAdminRequest(google.protobuf.message.Message):
+    """DeleteRepositoryTagAdminRequest represents a request to delete a repository tag (admin only)."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The name of the tag, defined by its parent repository and ID.
+    - Format: `repositories/{repository.id}/tags/{tag.id}`.
+    """
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
+
+global___DeleteRepositoryTagAdminRequest = DeleteRepositoryTagAdminRequest
+
+@typing_extensions.final
+class DeleteRepositoryTagAdminResponse(google.protobuf.message.Message):
+    """DeleteRepositoryTagAdminResponse is an empty response (admin only)."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___DeleteRepositoryTagAdminResponse = DeleteRepositoryTagAdminResponse
+
+@typing_extensions.final
 class ObjectURL(google.protobuf.message.Message):
     """ObjectUploadURL"""
 
@@ -683,6 +865,157 @@ class UpdateObjectResponse(google.protobuf.message.Message):
 global___UpdateObjectResponse = UpdateObjectResponse
 
 @typing_extensions.final
+class GetObjectAdminRequest(google.protobuf.message.Message):
+    """Admin-only object operations
+
+    GetObjectAdminRequest represents a request to get an object (admin only).
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    UID_FIELD_NUMBER: builtins.int
+    uid: builtins.str
+    """object uid"""
+    def __init__(
+        self,
+        *,
+        uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["uid", b"uid"]) -> None: ...
+
+global___GetObjectAdminRequest = GetObjectAdminRequest
+
+@typing_extensions.final
+class GetObjectAdminResponse(google.protobuf.message.Message):
+    """GetObjectAdminResponse contains the requested object (admin only)."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OBJECT_FIELD_NUMBER: builtins.int
+    @property
+    def object(self) -> artifact.artifact.v1alpha.object_pb2.Object:
+        """object"""
+    def __init__(
+        self,
+        *,
+        object: artifact.artifact.v1alpha.object_pb2.Object | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["object", b"object"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["object", b"object"]) -> None: ...
+
+global___GetObjectAdminResponse = GetObjectAdminResponse
+
+@typing_extensions.final
+class GetObjectURLAdminRequest(google.protobuf.message.Message):
+    """GetObjectURLAdminRequest represents a request to get an object URL (admin only)."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    UID_FIELD_NUMBER: builtins.int
+    ENCODED_URL_PATH_FIELD_NUMBER: builtins.int
+    uid: builtins.str
+    """object url uid"""
+    encoded_url_path: builtins.str
+    """encoded url path. artifact first use uid to get object url,
+    if not exist, then use encoded url path to get object url
+    """
+    def __init__(
+        self,
+        *,
+        uid: builtins.str = ...,
+        encoded_url_path: builtins.str | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_encoded_url_path", b"_encoded_url_path", "encoded_url_path", b"encoded_url_path"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_encoded_url_path", b"_encoded_url_path", "encoded_url_path", b"encoded_url_path", "uid", b"uid"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_encoded_url_path", b"_encoded_url_path"]) -> typing_extensions.Literal["encoded_url_path"] | None: ...
+
+global___GetObjectURLAdminRequest = GetObjectURLAdminRequest
+
+@typing_extensions.final
+class GetObjectURLAdminResponse(google.protobuf.message.Message):
+    """GetObjectURLAdminResponse contains the requested object URL (admin only)."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OBJECT_URL_FIELD_NUMBER: builtins.int
+    @property
+    def object_url(self) -> global___ObjectURL:
+        """object url"""
+    def __init__(
+        self,
+        *,
+        object_url: global___ObjectURL | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["object_url", b"object_url"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["object_url", b"object_url"]) -> None: ...
+
+global___GetObjectURLAdminResponse = GetObjectURLAdminResponse
+
+@typing_extensions.final
+class UpdateObjectAdminRequest(google.protobuf.message.Message):
+    """UpdateObjectAdminRequest represents a request to update an object (admin only)."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    UID_FIELD_NUMBER: builtins.int
+    SIZE_FIELD_NUMBER: builtins.int
+    TYPE_FIELD_NUMBER: builtins.int
+    IS_UPLOADED_FIELD_NUMBER: builtins.int
+    LAST_MODIFIED_TIME_FIELD_NUMBER: builtins.int
+    uid: builtins.str
+    """object uid"""
+    size: builtins.int
+    """size"""
+    type: builtins.str
+    """type"""
+    is_uploaded: builtins.bool
+    """is upload"""
+    @property
+    def last_modified_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """last modified time"""
+    def __init__(
+        self,
+        *,
+        uid: builtins.str = ...,
+        size: builtins.int | None = ...,
+        type: builtins.str | None = ...,
+        is_uploaded: builtins.bool | None = ...,
+        last_modified_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_is_uploaded", b"_is_uploaded", "_last_modified_time", b"_last_modified_time", "_size", b"_size", "_type", b"_type", "is_uploaded", b"is_uploaded", "last_modified_time", b"last_modified_time", "size", b"size", "type", b"type"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_is_uploaded", b"_is_uploaded", "_last_modified_time", b"_last_modified_time", "_size", b"_size", "_type", b"_type", "is_uploaded", b"is_uploaded", "last_modified_time", b"last_modified_time", "size", b"size", "type", b"type", "uid", b"uid"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_is_uploaded", b"_is_uploaded"]) -> typing_extensions.Literal["is_uploaded"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_last_modified_time", b"_last_modified_time"]) -> typing_extensions.Literal["last_modified_time"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_size", b"_size"]) -> typing_extensions.Literal["size"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_type", b"_type"]) -> typing_extensions.Literal["type"] | None: ...
+
+global___UpdateObjectAdminRequest = UpdateObjectAdminRequest
+
+@typing_extensions.final
+class UpdateObjectAdminResponse(google.protobuf.message.Message):
+    """UpdateObjectAdminResponse contains the updated object (admin only)."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OBJECT_FIELD_NUMBER: builtins.int
+    @property
+    def object(self) -> artifact.artifact.v1alpha.object_pb2.Object:
+        """object"""
+    def __init__(
+        self,
+        *,
+        object: artifact.artifact.v1alpha.object_pb2.Object | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["object", b"object"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["object", b"object"]) -> None: ...
+
+global___UpdateObjectAdminResponse = UpdateObjectAdminResponse
+
+@typing_extensions.final
 class Catalog(google.protobuf.message.Message):
     """Catalog represents a catalog."""
 
@@ -725,6 +1058,7 @@ class Catalog(google.protobuf.message.Message):
     USED_STORAGE_FIELD_NUMBER: builtins.int
     SUMMARIZING_PIPELINES_FIELD_NUMBER: builtins.int
     EMBEDDING_CONFIG_FIELD_NUMBER: builtins.int
+    ACTIVE_COLLECTION_UID_FIELD_NUMBER: builtins.int
     catalog_uid: builtins.str
     """The catalog uid."""
     catalog_id: builtins.str
@@ -774,6 +1108,10 @@ class Catalog(google.protobuf.message.Message):
     @property
     def embedding_config(self) -> global___Catalog.EmbeddingConfig:
         """The embedding configuration for the catalog."""
+    active_collection_uid: builtins.str
+    """The UID of the active Milvus collection for this catalog.
+    This supports collection versioning for embedding dimension changes.
+    """
     def __init__(
         self,
         *,
@@ -794,9 +1132,10 @@ class Catalog(google.protobuf.message.Message):
         used_storage: builtins.int = ...,
         summarizing_pipelines: collections.abc.Iterable[builtins.str] | None = ...,
         embedding_config: global___Catalog.EmbeddingConfig | None = ...,
+        active_collection_uid: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["embedding_config", b"embedding_config"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "catalog_uid", b"catalog_uid", "converting_pipelines", b"converting_pipelines", "create_time", b"create_time", "description", b"description", "downstream_apps", b"downstream_apps", "embedding_config", b"embedding_config", "embedding_pipelines", b"embedding_pipelines", "name", b"name", "owner_name", b"owner_name", "splitting_pipelines", b"splitting_pipelines", "summarizing_pipelines", b"summarizing_pipelines", "tags", b"tags", "total_files", b"total_files", "total_tokens", b"total_tokens", "update_time", b"update_time", "used_storage", b"used_storage"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["active_collection_uid", b"active_collection_uid", "catalog_id", b"catalog_id", "catalog_uid", b"catalog_uid", "converting_pipelines", b"converting_pipelines", "create_time", b"create_time", "description", b"description", "downstream_apps", b"downstream_apps", "embedding_config", b"embedding_config", "embedding_pipelines", b"embedding_pipelines", "name", b"name", "owner_name", b"owner_name", "splitting_pipelines", b"splitting_pipelines", "summarizing_pipelines", b"summarizing_pipelines", "tags", b"tags", "total_files", b"total_files", "total_tokens", b"total_tokens", "update_time", b"update_time", "used_storage", b"used_storage"]) -> None: ...
 
 global___Catalog = Catalog
 
@@ -1499,15 +1838,23 @@ class DeleteCatalogFileRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    CATALOG_ID_FIELD_NUMBER: builtins.int
     FILE_UID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The namespace id."""
+    catalog_id: builtins.str
+    """The catalog id."""
     file_uid: builtins.str
     """The file uid."""
     def __init__(
         self,
         *,
+        namespace_id: builtins.str = ...,
+        catalog_id: builtins.str = ...,
         file_uid: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["file_uid", b"file_uid"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "file_uid", b"file_uid", "namespace_id", b"namespace_id"]) -> None: ...
 
 global___DeleteCatalogFileRequest = DeleteCatalogFileRequest
 
@@ -1528,6 +1875,45 @@ class DeleteCatalogFileResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["file_uid", b"file_uid"]) -> None: ...
 
 global___DeleteCatalogFileResponse = DeleteCatalogFileResponse
+
+@typing_extensions.final
+class DeleteCatalogFileAdminRequest(google.protobuf.message.Message):
+    """Admin-only file operations
+
+    DeleteCatalogFileAdminRequest represents a request to delete a file (admin only).
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_UID_FIELD_NUMBER: builtins.int
+    file_uid: builtins.str
+    """The file uid."""
+    def __init__(
+        self,
+        *,
+        file_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file_uid", b"file_uid"]) -> None: ...
+
+global___DeleteCatalogFileAdminRequest = DeleteCatalogFileAdminRequest
+
+@typing_extensions.final
+class DeleteCatalogFileAdminResponse(google.protobuf.message.Message):
+    """DeleteCatalogFileAdminResponse represents a response for deleting a file (admin only)."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_UID_FIELD_NUMBER: builtins.int
+    file_uid: builtins.str
+    """The file uid."""
+    def __init__(
+        self,
+        *,
+        file_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file_uid", b"file_uid"]) -> None: ...
+
+global___DeleteCatalogFileAdminResponse = DeleteCatalogFileAdminResponse
 
 @typing_extensions.final
 class ProcessCatalogFilesRequest(google.protobuf.message.Message):

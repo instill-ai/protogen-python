@@ -6,7 +6,6 @@ from artifact.artifact.v1alpha import artifact_pb2 as artifact_dot_artifact_dot_
 from artifact.artifact.v1alpha import chunk_pb2 as artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2
 from artifact.artifact.v1alpha import file_catalog_pb2 as artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2
 from artifact.artifact.v1alpha import object_pb2 as artifact_dot_artifact_dot_v1alpha_dot_object__pb2
-from artifact.artifact.v1alpha import qa_pb2 as artifact_dot_artifact_dot_v1alpha_dot_qa__pb2
 
 
 class ArtifactPublicServiceStub(object):
@@ -104,11 +103,6 @@ class ArtifactPublicServiceStub(object):
                 '/artifact.artifact.v1alpha.ArtifactPublicService/SimilarityChunksSearch',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SimilarityChunksSearchRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SimilarityChunksSearchResponse.FromString,
-                )
-        self.QuestionAnswering = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/QuestionAnswering',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_qa__pb2.QuestionAnsweringRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_qa__pb2.QuestionAnsweringResponse.FromString,
                 )
         self.GetFileCatalog = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/GetFileCatalog',
@@ -300,16 +294,6 @@ class ArtifactPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def QuestionAnswering(self, request, context):
-        """Answer a question
-
-        Provides the response to the prompted question, returning contextual
-        information like the chunks used to build the answer.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def GetFileCatalog(self, request, context):
         """Get the catalog file.
 
@@ -452,11 +436,6 @@ def add_ArtifactPublicServiceServicer_to_server(servicer, server):
                     servicer.SimilarityChunksSearch,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SimilarityChunksSearchRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SimilarityChunksSearchResponse.SerializeToString,
-            ),
-            'QuestionAnswering': grpc.unary_unary_rpc_method_handler(
-                    servicer.QuestionAnswering,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_qa__pb2.QuestionAnsweringRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_qa__pb2.QuestionAnsweringResponse.SerializeToString,
             ),
             'GetFileCatalog': grpc.unary_unary_rpc_method_handler(
                     servicer.GetFileCatalog,
@@ -786,23 +765,6 @@ class ArtifactPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/SimilarityChunksSearch',
             artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SimilarityChunksSearchRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SimilarityChunksSearchResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def QuestionAnswering(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/QuestionAnswering',
-            artifact_dot_artifact_dot_v1alpha_dot_qa__pb2.QuestionAnsweringRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_qa__pb2.QuestionAnsweringResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

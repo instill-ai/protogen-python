@@ -5,6 +5,8 @@ isort:skip_file
 import abc
 import artifact.artifact.v1alpha.artifact_pb2
 import artifact.artifact.v1alpha.file_catalog_pb2
+import artifact.artifact.v1alpha.system_profile_pb2
+import artifact.artifact.v1alpha.update_pb2
 import collections.abc
 import grpc
 import grpc.aio
@@ -24,24 +26,24 @@ class ArtifactPrivateServiceStub:
     """
 
     def __init__(self, channel: typing.Union[grpc.Channel, grpc.aio.Channel]) -> None: ...
-    ListRepositoryTags: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.ListRepositoryTagsRequest,
-        artifact.artifact.v1alpha.artifact_pb2.ListRepositoryTagsResponse,
+    ListRepositoryTagsAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.ListRepositoryTagsAdminRequest,
+        artifact.artifact.v1alpha.artifact_pb2.ListRepositoryTagsAdminResponse,
     ]
-    """List the tags in a repository.
+    """List the tags in a repository (admin only)
 
     Returns a portion of the versions that the specified repository holds.
     """
-    GetRepositoryTag: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagRequest,
-        artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagResponse,
+    GetRepositoryTagAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagAdminRequest,
+        artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagAdminResponse,
     ]
-    """Get details of repository tag."""
-    CreateRepositoryTag: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagRequest,
-        artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagResponse,
+    """Get details of repository tag (admin only)"""
+    CreateRepositoryTagAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagAdminRequest,
+        artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagAdminResponse,
     ]
-    """Create a new repository tag.
+    """Create a new repository tag (admin only)
 
     Adds a tag to a given repository. Note that this operation is only
     intended to register the information of an *already created* tag. This
@@ -50,68 +52,127 @@ class ArtifactPrivateServiceStub:
     succeeded. The distribution registry won't hold data such as the push time
     or the tag digest, so `artifact-backend` will hold this information locally.
     """
-    DeleteRepositoryTag: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagRequest,
-        artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagResponse,
+    DeleteRepositoryTagAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagAdminRequest,
+        artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagAdminResponse,
     ]
-    """Delete a repository tag."""
-    GetObject: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.GetObjectRequest,
-        artifact.artifact.v1alpha.artifact_pb2.GetObjectResponse,
+    """Delete a repository tag (admin only)"""
+    GetObjectAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.GetObjectAdminRequest,
+        artifact.artifact.v1alpha.artifact_pb2.GetObjectAdminResponse,
     ]
-    """Get Object"""
-    GetObjectURL: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.GetObjectURLRequest,
-        artifact.artifact.v1alpha.artifact_pb2.GetObjectURLResponse,
+    """Get Object (admin only)"""
+    GetObjectURLAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.GetObjectURLAdminRequest,
+        artifact.artifact.v1alpha.artifact_pb2.GetObjectURLAdminResponse,
     ]
-    """Get Object URL"""
-    UpdateObject: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.UpdateObjectRequest,
-        artifact.artifact.v1alpha.artifact_pb2.UpdateObjectResponse,
+    """Get Object URL (admin only)"""
+    UpdateObjectAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.UpdateObjectAdminRequest,
+        artifact.artifact.v1alpha.artifact_pb2.UpdateObjectAdminResponse,
     ]
-    """Update Object"""
-    GetFileAsMarkdown: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownRequest,
-        artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownResponse,
+    """Update Object (admin only)"""
+    GetFileAsMarkdownAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownAdminRequest,
+        artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownAdminResponse,
     ]
-    """Get file as Markdown
+    """Get file as Markdown (admin only)
 
     Returns the Markdown representation of a file.
     """
-    GetChatFile: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileRequest,
-        artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileResponse,
+    GetChatFileAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileAdminRequest,
+        artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileAdminResponse,
     ]
-    """Get file as Markdown (deprecated)
+    """Get file as Markdown (deprecated, admin only)
 
     Returns the contents of a file conversion to Markdown as a binary blob.
     This method is deprecated as it identifies the file by namespace and
     filename instead of UID, which isn't a unique identifier anymore.
     """
+    DeleteCatalogFileAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileAdminRequest,
+        artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileAdminResponse,
+    ]
+    """Delete a catalog file (admin only)
+
+    Deletes a file from a catalog. This is the private endpoint for internal operations.
+    """
+    RollbackAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.update_pb2.RollbackAdminRequest,
+        artifact.artifact.v1alpha.update_pb2.RollbackAdminResponse,
+    ]
+    """Knowledge Base Update Admin APIs
+
+    Rollback a specific catalog to previous version (admin only)
+    """
+    PurgeRollbackAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.update_pb2.PurgeRollbackAdminRequest,
+        artifact.artifact.v1alpha.update_pb2.PurgeRollbackAdminResponse,
+    ]
+    """Purge rollback immediately (admin only)"""
+    SetRollbackRetentionAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.update_pb2.SetRollbackRetentionAdminRequest,
+        artifact.artifact.v1alpha.update_pb2.SetRollbackRetentionAdminResponse,
+    ]
+    """Set rollback retention period (admin only)"""
+    ExecuteKnowledgeBaseUpdateAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminRequest,
+        artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminResponse,
+    ]
+    """Execute knowledge base update (admin only)"""
+    GetKnowledgeBaseUpdateStatusAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.update_pb2.GetKnowledgeBaseUpdateStatusAdminRequest,
+        artifact.artifact.v1alpha.update_pb2.GetKnowledgeBaseUpdateStatusAdminResponse,
+    ]
+    """Get knowledge base update status (admin only)"""
+    GetSystemProfileAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.system_profile_pb2.GetSystemProfileAdminRequest,
+        artifact.artifact.v1alpha.system_profile_pb2.GetSystemProfileAdminResponse,
+    ]
+    """System Profile Management Admin APIs
+
+    Get a system configuration profile (admin only)
+    """
+    UpdateSystemProfileAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.system_profile_pb2.UpdateSystemProfileAdminRequest,
+        artifact.artifact.v1alpha.system_profile_pb2.UpdateSystemProfileAdminResponse,
+    ]
+    """Update (create or update) a system configuration profile (admin only)"""
+    ListSystemProfilesAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.system_profile_pb2.ListSystemProfilesAdminRequest,
+        artifact.artifact.v1alpha.system_profile_pb2.ListSystemProfilesAdminResponse,
+    ]
+    """List all system configuration profiles (admin only)"""
+    DeleteSystemProfileAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.system_profile_pb2.DeleteSystemProfileAdminRequest,
+        artifact.artifact.v1alpha.system_profile_pb2.DeleteSystemProfileAdminResponse,
+    ]
+    """Delete a system configuration profile (admin only)"""
 
 class ArtifactPrivateServiceAsyncStub:
     """ArtifactPrivateService exposes the private endpoints that allow clients to
     manage artifacts.
     """
 
-    ListRepositoryTags: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.ListRepositoryTagsRequest,
-        artifact.artifact.v1alpha.artifact_pb2.ListRepositoryTagsResponse,
+    ListRepositoryTagsAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.ListRepositoryTagsAdminRequest,
+        artifact.artifact.v1alpha.artifact_pb2.ListRepositoryTagsAdminResponse,
     ]
-    """List the tags in a repository.
+    """List the tags in a repository (admin only)
 
     Returns a portion of the versions that the specified repository holds.
     """
-    GetRepositoryTag: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagRequest,
-        artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagResponse,
+    GetRepositoryTagAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagAdminRequest,
+        artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagAdminResponse,
     ]
-    """Get details of repository tag."""
-    CreateRepositoryTag: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagRequest,
-        artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagResponse,
+    """Get details of repository tag (admin only)"""
+    CreateRepositoryTagAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagAdminRequest,
+        artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagAdminResponse,
     ]
-    """Create a new repository tag.
+    """Create a new repository tag (admin only)
 
     Adds a tag to a given repository. Note that this operation is only
     intended to register the information of an *already created* tag. This
@@ -120,44 +181,103 @@ class ArtifactPrivateServiceAsyncStub:
     succeeded. The distribution registry won't hold data such as the push time
     or the tag digest, so `artifact-backend` will hold this information locally.
     """
-    DeleteRepositoryTag: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagRequest,
-        artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagResponse,
+    DeleteRepositoryTagAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagAdminRequest,
+        artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagAdminResponse,
     ]
-    """Delete a repository tag."""
-    GetObject: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.GetObjectRequest,
-        artifact.artifact.v1alpha.artifact_pb2.GetObjectResponse,
+    """Delete a repository tag (admin only)"""
+    GetObjectAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.GetObjectAdminRequest,
+        artifact.artifact.v1alpha.artifact_pb2.GetObjectAdminResponse,
     ]
-    """Get Object"""
-    GetObjectURL: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.GetObjectURLRequest,
-        artifact.artifact.v1alpha.artifact_pb2.GetObjectURLResponse,
+    """Get Object (admin only)"""
+    GetObjectURLAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.GetObjectURLAdminRequest,
+        artifact.artifact.v1alpha.artifact_pb2.GetObjectURLAdminResponse,
     ]
-    """Get Object URL"""
-    UpdateObject: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.UpdateObjectRequest,
-        artifact.artifact.v1alpha.artifact_pb2.UpdateObjectResponse,
+    """Get Object URL (admin only)"""
+    UpdateObjectAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.UpdateObjectAdminRequest,
+        artifact.artifact.v1alpha.artifact_pb2.UpdateObjectAdminResponse,
     ]
-    """Update Object"""
-    GetFileAsMarkdown: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownRequest,
-        artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownResponse,
+    """Update Object (admin only)"""
+    GetFileAsMarkdownAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownAdminRequest,
+        artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownAdminResponse,
     ]
-    """Get file as Markdown
+    """Get file as Markdown (admin only)
 
     Returns the Markdown representation of a file.
     """
-    GetChatFile: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileRequest,
-        artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileResponse,
+    GetChatFileAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileAdminRequest,
+        artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileAdminResponse,
     ]
-    """Get file as Markdown (deprecated)
+    """Get file as Markdown (deprecated, admin only)
 
     Returns the contents of a file conversion to Markdown as a binary blob.
     This method is deprecated as it identifies the file by namespace and
     filename instead of UID, which isn't a unique identifier anymore.
     """
+    DeleteCatalogFileAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileAdminRequest,
+        artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileAdminResponse,
+    ]
+    """Delete a catalog file (admin only)
+
+    Deletes a file from a catalog. This is the private endpoint for internal operations.
+    """
+    RollbackAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.update_pb2.RollbackAdminRequest,
+        artifact.artifact.v1alpha.update_pb2.RollbackAdminResponse,
+    ]
+    """Knowledge Base Update Admin APIs
+
+    Rollback a specific catalog to previous version (admin only)
+    """
+    PurgeRollbackAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.update_pb2.PurgeRollbackAdminRequest,
+        artifact.artifact.v1alpha.update_pb2.PurgeRollbackAdminResponse,
+    ]
+    """Purge rollback immediately (admin only)"""
+    SetRollbackRetentionAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.update_pb2.SetRollbackRetentionAdminRequest,
+        artifact.artifact.v1alpha.update_pb2.SetRollbackRetentionAdminResponse,
+    ]
+    """Set rollback retention period (admin only)"""
+    ExecuteKnowledgeBaseUpdateAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminRequest,
+        artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminResponse,
+    ]
+    """Execute knowledge base update (admin only)"""
+    GetKnowledgeBaseUpdateStatusAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.update_pb2.GetKnowledgeBaseUpdateStatusAdminRequest,
+        artifact.artifact.v1alpha.update_pb2.GetKnowledgeBaseUpdateStatusAdminResponse,
+    ]
+    """Get knowledge base update status (admin only)"""
+    GetSystemProfileAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.system_profile_pb2.GetSystemProfileAdminRequest,
+        artifact.artifact.v1alpha.system_profile_pb2.GetSystemProfileAdminResponse,
+    ]
+    """System Profile Management Admin APIs
+
+    Get a system configuration profile (admin only)
+    """
+    UpdateSystemProfileAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.system_profile_pb2.UpdateSystemProfileAdminRequest,
+        artifact.artifact.v1alpha.system_profile_pb2.UpdateSystemProfileAdminResponse,
+    ]
+    """Update (create or update) a system configuration profile (admin only)"""
+    ListSystemProfilesAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.system_profile_pb2.ListSystemProfilesAdminRequest,
+        artifact.artifact.v1alpha.system_profile_pb2.ListSystemProfilesAdminResponse,
+    ]
+    """List all system configuration profiles (admin only)"""
+    DeleteSystemProfileAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.system_profile_pb2.DeleteSystemProfileAdminRequest,
+        artifact.artifact.v1alpha.system_profile_pb2.DeleteSystemProfileAdminResponse,
+    ]
+    """Delete a system configuration profile (admin only)"""
 
 class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
     """ArtifactPrivateService exposes the private endpoints that allow clients to
@@ -165,29 +285,29 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
     """
 
     @abc.abstractmethod
-    def ListRepositoryTags(
+    def ListRepositoryTagsAdmin(
         self,
-        request: artifact.artifact.v1alpha.artifact_pb2.ListRepositoryTagsRequest,
+        request: artifact.artifact.v1alpha.artifact_pb2.ListRepositoryTagsAdminRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.ListRepositoryTagsResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.ListRepositoryTagsResponse]]:
-        """List the tags in a repository.
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.ListRepositoryTagsAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.ListRepositoryTagsAdminResponse]]:
+        """List the tags in a repository (admin only)
 
         Returns a portion of the versions that the specified repository holds.
         """
     @abc.abstractmethod
-    def GetRepositoryTag(
+    def GetRepositoryTagAdmin(
         self,
-        request: artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagRequest,
+        request: artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagAdminRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagResponse]]:
-        """Get details of repository tag."""
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagAdminResponse]]:
+        """Get details of repository tag (admin only)"""
     @abc.abstractmethod
-    def CreateRepositoryTag(
+    def CreateRepositoryTagAdmin(
         self,
-        request: artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagRequest,
+        request: artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagAdminRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagResponse]]:
-        """Create a new repository tag.
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagAdminResponse]]:
+        """Create a new repository tag (admin only)
 
         Adds a tag to a given repository. Note that this operation is only
         intended to register the information of an *already created* tag. This
@@ -197,54 +317,133 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
         or the tag digest, so `artifact-backend` will hold this information locally.
         """
     @abc.abstractmethod
-    def DeleteRepositoryTag(
+    def DeleteRepositoryTagAdmin(
         self,
-        request: artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagRequest,
+        request: artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagAdminRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagResponse]]:
-        """Delete a repository tag."""
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagAdminResponse]]:
+        """Delete a repository tag (admin only)"""
     @abc.abstractmethod
-    def GetObject(
+    def GetObjectAdmin(
         self,
-        request: artifact.artifact.v1alpha.artifact_pb2.GetObjectRequest,
+        request: artifact.artifact.v1alpha.artifact_pb2.GetObjectAdminRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.GetObjectResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.GetObjectResponse]]:
-        """Get Object"""
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.GetObjectAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.GetObjectAdminResponse]]:
+        """Get Object (admin only)"""
     @abc.abstractmethod
-    def GetObjectURL(
+    def GetObjectURLAdmin(
         self,
-        request: artifact.artifact.v1alpha.artifact_pb2.GetObjectURLRequest,
+        request: artifact.artifact.v1alpha.artifact_pb2.GetObjectURLAdminRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.GetObjectURLResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.GetObjectURLResponse]]:
-        """Get Object URL"""
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.GetObjectURLAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.GetObjectURLAdminResponse]]:
+        """Get Object URL (admin only)"""
     @abc.abstractmethod
-    def UpdateObject(
+    def UpdateObjectAdmin(
         self,
-        request: artifact.artifact.v1alpha.artifact_pb2.UpdateObjectRequest,
+        request: artifact.artifact.v1alpha.artifact_pb2.UpdateObjectAdminRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.UpdateObjectResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.UpdateObjectResponse]]:
-        """Update Object"""
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.UpdateObjectAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.UpdateObjectAdminResponse]]:
+        """Update Object (admin only)"""
     @abc.abstractmethod
-    def GetFileAsMarkdown(
+    def GetFileAsMarkdownAdmin(
         self,
-        request: artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownRequest,
+        request: artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownAdminRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownResponse]]:
-        """Get file as Markdown
+    ) -> typing.Union[artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownAdminResponse]]:
+        """Get file as Markdown (admin only)
 
         Returns the Markdown representation of a file.
         """
     @abc.abstractmethod
-    def GetChatFile(
+    def GetChatFileAdmin(
         self,
-        request: artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileRequest,
+        request: artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileAdminRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileResponse]]:
-        """Get file as Markdown (deprecated)
+    ) -> typing.Union[artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileAdminResponse]]:
+        """Get file as Markdown (deprecated, admin only)
 
         Returns the contents of a file conversion to Markdown as a binary blob.
         This method is deprecated as it identifies the file by namespace and
         filename instead of UID, which isn't a unique identifier anymore.
         """
+    @abc.abstractmethod
+    def DeleteCatalogFileAdmin(
+        self,
+        request: artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileAdminResponse]]:
+        """Delete a catalog file (admin only)
+
+        Deletes a file from a catalog. This is the private endpoint for internal operations.
+        """
+    @abc.abstractmethod
+    def RollbackAdmin(
+        self,
+        request: artifact.artifact.v1alpha.update_pb2.RollbackAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.update_pb2.RollbackAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.update_pb2.RollbackAdminResponse]]:
+        """Knowledge Base Update Admin APIs
+
+        Rollback a specific catalog to previous version (admin only)
+        """
+    @abc.abstractmethod
+    def PurgeRollbackAdmin(
+        self,
+        request: artifact.artifact.v1alpha.update_pb2.PurgeRollbackAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.update_pb2.PurgeRollbackAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.update_pb2.PurgeRollbackAdminResponse]]:
+        """Purge rollback immediately (admin only)"""
+    @abc.abstractmethod
+    def SetRollbackRetentionAdmin(
+        self,
+        request: artifact.artifact.v1alpha.update_pb2.SetRollbackRetentionAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.update_pb2.SetRollbackRetentionAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.update_pb2.SetRollbackRetentionAdminResponse]]:
+        """Set rollback retention period (admin only)"""
+    @abc.abstractmethod
+    def ExecuteKnowledgeBaseUpdateAdmin(
+        self,
+        request: artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminResponse]]:
+        """Execute knowledge base update (admin only)"""
+    @abc.abstractmethod
+    def GetKnowledgeBaseUpdateStatusAdmin(
+        self,
+        request: artifact.artifact.v1alpha.update_pb2.GetKnowledgeBaseUpdateStatusAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.update_pb2.GetKnowledgeBaseUpdateStatusAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.update_pb2.GetKnowledgeBaseUpdateStatusAdminResponse]]:
+        """Get knowledge base update status (admin only)"""
+    @abc.abstractmethod
+    def GetSystemProfileAdmin(
+        self,
+        request: artifact.artifact.v1alpha.system_profile_pb2.GetSystemProfileAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.system_profile_pb2.GetSystemProfileAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.system_profile_pb2.GetSystemProfileAdminResponse]]:
+        """System Profile Management Admin APIs
+
+        Get a system configuration profile (admin only)
+        """
+    @abc.abstractmethod
+    def UpdateSystemProfileAdmin(
+        self,
+        request: artifact.artifact.v1alpha.system_profile_pb2.UpdateSystemProfileAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.system_profile_pb2.UpdateSystemProfileAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.system_profile_pb2.UpdateSystemProfileAdminResponse]]:
+        """Update (create or update) a system configuration profile (admin only)"""
+    @abc.abstractmethod
+    def ListSystemProfilesAdmin(
+        self,
+        request: artifact.artifact.v1alpha.system_profile_pb2.ListSystemProfilesAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.system_profile_pb2.ListSystemProfilesAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.system_profile_pb2.ListSystemProfilesAdminResponse]]:
+        """List all system configuration profiles (admin only)"""
+    @abc.abstractmethod
+    def DeleteSystemProfileAdmin(
+        self,
+        request: artifact.artifact.v1alpha.system_profile_pb2.DeleteSystemProfileAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.system_profile_pb2.DeleteSystemProfileAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.system_profile_pb2.DeleteSystemProfileAdminResponse]]:
+        """Delete a system configuration profile (admin only)"""
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer: ArtifactPrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

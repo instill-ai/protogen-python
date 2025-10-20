@@ -7,7 +7,6 @@ import artifact.artifact.v1alpha.artifact_pb2
 import artifact.artifact.v1alpha.chunk_pb2
 import artifact.artifact.v1alpha.file_catalog_pb2
 import artifact.artifact.v1alpha.object_pb2
-import artifact.artifact.v1alpha.qa_pb2
 import collections.abc
 import grpc
 import grpc.aio
@@ -162,15 +161,6 @@ class ArtifactPublicServiceStub:
     """Retrieve similar chunks
 
     Returns the top-K most similar chunks to a text prompt.
-    """
-    QuestionAnswering: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringRequest,
-        artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringResponse,
-    ]
-    """Answer a question
-
-    Provides the response to the prompted question, returning contextual
-    information like the chunks used to build the answer.
     """
     GetFileCatalog: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogRequest,
@@ -362,15 +352,6 @@ class ArtifactPublicServiceAsyncStub:
     """Retrieve similar chunks
 
     Returns the top-K most similar chunks to a text prompt.
-    """
-    QuestionAnswering: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringRequest,
-        artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringResponse,
-    ]
-    """Answer a question
-
-    Provides the response to the prompted question, returning contextual
-    information like the chunks used to build the answer.
     """
     GetFileCatalog: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.file_catalog_pb2.GetFileCatalogRequest,
@@ -596,17 +577,6 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         """Retrieve similar chunks
 
         Returns the top-K most similar chunks to a text prompt.
-        """
-    @abc.abstractmethod
-    def QuestionAnswering(
-        self,
-        request: artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.qa_pb2.QuestionAnsweringResponse]]:
-        """Answer a question
-
-        Provides the response to the prompted question, returning contextual
-        information like the chunks used to build the answer.
         """
     @abc.abstractmethod
     def GetFileCatalog(
