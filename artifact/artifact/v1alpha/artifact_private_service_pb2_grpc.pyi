@@ -96,16 +96,37 @@ class ArtifactPrivateServiceStub:
     ]
     """Delete a catalog file (admin only)
 
-    Deletes a file from a catalog. This is the private endpoint for internal operations.
+    Deletes a file from a catalog using only the file UID. Unlike the public
+    DeleteCatalogFile endpoint which requires namespace and catalog IDs, this
+    admin endpoint automatically looks up the file's catalog and owner to
+    perform the deletion. Primarily used for integration testing and internal
+    operations where the caller has a file UID but not the full resource path.
+    Authentication metadata is injected automatically based on the file owner.
+    """
+    ExecuteKnowledgeBaseUpdateAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminRequest,
+        artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminResponse,
+    ]
+    """Knowledge Base Update Admin APIs
+
+    Execute knowledge base update (admin only)
+    """
+    AbortKnowledgeBaseUpdateAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.update_pb2.AbortKnowledgeBaseUpdateAdminRequest,
+        artifact.artifact.v1alpha.update_pb2.AbortKnowledgeBaseUpdateAdminResponse,
+    ]
+    """Abort knowledge base update (admin only)
+
+    Cancels ongoing update workflows and cleans up staging KB resources
+    (both finished and unfinished). Can abort specific catalogs by ID or
+    all currently updating catalogs if no IDs provided. Sets catalog status
+    to 'aborted'.
     """
     RollbackAdmin: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.update_pb2.RollbackAdminRequest,
         artifact.artifact.v1alpha.update_pb2.RollbackAdminResponse,
     ]
-    """Knowledge Base Update Admin APIs
-
-    Rollback a specific catalog to previous version (admin only)
-    """
+    """Rollback a specific catalog to previous version (admin only)"""
     PurgeRollbackAdmin: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.update_pb2.PurgeRollbackAdminRequest,
         artifact.artifact.v1alpha.update_pb2.PurgeRollbackAdminResponse,
@@ -116,11 +137,6 @@ class ArtifactPrivateServiceStub:
         artifact.artifact.v1alpha.update_pb2.SetRollbackRetentionAdminResponse,
     ]
     """Set rollback retention period (admin only)"""
-    ExecuteKnowledgeBaseUpdateAdmin: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminRequest,
-        artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminResponse,
-    ]
-    """Execute knowledge base update (admin only)"""
     GetKnowledgeBaseUpdateStatusAdmin: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.update_pb2.GetKnowledgeBaseUpdateStatusAdminRequest,
         artifact.artifact.v1alpha.update_pb2.GetKnowledgeBaseUpdateStatusAdminResponse,
@@ -225,16 +241,37 @@ class ArtifactPrivateServiceAsyncStub:
     ]
     """Delete a catalog file (admin only)
 
-    Deletes a file from a catalog. This is the private endpoint for internal operations.
+    Deletes a file from a catalog using only the file UID. Unlike the public
+    DeleteCatalogFile endpoint which requires namespace and catalog IDs, this
+    admin endpoint automatically looks up the file's catalog and owner to
+    perform the deletion. Primarily used for integration testing and internal
+    operations where the caller has a file UID but not the full resource path.
+    Authentication metadata is injected automatically based on the file owner.
+    """
+    ExecuteKnowledgeBaseUpdateAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminRequest,
+        artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminResponse,
+    ]
+    """Knowledge Base Update Admin APIs
+
+    Execute knowledge base update (admin only)
+    """
+    AbortKnowledgeBaseUpdateAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.update_pb2.AbortKnowledgeBaseUpdateAdminRequest,
+        artifact.artifact.v1alpha.update_pb2.AbortKnowledgeBaseUpdateAdminResponse,
+    ]
+    """Abort knowledge base update (admin only)
+
+    Cancels ongoing update workflows and cleans up staging KB resources
+    (both finished and unfinished). Can abort specific catalogs by ID or
+    all currently updating catalogs if no IDs provided. Sets catalog status
+    to 'aborted'.
     """
     RollbackAdmin: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.update_pb2.RollbackAdminRequest,
         artifact.artifact.v1alpha.update_pb2.RollbackAdminResponse,
     ]
-    """Knowledge Base Update Admin APIs
-
-    Rollback a specific catalog to previous version (admin only)
-    """
+    """Rollback a specific catalog to previous version (admin only)"""
     PurgeRollbackAdmin: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.update_pb2.PurgeRollbackAdminRequest,
         artifact.artifact.v1alpha.update_pb2.PurgeRollbackAdminResponse,
@@ -245,11 +282,6 @@ class ArtifactPrivateServiceAsyncStub:
         artifact.artifact.v1alpha.update_pb2.SetRollbackRetentionAdminResponse,
     ]
     """Set rollback retention period (admin only)"""
-    ExecuteKnowledgeBaseUpdateAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminRequest,
-        artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminResponse,
-    ]
-    """Execute knowledge base update (admin only)"""
     GetKnowledgeBaseUpdateStatusAdmin: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.update_pb2.GetKnowledgeBaseUpdateStatusAdminRequest,
         artifact.artifact.v1alpha.update_pb2.GetKnowledgeBaseUpdateStatusAdminResponse,
@@ -374,7 +406,35 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileAdminResponse]]:
         """Delete a catalog file (admin only)
 
-        Deletes a file from a catalog. This is the private endpoint for internal operations.
+        Deletes a file from a catalog using only the file UID. Unlike the public
+        DeleteCatalogFile endpoint which requires namespace and catalog IDs, this
+        admin endpoint automatically looks up the file's catalog and owner to
+        perform the deletion. Primarily used for integration testing and internal
+        operations where the caller has a file UID but not the full resource path.
+        Authentication metadata is injected automatically based on the file owner.
+        """
+    @abc.abstractmethod
+    def ExecuteKnowledgeBaseUpdateAdmin(
+        self,
+        request: artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminResponse]]:
+        """Knowledge Base Update Admin APIs
+
+        Execute knowledge base update (admin only)
+        """
+    @abc.abstractmethod
+    def AbortKnowledgeBaseUpdateAdmin(
+        self,
+        request: artifact.artifact.v1alpha.update_pb2.AbortKnowledgeBaseUpdateAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.update_pb2.AbortKnowledgeBaseUpdateAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.update_pb2.AbortKnowledgeBaseUpdateAdminResponse]]:
+        """Abort knowledge base update (admin only)
+
+        Cancels ongoing update workflows and cleans up staging KB resources
+        (both finished and unfinished). Can abort specific catalogs by ID or
+        all currently updating catalogs if no IDs provided. Sets catalog status
+        to 'aborted'.
         """
     @abc.abstractmethod
     def RollbackAdmin(
@@ -382,10 +442,7 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
         request: artifact.artifact.v1alpha.update_pb2.RollbackAdminRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.update_pb2.RollbackAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.update_pb2.RollbackAdminResponse]]:
-        """Knowledge Base Update Admin APIs
-
-        Rollback a specific catalog to previous version (admin only)
-        """
+        """Rollback a specific catalog to previous version (admin only)"""
     @abc.abstractmethod
     def PurgeRollbackAdmin(
         self,
@@ -400,13 +457,6 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.update_pb2.SetRollbackRetentionAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.update_pb2.SetRollbackRetentionAdminResponse]]:
         """Set rollback retention period (admin only)"""
-    @abc.abstractmethod
-    def ExecuteKnowledgeBaseUpdateAdmin(
-        self,
-        request: artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminResponse]]:
-        """Execute knowledge base update (admin only)"""
     @abc.abstractmethod
     def GetKnowledgeBaseUpdateStatusAdmin(
         self,

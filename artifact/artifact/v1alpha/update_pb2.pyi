@@ -337,3 +337,49 @@ class ExecuteKnowledgeBaseUpdateAdminResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["catalog_statuses", b"catalog_statuses", "message", b"message", "started", b"started"]) -> None: ...
 
 global___ExecuteKnowledgeBaseUpdateAdminResponse = ExecuteKnowledgeBaseUpdateAdminResponse
+
+@typing_extensions.final
+class AbortKnowledgeBaseUpdateAdminRequest(google.protobuf.message.Message):
+    """AbortKnowledgeBaseUpdateAdminRequest (admin only)"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    CATALOG_IDS_FIELD_NUMBER: builtins.int
+    @property
+    def catalog_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """Optional: Specific catalog IDs to abort. If empty, aborts all currently updating catalogs."""
+    def __init__(
+        self,
+        *,
+        catalog_ids: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_ids", b"catalog_ids"]) -> None: ...
+
+global___AbortKnowledgeBaseUpdateAdminRequest = AbortKnowledgeBaseUpdateAdminRequest
+
+@typing_extensions.final
+class AbortKnowledgeBaseUpdateAdminResponse(google.protobuf.message.Message):
+    """AbortKnowledgeBaseUpdateAdminResponse (admin only)"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    SUCCESS_FIELD_NUMBER: builtins.int
+    MESSAGE_FIELD_NUMBER: builtins.int
+    CATALOG_STATUSES_FIELD_NUMBER: builtins.int
+    success: builtins.bool
+    """Whether the abort operation completed successfully"""
+    message: builtins.str
+    """Human-readable status message explaining the result"""
+    @property
+    def catalog_statuses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CatalogUpdateStatus]:
+        """List of catalog update statuses that were aborted"""
+    def __init__(
+        self,
+        *,
+        success: builtins.bool = ...,
+        message: builtins.str = ...,
+        catalog_statuses: collections.abc.Iterable[global___CatalogUpdateStatus] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_statuses", b"catalog_statuses", "message", b"message", "success", b"success"]) -> None: ...
+
+global___AbortKnowledgeBaseUpdateAdminResponse = AbortKnowledgeBaseUpdateAdminResponse

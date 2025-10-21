@@ -69,6 +69,16 @@ class ArtifactPrivateServiceStub(object):
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteCatalogFileAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteCatalogFileAdminResponse.FromString,
                 )
+        self.ExecuteKnowledgeBaseUpdateAdmin = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPrivateService/ExecuteKnowledgeBaseUpdateAdmin',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.ExecuteKnowledgeBaseUpdateAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.ExecuteKnowledgeBaseUpdateAdminResponse.FromString,
+                )
+        self.AbortKnowledgeBaseUpdateAdmin = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPrivateService/AbortKnowledgeBaseUpdateAdmin',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.AbortKnowledgeBaseUpdateAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.AbortKnowledgeBaseUpdateAdminResponse.FromString,
+                )
         self.RollbackAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/RollbackAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.RollbackAdminRequest.SerializeToString,
@@ -83,11 +93,6 @@ class ArtifactPrivateServiceStub(object):
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/SetRollbackRetentionAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.SetRollbackRetentionAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.SetRollbackRetentionAdminResponse.FromString,
-                )
-        self.ExecuteKnowledgeBaseUpdateAdmin = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPrivateService/ExecuteKnowledgeBaseUpdateAdmin',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.ExecuteKnowledgeBaseUpdateAdminRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.ExecuteKnowledgeBaseUpdateAdminResponse.FromString,
                 )
         self.GetKnowledgeBaseUpdateStatusAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/GetKnowledgeBaseUpdateStatusAdmin',
@@ -202,16 +207,40 @@ class ArtifactPrivateServiceServicer(object):
     def DeleteCatalogFileAdmin(self, request, context):
         """Delete a catalog file (admin only)
 
-        Deletes a file from a catalog. This is the private endpoint for internal operations.
+        Deletes a file from a catalog using only the file UID. Unlike the public
+        DeleteCatalogFile endpoint which requires namespace and catalog IDs, this
+        admin endpoint automatically looks up the file's catalog and owner to
+        perform the deletion. Primarily used for integration testing and internal
+        operations where the caller has a file UID but not the full resource path.
+        Authentication metadata is injected automatically based on the file owner.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ExecuteKnowledgeBaseUpdateAdmin(self, request, context):
+        """Knowledge Base Update Admin APIs
+
+        Execute knowledge base update (admin only)
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AbortKnowledgeBaseUpdateAdmin(self, request, context):
+        """Abort knowledge base update (admin only)
+
+        Cancels ongoing update workflows and cleans up staging KB resources
+        (both finished and unfinished). Can abort specific catalogs by ID or
+        all currently updating catalogs if no IDs provided. Sets catalog status
+        to 'aborted'.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def RollbackAdmin(self, request, context):
-        """Knowledge Base Update Admin APIs
-
-        Rollback a specific catalog to previous version (admin only)
+        """Rollback a specific catalog to previous version (admin only)
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -226,13 +255,6 @@ class ArtifactPrivateServiceServicer(object):
 
     def SetRollbackRetentionAdmin(self, request, context):
         """Set rollback retention period (admin only)
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ExecuteKnowledgeBaseUpdateAdmin(self, request, context):
-        """Execute knowledge base update (admin only)
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -328,6 +350,16 @@ def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteCatalogFileAdminRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteCatalogFileAdminResponse.SerializeToString,
             ),
+            'ExecuteKnowledgeBaseUpdateAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.ExecuteKnowledgeBaseUpdateAdmin,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.ExecuteKnowledgeBaseUpdateAdminRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.ExecuteKnowledgeBaseUpdateAdminResponse.SerializeToString,
+            ),
+            'AbortKnowledgeBaseUpdateAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.AbortKnowledgeBaseUpdateAdmin,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.AbortKnowledgeBaseUpdateAdminRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.AbortKnowledgeBaseUpdateAdminResponse.SerializeToString,
+            ),
             'RollbackAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.RollbackAdmin,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.RollbackAdminRequest.FromString,
@@ -342,11 +374,6 @@ def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
                     servicer.SetRollbackRetentionAdmin,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.SetRollbackRetentionAdminRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.SetRollbackRetentionAdminResponse.SerializeToString,
-            ),
-            'ExecuteKnowledgeBaseUpdateAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.ExecuteKnowledgeBaseUpdateAdmin,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.ExecuteKnowledgeBaseUpdateAdminRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.ExecuteKnowledgeBaseUpdateAdminResponse.SerializeToString,
             ),
             'GetKnowledgeBaseUpdateStatusAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.GetKnowledgeBaseUpdateStatusAdmin,
@@ -556,6 +583,40 @@ class ArtifactPrivateService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ExecuteKnowledgeBaseUpdateAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/ExecuteKnowledgeBaseUpdateAdmin',
+            artifact_dot_artifact_dot_v1alpha_dot_update__pb2.ExecuteKnowledgeBaseUpdateAdminRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_update__pb2.ExecuteKnowledgeBaseUpdateAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AbortKnowledgeBaseUpdateAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/AbortKnowledgeBaseUpdateAdmin',
+            artifact_dot_artifact_dot_v1alpha_dot_update__pb2.AbortKnowledgeBaseUpdateAdminRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_update__pb2.AbortKnowledgeBaseUpdateAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def RollbackAdmin(request,
             target,
             options=(),
@@ -603,23 +664,6 @@ class ArtifactPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/SetRollbackRetentionAdmin',
             artifact_dot_artifact_dot_v1alpha_dot_update__pb2.SetRollbackRetentionAdminRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_update__pb2.SetRollbackRetentionAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ExecuteKnowledgeBaseUpdateAdmin(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/ExecuteKnowledgeBaseUpdateAdmin',
-            artifact_dot_artifact_dot_v1alpha_dot_update__pb2.ExecuteKnowledgeBaseUpdateAdminRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_update__pb2.ExecuteKnowledgeBaseUpdateAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
