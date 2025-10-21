@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 from artifact.artifact.v1alpha import artifact_pb2 as artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&artifact/artifact/v1alpha/update.proto\x12\x19\x61rtifact.artifact.v1alpha\x1a(artifact/artifact/v1alpha/artifact.proto\"\xfb\x01\n\x13\x43\x61talogUpdateStatus\x12\x1f\n\x0b\x63\x61talog_uid\x18\x01 \x01(\tR\ncatalogUid\x12\x16\n\x06status\x18\x02 \x01(\tR\x06status\x12\x1f\n\x0bworkflow_id\x18\x03 \x01(\tR\nworkflowId\x12\x1d\n\nstarted_at\x18\x04 \x01(\tR\tstartedAt\x12!\n\x0c\x63ompleted_at\x18\x05 \x01(\tR\x0b\x63ompletedAt\x12\'\n\x0f\x66iles_processed\x18\x06 \x01(\x05R\x0e\x66ilesProcessed\x12\x1f\n\x0btotal_files\x18\x07 \x01(\x05R\ntotalFiles\"*\n\x14RollbackAdminRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\"o\n\x15RollbackAdminResponse\x12<\n\x07\x63\x61talog\x18\x01 \x01(\x0b\x32\".artifact.artifact.v1alpha.CatalogR\x07\x63\x61talog\x12\x18\n\x07message\x18\x02 \x01(\tR\x07message\"/\n\x19PurgeRollbackAdminRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\"\xa3\x01\n\x1aPurgeRollbackAdminResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12,\n\x12purged_catalog_uid\x18\x02 \x01(\tR\x10purgedCatalogUid\x12#\n\rdeleted_files\x18\x03 \x01(\x05R\x0c\x64\x65letedFiles\x12\x18\n\x07message\x18\x04 \x01(\tR\x07message\"\xaf\x02\n SetRollbackRetentionAdminRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x1a\n\x08\x64uration\x18\x02 \x01(\x05R\x08\x64uration\x12\x61\n\ttime_unit\x18\x03 \x01(\x0e\x32\x44.artifact.artifact.v1alpha.SetRollbackRetentionAdminRequest.TimeUnitR\x08timeUnit\"x\n\x08TimeUnit\x12\x19\n\x15TIME_UNIT_UNSPECIFIED\x10\x00\x12\x14\n\x10TIME_UNIT_SECOND\x10\x01\x12\x14\n\x10TIME_UNIT_MINUTE\x10\x02\x12\x12\n\x0eTIME_UNIT_HOUR\x10\x03\x12\x11\n\rTIME_UNIT_DAY\x10\x04\"\xc5\x01\n!SetRollbackRetentionAdminResponse\x12\x38\n\x18previous_retention_until\x18\x01 \x01(\tR\x16previousRetentionUntil\x12.\n\x13new_retention_until\x18\x02 \x01(\tR\x11newRetentionUntil\x12\x36\n\x17total_retention_seconds\x18\x03 \x01(\x03R\x15totalRetentionSeconds\"*\n(GetKnowledgeBaseUpdateStatusAdminRequest\"\xce\x01\n)GetKnowledgeBaseUpdateStatusAdminResponse\x12,\n\x12update_in_progress\x18\x01 \x01(\x08R\x10updateInProgress\x12Y\n\x10\x63\x61talog_statuses\x18\x02 \x03(\x0b\x32..artifact.artifact.v1alpha.CatalogUpdateStatusR\x0f\x63\x61talogStatuses\x12\x18\n\x07message\x18\x03 \x01(\tR\x07message\"\x9c\x01\n&ExecuteKnowledgeBaseUpdateAdminRequest\x12\x1f\n\x0b\x63\x61talog_ids\x18\x01 \x03(\tR\ncatalogIds\x12*\n\x0esystem_profile\x18\x02 \x01(\tH\x00R\rsystemProfile\x88\x01\x01\x12\x12\n\x04tags\x18\x03 \x03(\tR\x04tagsB\x11\n\x0f_system_profile\"\xb8\x01\n\'ExecuteKnowledgeBaseUpdateAdminResponse\x12\x18\n\x07started\x18\x01 \x01(\x08R\x07started\x12\x18\n\x07message\x18\x02 \x01(\tR\x07message\x12Y\n\x10\x63\x61talog_statuses\x18\x03 \x03(\x0b\x32..artifact.artifact.v1alpha.CatalogUpdateStatusR\x0f\x63\x61talogStatuses\"G\n$AbortKnowledgeBaseUpdateAdminRequest\x12\x1f\n\x0b\x63\x61talog_ids\x18\x01 \x03(\tR\ncatalogIds\"\xb6\x01\n%AbortKnowledgeBaseUpdateAdminResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12\x18\n\x07message\x18\x02 \x01(\tR\x07message\x12Y\n\x10\x63\x61talog_statuses\x18\x03 \x03(\x0b\x32..artifact.artifact.v1alpha.CatalogUpdateStatusR\x0f\x63\x61talogStatusesB\xff\x01\n\x1d\x63om.artifact.artifact.v1alphaB\x0bUpdateProtoP\x01ZKgithub.com/instill-ai/protogen-go/artifact/artifact/v1alpha;artifactv1alpha\xa2\x02\x03\x41\x41X\xaa\x02\x19\x41rtifact.Artifact.V1alpha\xca\x02\x19\x41rtifact\\Artifact\\V1alpha\xe2\x02%Artifact\\Artifact\\V1alpha\\GPBMetadata\xea\x02\x1b\x41rtifact::Artifact::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&artifact/artifact/v1alpha/update.proto\x12\x19\x61rtifact.artifact.v1alpha\x1a(artifact/artifact/v1alpha/artifact.proto\"\xb8\x02\n\x1aKnowledgeBaseUpdateDetails\x12\x1f\n\x0b\x63\x61talog_uid\x18\x01 \x01(\tR\ncatalogUid\x12L\n\x06status\x18\x02 \x01(\x0e\x32\x34.artifact.artifact.v1alpha.KnowledgeBaseUpdateStatusR\x06status\x12\x1f\n\x0bworkflow_id\x18\x03 \x01(\tR\nworkflowId\x12\x1d\n\nstarted_at\x18\x04 \x01(\tR\tstartedAt\x12!\n\x0c\x63ompleted_at\x18\x05 \x01(\tR\x0b\x63ompletedAt\x12\'\n\x0f\x66iles_processed\x18\x06 \x01(\x05R\x0e\x66ilesProcessed\x12\x1f\n\x0btotal_files\x18\x07 \x01(\x05R\ntotalFiles\"*\n\x14RollbackAdminRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\"o\n\x15RollbackAdminResponse\x12<\n\x07\x63\x61talog\x18\x01 \x01(\x0b\x32\".artifact.artifact.v1alpha.CatalogR\x07\x63\x61talog\x12\x18\n\x07message\x18\x02 \x01(\tR\x07message\"/\n\x19PurgeRollbackAdminRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\"\xa3\x01\n\x1aPurgeRollbackAdminResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12,\n\x12purged_catalog_uid\x18\x02 \x01(\tR\x10purgedCatalogUid\x12#\n\rdeleted_files\x18\x03 \x01(\x05R\x0c\x64\x65letedFiles\x12\x18\n\x07message\x18\x04 \x01(\tR\x07message\"\xaf\x02\n SetRollbackRetentionAdminRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x1a\n\x08\x64uration\x18\x02 \x01(\x05R\x08\x64uration\x12\x61\n\ttime_unit\x18\x03 \x01(\x0e\x32\x44.artifact.artifact.v1alpha.SetRollbackRetentionAdminRequest.TimeUnitR\x08timeUnit\"x\n\x08TimeUnit\x12\x19\n\x15TIME_UNIT_UNSPECIFIED\x10\x00\x12\x14\n\x10TIME_UNIT_SECOND\x10\x01\x12\x14\n\x10TIME_UNIT_MINUTE\x10\x02\x12\x12\n\x0eTIME_UNIT_HOUR\x10\x03\x12\x11\n\rTIME_UNIT_DAY\x10\x04\"\xc5\x01\n!SetRollbackRetentionAdminResponse\x12\x38\n\x18previous_retention_until\x18\x01 \x01(\tR\x16previousRetentionUntil\x12.\n\x13new_retention_until\x18\x02 \x01(\tR\x11newRetentionUntil\x12\x36\n\x17total_retention_seconds\x18\x03 \x01(\x03R\x15totalRetentionSeconds\"*\n(GetKnowledgeBaseUpdateStatusAdminRequest\"\xc4\x01\n)GetKnowledgeBaseUpdateStatusAdminResponse\x12,\n\x12update_in_progress\x18\x01 \x01(\x08R\x10updateInProgress\x12O\n\x07\x64\x65tails\x18\x02 \x03(\x0b\x32\x35.artifact.artifact.v1alpha.KnowledgeBaseUpdateDetailsR\x07\x64\x65tails\x12\x18\n\x07message\x18\x03 \x01(\tR\x07message\"\x9c\x01\n&ExecuteKnowledgeBaseUpdateAdminRequest\x12\x1f\n\x0b\x63\x61talog_ids\x18\x01 \x03(\tR\ncatalogIds\x12*\n\x0esystem_profile\x18\x02 \x01(\tH\x00R\rsystemProfile\x88\x01\x01\x12\x12\n\x04tags\x18\x03 \x03(\tR\x04tagsB\x11\n\x0f_system_profile\"\xae\x01\n\'ExecuteKnowledgeBaseUpdateAdminResponse\x12\x18\n\x07started\x18\x01 \x01(\x08R\x07started\x12\x18\n\x07message\x18\x02 \x01(\tR\x07message\x12O\n\x07\x64\x65tails\x18\x03 \x03(\x0b\x32\x35.artifact.artifact.v1alpha.KnowledgeBaseUpdateDetailsR\x07\x64\x65tails\"G\n$AbortKnowledgeBaseUpdateAdminRequest\x12\x1f\n\x0b\x63\x61talog_ids\x18\x01 \x03(\tR\ncatalogIds\"\xac\x01\n%AbortKnowledgeBaseUpdateAdminResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12\x18\n\x07message\x18\x02 \x01(\tR\x07message\x12O\n\x07\x64\x65tails\x18\x03 \x03(\x0b\x32\x35.artifact.artifact.v1alpha.KnowledgeBaseUpdateDetailsR\x07\x64\x65tails*\xca\x03\n\x19KnowledgeBaseUpdateStatus\x12,\n(KNOWLEDGE_BASE_UPDATE_STATUS_UNSPECIFIED\x10\x00\x12%\n!KNOWLEDGE_BASE_UPDATE_STATUS_NONE\x10\x01\x12)\n%KNOWLEDGE_BASE_UPDATE_STATUS_UPDATING\x10\x02\x12(\n$KNOWLEDGE_BASE_UPDATE_STATUS_SYNCING\x10\x03\x12+\n\'KNOWLEDGE_BASE_UPDATE_STATUS_VALIDATING\x10\x04\x12)\n%KNOWLEDGE_BASE_UPDATE_STATUS_SWAPPING\x10\x05\x12*\n&KNOWLEDGE_BASE_UPDATE_STATUS_COMPLETED\x10\x06\x12\'\n#KNOWLEDGE_BASE_UPDATE_STATUS_FAILED\x10\x07\x12,\n(KNOWLEDGE_BASE_UPDATE_STATUS_ROLLED_BACK\x10\x08\x12(\n$KNOWLEDGE_BASE_UPDATE_STATUS_ABORTED\x10\tB\xff\x01\n\x1d\x63om.artifact.artifact.v1alphaB\x0bUpdateProtoP\x01ZKgithub.com/instill-ai/protogen-go/artifact/artifact/v1alpha;artifactv1alpha\xa2\x02\x03\x41\x41X\xaa\x02\x19\x41rtifact.Artifact.V1alpha\xca\x02\x19\x41rtifact\\Artifact\\V1alpha\xe2\x02%Artifact\\Artifact\\V1alpha\\GPBMetadata\xea\x02\x1b\x41rtifact::Artifact::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -23,32 +23,34 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\035com.artifact.artifact.v1alphaB\013UpdateProtoP\001ZKgithub.com/instill-ai/protogen-go/artifact/artifact/v1alpha;artifactv1alpha\242\002\003AAX\252\002\031Artifact.Artifact.V1alpha\312\002\031Artifact\\Artifact\\V1alpha\342\002%Artifact\\Artifact\\V1alpha\\GPBMetadata\352\002\033Artifact::Artifact::V1alpha'
-  _globals['_CATALOGUPDATESTATUS']._serialized_start=112
-  _globals['_CATALOGUPDATESTATUS']._serialized_end=363
-  _globals['_ROLLBACKADMINREQUEST']._serialized_start=365
-  _globals['_ROLLBACKADMINREQUEST']._serialized_end=407
-  _globals['_ROLLBACKADMINRESPONSE']._serialized_start=409
-  _globals['_ROLLBACKADMINRESPONSE']._serialized_end=520
-  _globals['_PURGEROLLBACKADMINREQUEST']._serialized_start=522
-  _globals['_PURGEROLLBACKADMINREQUEST']._serialized_end=569
-  _globals['_PURGEROLLBACKADMINRESPONSE']._serialized_start=572
-  _globals['_PURGEROLLBACKADMINRESPONSE']._serialized_end=735
-  _globals['_SETROLLBACKRETENTIONADMINREQUEST']._serialized_start=738
-  _globals['_SETROLLBACKRETENTIONADMINREQUEST']._serialized_end=1041
-  _globals['_SETROLLBACKRETENTIONADMINREQUEST_TIMEUNIT']._serialized_start=921
-  _globals['_SETROLLBACKRETENTIONADMINREQUEST_TIMEUNIT']._serialized_end=1041
-  _globals['_SETROLLBACKRETENTIONADMINRESPONSE']._serialized_start=1044
-  _globals['_SETROLLBACKRETENTIONADMINRESPONSE']._serialized_end=1241
-  _globals['_GETKNOWLEDGEBASEUPDATESTATUSADMINREQUEST']._serialized_start=1243
-  _globals['_GETKNOWLEDGEBASEUPDATESTATUSADMINREQUEST']._serialized_end=1285
-  _globals['_GETKNOWLEDGEBASEUPDATESTATUSADMINRESPONSE']._serialized_start=1288
-  _globals['_GETKNOWLEDGEBASEUPDATESTATUSADMINRESPONSE']._serialized_end=1494
-  _globals['_EXECUTEKNOWLEDGEBASEUPDATEADMINREQUEST']._serialized_start=1497
-  _globals['_EXECUTEKNOWLEDGEBASEUPDATEADMINREQUEST']._serialized_end=1653
-  _globals['_EXECUTEKNOWLEDGEBASEUPDATEADMINRESPONSE']._serialized_start=1656
-  _globals['_EXECUTEKNOWLEDGEBASEUPDATEADMINRESPONSE']._serialized_end=1840
-  _globals['_ABORTKNOWLEDGEBASEUPDATEADMINREQUEST']._serialized_start=1842
-  _globals['_ABORTKNOWLEDGEBASEUPDATEADMINREQUEST']._serialized_end=1913
-  _globals['_ABORTKNOWLEDGEBASEUPDATEADMINRESPONSE']._serialized_start=1916
-  _globals['_ABORTKNOWLEDGEBASEUPDATEADMINRESPONSE']._serialized_end=2098
+  _globals['_KNOWLEDGEBASEUPDATESTATUS']._serialized_start=2132
+  _globals['_KNOWLEDGEBASEUPDATESTATUS']._serialized_end=2590
+  _globals['_KNOWLEDGEBASEUPDATEDETAILS']._serialized_start=112
+  _globals['_KNOWLEDGEBASEUPDATEDETAILS']._serialized_end=424
+  _globals['_ROLLBACKADMINREQUEST']._serialized_start=426
+  _globals['_ROLLBACKADMINREQUEST']._serialized_end=468
+  _globals['_ROLLBACKADMINRESPONSE']._serialized_start=470
+  _globals['_ROLLBACKADMINRESPONSE']._serialized_end=581
+  _globals['_PURGEROLLBACKADMINREQUEST']._serialized_start=583
+  _globals['_PURGEROLLBACKADMINREQUEST']._serialized_end=630
+  _globals['_PURGEROLLBACKADMINRESPONSE']._serialized_start=633
+  _globals['_PURGEROLLBACKADMINRESPONSE']._serialized_end=796
+  _globals['_SETROLLBACKRETENTIONADMINREQUEST']._serialized_start=799
+  _globals['_SETROLLBACKRETENTIONADMINREQUEST']._serialized_end=1102
+  _globals['_SETROLLBACKRETENTIONADMINREQUEST_TIMEUNIT']._serialized_start=982
+  _globals['_SETROLLBACKRETENTIONADMINREQUEST_TIMEUNIT']._serialized_end=1102
+  _globals['_SETROLLBACKRETENTIONADMINRESPONSE']._serialized_start=1105
+  _globals['_SETROLLBACKRETENTIONADMINRESPONSE']._serialized_end=1302
+  _globals['_GETKNOWLEDGEBASEUPDATESTATUSADMINREQUEST']._serialized_start=1304
+  _globals['_GETKNOWLEDGEBASEUPDATESTATUSADMINREQUEST']._serialized_end=1346
+  _globals['_GETKNOWLEDGEBASEUPDATESTATUSADMINRESPONSE']._serialized_start=1349
+  _globals['_GETKNOWLEDGEBASEUPDATESTATUSADMINRESPONSE']._serialized_end=1545
+  _globals['_EXECUTEKNOWLEDGEBASEUPDATEADMINREQUEST']._serialized_start=1548
+  _globals['_EXECUTEKNOWLEDGEBASEUPDATEADMINREQUEST']._serialized_end=1704
+  _globals['_EXECUTEKNOWLEDGEBASEUPDATEADMINRESPONSE']._serialized_start=1707
+  _globals['_EXECUTEKNOWLEDGEBASEUPDATEADMINRESPONSE']._serialized_end=1881
+  _globals['_ABORTKNOWLEDGEBASEUPDATEADMINREQUEST']._serialized_start=1883
+  _globals['_ABORTKNOWLEDGEBASEUPDATEADMINREQUEST']._serialized_end=1954
+  _globals['_ABORTKNOWLEDGEBASEUPDATEADMINRESPONSE']._serialized_start=1957
+  _globals['_ABORTKNOWLEDGEBASEUPDATEADMINRESPONSE']._serialized_end=2129
 # @@protoc_insertion_point(module_scope)

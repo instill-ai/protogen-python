@@ -19,9 +19,93 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+class _KnowledgeBaseUpdateStatus:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _KnowledgeBaseUpdateStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_KnowledgeBaseUpdateStatus.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    KNOWLEDGE_BASE_UPDATE_STATUS_UNSPECIFIED: _KnowledgeBaseUpdateStatus.ValueType  # 0
+    """KNOWLEDGE_BASE_UPDATE_STATUS_UNSPECIFIED - Invalid/unknown state"""
+    KNOWLEDGE_BASE_UPDATE_STATUS_NONE: _KnowledgeBaseUpdateStatus.ValueType  # 1
+    """KNOWLEDGE_BASE_UPDATE_STATUS_NONE - KB has never been updated (default state for new KBs)"""
+    KNOWLEDGE_BASE_UPDATE_STATUS_UPDATING: _KnowledgeBaseUpdateStatus.ValueType  # 2
+    """KNOWLEDGE_BASE_UPDATE_STATUS_UPDATING - Phase 1-2: Preparing and reprocessing
+    The staging KB is being created and populated by reprocessing all files with new configuration
+    """
+    KNOWLEDGE_BASE_UPDATE_STATUS_SYNCING: _KnowledgeBaseUpdateStatus.ValueType  # 3
+    """KNOWLEDGE_BASE_UPDATE_STATUS_SYNCING - Phase 3: Synchronization
+    Locking KB and waiting for all dual-processed files to complete
+    """
+    KNOWLEDGE_BASE_UPDATE_STATUS_VALIDATING: _KnowledgeBaseUpdateStatus.ValueType  # 4
+    """KNOWLEDGE_BASE_UPDATE_STATUS_VALIDATING - Phase 4: Validation
+    Validating data integrity (file counts, embeddings, chunks)
+    """
+    KNOWLEDGE_BASE_UPDATE_STATUS_SWAPPING: _KnowledgeBaseUpdateStatus.ValueType  # 5
+    """KNOWLEDGE_BASE_UPDATE_STATUS_SWAPPING - Phase 5: Atomic Swap
+    Performing atomic pointer swap of collections and metadata
+    """
+    KNOWLEDGE_BASE_UPDATE_STATUS_COMPLETED: _KnowledgeBaseUpdateStatus.ValueType  # 6
+    """KNOWLEDGE_BASE_UPDATE_STATUS_COMPLETED - Phase 6: Cleanup/Retention
+    Update completed successfully, rollback KB retained for configured period
+    """
+    KNOWLEDGE_BASE_UPDATE_STATUS_FAILED: _KnowledgeBaseUpdateStatus.ValueType  # 7
+    """KNOWLEDGE_BASE_UPDATE_STATUS_FAILED - Update failed at some point
+    Production KB remains unchanged and can be used normally
+    """
+    KNOWLEDGE_BASE_UPDATE_STATUS_ROLLED_BACK: _KnowledgeBaseUpdateStatus.ValueType  # 8
+    """KNOWLEDGE_BASE_UPDATE_STATUS_ROLLED_BACK - Update was rolled back
+    Previous version has been restored from the rollback KB
+    """
+    KNOWLEDGE_BASE_UPDATE_STATUS_ABORTED: _KnowledgeBaseUpdateStatus.ValueType  # 9
+    """KNOWLEDGE_BASE_UPDATE_STATUS_ABORTED - Update was manually aborted
+    Production KB remains unchanged and can be updated again
+    """
+
+class KnowledgeBaseUpdateStatus(_KnowledgeBaseUpdateStatus, metaclass=_KnowledgeBaseUpdateStatusEnumTypeWrapper):
+    """KnowledgeBaseUpdateStatus represents the various states of a Knowledge Base update lifecycle"""
+
+KNOWLEDGE_BASE_UPDATE_STATUS_UNSPECIFIED: KnowledgeBaseUpdateStatus.ValueType  # 0
+"""KNOWLEDGE_BASE_UPDATE_STATUS_UNSPECIFIED - Invalid/unknown state"""
+KNOWLEDGE_BASE_UPDATE_STATUS_NONE: KnowledgeBaseUpdateStatus.ValueType  # 1
+"""KNOWLEDGE_BASE_UPDATE_STATUS_NONE - KB has never been updated (default state for new KBs)"""
+KNOWLEDGE_BASE_UPDATE_STATUS_UPDATING: KnowledgeBaseUpdateStatus.ValueType  # 2
+"""KNOWLEDGE_BASE_UPDATE_STATUS_UPDATING - Phase 1-2: Preparing and reprocessing
+The staging KB is being created and populated by reprocessing all files with new configuration
+"""
+KNOWLEDGE_BASE_UPDATE_STATUS_SYNCING: KnowledgeBaseUpdateStatus.ValueType  # 3
+"""KNOWLEDGE_BASE_UPDATE_STATUS_SYNCING - Phase 3: Synchronization
+Locking KB and waiting for all dual-processed files to complete
+"""
+KNOWLEDGE_BASE_UPDATE_STATUS_VALIDATING: KnowledgeBaseUpdateStatus.ValueType  # 4
+"""KNOWLEDGE_BASE_UPDATE_STATUS_VALIDATING - Phase 4: Validation
+Validating data integrity (file counts, embeddings, chunks)
+"""
+KNOWLEDGE_BASE_UPDATE_STATUS_SWAPPING: KnowledgeBaseUpdateStatus.ValueType  # 5
+"""KNOWLEDGE_BASE_UPDATE_STATUS_SWAPPING - Phase 5: Atomic Swap
+Performing atomic pointer swap of collections and metadata
+"""
+KNOWLEDGE_BASE_UPDATE_STATUS_COMPLETED: KnowledgeBaseUpdateStatus.ValueType  # 6
+"""KNOWLEDGE_BASE_UPDATE_STATUS_COMPLETED - Phase 6: Cleanup/Retention
+Update completed successfully, rollback KB retained for configured period
+"""
+KNOWLEDGE_BASE_UPDATE_STATUS_FAILED: KnowledgeBaseUpdateStatus.ValueType  # 7
+"""KNOWLEDGE_BASE_UPDATE_STATUS_FAILED - Update failed at some point
+Production KB remains unchanged and can be used normally
+"""
+KNOWLEDGE_BASE_UPDATE_STATUS_ROLLED_BACK: KnowledgeBaseUpdateStatus.ValueType  # 8
+"""KNOWLEDGE_BASE_UPDATE_STATUS_ROLLED_BACK - Update was rolled back
+Previous version has been restored from the rollback KB
+"""
+KNOWLEDGE_BASE_UPDATE_STATUS_ABORTED: KnowledgeBaseUpdateStatus.ValueType  # 9
+"""KNOWLEDGE_BASE_UPDATE_STATUS_ABORTED - Update was manually aborted
+Production KB remains unchanged and can be updated again
+"""
+global___KnowledgeBaseUpdateStatus = KnowledgeBaseUpdateStatus
+
 @typing_extensions.final
-class CatalogUpdateStatus(google.protobuf.message.Message):
-    """CatalogUpdateStatus messages"""
+class KnowledgeBaseUpdateDetails(google.protobuf.message.Message):
+    """KnowledgeBaseUpdateDetails provides detailed information about a knowledge base update"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -34,7 +118,7 @@ class CatalogUpdateStatus(google.protobuf.message.Message):
     TOTAL_FILES_FIELD_NUMBER: builtins.int
     catalog_uid: builtins.str
     """UID of the catalog"""
-    status: builtins.str
+    status: global___KnowledgeBaseUpdateStatus.ValueType
     """Status of the catalog update"""
     workflow_id: builtins.str
     """Workflow ID of the catalog update"""
@@ -50,7 +134,7 @@ class CatalogUpdateStatus(google.protobuf.message.Message):
         self,
         *,
         catalog_uid: builtins.str = ...,
-        status: builtins.str = ...,
+        status: global___KnowledgeBaseUpdateStatus.ValueType = ...,
         workflow_id: builtins.str = ...,
         started_at: builtins.str = ...,
         completed_at: builtins.str = ...,
@@ -59,7 +143,7 @@ class CatalogUpdateStatus(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["catalog_uid", b"catalog_uid", "completed_at", b"completed_at", "files_processed", b"files_processed", "started_at", b"started_at", "status", b"status", "total_files", b"total_files", "workflow_id", b"workflow_id"]) -> None: ...
 
-global___CatalogUpdateStatus = CatalogUpdateStatus
+global___KnowledgeBaseUpdateDetails = KnowledgeBaseUpdateDetails
 
 @typing_extensions.final
 class RollbackAdminRequest(google.protobuf.message.Message):
@@ -258,23 +342,23 @@ class GetKnowledgeBaseUpdateStatusAdminResponse(google.protobuf.message.Message)
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     UPDATE_IN_PROGRESS_FIELD_NUMBER: builtins.int
-    CATALOG_STATUSES_FIELD_NUMBER: builtins.int
+    DETAILS_FIELD_NUMBER: builtins.int
     MESSAGE_FIELD_NUMBER: builtins.int
     update_in_progress: builtins.bool
     """Whether update is in progress"""
     @property
-    def catalog_statuses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CatalogUpdateStatus]:
-        """List of catalog update statuses"""
+    def details(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___KnowledgeBaseUpdateDetails]:
+        """List of knowledge base update details"""
     message: builtins.str
     """Status message"""
     def __init__(
         self,
         *,
         update_in_progress: builtins.bool = ...,
-        catalog_statuses: collections.abc.Iterable[global___CatalogUpdateStatus] | None = ...,
+        details: collections.abc.Iterable[global___KnowledgeBaseUpdateDetails] | None = ...,
         message: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_statuses", b"catalog_statuses", "message", b"message", "update_in_progress", b"update_in_progress"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["details", b"details", "message", b"message", "update_in_progress", b"update_in_progress"]) -> None: ...
 
 global___GetKnowledgeBaseUpdateStatusAdminResponse = GetKnowledgeBaseUpdateStatusAdminResponse
 
@@ -319,22 +403,22 @@ class ExecuteKnowledgeBaseUpdateAdminResponse(google.protobuf.message.Message):
 
     STARTED_FIELD_NUMBER: builtins.int
     MESSAGE_FIELD_NUMBER: builtins.int
-    CATALOG_STATUSES_FIELD_NUMBER: builtins.int
+    DETAILS_FIELD_NUMBER: builtins.int
     started: builtins.bool
     """Whether the workflow started successfully"""
     message: builtins.str
     """Human-readable status message explaining the result"""
     @property
-    def catalog_statuses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CatalogUpdateStatus]:
-        """List of catalog update statuses (populated when update already in progress)"""
+    def details(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___KnowledgeBaseUpdateDetails]:
+        """List of knowledge base update details (populated when update already in progress)"""
     def __init__(
         self,
         *,
         started: builtins.bool = ...,
         message: builtins.str = ...,
-        catalog_statuses: collections.abc.Iterable[global___CatalogUpdateStatus] | None = ...,
+        details: collections.abc.Iterable[global___KnowledgeBaseUpdateDetails] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_statuses", b"catalog_statuses", "message", b"message", "started", b"started"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["details", b"details", "message", b"message", "started", b"started"]) -> None: ...
 
 global___ExecuteKnowledgeBaseUpdateAdminResponse = ExecuteKnowledgeBaseUpdateAdminResponse
 
@@ -365,21 +449,21 @@ class AbortKnowledgeBaseUpdateAdminResponse(google.protobuf.message.Message):
 
     SUCCESS_FIELD_NUMBER: builtins.int
     MESSAGE_FIELD_NUMBER: builtins.int
-    CATALOG_STATUSES_FIELD_NUMBER: builtins.int
+    DETAILS_FIELD_NUMBER: builtins.int
     success: builtins.bool
     """Whether the abort operation completed successfully"""
     message: builtins.str
     """Human-readable status message explaining the result"""
     @property
-    def catalog_statuses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CatalogUpdateStatus]:
-        """List of catalog update statuses that were aborted"""
+    def details(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___KnowledgeBaseUpdateDetails]:
+        """List of knowledge base update details that were aborted"""
     def __init__(
         self,
         *,
         success: builtins.bool = ...,
         message: builtins.str = ...,
-        catalog_statuses: collections.abc.Iterable[global___CatalogUpdateStatus] | None = ...,
+        details: collections.abc.Iterable[global___KnowledgeBaseUpdateDetails] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_statuses", b"catalog_statuses", "message", b"message", "success", b"success"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["details", b"details", "message", b"message", "success", b"success"]) -> None: ...
 
 global___AbortKnowledgeBaseUpdateAdminResponse = AbortKnowledgeBaseUpdateAdminResponse
