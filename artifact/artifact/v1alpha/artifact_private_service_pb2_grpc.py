@@ -4,7 +4,7 @@ import grpc
 
 from artifact.artifact.v1alpha import artifact_pb2 as artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2
 from artifact.artifact.v1alpha import file_catalog_pb2 as artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2
-from artifact.artifact.v1alpha import system_profile_pb2 as artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2
+from artifact.artifact.v1alpha import system_pb2 as artifact_dot_artifact_dot_v1alpha_dot_system__pb2
 from artifact.artifact.v1alpha import update_pb2 as artifact_dot_artifact_dot_v1alpha_dot_update__pb2
 
 
@@ -99,25 +99,45 @@ class ArtifactPrivateServiceStub(object):
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.GetKnowledgeBaseUpdateStatusAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.GetKnowledgeBaseUpdateStatusAdminResponse.FromString,
                 )
-        self.GetSystemProfileAdmin = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPrivateService/GetSystemProfileAdmin',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2.GetSystemProfileAdminRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2.GetSystemProfileAdminResponse.FromString,
+        self.CreateSystemAdmin = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPrivateService/CreateSystemAdmin',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.CreateSystemAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.CreateSystemAdminResponse.FromString,
                 )
-        self.UpdateSystemProfileAdmin = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateSystemProfileAdmin',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2.UpdateSystemProfileAdminRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2.UpdateSystemProfileAdminResponse.FromString,
+        self.GetSystemAdmin = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPrivateService/GetSystemAdmin',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.GetSystemAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.GetSystemAdminResponse.FromString,
                 )
-        self.ListSystemProfilesAdmin = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPrivateService/ListSystemProfilesAdmin',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2.ListSystemProfilesAdminRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2.ListSystemProfilesAdminResponse.FromString,
+        self.UpdateSystemAdmin = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateSystemAdmin',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.UpdateSystemAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.UpdateSystemAdminResponse.FromString,
                 )
-        self.DeleteSystemProfileAdmin = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPrivateService/DeleteSystemProfileAdmin',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2.DeleteSystemProfileAdminRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2.DeleteSystemProfileAdminResponse.FromString,
+        self.DeleteSystemAdmin = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPrivateService/DeleteSystemAdmin',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.DeleteSystemAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.DeleteSystemAdminResponse.FromString,
+                )
+        self.ListSystemsAdmin = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPrivateService/ListSystemsAdmin',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.ListSystemsAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.ListSystemsAdminResponse.FromString,
+                )
+        self.RenameSystemAdmin = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPrivateService/RenameSystemAdmin',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.RenameSystemAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.RenameSystemAdminResponse.FromString,
+                )
+        self.SetDefaultSystemAdmin = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPrivateService/SetDefaultSystemAdmin',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.SetDefaultSystemAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.SetDefaultSystemAdminResponse.FromString,
+                )
+        self.GetDefaultSystemAdmin = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPrivateService/GetDefaultSystemAdmin',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.GetDefaultSystemAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.GetDefaultSystemAdminResponse.FromString,
                 )
 
 
@@ -267,31 +287,59 @@ class ArtifactPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetSystemProfileAdmin(self, request, context):
-        """System Profile Management Admin APIs
+    def CreateSystemAdmin(self, request, context):
+        """System Management Admin APIs
 
-        Get a system configuration profile (admin only)
+        Create a new system configuration (admin only)
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UpdateSystemProfileAdmin(self, request, context):
-        """Update (create or update) a system configuration profile (admin only)
+    def GetSystemAdmin(self, request, context):
+        """Get a system configuration (admin only)
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListSystemProfilesAdmin(self, request, context):
-        """List all system configuration profiles (admin only)
+    def UpdateSystemAdmin(self, request, context):
+        """Update an existing system configuration (admin only)
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def DeleteSystemProfileAdmin(self, request, context):
-        """Delete a system configuration profile (admin only)
+    def DeleteSystemAdmin(self, request, context):
+        """Delete a system configuration (admin only)
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListSystemsAdmin(self, request, context):
+        """List all system configurations (admin only)
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RenameSystemAdmin(self, request, context):
+        """Rename a system configuration (admin only)
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetDefaultSystemAdmin(self, request, context):
+        """Set the default system configuration (admin only)
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetDefaultSystemAdmin(self, request, context):
+        """Get the current default system configuration (admin only)
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -380,25 +428,45 @@ def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.GetKnowledgeBaseUpdateStatusAdminRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.GetKnowledgeBaseUpdateStatusAdminResponse.SerializeToString,
             ),
-            'GetSystemProfileAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetSystemProfileAdmin,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2.GetSystemProfileAdminRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2.GetSystemProfileAdminResponse.SerializeToString,
+            'CreateSystemAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateSystemAdmin,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.CreateSystemAdminRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.CreateSystemAdminResponse.SerializeToString,
             ),
-            'UpdateSystemProfileAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateSystemProfileAdmin,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2.UpdateSystemProfileAdminRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2.UpdateSystemProfileAdminResponse.SerializeToString,
+            'GetSystemAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetSystemAdmin,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.GetSystemAdminRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.GetSystemAdminResponse.SerializeToString,
             ),
-            'ListSystemProfilesAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListSystemProfilesAdmin,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2.ListSystemProfilesAdminRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2.ListSystemProfilesAdminResponse.SerializeToString,
+            'UpdateSystemAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateSystemAdmin,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.UpdateSystemAdminRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.UpdateSystemAdminResponse.SerializeToString,
             ),
-            'DeleteSystemProfileAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteSystemProfileAdmin,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2.DeleteSystemProfileAdminRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2.DeleteSystemProfileAdminResponse.SerializeToString,
+            'DeleteSystemAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteSystemAdmin,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.DeleteSystemAdminRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.DeleteSystemAdminResponse.SerializeToString,
+            ),
+            'ListSystemsAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListSystemsAdmin,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.ListSystemsAdminRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.ListSystemsAdminResponse.SerializeToString,
+            ),
+            'RenameSystemAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.RenameSystemAdmin,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.RenameSystemAdminRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.RenameSystemAdminResponse.SerializeToString,
+            ),
+            'SetDefaultSystemAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetDefaultSystemAdmin,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.SetDefaultSystemAdminRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.SetDefaultSystemAdminResponse.SerializeToString,
+            ),
+            'GetDefaultSystemAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetDefaultSystemAdmin,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.GetDefaultSystemAdminRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.GetDefaultSystemAdminResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -685,7 +753,7 @@ class ArtifactPrivateService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetSystemProfileAdmin(request,
+    def CreateSystemAdmin(request,
             target,
             options=(),
             channel_credentials=None,
@@ -695,14 +763,14 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/GetSystemProfileAdmin',
-            artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2.GetSystemProfileAdminRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2.GetSystemProfileAdminResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/CreateSystemAdmin',
+            artifact_dot_artifact_dot_v1alpha_dot_system__pb2.CreateSystemAdminRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_system__pb2.CreateSystemAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UpdateSystemProfileAdmin(request,
+    def GetSystemAdmin(request,
             target,
             options=(),
             channel_credentials=None,
@@ -712,14 +780,14 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateSystemProfileAdmin',
-            artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2.UpdateSystemProfileAdminRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2.UpdateSystemProfileAdminResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/GetSystemAdmin',
+            artifact_dot_artifact_dot_v1alpha_dot_system__pb2.GetSystemAdminRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_system__pb2.GetSystemAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ListSystemProfilesAdmin(request,
+    def UpdateSystemAdmin(request,
             target,
             options=(),
             channel_credentials=None,
@@ -729,14 +797,14 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/ListSystemProfilesAdmin',
-            artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2.ListSystemProfilesAdminRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2.ListSystemProfilesAdminResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateSystemAdmin',
+            artifact_dot_artifact_dot_v1alpha_dot_system__pb2.UpdateSystemAdminRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_system__pb2.UpdateSystemAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def DeleteSystemProfileAdmin(request,
+    def DeleteSystemAdmin(request,
             target,
             options=(),
             channel_credentials=None,
@@ -746,8 +814,76 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/DeleteSystemProfileAdmin',
-            artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2.DeleteSystemProfileAdminRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_system__profile__pb2.DeleteSystemProfileAdminResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/DeleteSystemAdmin',
+            artifact_dot_artifact_dot_v1alpha_dot_system__pb2.DeleteSystemAdminRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_system__pb2.DeleteSystemAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListSystemsAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/ListSystemsAdmin',
+            artifact_dot_artifact_dot_v1alpha_dot_system__pb2.ListSystemsAdminRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_system__pb2.ListSystemsAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RenameSystemAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/RenameSystemAdmin',
+            artifact_dot_artifact_dot_v1alpha_dot_system__pb2.RenameSystemAdminRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_system__pb2.RenameSystemAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetDefaultSystemAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/SetDefaultSystemAdmin',
+            artifact_dot_artifact_dot_v1alpha_dot_system__pb2.SetDefaultSystemAdminRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_system__pb2.SetDefaultSystemAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetDefaultSystemAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/GetDefaultSystemAdmin',
+            artifact_dot_artifact_dot_v1alpha_dot_system__pb2.GetDefaultSystemAdminRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_system__pb2.GetDefaultSystemAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

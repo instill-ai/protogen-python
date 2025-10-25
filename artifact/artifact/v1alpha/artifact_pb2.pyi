@@ -1151,6 +1151,7 @@ class CreateCatalogRequest(google.protobuf.message.Message):
     TAGS_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
     CONVERTING_PIPELINES_FIELD_NUMBER: builtins.int
+    SYSTEM_ID_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """The catalog's owner(namespaces)."""
     name: builtins.str
@@ -1193,6 +1194,18 @@ class CreateCatalogRequest(google.protobuf.message.Message):
         files are typically trivial to convert and don't require a dedicated
         pipeline to improve the conversion performance).
         """
+    system_id: builtins.str
+    """System ID to use for this catalog.
+    References a system configuration in the system table that defines how the knowledge base
+    will be created based on the system's RAG configurations including:
+    - AI model family (e.g., "openai", "gemini")
+    - Embedding vector dimensionality (e.g., 1536 for OpenAI, 3072 for Gemini)
+    - Chunking method
+    - Other RAG-related settings
+
+    Available systems: "openai", "gemini", or custom systems defined in the system table.
+    If not specified, defaults to "openai" system.
+    """
     def __init__(
         self,
         *,
@@ -1202,8 +1215,11 @@ class CreateCatalogRequest(google.protobuf.message.Message):
         tags: collections.abc.Iterable[builtins.str] | None = ...,
         type: global___CatalogType.ValueType = ...,
         converting_pipelines: collections.abc.Iterable[builtins.str] | None = ...,
+        system_id: builtins.str | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["converting_pipelines", b"converting_pipelines", "description", b"description", "name", b"name", "namespace_id", b"namespace_id", "tags", b"tags", "type", b"type"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_system_id", b"_system_id", "system_id", b"system_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_system_id", b"_system_id", "converting_pipelines", b"converting_pipelines", "description", b"description", "name", b"name", "namespace_id", b"namespace_id", "system_id", b"system_id", "tags", b"tags", "type", b"type"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_system_id", b"_system_id"]) -> typing_extensions.Literal["system_id"] | None: ...
 
 global___CreateCatalogRequest = CreateCatalogRequest
 

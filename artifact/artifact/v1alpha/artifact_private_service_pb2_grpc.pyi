@@ -5,7 +5,7 @@ isort:skip_file
 import abc
 import artifact.artifact.v1alpha.artifact_pb2
 import artifact.artifact.v1alpha.file_catalog_pb2
-import artifact.artifact.v1alpha.system_profile_pb2
+import artifact.artifact.v1alpha.system_pb2
 import artifact.artifact.v1alpha.update_pb2
 import collections.abc
 import grpc
@@ -142,29 +142,49 @@ class ArtifactPrivateServiceStub:
         artifact.artifact.v1alpha.update_pb2.GetKnowledgeBaseUpdateStatusAdminResponse,
     ]
     """Get knowledge base update status (admin only)"""
-    GetSystemProfileAdmin: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.system_profile_pb2.GetSystemProfileAdminRequest,
-        artifact.artifact.v1alpha.system_profile_pb2.GetSystemProfileAdminResponse,
+    CreateSystemAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.system_pb2.CreateSystemAdminRequest,
+        artifact.artifact.v1alpha.system_pb2.CreateSystemAdminResponse,
     ]
-    """System Profile Management Admin APIs
+    """System Management Admin APIs
 
-    Get a system configuration profile (admin only)
+    Create a new system configuration (admin only)
     """
-    UpdateSystemProfileAdmin: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.system_profile_pb2.UpdateSystemProfileAdminRequest,
-        artifact.artifact.v1alpha.system_profile_pb2.UpdateSystemProfileAdminResponse,
+    GetSystemAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.system_pb2.GetSystemAdminRequest,
+        artifact.artifact.v1alpha.system_pb2.GetSystemAdminResponse,
     ]
-    """Update (create or update) a system configuration profile (admin only)"""
-    ListSystemProfilesAdmin: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.system_profile_pb2.ListSystemProfilesAdminRequest,
-        artifact.artifact.v1alpha.system_profile_pb2.ListSystemProfilesAdminResponse,
+    """Get a system configuration (admin only)"""
+    UpdateSystemAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.system_pb2.UpdateSystemAdminRequest,
+        artifact.artifact.v1alpha.system_pb2.UpdateSystemAdminResponse,
     ]
-    """List all system configuration profiles (admin only)"""
-    DeleteSystemProfileAdmin: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.system_profile_pb2.DeleteSystemProfileAdminRequest,
-        artifact.artifact.v1alpha.system_profile_pb2.DeleteSystemProfileAdminResponse,
+    """Update an existing system configuration (admin only)"""
+    DeleteSystemAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.system_pb2.DeleteSystemAdminRequest,
+        artifact.artifact.v1alpha.system_pb2.DeleteSystemAdminResponse,
     ]
-    """Delete a system configuration profile (admin only)"""
+    """Delete a system configuration (admin only)"""
+    ListSystemsAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.system_pb2.ListSystemsAdminRequest,
+        artifact.artifact.v1alpha.system_pb2.ListSystemsAdminResponse,
+    ]
+    """List all system configurations (admin only)"""
+    RenameSystemAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.system_pb2.RenameSystemAdminRequest,
+        artifact.artifact.v1alpha.system_pb2.RenameSystemAdminResponse,
+    ]
+    """Rename a system configuration (admin only)"""
+    SetDefaultSystemAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.system_pb2.SetDefaultSystemAdminRequest,
+        artifact.artifact.v1alpha.system_pb2.SetDefaultSystemAdminResponse,
+    ]
+    """Set the default system configuration (admin only)"""
+    GetDefaultSystemAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.system_pb2.GetDefaultSystemAdminRequest,
+        artifact.artifact.v1alpha.system_pb2.GetDefaultSystemAdminResponse,
+    ]
+    """Get the current default system configuration (admin only)"""
 
 class ArtifactPrivateServiceAsyncStub:
     """ArtifactPrivateService exposes the private endpoints that allow clients to
@@ -287,29 +307,49 @@ class ArtifactPrivateServiceAsyncStub:
         artifact.artifact.v1alpha.update_pb2.GetKnowledgeBaseUpdateStatusAdminResponse,
     ]
     """Get knowledge base update status (admin only)"""
-    GetSystemProfileAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.system_profile_pb2.GetSystemProfileAdminRequest,
-        artifact.artifact.v1alpha.system_profile_pb2.GetSystemProfileAdminResponse,
+    CreateSystemAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.system_pb2.CreateSystemAdminRequest,
+        artifact.artifact.v1alpha.system_pb2.CreateSystemAdminResponse,
     ]
-    """System Profile Management Admin APIs
+    """System Management Admin APIs
 
-    Get a system configuration profile (admin only)
+    Create a new system configuration (admin only)
     """
-    UpdateSystemProfileAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.system_profile_pb2.UpdateSystemProfileAdminRequest,
-        artifact.artifact.v1alpha.system_profile_pb2.UpdateSystemProfileAdminResponse,
+    GetSystemAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.system_pb2.GetSystemAdminRequest,
+        artifact.artifact.v1alpha.system_pb2.GetSystemAdminResponse,
     ]
-    """Update (create or update) a system configuration profile (admin only)"""
-    ListSystemProfilesAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.system_profile_pb2.ListSystemProfilesAdminRequest,
-        artifact.artifact.v1alpha.system_profile_pb2.ListSystemProfilesAdminResponse,
+    """Get a system configuration (admin only)"""
+    UpdateSystemAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.system_pb2.UpdateSystemAdminRequest,
+        artifact.artifact.v1alpha.system_pb2.UpdateSystemAdminResponse,
     ]
-    """List all system configuration profiles (admin only)"""
-    DeleteSystemProfileAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.system_profile_pb2.DeleteSystemProfileAdminRequest,
-        artifact.artifact.v1alpha.system_profile_pb2.DeleteSystemProfileAdminResponse,
+    """Update an existing system configuration (admin only)"""
+    DeleteSystemAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.system_pb2.DeleteSystemAdminRequest,
+        artifact.artifact.v1alpha.system_pb2.DeleteSystemAdminResponse,
     ]
-    """Delete a system configuration profile (admin only)"""
+    """Delete a system configuration (admin only)"""
+    ListSystemsAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.system_pb2.ListSystemsAdminRequest,
+        artifact.artifact.v1alpha.system_pb2.ListSystemsAdminResponse,
+    ]
+    """List all system configurations (admin only)"""
+    RenameSystemAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.system_pb2.RenameSystemAdminRequest,
+        artifact.artifact.v1alpha.system_pb2.RenameSystemAdminResponse,
+    ]
+    """Rename a system configuration (admin only)"""
+    SetDefaultSystemAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.system_pb2.SetDefaultSystemAdminRequest,
+        artifact.artifact.v1alpha.system_pb2.SetDefaultSystemAdminResponse,
+    ]
+    """Set the default system configuration (admin only)"""
+    GetDefaultSystemAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.system_pb2.GetDefaultSystemAdminRequest,
+        artifact.artifact.v1alpha.system_pb2.GetDefaultSystemAdminResponse,
+    ]
+    """Get the current default system configuration (admin only)"""
 
 class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
     """ArtifactPrivateService exposes the private endpoints that allow clients to
@@ -465,35 +505,63 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[artifact.artifact.v1alpha.update_pb2.GetKnowledgeBaseUpdateStatusAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.update_pb2.GetKnowledgeBaseUpdateStatusAdminResponse]]:
         """Get knowledge base update status (admin only)"""
     @abc.abstractmethod
-    def GetSystemProfileAdmin(
+    def CreateSystemAdmin(
         self,
-        request: artifact.artifact.v1alpha.system_profile_pb2.GetSystemProfileAdminRequest,
+        request: artifact.artifact.v1alpha.system_pb2.CreateSystemAdminRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.system_profile_pb2.GetSystemProfileAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.system_profile_pb2.GetSystemProfileAdminResponse]]:
-        """System Profile Management Admin APIs
+    ) -> typing.Union[artifact.artifact.v1alpha.system_pb2.CreateSystemAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.system_pb2.CreateSystemAdminResponse]]:
+        """System Management Admin APIs
 
-        Get a system configuration profile (admin only)
+        Create a new system configuration (admin only)
         """
     @abc.abstractmethod
-    def UpdateSystemProfileAdmin(
+    def GetSystemAdmin(
         self,
-        request: artifact.artifact.v1alpha.system_profile_pb2.UpdateSystemProfileAdminRequest,
+        request: artifact.artifact.v1alpha.system_pb2.GetSystemAdminRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.system_profile_pb2.UpdateSystemProfileAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.system_profile_pb2.UpdateSystemProfileAdminResponse]]:
-        """Update (create or update) a system configuration profile (admin only)"""
+    ) -> typing.Union[artifact.artifact.v1alpha.system_pb2.GetSystemAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.system_pb2.GetSystemAdminResponse]]:
+        """Get a system configuration (admin only)"""
     @abc.abstractmethod
-    def ListSystemProfilesAdmin(
+    def UpdateSystemAdmin(
         self,
-        request: artifact.artifact.v1alpha.system_profile_pb2.ListSystemProfilesAdminRequest,
+        request: artifact.artifact.v1alpha.system_pb2.UpdateSystemAdminRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.system_profile_pb2.ListSystemProfilesAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.system_profile_pb2.ListSystemProfilesAdminResponse]]:
-        """List all system configuration profiles (admin only)"""
+    ) -> typing.Union[artifact.artifact.v1alpha.system_pb2.UpdateSystemAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.system_pb2.UpdateSystemAdminResponse]]:
+        """Update an existing system configuration (admin only)"""
     @abc.abstractmethod
-    def DeleteSystemProfileAdmin(
+    def DeleteSystemAdmin(
         self,
-        request: artifact.artifact.v1alpha.system_profile_pb2.DeleteSystemProfileAdminRequest,
+        request: artifact.artifact.v1alpha.system_pb2.DeleteSystemAdminRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.system_profile_pb2.DeleteSystemProfileAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.system_profile_pb2.DeleteSystemProfileAdminResponse]]:
-        """Delete a system configuration profile (admin only)"""
+    ) -> typing.Union[artifact.artifact.v1alpha.system_pb2.DeleteSystemAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.system_pb2.DeleteSystemAdminResponse]]:
+        """Delete a system configuration (admin only)"""
+    @abc.abstractmethod
+    def ListSystemsAdmin(
+        self,
+        request: artifact.artifact.v1alpha.system_pb2.ListSystemsAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.system_pb2.ListSystemsAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.system_pb2.ListSystemsAdminResponse]]:
+        """List all system configurations (admin only)"""
+    @abc.abstractmethod
+    def RenameSystemAdmin(
+        self,
+        request: artifact.artifact.v1alpha.system_pb2.RenameSystemAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.system_pb2.RenameSystemAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.system_pb2.RenameSystemAdminResponse]]:
+        """Rename a system configuration (admin only)"""
+    @abc.abstractmethod
+    def SetDefaultSystemAdmin(
+        self,
+        request: artifact.artifact.v1alpha.system_pb2.SetDefaultSystemAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.system_pb2.SetDefaultSystemAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.system_pb2.SetDefaultSystemAdminResponse]]:
+        """Set the default system configuration (admin only)"""
+    @abc.abstractmethod
+    def GetDefaultSystemAdmin(
+        self,
+        request: artifact.artifact.v1alpha.system_pb2.GetDefaultSystemAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.system_pb2.GetDefaultSystemAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.system_pb2.GetDefaultSystemAdminResponse]]:
+        """Get the current default system configuration (admin only)"""
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer: ArtifactPrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

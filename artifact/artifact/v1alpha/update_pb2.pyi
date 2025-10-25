@@ -116,6 +116,9 @@ class KnowledgeBaseUpdateDetails(google.protobuf.message.Message):
     COMPLETED_AT_FIELD_NUMBER: builtins.int
     FILES_PROCESSED_FIELD_NUMBER: builtins.int
     TOTAL_FILES_FIELD_NUMBER: builtins.int
+    ERROR_MESSAGE_FIELD_NUMBER: builtins.int
+    CURRENT_SYSTEM_ID_FIELD_NUMBER: builtins.int
+    PREVIOUS_SYSTEM_ID_FIELD_NUMBER: builtins.int
     catalog_uid: builtins.str
     """UID of the catalog"""
     status: global___KnowledgeBaseUpdateStatus.ValueType
@@ -130,6 +133,27 @@ class KnowledgeBaseUpdateDetails(google.protobuf.message.Message):
     """Number of files processed"""
     total_files: builtins.int
     """Total number of files to process"""
+    error_message: builtins.str
+    """Error message explaining why the update failed
+    Populated ONLY when status is KNOWLEDGE_BASE_UPDATE_STATUS_FAILED
+    Empty for all other statuses (NONE, UPDATING, SYNCING, VALIDATING, SWAPPING, COMPLETED, ROLLED_BACK, ABORTED)
+    """
+    current_system_id: builtins.str
+    """Current system ID (e.g., "openai", "gemini")
+    The system configuration currently active in the production KB
+    - For UPDATING: The system being updated to (from staging KB - will become current after swap)
+    - For COMPLETED/FAILED/ROLLED_BACK/ABORTED/NONE: The current production system ID
+    Always reflects the KB's current state
+    """
+    previous_system_id: builtins.str
+    """Previous system ID before the update (e.g., "openai", "gemini")
+    Captured at update start for historical audit trail
+    - For UPDATING: The system before update started
+    - For COMPLETED: The system before successful update (what was replaced)
+    - For FAILED/ABORTED: The system before failed attempt (same as current, since update didn't complete)
+    - For ROLLED_BACK: The system that was rolled back FROM (before rollback)
+    - For NONE: Empty (never been updated)
+    """
     def __init__(
         self,
         *,
@@ -140,8 +164,11 @@ class KnowledgeBaseUpdateDetails(google.protobuf.message.Message):
         completed_at: builtins.str = ...,
         files_processed: builtins.int = ...,
         total_files: builtins.int = ...,
+        error_message: builtins.str = ...,
+        current_system_id: builtins.str = ...,
+        previous_system_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_uid", b"catalog_uid", "completed_at", b"completed_at", "files_processed", b"files_processed", "started_at", b"started_at", "status", b"status", "total_files", b"total_files", "workflow_id", b"workflow_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catalog_uid", b"catalog_uid", "completed_at", b"completed_at", "current_system_id", b"current_system_id", "error_message", b"error_message", "files_processed", b"files_processed", "previous_system_id", b"previous_system_id", "started_at", b"started_at", "status", b"status", "total_files", b"total_files", "workflow_id", b"workflow_id"]) -> None: ...
 
 global___KnowledgeBaseUpdateDetails = KnowledgeBaseUpdateDetails
 
@@ -369,14 +396,14 @@ class ExecuteKnowledgeBaseUpdateAdminRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     CATALOG_IDS_FIELD_NUMBER: builtins.int
-    SYSTEM_PROFILE_FIELD_NUMBER: builtins.int
+    SYSTEM_ID_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
     @property
     def catalog_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Optional: Specific catalog IDs to update. If empty, updates all eligible catalogs."""
-    system_profile: builtins.str
-    """Optional: System profile name containing configuration to apply.
-    If specified, uses config from system table where profile=<this value>
+    system_id: builtins.str
+    """Optional: System ID containing configuration to apply.
+    If specified, uses config from system table where id=<this value>
     If not specified, KBs keep their current config (useful for reprocessing).
     """
     @property
@@ -386,12 +413,12 @@ class ExecuteKnowledgeBaseUpdateAdminRequest(google.protobuf.message.Message):
         self,
         *,
         catalog_ids: collections.abc.Iterable[builtins.str] | None = ...,
-        system_profile: builtins.str | None = ...,
+        system_id: builtins.str | None = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_system_profile", b"_system_profile", "system_profile", b"system_profile"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_system_profile", b"_system_profile", "catalog_ids", b"catalog_ids", "system_profile", b"system_profile", "tags", b"tags"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_system_profile", b"_system_profile"]) -> typing_extensions.Literal["system_profile"] | None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_system_id", b"_system_id", "system_id", b"system_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_system_id", b"_system_id", "catalog_ids", b"catalog_ids", "system_id", b"system_id", "tags", b"tags"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_system_id", b"_system_id"]) -> typing_extensions.Literal["system_id"] | None: ...
 
 global___ExecuteKnowledgeBaseUpdateAdminRequest = ExecuteKnowledgeBaseUpdateAdminRequest
 
