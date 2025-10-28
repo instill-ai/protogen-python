@@ -3,8 +3,9 @@
 import grpc
 
 from artifact.artifact.v1alpha import artifact_pb2 as artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2
+from artifact.artifact.v1alpha import catalog_pb2 as artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2
 from artifact.artifact.v1alpha import chunk_pb2 as artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2
-from artifact.artifact.v1alpha import file_catalog_pb2 as artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2
+from artifact.artifact.v1alpha import file_pb2 as artifact_dot_artifact_dot_v1alpha_dot_file__pb2
 from artifact.artifact.v1alpha import object_pb2 as artifact_dot_artifact_dot_v1alpha_dot_object__pb2
 
 
@@ -31,83 +32,73 @@ class ArtifactPublicServiceStub(object):
                 )
         self.CreateCatalog = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/CreateCatalog',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.CreateCatalogRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.CreateCatalogResponse.FromString,
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.CreateCatalogRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.CreateCatalogResponse.FromString,
+                )
+        self.GetCatalog = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/GetCatalog',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.GetCatalogRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.GetCatalogResponse.FromString,
                 )
         self.ListCatalogs = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/ListCatalogs',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogsRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogsResponse.FromString,
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.ListCatalogsRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.ListCatalogsResponse.FromString,
                 )
         self.UpdateCatalog = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateCatalog',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateCatalogRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateCatalogResponse.FromString,
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.UpdateCatalogRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.UpdateCatalogResponse.FromString,
                 )
         self.DeleteCatalog = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/DeleteCatalog',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteCatalogRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteCatalogResponse.FromString,
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.DeleteCatalogRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.DeleteCatalogResponse.FromString,
                 )
-        self.UploadCatalogFile = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/UploadCatalogFile',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UploadCatalogFileRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UploadCatalogFileResponse.FromString,
+        self.CreateFile = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/CreateFile',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.CreateFileRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.CreateFileResponse.FromString,
                 )
-        self.DeleteCatalogFile = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/DeleteCatalogFile',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteCatalogFileRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteCatalogFileResponse.FromString,
+        self.GetFile = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/GetFile',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.GetFileRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.GetFileResponse.FromString,
                 )
-        self.ProcessCatalogFiles = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/ProcessCatalogFiles',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ProcessCatalogFilesRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ProcessCatalogFilesResponse.FromString,
+        self.ListFiles = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/ListFiles',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.ListFilesRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.ListFilesResponse.FromString,
                 )
-        self.ListCatalogFiles = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/ListCatalogFiles',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogFilesRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogFilesResponse.FromString,
+        self.UpdateFile = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateFile',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileResponse.FromString,
                 )
-        self.GetCatalogFile = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/GetCatalogFile',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetCatalogFileRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetCatalogFileResponse.FromString,
+        self.DeleteFile = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/DeleteFile',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.DeleteFileRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.DeleteFileResponse.FromString,
+                )
+        self.GetChunk = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/GetChunk',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetChunkRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetChunkResponse.FromString,
                 )
         self.ListChunks = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/ListChunks',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ListChunksRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ListChunksResponse.FromString,
                 )
-        self.GetSourceFile = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/GetSourceFile',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetSourceFileRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetSourceFileResponse.FromString,
-                )
-        self.GetFileSummary = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/GetFileSummary',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetFileSummaryRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetFileSummaryResponse.FromString,
-                )
-        self.SearchSourceFiles = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/SearchSourceFiles',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchSourceFilesRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchSourceFilesResponse.FromString,
-                )
         self.UpdateChunk = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateChunk',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.UpdateChunkRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.UpdateChunkResponse.FromString,
                 )
-        self.SimilarityChunksSearch = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/SimilarityChunksSearch',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SimilarityChunksSearchRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SimilarityChunksSearchResponse.FromString,
-                )
-        self.GetFileCatalog = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/GetFileCatalog',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetFileCatalogRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetFileCatalogResponse.FromString,
+        self.SearchChunks = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/SearchChunks',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksResponse.FromString,
                 )
         self.ListCatalogRuns = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/ListCatalogRuns',
@@ -123,16 +114,6 @@ class ArtifactPublicServiceStub(object):
                 '/artifact.artifact.v1alpha.ArtifactPublicService/GetObjectDownloadURL',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectDownloadURLRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectDownloadURLResponse.FromString,
-                )
-        self.MoveFileToCatalog = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/MoveFileToCatalog',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.MoveFileToCatalogRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.MoveFileToCatalogResponse.FromString,
-                )
-        self.UpdateCatalogFileTags = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateCatalogFileTags',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateCatalogFileTagsRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateCatalogFileTagsResponse.FromString,
                 )
 
 
@@ -168,6 +149,15 @@ class ArtifactPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetCatalog(self, request, context):
+        """Get a catalog
+
+        Returns the details of a catalog.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListCatalogs(self, request, context):
         """Get all catalogs info
 
@@ -195,16 +185,43 @@ class ArtifactPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UploadCatalogFile(self, request, context):
+    def CreateFile(self, request, context):
         """Create a file
 
-        Creates a file.
+        Uploads and converts a file to a catalog.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def DeleteCatalogFile(self, request, context):
+    def GetFile(self, request, context):
+        """Get a file
+
+        Returns the details of a file.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListFiles(self, request, context):
+        """List files
+
+        Returns a paginated list of files.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateFile(self, request, context):
+        """Update a file
+
+        Updates a file.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteFile(self, request, context):
         """Delete a file
 
         Deletes a file.
@@ -213,92 +230,37 @@ class ArtifactPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ProcessCatalogFiles(self, request, context):
-        """Process catalog files
+    def GetChunk(self, request, context):
+        """Get a chunk
 
-        Processes catalog files.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ListCatalogFiles(self, request, context):
-        """List catalog files
-
-        Returns a paginated list of catalog files.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetCatalogFile(self, request, context):
-        """Get catalog file
-
-        Gets the file of a catalog.
+        Returns the details of a chunk.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListChunks(self, request, context):
-        """List catalog chunks
+        """List chunks
 
-        Returns a paginated list of catalog chunks.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetSourceFile(self, request, context):
-        """Get catalog single-source-of-truth file
-
-        Gets the single-source-of-truth file of a catalog.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetFileSummary(self, request, context):
-        """Get summary from a catalog file
-
-        Gets summary from a catalog file
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def SearchSourceFiles(self, request, context):
-        """Search single-source-of-truth files
-
-        Searches the single-source-of-truth files of a catalog.
+        Returns a paginated list of chunks.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpdateChunk(self, request, context):
-        """Update catalog chunk
+        """Update a chunk
 
-        Updates a catalog chunk.
+        Updates a chunk.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def SimilarityChunksSearch(self, request, context):
-        """Retrieve similar chunks
+    def SearchChunks(self, request, context):
+        """Search chunks
 
         Returns the top-K most similar chunks to a text prompt.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetFileCatalog(self, request, context):
-        """Get the catalog file.
-
-        Returns a view of the file within the catalog, with the text and chunks it
-        generated after being processed.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -331,24 +293,6 @@ class ArtifactPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def MoveFileToCatalog(self, request, context):
-        """Move file to another catalog
-
-        Moves a file to another catalog.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def UpdateCatalogFileTags(self, request, context):
-        """Update catalog file tags
-
-        Updates the tags associated with a catalog file.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_ArtifactPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -364,83 +308,73 @@ def add_ArtifactPublicServiceServicer_to_server(servicer, server):
             ),
             'CreateCatalog': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateCatalog,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.CreateCatalogRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.CreateCatalogResponse.SerializeToString,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.CreateCatalogRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.CreateCatalogResponse.SerializeToString,
+            ),
+            'GetCatalog': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetCatalog,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.GetCatalogRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.GetCatalogResponse.SerializeToString,
             ),
             'ListCatalogs': grpc.unary_unary_rpc_method_handler(
                     servicer.ListCatalogs,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogsRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogsResponse.SerializeToString,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.ListCatalogsRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.ListCatalogsResponse.SerializeToString,
             ),
             'UpdateCatalog': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateCatalog,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateCatalogRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateCatalogResponse.SerializeToString,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.UpdateCatalogRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.UpdateCatalogResponse.SerializeToString,
             ),
             'DeleteCatalog': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteCatalog,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteCatalogRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteCatalogResponse.SerializeToString,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.DeleteCatalogRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.DeleteCatalogResponse.SerializeToString,
             ),
-            'UploadCatalogFile': grpc.unary_unary_rpc_method_handler(
-                    servicer.UploadCatalogFile,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UploadCatalogFileRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UploadCatalogFileResponse.SerializeToString,
+            'CreateFile': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateFile,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.CreateFileRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.CreateFileResponse.SerializeToString,
             ),
-            'DeleteCatalogFile': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteCatalogFile,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteCatalogFileRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteCatalogFileResponse.SerializeToString,
+            'GetFile': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetFile,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.GetFileRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.GetFileResponse.SerializeToString,
             ),
-            'ProcessCatalogFiles': grpc.unary_unary_rpc_method_handler(
-                    servicer.ProcessCatalogFiles,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ProcessCatalogFilesRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ProcessCatalogFilesResponse.SerializeToString,
+            'ListFiles': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListFiles,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.ListFilesRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.ListFilesResponse.SerializeToString,
             ),
-            'ListCatalogFiles': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListCatalogFiles,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogFilesRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogFilesResponse.SerializeToString,
+            'UpdateFile': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateFile,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileResponse.SerializeToString,
             ),
-            'GetCatalogFile': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetCatalogFile,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetCatalogFileRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetCatalogFileResponse.SerializeToString,
+            'DeleteFile': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteFile,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.DeleteFileRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.DeleteFileResponse.SerializeToString,
+            ),
+            'GetChunk': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetChunk,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetChunkRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetChunkResponse.SerializeToString,
             ),
             'ListChunks': grpc.unary_unary_rpc_method_handler(
                     servicer.ListChunks,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ListChunksRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ListChunksResponse.SerializeToString,
             ),
-            'GetSourceFile': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetSourceFile,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetSourceFileRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetSourceFileResponse.SerializeToString,
-            ),
-            'GetFileSummary': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetFileSummary,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetFileSummaryRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetFileSummaryResponse.SerializeToString,
-            ),
-            'SearchSourceFiles': grpc.unary_unary_rpc_method_handler(
-                    servicer.SearchSourceFiles,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchSourceFilesRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchSourceFilesResponse.SerializeToString,
-            ),
             'UpdateChunk': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateChunk,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.UpdateChunkRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.UpdateChunkResponse.SerializeToString,
             ),
-            'SimilarityChunksSearch': grpc.unary_unary_rpc_method_handler(
-                    servicer.SimilarityChunksSearch,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SimilarityChunksSearchRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SimilarityChunksSearchResponse.SerializeToString,
-            ),
-            'GetFileCatalog': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetFileCatalog,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetFileCatalogRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetFileCatalogResponse.SerializeToString,
+            'SearchChunks': grpc.unary_unary_rpc_method_handler(
+                    servicer.SearchChunks,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksResponse.SerializeToString,
             ),
             'ListCatalogRuns': grpc.unary_unary_rpc_method_handler(
                     servicer.ListCatalogRuns,
@@ -456,16 +390,6 @@ def add_ArtifactPublicServiceServicer_to_server(servicer, server):
                     servicer.GetObjectDownloadURL,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectDownloadURLRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectDownloadURLResponse.SerializeToString,
-            ),
-            'MoveFileToCatalog': grpc.unary_unary_rpc_method_handler(
-                    servicer.MoveFileToCatalog,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.MoveFileToCatalogRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.MoveFileToCatalogResponse.SerializeToString,
-            ),
-            'UpdateCatalogFileTags': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateCatalogFileTags,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateCatalogFileTagsRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateCatalogFileTagsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -525,8 +449,25 @@ class ArtifactPublicService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/CreateCatalog',
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.CreateCatalogRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.CreateCatalogResponse.FromString,
+            artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.CreateCatalogRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.CreateCatalogResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetCatalog(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/GetCatalog',
+            artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.GetCatalogRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.GetCatalogResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -542,8 +483,8 @@ class ArtifactPublicService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ListCatalogs',
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogsRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogsResponse.FromString,
+            artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.ListCatalogsRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.ListCatalogsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -559,8 +500,8 @@ class ArtifactPublicService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateCatalog',
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateCatalogRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateCatalogResponse.FromString,
+            artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.UpdateCatalogRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.UpdateCatalogResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -576,13 +517,13 @@ class ArtifactPublicService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/DeleteCatalog',
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteCatalogRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteCatalogResponse.FromString,
+            artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.DeleteCatalogRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.DeleteCatalogResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UploadCatalogFile(request,
+    def CreateFile(request,
             target,
             options=(),
             channel_credentials=None,
@@ -592,14 +533,14 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/UploadCatalogFile',
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UploadCatalogFileRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UploadCatalogFileResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/CreateFile',
+            artifact_dot_artifact_dot_v1alpha_dot_file__pb2.CreateFileRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_file__pb2.CreateFileResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def DeleteCatalogFile(request,
+    def GetFile(request,
             target,
             options=(),
             channel_credentials=None,
@@ -609,14 +550,14 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/DeleteCatalogFile',
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteCatalogFileRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteCatalogFileResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/GetFile',
+            artifact_dot_artifact_dot_v1alpha_dot_file__pb2.GetFileRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_file__pb2.GetFileResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ProcessCatalogFiles(request,
+    def ListFiles(request,
             target,
             options=(),
             channel_credentials=None,
@@ -626,14 +567,14 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ProcessCatalogFiles',
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ProcessCatalogFilesRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ProcessCatalogFilesResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ListFiles',
+            artifact_dot_artifact_dot_v1alpha_dot_file__pb2.ListFilesRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_file__pb2.ListFilesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ListCatalogFiles(request,
+    def UpdateFile(request,
             target,
             options=(),
             channel_credentials=None,
@@ -643,14 +584,14 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ListCatalogFiles',
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogFilesRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogFilesResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateFile',
+            artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetCatalogFile(request,
+    def DeleteFile(request,
             target,
             options=(),
             channel_credentials=None,
@@ -660,9 +601,26 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/GetCatalogFile',
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetCatalogFileRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetCatalogFileResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/DeleteFile',
+            artifact_dot_artifact_dot_v1alpha_dot_file__pb2.DeleteFileRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_file__pb2.DeleteFileResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetChunk(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/GetChunk',
+            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetChunkRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetChunkResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -684,57 +642,6 @@ class ArtifactPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetSourceFile(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/GetSourceFile',
-            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetSourceFileRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetSourceFileResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetFileSummary(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/GetFileSummary',
-            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetFileSummaryRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetFileSummaryResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def SearchSourceFiles(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/SearchSourceFiles',
-            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchSourceFilesRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchSourceFilesResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def UpdateChunk(request,
             target,
             options=(),
@@ -752,7 +659,7 @@ class ArtifactPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def SimilarityChunksSearch(request,
+    def SearchChunks(request,
             target,
             options=(),
             channel_credentials=None,
@@ -762,26 +669,9 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/SimilarityChunksSearch',
-            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SimilarityChunksSearchRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SimilarityChunksSearchResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetFileCatalog(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/GetFileCatalog',
-            artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetFileCatalogRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetFileCatalogResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/SearchChunks',
+            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -833,39 +723,5 @@ class ArtifactPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/GetObjectDownloadURL',
             artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectDownloadURLRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectDownloadURLResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def MoveFileToCatalog(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/MoveFileToCatalog',
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.MoveFileToCatalogRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.MoveFileToCatalogResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def UpdateCatalogFileTags(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateCatalogFileTags',
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateCatalogFileTagsRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateCatalogFileTagsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

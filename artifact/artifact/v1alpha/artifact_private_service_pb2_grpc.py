@@ -2,8 +2,8 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from artifact.artifact.v1alpha import artifact_pb2 as artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2
-from artifact.artifact.v1alpha import file_catalog_pb2 as artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2
+from artifact.artifact.v1alpha import file_pb2 as artifact_dot_artifact_dot_v1alpha_dot_file__pb2
+from artifact.artifact.v1alpha import object_pb2 as artifact_dot_artifact_dot_v1alpha_dot_object__pb2
 from artifact.artifact.v1alpha import system_pb2 as artifact_dot_artifact_dot_v1alpha_dot_system__pb2
 from artifact.artifact.v1alpha import update_pb2 as artifact_dot_artifact_dot_v1alpha_dot_update__pb2
 
@@ -19,55 +19,25 @@ class ArtifactPrivateServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.ListRepositoryTagsAdmin = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPrivateService/ListRepositoryTagsAdmin',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListRepositoryTagsAdminRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListRepositoryTagsAdminResponse.FromString,
-                )
-        self.GetRepositoryTagAdmin = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPrivateService/GetRepositoryTagAdmin',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetRepositoryTagAdminRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetRepositoryTagAdminResponse.FromString,
-                )
-        self.CreateRepositoryTagAdmin = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPrivateService/CreateRepositoryTagAdmin',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.CreateRepositoryTagAdminRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.CreateRepositoryTagAdminResponse.FromString,
-                )
-        self.DeleteRepositoryTagAdmin = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPrivateService/DeleteRepositoryTagAdmin',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteRepositoryTagAdminRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteRepositoryTagAdminResponse.FromString,
-                )
         self.GetObjectAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/GetObjectAdmin',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectAdminRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectAdminResponse.FromString,
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectAdminResponse.FromString,
                 )
         self.GetObjectURLAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/GetObjectURLAdmin',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectURLAdminRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectURLAdminResponse.FromString,
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectURLAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectURLAdminResponse.FromString,
                 )
         self.UpdateObjectAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateObjectAdmin',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateObjectAdminRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateObjectAdminResponse.FromString,
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.UpdateObjectAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.UpdateObjectAdminResponse.FromString,
                 )
-        self.GetFileAsMarkdownAdmin = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPrivateService/GetFileAsMarkdownAdmin',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetFileAsMarkdownAdminRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetFileAsMarkdownAdminResponse.FromString,
-                )
-        self.GetChatFileAdmin = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPrivateService/GetChatFileAdmin',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetChatFileAdminRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetChatFileAdminResponse.FromString,
-                )
-        self.DeleteCatalogFileAdmin = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPrivateService/DeleteCatalogFileAdmin',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteCatalogFileAdminRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteCatalogFileAdminResponse.FromString,
+        self.DeleteFileAdmin = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPrivateService/DeleteFileAdmin',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.DeleteFileAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.DeleteFileAdminResponse.FromString,
                 )
         self.ExecuteKnowledgeBaseUpdateAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/ExecuteKnowledgeBaseUpdateAdmin',
@@ -146,43 +116,6 @@ class ArtifactPrivateServiceServicer(object):
     manage artifacts.
     """
 
-    def ListRepositoryTagsAdmin(self, request, context):
-        """List the tags in a repository (admin only)
-
-        Returns a portion of the versions that the specified repository holds.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetRepositoryTagAdmin(self, request, context):
-        """Get details of repository tag (admin only)
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def CreateRepositoryTagAdmin(self, request, context):
-        """Create a new repository tag (admin only)
-
-        Adds a tag to a given repository. Note that this operation is only
-        intended to register the information of an *already created* tag. This
-        method should be called as part of the content push operation, right after
-        the [PUT Manifest](https://distribution.github.io/distribution/#put-manifest) has
-        succeeded. The distribution registry won't hold data such as the push time
-        or the tag digest, so `artifact-backend` will hold this information locally.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def DeleteRepositoryTagAdmin(self, request, context):
-        """Delete a repository tag (admin only)
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def GetObjectAdmin(self, request, context):
         """Get Object (admin only)
         """
@@ -204,34 +137,17 @@ class ArtifactPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetFileAsMarkdownAdmin(self, request, context):
-        """Get file as Markdown (admin only)
+    def DeleteFileAdmin(self, request, context):
+        """GetFileAsMarkdownAdmin and GetChatFileAdmin have been removed.
+        Use GetFile with VIEW_CONTENT instead to get the converted markdown via pre-signed URL.
 
-        Returns the Markdown representation of a file.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
+        Delete a catalog file (admin only)
 
-    def GetChatFileAdmin(self, request, context):
-        """Get file as Markdown (deprecated, admin only)
-
-        Returns the contents of a file conversion to Markdown as a binary blob.
-        This method is deprecated as it identifies the file by namespace and
-        filename instead of UID, which isn't a unique identifier anymore.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def DeleteCatalogFileAdmin(self, request, context):
-        """Delete a catalog file (admin only)
-
-        Deletes a file from a catalog using only the file UID. Unlike the public
-        DeleteCatalogFile endpoint which requires namespace and catalog IDs, this
+        Deletes a file from a catalog using only the file ID. Unlike the public
+        DeleteFile endpoint which requires namespace and catalog IDs, this
         admin endpoint automatically looks up the file's catalog and owner to
         perform the deletion. Primarily used for integration testing and internal
-        operations where the caller has a file UID but not the full resource path.
+        operations where the caller has a file ID but not the full resource path.
         Authentication metadata is injected automatically based on the file owner.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -348,55 +264,25 @@ class ArtifactPrivateServiceServicer(object):
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'ListRepositoryTagsAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListRepositoryTagsAdmin,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListRepositoryTagsAdminRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListRepositoryTagsAdminResponse.SerializeToString,
-            ),
-            'GetRepositoryTagAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetRepositoryTagAdmin,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetRepositoryTagAdminRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetRepositoryTagAdminResponse.SerializeToString,
-            ),
-            'CreateRepositoryTagAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreateRepositoryTagAdmin,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.CreateRepositoryTagAdminRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.CreateRepositoryTagAdminResponse.SerializeToString,
-            ),
-            'DeleteRepositoryTagAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteRepositoryTagAdmin,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteRepositoryTagAdminRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteRepositoryTagAdminResponse.SerializeToString,
-            ),
             'GetObjectAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.GetObjectAdmin,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectAdminRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectAdminResponse.SerializeToString,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectAdminRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectAdminResponse.SerializeToString,
             ),
             'GetObjectURLAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.GetObjectURLAdmin,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectURLAdminRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectURLAdminResponse.SerializeToString,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectURLAdminRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectURLAdminResponse.SerializeToString,
             ),
             'UpdateObjectAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateObjectAdmin,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateObjectAdminRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateObjectAdminResponse.SerializeToString,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.UpdateObjectAdminRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.UpdateObjectAdminResponse.SerializeToString,
             ),
-            'GetFileAsMarkdownAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetFileAsMarkdownAdmin,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetFileAsMarkdownAdminRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetFileAsMarkdownAdminResponse.SerializeToString,
-            ),
-            'GetChatFileAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetChatFileAdmin,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetChatFileAdminRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetChatFileAdminResponse.SerializeToString,
-            ),
-            'DeleteCatalogFileAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteCatalogFileAdmin,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteCatalogFileAdminRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteCatalogFileAdminResponse.SerializeToString,
+            'DeleteFileAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteFileAdmin,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.DeleteFileAdminRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.DeleteFileAdminResponse.SerializeToString,
             ),
             'ExecuteKnowledgeBaseUpdateAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.ExecuteKnowledgeBaseUpdateAdmin,
@@ -481,74 +367,6 @@ class ArtifactPrivateService(object):
     """
 
     @staticmethod
-    def ListRepositoryTagsAdmin(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/ListRepositoryTagsAdmin',
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListRepositoryTagsAdminRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListRepositoryTagsAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetRepositoryTagAdmin(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/GetRepositoryTagAdmin',
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetRepositoryTagAdminRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetRepositoryTagAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def CreateRepositoryTagAdmin(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/CreateRepositoryTagAdmin',
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.CreateRepositoryTagAdminRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.CreateRepositoryTagAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def DeleteRepositoryTagAdmin(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/DeleteRepositoryTagAdmin',
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteRepositoryTagAdminRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteRepositoryTagAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def GetObjectAdmin(request,
             target,
             options=(),
@@ -560,8 +378,8 @@ class ArtifactPrivateService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/GetObjectAdmin',
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectAdminRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectAdminResponse.FromString,
+            artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectAdminRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -577,8 +395,8 @@ class ArtifactPrivateService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/GetObjectURLAdmin',
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectURLAdminRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.GetObjectURLAdminResponse.FromString,
+            artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectURLAdminRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectURLAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -594,13 +412,13 @@ class ArtifactPrivateService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateObjectAdmin',
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateObjectAdminRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.UpdateObjectAdminResponse.FromString,
+            artifact_dot_artifact_dot_v1alpha_dot_object__pb2.UpdateObjectAdminRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_object__pb2.UpdateObjectAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetFileAsMarkdownAdmin(request,
+    def DeleteFileAdmin(request,
             target,
             options=(),
             channel_credentials=None,
@@ -610,43 +428,9 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/GetFileAsMarkdownAdmin',
-            artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetFileAsMarkdownAdminRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetFileAsMarkdownAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetChatFileAdmin(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/GetChatFileAdmin',
-            artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetChatFileAdminRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_file__catalog__pb2.GetChatFileAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def DeleteCatalogFileAdmin(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/DeleteCatalogFileAdmin',
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteCatalogFileAdminRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.DeleteCatalogFileAdminResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/DeleteFileAdmin',
+            artifact_dot_artifact_dot_v1alpha_dot_file__pb2.DeleteFileAdminRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_file__pb2.DeleteFileAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

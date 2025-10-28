@@ -3,8 +3,8 @@
 isort:skip_file
 """
 import abc
-import artifact.artifact.v1alpha.artifact_pb2
-import artifact.artifact.v1alpha.file_catalog_pb2
+import artifact.artifact.v1alpha.file_pb2
+import artifact.artifact.v1alpha.object_pb2
 import artifact.artifact.v1alpha.system_pb2
 import artifact.artifact.v1alpha.update_pb2
 import collections.abc
@@ -26,81 +26,35 @@ class ArtifactPrivateServiceStub:
     """
 
     def __init__(self, channel: typing.Union[grpc.Channel, grpc.aio.Channel]) -> None: ...
-    ListRepositoryTagsAdmin: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.ListRepositoryTagsAdminRequest,
-        artifact.artifact.v1alpha.artifact_pb2.ListRepositoryTagsAdminResponse,
-    ]
-    """List the tags in a repository (admin only)
-
-    Returns a portion of the versions that the specified repository holds.
-    """
-    GetRepositoryTagAdmin: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagAdminRequest,
-        artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagAdminResponse,
-    ]
-    """Get details of repository tag (admin only)"""
-    CreateRepositoryTagAdmin: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagAdminRequest,
-        artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagAdminResponse,
-    ]
-    """Create a new repository tag (admin only)
-
-    Adds a tag to a given repository. Note that this operation is only
-    intended to register the information of an *already created* tag. This
-    method should be called as part of the content push operation, right after
-    the [PUT Manifest](https://distribution.github.io/distribution/#put-manifest) has
-    succeeded. The distribution registry won't hold data such as the push time
-    or the tag digest, so `artifact-backend` will hold this information locally.
-    """
-    DeleteRepositoryTagAdmin: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagAdminRequest,
-        artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagAdminResponse,
-    ]
-    """Delete a repository tag (admin only)"""
     GetObjectAdmin: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.GetObjectAdminRequest,
-        artifact.artifact.v1alpha.artifact_pb2.GetObjectAdminResponse,
+        artifact.artifact.v1alpha.object_pb2.GetObjectAdminRequest,
+        artifact.artifact.v1alpha.object_pb2.GetObjectAdminResponse,
     ]
     """Get Object (admin only)"""
     GetObjectURLAdmin: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.GetObjectURLAdminRequest,
-        artifact.artifact.v1alpha.artifact_pb2.GetObjectURLAdminResponse,
+        artifact.artifact.v1alpha.object_pb2.GetObjectURLAdminRequest,
+        artifact.artifact.v1alpha.object_pb2.GetObjectURLAdminResponse,
     ]
     """Get Object URL (admin only)"""
     UpdateObjectAdmin: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.UpdateObjectAdminRequest,
-        artifact.artifact.v1alpha.artifact_pb2.UpdateObjectAdminResponse,
+        artifact.artifact.v1alpha.object_pb2.UpdateObjectAdminRequest,
+        artifact.artifact.v1alpha.object_pb2.UpdateObjectAdminResponse,
     ]
     """Update Object (admin only)"""
-    GetFileAsMarkdownAdmin: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownAdminRequest,
-        artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownAdminResponse,
+    DeleteFileAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.file_pb2.DeleteFileAdminRequest,
+        artifact.artifact.v1alpha.file_pb2.DeleteFileAdminResponse,
     ]
-    """Get file as Markdown (admin only)
+    """GetFileAsMarkdownAdmin and GetChatFileAdmin have been removed.
+    Use GetFile with VIEW_CONTENT instead to get the converted markdown via pre-signed URL.
 
-    Returns the Markdown representation of a file.
-    """
-    GetChatFileAdmin: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileAdminRequest,
-        artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileAdminResponse,
-    ]
-    """Get file as Markdown (deprecated, admin only)
+    Delete a catalog file (admin only)
 
-    Returns the contents of a file conversion to Markdown as a binary blob.
-    This method is deprecated as it identifies the file by namespace and
-    filename instead of UID, which isn't a unique identifier anymore.
-    """
-    DeleteCatalogFileAdmin: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileAdminRequest,
-        artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileAdminResponse,
-    ]
-    """Delete a catalog file (admin only)
-
-    Deletes a file from a catalog using only the file UID. Unlike the public
-    DeleteCatalogFile endpoint which requires namespace and catalog IDs, this
+    Deletes a file from a catalog using only the file ID. Unlike the public
+    DeleteFile endpoint which requires namespace and catalog IDs, this
     admin endpoint automatically looks up the file's catalog and owner to
     perform the deletion. Primarily used for integration testing and internal
-    operations where the caller has a file UID but not the full resource path.
+    operations where the caller has a file ID but not the full resource path.
     Authentication metadata is injected automatically based on the file owner.
     """
     ExecuteKnowledgeBaseUpdateAdmin: grpc.UnaryUnaryMultiCallable[
@@ -191,81 +145,35 @@ class ArtifactPrivateServiceAsyncStub:
     manage artifacts.
     """
 
-    ListRepositoryTagsAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.ListRepositoryTagsAdminRequest,
-        artifact.artifact.v1alpha.artifact_pb2.ListRepositoryTagsAdminResponse,
-    ]
-    """List the tags in a repository (admin only)
-
-    Returns a portion of the versions that the specified repository holds.
-    """
-    GetRepositoryTagAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagAdminRequest,
-        artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagAdminResponse,
-    ]
-    """Get details of repository tag (admin only)"""
-    CreateRepositoryTagAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagAdminRequest,
-        artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagAdminResponse,
-    ]
-    """Create a new repository tag (admin only)
-
-    Adds a tag to a given repository. Note that this operation is only
-    intended to register the information of an *already created* tag. This
-    method should be called as part of the content push operation, right after
-    the [PUT Manifest](https://distribution.github.io/distribution/#put-manifest) has
-    succeeded. The distribution registry won't hold data such as the push time
-    or the tag digest, so `artifact-backend` will hold this information locally.
-    """
-    DeleteRepositoryTagAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagAdminRequest,
-        artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagAdminResponse,
-    ]
-    """Delete a repository tag (admin only)"""
     GetObjectAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.GetObjectAdminRequest,
-        artifact.artifact.v1alpha.artifact_pb2.GetObjectAdminResponse,
+        artifact.artifact.v1alpha.object_pb2.GetObjectAdminRequest,
+        artifact.artifact.v1alpha.object_pb2.GetObjectAdminResponse,
     ]
     """Get Object (admin only)"""
     GetObjectURLAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.GetObjectURLAdminRequest,
-        artifact.artifact.v1alpha.artifact_pb2.GetObjectURLAdminResponse,
+        artifact.artifact.v1alpha.object_pb2.GetObjectURLAdminRequest,
+        artifact.artifact.v1alpha.object_pb2.GetObjectURLAdminResponse,
     ]
     """Get Object URL (admin only)"""
     UpdateObjectAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.UpdateObjectAdminRequest,
-        artifact.artifact.v1alpha.artifact_pb2.UpdateObjectAdminResponse,
+        artifact.artifact.v1alpha.object_pb2.UpdateObjectAdminRequest,
+        artifact.artifact.v1alpha.object_pb2.UpdateObjectAdminResponse,
     ]
     """Update Object (admin only)"""
-    GetFileAsMarkdownAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownAdminRequest,
-        artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownAdminResponse,
+    DeleteFileAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.file_pb2.DeleteFileAdminRequest,
+        artifact.artifact.v1alpha.file_pb2.DeleteFileAdminResponse,
     ]
-    """Get file as Markdown (admin only)
+    """GetFileAsMarkdownAdmin and GetChatFileAdmin have been removed.
+    Use GetFile with VIEW_CONTENT instead to get the converted markdown via pre-signed URL.
 
-    Returns the Markdown representation of a file.
-    """
-    GetChatFileAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileAdminRequest,
-        artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileAdminResponse,
-    ]
-    """Get file as Markdown (deprecated, admin only)
+    Delete a catalog file (admin only)
 
-    Returns the contents of a file conversion to Markdown as a binary blob.
-    This method is deprecated as it identifies the file by namespace and
-    filename instead of UID, which isn't a unique identifier anymore.
-    """
-    DeleteCatalogFileAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileAdminRequest,
-        artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileAdminResponse,
-    ]
-    """Delete a catalog file (admin only)
-
-    Deletes a file from a catalog using only the file UID. Unlike the public
-    DeleteCatalogFile endpoint which requires namespace and catalog IDs, this
+    Deletes a file from a catalog using only the file ID. Unlike the public
+    DeleteFile endpoint which requires namespace and catalog IDs, this
     admin endpoint automatically looks up the file's catalog and owner to
     perform the deletion. Primarily used for integration testing and internal
-    operations where the caller has a file UID but not the full resource path.
+    operations where the caller has a file ID but not the full resource path.
     Authentication metadata is injected automatically based on the file owner.
     """
     ExecuteKnowledgeBaseUpdateAdmin: grpc.aio.UnaryUnaryMultiCallable[
@@ -357,100 +265,42 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
     """
 
     @abc.abstractmethod
-    def ListRepositoryTagsAdmin(
-        self,
-        request: artifact.artifact.v1alpha.artifact_pb2.ListRepositoryTagsAdminRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.ListRepositoryTagsAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.ListRepositoryTagsAdminResponse]]:
-        """List the tags in a repository (admin only)
-
-        Returns a portion of the versions that the specified repository holds.
-        """
-    @abc.abstractmethod
-    def GetRepositoryTagAdmin(
-        self,
-        request: artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagAdminRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.GetRepositoryTagAdminResponse]]:
-        """Get details of repository tag (admin only)"""
-    @abc.abstractmethod
-    def CreateRepositoryTagAdmin(
-        self,
-        request: artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagAdminRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.CreateRepositoryTagAdminResponse]]:
-        """Create a new repository tag (admin only)
-
-        Adds a tag to a given repository. Note that this operation is only
-        intended to register the information of an *already created* tag. This
-        method should be called as part of the content push operation, right after
-        the [PUT Manifest](https://distribution.github.io/distribution/#put-manifest) has
-        succeeded. The distribution registry won't hold data such as the push time
-        or the tag digest, so `artifact-backend` will hold this information locally.
-        """
-    @abc.abstractmethod
-    def DeleteRepositoryTagAdmin(
-        self,
-        request: artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagAdminRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.DeleteRepositoryTagAdminResponse]]:
-        """Delete a repository tag (admin only)"""
-    @abc.abstractmethod
     def GetObjectAdmin(
         self,
-        request: artifact.artifact.v1alpha.artifact_pb2.GetObjectAdminRequest,
+        request: artifact.artifact.v1alpha.object_pb2.GetObjectAdminRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.GetObjectAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.GetObjectAdminResponse]]:
+    ) -> typing.Union[artifact.artifact.v1alpha.object_pb2.GetObjectAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.object_pb2.GetObjectAdminResponse]]:
         """Get Object (admin only)"""
     @abc.abstractmethod
     def GetObjectURLAdmin(
         self,
-        request: artifact.artifact.v1alpha.artifact_pb2.GetObjectURLAdminRequest,
+        request: artifact.artifact.v1alpha.object_pb2.GetObjectURLAdminRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.GetObjectURLAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.GetObjectURLAdminResponse]]:
+    ) -> typing.Union[artifact.artifact.v1alpha.object_pb2.GetObjectURLAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.object_pb2.GetObjectURLAdminResponse]]:
         """Get Object URL (admin only)"""
     @abc.abstractmethod
     def UpdateObjectAdmin(
         self,
-        request: artifact.artifact.v1alpha.artifact_pb2.UpdateObjectAdminRequest,
+        request: artifact.artifact.v1alpha.object_pb2.UpdateObjectAdminRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.UpdateObjectAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.UpdateObjectAdminResponse]]:
+    ) -> typing.Union[artifact.artifact.v1alpha.object_pb2.UpdateObjectAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.object_pb2.UpdateObjectAdminResponse]]:
         """Update Object (admin only)"""
     @abc.abstractmethod
-    def GetFileAsMarkdownAdmin(
+    def DeleteFileAdmin(
         self,
-        request: artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownAdminRequest,
+        request: artifact.artifact.v1alpha.file_pb2.DeleteFileAdminRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.file_catalog_pb2.GetFileAsMarkdownAdminResponse]]:
-        """Get file as Markdown (admin only)
+    ) -> typing.Union[artifact.artifact.v1alpha.file_pb2.DeleteFileAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.file_pb2.DeleteFileAdminResponse]]:
+        """GetFileAsMarkdownAdmin and GetChatFileAdmin have been removed.
+        Use GetFile with VIEW_CONTENT instead to get the converted markdown via pre-signed URL.
 
-        Returns the Markdown representation of a file.
-        """
-    @abc.abstractmethod
-    def GetChatFileAdmin(
-        self,
-        request: artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileAdminRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.file_catalog_pb2.GetChatFileAdminResponse]]:
-        """Get file as Markdown (deprecated, admin only)
+        Delete a catalog file (admin only)
 
-        Returns the contents of a file conversion to Markdown as a binary blob.
-        This method is deprecated as it identifies the file by namespace and
-        filename instead of UID, which isn't a unique identifier anymore.
-        """
-    @abc.abstractmethod
-    def DeleteCatalogFileAdmin(
-        self,
-        request: artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileAdminRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.DeleteCatalogFileAdminResponse]]:
-        """Delete a catalog file (admin only)
-
-        Deletes a file from a catalog using only the file UID. Unlike the public
-        DeleteCatalogFile endpoint which requires namespace and catalog IDs, this
+        Deletes a file from a catalog using only the file ID. Unlike the public
+        DeleteFile endpoint which requires namespace and catalog IDs, this
         admin endpoint automatically looks up the file's catalog and owner to
         perform the deletion. Primarily used for integration testing and internal
-        operations where the caller has a file UID but not the full resource path.
+        operations where the caller has a file ID but not the full resource path.
         Authentication metadata is injected automatically based on the file owner.
         """
     @abc.abstractmethod
