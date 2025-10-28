@@ -4,9 +4,9 @@ isort:skip_file
 """
 import abc
 import artifact.artifact.v1alpha.artifact_pb2
-import artifact.artifact.v1alpha.catalog_pb2
 import artifact.artifact.v1alpha.chunk_pb2
 import artifact.artifact.v1alpha.file_pb2
+import artifact.artifact.v1alpha.knowledge_base_pb2
 import artifact.artifact.v1alpha.object_pb2
 import collections.abc
 import grpc
@@ -43,45 +43,45 @@ class ArtifactPublicServiceStub:
 
     See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
     """
-    CreateCatalog: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.catalog_pb2.CreateCatalogRequest,
-        artifact.artifact.v1alpha.catalog_pb2.CreateCatalogResponse,
+    CreateKnowledgeBase: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.knowledge_base_pb2.CreateKnowledgeBaseRequest,
+        artifact.artifact.v1alpha.knowledge_base_pb2.CreateKnowledgeBaseResponse,
     ]
-    """Create a catalog
+    """Create a knowledge base
 
-    Creates a catalog.
+    Creates a knowledge base.
     """
-    GetCatalog: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.catalog_pb2.GetCatalogRequest,
-        artifact.artifact.v1alpha.catalog_pb2.GetCatalogResponse,
+    GetKnowledgeBase: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.knowledge_base_pb2.GetKnowledgeBaseRequest,
+        artifact.artifact.v1alpha.knowledge_base_pb2.GetKnowledgeBaseResponse,
     ]
-    """Get a catalog
+    """Get a knowledge base
 
-    Returns the details of a catalog.
+    Returns the details of a knowledge base.
     """
-    ListCatalogs: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.catalog_pb2.ListCatalogsRequest,
-        artifact.artifact.v1alpha.catalog_pb2.ListCatalogsResponse,
+    ListKnowledgeBases: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.knowledge_base_pb2.ListKnowledgeBasesRequest,
+        artifact.artifact.v1alpha.knowledge_base_pb2.ListKnowledgeBasesResponse,
     ]
-    """Get all catalogs info
+    """Get all knowledge bases info
 
-    Returns a paginated list of catalogs.
+    Returns a paginated list of knowledge bases.
     """
-    UpdateCatalog: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.catalog_pb2.UpdateCatalogRequest,
-        artifact.artifact.v1alpha.catalog_pb2.UpdateCatalogResponse,
+    UpdateKnowledgeBase: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.knowledge_base_pb2.UpdateKnowledgeBaseRequest,
+        artifact.artifact.v1alpha.knowledge_base_pb2.UpdateKnowledgeBaseResponse,
     ]
-    """Update a catalog info
+    """Update a knowledge base info
 
-    Updates the information of a catalog.
+    Updates the information of a knowledge base.
     """
-    DeleteCatalog: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.catalog_pb2.DeleteCatalogRequest,
-        artifact.artifact.v1alpha.catalog_pb2.DeleteCatalogResponse,
+    DeleteKnowledgeBase: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.knowledge_base_pb2.DeleteKnowledgeBaseRequest,
+        artifact.artifact.v1alpha.knowledge_base_pb2.DeleteKnowledgeBaseResponse,
     ]
-    """Delete a catalog
+    """Delete a knowledge base
 
-    Deletes a catalog.
+    Deletes a knowledge base.
     """
     CreateFile: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.file_pb2.CreateFileRequest,
@@ -89,7 +89,7 @@ class ArtifactPublicServiceStub:
     ]
     """Create a file
 
-    Uploads and converts a file to a catalog.
+    Uploads and converts a file to a knowledge base.
     """
     GetFile: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.file_pb2.GetFileRequest,
@@ -155,13 +155,13 @@ class ArtifactPublicServiceStub:
 
     Returns the top-K most similar chunks to a text prompt.
     """
-    ListCatalogRuns: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsRequest,
-        artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsResponse,
+    ListKnowledgeBaseRuns: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseRunsRequest,
+        artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseRunsResponse,
     ]
-    """List Catalog Runs
+    """List Knowledge Base Runs
 
-    Returns a paginated list of catalog runs.
+    Returns a paginated list of knowledge base runs.
     """
     GetObjectUploadURL: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.object_pb2.GetObjectUploadURLRequest,
@@ -201,45 +201,45 @@ class ArtifactPublicServiceAsyncStub:
 
     See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
     """
-    CreateCatalog: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.catalog_pb2.CreateCatalogRequest,
-        artifact.artifact.v1alpha.catalog_pb2.CreateCatalogResponse,
+    CreateKnowledgeBase: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.knowledge_base_pb2.CreateKnowledgeBaseRequest,
+        artifact.artifact.v1alpha.knowledge_base_pb2.CreateKnowledgeBaseResponse,
     ]
-    """Create a catalog
+    """Create a knowledge base
 
-    Creates a catalog.
+    Creates a knowledge base.
     """
-    GetCatalog: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.catalog_pb2.GetCatalogRequest,
-        artifact.artifact.v1alpha.catalog_pb2.GetCatalogResponse,
+    GetKnowledgeBase: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.knowledge_base_pb2.GetKnowledgeBaseRequest,
+        artifact.artifact.v1alpha.knowledge_base_pb2.GetKnowledgeBaseResponse,
     ]
-    """Get a catalog
+    """Get a knowledge base
 
-    Returns the details of a catalog.
+    Returns the details of a knowledge base.
     """
-    ListCatalogs: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.catalog_pb2.ListCatalogsRequest,
-        artifact.artifact.v1alpha.catalog_pb2.ListCatalogsResponse,
+    ListKnowledgeBases: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.knowledge_base_pb2.ListKnowledgeBasesRequest,
+        artifact.artifact.v1alpha.knowledge_base_pb2.ListKnowledgeBasesResponse,
     ]
-    """Get all catalogs info
+    """Get all knowledge bases info
 
-    Returns a paginated list of catalogs.
+    Returns a paginated list of knowledge bases.
     """
-    UpdateCatalog: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.catalog_pb2.UpdateCatalogRequest,
-        artifact.artifact.v1alpha.catalog_pb2.UpdateCatalogResponse,
+    UpdateKnowledgeBase: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.knowledge_base_pb2.UpdateKnowledgeBaseRequest,
+        artifact.artifact.v1alpha.knowledge_base_pb2.UpdateKnowledgeBaseResponse,
     ]
-    """Update a catalog info
+    """Update a knowledge base info
 
-    Updates the information of a catalog.
+    Updates the information of a knowledge base.
     """
-    DeleteCatalog: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.catalog_pb2.DeleteCatalogRequest,
-        artifact.artifact.v1alpha.catalog_pb2.DeleteCatalogResponse,
+    DeleteKnowledgeBase: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.knowledge_base_pb2.DeleteKnowledgeBaseRequest,
+        artifact.artifact.v1alpha.knowledge_base_pb2.DeleteKnowledgeBaseResponse,
     ]
-    """Delete a catalog
+    """Delete a knowledge base
 
-    Deletes a catalog.
+    Deletes a knowledge base.
     """
     CreateFile: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.file_pb2.CreateFileRequest,
@@ -247,7 +247,7 @@ class ArtifactPublicServiceAsyncStub:
     ]
     """Create a file
 
-    Uploads and converts a file to a catalog.
+    Uploads and converts a file to a knowledge base.
     """
     GetFile: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.file_pb2.GetFileRequest,
@@ -313,13 +313,13 @@ class ArtifactPublicServiceAsyncStub:
 
     Returns the top-K most similar chunks to a text prompt.
     """
-    ListCatalogRuns: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsRequest,
-        artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsResponse,
+    ListKnowledgeBaseRuns: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseRunsRequest,
+        artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseRunsResponse,
     ]
-    """List Catalog Runs
+    """List Knowledge Base Runs
 
-    Returns a paginated list of catalog runs.
+    Returns a paginated list of knowledge base runs.
     """
     GetObjectUploadURL: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.object_pb2.GetObjectUploadURLRequest,
@@ -364,54 +364,54 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
         """
     @abc.abstractmethod
-    def CreateCatalog(
+    def CreateKnowledgeBase(
         self,
-        request: artifact.artifact.v1alpha.catalog_pb2.CreateCatalogRequest,
+        request: artifact.artifact.v1alpha.knowledge_base_pb2.CreateKnowledgeBaseRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.catalog_pb2.CreateCatalogResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.catalog_pb2.CreateCatalogResponse]]:
-        """Create a catalog
+    ) -> typing.Union[artifact.artifact.v1alpha.knowledge_base_pb2.CreateKnowledgeBaseResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.knowledge_base_pb2.CreateKnowledgeBaseResponse]]:
+        """Create a knowledge base
 
-        Creates a catalog.
+        Creates a knowledge base.
         """
     @abc.abstractmethod
-    def GetCatalog(
+    def GetKnowledgeBase(
         self,
-        request: artifact.artifact.v1alpha.catalog_pb2.GetCatalogRequest,
+        request: artifact.artifact.v1alpha.knowledge_base_pb2.GetKnowledgeBaseRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.catalog_pb2.GetCatalogResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.catalog_pb2.GetCatalogResponse]]:
-        """Get a catalog
+    ) -> typing.Union[artifact.artifact.v1alpha.knowledge_base_pb2.GetKnowledgeBaseResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.knowledge_base_pb2.GetKnowledgeBaseResponse]]:
+        """Get a knowledge base
 
-        Returns the details of a catalog.
+        Returns the details of a knowledge base.
         """
     @abc.abstractmethod
-    def ListCatalogs(
+    def ListKnowledgeBases(
         self,
-        request: artifact.artifact.v1alpha.catalog_pb2.ListCatalogsRequest,
+        request: artifact.artifact.v1alpha.knowledge_base_pb2.ListKnowledgeBasesRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.catalog_pb2.ListCatalogsResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.catalog_pb2.ListCatalogsResponse]]:
-        """Get all catalogs info
+    ) -> typing.Union[artifact.artifact.v1alpha.knowledge_base_pb2.ListKnowledgeBasesResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.knowledge_base_pb2.ListKnowledgeBasesResponse]]:
+        """Get all knowledge bases info
 
-        Returns a paginated list of catalogs.
+        Returns a paginated list of knowledge bases.
         """
     @abc.abstractmethod
-    def UpdateCatalog(
+    def UpdateKnowledgeBase(
         self,
-        request: artifact.artifact.v1alpha.catalog_pb2.UpdateCatalogRequest,
+        request: artifact.artifact.v1alpha.knowledge_base_pb2.UpdateKnowledgeBaseRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.catalog_pb2.UpdateCatalogResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.catalog_pb2.UpdateCatalogResponse]]:
-        """Update a catalog info
+    ) -> typing.Union[artifact.artifact.v1alpha.knowledge_base_pb2.UpdateKnowledgeBaseResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.knowledge_base_pb2.UpdateKnowledgeBaseResponse]]:
+        """Update a knowledge base info
 
-        Updates the information of a catalog.
+        Updates the information of a knowledge base.
         """
     @abc.abstractmethod
-    def DeleteCatalog(
+    def DeleteKnowledgeBase(
         self,
-        request: artifact.artifact.v1alpha.catalog_pb2.DeleteCatalogRequest,
+        request: artifact.artifact.v1alpha.knowledge_base_pb2.DeleteKnowledgeBaseRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.catalog_pb2.DeleteCatalogResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.catalog_pb2.DeleteCatalogResponse]]:
-        """Delete a catalog
+    ) -> typing.Union[artifact.artifact.v1alpha.knowledge_base_pb2.DeleteKnowledgeBaseResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.knowledge_base_pb2.DeleteKnowledgeBaseResponse]]:
+        """Delete a knowledge base
 
-        Deletes a catalog.
+        Deletes a knowledge base.
         """
     @abc.abstractmethod
     def CreateFile(
@@ -421,7 +421,7 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[artifact.artifact.v1alpha.file_pb2.CreateFileResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.file_pb2.CreateFileResponse]]:
         """Create a file
 
-        Uploads and converts a file to a catalog.
+        Uploads and converts a file to a knowledge base.
         """
     @abc.abstractmethod
     def GetFile(
@@ -504,14 +504,14 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         Returns the top-K most similar chunks to a text prompt.
         """
     @abc.abstractmethod
-    def ListCatalogRuns(
+    def ListKnowledgeBaseRuns(
         self,
-        request: artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsRequest,
+        request: artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseRunsRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.ListCatalogRunsResponse]]:
-        """List Catalog Runs
+    ) -> typing.Union[artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseRunsResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.artifact_pb2.ListKnowledgeBaseRunsResponse]]:
+        """List Knowledge Base Runs
 
-        Returns a paginated list of catalog runs.
+        Returns a paginated list of knowledge base runs.
         """
     @abc.abstractmethod
     def GetObjectUploadURL(

@@ -3,9 +3,9 @@
 import grpc
 
 from artifact.artifact.v1alpha import artifact_pb2 as artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2
-from artifact.artifact.v1alpha import catalog_pb2 as artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2
 from artifact.artifact.v1alpha import chunk_pb2 as artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2
 from artifact.artifact.v1alpha import file_pb2 as artifact_dot_artifact_dot_v1alpha_dot_file__pb2
+from artifact.artifact.v1alpha import knowledge_base_pb2 as artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2
 from artifact.artifact.v1alpha import object_pb2 as artifact_dot_artifact_dot_v1alpha_dot_object__pb2
 
 
@@ -30,30 +30,30 @@ class ArtifactPublicServiceStub(object):
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ReadinessRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ReadinessResponse.FromString,
                 )
-        self.CreateCatalog = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/CreateCatalog',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.CreateCatalogRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.CreateCatalogResponse.FromString,
+        self.CreateKnowledgeBase = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/CreateKnowledgeBase',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseResponse.FromString,
                 )
-        self.GetCatalog = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/GetCatalog',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.GetCatalogRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.GetCatalogResponse.FromString,
+        self.GetKnowledgeBase = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/GetKnowledgeBase',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.GetKnowledgeBaseRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.GetKnowledgeBaseResponse.FromString,
                 )
-        self.ListCatalogs = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/ListCatalogs',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.ListCatalogsRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.ListCatalogsResponse.FromString,
+        self.ListKnowledgeBases = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/ListKnowledgeBases',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.ListKnowledgeBasesRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.ListKnowledgeBasesResponse.FromString,
                 )
-        self.UpdateCatalog = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateCatalog',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.UpdateCatalogRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.UpdateCatalogResponse.FromString,
+        self.UpdateKnowledgeBase = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateKnowledgeBase',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.UpdateKnowledgeBaseRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.UpdateKnowledgeBaseResponse.FromString,
                 )
-        self.DeleteCatalog = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/DeleteCatalog',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.DeleteCatalogRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.DeleteCatalogResponse.FromString,
+        self.DeleteKnowledgeBase = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/DeleteKnowledgeBase',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseResponse.FromString,
                 )
         self.CreateFile = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/CreateFile',
@@ -100,10 +100,10 @@ class ArtifactPublicServiceStub(object):
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksResponse.FromString,
                 )
-        self.ListCatalogRuns = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPublicService/ListCatalogRuns',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogRunsRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogRunsResponse.FromString,
+        self.ListKnowledgeBaseRuns = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/ListKnowledgeBaseRuns',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseRunsRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseRunsResponse.FromString,
                 )
         self.GetObjectUploadURL = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/GetObjectUploadURL',
@@ -140,46 +140,46 @@ class ArtifactPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def CreateCatalog(self, request, context):
-        """Create a catalog
+    def CreateKnowledgeBase(self, request, context):
+        """Create a knowledge base
 
-        Creates a catalog.
+        Creates a knowledge base.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetCatalog(self, request, context):
-        """Get a catalog
+    def GetKnowledgeBase(self, request, context):
+        """Get a knowledge base
 
-        Returns the details of a catalog.
+        Returns the details of a knowledge base.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListCatalogs(self, request, context):
-        """Get all catalogs info
+    def ListKnowledgeBases(self, request, context):
+        """Get all knowledge bases info
 
-        Returns a paginated list of catalogs.
+        Returns a paginated list of knowledge bases.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UpdateCatalog(self, request, context):
-        """Update a catalog info
+    def UpdateKnowledgeBase(self, request, context):
+        """Update a knowledge base info
 
-        Updates the information of a catalog.
+        Updates the information of a knowledge base.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def DeleteCatalog(self, request, context):
-        """Delete a catalog
+    def DeleteKnowledgeBase(self, request, context):
+        """Delete a knowledge base
 
-        Deletes a catalog.
+        Deletes a knowledge base.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -188,7 +188,7 @@ class ArtifactPublicServiceServicer(object):
     def CreateFile(self, request, context):
         """Create a file
 
-        Uploads and converts a file to a catalog.
+        Uploads and converts a file to a knowledge base.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -266,10 +266,10 @@ class ArtifactPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListCatalogRuns(self, request, context):
-        """List Catalog Runs
+    def ListKnowledgeBaseRuns(self, request, context):
+        """List Knowledge Base Runs
 
-        Returns a paginated list of catalog runs.
+        Returns a paginated list of knowledge base runs.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -306,30 +306,30 @@ def add_ArtifactPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ReadinessRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ReadinessResponse.SerializeToString,
             ),
-            'CreateCatalog': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreateCatalog,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.CreateCatalogRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.CreateCatalogResponse.SerializeToString,
+            'CreateKnowledgeBase': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateKnowledgeBase,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseResponse.SerializeToString,
             ),
-            'GetCatalog': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetCatalog,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.GetCatalogRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.GetCatalogResponse.SerializeToString,
+            'GetKnowledgeBase': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetKnowledgeBase,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.GetKnowledgeBaseRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.GetKnowledgeBaseResponse.SerializeToString,
             ),
-            'ListCatalogs': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListCatalogs,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.ListCatalogsRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.ListCatalogsResponse.SerializeToString,
+            'ListKnowledgeBases': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListKnowledgeBases,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.ListKnowledgeBasesRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.ListKnowledgeBasesResponse.SerializeToString,
             ),
-            'UpdateCatalog': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateCatalog,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.UpdateCatalogRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.UpdateCatalogResponse.SerializeToString,
+            'UpdateKnowledgeBase': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateKnowledgeBase,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.UpdateKnowledgeBaseRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.UpdateKnowledgeBaseResponse.SerializeToString,
             ),
-            'DeleteCatalog': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteCatalog,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.DeleteCatalogRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.DeleteCatalogResponse.SerializeToString,
+            'DeleteKnowledgeBase': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteKnowledgeBase,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseResponse.SerializeToString,
             ),
             'CreateFile': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateFile,
@@ -376,10 +376,10 @@ def add_ArtifactPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksResponse.SerializeToString,
             ),
-            'ListCatalogRuns': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListCatalogRuns,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogRunsRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogRunsResponse.SerializeToString,
+            'ListKnowledgeBaseRuns': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListKnowledgeBaseRuns,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseRunsRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseRunsResponse.SerializeToString,
             ),
             'GetObjectUploadURL': grpc.unary_unary_rpc_method_handler(
                     servicer.GetObjectUploadURL,
@@ -438,7 +438,7 @@ class ArtifactPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def CreateCatalog(request,
+    def CreateKnowledgeBase(request,
             target,
             options=(),
             channel_credentials=None,
@@ -448,14 +448,14 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/CreateCatalog',
-            artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.CreateCatalogRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.CreateCatalogResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/CreateKnowledgeBase',
+            artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetCatalog(request,
+    def GetKnowledgeBase(request,
             target,
             options=(),
             channel_credentials=None,
@@ -465,14 +465,14 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/GetCatalog',
-            artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.GetCatalogRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.GetCatalogResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/GetKnowledgeBase',
+            artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.GetKnowledgeBaseRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.GetKnowledgeBaseResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ListCatalogs(request,
+    def ListKnowledgeBases(request,
             target,
             options=(),
             channel_credentials=None,
@@ -482,14 +482,14 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ListCatalogs',
-            artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.ListCatalogsRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.ListCatalogsResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ListKnowledgeBases',
+            artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.ListKnowledgeBasesRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.ListKnowledgeBasesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UpdateCatalog(request,
+    def UpdateKnowledgeBase(request,
             target,
             options=(),
             channel_credentials=None,
@@ -499,14 +499,14 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateCatalog',
-            artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.UpdateCatalogRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.UpdateCatalogResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateKnowledgeBase',
+            artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.UpdateKnowledgeBaseRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.UpdateKnowledgeBaseResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def DeleteCatalog(request,
+    def DeleteKnowledgeBase(request,
             target,
             options=(),
             channel_credentials=None,
@@ -516,9 +516,9 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/DeleteCatalog',
-            artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.DeleteCatalogRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_catalog__pb2.DeleteCatalogResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/DeleteKnowledgeBase',
+            artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -676,7 +676,7 @@ class ArtifactPublicService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ListCatalogRuns(request,
+    def ListKnowledgeBaseRuns(request,
             target,
             options=(),
             channel_credentials=None,
@@ -686,9 +686,9 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ListCatalogRuns',
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogRunsRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListCatalogRunsResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ListKnowledgeBaseRuns',
+            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseRunsRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseRunsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

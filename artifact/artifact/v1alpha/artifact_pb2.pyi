@@ -22,45 +22,45 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
-class _CatalogRunAction:
+class _KnowledgeBaseRunAction:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _CatalogRunActionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CatalogRunAction.ValueType], builtins.type):
+class _KnowledgeBaseRunActionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_KnowledgeBaseRunAction.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-    CATALOG_RUN_ACTION_UNSPECIFIED: _CatalogRunAction.ValueType  # 0
+    KNOWLEDGE_BASE_RUN_ACTION_UNSPECIFIED: _KnowledgeBaseRunAction.ValueType  # 0
     """Unspecified."""
-    CATALOG_RUN_ACTION_CREATE: _CatalogRunAction.ValueType  # 1
-    """Create catalog."""
-    CATALOG_RUN_ACTION_UPDATE: _CatalogRunAction.ValueType  # 2
-    """Update catalog."""
-    CATALOG_RUN_ACTION_DELETE: _CatalogRunAction.ValueType  # 3
-    """Delete catalog."""
-    CATALOG_RUN_ACTION_CREATE_FILE: _CatalogRunAction.ValueType  # 4
-    """Upload catalog file."""
-    CATALOG_RUN_ACTION_PROCESS_FILE: _CatalogRunAction.ValueType  # 5
-    """Process catalog file."""
-    CATALOG_RUN_ACTION_DELETE_FILE: _CatalogRunAction.ValueType  # 6
-    """Delete catalog file."""
+    KNOWLEDGE_BASE_RUN_ACTION_CREATE: _KnowledgeBaseRunAction.ValueType  # 1
+    """Create knowledge base."""
+    KNOWLEDGE_BASE_RUN_ACTION_UPDATE: _KnowledgeBaseRunAction.ValueType  # 2
+    """Update knowledge base."""
+    KNOWLEDGE_BASE_RUN_ACTION_DELETE: _KnowledgeBaseRunAction.ValueType  # 3
+    """Delete knowledge base."""
+    KNOWLEDGE_BASE_RUN_ACTION_CREATE_FILE: _KnowledgeBaseRunAction.ValueType  # 4
+    """Upload knowledge base file."""
+    KNOWLEDGE_BASE_RUN_ACTION_PROCESS_FILE: _KnowledgeBaseRunAction.ValueType  # 5
+    """Process knowledge base file."""
+    KNOWLEDGE_BASE_RUN_ACTION_DELETE_FILE: _KnowledgeBaseRunAction.ValueType  # 6
+    """Delete knowledge base file."""
 
-class CatalogRunAction(_CatalogRunAction, metaclass=_CatalogRunActionEnumTypeWrapper):
-    """CatalogRunAction describes the actions a user has over a catalog."""
+class KnowledgeBaseRunAction(_KnowledgeBaseRunAction, metaclass=_KnowledgeBaseRunActionEnumTypeWrapper):
+    """KnowledgeBaseRunAction describes the actions a user has over a knowledge base."""
 
-CATALOG_RUN_ACTION_UNSPECIFIED: CatalogRunAction.ValueType  # 0
+KNOWLEDGE_BASE_RUN_ACTION_UNSPECIFIED: KnowledgeBaseRunAction.ValueType  # 0
 """Unspecified."""
-CATALOG_RUN_ACTION_CREATE: CatalogRunAction.ValueType  # 1
-"""Create catalog."""
-CATALOG_RUN_ACTION_UPDATE: CatalogRunAction.ValueType  # 2
-"""Update catalog."""
-CATALOG_RUN_ACTION_DELETE: CatalogRunAction.ValueType  # 3
-"""Delete catalog."""
-CATALOG_RUN_ACTION_CREATE_FILE: CatalogRunAction.ValueType  # 4
-"""Upload catalog file."""
-CATALOG_RUN_ACTION_PROCESS_FILE: CatalogRunAction.ValueType  # 5
-"""Process catalog file."""
-CATALOG_RUN_ACTION_DELETE_FILE: CatalogRunAction.ValueType  # 6
-"""Delete catalog file."""
-global___CatalogRunAction = CatalogRunAction
+KNOWLEDGE_BASE_RUN_ACTION_CREATE: KnowledgeBaseRunAction.ValueType  # 1
+"""Create knowledge base."""
+KNOWLEDGE_BASE_RUN_ACTION_UPDATE: KnowledgeBaseRunAction.ValueType  # 2
+"""Update knowledge base."""
+KNOWLEDGE_BASE_RUN_ACTION_DELETE: KnowledgeBaseRunAction.ValueType  # 3
+"""Delete knowledge base."""
+KNOWLEDGE_BASE_RUN_ACTION_CREATE_FILE: KnowledgeBaseRunAction.ValueType  # 4
+"""Upload knowledge base file."""
+KNOWLEDGE_BASE_RUN_ACTION_PROCESS_FILE: KnowledgeBaseRunAction.ValueType  # 5
+"""Process knowledge base file."""
+KNOWLEDGE_BASE_RUN_ACTION_DELETE_FILE: KnowledgeBaseRunAction.ValueType  # 6
+"""Delete knowledge base file."""
+global___KnowledgeBaseRunAction = KnowledgeBaseRunAction
 
 @typing_extensions.final
 class LivenessRequest(google.protobuf.message.Message):
@@ -145,13 +145,13 @@ class ReadinessResponse(google.protobuf.message.Message):
 global___ReadinessResponse = ReadinessResponse
 
 @typing_extensions.final
-class CatalogRun(google.protobuf.message.Message):
-    """CatalogRun represents a single execution of a catalog action."""
+class KnowledgeBaseRun(google.protobuf.message.Message):
+    """KnowledgeBaseRun represents a single execution of a knowledge base action."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     UID_FIELD_NUMBER: builtins.int
-    CATALOG_UID_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_UID_FIELD_NUMBER: builtins.int
     FILE_UIDS_FIELD_NUMBER: builtins.int
     ACTION_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
@@ -166,13 +166,13 @@ class CatalogRun(google.protobuf.message.Message):
     CREDIT_AMOUNT_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """Unique identifier for each run."""
-    catalog_uid: builtins.str
-    """catalog uid"""
+    knowledge_base_uid: builtins.str
+    """knowledge base uid"""
     @property
     def file_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """The file uids."""
-    action: global___CatalogRunAction.ValueType
-    """Action of the catalog run."""
+    action: global___KnowledgeBaseRunAction.ValueType
+    """Action of the knowledge base run."""
     status: common.run.v1alpha.run_pb2.RunStatus.ValueType
     """Current status of the run."""
     source: common.run.v1alpha.run_pb2.RunSource.ValueType
@@ -200,9 +200,9 @@ class CatalogRun(google.protobuf.message.Message):
         self,
         *,
         uid: builtins.str = ...,
-        catalog_uid: builtins.str = ...,
+        knowledge_base_uid: builtins.str = ...,
         file_uids: collections.abc.Iterable[builtins.str] | None = ...,
-        action: global___CatalogRunAction.ValueType = ...,
+        action: global___KnowledgeBaseRunAction.ValueType = ...,
         status: common.run.v1alpha.run_pb2.RunStatus.ValueType = ...,
         source: common.run.v1alpha.run_pb2.RunSource.ValueType = ...,
         total_duration: builtins.int | None = ...,
@@ -215,7 +215,7 @@ class CatalogRun(google.protobuf.message.Message):
         credit_amount: builtins.float | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_namespace_id", b"_namespace_id", "_payload", b"_payload", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "error", b"error", "namespace_id", b"namespace_id", "payload", b"payload", "runner_id", b"runner_id", "start_time", b"start_time", "total_duration", b"total_duration"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_namespace_id", b"_namespace_id", "_payload", b"_payload", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "action", b"action", "catalog_uid", b"catalog_uid", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "error", b"error", "file_uids", b"file_uids", "namespace_id", b"namespace_id", "payload", b"payload", "runner_id", b"runner_id", "source", b"source", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration", "uid", b"uid"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_namespace_id", b"_namespace_id", "_payload", b"_payload", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "action", b"action", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "error", b"error", "file_uids", b"file_uids", "knowledge_base_uid", b"knowledge_base_uid", "namespace_id", b"namespace_id", "payload", b"payload", "runner_id", b"runner_id", "source", b"source", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration", "uid", b"uid"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_complete_time", b"_complete_time"]) -> typing_extensions.Literal["complete_time"] | None: ...
     @typing.overload
@@ -231,20 +231,20 @@ class CatalogRun(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_total_duration", b"_total_duration"]) -> typing_extensions.Literal["total_duration"] | None: ...
 
-global___CatalogRun = CatalogRun
+global___KnowledgeBaseRun = KnowledgeBaseRun
 
 @typing_extensions.final
-class ListCatalogRunsResponse(google.protobuf.message.Message):
-    """ListCatalogRunsResponse is the response message for ListCatalogRuns."""
+class ListKnowledgeBaseRunsResponse(google.protobuf.message.Message):
+    """ListKnowledgeBaseRunsResponse is the response message for ListKnowledgeBaseRuns."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    CATALOG_RUNS_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_RUNS_FIELD_NUMBER: builtins.int
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     PAGE_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     @property
-    def catalog_runs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CatalogRun]:
+    def knowledge_base_runs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___KnowledgeBaseRun]:
         """The list of runs."""
     total_size: builtins.int
     """The total number of runs matching the request."""
@@ -255,31 +255,31 @@ class ListCatalogRunsResponse(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        catalog_runs: collections.abc.Iterable[global___CatalogRun] | None = ...,
+        knowledge_base_runs: collections.abc.Iterable[global___KnowledgeBaseRun] | None = ...,
         total_size: builtins.int = ...,
         page: builtins.int = ...,
         page_size: builtins.int = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_runs", b"catalog_runs", "page", b"page", "page_size", b"page_size", "total_size", b"total_size"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["knowledge_base_runs", b"knowledge_base_runs", "page", b"page", "page_size", b"page_size", "total_size", b"total_size"]) -> None: ...
 
-global___ListCatalogRunsResponse = ListCatalogRunsResponse
+global___ListKnowledgeBaseRunsResponse = ListKnowledgeBaseRunsResponse
 
 @typing_extensions.final
-class ListCatalogRunsRequest(google.protobuf.message.Message):
-    """ListCatalogRunsRequest is the request message for ListCatalogRuns."""
+class ListKnowledgeBaseRunsRequest(google.protobuf.message.Message):
+    """ListKnowledgeBaseRunsRequest is the request message for ListKnowledgeBaseRuns."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    CATALOG_ID_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_ID_FIELD_NUMBER: builtins.int
     PAGE_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     ORDER_BY_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """The ID of the owner of the catalog."""
-    catalog_id: builtins.str
-    """The ID of the catalog for which the runs will be listed."""
+    """The ID of the owner of the knowledge base."""
+    knowledge_base_id: builtins.str
+    """The ID of the knowledge base for which the runs will be listed."""
     page: builtins.int
     """The page number to retrieve."""
     page_size: builtins.int
@@ -299,17 +299,17 @@ class ListCatalogRunsRequest(google.protobuf.message.Message):
         self,
         *,
         namespace_id: builtins.str = ...,
-        catalog_id: builtins.str = ...,
+        knowledge_base_id: builtins.str = ...,
         page: builtins.int = ...,
         page_size: builtins.int = ...,
         filter: builtins.str | None = ...,
         order_by: builtins.str | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "filter", b"filter", "order_by", b"order_by"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "catalog_id", b"catalog_id", "filter", b"filter", "namespace_id", b"namespace_id", "order_by", b"order_by", "page", b"page", "page_size", b"page_size"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_order_by", b"_order_by", "filter", b"filter", "knowledge_base_id", b"knowledge_base_id", "namespace_id", b"namespace_id", "order_by", b"order_by", "page", b"page", "page_size", b"page_size"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_order_by", b"_order_by"]) -> typing_extensions.Literal["order_by"] | None: ...
 
-global___ListCatalogRunsRequest = ListCatalogRunsRequest
+global___ListKnowledgeBaseRunsRequest = ListKnowledgeBaseRunsRequest

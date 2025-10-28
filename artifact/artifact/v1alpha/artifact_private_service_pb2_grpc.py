@@ -141,11 +141,11 @@ class ArtifactPrivateServiceServicer(object):
         """GetFileAsMarkdownAdmin and GetChatFileAdmin have been removed.
         Use GetFile with VIEW_CONTENT instead to get the converted markdown via pre-signed URL.
 
-        Delete a catalog file (admin only)
+        Delete a knowledge base file (admin only)
 
-        Deletes a file from a catalog using only the file ID. Unlike the public
-        DeleteFile endpoint which requires namespace and catalog IDs, this
-        admin endpoint automatically looks up the file's catalog and owner to
+        Deletes a file from a knowledge base using only the file ID. Unlike the public
+        DeleteFile endpoint which requires namespace and knowledge base IDs, this
+        admin endpoint automatically looks up the file's knowledge base and owner to
         perform the deletion. Primarily used for integration testing and internal
         operations where the caller has a file ID but not the full resource path.
         Authentication metadata is injected automatically based on the file owner.
@@ -167,8 +167,8 @@ class ArtifactPrivateServiceServicer(object):
         """Abort knowledge base update (admin only)
 
         Cancels ongoing update workflows and cleans up staging KB resources
-        (both finished and unfinished). Can abort specific catalogs by ID or
-        all currently updating catalogs if no IDs provided. Sets catalog status
+        (both finished and unfinished). Can abort specific knowledge bases by ID or
+        all currently updating knowledge bases if no IDs provided. Sets knowledge base status
         to 'aborted'.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -176,7 +176,7 @@ class ArtifactPrivateServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def RollbackAdmin(self, request, context):
-        """Rollback a specific catalog to previous version (admin only)
+        """Rollback a specific knowledge base to previous version (admin only)
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

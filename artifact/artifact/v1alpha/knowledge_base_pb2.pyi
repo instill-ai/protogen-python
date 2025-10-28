@@ -20,39 +20,39 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
-class _CatalogType:
+class _KnowledgeBaseType:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _CatalogTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CatalogType.ValueType], builtins.type):
+class _KnowledgeBaseTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_KnowledgeBaseType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-    CATALOG_TYPE_UNSPECIFIED: _CatalogType.ValueType  # 0
+    KNOWLEDGE_BASE_TYPE_UNSPECIFIED: _KnowledgeBaseType.ValueType  # 0
     """UNSPECIFIED"""
-    CATALOG_TYPE_PERSISTENT: _CatalogType.ValueType  # 1
+    KNOWLEDGE_BASE_TYPE_PERSISTENT: _KnowledgeBaseType.ValueType  # 1
     """PERSISTENT"""
-    CATALOG_TYPE_EPHEMERAL: _CatalogType.ValueType  # 2
+    KNOWLEDGE_BASE_TYPE_EPHEMERAL: _KnowledgeBaseType.ValueType  # 2
     """EPHEMERAL"""
 
-class CatalogType(_CatalogType, metaclass=_CatalogTypeEnumTypeWrapper):
-    """Catalog Type. e.g. "persistent" or "ephemeral" """
+class KnowledgeBaseType(_KnowledgeBaseType, metaclass=_KnowledgeBaseTypeEnumTypeWrapper):
+    """Knowledge Base Type. e.g. "persistent" or "ephemeral" """
 
-CATALOG_TYPE_UNSPECIFIED: CatalogType.ValueType  # 0
+KNOWLEDGE_BASE_TYPE_UNSPECIFIED: KnowledgeBaseType.ValueType  # 0
 """UNSPECIFIED"""
-CATALOG_TYPE_PERSISTENT: CatalogType.ValueType  # 1
+KNOWLEDGE_BASE_TYPE_PERSISTENT: KnowledgeBaseType.ValueType  # 1
 """PERSISTENT"""
-CATALOG_TYPE_EPHEMERAL: CatalogType.ValueType  # 2
+KNOWLEDGE_BASE_TYPE_EPHEMERAL: KnowledgeBaseType.ValueType  # 2
 """EPHEMERAL"""
-global___CatalogType = CatalogType
+global___KnowledgeBaseType = KnowledgeBaseType
 
 @typing_extensions.final
-class Catalog(google.protobuf.message.Message):
-    """Catalog represents a catalog."""
+class KnowledgeBase(google.protobuf.message.Message):
+    """KnowledgeBase represents a knowledge base."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     @typing_extensions.final
     class EmbeddingConfig(google.protobuf.message.Message):
-        """EmbeddingConfig defines the embedding configuration for a catalog"""
+        """EmbeddingConfig defines the embedding configuration for a knowledge base"""
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -89,60 +89,60 @@ class Catalog(google.protobuf.message.Message):
     EMBEDDING_CONFIG_FIELD_NUMBER: builtins.int
     ACTIVE_COLLECTION_UID_FIELD_NUMBER: builtins.int
     uid: builtins.str
-    """The catalog uid (internal UUID)."""
+    """The knowledge base uid (internal UUID)."""
     id: builtins.str
-    """The catalog id (user-provided or system-generated)."""
+    """The knowledge base id (user-provided or system-generated)."""
     name: builtins.str
-    """The resource name of the catalog.
-    Format: `namespaces/{namespace}/catalogs/{catalog}`.
+    """The resource name of the knowledge base.
+    Format: `namespaces/{namespace}/knowledge-bases/{knowledge_base}`.
     """
     description: builtins.str
-    """The catalog description."""
+    """The knowledge base description."""
     @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """The creation time of the catalog."""
+        """The creation time of the knowledge base."""
     @property
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """The last update time of the catalog."""
+        """The last update time of the knowledge base."""
     owner_name: builtins.str
-    """The owner/namespace of the catalog."""
+    """The owner/namespace of the knowledge base."""
     @property
     def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The catalog tags."""
+        """The knowledge base tags."""
     @property
     def converting_pipelines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The catalog converting pipelines.
+        """The knowledge base converting pipelines.
         Deprecated: Conversion is now handled by AI providers.
         """
     @property
     def splitting_pipelines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The catalog splitting pipelines.
+        """The knowledge base splitting pipelines.
         Deprecated: Chunking is now handled internally.
         """
     @property
     def embedding_pipelines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The catalog embedding pipelines.
+        """The knowledge base embedding pipelines.
         Deprecated: Use embedding_config instead.
         """
     @property
     def downstream_apps(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """The downstream apps"""
     total_files: builtins.int
-    """The total files in catalog."""
+    """The total files in knowledge base."""
     total_tokens: builtins.int
-    """The total tokens in catalog."""
+    """The total tokens in knowledge base."""
     used_storage: builtins.int
-    """The current used storage in catalog."""
+    """The current used storage in knowledge base."""
     @property
     def summarizing_pipelines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The catalog summarizing pipelines.
+        """The knowledge base summarizing pipelines.
         Deprecated: Summarization is now handled by AI providers.
         """
     @property
-    def embedding_config(self) -> global___Catalog.EmbeddingConfig:
-        """The embedding configuration for the catalog."""
+    def embedding_config(self) -> global___KnowledgeBase.EmbeddingConfig:
+        """The embedding configuration for the knowledge base."""
     active_collection_uid: builtins.str
-    """The UID of the active Milvus collection for this catalog.
+    """The UID of the active Milvus collection for this knowledge base.
     This supports collection versioning for embedding dimension changes.
     """
     def __init__(
@@ -164,17 +164,17 @@ class Catalog(google.protobuf.message.Message):
         total_tokens: builtins.int = ...,
         used_storage: builtins.int = ...,
         summarizing_pipelines: collections.abc.Iterable[builtins.str] | None = ...,
-        embedding_config: global___Catalog.EmbeddingConfig | None = ...,
+        embedding_config: global___KnowledgeBase.EmbeddingConfig | None = ...,
         active_collection_uid: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "embedding_config", b"embedding_config", "update_time", b"update_time"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["active_collection_uid", b"active_collection_uid", "converting_pipelines", b"converting_pipelines", "create_time", b"create_time", "description", b"description", "downstream_apps", b"downstream_apps", "embedding_config", b"embedding_config", "embedding_pipelines", b"embedding_pipelines", "id", b"id", "name", b"name", "owner_name", b"owner_name", "splitting_pipelines", b"splitting_pipelines", "summarizing_pipelines", b"summarizing_pipelines", "tags", b"tags", "total_files", b"total_files", "total_tokens", b"total_tokens", "uid", b"uid", "update_time", b"update_time", "used_storage", b"used_storage"]) -> None: ...
 
-global___Catalog = Catalog
+global___KnowledgeBase = KnowledgeBase
 
 @typing_extensions.final
-class CreateCatalogRequest(google.protobuf.message.Message):
-    """CreateCatalogRequest represents a request to create a catalog."""
+class CreateKnowledgeBaseRequest(google.protobuf.message.Message):
+    """CreateKnowledgeBaseRequest represents a request to create a knowledge base."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -186,16 +186,16 @@ class CreateCatalogRequest(google.protobuf.message.Message):
     CONVERTING_PIPELINES_FIELD_NUMBER: builtins.int
     SYSTEM_ID_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """The catalog's owner(namespaces)."""
+    """The knowledge base's owner(namespaces)."""
     id: builtins.str
-    """The catalog id (user-provided or auto-generated)."""
+    """The knowledge base id (user-provided or auto-generated)."""
     description: builtins.str
-    """The catalog description."""
+    """The knowledge base description."""
     @property
     def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The catalog tags."""
-    type: global___CatalogType.ValueType
-    """The catalog type. default is PERSISTENT"""
+        """The knowledge base tags."""
+    type: global___KnowledgeBaseType.ValueType
+    """The knowledge base type. default is PERSISTENT"""
     @property
     def converting_pipelines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Pipelines used for converting page-based documents (i.e., files with pdf,
@@ -223,12 +223,12 @@ class CreateCatalogRequest(google.protobuf.message.Message):
         non-empty result.
 
         If no pipelines are provided, a default pipeline will be used. For
-        non-document catalog files, the conversion pipeline is deterministic (such
+        non-document knowledge base files, the conversion pipeline is deterministic (such
         files are typically trivial to convert and don't require a dedicated
         pipeline to improve the conversion performance).
         """
     system_id: builtins.str
-    """System ID to use for this catalog.
+    """System ID to use for this knowledge base.
     References a system configuration in the system table that defines how the knowledge base
     will be created based on the system's RAG configurations including:
     - AI model family (e.g., "openai", "gemini")
@@ -246,7 +246,7 @@ class CreateCatalogRequest(google.protobuf.message.Message):
         id: builtins.str = ...,
         description: builtins.str = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
-        type: global___CatalogType.ValueType = ...,
+        type: global___KnowledgeBaseType.ValueType = ...,
         converting_pipelines: collections.abc.Iterable[builtins.str] | None = ...,
         system_id: builtins.str | None = ...,
     ) -> None: ...
@@ -254,73 +254,73 @@ class CreateCatalogRequest(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["_system_id", b"_system_id", "converting_pipelines", b"converting_pipelines", "description", b"description", "id", b"id", "namespace_id", b"namespace_id", "system_id", b"system_id", "tags", b"tags", "type", b"type"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_system_id", b"_system_id"]) -> typing_extensions.Literal["system_id"] | None: ...
 
-global___CreateCatalogRequest = CreateCatalogRequest
+global___CreateKnowledgeBaseRequest = CreateKnowledgeBaseRequest
 
 @typing_extensions.final
-class CreateCatalogResponse(google.protobuf.message.Message):
-    """CreateCatalogResponse represents a response for creating a catalog."""
+class CreateKnowledgeBaseResponse(google.protobuf.message.Message):
+    """CreateKnowledgeBaseResponse represents a response for creating a knowledge base."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    CATALOG_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
     @property
-    def catalog(self) -> global___Catalog:
-        """The created catalog."""
+    def knowledge_base(self) -> global___KnowledgeBase:
+        """The created knowledge base."""
     def __init__(
         self,
         *,
-        catalog: global___Catalog | None = ...,
+        knowledge_base: global___KnowledgeBase | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["catalog", b"catalog"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog", b"catalog"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base"]) -> None: ...
 
-global___CreateCatalogResponse = CreateCatalogResponse
+global___CreateKnowledgeBaseResponse = CreateKnowledgeBaseResponse
 
 @typing_extensions.final
-class GetCatalogRequest(google.protobuf.message.Message):
-    """GetCatalogRequest represents a request to get a catalog."""
+class GetKnowledgeBaseRequest(google.protobuf.message.Message):
+    """GetKnowledgeBaseRequest represents a request to get a knowledge base."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    CATALOG_ID_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_ID_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """Namespace ID."""
-    catalog_id: builtins.str
-    """Catalog ID."""
+    knowledge_base_id: builtins.str
+    """Knowledge Base ID."""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
-        catalog_id: builtins.str = ...,
+        knowledge_base_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "namespace_id", b"namespace_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["knowledge_base_id", b"knowledge_base_id", "namespace_id", b"namespace_id"]) -> None: ...
 
-global___GetCatalogRequest = GetCatalogRequest
+global___GetKnowledgeBaseRequest = GetKnowledgeBaseRequest
 
 @typing_extensions.final
-class GetCatalogResponse(google.protobuf.message.Message):
-    """GetCatalogResponse represents a response for getting a catalog."""
+class GetKnowledgeBaseResponse(google.protobuf.message.Message):
+    """GetKnowledgeBaseResponse represents a response for getting a knowledge base."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    CATALOG_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
     @property
-    def catalog(self) -> global___Catalog:
-        """The catalog resource."""
+    def knowledge_base(self) -> global___KnowledgeBase:
+        """The knowledge base resource."""
     def __init__(
         self,
         *,
-        catalog: global___Catalog | None = ...,
+        knowledge_base: global___KnowledgeBase | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["catalog", b"catalog"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog", b"catalog"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base"]) -> None: ...
 
-global___GetCatalogResponse = GetCatalogResponse
+global___GetKnowledgeBaseResponse = GetKnowledgeBaseResponse
 
 @typing_extensions.final
-class ListCatalogsRequest(google.protobuf.message.Message):
-    """Request message for ListCatalogs(not include the ephemeral catalogs)"""
+class ListKnowledgeBasesRequest(google.protobuf.message.Message):
+    """Request message for ListKnowledgeBases(not include the ephemeral knowledge bases)"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -329,22 +329,22 @@ class ListCatalogsRequest(google.protobuf.message.Message):
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """User ID for which to list the catalogs"""
+    """User ID for which to list the knowledge bases"""
     page_size: builtins.int
-    """The maximum number of catalogs to return. If this parameter is unspecified,
-    at most 10 catalogs will be returned. The cap value for this parameter
+    """The maximum number of knowledge bases to return. If this parameter is unspecified,
+    at most 10 knowledge bases will be returned. The cap value for this parameter
     is 100 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str
     """Page token."""
     filter: builtins.str
     """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter expression.
-    - `id="<catalog_id>"` or `uid="<uuid>"` - Filter by specific catalog ID/UID
-    - `q="<text>"` - Fuzzy search on catalog ID and description
+    - `id="<knowledge_base_id>"` or `uid="<uuid>"` - Filter by specific knowledge base ID/UID
+    - `q="<text>"` - Fuzzy search on knowledge base ID and description
 
     **Examples**:
-    - Filter by ID: `id="my-catalog"`
-    - Search catalogs: `q="my-catalog"`
+    - Filter by ID: `id="my-knowledge-base"`
+    - Search knowledge bases: `q="my-knowledge-base"`
     """
     def __init__(
         self,
@@ -363,52 +363,52 @@ class ListCatalogsRequest(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_page_token", b"_page_token"]) -> typing_extensions.Literal["page_token"] | None: ...
 
-global___ListCatalogsRequest = ListCatalogsRequest
+global___ListKnowledgeBasesRequest = ListKnowledgeBasesRequest
 
 @typing_extensions.final
-class ListCatalogsResponse(google.protobuf.message.Message):
-    """GetCatalogsResponse represents a response for getting all catalogs from users."""
+class ListKnowledgeBasesResponse(google.protobuf.message.Message):
+    """ListKnowledgeBasesResponse represents a response for getting all knowledge bases from users."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    CATALOGS_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASES_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
-    def catalogs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Catalog]:
-        """The catalogs container."""
+    def knowledge_bases(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___KnowledgeBase]:
+        """The knowledge bases container."""
     next_page_token: builtins.str
     """Next page token."""
     total_size: builtins.int
-    """Total number of catalogs."""
+    """Total number of knowledge bases."""
     def __init__(
         self,
         *,
-        catalogs: collections.abc.Iterable[global___Catalog] | None = ...,
+        knowledge_bases: collections.abc.Iterable[global___KnowledgeBase] | None = ...,
         next_page_token: builtins.str = ...,
         total_size: builtins.int = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalogs", b"catalogs", "next_page_token", b"next_page_token", "total_size", b"total_size"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["knowledge_bases", b"knowledge_bases", "next_page_token", b"next_page_token", "total_size", b"total_size"]) -> None: ...
 
-global___ListCatalogsResponse = ListCatalogsResponse
+global___ListKnowledgeBasesResponse = ListKnowledgeBasesResponse
 
 @typing_extensions.final
-class UpdateCatalogRequest(google.protobuf.message.Message):
-    """UpdateCatalogRequest represents a request to update a catalog."""
+class UpdateKnowledgeBaseRequest(google.protobuf.message.Message):
+    """UpdateKnowledgeBaseRequest represents a request to update a knowledge base."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    CATALOG_ID_FIELD_NUMBER: builtins.int
-    CATALOG_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_ID_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """Namespace ID."""
-    catalog_id: builtins.str
-    """Catalog ID."""
+    knowledge_base_id: builtins.str
+    """Knowledge Base ID."""
     @property
-    def catalog(self) -> global___Catalog:
-        """The catalog fields that will replace the existing ones."""
+    def knowledge_base(self) -> global___KnowledgeBase:
+        """The knowledge base fields that will replace the existing ones."""
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """The update mask specifies the subset of fields that should be modified.
@@ -420,73 +420,73 @@ class UpdateCatalogRequest(google.protobuf.message.Message):
         self,
         *,
         namespace_id: builtins.str = ...,
-        catalog_id: builtins.str = ...,
-        catalog: global___Catalog | None = ...,
+        knowledge_base_id: builtins.str = ...,
+        knowledge_base: global___KnowledgeBase | None = ...,
         update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["catalog", b"catalog", "update_mask", b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog", b"catalog", "catalog_id", b"catalog_id", "namespace_id", b"namespace_id", "update_mask", b"update_mask"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base", "update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base", "knowledge_base_id", b"knowledge_base_id", "namespace_id", b"namespace_id", "update_mask", b"update_mask"]) -> None: ...
 
-global___UpdateCatalogRequest = UpdateCatalogRequest
+global___UpdateKnowledgeBaseRequest = UpdateKnowledgeBaseRequest
 
 @typing_extensions.final
-class UpdateCatalogResponse(google.protobuf.message.Message):
-    """UpdateCatalogResponse represents a response for updating a catalog."""
+class UpdateKnowledgeBaseResponse(google.protobuf.message.Message):
+    """UpdateKnowledgeBaseResponse represents a response for updating a knowledge base."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    CATALOG_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
     @property
-    def catalog(self) -> global___Catalog:
-        """The updated catalog."""
+    def knowledge_base(self) -> global___KnowledgeBase:
+        """The updated knowledge base."""
     def __init__(
         self,
         *,
-        catalog: global___Catalog | None = ...,
+        knowledge_base: global___KnowledgeBase | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["catalog", b"catalog"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog", b"catalog"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base"]) -> None: ...
 
-global___UpdateCatalogResponse = UpdateCatalogResponse
+global___UpdateKnowledgeBaseResponse = UpdateKnowledgeBaseResponse
 
 @typing_extensions.final
-class DeleteCatalogRequest(google.protobuf.message.Message):
-    """DeleteCatalogRequest represents a request to delete a catalog."""
+class DeleteKnowledgeBaseRequest(google.protobuf.message.Message):
+    """DeleteKnowledgeBaseRequest represents a request to delete a knowledge base."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    CATALOG_ID_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_ID_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """The owner's id. i.e. namespace."""
-    catalog_id: builtins.str
-    """The catalog id."""
+    knowledge_base_id: builtins.str
+    """The knowledge base id."""
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
-        catalog_id: builtins.str = ...,
+        knowledge_base_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "namespace_id", b"namespace_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["knowledge_base_id", b"knowledge_base_id", "namespace_id", b"namespace_id"]) -> None: ...
 
-global___DeleteCatalogRequest = DeleteCatalogRequest
+global___DeleteKnowledgeBaseRequest = DeleteKnowledgeBaseRequest
 
 @typing_extensions.final
-class DeleteCatalogResponse(google.protobuf.message.Message):
-    """DeleteCatalogResponse represents a response for deleting a catalog."""
+class DeleteKnowledgeBaseResponse(google.protobuf.message.Message):
+    """DeleteKnowledgeBaseResponse represents a response for deleting a knowledge base."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    CATALOG_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
     @property
-    def catalog(self) -> global___Catalog:
-        """The catalog identifier."""
+    def knowledge_base(self) -> global___KnowledgeBase:
+        """The knowledge base identifier."""
     def __init__(
         self,
         *,
-        catalog: global___Catalog | None = ...,
+        knowledge_base: global___KnowledgeBase | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["catalog", b"catalog"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog", b"catalog"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base"]) -> None: ...
 
-global___DeleteCatalogResponse = DeleteCatalogResponse
+global___DeleteKnowledgeBaseResponse = DeleteKnowledgeBaseResponse

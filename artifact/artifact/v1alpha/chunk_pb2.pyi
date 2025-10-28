@@ -94,7 +94,7 @@ class Chunk(google.protobuf.message.Message):
     """The chunk id (same as uid)."""
     name: builtins.str
     """The resource name of the chunk.
-    Format: `namespaces/{namespace}/catalogs/{catalog}/files/{file}/chunks/{chunk}`.
+    Format: `namespaces/{namespace}/knowledge-bases/{knowledge_base}/files/{file}/chunks/{chunk}`.
     """
     retrievable: builtins.bool
     """whether the chunk is retrievable"""
@@ -152,15 +152,15 @@ class ListChunksRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    CATALOG_ID_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_ID_FIELD_NUMBER: builtins.int
     FILE_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """owner/namespace id"""
-    catalog_id: builtins.str
-    """catalog id"""
+    knowledge_base_id: builtins.str
+    """knowledge base id"""
     file_id: builtins.str
     """file id"""
     page_size: builtins.int
@@ -185,14 +185,14 @@ class ListChunksRequest(google.protobuf.message.Message):
         self,
         *,
         namespace_id: builtins.str = ...,
-        catalog_id: builtins.str = ...,
+        knowledge_base_id: builtins.str = ...,
         file_id: builtins.str = ...,
         page_size: builtins.int | None = ...,
         page_token: builtins.str | None = ...,
         filter: builtins.str | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "catalog_id", b"catalog_id", "file_id", b"file_id", "filter", b"filter", "namespace_id", b"namespace_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "file_id", b"file_id", "filter", b"filter", "knowledge_base_id", b"knowledge_base_id", "namespace_id", b"namespace_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_filter", b"_filter"]) -> typing_extensions.Literal["filter"] | None: ...
     @typing.overload
@@ -228,13 +228,13 @@ class GetChunkRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    CATALOG_ID_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_ID_FIELD_NUMBER: builtins.int
     FILE_ID_FIELD_NUMBER: builtins.int
     CHUNK_ID_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """Namespace ID."""
-    catalog_id: builtins.str
-    """Catalog ID."""
+    knowledge_base_id: builtins.str
+    """Knowledge Base ID."""
     file_id: builtins.str
     """File ID."""
     chunk_id: builtins.str
@@ -243,11 +243,11 @@ class GetChunkRequest(google.protobuf.message.Message):
         self,
         *,
         namespace_id: builtins.str = ...,
-        catalog_id: builtins.str = ...,
+        knowledge_base_id: builtins.str = ...,
         file_id: builtins.str = ...,
         chunk_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "chunk_id", b"chunk_id", "file_id", b"file_id", "namespace_id", b"namespace_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chunk_id", b"chunk_id", "file_id", b"file_id", "knowledge_base_id", b"knowledge_base_id", "namespace_id", b"namespace_id"]) -> None: ...
 
 global___GetChunkRequest = GetChunkRequest
 
@@ -278,13 +278,13 @@ class UpdateChunkRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    CATALOG_ID_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_ID_FIELD_NUMBER: builtins.int
     CHUNK_ID_FIELD_NUMBER: builtins.int
     RETRIEVABLE_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """Namespace ID."""
-    catalog_id: builtins.str
-    """Catalog ID."""
+    knowledge_base_id: builtins.str
+    """Knowledge Base ID."""
     chunk_id: builtins.str
     """Chunk ID."""
     retrievable: builtins.bool
@@ -293,11 +293,11 @@ class UpdateChunkRequest(google.protobuf.message.Message):
         self,
         *,
         namespace_id: builtins.str = ...,
-        catalog_id: builtins.str = ...,
+        knowledge_base_id: builtins.str = ...,
         chunk_id: builtins.str = ...,
         retrievable: builtins.bool = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "chunk_id", b"chunk_id", "namespace_id", b"namespace_id", "retrievable", b"retrievable"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chunk_id", b"chunk_id", "knowledge_base_id", b"knowledge_base_id", "namespace_id", b"namespace_id", "retrievable", b"retrievable"]) -> None: ...
 
 global___UpdateChunkRequest = UpdateChunkRequest
 
@@ -328,7 +328,7 @@ class SearchChunksRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    CATALOG_ID_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_ID_FIELD_NUMBER: builtins.int
     TEXT_PROMPT_FIELD_NUMBER: builtins.int
     TOP_K_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
@@ -336,9 +336,9 @@ class SearchChunksRequest(google.protobuf.message.Message):
     FILE_IDS_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """ID of the namespace owning the catalog."""
-    catalog_id: builtins.str
-    """ID of the catalog."""
+    """ID of the namespace owning the knowledge base."""
+    knowledge_base_id: builtins.str
+    """ID of the knowledge base."""
     text_prompt: builtins.str
     """Text prompt to look for similarities."""
     top_k: builtins.int
@@ -361,7 +361,7 @@ class SearchChunksRequest(google.protobuf.message.Message):
         self,
         *,
         namespace_id: builtins.str = ...,
-        catalog_id: builtins.str = ...,
+        knowledge_base_id: builtins.str = ...,
         text_prompt: builtins.str = ...,
         top_k: builtins.int = ...,
         type: global___Chunk.Type.ValueType = ...,
@@ -369,7 +369,7 @@ class SearchChunksRequest(google.protobuf.message.Message):
         file_ids: collections.abc.Iterable[builtins.str] | None = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["catalog_id", b"catalog_id", "file_ids", b"file_ids", "file_media_type", b"file_media_type", "namespace_id", b"namespace_id", "tags", b"tags", "text_prompt", b"text_prompt", "top_k", b"top_k", "type", b"type"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file_ids", b"file_ids", "file_media_type", b"file_media_type", "knowledge_base_id", b"knowledge_base_id", "namespace_id", b"namespace_id", "tags", b"tags", "text_prompt", b"text_prompt", "top_k", b"top_k", "type", b"type"]) -> None: ...
 
 global___SearchChunksRequest = SearchChunksRequest
 

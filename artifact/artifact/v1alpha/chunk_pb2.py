@@ -17,7 +17,7 @@ from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%artifact/artifact/v1alpha/chunk.proto\x12\x19\x61rtifact.artifact.v1alpha\x1a$artifact/artifact/v1alpha/file.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xea\x06\n\x05\x43hunk\x12\x15\n\x03uid\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x13\n\x02id\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x02id\x12\x17\n\x04name\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x04name\x12%\n\x0bretrievable\x18\x04 \x01(\x08\x42\x03\xe0\x41\x03R\x0bretrievable\x12\x1b\n\x06tokens\x18\x05 \x01(\rB\x03\xe0\x41\x03R\x06tokens\x12@\n\x0b\x63reate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12-\n\x10original_file_id\x18\x07 \x01(\tB\x03\xe0\x41\x03R\x0eoriginalFileId\x12>\n\x04type\x18\x08 \x01(\x0e\x32%.artifact.artifact.v1alpha.Chunk.TypeB\x03\xe0\x41\x03R\x04type\x12M\n\treference\x18\t \x01(\x0b\x32*.artifact.artifact.v1alpha.Chunk.ReferenceB\x03\xe0\x41\x03R\treference\x12^\n\x12markdown_reference\x18\n \x01(\x0b\x32*.artifact.artifact.v1alpha.Chunk.ReferenceB\x03\xe0\x41\x03R\x11markdownReference\x12\"\n\tstart_pos\x18\x0b \x01(\rB\x05\x18\x01\xe0\x41\x03R\x08startPos\x12\x1e\n\x07\x65nd_pos\x18\x0c \x01(\rB\x05\x18\x01\xe0\x41\x03R\x06\x65ndPos\x1a\x91\x01\n\tReference\x12\x43\n\x05start\x18\x01 \x01(\x0b\x32(.artifact.artifact.v1alpha.File.PositionB\x03\xe0\x41\x03R\x05start\x12?\n\x03\x65nd\x18\x02 \x01(\x0b\x32(.artifact.artifact.v1alpha.File.PositionB\x03\xe0\x41\x03R\x03\x65nd\"T\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x10\n\x0cTYPE_CONTENT\x10\x01\x12\x10\n\x0cTYPE_SUMMARY\x10\x02\x12\x12\n\x0eTYPE_AUGMENTED\x10\x03:J\xea\x41G\x12\x45namespaces/{namespace}/catalogs/{catalog}/files/{file}/chunks/{chunk}\"\x97\x02\n\x11ListChunksRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\"\n\ncatalog_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\tcatalogId\x12\x1c\n\x07\x66ile_id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x06\x66ileId\x12%\n\tpage_size\x18\x04 \x01(\x05\x42\x03\xe0\x41\x01H\x00R\x08pageSize\x88\x01\x01\x12\'\n\npage_token\x18\x05 \x01(\tB\x03\xe0\x41\x01H\x01R\tpageToken\x88\x01\x01\x12 \n\x06\x66ilter\x18\x06 \x01(\tB\x03\xe0\x41\x01H\x02R\x06\x66ilter\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\t\n\x07_filter\"S\n\x12ListChunksResponse\x12=\n\x06\x63hunks\x18\x01 \x03(\x0b\x32 .artifact.artifact.v1alpha.ChunkB\x03\xe0\x41\x03R\x06\x63hunks\"\x9b\x01\n\x0fGetChunkRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\"\n\ncatalog_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\tcatalogId\x12\x1c\n\x07\x66ile_id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x06\x66ileId\x12\x1e\n\x08\x63hunk_id\x18\x04 \x01(\tB\x03\xe0\x41\x02R\x07\x63hunkId\"O\n\x10GetChunkResponse\x12;\n\x05\x63hunk\x18\x01 \x01(\x0b\x32 .artifact.artifact.v1alpha.ChunkB\x03\xe0\x41\x03R\x05\x63hunk\"\xa7\x01\n\x12UpdateChunkRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\"\n\ncatalog_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\tcatalogId\x12\x1e\n\x08\x63hunk_id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x07\x63hunkId\x12%\n\x0bretrievable\x18\x04 \x01(\x08\x42\x03\xe0\x41\x02R\x0bretrievable\"R\n\x13UpdateChunkResponse\x12;\n\x05\x63hunk\x18\x01 \x01(\x0b\x32 .artifact.artifact.v1alpha.ChunkB\x03\xe0\x41\x03R\x05\x63hunk\"\x82\x03\n\x13SearchChunksRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\"\n\ncatalog_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\tcatalogId\x12$\n\x0btext_prompt\x18\x03 \x01(\tB\x03\xe0\x41\x02R\ntextPrompt\x12\x18\n\x05top_k\x18\x04 \x01(\rB\x03\xe0\x41\x01R\x04topK\x12>\n\x04type\x18\x06 \x01(\x0e\x32%.artifact.artifact.v1alpha.Chunk.TypeB\x03\xe0\x41\x01R\x04type\x12Z\n\x0f\x66ile_media_type\x18\x07 \x01(\x0e\x32-.artifact.artifact.v1alpha.File.FileMediaTypeB\x03\xe0\x41\x01R\rfileMediaType\x12\x1e\n\x08\x66ile_ids\x18\t \x03(\tB\x03\xe0\x41\x01R\x07\x66ileIds\x12\x17\n\x04tags\x18\n \x03(\tB\x03\xe0\x41\x01R\x04tagsJ\x04\x08\x05\x10\x06J\x04\x08\x08\x10\t\"n\n\x14SearchChunksResponse\x12V\n\x0esimilar_chunks\x18\x01 \x03(\x0b\x32*.artifact.artifact.v1alpha.SimilarityChunkB\x03\xe0\x41\x03R\rsimilarChunks\"\xfd\x01\n\x0fSimilarityChunk\x12\x1e\n\x08\x63hunk_id\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x07\x63hunkId\x12.\n\x10similarity_score\x18\x02 \x01(\x02\x42\x03\xe0\x41\x03R\x0fsimilarityScore\x12&\n\x0ctext_content\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x0btextContent\x12$\n\x0bsource_file\x18\x04 \x01(\tB\x03\xe0\x41\x03R\nsourceFile\x12L\n\x0e\x63hunk_metadata\x18\x05 \x01(\x0b\x32 .artifact.artifact.v1alpha.ChunkB\x03\xe0\x41\x03R\rchunkMetadataB\xfe\x01\n\x1d\x63om.artifact.artifact.v1alphaB\nChunkProtoP\x01ZKgithub.com/instill-ai/protogen-go/artifact/artifact/v1alpha;artifactv1alpha\xa2\x02\x03\x41\x41X\xaa\x02\x19\x41rtifact.Artifact.V1alpha\xca\x02\x19\x41rtifact\\Artifact\\V1alpha\xe2\x02%Artifact\\Artifact\\V1alpha\\GPBMetadata\xea\x02\x1b\x41rtifact::Artifact::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%artifact/artifact/v1alpha/chunk.proto\x12\x19\x61rtifact.artifact.v1alpha\x1a$artifact/artifact/v1alpha/file.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf8\x06\n\x05\x43hunk\x12\x15\n\x03uid\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12\x13\n\x02id\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x02id\x12\x17\n\x04name\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x04name\x12%\n\x0bretrievable\x18\x04 \x01(\x08\x42\x03\xe0\x41\x03R\x0bretrievable\x12\x1b\n\x06tokens\x18\x05 \x01(\rB\x03\xe0\x41\x03R\x06tokens\x12@\n\x0b\x63reate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12-\n\x10original_file_id\x18\x07 \x01(\tB\x03\xe0\x41\x03R\x0eoriginalFileId\x12>\n\x04type\x18\x08 \x01(\x0e\x32%.artifact.artifact.v1alpha.Chunk.TypeB\x03\xe0\x41\x03R\x04type\x12M\n\treference\x18\t \x01(\x0b\x32*.artifact.artifact.v1alpha.Chunk.ReferenceB\x03\xe0\x41\x03R\treference\x12^\n\x12markdown_reference\x18\n \x01(\x0b\x32*.artifact.artifact.v1alpha.Chunk.ReferenceB\x03\xe0\x41\x03R\x11markdownReference\x12\"\n\tstart_pos\x18\x0b \x01(\rB\x05\x18\x01\xe0\x41\x03R\x08startPos\x12\x1e\n\x07\x65nd_pos\x18\x0c \x01(\rB\x05\x18\x01\xe0\x41\x03R\x06\x65ndPos\x1a\x91\x01\n\tReference\x12\x43\n\x05start\x18\x01 \x01(\x0b\x32(.artifact.artifact.v1alpha.File.PositionB\x03\xe0\x41\x03R\x05start\x12?\n\x03\x65nd\x18\x02 \x01(\x0b\x32(.artifact.artifact.v1alpha.File.PositionB\x03\xe0\x41\x03R\x03\x65nd\"T\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x10\n\x0cTYPE_CONTENT\x10\x01\x12\x10\n\x0cTYPE_SUMMARY\x10\x02\x12\x12\n\x0eTYPE_AUGMENTED\x10\x03:X\xea\x41U\x12Snamespaces/{namespace}/knowledge-bases/{knowledge_base}/files/{file}/chunks/{chunk}\"\xa4\x02\n\x11ListChunksRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12/\n\x11knowledge_base_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x0fknowledgeBaseId\x12\x1c\n\x07\x66ile_id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x06\x66ileId\x12%\n\tpage_size\x18\x04 \x01(\x05\x42\x03\xe0\x41\x01H\x00R\x08pageSize\x88\x01\x01\x12\'\n\npage_token\x18\x05 \x01(\tB\x03\xe0\x41\x01H\x01R\tpageToken\x88\x01\x01\x12 \n\x06\x66ilter\x18\x06 \x01(\tB\x03\xe0\x41\x01H\x02R\x06\x66ilter\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\t\n\x07_filter\"S\n\x12ListChunksResponse\x12=\n\x06\x63hunks\x18\x01 \x03(\x0b\x32 .artifact.artifact.v1alpha.ChunkB\x03\xe0\x41\x03R\x06\x63hunks\"\xa8\x01\n\x0fGetChunkRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12/\n\x11knowledge_base_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x0fknowledgeBaseId\x12\x1c\n\x07\x66ile_id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x06\x66ileId\x12\x1e\n\x08\x63hunk_id\x18\x04 \x01(\tB\x03\xe0\x41\x02R\x07\x63hunkId\"O\n\x10GetChunkResponse\x12;\n\x05\x63hunk\x18\x01 \x01(\x0b\x32 .artifact.artifact.v1alpha.ChunkB\x03\xe0\x41\x03R\x05\x63hunk\"\xb4\x01\n\x12UpdateChunkRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12/\n\x11knowledge_base_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x0fknowledgeBaseId\x12\x1e\n\x08\x63hunk_id\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x07\x63hunkId\x12%\n\x0bretrievable\x18\x04 \x01(\x08\x42\x03\xe0\x41\x02R\x0bretrievable\"R\n\x13UpdateChunkResponse\x12;\n\x05\x63hunk\x18\x01 \x01(\x0b\x32 .artifact.artifact.v1alpha.ChunkB\x03\xe0\x41\x03R\x05\x63hunk\"\x8f\x03\n\x13SearchChunksRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12/\n\x11knowledge_base_id\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x0fknowledgeBaseId\x12$\n\x0btext_prompt\x18\x03 \x01(\tB\x03\xe0\x41\x02R\ntextPrompt\x12\x18\n\x05top_k\x18\x04 \x01(\rB\x03\xe0\x41\x01R\x04topK\x12>\n\x04type\x18\x06 \x01(\x0e\x32%.artifact.artifact.v1alpha.Chunk.TypeB\x03\xe0\x41\x01R\x04type\x12Z\n\x0f\x66ile_media_type\x18\x07 \x01(\x0e\x32-.artifact.artifact.v1alpha.File.FileMediaTypeB\x03\xe0\x41\x01R\rfileMediaType\x12\x1e\n\x08\x66ile_ids\x18\t \x03(\tB\x03\xe0\x41\x01R\x07\x66ileIds\x12\x17\n\x04tags\x18\n \x03(\tB\x03\xe0\x41\x01R\x04tagsJ\x04\x08\x05\x10\x06J\x04\x08\x08\x10\t\"n\n\x14SearchChunksResponse\x12V\n\x0esimilar_chunks\x18\x01 \x03(\x0b\x32*.artifact.artifact.v1alpha.SimilarityChunkB\x03\xe0\x41\x03R\rsimilarChunks\"\xfd\x01\n\x0fSimilarityChunk\x12\x1e\n\x08\x63hunk_id\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x07\x63hunkId\x12.\n\x10similarity_score\x18\x02 \x01(\x02\x42\x03\xe0\x41\x03R\x0fsimilarityScore\x12&\n\x0ctext_content\x18\x03 \x01(\tB\x03\xe0\x41\x03R\x0btextContent\x12$\n\x0bsource_file\x18\x04 \x01(\tB\x03\xe0\x41\x03R\nsourceFile\x12L\n\x0e\x63hunk_metadata\x18\x05 \x01(\x0b\x32 .artifact.artifact.v1alpha.ChunkB\x03\xe0\x41\x03R\rchunkMetadataB\xfe\x01\n\x1d\x63om.artifact.artifact.v1alphaB\nChunkProtoP\x01ZKgithub.com/instill-ai/protogen-go/artifact/artifact/v1alpha;artifactv1alpha\xa2\x02\x03\x41\x41X\xaa\x02\x19\x41rtifact.Artifact.V1alpha\xca\x02\x19\x41rtifact\\Artifact\\V1alpha\xe2\x02%Artifact\\Artifact\\V1alpha\\GPBMetadata\xea\x02\x1b\x41rtifact::Artifact::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -55,11 +55,11 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _CHUNK.fields_by_name['end_pos']._options = None
   _CHUNK.fields_by_name['end_pos']._serialized_options = b'\030\001\340A\003'
   _CHUNK._options = None
-  _CHUNK._serialized_options = b'\352AG\022Enamespaces/{namespace}/catalogs/{catalog}/files/{file}/chunks/{chunk}'
+  _CHUNK._serialized_options = b'\352AU\022Snamespaces/{namespace}/knowledge-bases/{knowledge_base}/files/{file}/chunks/{chunk}'
   _LISTCHUNKSREQUEST.fields_by_name['namespace_id']._options = None
   _LISTCHUNKSREQUEST.fields_by_name['namespace_id']._serialized_options = b'\340A\002'
-  _LISTCHUNKSREQUEST.fields_by_name['catalog_id']._options = None
-  _LISTCHUNKSREQUEST.fields_by_name['catalog_id']._serialized_options = b'\340A\002'
+  _LISTCHUNKSREQUEST.fields_by_name['knowledge_base_id']._options = None
+  _LISTCHUNKSREQUEST.fields_by_name['knowledge_base_id']._serialized_options = b'\340A\002'
   _LISTCHUNKSREQUEST.fields_by_name['file_id']._options = None
   _LISTCHUNKSREQUEST.fields_by_name['file_id']._serialized_options = b'\340A\002'
   _LISTCHUNKSREQUEST.fields_by_name['page_size']._options = None
@@ -72,8 +72,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _LISTCHUNKSRESPONSE.fields_by_name['chunks']._serialized_options = b'\340A\003'
   _GETCHUNKREQUEST.fields_by_name['namespace_id']._options = None
   _GETCHUNKREQUEST.fields_by_name['namespace_id']._serialized_options = b'\340A\002'
-  _GETCHUNKREQUEST.fields_by_name['catalog_id']._options = None
-  _GETCHUNKREQUEST.fields_by_name['catalog_id']._serialized_options = b'\340A\002'
+  _GETCHUNKREQUEST.fields_by_name['knowledge_base_id']._options = None
+  _GETCHUNKREQUEST.fields_by_name['knowledge_base_id']._serialized_options = b'\340A\002'
   _GETCHUNKREQUEST.fields_by_name['file_id']._options = None
   _GETCHUNKREQUEST.fields_by_name['file_id']._serialized_options = b'\340A\002'
   _GETCHUNKREQUEST.fields_by_name['chunk_id']._options = None
@@ -82,8 +82,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _GETCHUNKRESPONSE.fields_by_name['chunk']._serialized_options = b'\340A\003'
   _UPDATECHUNKREQUEST.fields_by_name['namespace_id']._options = None
   _UPDATECHUNKREQUEST.fields_by_name['namespace_id']._serialized_options = b'\340A\002'
-  _UPDATECHUNKREQUEST.fields_by_name['catalog_id']._options = None
-  _UPDATECHUNKREQUEST.fields_by_name['catalog_id']._serialized_options = b'\340A\002'
+  _UPDATECHUNKREQUEST.fields_by_name['knowledge_base_id']._options = None
+  _UPDATECHUNKREQUEST.fields_by_name['knowledge_base_id']._serialized_options = b'\340A\002'
   _UPDATECHUNKREQUEST.fields_by_name['chunk_id']._options = None
   _UPDATECHUNKREQUEST.fields_by_name['chunk_id']._serialized_options = b'\340A\002'
   _UPDATECHUNKREQUEST.fields_by_name['retrievable']._options = None
@@ -92,8 +92,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _UPDATECHUNKRESPONSE.fields_by_name['chunk']._serialized_options = b'\340A\003'
   _SEARCHCHUNKSREQUEST.fields_by_name['namespace_id']._options = None
   _SEARCHCHUNKSREQUEST.fields_by_name['namespace_id']._serialized_options = b'\340A\002'
-  _SEARCHCHUNKSREQUEST.fields_by_name['catalog_id']._options = None
-  _SEARCHCHUNKSREQUEST.fields_by_name['catalog_id']._serialized_options = b'\340A\002'
+  _SEARCHCHUNKSREQUEST.fields_by_name['knowledge_base_id']._options = None
+  _SEARCHCHUNKSREQUEST.fields_by_name['knowledge_base_id']._serialized_options = b'\340A\002'
   _SEARCHCHUNKSREQUEST.fields_by_name['text_prompt']._options = None
   _SEARCHCHUNKSREQUEST.fields_by_name['text_prompt']._serialized_options = b'\340A\002'
   _SEARCHCHUNKSREQUEST.fields_by_name['top_k']._options = None
@@ -119,27 +119,27 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _SIMILARITYCHUNK.fields_by_name['chunk_metadata']._options = None
   _SIMILARITYCHUNK.fields_by_name['chunk_metadata']._serialized_options = b'\340A\003'
   _globals['_CHUNK']._serialized_start=200
-  _globals['_CHUNK']._serialized_end=1074
+  _globals['_CHUNK']._serialized_end=1088
   _globals['_CHUNK_REFERENCE']._serialized_start=767
   _globals['_CHUNK_REFERENCE']._serialized_end=912
   _globals['_CHUNK_TYPE']._serialized_start=914
   _globals['_CHUNK_TYPE']._serialized_end=998
-  _globals['_LISTCHUNKSREQUEST']._serialized_start=1077
-  _globals['_LISTCHUNKSREQUEST']._serialized_end=1356
-  _globals['_LISTCHUNKSRESPONSE']._serialized_start=1358
-  _globals['_LISTCHUNKSRESPONSE']._serialized_end=1441
-  _globals['_GETCHUNKREQUEST']._serialized_start=1444
-  _globals['_GETCHUNKREQUEST']._serialized_end=1599
-  _globals['_GETCHUNKRESPONSE']._serialized_start=1601
-  _globals['_GETCHUNKRESPONSE']._serialized_end=1680
-  _globals['_UPDATECHUNKREQUEST']._serialized_start=1683
-  _globals['_UPDATECHUNKREQUEST']._serialized_end=1850
-  _globals['_UPDATECHUNKRESPONSE']._serialized_start=1852
-  _globals['_UPDATECHUNKRESPONSE']._serialized_end=1934
-  _globals['_SEARCHCHUNKSREQUEST']._serialized_start=1937
-  _globals['_SEARCHCHUNKSREQUEST']._serialized_end=2323
-  _globals['_SEARCHCHUNKSRESPONSE']._serialized_start=2325
-  _globals['_SEARCHCHUNKSRESPONSE']._serialized_end=2435
-  _globals['_SIMILARITYCHUNK']._serialized_start=2438
-  _globals['_SIMILARITYCHUNK']._serialized_end=2691
+  _globals['_LISTCHUNKSREQUEST']._serialized_start=1091
+  _globals['_LISTCHUNKSREQUEST']._serialized_end=1383
+  _globals['_LISTCHUNKSRESPONSE']._serialized_start=1385
+  _globals['_LISTCHUNKSRESPONSE']._serialized_end=1468
+  _globals['_GETCHUNKREQUEST']._serialized_start=1471
+  _globals['_GETCHUNKREQUEST']._serialized_end=1639
+  _globals['_GETCHUNKRESPONSE']._serialized_start=1641
+  _globals['_GETCHUNKRESPONSE']._serialized_end=1720
+  _globals['_UPDATECHUNKREQUEST']._serialized_start=1723
+  _globals['_UPDATECHUNKREQUEST']._serialized_end=1903
+  _globals['_UPDATECHUNKRESPONSE']._serialized_start=1905
+  _globals['_UPDATECHUNKRESPONSE']._serialized_end=1987
+  _globals['_SEARCHCHUNKSREQUEST']._serialized_start=1990
+  _globals['_SEARCHCHUNKSREQUEST']._serialized_end=2389
+  _globals['_SEARCHCHUNKSRESPONSE']._serialized_start=2391
+  _globals['_SEARCHCHUNKSRESPONSE']._serialized_end=2501
+  _globals['_SIMILARITYCHUNK']._serialized_start=2504
+  _globals['_SIMILARITYCHUNK']._serialized_end=2757
 # @@protoc_insertion_point(module_scope)
