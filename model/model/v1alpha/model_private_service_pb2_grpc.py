@@ -56,6 +56,26 @@ class ModelPrivateServiceStub(object):
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelAdminRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelAdminResponse.FromString,
                 )
+        self.ListRepositoryTags = channel.unary_unary(
+                '/model.model.v1alpha.ModelPrivateService/ListRepositoryTags',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListRepositoryTagsRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListRepositoryTagsResponse.FromString,
+                )
+        self.GetRepositoryTag = channel.unary_unary(
+                '/model.model.v1alpha.ModelPrivateService/GetRepositoryTag',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetRepositoryTagRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetRepositoryTagResponse.FromString,
+                )
+        self.CreateRepositoryTag = channel.unary_unary(
+                '/model.model.v1alpha.ModelPrivateService/CreateRepositoryTag',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateRepositoryTagRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateRepositoryTagResponse.FromString,
+                )
+        self.DeleteRepositoryTag = channel.unary_unary(
+                '/model.model.v1alpha.ModelPrivateService/DeleteRepositoryTag',
+                request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteRepositoryTagRequest.SerializeToString,
+                response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteRepositoryTagResponse.FromString,
+                )
 
 
 class ModelPrivateServiceServicer(object):
@@ -121,6 +141,45 @@ class ModelPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListRepositoryTags(self, request, context):
+        """Repository Tag Management APIs
+
+        List the tags in a repository.
+
+        Returns a portion of the versions that the specified repository holds.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetRepositoryTag(self, request, context):
+        """Get details of repository tag.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateRepositoryTag(self, request, context):
+        """Create a new repository tag.
+
+        Adds a tag to a given repository. Note that this operation is only
+        intended to register the information of an *already created* tag. This
+        method should be called as part of the content push operation, right after
+        the [PUT Manifest](https://distribution.github.io/distribution/#put-manifest) has
+        succeeded. The distribution registry won't hold data such as the push time
+        or the tag digest, so `model-backend` will hold this information locally.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteRepositoryTag(self, request, context):
+        """Delete a repository tag.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ModelPrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -163,6 +222,26 @@ def add_ModelPrivateServiceServicer_to_server(servicer, server):
                     servicer.UndeployOrganizationModelAdmin,
                     request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelAdminRequest.FromString,
                     response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelAdminResponse.SerializeToString,
+            ),
+            'ListRepositoryTags': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListRepositoryTags,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListRepositoryTagsRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListRepositoryTagsResponse.SerializeToString,
+            ),
+            'GetRepositoryTag': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetRepositoryTag,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetRepositoryTagRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetRepositoryTagResponse.SerializeToString,
+            ),
+            'CreateRepositoryTag': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateRepositoryTag,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateRepositoryTagRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateRepositoryTagResponse.SerializeToString,
+            ),
+            'DeleteRepositoryTag': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteRepositoryTag,
+                    request_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteRepositoryTagRequest.FromString,
+                    response_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteRepositoryTagResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -309,5 +388,73 @@ class ModelPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/UndeployOrganizationModelAdmin',
             model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelAdminRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListRepositoryTags(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/ListRepositoryTags',
+            model_dot_model_dot_v1alpha_dot_model__pb2.ListRepositoryTagsRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.ListRepositoryTagsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetRepositoryTag(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/GetRepositoryTag',
+            model_dot_model_dot_v1alpha_dot_model__pb2.GetRepositoryTagRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.GetRepositoryTagResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateRepositoryTag(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/CreateRepositoryTag',
+            model_dot_model_dot_v1alpha_dot_model__pb2.CreateRepositoryTagRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.CreateRepositoryTagResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteRepositoryTag(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/DeleteRepositoryTag',
+            model_dot_model_dot_v1alpha_dot_model__pb2.DeleteRepositoryTagRequest.SerializeToString,
+            model_dot_model_dot_v1alpha_dot_model__pb2.DeleteRepositoryTagResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

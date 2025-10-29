@@ -67,6 +67,39 @@ class ModelPrivateServiceStub:
         model.model.v1alpha.model_pb2.UndeployOrganizationModelAdminResponse,
     ]
     """UndeployOrganizationModelAdmin undeploy a model to offline state"""
+    ListRepositoryTags: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.ListRepositoryTagsRequest,
+        model.model.v1alpha.model_pb2.ListRepositoryTagsResponse,
+    ]
+    """Repository Tag Management APIs
+
+    List the tags in a repository.
+
+    Returns a portion of the versions that the specified repository holds.
+    """
+    GetRepositoryTag: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.GetRepositoryTagRequest,
+        model.model.v1alpha.model_pb2.GetRepositoryTagResponse,
+    ]
+    """Get details of repository tag."""
+    CreateRepositoryTag: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.CreateRepositoryTagRequest,
+        model.model.v1alpha.model_pb2.CreateRepositoryTagResponse,
+    ]
+    """Create a new repository tag.
+
+    Adds a tag to a given repository. Note that this operation is only
+    intended to register the information of an *already created* tag. This
+    method should be called as part of the content push operation, right after
+    the [PUT Manifest](https://distribution.github.io/distribution/#put-manifest) has
+    succeeded. The distribution registry won't hold data such as the push time
+    or the tag digest, so `model-backend` will hold this information locally.
+    """
+    DeleteRepositoryTag: grpc.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.DeleteRepositoryTagRequest,
+        model.model.v1alpha.model_pb2.DeleteRepositoryTagResponse,
+    ]
+    """Delete a repository tag."""
 
 class ModelPrivateServiceAsyncStub:
     """Model service responds to internal access
@@ -117,6 +150,39 @@ class ModelPrivateServiceAsyncStub:
         model.model.v1alpha.model_pb2.UndeployOrganizationModelAdminResponse,
     ]
     """UndeployOrganizationModelAdmin undeploy a model to offline state"""
+    ListRepositoryTags: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.ListRepositoryTagsRequest,
+        model.model.v1alpha.model_pb2.ListRepositoryTagsResponse,
+    ]
+    """Repository Tag Management APIs
+
+    List the tags in a repository.
+
+    Returns a portion of the versions that the specified repository holds.
+    """
+    GetRepositoryTag: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.GetRepositoryTagRequest,
+        model.model.v1alpha.model_pb2.GetRepositoryTagResponse,
+    ]
+    """Get details of repository tag."""
+    CreateRepositoryTag: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.CreateRepositoryTagRequest,
+        model.model.v1alpha.model_pb2.CreateRepositoryTagResponse,
+    ]
+    """Create a new repository tag.
+
+    Adds a tag to a given repository. Note that this operation is only
+    intended to register the information of an *already created* tag. This
+    method should be called as part of the content push operation, right after
+    the [PUT Manifest](https://distribution.github.io/distribution/#put-manifest) has
+    succeeded. The distribution registry won't hold data such as the push time
+    or the tag digest, so `model-backend` will hold this information locally.
+    """
+    DeleteRepositoryTag: grpc.aio.UnaryUnaryMultiCallable[
+        model.model.v1alpha.model_pb2.DeleteRepositoryTagRequest,
+        model.model.v1alpha.model_pb2.DeleteRepositoryTagResponse,
+    ]
+    """Delete a repository tag."""
 
 class ModelPrivateServiceServicer(metaclass=abc.ABCMeta):
     """Model service responds to internal access
@@ -183,5 +249,46 @@ class ModelPrivateServiceServicer(metaclass=abc.ABCMeta):
         context: _ServicerContext,
     ) -> typing.Union[model.model.v1alpha.model_pb2.UndeployOrganizationModelAdminResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.UndeployOrganizationModelAdminResponse]]:
         """UndeployOrganizationModelAdmin undeploy a model to offline state"""
+    @abc.abstractmethod
+    def ListRepositoryTags(
+        self,
+        request: model.model.v1alpha.model_pb2.ListRepositoryTagsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.ListRepositoryTagsResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.ListRepositoryTagsResponse]]:
+        """Repository Tag Management APIs
+
+        List the tags in a repository.
+
+        Returns a portion of the versions that the specified repository holds.
+        """
+    @abc.abstractmethod
+    def GetRepositoryTag(
+        self,
+        request: model.model.v1alpha.model_pb2.GetRepositoryTagRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.GetRepositoryTagResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.GetRepositoryTagResponse]]:
+        """Get details of repository tag."""
+    @abc.abstractmethod
+    def CreateRepositoryTag(
+        self,
+        request: model.model.v1alpha.model_pb2.CreateRepositoryTagRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.CreateRepositoryTagResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.CreateRepositoryTagResponse]]:
+        """Create a new repository tag.
+
+        Adds a tag to a given repository. Note that this operation is only
+        intended to register the information of an *already created* tag. This
+        method should be called as part of the content push operation, right after
+        the [PUT Manifest](https://distribution.github.io/distribution/#put-manifest) has
+        succeeded. The distribution registry won't hold data such as the push time
+        or the tag digest, so `model-backend` will hold this information locally.
+        """
+    @abc.abstractmethod
+    def DeleteRepositoryTag(
+        self,
+        request: model.model.v1alpha.model_pb2.DeleteRepositoryTagRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[model.model.v1alpha.model_pb2.DeleteRepositoryTagResponse, collections.abc.Awaitable[model.model.v1alpha.model_pb2.DeleteRepositoryTagResponse]]:
+        """Delete a repository tag."""
 
 def add_ModelPrivateServiceServicer_to_server(servicer: ModelPrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
