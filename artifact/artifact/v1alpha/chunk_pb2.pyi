@@ -86,8 +86,6 @@ class Chunk(google.protobuf.message.Message):
     TYPE_FIELD_NUMBER: builtins.int
     REFERENCE_FIELD_NUMBER: builtins.int
     MARKDOWN_REFERENCE_FIELD_NUMBER: builtins.int
-    START_POS_FIELD_NUMBER: builtins.int
-    END_POS_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """The chunk uid (internal UUID, also used as id)."""
     id: builtins.str
@@ -113,14 +111,6 @@ class Chunk(google.protobuf.message.Message):
     @property
     def markdown_reference(self) -> global___Chunk.Reference:
         """Reference to the position of the chunk within the Markdown (source) file."""
-    start_pos: builtins.int
-    """start position of the chunk in the source file
-    Deprecated: use markdown_reference instead
-    """
-    end_pos: builtins.int
-    """end position of the chunk in the source file
-    Deprecated: use markdown_reference instead
-    """
     def __init__(
         self,
         *,
@@ -134,11 +124,9 @@ class Chunk(google.protobuf.message.Message):
         type: global___Chunk.Type.ValueType = ...,
         reference: global___Chunk.Reference | None = ...,
         markdown_reference: global___Chunk.Reference | None = ...,
-        start_pos: builtins.int = ...,
-        end_pos: builtins.int = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "markdown_reference", b"markdown_reference", "reference", b"reference"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "end_pos", b"end_pos", "id", b"id", "markdown_reference", b"markdown_reference", "name", b"name", "original_file_id", b"original_file_id", "reference", b"reference", "retrievable", b"retrievable", "start_pos", b"start_pos", "tokens", b"tokens", "type", b"type", "uid", b"uid"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["create_time", b"create_time", "id", b"id", "markdown_reference", b"markdown_reference", "name", b"name", "original_file_id", b"original_file_id", "reference", b"reference", "retrievable", b"retrievable", "tokens", b"tokens", "type", b"type", "uid", b"uid"]) -> None: ...
 
 global___Chunk = Chunk
 
@@ -231,6 +219,7 @@ class GetChunkRequest(google.protobuf.message.Message):
     KNOWLEDGE_BASE_ID_FIELD_NUMBER: builtins.int
     FILE_ID_FIELD_NUMBER: builtins.int
     CHUNK_ID_FIELD_NUMBER: builtins.int
+    CHUNK_TYPE_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """Namespace ID."""
     knowledge_base_id: builtins.str
@@ -239,6 +228,10 @@ class GetChunkRequest(google.protobuf.message.Message):
     """File ID."""
     chunk_id: builtins.str
     """Chunk ID."""
+    chunk_type: global___Chunk.Type.ValueType
+    """Optional chunk type filter. If specified, returns a chunk of this type
+    from the same file. If not specified, returns the chunk identified by chunk_id.
+    """
     def __init__(
         self,
         *,
@@ -246,8 +239,11 @@ class GetChunkRequest(google.protobuf.message.Message):
         knowledge_base_id: builtins.str = ...,
         file_id: builtins.str = ...,
         chunk_id: builtins.str = ...,
+        chunk_type: global___Chunk.Type.ValueType | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["chunk_id", b"chunk_id", "file_id", b"file_id", "knowledge_base_id", b"knowledge_base_id", "namespace_id", b"namespace_id"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_chunk_type", b"_chunk_type", "chunk_type", b"chunk_type"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_chunk_type", b"_chunk_type", "chunk_id", b"chunk_id", "chunk_type", b"chunk_type", "file_id", b"file_id", "knowledge_base_id", b"knowledge_base_id", "namespace_id", b"namespace_id"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_chunk_type", b"_chunk_type"]) -> typing_extensions.Literal["chunk_type"] | None: ...
 
 global___GetChunkRequest = GetChunkRequest
 
@@ -260,7 +256,10 @@ class GetChunkResponse(google.protobuf.message.Message):
     CHUNK_FIELD_NUMBER: builtins.int
     @property
     def chunk(self) -> global___Chunk:
-        """The chunk resource."""
+        """The chunk metadata, including markdown_reference for extracting content.
+        Clients should use GetFile to fetch the full content/summary markdown,
+        then use markdown_reference coordinates to extract the specific chunk text.
+        """
     def __init__(
         self,
         *,
