@@ -75,6 +75,11 @@ class ArtifactPublicServiceStub(object):
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileResponse.FromString,
                 )
+        self.ReprocessFile = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPublicService/ReprocessFile',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.ReprocessFileRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.ReprocessFileResponse.FromString,
+                )
         self.DeleteFile = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/DeleteFile',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.DeleteFileRequest.SerializeToString,
@@ -221,6 +226,16 @@ class ArtifactPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ReprocessFile(self, request, context):
+        """Reprocess a file
+
+        Triggers reprocessing of a file with its current configuration.
+        This will regenerate embeddings, chunks, and summaries.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def DeleteFile(self, request, context):
         """Delete a file
 
@@ -350,6 +365,11 @@ def add_ArtifactPublicServiceServicer_to_server(servicer, server):
                     servicer.UpdateFile,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileResponse.SerializeToString,
+            ),
+            'ReprocessFile': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReprocessFile,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.ReprocessFileRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.ReprocessFileResponse.SerializeToString,
             ),
             'DeleteFile': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteFile,
@@ -587,6 +607,23 @@ class ArtifactPublicService(object):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateFile',
             artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ReprocessFile(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ReprocessFile',
+            artifact_dot_artifact_dot_v1alpha_dot_file__pb2.ReprocessFileRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_file__pb2.ReprocessFileResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

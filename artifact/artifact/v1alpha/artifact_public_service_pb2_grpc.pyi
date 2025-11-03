@@ -115,6 +115,15 @@ class ArtifactPublicServiceStub:
 
     Updates a file.
     """
+    ReprocessFile: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.file_pb2.ReprocessFileRequest,
+        artifact.artifact.v1alpha.file_pb2.ReprocessFileResponse,
+    ]
+    """Reprocess a file
+
+    Triggers reprocessing of a file with its current configuration.
+    This will regenerate embeddings, chunks, and summaries.
+    """
     DeleteFile: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.file_pb2.DeleteFileRequest,
         artifact.artifact.v1alpha.file_pb2.DeleteFileResponse,
@@ -272,6 +281,15 @@ class ArtifactPublicServiceAsyncStub:
     """Update a file
 
     Updates a file.
+    """
+    ReprocessFile: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.file_pb2.ReprocessFileRequest,
+        artifact.artifact.v1alpha.file_pb2.ReprocessFileResponse,
+    ]
+    """Reprocess a file
+
+    Triggers reprocessing of a file with its current configuration.
+    This will regenerate embeddings, chunks, and summaries.
     """
     DeleteFile: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.file_pb2.DeleteFileRequest,
@@ -452,6 +470,17 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         """Update a file
 
         Updates a file.
+        """
+    @abc.abstractmethod
+    def ReprocessFile(
+        self,
+        request: artifact.artifact.v1alpha.file_pb2.ReprocessFileRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.file_pb2.ReprocessFileResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.file_pb2.ReprocessFileResponse]]:
+        """Reprocess a file
+
+        Triggers reprocessing of a file with its current configuration.
+        This will regenerate embeddings, chunks, and summaries.
         """
     @abc.abstractmethod
     def DeleteFile(

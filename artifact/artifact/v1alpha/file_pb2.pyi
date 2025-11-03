@@ -502,8 +502,13 @@ class File(google.protobuf.message.Message):
     def external_metadata(self) -> google.protobuf.struct_pb2.Struct:
         """Custom metadata provided by the user during file upload"""
     object_uid: builtins.str
-    """objectUid in blob storage. user can upload to blob storage directly, then put objectUid here.
-    then no need the base64 encoding for the file content.
+    """Object UID referencing a file already uploaded to blob storage.
+    Two upload approaches are supported:
+    1. Direct upload: Upload file directly to MinIO via GetObjectUploadURL, then provide the object_uid here.
+       This avoids base64 encoding overhead and is preferred for large files.
+    2. Inline content: Provide base64-encoded file content in the 'content' field (field 9).
+       The system will handle the blob storage upload internally.
+    When object_uid is provided, the 'content' field is ignored.
     """
     summary: builtins.str
     """Summary of the file.
@@ -862,9 +867,7 @@ global___GetFileResponse = GetFileResponse
 
 @typing_extensions.final
 class UpdateFileRequest(google.protobuf.message.Message):
-    """UpdateFileRequest represents a request to update a file.
-    Deprecated: Use UpdateFile with field_mask to update file properties including tags.
-    """
+    """UpdateFileRequest represents a request to update a file."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -922,3 +925,53 @@ class UpdateFileResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["file", b"file"]) -> None: ...
 
 global___UpdateFileResponse = UpdateFileResponse
+
+@typing_extensions.final
+class ReprocessFileRequest(google.protobuf.message.Message):
+    """ReprocessFileRequest represents a request to reprocess a file."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_ID_FIELD_NUMBER: builtins.int
+    FILE_ID_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The namespace id."""
+    knowledge_base_id: builtins.str
+    """The knowledge base id."""
+    file_id: builtins.str
+    """The file id to reprocess."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        knowledge_base_id: builtins.str = ...,
+        file_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file_id", b"file_id", "knowledge_base_id", b"knowledge_base_id", "namespace_id", b"namespace_id"]) -> None: ...
+
+global___ReprocessFileRequest = ReprocessFileRequest
+
+@typing_extensions.final
+class ReprocessFileResponse(google.protobuf.message.Message):
+    """ReprocessFileResponse represents a response for reprocessing a file."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_FIELD_NUMBER: builtins.int
+    MESSAGE_FIELD_NUMBER: builtins.int
+    @property
+    def file(self) -> global___File:
+        """The file being reprocessed."""
+    message: builtins.str
+    """Status message."""
+    def __init__(
+        self,
+        *,
+        file: global___File | None = ...,
+        message: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["file", b"file"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file", b"file", "message", b"message"]) -> None: ...
+
+global___ReprocessFileResponse = ReprocessFileResponse
