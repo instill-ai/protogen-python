@@ -221,66 +221,6 @@ class GetObjectDownloadURLResponse(google.protobuf.message.Message):
 global___GetObjectDownloadURLResponse = GetObjectDownloadURLResponse
 
 @typing_extensions.final
-class ObjectURL(google.protobuf.message.Message):
-    """ObjectUploadURL"""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    UID_FIELD_NUMBER: builtins.int
-    NAMESPACE_UID_FIELD_NUMBER: builtins.int
-    OBJECT_UID_FIELD_NUMBER: builtins.int
-    URL_EXPIRE_AT_FIELD_NUMBER: builtins.int
-    MINIO_URL_PATH_FIELD_NUMBER: builtins.int
-    ENCODED_URL_PATH_FIELD_NUMBER: builtins.int
-    TYPE_FIELD_NUMBER: builtins.int
-    CREATE_TIME_FIELD_NUMBER: builtins.int
-    UPDATE_TIME_FIELD_NUMBER: builtins.int
-    DELETE_TIME_FIELD_NUMBER: builtins.int
-    uid: builtins.str
-    """The unique identifier of the ObjectURL"""
-    namespace_uid: builtins.str
-    """The namespace UID associated with this ObjectURL"""
-    object_uid: builtins.str
-    """The object UID associated with this ObjectURL"""
-    @property
-    def url_expire_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """The expiration time of the URL"""
-    minio_url_path: builtins.str
-    """The MinIO URL path"""
-    encoded_url_path: builtins.str
-    """The encoded URL path"""
-    type: builtins.str
-    """The type of URL (download or upload)"""
-    @property
-    def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """The creation time of the ObjectURL"""
-    @property
-    def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """The last update time of the ObjectURL"""
-    @property
-    def delete_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """The deletion time of the ObjectURL, if applicable"""
-    def __init__(
-        self,
-        *,
-        uid: builtins.str = ...,
-        namespace_uid: builtins.str = ...,
-        object_uid: builtins.str = ...,
-        url_expire_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        minio_url_path: builtins.str = ...,
-        encoded_url_path: builtins.str = ...,
-        type: builtins.str = ...,
-        create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_delete_time", b"_delete_time", "create_time", b"create_time", "delete_time", b"delete_time", "update_time", b"update_time", "url_expire_at", b"url_expire_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_delete_time", b"_delete_time", "create_time", b"create_time", "delete_time", b"delete_time", "encoded_url_path", b"encoded_url_path", "minio_url_path", b"minio_url_path", "namespace_uid", b"namespace_uid", "object_uid", b"object_uid", "type", b"type", "uid", b"uid", "update_time", b"update_time", "url_expire_at", b"url_expire_at"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_delete_time", b"_delete_time"]) -> typing_extensions.Literal["delete_time"] | None: ...
-
-global___ObjectURL = ObjectURL
-
-@typing_extensions.final
 class GetObjectRequest(google.protobuf.message.Message):
     """GetObjectRequest"""
 
@@ -317,52 +257,6 @@ class GetObjectResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["object", b"object"]) -> None: ...
 
 global___GetObjectResponse = GetObjectResponse
-
-@typing_extensions.final
-class GetObjectURLRequest(google.protobuf.message.Message):
-    """GetObjectURLRequest"""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    UID_FIELD_NUMBER: builtins.int
-    ENCODED_URL_PATH_FIELD_NUMBER: builtins.int
-    uid: builtins.str
-    """object url uid"""
-    encoded_url_path: builtins.str
-    """encoded url path. artifact first use uid to get object url,
-    if not exist, then use encoded url path to get object url
-    """
-    def __init__(
-        self,
-        *,
-        uid: builtins.str = ...,
-        encoded_url_path: builtins.str | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_encoded_url_path", b"_encoded_url_path", "encoded_url_path", b"encoded_url_path"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_encoded_url_path", b"_encoded_url_path", "encoded_url_path", b"encoded_url_path", "uid", b"uid"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_encoded_url_path", b"_encoded_url_path"]) -> typing_extensions.Literal["encoded_url_path"] | None: ...
-
-global___GetObjectURLRequest = GetObjectURLRequest
-
-@typing_extensions.final
-class GetObjectURLResponse(google.protobuf.message.Message):
-    """GetObjectURLResponse"""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    OBJECT_URL_FIELD_NUMBER: builtins.int
-    @property
-    def object_url(self) -> global___ObjectURL:
-        """object url"""
-    def __init__(
-        self,
-        *,
-        object_url: global___ObjectURL | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["object_url", b"object_url"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["object_url", b"object_url"]) -> None: ...
-
-global___GetObjectURLResponse = GetObjectURLResponse
 
 @typing_extensions.final
 class UpdateObjectRequest(google.protobuf.message.Message):
@@ -468,52 +362,6 @@ class GetObjectAdminResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["object", b"object"]) -> None: ...
 
 global___GetObjectAdminResponse = GetObjectAdminResponse
-
-@typing_extensions.final
-class GetObjectURLAdminRequest(google.protobuf.message.Message):
-    """GetObjectURLAdminRequest represents a request to get an object URL (admin only)."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    UID_FIELD_NUMBER: builtins.int
-    ENCODED_URL_PATH_FIELD_NUMBER: builtins.int
-    uid: builtins.str
-    """object url uid"""
-    encoded_url_path: builtins.str
-    """encoded url path. artifact first use uid to get object url,
-    if not exist, then use encoded url path to get object url
-    """
-    def __init__(
-        self,
-        *,
-        uid: builtins.str = ...,
-        encoded_url_path: builtins.str | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_encoded_url_path", b"_encoded_url_path", "encoded_url_path", b"encoded_url_path"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_encoded_url_path", b"_encoded_url_path", "encoded_url_path", b"encoded_url_path", "uid", b"uid"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_encoded_url_path", b"_encoded_url_path"]) -> typing_extensions.Literal["encoded_url_path"] | None: ...
-
-global___GetObjectURLAdminRequest = GetObjectURLAdminRequest
-
-@typing_extensions.final
-class GetObjectURLAdminResponse(google.protobuf.message.Message):
-    """GetObjectURLAdminResponse contains the requested object URL (admin only)."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    OBJECT_URL_FIELD_NUMBER: builtins.int
-    @property
-    def object_url(self) -> global___ObjectURL:
-        """object url"""
-    def __init__(
-        self,
-        *,
-        object_url: global___ObjectURL | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["object_url", b"object_url"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["object_url", b"object_url"]) -> None: ...
-
-global___GetObjectURLAdminResponse = GetObjectURLAdminResponse
 
 @typing_extensions.final
 class UpdateObjectAdminRequest(google.protobuf.message.Message):

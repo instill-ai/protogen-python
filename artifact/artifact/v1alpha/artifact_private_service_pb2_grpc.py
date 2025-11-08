@@ -24,11 +24,6 @@ class ArtifactPrivateServiceStub(object):
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectAdminResponse.FromString,
                 )
-        self.GetObjectURLAdmin = channel.unary_unary(
-                '/artifact.artifact.v1alpha.ArtifactPrivateService/GetObjectURLAdmin',
-                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectURLAdminRequest.SerializeToString,
-                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectURLAdminResponse.FromString,
-                )
         self.UpdateObjectAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateObjectAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.UpdateObjectAdminRequest.SerializeToString,
@@ -118,13 +113,6 @@ class ArtifactPrivateServiceServicer(object):
 
     def GetObjectAdmin(self, request, context):
         """Get Object (admin only)
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetObjectURLAdmin(self, request, context):
-        """Get Object URL (admin only)
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -269,11 +257,6 @@ def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectAdminRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectAdminResponse.SerializeToString,
             ),
-            'GetObjectURLAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetObjectURLAdmin,
-                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectURLAdminRequest.FromString,
-                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectURLAdminResponse.SerializeToString,
-            ),
             'UpdateObjectAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateObjectAdmin,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.UpdateObjectAdminRequest.FromString,
@@ -380,23 +363,6 @@ class ArtifactPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/GetObjectAdmin',
             artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectAdminRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetObjectURLAdmin(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/GetObjectURLAdmin',
-            artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectURLAdminRequest.SerializeToString,
-            artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectURLAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

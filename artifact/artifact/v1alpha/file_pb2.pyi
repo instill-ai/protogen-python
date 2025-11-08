@@ -160,6 +160,29 @@ class File(google.protobuf.message.Message):
     VIEW_CACHE: File.View.ValueType  # 7
     """Returns Gemini cache resource name."""
 
+    class _StorageProvider:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _StorageProviderEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[File._StorageProvider.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        STORAGE_PROVIDER_UNSPECIFIED: File._StorageProvider.ValueType  # 0
+        """Unspecified, defaults to MinIO for backward compatibility"""
+        STORAGE_PROVIDER_MINIO: File._StorageProvider.ValueType  # 1
+        """Use MinIO as the storage backend (default)"""
+        STORAGE_PROVIDER_GCS: File._StorageProvider.ValueType  # 2
+        """Use Google Cloud Storage as the storage backend"""
+
+    class StorageProvider(_StorageProvider, metaclass=_StorageProviderEnumTypeWrapper):
+        """Storage provider for file resources"""
+
+    STORAGE_PROVIDER_UNSPECIFIED: File.StorageProvider.ValueType  # 0
+    """Unspecified, defaults to MinIO for backward compatibility"""
+    STORAGE_PROVIDER_MINIO: File.StorageProvider.ValueType  # 1
+    """Use MinIO as the storage backend (default)"""
+    STORAGE_PROVIDER_GCS: File.StorageProvider.ValueType  # 2
+    """Use Google Cloud Storage as the storage backend"""
+
     class _Type:
         ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
@@ -814,6 +837,7 @@ class GetFileRequest(google.protobuf.message.Message):
     KNOWLEDGE_BASE_ID_FIELD_NUMBER: builtins.int
     FILE_ID_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
+    STORAGE_PROVIDER_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """The namespace id."""
     knowledge_base_id: builtins.str
@@ -822,6 +846,14 @@ class GetFileRequest(google.protobuf.message.Message):
     """The file id."""
     view: global___File.View.ValueType
     """View allows clients to specify the desired file view in the response."""
+    storage_provider: global___File.StorageProvider.ValueType
+    """Storage provider specifies which storage backend to use for the file resource.
+    This field is only applicable for views that return file content:
+    VIEW_SUMMARY, VIEW_CONTENT, VIEW_STANDARD_FILE_TYPE, VIEW_ORIGINAL_FILE_TYPE.
+    - STORAGE_PROVIDER_UNSPECIFIED or STORAGE_PROVIDER_MINIO: Returns MinIO pre-signed URL (default)
+    - STORAGE_PROVIDER_GCS: Uploads file to GCS if not present (with cache check), returns GCS signed URL
+    GCS requires proper configuration in system settings.
+    """
     def __init__(
         self,
         *,
@@ -829,9 +861,13 @@ class GetFileRequest(google.protobuf.message.Message):
         knowledge_base_id: builtins.str = ...,
         file_id: builtins.str = ...,
         view: global___File.View.ValueType | None = ...,
+        storage_provider: global___File.StorageProvider.ValueType | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_view", b"_view", "file_id", b"file_id", "knowledge_base_id", b"knowledge_base_id", "namespace_id", b"namespace_id", "view", b"view"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_storage_provider", b"_storage_provider", "_view", b"_view", "storage_provider", b"storage_provider", "view", b"view"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_storage_provider", b"_storage_provider", "_view", b"_view", "file_id", b"file_id", "knowledge_base_id", b"knowledge_base_id", "namespace_id", b"namespace_id", "storage_provider", b"storage_provider", "view", b"view"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_storage_provider", b"_storage_provider"]) -> typing_extensions.Literal["storage_provider"] | None: ...
+    @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_view", b"_view"]) -> typing_extensions.Literal["view"] | None: ...
 
 global___GetFileRequest = GetFileRequest
@@ -848,10 +884,12 @@ class GetFileResponse(google.protobuf.message.Message):
     def file(self) -> global___File:
         """The file metadata (always included)."""
     derived_resource_uri: builtins.str
-    """Derived resource URI based on view:
-    - VIEW_SUMMARY/CONTENT/STANDARD_FILE_TYPE/ORIGINAL_FILE_TYPE: MinIO pre-signed URL to content
-    - VIEW_CACHE: Gemini cache resource name
-    Only populated for VIEW_SUMMARY, VIEW_CONTENT, VIEW_STANDARD_FILE_TYPE, VIEW_ORIGINAL_FILE_TYPE, and VIEW_CACHE.
+    """Derived resource URI based on view and storage provider:
+    - VIEW_SUMMARY/CONTENT/STANDARD_FILE_TYPE/ORIGINAL_FILE_TYPE:
+      * STORAGE_PROVIDER_MINIO (default): MinIO pre-signed URL
+      * STORAGE_PROVIDER_GCS: GCS signed URL (file uploaded to GCS if needed)
+    - VIEW_CACHE: Gemini/VertexAI cache resource name (format: cacheContent/<cacheId>)
+    Only populated for views that return file content.
     """
     def __init__(
         self,

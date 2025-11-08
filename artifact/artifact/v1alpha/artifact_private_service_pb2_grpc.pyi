@@ -31,11 +31,6 @@ class ArtifactPrivateServiceStub:
         artifact.artifact.v1alpha.object_pb2.GetObjectAdminResponse,
     ]
     """Get Object (admin only)"""
-    GetObjectURLAdmin: grpc.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.object_pb2.GetObjectURLAdminRequest,
-        artifact.artifact.v1alpha.object_pb2.GetObjectURLAdminResponse,
-    ]
-    """Get Object URL (admin only)"""
     UpdateObjectAdmin: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.object_pb2.UpdateObjectAdminRequest,
         artifact.artifact.v1alpha.object_pb2.UpdateObjectAdminResponse,
@@ -150,11 +145,6 @@ class ArtifactPrivateServiceAsyncStub:
         artifact.artifact.v1alpha.object_pb2.GetObjectAdminResponse,
     ]
     """Get Object (admin only)"""
-    GetObjectURLAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.artifact.v1alpha.object_pb2.GetObjectURLAdminRequest,
-        artifact.artifact.v1alpha.object_pb2.GetObjectURLAdminResponse,
-    ]
-    """Get Object URL (admin only)"""
     UpdateObjectAdmin: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.object_pb2.UpdateObjectAdminRequest,
         artifact.artifact.v1alpha.object_pb2.UpdateObjectAdminResponse,
@@ -271,13 +261,6 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.object_pb2.GetObjectAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.object_pb2.GetObjectAdminResponse]]:
         """Get Object (admin only)"""
-    @abc.abstractmethod
-    def GetObjectURLAdmin(
-        self,
-        request: artifact.artifact.v1alpha.object_pb2.GetObjectURLAdminRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[artifact.artifact.v1alpha.object_pb2.GetObjectURLAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.object_pb2.GetObjectURLAdminResponse]]:
-        """Get Object URL (admin only)"""
     @abc.abstractmethod
     def UpdateObjectAdmin(
         self,
