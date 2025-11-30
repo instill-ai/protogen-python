@@ -172,6 +172,7 @@ class GetObjectDownloadURLRequest(google.protobuf.message.Message):
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     OBJECT_UID_FIELD_NUMBER: builtins.int
     URL_EXPIRE_DAYS_FIELD_NUMBER: builtins.int
+    DOWNLOAD_FILENAME_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
     """id of the namespace"""
     object_uid: builtins.str
@@ -180,14 +181,19 @@ class GetObjectDownloadURLRequest(google.protobuf.message.Message):
     """expiration time in days for the URL.
     maximum is 7 days. if set to 0, URL will not expire.
     """
+    download_filename: builtins.str
+    """Optional custom filename for the download.
+    If provided, this filename will be used in the Content-Disposition header.
+    """
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
         object_uid: builtins.str = ...,
         url_expire_days: builtins.int = ...,
+        download_filename: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["namespace_id", b"namespace_id", "object_uid", b"object_uid", "url_expire_days", b"url_expire_days"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["download_filename", b"download_filename", "namespace_id", b"namespace_id", "object_uid", b"object_uid", "url_expire_days", b"url_expire_days"]) -> None: ...
 
 global___GetObjectDownloadURLRequest = GetObjectDownloadURLRequest
 

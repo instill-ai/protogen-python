@@ -56,7 +56,7 @@ class ArtifactPrivateServiceStub:
         artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminRequest,
         artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminResponse,
     ]
-    """Knowledge Base Update Admin APIs
+    """Knowledge Base Management Admin APIs
 
     Execute knowledge base update (admin only)
     """
@@ -170,7 +170,7 @@ class ArtifactPrivateServiceAsyncStub:
         artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminRequest,
         artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminResponse,
     ]
-    """Knowledge Base Update Admin APIs
+    """Knowledge Base Management Admin APIs
 
     Execute knowledge base update (admin only)
     """
@@ -292,7 +292,7 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
         request: artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminResponse]]:
-        """Knowledge Base Update Admin APIs
+        """Knowledge Base Management Admin APIs
 
         Execute knowledge base update (admin only)
         """

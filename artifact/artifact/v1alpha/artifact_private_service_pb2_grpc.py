@@ -143,7 +143,7 @@ class ArtifactPrivateServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ExecuteKnowledgeBaseUpdateAdmin(self, request, context):
-        """Knowledge Base Update Admin APIs
+        """Knowledge Base Management Admin APIs
 
         Execute knowledge base update (admin only)
         """
