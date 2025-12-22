@@ -146,7 +146,7 @@ class ListChunksRequest(google.protobuf.message.Message):
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """owner/namespace id"""
+    """The namespace ID."""
     knowledge_base_id: builtins.str
     """knowledge base id"""
     file_id: builtins.str

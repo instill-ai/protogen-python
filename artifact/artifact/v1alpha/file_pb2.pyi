@@ -464,7 +464,7 @@ class File(google.protobuf.message.Message):
     PROCESS_OUTCOME_FIELD_NUMBER: builtins.int
     RETRIEVABLE_FIELD_NUMBER: builtins.int
     CONTENT_FIELD_NUMBER: builtins.int
-    OWNER_UID_FIELD_NUMBER: builtins.int
+    NAMESPACE_UID_FIELD_NUMBER: builtins.int
     CREATOR_UID_FIELD_NUMBER: builtins.int
     KNOWLEDGE_BASE_UID_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
@@ -499,8 +499,8 @@ class File(google.protobuf.message.Message):
     """retrievable(this is reserved for future use)"""
     content: builtins.str
     """content(this is reserved for future use)"""
-    owner_uid: builtins.str
-    """owner/namespace uid"""
+    namespace_uid: builtins.str
+    """Namespace UID that owns this file"""
     creator_uid: builtins.str
     """creator uid from authn token"""
     knowledge_base_uid: builtins.str
@@ -585,7 +585,7 @@ class File(google.protobuf.message.Message):
         process_outcome: builtins.str = ...,
         retrievable: builtins.bool = ...,
         content: builtins.str = ...,
-        owner_uid: builtins.str = ...,
+        namespace_uid: builtins.str = ...,
         creator_uid: builtins.str = ...,
         knowledge_base_uid: builtins.str = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
@@ -602,7 +602,7 @@ class File(google.protobuf.message.Message):
         tags: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_converting_pipeline", b"_converting_pipeline", "_external_metadata", b"_external_metadata", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "delete_time", b"delete_time", "external_metadata", b"external_metadata", "length", b"length", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_converting_pipeline", b"_converting_pipeline", "_external_metadata", b"_external_metadata", "content", b"content", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "download_url", b"download_url", "external_metadata", b"external_metadata", "filename", b"filename", "id", b"id", "knowledge_base_uid", b"knowledge_base_uid", "length", b"length", "name", b"name", "object_uid", b"object_uid", "owner_uid", b"owner_uid", "process_outcome", b"process_outcome", "process_status", b"process_status", "retrievable", b"retrievable", "size", b"size", "tags", b"tags", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_converting_pipeline", b"_converting_pipeline", "_external_metadata", b"_external_metadata", "content", b"content", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "download_url", b"download_url", "external_metadata", b"external_metadata", "filename", b"filename", "id", b"id", "knowledge_base_uid", b"knowledge_base_uid", "length", b"length", "name", b"name", "namespace_uid", b"namespace_uid", "object_uid", b"object_uid", "process_outcome", b"process_outcome", "process_status", b"process_status", "retrievable", b"retrievable", "size", b"size", "tags", b"tags", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_converting_pipeline", b"_converting_pipeline"]) -> typing_extensions.Literal["converting_pipeline"] | None: ...
     @typing.overload
@@ -620,7 +620,7 @@ class CreateFileRequest(google.protobuf.message.Message):
     KNOWLEDGE_BASE_ID_FIELD_NUMBER: builtins.int
     FILE_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """owner/namespace id"""
+    """The namespace ID."""
     knowledge_base_id: builtins.str
     """knowledge base id"""
     @property
@@ -753,7 +753,7 @@ class ListFilesRequest(google.protobuf.message.Message):
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """The owner/namespace id."""
+    """The namespace ID."""
     knowledge_base_id: builtins.str
     """The knowledge base id."""
     page_size: builtins.int
