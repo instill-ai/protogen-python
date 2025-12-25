@@ -4,6 +4,7 @@ isort:skip_file
 """
 import builtins
 import collections.abc
+import core.mgmt.v1beta.mgmt_pb2
 import google.protobuf.descriptor
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
@@ -466,6 +467,9 @@ class File(google.protobuf.message.Message):
     CONTENT_FIELD_NUMBER: builtins.int
     NAMESPACE_UID_FIELD_NUMBER: builtins.int
     CREATOR_UID_FIELD_NUMBER: builtins.int
+    CREATOR_FIELD_NUMBER: builtins.int
+    OWNER_NAME_FIELD_NUMBER: builtins.int
+    OWNER_FIELD_NUMBER: builtins.int
     KNOWLEDGE_BASE_UID_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
@@ -503,6 +507,16 @@ class File(google.protobuf.message.Message):
     """Namespace UID that owns this file"""
     creator_uid: builtins.str
     """creator uid from authn token"""
+    @property
+    def creator(self) -> core.mgmt.v1beta.mgmt_pb2.User:
+        """The user who created this file.
+        Populated when creator_uid is present.
+        """
+    owner_name: builtins.str
+    """Resource name of the owner namespace."""
+    @property
+    def owner(self) -> core.mgmt.v1beta.mgmt_pb2.Owner:
+        """File owner (User or Organization)."""
     knowledge_base_uid: builtins.str
     """knowledge base uid"""
     @property
@@ -587,6 +601,9 @@ class File(google.protobuf.message.Message):
         content: builtins.str = ...,
         namespace_uid: builtins.str = ...,
         creator_uid: builtins.str = ...,
+        creator: core.mgmt.v1beta.mgmt_pb2.User | None = ...,
+        owner_name: builtins.str = ...,
+        owner: core.mgmt.v1beta.mgmt_pb2.Owner | None = ...,
         knowledge_base_uid: builtins.str = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
@@ -601,12 +618,16 @@ class File(google.protobuf.message.Message):
         length: global___File.Position | None = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_converting_pipeline", b"_converting_pipeline", "_external_metadata", b"_external_metadata", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "delete_time", b"delete_time", "external_metadata", b"external_metadata", "length", b"length", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_converting_pipeline", b"_converting_pipeline", "_external_metadata", b"_external_metadata", "content", b"content", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "download_url", b"download_url", "external_metadata", b"external_metadata", "filename", b"filename", "id", b"id", "knowledge_base_uid", b"knowledge_base_uid", "length", b"length", "name", b"name", "namespace_uid", b"namespace_uid", "object_uid", b"object_uid", "process_outcome", b"process_outcome", "process_status", b"process_status", "retrievable", b"retrievable", "size", b"size", "tags", b"tags", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_converting_pipeline", b"_converting_pipeline", "_creator", b"_creator", "_external_metadata", b"_external_metadata", "_owner", b"_owner", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator", b"creator", "delete_time", b"delete_time", "external_metadata", b"external_metadata", "length", b"length", "owner", b"owner", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_converting_pipeline", b"_converting_pipeline", "_creator", b"_creator", "_external_metadata", b"_external_metadata", "_owner", b"_owner", "content", b"content", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "download_url", b"download_url", "external_metadata", b"external_metadata", "filename", b"filename", "id", b"id", "knowledge_base_uid", b"knowledge_base_uid", "length", b"length", "name", b"name", "namespace_uid", b"namespace_uid", "object_uid", b"object_uid", "owner", b"owner", "owner_name", b"owner_name", "process_outcome", b"process_outcome", "process_status", b"process_status", "retrievable", b"retrievable", "size", b"size", "tags", b"tags", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_converting_pipeline", b"_converting_pipeline"]) -> typing_extensions.Literal["converting_pipeline"] | None: ...
     @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_creator", b"_creator"]) -> typing_extensions.Literal["creator"] | None: ...
+    @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_external_metadata", b"_external_metadata"]) -> typing_extensions.Literal["external_metadata"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_owner", b"_owner"]) -> typing_extensions.Literal["owner"] | None: ...
 
 global___File = File
 

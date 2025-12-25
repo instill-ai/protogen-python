@@ -325,6 +325,8 @@ class Model(google.protobuf.message.Message):
     DELETE_TIME_FIELD_NUMBER: builtins.int
     OWNER_NAME_FIELD_NUMBER: builtins.int
     OWNER_FIELD_NUMBER: builtins.int
+    CREATOR_UID_FIELD_NUMBER: builtins.int
+    CREATOR_FIELD_NUMBER: builtins.int
     REGION_FIELD_NUMBER: builtins.int
     HARDWARE_FIELD_NUMBER: builtins.int
     README_FIELD_NUMBER: builtins.int
@@ -378,6 +380,16 @@ class Model(google.protobuf.message.Message):
     @property
     def owner(self) -> core.mgmt.v1beta.mgmt_pb2.Owner:
         """Model owner."""
+    creator_uid: builtins.str
+    """The UID of the user who created this model.
+    This field is optional for system-created models or legacy models
+    created before this field was introduced.
+    """
+    @property
+    def creator(self) -> core.mgmt.v1beta.mgmt_pb2.User:
+        """The user who created this model.
+        Populated when creator_uid is present.
+        """
     region: builtins.str
     """Region of choice for the particular provider to host the model."""
     hardware: builtins.str
@@ -426,6 +438,8 @@ class Model(google.protobuf.message.Message):
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         owner_name: builtins.str = ...,
         owner: core.mgmt.v1beta.mgmt_pb2.Owner | None = ...,
+        creator_uid: builtins.str | None = ...,
+        creator: core.mgmt.v1beta.mgmt_pb2.User | None = ...,
         region: builtins.str = ...,
         hardware: builtins.str = ...,
         readme: builtins.str | None = ...,
@@ -440,8 +454,12 @@ class Model(google.protobuf.message.Message):
         versions: collections.abc.Iterable[builtins.str] | None = ...,
         stats: global___Model.Stats | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_readme", b"_readme", "_source_url", b"_source_url", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "input_schema", b"input_schema", "license", b"license", "output_schema", b"output_schema", "owner", b"owner", "permission", b"permission", "profile_image", b"profile_image", "readme", b"readme", "source_url", b"source_url", "stats", b"stats", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_readme", b"_readme", "_source_url", b"_source_url", "configuration", b"configuration", "create_time", b"create_time", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "hardware", b"hardware", "id", b"id", "input_schema", b"input_schema", "license", b"license", "model_definition", b"model_definition", "name", b"name", "output_schema", b"output_schema", "owner", b"owner", "owner_name", b"owner_name", "permission", b"permission", "profile_image", b"profile_image", "readme", b"readme", "region", b"region", "source_url", b"source_url", "stats", b"stats", "tags", b"tags", "task", b"task", "uid", b"uid", "update_time", b"update_time", "versions", b"versions", "visibility", b"visibility"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["_creator", b"_creator", "_creator_uid", b"_creator_uid", "_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_readme", b"_readme", "_source_url", b"_source_url", "configuration", b"configuration", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "input_schema", b"input_schema", "license", b"license", "output_schema", b"output_schema", "owner", b"owner", "permission", b"permission", "profile_image", b"profile_image", "readme", b"readme", "source_url", b"source_url", "stats", b"stats", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_creator", b"_creator", "_creator_uid", b"_creator_uid", "_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_readme", b"_readme", "_source_url", b"_source_url", "configuration", b"configuration", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "hardware", b"hardware", "id", b"id", "input_schema", b"input_schema", "license", b"license", "model_definition", b"model_definition", "name", b"name", "output_schema", b"output_schema", "owner", b"owner", "owner_name", b"owner_name", "permission", b"permission", "profile_image", b"profile_image", "readme", b"readme", "region", b"region", "source_url", b"source_url", "stats", b"stats", "tags", b"tags", "task", b"task", "uid", b"uid", "update_time", b"update_time", "versions", b"versions", "visibility", b"visibility"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_creator", b"_creator"]) -> typing_extensions.Literal["creator"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["_creator_uid", b"_creator_uid"]) -> typing_extensions.Literal["creator_uid"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_description", b"_description"]) -> typing_extensions.Literal["description"] | None: ...
     @typing.overload
