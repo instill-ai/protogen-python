@@ -3,6 +3,7 @@
 import grpc
 
 from artifact.artifact.v1alpha import file_pb2 as artifact_dot_artifact_dot_v1alpha_dot_file__pb2
+from artifact.artifact.v1alpha import knowledge_base_pb2 as artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2
 from artifact.artifact.v1alpha import object_pb2 as artifact_dot_artifact_dot_v1alpha_dot_object__pb2
 from artifact.artifact.v1alpha import system_pb2 as artifact_dot_artifact_dot_v1alpha_dot_system__pb2
 from artifact.artifact.v1alpha import update_pb2 as artifact_dot_artifact_dot_v1alpha_dot_update__pb2
@@ -19,6 +20,11 @@ class ArtifactPrivateServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
+        self.CreateKnowledgeBaseAdmin = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPrivateService/CreateKnowledgeBaseAdmin',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseAdminResponse.FromString,
+                )
         self.GetObjectAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/GetObjectAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectAdminRequest.SerializeToString,
@@ -110,6 +116,17 @@ class ArtifactPrivateServiceServicer(object):
     """ArtifactPrivateService exposes the private endpoints that allow clients to
     manage artifacts.
     """
+
+    def CreateKnowledgeBaseAdmin(self, request, context):
+        """Create a knowledge base without setting a creator (admin only)
+
+        Creates a system-level knowledge base that has no creator. Used by internal
+        services (e.g., agent-backend) to create shared knowledge bases like
+        "instill-agent" that are not owned by any specific user.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def GetObjectAdmin(self, request, context):
         """Get Object (admin only)
@@ -252,6 +269,11 @@ class ArtifactPrivateServiceServicer(object):
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
+            'CreateKnowledgeBaseAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateKnowledgeBaseAdmin,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseAdminRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseAdminResponse.SerializeToString,
+            ),
             'GetObjectAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.GetObjectAdmin,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectAdminRequest.FromString,
@@ -348,6 +370,23 @@ class ArtifactPrivateService(object):
     """ArtifactPrivateService exposes the private endpoints that allow clients to
     manage artifacts.
     """
+
+    @staticmethod
+    def CreateKnowledgeBaseAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/CreateKnowledgeBaseAdmin',
+            artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseAdminRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def GetObjectAdmin(request,

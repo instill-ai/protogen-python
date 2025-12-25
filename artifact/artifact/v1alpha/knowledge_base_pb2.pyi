@@ -522,3 +522,62 @@ class DeleteKnowledgeBaseResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base"]) -> None: ...
 
 global___DeleteKnowledgeBaseResponse = DeleteKnowledgeBaseResponse
+
+@typing_extensions.final
+class CreateKnowledgeBaseAdminRequest(google.protobuf.message.Message):
+    """CreateKnowledgeBaseAdminRequest represents a request to create a system-level
+    knowledge base without a creator (admin only).
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    ID_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
+    TAGS_FIELD_NUMBER: builtins.int
+    TYPE_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The knowledge base's owner (namespace ID)."""
+    id: builtins.str
+    """The knowledge base id (user-provided or auto-generated)."""
+    description: builtins.str
+    """The knowledge base description."""
+    @property
+    def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """The knowledge base tags."""
+    type: global___KnowledgeBaseType.ValueType
+    """The knowledge base type. default is PERSISTENT"""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        id: builtins.str = ...,
+        description: builtins.str = ...,
+        tags: collections.abc.Iterable[builtins.str] | None = ...,
+        type: global___KnowledgeBaseType.ValueType = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "id", b"id", "namespace_id", b"namespace_id", "tags", b"tags", "type", b"type"]) -> None: ...
+
+global___CreateKnowledgeBaseAdminRequest = CreateKnowledgeBaseAdminRequest
+
+@typing_extensions.final
+class CreateKnowledgeBaseAdminResponse(google.protobuf.message.Message):
+    """CreateKnowledgeBaseAdminResponse represents a response for creating a system-level
+    knowledge base.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
+    @property
+    def knowledge_base(self) -> global___KnowledgeBase:
+        """The created knowledge base."""
+    def __init__(
+        self,
+        *,
+        knowledge_base: global___KnowledgeBase | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base"]) -> None: ...
+
+global___CreateKnowledgeBaseAdminResponse = CreateKnowledgeBaseAdminResponse

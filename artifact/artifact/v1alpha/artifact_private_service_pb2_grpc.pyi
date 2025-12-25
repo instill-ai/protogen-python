@@ -4,6 +4,7 @@ isort:skip_file
 """
 import abc
 import artifact.artifact.v1alpha.file_pb2
+import artifact.artifact.v1alpha.knowledge_base_pb2
 import artifact.artifact.v1alpha.object_pb2
 import artifact.artifact.v1alpha.system_pb2
 import artifact.artifact.v1alpha.update_pb2
@@ -26,6 +27,16 @@ class ArtifactPrivateServiceStub:
     """
 
     def __init__(self, channel: typing.Union[grpc.Channel, grpc.aio.Channel]) -> None: ...
+    CreateKnowledgeBaseAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.knowledge_base_pb2.CreateKnowledgeBaseAdminRequest,
+        artifact.artifact.v1alpha.knowledge_base_pb2.CreateKnowledgeBaseAdminResponse,
+    ]
+    """Create a knowledge base without setting a creator (admin only)
+
+    Creates a system-level knowledge base that has no creator. Used by internal
+    services (e.g., agent-backend) to create shared knowledge bases like
+    "instill-agent" that are not owned by any specific user.
+    """
     GetObjectAdmin: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.object_pb2.GetObjectAdminRequest,
         artifact.artifact.v1alpha.object_pb2.GetObjectAdminResponse,
@@ -140,6 +151,16 @@ class ArtifactPrivateServiceAsyncStub:
     manage artifacts.
     """
 
+    CreateKnowledgeBaseAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.knowledge_base_pb2.CreateKnowledgeBaseAdminRequest,
+        artifact.artifact.v1alpha.knowledge_base_pb2.CreateKnowledgeBaseAdminResponse,
+    ]
+    """Create a knowledge base without setting a creator (admin only)
+
+    Creates a system-level knowledge base that has no creator. Used by internal
+    services (e.g., agent-backend) to create shared knowledge bases like
+    "instill-agent" that are not owned by any specific user.
+    """
     GetObjectAdmin: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.object_pb2.GetObjectAdminRequest,
         artifact.artifact.v1alpha.object_pb2.GetObjectAdminResponse,
@@ -254,6 +275,18 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
     manage artifacts.
     """
 
+    @abc.abstractmethod
+    def CreateKnowledgeBaseAdmin(
+        self,
+        request: artifact.artifact.v1alpha.knowledge_base_pb2.CreateKnowledgeBaseAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.knowledge_base_pb2.CreateKnowledgeBaseAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.knowledge_base_pb2.CreateKnowledgeBaseAdminResponse]]:
+        """Create a knowledge base without setting a creator (admin only)
+
+        Creates a system-level knowledge base that has no creator. Used by internal
+        services (e.g., agent-backend) to create shared knowledge bases like
+        "instill-agent" that are not owned by any specific user.
+        """
     @abc.abstractmethod
     def GetObjectAdmin(
         self,
