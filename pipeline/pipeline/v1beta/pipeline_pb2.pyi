@@ -299,6 +299,7 @@ class Pipeline(google.protobuf.message.Message):
     OWNER_FIELD_NUMBER: builtins.int
     CREATOR_UID_FIELD_NUMBER: builtins.int
     CREATOR_FIELD_NUMBER: builtins.int
+    OWNER_UID_FIELD_NUMBER: builtins.int
     DATA_SPECIFICATION_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
     STATS_FIELD_NUMBER: builtins.int
@@ -365,6 +366,10 @@ class Pipeline(google.protobuf.message.Message):
         """The user who created this pipeline.
         Populated when creator_uid is present.
         """
+    owner_uid: builtins.str
+    """The UID of the owner namespace (User or Organization) of this pipeline.
+    This is an immutable identifier, unlike owner_name which may change.
+    """
     @property
     def data_specification(self) -> pipeline.pipeline.v1beta.component_definition_pb2.DataSpecification:
         """Data specifications."""
@@ -410,6 +415,7 @@ class Pipeline(google.protobuf.message.Message):
         owner: core.mgmt.v1beta.mgmt_pb2.Owner | None = ...,
         creator_uid: builtins.str | None = ...,
         creator: core.mgmt.v1beta.mgmt_pb2.User | None = ...,
+        owner_uid: builtins.str = ...,
         data_specification: pipeline.pipeline.v1beta.component_definition_pb2.DataSpecification | None = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
         stats: global___Pipeline.Stats | None = ...,
@@ -421,7 +427,7 @@ class Pipeline(google.protobuf.message.Message):
         endpoints: global___Endpoints | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_creator", b"_creator", "_creator_uid", b"_creator_uid", "_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_source_url", b"_source_url", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "data_specification", b"data_specification", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "endpoints", b"endpoints", "license", b"license", "metadata", b"metadata", "owner", b"owner", "permission", b"permission", "profile_image", b"profile_image", "recipe", b"recipe", "sharing", b"sharing", "source_url", b"source_url", "stats", b"stats", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_creator", b"_creator", "_creator_uid", b"_creator_uid", "_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_source_url", b"_source_url", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "data_specification", b"data_specification", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "endpoints", b"endpoints", "id", b"id", "license", b"license", "metadata", b"metadata", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "permission", b"permission", "profile_image", b"profile_image", "raw_recipe", b"raw_recipe", "readme", b"readme", "recipe", b"recipe", "releases", b"releases", "sharing", b"sharing", "source_url", b"source_url", "stats", b"stats", "tags", b"tags", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_creator", b"_creator", "_creator_uid", b"_creator_uid", "_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_source_url", b"_source_url", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "data_specification", b"data_specification", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "endpoints", b"endpoints", "id", b"id", "license", b"license", "metadata", b"metadata", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "owner_uid", b"owner_uid", "permission", b"permission", "profile_image", b"profile_image", "raw_recipe", b"raw_recipe", "readme", b"readme", "recipe", b"recipe", "releases", b"releases", "sharing", b"sharing", "source_url", b"source_url", "stats", b"stats", "tags", b"tags", "uid", b"uid", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_creator", b"_creator"]) -> typing_extensions.Literal["creator"] | None: ...
     @typing.overload

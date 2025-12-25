@@ -92,6 +92,7 @@ class KnowledgeBase(google.protobuf.message.Message):
     OWNER_FIELD_NUMBER: builtins.int
     CREATOR_UID_FIELD_NUMBER: builtins.int
     CREATOR_FIELD_NUMBER: builtins.int
+    OWNER_UID_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """The knowledge base uid (internal UUID)."""
     id: builtins.str
@@ -162,6 +163,10 @@ class KnowledgeBase(google.protobuf.message.Message):
         """The user who created this knowledge base.
         Populated when creator_uid is present.
         """
+    owner_uid: builtins.str
+    """The UID of the owner namespace (User or Organization) of this knowledge base.
+    This is an immutable identifier, unlike owner_name which may change.
+    """
     def __init__(
         self,
         *,
@@ -186,9 +191,10 @@ class KnowledgeBase(google.protobuf.message.Message):
         owner: core.mgmt.v1beta.mgmt_pb2.Owner | None = ...,
         creator_uid: builtins.str | None = ...,
         creator: core.mgmt.v1beta.mgmt_pb2.User | None = ...,
+        owner_uid: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_creator", b"_creator", "_creator_uid", b"_creator_uid", "_owner", b"_owner", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "embedding_config", b"embedding_config", "owner", b"owner", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_creator", b"_creator", "_creator_uid", b"_creator_uid", "_owner", b"_owner", "active_collection_uid", b"active_collection_uid", "converting_pipelines", b"converting_pipelines", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "description", b"description", "downstream_apps", b"downstream_apps", "embedding_config", b"embedding_config", "embedding_pipelines", b"embedding_pipelines", "id", b"id", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "splitting_pipelines", b"splitting_pipelines", "summarizing_pipelines", b"summarizing_pipelines", "tags", b"tags", "total_files", b"total_files", "total_tokens", b"total_tokens", "uid", b"uid", "update_time", b"update_time", "used_storage", b"used_storage"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_creator", b"_creator", "_creator_uid", b"_creator_uid", "_owner", b"_owner", "active_collection_uid", b"active_collection_uid", "converting_pipelines", b"converting_pipelines", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "description", b"description", "downstream_apps", b"downstream_apps", "embedding_config", b"embedding_config", "embedding_pipelines", b"embedding_pipelines", "id", b"id", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "owner_uid", b"owner_uid", "splitting_pipelines", b"splitting_pipelines", "summarizing_pipelines", b"summarizing_pipelines", "tags", b"tags", "total_files", b"total_files", "total_tokens", b"total_tokens", "uid", b"uid", "update_time", b"update_time", "used_storage", b"used_storage"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_creator", b"_creator"]) -> typing_extensions.Literal["creator"] | None: ...
     @typing.overload
