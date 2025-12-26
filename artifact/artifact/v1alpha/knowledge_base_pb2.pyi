@@ -581,3 +581,58 @@ class CreateKnowledgeBaseAdminResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base"]) -> None: ...
 
 global___CreateKnowledgeBaseAdminResponse = CreateKnowledgeBaseAdminResponse
+
+@typing_extensions.final
+class UpdateKnowledgeBaseAdminRequest(google.protobuf.message.Message):
+    """UpdateKnowledgeBaseAdminRequest represents a request to update a knowledge base
+    with system-reserved tags (admin only).
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_ID_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
+    UPDATE_MASK_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The knowledge base's owner (namespace ID)."""
+    knowledge_base_id: builtins.str
+    """The knowledge base id."""
+    @property
+    def knowledge_base(self) -> global___KnowledgeBase:
+        """The knowledge base fields that will replace the existing ones."""
+    @property
+    def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
+        """The update mask specifies the subset of fields that should be modified."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        knowledge_base_id: builtins.str = ...,
+        knowledge_base: global___KnowledgeBase | None = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base", "update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base", "knowledge_base_id", b"knowledge_base_id", "namespace_id", b"namespace_id", "update_mask", b"update_mask"]) -> None: ...
+
+global___UpdateKnowledgeBaseAdminRequest = UpdateKnowledgeBaseAdminRequest
+
+@typing_extensions.final
+class UpdateKnowledgeBaseAdminResponse(google.protobuf.message.Message):
+    """UpdateKnowledgeBaseAdminResponse represents a response for updating a knowledge base."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
+    @property
+    def knowledge_base(self) -> global___KnowledgeBase:
+        """The updated knowledge base."""
+    def __init__(
+        self,
+        *,
+        knowledge_base: global___KnowledgeBase | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base"]) -> None: ...
+
+global___UpdateKnowledgeBaseAdminResponse = UpdateKnowledgeBaseAdminResponse

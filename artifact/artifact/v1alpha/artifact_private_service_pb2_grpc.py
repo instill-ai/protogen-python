@@ -25,6 +25,16 @@ class ArtifactPrivateServiceStub(object):
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseAdminResponse.FromString,
                 )
+        self.UpdateKnowledgeBaseAdmin = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateKnowledgeBaseAdmin',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.UpdateKnowledgeBaseAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.UpdateKnowledgeBaseAdminResponse.FromString,
+                )
+        self.UpdateFileAdmin = channel.unary_unary(
+                '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateFileAdmin',
+                request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileAdminResponse.FromString,
+                )
         self.GetObjectAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/GetObjectAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectAdminRequest.SerializeToString,
@@ -123,6 +133,26 @@ class ArtifactPrivateServiceServicer(object):
         Creates a system-level knowledge base that has no creator. Used by internal
         services (e.g., agent-backend) to create shared knowledge bases like
         "instill-agent" that are not owned by any specific user.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateKnowledgeBaseAdmin(self, request, context):
+        """Update a knowledge base with system-reserved tags (admin only)
+
+        Updates a knowledge base allowing system-reserved tag prefixes like "instill-".
+        Used by internal services to manage system-level knowledge base metadata.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateFileAdmin(self, request, context):
+        """Update a file with system-reserved tags (admin only)
+
+        Updates a file allowing system-reserved tag prefixes like "agent:".
+        Used by agent-backend to set collection association tags (e.g., "agent:collection:{uid}").
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -274,6 +304,16 @@ def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseAdminRequest.FromString,
                     response_serializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseAdminResponse.SerializeToString,
             ),
+            'UpdateKnowledgeBaseAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateKnowledgeBaseAdmin,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.UpdateKnowledgeBaseAdminRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.UpdateKnowledgeBaseAdminResponse.SerializeToString,
+            ),
+            'UpdateFileAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateFileAdmin,
+                    request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileAdminRequest.FromString,
+                    response_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileAdminResponse.SerializeToString,
+            ),
             'GetObjectAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.GetObjectAdmin,
                     request_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectAdminRequest.FromString,
@@ -385,6 +425,40 @@ class ArtifactPrivateService(object):
         return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/CreateKnowledgeBaseAdmin',
             artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseAdminRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateKnowledgeBaseAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateKnowledgeBaseAdmin',
+            artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.UpdateKnowledgeBaseAdminRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.UpdateKnowledgeBaseAdminResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateFileAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateFileAdmin',
+            artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileAdminRequest.SerializeToString,
+            artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

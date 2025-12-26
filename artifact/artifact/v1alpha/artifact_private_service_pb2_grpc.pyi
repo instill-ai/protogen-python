@@ -37,6 +37,24 @@ class ArtifactPrivateServiceStub:
     services (e.g., agent-backend) to create shared knowledge bases like
     "instill-agent" that are not owned by any specific user.
     """
+    UpdateKnowledgeBaseAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.knowledge_base_pb2.UpdateKnowledgeBaseAdminRequest,
+        artifact.artifact.v1alpha.knowledge_base_pb2.UpdateKnowledgeBaseAdminResponse,
+    ]
+    """Update a knowledge base with system-reserved tags (admin only)
+
+    Updates a knowledge base allowing system-reserved tag prefixes like "instill-".
+    Used by internal services to manage system-level knowledge base metadata.
+    """
+    UpdateFileAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.file_pb2.UpdateFileAdminRequest,
+        artifact.artifact.v1alpha.file_pb2.UpdateFileAdminResponse,
+    ]
+    """Update a file with system-reserved tags (admin only)
+
+    Updates a file allowing system-reserved tag prefixes like "agent:".
+    Used by agent-backend to set collection association tags (e.g., "agent:collection:{uid}").
+    """
     GetObjectAdmin: grpc.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.object_pb2.GetObjectAdminRequest,
         artifact.artifact.v1alpha.object_pb2.GetObjectAdminResponse,
@@ -160,6 +178,24 @@ class ArtifactPrivateServiceAsyncStub:
     Creates a system-level knowledge base that has no creator. Used by internal
     services (e.g., agent-backend) to create shared knowledge bases like
     "instill-agent" that are not owned by any specific user.
+    """
+    UpdateKnowledgeBaseAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.knowledge_base_pb2.UpdateKnowledgeBaseAdminRequest,
+        artifact.artifact.v1alpha.knowledge_base_pb2.UpdateKnowledgeBaseAdminResponse,
+    ]
+    """Update a knowledge base with system-reserved tags (admin only)
+
+    Updates a knowledge base allowing system-reserved tag prefixes like "instill-".
+    Used by internal services to manage system-level knowledge base metadata.
+    """
+    UpdateFileAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.artifact.v1alpha.file_pb2.UpdateFileAdminRequest,
+        artifact.artifact.v1alpha.file_pb2.UpdateFileAdminResponse,
+    ]
+    """Update a file with system-reserved tags (admin only)
+
+    Updates a file allowing system-reserved tag prefixes like "agent:".
+    Used by agent-backend to set collection association tags (e.g., "agent:collection:{uid}").
     """
     GetObjectAdmin: grpc.aio.UnaryUnaryMultiCallable[
         artifact.artifact.v1alpha.object_pb2.GetObjectAdminRequest,
@@ -286,6 +322,28 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
         Creates a system-level knowledge base that has no creator. Used by internal
         services (e.g., agent-backend) to create shared knowledge bases like
         "instill-agent" that are not owned by any specific user.
+        """
+    @abc.abstractmethod
+    def UpdateKnowledgeBaseAdmin(
+        self,
+        request: artifact.artifact.v1alpha.knowledge_base_pb2.UpdateKnowledgeBaseAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.knowledge_base_pb2.UpdateKnowledgeBaseAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.knowledge_base_pb2.UpdateKnowledgeBaseAdminResponse]]:
+        """Update a knowledge base with system-reserved tags (admin only)
+
+        Updates a knowledge base allowing system-reserved tag prefixes like "instill-".
+        Used by internal services to manage system-level knowledge base metadata.
+        """
+    @abc.abstractmethod
+    def UpdateFileAdmin(
+        self,
+        request: artifact.artifact.v1alpha.file_pb2.UpdateFileAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.artifact.v1alpha.file_pb2.UpdateFileAdminResponse, collections.abc.Awaitable[artifact.artifact.v1alpha.file_pb2.UpdateFileAdminResponse]]:
+        """Update a file with system-reserved tags (admin only)
+
+        Updates a file allowing system-reserved tag prefixes like "agent:".
+        Used by agent-backend to set collection association tags (e.g., "agent:collection:{uid}").
         """
     @abc.abstractmethod
     def GetObjectAdmin(

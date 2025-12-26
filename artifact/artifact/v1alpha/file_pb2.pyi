@@ -1036,3 +1036,63 @@ class ReprocessFileResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["file", b"file", "message", b"message"]) -> None: ...
 
 global___ReprocessFileResponse = ReprocessFileResponse
+
+@typing_extensions.final
+class UpdateFileAdminRequest(google.protobuf.message.Message):
+    """UpdateFileAdminRequest represents a request to update a file with system-reserved
+    tags (admin only). Used by internal services like agent-backend to set tags
+    with reserved prefixes (e.g., "agent:collection:{uid}").
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_ID_FIELD_NUMBER: builtins.int
+    FILE_ID_FIELD_NUMBER: builtins.int
+    FILE_FIELD_NUMBER: builtins.int
+    UPDATE_MASK_FIELD_NUMBER: builtins.int
+    namespace_id: builtins.str
+    """The namespace id."""
+    knowledge_base_id: builtins.str
+    """The knowledge base id."""
+    file_id: builtins.str
+    """The file id."""
+    @property
+    def file(self) -> global___File:
+        """The file fields that will replace the existing ones."""
+    @property
+    def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
+        """The update mask specifies the subset of fields that should be modified."""
+    def __init__(
+        self,
+        *,
+        namespace_id: builtins.str = ...,
+        knowledge_base_id: builtins.str = ...,
+        file_id: builtins.str = ...,
+        file: global___File | None = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["file", b"file", "update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file", b"file", "file_id", b"file_id", "knowledge_base_id", b"knowledge_base_id", "namespace_id", b"namespace_id", "update_mask", b"update_mask"]) -> None: ...
+
+global___UpdateFileAdminRequest = UpdateFileAdminRequest
+
+@typing_extensions.final
+class UpdateFileAdminResponse(google.protobuf.message.Message):
+    """UpdateFileAdminResponse represents a response for updating a file."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_FIELD_NUMBER: builtins.int
+    @property
+    def file(self) -> global___File:
+        """Updated file."""
+    def __init__(
+        self,
+        *,
+        file: global___File | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["file", b"file"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file", b"file"]) -> None: ...
+
+global___UpdateFileAdminResponse = UpdateFileAdminResponse
