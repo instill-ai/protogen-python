@@ -459,7 +459,8 @@ class File(google.protobuf.message.Message):
     UID_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
-    FILENAME_FIELD_NUMBER: builtins.int
+    DISPLAY_NAME_FIELD_NUMBER: builtins.int
+    DESCRIPTION_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
     PROCESS_STATUS_FIELD_NUMBER: builtins.int
     PROCESS_OUTCOME_FIELD_NUMBER: builtins.int
@@ -485,31 +486,38 @@ class File(google.protobuf.message.Message):
     TAGS_FIELD_NUMBER: builtins.int
     COLLECTION_UIDS_FIELD_NUMBER: builtins.int
     uid: builtins.str
-    """The file uid (internal UUID, also used as id)."""
+    """Field ordering convention: uid (1), id (2), name (3), display_name (4), description (5)
+
+    The file uid (internal UUID, also used as id).
+    """
     id: builtins.str
     """The file id (same as uid)."""
     name: builtins.str
     """The resource name of the file.
     Format: `namespaces/{namespace}/knowledge-bases/{knowledge_base}/files/{file}`.
     """
-    filename: builtins.str
-    """The filename provided by the user."""
+    display_name: builtins.str
+    """The human-readable display name (filename) provided by the user.
+    This is typically the original filename of the uploaded file.
+    """
+    description: builtins.str
+    """A description of the file."""
     type: global___File.Type.ValueType
-    """file type"""
+    """File type."""
     process_status: global___FileProcessStatus.ValueType
-    """file process status"""
+    """File process status."""
     process_outcome: builtins.str
-    """file process message"""
+    """File process outcome message."""
     retrievable: builtins.bool
-    """retrievable(this is reserved for future use)"""
+    """Retrievable flag (reserved for future use)."""
     content: builtins.str
-    """content(this is reserved for future use)"""
+    """Base64-encoded file content (reserved for future use)."""
     owner_uid: builtins.str
     """The UID of the owner namespace (User or Organization) of this file.
     This is an immutable identifier, unlike owner_name which may change.
     """
     creator_uid: builtins.str
-    """creator uid from authn token"""
+    """The UID of the user who created this file."""
     @property
     def creator(self) -> core.mgmt.v1beta.mgmt_pb2.User:
         """The user who created this file.
@@ -521,25 +529,25 @@ class File(google.protobuf.message.Message):
     def owner(self) -> core.mgmt.v1beta.mgmt_pb2.Owner:
         """File owner (User or Organization)."""
     knowledge_base_uid: builtins.str
-    """knowledge base uid"""
+    """The UID of the knowledge base this file belongs to."""
     @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """create time"""
+        """The timestamp when the file was created."""
     @property
     def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """update time"""
+        """The timestamp when the file was last updated."""
     @property
     def delete_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """delete time"""
+        """The timestamp when the file was deleted (soft delete)."""
     size: builtins.int
-    """file size in bytes"""
+    """File size in bytes."""
     total_chunks: builtins.int
-    """total chunks"""
+    """Total number of chunks created from this file."""
     total_tokens: builtins.int
-    """total tokens"""
+    """Total number of tokens in this file."""
     @property
     def external_metadata(self) -> google.protobuf.struct_pb2.Struct:
-        """Custom metadata provided by the user during file upload"""
+        """Custom metadata provided by the user during file upload."""
     object_uid: builtins.str
     """Object UID referencing a file already uploaded to blob storage.
     Two upload approaches are supported:
@@ -550,7 +558,7 @@ class File(google.protobuf.message.Message):
     When object_uid is provided, the 'content' field is ignored.
     """
     download_url: builtins.str
-    """download url of the file"""
+    """Pre-signed download URL for the file."""
     converting_pipeline: builtins.str
     """Pipeline used for converting the file to Markdown if the file is a
     document (i.e., a file with pdf, doc[x] or ppt[x] extension). The value
@@ -589,7 +597,7 @@ class File(google.protobuf.message.Message):
         """
     @property
     def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """Array of tags associated with the file"""
+        """Array of tags associated with the file."""
     @property
     def collection_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Collection UIDs that this file belongs to.
@@ -601,7 +609,8 @@ class File(google.protobuf.message.Message):
         uid: builtins.str = ...,
         id: builtins.str = ...,
         name: builtins.str = ...,
-        filename: builtins.str = ...,
+        display_name: builtins.str = ...,
+        description: builtins.str = ...,
         type: global___File.Type.ValueType = ...,
         process_status: global___FileProcessStatus.ValueType = ...,
         process_outcome: builtins.str = ...,
@@ -628,7 +637,7 @@ class File(google.protobuf.message.Message):
         collection_uids: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_converting_pipeline", b"_converting_pipeline", "_creator", b"_creator", "_external_metadata", b"_external_metadata", "_owner", b"_owner", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator", b"creator", "delete_time", b"delete_time", "external_metadata", b"external_metadata", "length", b"length", "owner", b"owner", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_converting_pipeline", b"_converting_pipeline", "_creator", b"_creator", "_external_metadata", b"_external_metadata", "_owner", b"_owner", "collection_uids", b"collection_uids", "content", b"content", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "download_url", b"download_url", "external_metadata", b"external_metadata", "filename", b"filename", "id", b"id", "knowledge_base_uid", b"knowledge_base_uid", "length", b"length", "name", b"name", "object_uid", b"object_uid", "owner", b"owner", "owner_name", b"owner_name", "owner_uid", b"owner_uid", "process_outcome", b"process_outcome", "process_status", b"process_status", "retrievable", b"retrievable", "size", b"size", "tags", b"tags", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_converting_pipeline", b"_converting_pipeline", "_creator", b"_creator", "_external_metadata", b"_external_metadata", "_owner", b"_owner", "collection_uids", b"collection_uids", "content", b"content", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "description", b"description", "display_name", b"display_name", "download_url", b"download_url", "external_metadata", b"external_metadata", "id", b"id", "knowledge_base_uid", b"knowledge_base_uid", "length", b"length", "name", b"name", "object_uid", b"object_uid", "owner", b"owner", "owner_name", b"owner_name", "owner_uid", b"owner_uid", "process_outcome", b"process_outcome", "process_status", b"process_status", "retrievable", b"retrievable", "size", b"size", "tags", b"tags", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_converting_pipeline", b"_converting_pipeline"]) -> typing_extensions.Literal["converting_pipeline"] | None: ...
     @typing.overload

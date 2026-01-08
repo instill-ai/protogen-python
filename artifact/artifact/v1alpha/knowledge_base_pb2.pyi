@@ -47,7 +47,9 @@ global___KnowledgeBaseType = KnowledgeBaseType
 
 @typing_extensions.final
 class KnowledgeBase(google.protobuf.message.Message):
-    """KnowledgeBase represents a knowledge base."""
+    """KnowledgeBase represents a knowledge base.
+    Field ordering convention: uid (1), id (2), name (3), display_name (4), description (5)
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -74,6 +76,7 @@ class KnowledgeBase(google.protobuf.message.Message):
     UID_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
+    DISPLAY_NAME_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
@@ -93,13 +96,18 @@ class KnowledgeBase(google.protobuf.message.Message):
     CREATOR_UID_FIELD_NUMBER: builtins.int
     CREATOR_FIELD_NUMBER: builtins.int
     OWNER_UID_FIELD_NUMBER: builtins.int
+    TYPE_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """The knowledge base uid (internal UUID)."""
     id: builtins.str
-    """The knowledge base id (user-provided or system-generated)."""
+    """The knowledge base id (URL slug, user-provided or system-generated)."""
     name: builtins.str
     """The resource name of the knowledge base.
     Format: `namespaces/{namespace}/knowledge-bases/{knowledge_base}`.
+    """
+    display_name: builtins.str
+    """The human-readable display name for UI presentation.
+    If not provided, defaults to the id.
     """
     description: builtins.str
     """The knowledge base description."""
@@ -167,12 +175,17 @@ class KnowledgeBase(google.protobuf.message.Message):
     """The UID of the owner namespace (User or Organization) of this knowledge base.
     This is an immutable identifier, unlike owner_name which may change.
     """
+    type: global___KnowledgeBaseType.ValueType
+    """The knowledge base type (persistent or ephemeral).
+    Default is PERSISTENT if not specified during creation.
+    """
     def __init__(
         self,
         *,
         uid: builtins.str = ...,
         id: builtins.str = ...,
         name: builtins.str = ...,
+        display_name: builtins.str = ...,
         description: builtins.str = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
@@ -192,9 +205,10 @@ class KnowledgeBase(google.protobuf.message.Message):
         creator_uid: builtins.str | None = ...,
         creator: core.mgmt.v1beta.mgmt_pb2.User | None = ...,
         owner_uid: builtins.str = ...,
+        type: global___KnowledgeBaseType.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["_creator", b"_creator", "_creator_uid", b"_creator_uid", "_owner", b"_owner", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "embedding_config", b"embedding_config", "owner", b"owner", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_creator", b"_creator", "_creator_uid", b"_creator_uid", "_owner", b"_owner", "active_collection_uid", b"active_collection_uid", "converting_pipelines", b"converting_pipelines", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "description", b"description", "downstream_apps", b"downstream_apps", "embedding_config", b"embedding_config", "embedding_pipelines", b"embedding_pipelines", "id", b"id", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "owner_uid", b"owner_uid", "splitting_pipelines", b"splitting_pipelines", "summarizing_pipelines", b"summarizing_pipelines", "tags", b"tags", "total_files", b"total_files", "total_tokens", b"total_tokens", "uid", b"uid", "update_time", b"update_time", "used_storage", b"used_storage"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["_creator", b"_creator", "_creator_uid", b"_creator_uid", "_owner", b"_owner", "active_collection_uid", b"active_collection_uid", "converting_pipelines", b"converting_pipelines", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "description", b"description", "display_name", b"display_name", "downstream_apps", b"downstream_apps", "embedding_config", b"embedding_config", "embedding_pipelines", b"embedding_pipelines", "id", b"id", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "owner_uid", b"owner_uid", "splitting_pipelines", b"splitting_pipelines", "summarizing_pipelines", b"summarizing_pipelines", "tags", b"tags", "total_files", b"total_files", "total_tokens", b"total_tokens", "type", b"type", "uid", b"uid", "update_time", b"update_time", "used_storage", b"used_storage"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["_creator", b"_creator"]) -> typing_extensions.Literal["creator"] | None: ...
     @typing.overload
@@ -206,85 +220,31 @@ global___KnowledgeBase = KnowledgeBase
 
 @typing_extensions.final
 class CreateKnowledgeBaseRequest(google.protobuf.message.Message):
-    """CreateKnowledgeBaseRequest represents a request to create a knowledge base."""
+    """CreateKnowledgeBaseRequest represents a request to create a knowledge base.
+    Follows the same pattern as CreateCollectionRequest.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    ID_FIELD_NUMBER: builtins.int
-    DESCRIPTION_FIELD_NUMBER: builtins.int
-    TAGS_FIELD_NUMBER: builtins.int
-    TYPE_FIELD_NUMBER: builtins.int
-    CONVERTING_PIPELINES_FIELD_NUMBER: builtins.int
-    SYSTEM_ID_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """The knowledge base's owner(namespaces)."""
-    id: builtins.str
-    """The knowledge base id (user-provided or auto-generated)."""
-    description: builtins.str
-    """The knowledge base description."""
+    """The ID of the namespace where the knowledge base will be created."""
     @property
-    def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The knowledge base tags."""
-    type: global___KnowledgeBaseType.ValueType
-    """The knowledge base type. default is PERSISTENT"""
-    @property
-    def converting_pipelines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """Pipelines used for converting page-based documents (i.e., files with pdf,
-        doc[x] or ppt[x] extension) to Markdown. The strings in the list identify
-        the pipelines and MUST have the format
-        `{namespaceID}/{pipelineID}@{version}`. The pipeline recipes MUST have the
-        following variable and output fields:
-        ```yaml variable
-        variable:
-          document_input:
-            title: document-input
-            description: Upload a document (PDF/DOCX/DOC/PPTX/PPT)
-            type: file
-        ```
-        The `convert_result` output should be a list of strings, one per page.
-        ```yaml output
-        output:
-         convert_result:
-           title: convert-result
-           value: ${merge-markdown-refinement.output.results[0]}
-        ```
-        Other variable and output fields will be ignored.
-
-        The pipelines will be executed in order until one produces a successful,
-        non-empty result.
-
-        If no pipelines are provided, a default pipeline will be used. For
-        non-document knowledge base files, the conversion pipeline is deterministic (such
-        files are typically trivial to convert and don't require a dedicated
-        pipeline to improve the conversion performance).
+    def knowledge_base(self) -> global___KnowledgeBase:
+        """The knowledge base resource to create.
+        Required fields: display_name
+        Optional fields: id (auto-generated from display_name if not provided),
+                         description, tags, type, system_id
         """
-    system_id: builtins.str
-    """System ID to use for this knowledge base.
-    References a system configuration in the system table that defines how the knowledge base
-    will be created based on the system's RAG configurations including:
-    - AI model family (e.g., "openai", "gemini")
-    - Embedding vector dimensionality (e.g., 1536 for OpenAI, 3072 for Gemini)
-    - Chunking method
-    - Other RAG-related settings
-
-    Available systems: "openai", "gemini", or custom systems defined in the system table.
-    If not specified, defaults to "openai" system.
-    """
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
-        id: builtins.str = ...,
-        description: builtins.str = ...,
-        tags: collections.abc.Iterable[builtins.str] | None = ...,
-        type: global___KnowledgeBaseType.ValueType = ...,
-        converting_pipelines: collections.abc.Iterable[builtins.str] | None = ...,
-        system_id: builtins.str | None = ...,
+        knowledge_base: global___KnowledgeBase | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["_system_id", b"_system_id", "system_id", b"system_id"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["_system_id", b"_system_id", "converting_pipelines", b"converting_pipelines", "description", b"description", "id", b"id", "namespace_id", b"namespace_id", "system_id", b"system_id", "tags", b"tags", "type", b"type"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["_system_id", b"_system_id"]) -> typing_extensions.Literal["system_id"] | None: ...
+    def HasField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base", "namespace_id", b"namespace_id"]) -> None: ...
 
 global___CreateKnowledgeBaseRequest = CreateKnowledgeBaseRequest
 
@@ -297,7 +257,7 @@ class CreateKnowledgeBaseResponse(google.protobuf.message.Message):
     KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
     @property
     def knowledge_base(self) -> global___KnowledgeBase:
-        """The created knowledge base."""
+        """The created knowledge base resource."""
     def __init__(
         self,
         *,
@@ -317,9 +277,9 @@ class GetKnowledgeBaseRequest(google.protobuf.message.Message):
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     KNOWLEDGE_BASE_ID_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """Namespace ID."""
+    """The ID of the namespace that owns the knowledge base."""
     knowledge_base_id: builtins.str
-    """Knowledge Base ID."""
+    """Knowledge base ID - the resource ID of the knowledge base to fetch."""
     def __init__(
         self,
         *,
@@ -352,7 +312,9 @@ global___GetKnowledgeBaseResponse = GetKnowledgeBaseResponse
 
 @typing_extensions.final
 class ListKnowledgeBasesRequest(google.protobuf.message.Message):
-    """Request message for ListKnowledgeBases(not include the ephemeral knowledge bases)"""
+    """ListKnowledgeBasesRequest represents a request to list knowledge bases.
+    Does not include ephemeral knowledge bases.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -361,14 +323,14 @@ class ListKnowledgeBasesRequest(google.protobuf.message.Message):
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """User ID for which to list the knowledge bases"""
+    """The ID of the namespace for which to list the knowledge bases."""
     page_size: builtins.int
     """The maximum number of knowledge bases to return. If this parameter is unspecified,
     at most 10 knowledge bases will be returned. The cap value for this parameter
     is 100 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str
-    """Page token."""
+    """Page token for pagination."""
     filter: builtins.str
     """Filter can hold an [AIP-160](https://google.aip.dev/160)-compliant filter expression.
     - `id="<knowledge_base_id>"` or `uid="<uuid>"` - Filter by specific knowledge base ID/UID
@@ -399,7 +361,7 @@ global___ListKnowledgeBasesRequest = ListKnowledgeBasesRequest
 
 @typing_extensions.final
 class ListKnowledgeBasesResponse(google.protobuf.message.Message):
-    """ListKnowledgeBasesResponse represents a response for getting all knowledge bases from users."""
+    """ListKnowledgeBasesResponse represents a response for listing knowledge bases."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -408,11 +370,11 @@ class ListKnowledgeBasesResponse(google.protobuf.message.Message):
     TOTAL_SIZE_FIELD_NUMBER: builtins.int
     @property
     def knowledge_bases(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___KnowledgeBase]:
-        """The knowledge bases container."""
+        """The list of knowledge bases."""
     next_page_token: builtins.str
-    """Next page token."""
+    """Next page token for pagination."""
     total_size: builtins.int
-    """Total number of knowledge bases."""
+    """Total number of knowledge bases matching the request."""
     def __init__(
         self,
         *,
@@ -435,9 +397,9 @@ class UpdateKnowledgeBaseRequest(google.protobuf.message.Message):
     KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """Namespace ID."""
+    """The ID of the namespace that owns the knowledge base."""
     knowledge_base_id: builtins.str
-    """Knowledge Base ID."""
+    """Knowledge base ID - the resource ID of the knowledge base to update."""
     @property
     def knowledge_base(self) -> global___KnowledgeBase:
         """The knowledge base fields that will replace the existing ones."""
@@ -470,7 +432,7 @@ class UpdateKnowledgeBaseResponse(google.protobuf.message.Message):
     KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
     @property
     def knowledge_base(self) -> global___KnowledgeBase:
-        """The updated knowledge base."""
+        """The updated knowledge base resource."""
     def __init__(
         self,
         *,
@@ -490,9 +452,9 @@ class DeleteKnowledgeBaseRequest(google.protobuf.message.Message):
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
     KNOWLEDGE_BASE_ID_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """The owner's id. i.e. namespace."""
+    """The ID of the namespace that owns the knowledge base."""
     knowledge_base_id: builtins.str
-    """The knowledge base id."""
+    """Knowledge base ID - the resource ID of the knowledge base to delete."""
     def __init__(
         self,
         *,
@@ -512,7 +474,7 @@ class DeleteKnowledgeBaseResponse(google.protobuf.message.Message):
     KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
     @property
     def knowledge_base(self) -> global___KnowledgeBase:
-        """The knowledge base identifier."""
+        """The deleted knowledge base resource."""
     def __init__(
         self,
         *,
@@ -532,31 +494,23 @@ class CreateKnowledgeBaseAdminRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    ID_FIELD_NUMBER: builtins.int
-    DESCRIPTION_FIELD_NUMBER: builtins.int
-    TAGS_FIELD_NUMBER: builtins.int
-    TYPE_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """The knowledge base's owner (namespace ID)."""
-    id: builtins.str
-    """The knowledge base id (user-provided or auto-generated)."""
-    description: builtins.str
-    """The knowledge base description."""
+    """The ID of the namespace where the knowledge base will be created."""
     @property
-    def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The knowledge base tags."""
-    type: global___KnowledgeBaseType.ValueType
-    """The knowledge base type. default is PERSISTENT"""
+    def knowledge_base(self) -> global___KnowledgeBase:
+        """The knowledge base resource to create.
+        Required fields: id (for admin, id is required rather than auto-generated)
+        Optional fields: display_name (defaults to id), description, tags, type
+        """
     def __init__(
         self,
         *,
         namespace_id: builtins.str = ...,
-        id: builtins.str = ...,
-        description: builtins.str = ...,
-        tags: collections.abc.Iterable[builtins.str] | None = ...,
-        type: global___KnowledgeBaseType.ValueType = ...,
+        knowledge_base: global___KnowledgeBase | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "id", b"id", "namespace_id", b"namespace_id", "tags", b"tags", "type", b"type"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["knowledge_base", b"knowledge_base", "namespace_id", b"namespace_id"]) -> None: ...
 
 global___CreateKnowledgeBaseAdminRequest = CreateKnowledgeBaseAdminRequest
 
@@ -571,7 +525,7 @@ class CreateKnowledgeBaseAdminResponse(google.protobuf.message.Message):
     KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
     @property
     def knowledge_base(self) -> global___KnowledgeBase:
-        """The created knowledge base."""
+        """The created knowledge base resource."""
     def __init__(
         self,
         *,
@@ -595,9 +549,9 @@ class UpdateKnowledgeBaseAdminRequest(google.protobuf.message.Message):
     KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     namespace_id: builtins.str
-    """The knowledge base's owner (namespace ID)."""
+    """The ID of the namespace that owns the knowledge base."""
     knowledge_base_id: builtins.str
-    """The knowledge base id."""
+    """Knowledge base ID - the resource ID of the knowledge base to update."""
     @property
     def knowledge_base(self) -> global___KnowledgeBase:
         """The knowledge base fields that will replace the existing ones."""
@@ -626,7 +580,7 @@ class UpdateKnowledgeBaseAdminResponse(google.protobuf.message.Message):
     KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
     @property
     def knowledge_base(self) -> global___KnowledgeBase:
-        """The updated knowledge base."""
+        """The updated knowledge base resource."""
     def __init__(
         self,
         *,
