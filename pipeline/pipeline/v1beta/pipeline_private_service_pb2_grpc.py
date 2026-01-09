@@ -21,22 +21,22 @@ class PipelinePrivateServiceStub(object):
                 '/pipeline.pipeline.v1beta.PipelinePrivateService/ListPipelinesAdmin',
                 request_serializer=pipeline_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelinesAdminRequest.SerializeToString,
                 response_deserializer=pipeline_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelinesAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.LookUpPipelineAdmin = channel.unary_unary(
                 '/pipeline.pipeline.v1beta.PipelinePrivateService/LookUpPipelineAdmin',
                 request_serializer=pipeline_dot_pipeline_dot_v1beta_dot_pipeline__pb2.LookUpPipelineAdminRequest.SerializeToString,
                 response_deserializer=pipeline_dot_pipeline_dot_v1beta_dot_pipeline__pb2.LookUpPipelineAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.ListPipelineReleasesAdmin = channel.unary_unary(
                 '/pipeline.pipeline.v1beta.PipelinePrivateService/ListPipelineReleasesAdmin',
                 request_serializer=pipeline_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineReleasesAdminRequest.SerializeToString,
                 response_deserializer=pipeline_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineReleasesAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.LookUpConnectionAdmin = channel.unary_unary(
                 '/pipeline.pipeline.v1beta.PipelinePrivateService/LookUpConnectionAdmin',
                 request_serializer=pipeline_dot_pipeline_dot_v1beta_dot_integration__pb2.LookUpConnectionAdminRequest.SerializeToString,
                 response_deserializer=pipeline_dot_pipeline_dot_v1beta_dot_integration__pb2.LookUpConnectionAdminResponse.FromString,
-                )
+                _registered_method=True)
 
 
 class PipelinePrivateServiceServicer(object):
@@ -110,6 +110,7 @@ def add_PipelinePrivateServiceServicer_to_server(servicer, server):
     generic_handler = grpc.method_handlers_generic_handler(
             'pipeline.pipeline.v1beta.PipelinePrivateService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('pipeline.pipeline.v1beta.PipelinePrivateService', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -129,11 +130,21 @@ class PipelinePrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/pipeline.pipeline.v1beta.PipelinePrivateService/ListPipelinesAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/pipeline.pipeline.v1beta.PipelinePrivateService/ListPipelinesAdmin',
             pipeline_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelinesAdminRequest.SerializeToString,
             pipeline_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelinesAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def LookUpPipelineAdmin(request,
@@ -146,11 +157,21 @@ class PipelinePrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/pipeline.pipeline.v1beta.PipelinePrivateService/LookUpPipelineAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/pipeline.pipeline.v1beta.PipelinePrivateService/LookUpPipelineAdmin',
             pipeline_dot_pipeline_dot_v1beta_dot_pipeline__pb2.LookUpPipelineAdminRequest.SerializeToString,
             pipeline_dot_pipeline_dot_v1beta_dot_pipeline__pb2.LookUpPipelineAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListPipelineReleasesAdmin(request,
@@ -163,11 +184,21 @@ class PipelinePrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/pipeline.pipeline.v1beta.PipelinePrivateService/ListPipelineReleasesAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/pipeline.pipeline.v1beta.PipelinePrivateService/ListPipelineReleasesAdmin',
             pipeline_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineReleasesAdminRequest.SerializeToString,
             pipeline_dot_pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineReleasesAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def LookUpConnectionAdmin(request,
@@ -180,8 +211,18 @@ class PipelinePrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/pipeline.pipeline.v1beta.PipelinePrivateService/LookUpConnectionAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/pipeline.pipeline.v1beta.PipelinePrivateService/LookUpConnectionAdmin',
             pipeline_dot_pipeline_dot_v1beta_dot_integration__pb2.LookUpConnectionAdminRequest.SerializeToString,
             pipeline_dot_pipeline_dot_v1beta_dot_integration__pb2.LookUpConnectionAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

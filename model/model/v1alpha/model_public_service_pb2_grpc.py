@@ -23,302 +23,302 @@ class ModelPublicServiceStub(object):
                 '/model.model.v1alpha.ModelPublicService/Liveness',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.LivenessRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.LivenessResponse.FromString,
-                )
+                _registered_method=True)
         self.Readiness = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/Readiness',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ReadinessRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ReadinessResponse.FromString,
-                )
+                _registered_method=True)
         self.ListModelDefinitions = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/ListModelDefinitions',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionsRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionsResponse.FromString,
-                )
+                _registered_method=True)
         self.ListAvailableRegions = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/ListAvailableRegions',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListAvailableRegionsRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListAvailableRegionsResponse.FromString,
-                )
+                _registered_method=True)
         self.GetModelDefinition = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/GetModelDefinition',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionResponse.FromString,
-                )
+                _registered_method=True)
         self.ListModels = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/ListModels',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelsRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelsResponse.FromString,
-                )
+                _registered_method=True)
         self.LookUpModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/LookUpModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelResponse.FromString,
-                )
+                _registered_method=True)
         self.ListNamespaceModels = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/ListNamespaceModels',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListNamespaceModelsRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListNamespaceModelsResponse.FromString,
-                )
+                _registered_method=True)
         self.CreateNamespaceModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/CreateNamespaceModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateNamespaceModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateNamespaceModelResponse.FromString,
-                )
+                _registered_method=True)
         self.GetNamespaceModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/GetNamespaceModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceModelResponse.FromString,
-                )
+                _registered_method=True)
         self.UpdateNamespaceModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/UpdateNamespaceModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UpdateNamespaceModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UpdateNamespaceModelResponse.FromString,
-                )
+                _registered_method=True)
         self.DeleteNamespaceModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/DeleteNamespaceModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteNamespaceModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteNamespaceModelResponse.FromString,
-                )
+                _registered_method=True)
         self.RenameNamespaceModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/RenameNamespaceModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameNamespaceModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameNamespaceModelResponse.FromString,
-                )
+                _registered_method=True)
         self.WatchNamespaceModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/WatchNamespaceModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchNamespaceModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchNamespaceModelResponse.FromString,
-                )
+                _registered_method=True)
         self.WatchNamespaceLatestModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/WatchNamespaceLatestModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchNamespaceLatestModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchNamespaceLatestModelResponse.FromString,
-                )
+                _registered_method=True)
         self.ListNamespaceModelVersions = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/ListNamespaceModelVersions',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListNamespaceModelVersionsRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListNamespaceModelVersionsResponse.FromString,
-                )
+                _registered_method=True)
         self.DeleteNamespaceModelVersion = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/DeleteNamespaceModelVersion',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteNamespaceModelVersionRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteNamespaceModelVersionResponse.FromString,
-                )
+                _registered_method=True)
         self.TriggerNamespaceModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/TriggerNamespaceModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelResponse.FromString,
-                )
+                _registered_method=True)
         self.TriggerAsyncNamespaceModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/TriggerAsyncNamespaceModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncNamespaceModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncNamespaceModelResponse.FromString,
-                )
+                _registered_method=True)
         self.TriggerNamespaceLatestModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/TriggerNamespaceLatestModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelResponse.FromString,
-                )
+                _registered_method=True)
         self.TriggerAsyncNamespaceLatestModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/TriggerAsyncNamespaceLatestModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncNamespaceLatestModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncNamespaceLatestModelResponse.FromString,
-                )
+                _registered_method=True)
         self.TriggerNamespaceModelBinaryFileUpload = channel.stream_unary(
                 '/model.model.v1alpha.ModelPublicService/TriggerNamespaceModelBinaryFileUpload',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelBinaryFileUploadRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelBinaryFileUploadResponse.FromString,
-                )
+                _registered_method=True)
         self.TriggerNamespaceLatestModelBinaryFileUpload = channel.stream_unary(
                 '/model.model.v1alpha.ModelPublicService/TriggerNamespaceLatestModelBinaryFileUpload',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelBinaryFileUploadRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelBinaryFileUploadResponse.FromString,
-                )
+                _registered_method=True)
         self.GetNamespaceModelOperation = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/GetNamespaceModelOperation',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceModelOperationRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceModelOperationResponse.FromString,
-                )
+                _registered_method=True)
         self.GetNamespaceLatestModelOperation = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/GetNamespaceLatestModelOperation',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceLatestModelOperationRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceLatestModelOperationResponse.FromString,
-                )
+                _registered_method=True)
         self.GetModelOperation = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/GetModelOperation',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationResponse.FromString,
-                )
+                _registered_method=True)
         self.ListUserModels = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/ListUserModels',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelsRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelsResponse.FromString,
-                )
+                _registered_method=True)
         self.CreateUserModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/CreateUserModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelResponse.FromString,
-                )
+                _registered_method=True)
         self.GetUserModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/GetUserModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetUserModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetUserModelResponse.FromString,
-                )
+                _registered_method=True)
         self.UpdateUserModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/UpdateUserModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UpdateUserModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UpdateUserModelResponse.FromString,
-                )
+                _registered_method=True)
         self.DeleteUserModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/DeleteUserModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelResponse.FromString,
-                )
+                _registered_method=True)
         self.RenameUserModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/RenameUserModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameUserModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameUserModelResponse.FromString,
-                )
+                _registered_method=True)
         self.WatchUserModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/WatchUserModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserModelResponse.FromString,
-                )
+                _registered_method=True)
         self.WatchUserLatestModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/WatchUserLatestModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserLatestModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserLatestModelResponse.FromString,
-                )
+                _registered_method=True)
         self.ListUserModelVersions = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/ListUserModelVersions',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelVersionsRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelVersionsResponse.FromString,
-                )
+                _registered_method=True)
         self.DeleteUserModelVersion = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/DeleteUserModelVersion',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelVersionRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelVersionResponse.FromString,
-                )
+                _registered_method=True)
         self.TriggerUserModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/TriggerUserModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelResponse.FromString,
-                )
+                _registered_method=True)
         self.TriggerAsyncUserModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/TriggerAsyncUserModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncUserModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncUserModelResponse.FromString,
-                )
+                _registered_method=True)
         self.TriggerUserLatestModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/TriggerUserLatestModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserLatestModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserLatestModelResponse.FromString,
-                )
+                _registered_method=True)
         self.TriggerAsyncUserLatestModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/TriggerAsyncUserLatestModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncUserLatestModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncUserLatestModelResponse.FromString,
-                )
+                _registered_method=True)
         self.TriggerUserModelBinaryFileUpload = channel.stream_unary(
                 '/model.model.v1alpha.ModelPublicService/TriggerUserModelBinaryFileUpload',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelBinaryFileUploadRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelBinaryFileUploadResponse.FromString,
-                )
+                _registered_method=True)
         self.ListOrganizationModels = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/ListOrganizationModels',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelsRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelsResponse.FromString,
-                )
+                _registered_method=True)
         self.CreateOrganizationModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/CreateOrganizationModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelResponse.FromString,
-                )
+                _registered_method=True)
         self.GetOrganizationModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/GetOrganizationModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationModelResponse.FromString,
-                )
+                _registered_method=True)
         self.UpdateOrganizationModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/UpdateOrganizationModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UpdateOrganizationModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UpdateOrganizationModelResponse.FromString,
-                )
+                _registered_method=True)
         self.DeleteOrganizationModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/DeleteOrganizationModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteOrganizationModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteOrganizationModelResponse.FromString,
-                )
+                _registered_method=True)
         self.RenameOrganizationModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/RenameOrganizationModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameOrganizationModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.RenameOrganizationModelResponse.FromString,
-                )
+                _registered_method=True)
         self.WatchOrganizationModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/WatchOrganizationModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationModelResponse.FromString,
-                )
+                _registered_method=True)
         self.WatchOrganizationLatestModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/WatchOrganizationLatestModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationLatestModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationLatestModelResponse.FromString,
-                )
+                _registered_method=True)
         self.ListOrganizationModelVersions = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/ListOrganizationModelVersions',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelVersionsRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelVersionsResponse.FromString,
-                )
+                _registered_method=True)
         self.DeleteOrganizationModelVersion = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/DeleteOrganizationModelVersion',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteOrganizationModelVersionRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteOrganizationModelVersionResponse.FromString,
-                )
+                _registered_method=True)
         self.TriggerOrganizationModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/TriggerOrganizationModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelResponse.FromString,
-                )
+                _registered_method=True)
         self.TriggerAsyncOrganizationModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/TriggerAsyncOrganizationModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationModelResponse.FromString,
-                )
+                _registered_method=True)
         self.TriggerOrganizationLatestModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/TriggerOrganizationLatestModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationLatestModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationLatestModelResponse.FromString,
-                )
+                _registered_method=True)
         self.TriggerAsyncOrganizationLatestModel = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/TriggerAsyncOrganizationLatestModel',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationLatestModelRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationLatestModelResponse.FromString,
-                )
+                _registered_method=True)
         self.TriggerOrganizationModelBinaryFileUpload = channel.stream_unary(
                 '/model.model.v1alpha.ModelPublicService/TriggerOrganizationModelBinaryFileUpload',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelBinaryFileUploadRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelBinaryFileUploadResponse.FromString,
-                )
+                _registered_method=True)
         self.GetUserLatestModelOperation = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/GetUserLatestModelOperation',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetUserLatestModelOperationRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetUserLatestModelOperationResponse.FromString,
-                )
+                _registered_method=True)
         self.GetOrganizationLatestModelOperation = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/GetOrganizationLatestModelOperation',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationLatestModelOperationRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationLatestModelOperationResponse.FromString,
-                )
+                _registered_method=True)
         self.ListModelRuns = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/ListModelRuns',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsResponse.FromString,
-                )
+                _registered_method=True)
         self.ListModelRunsByRequester = channel.unary_unary(
                 '/model.model.v1alpha.ModelPublicService/ListModelRunsByRequester',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsByRequesterRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsByRequesterResponse.FromString,
-                )
+                _registered_method=True)
 
 
 class ModelPublicServiceServicer(object):
@@ -1265,6 +1265,7 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
     generic_handler = grpc.method_handlers_generic_handler(
             'model.model.v1alpha.ModelPublicService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('model.model.v1alpha.ModelPublicService', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -1286,11 +1287,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/Liveness',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/Liveness',
             model_dot_model_dot_v1alpha_dot_model__pb2.LivenessRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.LivenessResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def Readiness(request,
@@ -1303,11 +1314,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/Readiness',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/Readiness',
             model_dot_model_dot_v1alpha_dot_model__pb2.ReadinessRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.ReadinessResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListModelDefinitions(request,
@@ -1320,11 +1341,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/ListModelDefinitions',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/ListModelDefinitions',
             model_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionsRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__definition__pb2.ListModelDefinitionsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListAvailableRegions(request,
@@ -1337,11 +1368,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/ListAvailableRegions',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/ListAvailableRegions',
             model_dot_model_dot_v1alpha_dot_model__pb2.ListAvailableRegionsRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.ListAvailableRegionsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetModelDefinition(request,
@@ -1354,11 +1395,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/GetModelDefinition',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/GetModelDefinition',
             model_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListModels(request,
@@ -1371,11 +1422,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/ListModels',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/ListModels',
             model_dot_model_dot_v1alpha_dot_model__pb2.ListModelsRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.ListModelsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def LookUpModel(request,
@@ -1388,11 +1449,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/LookUpModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/LookUpModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListNamespaceModels(request,
@@ -1405,11 +1476,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/ListNamespaceModels',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/ListNamespaceModels',
             model_dot_model_dot_v1alpha_dot_model__pb2.ListNamespaceModelsRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.ListNamespaceModelsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def CreateNamespaceModel(request,
@@ -1422,11 +1503,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/CreateNamespaceModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/CreateNamespaceModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.CreateNamespaceModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.CreateNamespaceModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetNamespaceModel(request,
@@ -1439,11 +1530,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/GetNamespaceModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/GetNamespaceModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def UpdateNamespaceModel(request,
@@ -1456,11 +1557,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/UpdateNamespaceModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/UpdateNamespaceModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.UpdateNamespaceModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.UpdateNamespaceModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def DeleteNamespaceModel(request,
@@ -1473,11 +1584,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/DeleteNamespaceModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/DeleteNamespaceModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.DeleteNamespaceModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.DeleteNamespaceModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def RenameNamespaceModel(request,
@@ -1490,11 +1611,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/RenameNamespaceModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/RenameNamespaceModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.RenameNamespaceModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.RenameNamespaceModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def WatchNamespaceModel(request,
@@ -1507,11 +1638,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/WatchNamespaceModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/WatchNamespaceModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.WatchNamespaceModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.WatchNamespaceModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def WatchNamespaceLatestModel(request,
@@ -1524,11 +1665,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/WatchNamespaceLatestModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/WatchNamespaceLatestModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.WatchNamespaceLatestModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.WatchNamespaceLatestModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListNamespaceModelVersions(request,
@@ -1541,11 +1692,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/ListNamespaceModelVersions',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/ListNamespaceModelVersions',
             model_dot_model_dot_v1alpha_dot_model__pb2.ListNamespaceModelVersionsRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.ListNamespaceModelVersionsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def DeleteNamespaceModelVersion(request,
@@ -1558,11 +1719,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/DeleteNamespaceModelVersion',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/DeleteNamespaceModelVersion',
             model_dot_model_dot_v1alpha_dot_model__pb2.DeleteNamespaceModelVersionRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.DeleteNamespaceModelVersionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def TriggerNamespaceModel(request,
@@ -1575,11 +1746,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TriggerNamespaceModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/TriggerNamespaceModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def TriggerAsyncNamespaceModel(request,
@@ -1592,11 +1773,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TriggerAsyncNamespaceModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/TriggerAsyncNamespaceModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncNamespaceModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncNamespaceModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def TriggerNamespaceLatestModel(request,
@@ -1609,11 +1800,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TriggerNamespaceLatestModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/TriggerNamespaceLatestModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def TriggerAsyncNamespaceLatestModel(request,
@@ -1626,11 +1827,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TriggerAsyncNamespaceLatestModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/TriggerAsyncNamespaceLatestModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncNamespaceLatestModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncNamespaceLatestModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def TriggerNamespaceModelBinaryFileUpload(request_iterator,
@@ -1643,11 +1854,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/model.model.v1alpha.ModelPublicService/TriggerNamespaceModelBinaryFileUpload',
+        return grpc.experimental.stream_unary(
+            request_iterator,
+            target,
+            '/model.model.v1alpha.ModelPublicService/TriggerNamespaceModelBinaryFileUpload',
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelBinaryFileUploadRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelBinaryFileUploadResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def TriggerNamespaceLatestModelBinaryFileUpload(request_iterator,
@@ -1660,11 +1881,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/model.model.v1alpha.ModelPublicService/TriggerNamespaceLatestModelBinaryFileUpload',
+        return grpc.experimental.stream_unary(
+            request_iterator,
+            target,
+            '/model.model.v1alpha.ModelPublicService/TriggerNamespaceLatestModelBinaryFileUpload',
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelBinaryFileUploadRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelBinaryFileUploadResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetNamespaceModelOperation(request,
@@ -1677,11 +1908,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/GetNamespaceModelOperation',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/GetNamespaceModelOperation',
             model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceModelOperationRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceModelOperationResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetNamespaceLatestModelOperation(request,
@@ -1694,11 +1935,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/GetNamespaceLatestModelOperation',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/GetNamespaceLatestModelOperation',
             model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceLatestModelOperationRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.GetNamespaceLatestModelOperationResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetModelOperation(request,
@@ -1711,11 +1962,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/GetModelOperation',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/GetModelOperation',
             model_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.GetModelOperationResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListUserModels(request,
@@ -1728,11 +1989,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/ListUserModels',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/ListUserModels',
             model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelsRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def CreateUserModel(request,
@@ -1745,11 +2016,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/CreateUserModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/CreateUserModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.CreateUserModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetUserModel(request,
@@ -1762,11 +2043,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/GetUserModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/GetUserModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.GetUserModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.GetUserModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def UpdateUserModel(request,
@@ -1779,11 +2070,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/UpdateUserModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/UpdateUserModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.UpdateUserModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.UpdateUserModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def DeleteUserModel(request,
@@ -1796,11 +2097,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/DeleteUserModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/DeleteUserModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def RenameUserModel(request,
@@ -1813,11 +2124,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/RenameUserModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/RenameUserModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.RenameUserModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.RenameUserModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def WatchUserModel(request,
@@ -1830,11 +2151,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/WatchUserModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/WatchUserModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def WatchUserLatestModel(request,
@@ -1847,11 +2178,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/WatchUserLatestModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/WatchUserLatestModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserLatestModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.WatchUserLatestModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListUserModelVersions(request,
@@ -1864,11 +2205,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/ListUserModelVersions',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/ListUserModelVersions',
             model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelVersionsRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.ListUserModelVersionsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def DeleteUserModelVersion(request,
@@ -1881,11 +2232,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/DeleteUserModelVersion',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/DeleteUserModelVersion',
             model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelVersionRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.DeleteUserModelVersionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def TriggerUserModel(request,
@@ -1898,11 +2259,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TriggerUserModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/TriggerUserModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def TriggerAsyncUserModel(request,
@@ -1915,11 +2286,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TriggerAsyncUserModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/TriggerAsyncUserModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncUserModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncUserModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def TriggerUserLatestModel(request,
@@ -1932,11 +2313,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TriggerUserLatestModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/TriggerUserLatestModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserLatestModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserLatestModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def TriggerAsyncUserLatestModel(request,
@@ -1949,11 +2340,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TriggerAsyncUserLatestModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/TriggerAsyncUserLatestModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncUserLatestModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncUserLatestModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def TriggerUserModelBinaryFileUpload(request_iterator,
@@ -1966,11 +2367,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/model.model.v1alpha.ModelPublicService/TriggerUserModelBinaryFileUpload',
+        return grpc.experimental.stream_unary(
+            request_iterator,
+            target,
+            '/model.model.v1alpha.ModelPublicService/TriggerUserModelBinaryFileUpload',
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelBinaryFileUploadRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerUserModelBinaryFileUploadResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListOrganizationModels(request,
@@ -1983,11 +2394,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/ListOrganizationModels',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/ListOrganizationModels',
             model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelsRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def CreateOrganizationModel(request,
@@ -2000,11 +2421,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/CreateOrganizationModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/CreateOrganizationModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.CreateOrganizationModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetOrganizationModel(request,
@@ -2017,11 +2448,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/GetOrganizationModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/GetOrganizationModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def UpdateOrganizationModel(request,
@@ -2034,11 +2475,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/UpdateOrganizationModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/UpdateOrganizationModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.UpdateOrganizationModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.UpdateOrganizationModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def DeleteOrganizationModel(request,
@@ -2051,11 +2502,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/DeleteOrganizationModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/DeleteOrganizationModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.DeleteOrganizationModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.DeleteOrganizationModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def RenameOrganizationModel(request,
@@ -2068,11 +2529,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/RenameOrganizationModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/RenameOrganizationModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.RenameOrganizationModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.RenameOrganizationModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def WatchOrganizationModel(request,
@@ -2085,11 +2556,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/WatchOrganizationModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/WatchOrganizationModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def WatchOrganizationLatestModel(request,
@@ -2102,11 +2583,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/WatchOrganizationLatestModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/WatchOrganizationLatestModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationLatestModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.WatchOrganizationLatestModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListOrganizationModelVersions(request,
@@ -2119,11 +2610,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/ListOrganizationModelVersions',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/ListOrganizationModelVersions',
             model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelVersionsRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.ListOrganizationModelVersionsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def DeleteOrganizationModelVersion(request,
@@ -2136,11 +2637,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/DeleteOrganizationModelVersion',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/DeleteOrganizationModelVersion',
             model_dot_model_dot_v1alpha_dot_model__pb2.DeleteOrganizationModelVersionRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.DeleteOrganizationModelVersionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def TriggerOrganizationModel(request,
@@ -2153,11 +2664,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TriggerOrganizationModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/TriggerOrganizationModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def TriggerAsyncOrganizationModel(request,
@@ -2170,11 +2691,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TriggerAsyncOrganizationModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/TriggerAsyncOrganizationModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def TriggerOrganizationLatestModel(request,
@@ -2187,11 +2718,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TriggerOrganizationLatestModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/TriggerOrganizationLatestModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationLatestModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationLatestModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def TriggerAsyncOrganizationLatestModel(request,
@@ -2204,11 +2745,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/TriggerAsyncOrganizationLatestModel',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/TriggerAsyncOrganizationLatestModel',
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationLatestModelRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerAsyncOrganizationLatestModelResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def TriggerOrganizationModelBinaryFileUpload(request_iterator,
@@ -2221,11 +2772,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/model.model.v1alpha.ModelPublicService/TriggerOrganizationModelBinaryFileUpload',
+        return grpc.experimental.stream_unary(
+            request_iterator,
+            target,
+            '/model.model.v1alpha.ModelPublicService/TriggerOrganizationModelBinaryFileUpload',
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelBinaryFileUploadRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.TriggerOrganizationModelBinaryFileUploadResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetUserLatestModelOperation(request,
@@ -2238,11 +2799,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/GetUserLatestModelOperation',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/GetUserLatestModelOperation',
             model_dot_model_dot_v1alpha_dot_model__pb2.GetUserLatestModelOperationRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.GetUserLatestModelOperationResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetOrganizationLatestModelOperation(request,
@@ -2255,11 +2826,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/GetOrganizationLatestModelOperation',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/GetOrganizationLatestModelOperation',
             model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationLatestModelOperationRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.GetOrganizationLatestModelOperationResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListModelRuns(request,
@@ -2272,11 +2853,21 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/ListModelRuns',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/ListModelRuns',
             model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListModelRunsByRequester(request,
@@ -2289,8 +2880,18 @@ class ModelPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPublicService/ListModelRunsByRequester',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPublicService/ListModelRunsByRequester',
             model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsByRequesterRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.ListModelRunsByRequesterResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

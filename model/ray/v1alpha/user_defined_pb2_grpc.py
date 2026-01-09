@@ -19,7 +19,7 @@ class UserDefinedServiceStub(object):
                 '/model.ray.v1alpha.UserDefinedService/__call__',
                 request_serializer=model_dot_ray_dot_v1alpha_dot_user__defined__pb2.CallRequest.SerializeToString,
                 response_deserializer=model_dot_ray_dot_v1alpha_dot_user__defined__pb2.CallResponse.FromString,
-                )
+                _registered_method=True)
 
 
 class UserDefinedServiceServicer(object):
@@ -47,6 +47,7 @@ def add_UserDefinedServiceServicer_to_server(servicer, server):
     generic_handler = grpc.method_handlers_generic_handler(
             'model.ray.v1alpha.UserDefinedService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('model.ray.v1alpha.UserDefinedService', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -65,8 +66,18 @@ class UserDefinedService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.ray.v1alpha.UserDefinedService/__call__',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.ray.v1alpha.UserDefinedService/__call__',
             model_dot_ray_dot_v1alpha_dot_user__defined__pb2.CallRequest.SerializeToString,
             model_dot_ray_dot_v1alpha_dot_user__defined__pb2.CallResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

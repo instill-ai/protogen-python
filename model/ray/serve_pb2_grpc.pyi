@@ -15,6 +15,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 """
+
 import abc
 import collections.abc
 import grpc
@@ -22,12 +23,11 @@ import grpc.aio
 import model.ray.serve_pb2
 import typing
 
-_T = typing.TypeVar('_T')
+_T = typing.TypeVar("_T")
 
-class _MaybeAsyncIterator(collections.abc.AsyncIterator[_T], collections.abc.Iterator[_T], metaclass=abc.ABCMeta):
-    ...
+class _MaybeAsyncIterator(collections.abc.AsyncIterator[_T], collections.abc.Iterator[_T], metaclass=abc.ABCMeta): ...
 
-class _ServicerContext(grpc.ServicerContext, grpc.aio.ServicerContext):  # type: ignore
+class _ServicerContext(grpc.ServicerContext, grpc.aio.ServicerContext):  # type: ignore[misc, type-arg]
     ...
 
 class RayServeAPIServiceStub:
@@ -36,6 +36,7 @@ class RayServeAPIServiceStub:
         model.ray.serve_pb2.ListApplicationsRequest,
         model.ray.serve_pb2.ListApplicationsResponse,
     ]
+
     Healthz: grpc.UnaryUnaryMultiCallable[
         model.ray.serve_pb2.HealthzRequest,
         model.ray.serve_pb2.HealthzResponse,
@@ -46,6 +47,7 @@ class RayServeAPIServiceAsyncStub:
         model.ray.serve_pb2.ListApplicationsRequest,
         model.ray.serve_pb2.ListApplicationsResponse,
     ]
+
     Healthz: grpc.aio.UnaryUnaryMultiCallable[
         model.ray.serve_pb2.HealthzRequest,
         model.ray.serve_pb2.HealthzResponse,
@@ -58,6 +60,7 @@ class RayServeAPIServiceServicer(metaclass=abc.ABCMeta):
         request: model.ray.serve_pb2.ListApplicationsRequest,
         context: _ServicerContext,
     ) -> typing.Union[model.ray.serve_pb2.ListApplicationsResponse, collections.abc.Awaitable[model.ray.serve_pb2.ListApplicationsResponse]]: ...
+
     @abc.abstractmethod
     def Healthz(
         self,
@@ -73,14 +76,17 @@ class UserDefinedServiceStub:
         model.ray.serve_pb2.UserDefinedMessage,
         model.ray.serve_pb2.UserDefinedResponse,
     ]
+
     Method1: grpc.UnaryUnaryMultiCallable[
         model.ray.serve_pb2.UserDefinedMessage,
         model.ray.serve_pb2.UserDefinedResponse,
     ]
+
     Method2: grpc.UnaryUnaryMultiCallable[
         model.ray.serve_pb2.UserDefinedMessage2,
         model.ray.serve_pb2.UserDefinedResponse2,
     ]
+
     Streaming: grpc.UnaryStreamMultiCallable[
         model.ray.serve_pb2.UserDefinedMessage,
         model.ray.serve_pb2.UserDefinedResponse,
@@ -91,14 +97,17 @@ class UserDefinedServiceAsyncStub:
         model.ray.serve_pb2.UserDefinedMessage,
         model.ray.serve_pb2.UserDefinedResponse,
     ]
+
     Method1: grpc.aio.UnaryUnaryMultiCallable[
         model.ray.serve_pb2.UserDefinedMessage,
         model.ray.serve_pb2.UserDefinedResponse,
     ]
+
     Method2: grpc.aio.UnaryUnaryMultiCallable[
         model.ray.serve_pb2.UserDefinedMessage2,
         model.ray.serve_pb2.UserDefinedResponse2,
     ]
+
     Streaming: grpc.aio.UnaryStreamMultiCallable[
         model.ray.serve_pb2.UserDefinedMessage,
         model.ray.serve_pb2.UserDefinedResponse,
@@ -111,18 +120,21 @@ class UserDefinedServiceServicer(metaclass=abc.ABCMeta):
         request: model.ray.serve_pb2.UserDefinedMessage,
         context: _ServicerContext,
     ) -> typing.Union[model.ray.serve_pb2.UserDefinedResponse, collections.abc.Awaitable[model.ray.serve_pb2.UserDefinedResponse]]: ...
+
     @abc.abstractmethod
     def Method1(
         self,
         request: model.ray.serve_pb2.UserDefinedMessage,
         context: _ServicerContext,
     ) -> typing.Union[model.ray.serve_pb2.UserDefinedResponse, collections.abc.Awaitable[model.ray.serve_pb2.UserDefinedResponse]]: ...
+
     @abc.abstractmethod
     def Method2(
         self,
         request: model.ray.serve_pb2.UserDefinedMessage2,
         context: _ServicerContext,
     ) -> typing.Union[model.ray.serve_pb2.UserDefinedResponse2, collections.abc.Awaitable[model.ray.serve_pb2.UserDefinedResponse2]]: ...
+
     @abc.abstractmethod
     def Streaming(
         self,
@@ -161,6 +173,7 @@ class RayServeBenchmarkServiceStub:
         model.ray.serve_pb2.ArrayData,
         model.ray.serve_pb2.ModelOutput,
     ]
+
     call_with_string: grpc.UnaryUnaryMultiCallable[
         model.ray.serve_pb2.StringData,
         model.ray.serve_pb2.ModelOutput,
@@ -171,6 +184,7 @@ class RayServeBenchmarkServiceAsyncStub:
         model.ray.serve_pb2.ArrayData,
         model.ray.serve_pb2.ModelOutput,
     ]
+
     call_with_string: grpc.aio.UnaryUnaryMultiCallable[
         model.ray.serve_pb2.StringData,
         model.ray.serve_pb2.ModelOutput,
@@ -183,6 +197,7 @@ class RayServeBenchmarkServiceServicer(metaclass=abc.ABCMeta):
         request: model.ray.serve_pb2.ArrayData,
         context: _ServicerContext,
     ) -> typing.Union[model.ray.serve_pb2.ModelOutput, collections.abc.Awaitable[model.ray.serve_pb2.ModelOutput]]: ...
+
     @abc.abstractmethod
     def call_with_string(
         self,

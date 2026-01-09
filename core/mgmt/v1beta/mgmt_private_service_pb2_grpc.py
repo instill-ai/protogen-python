@@ -19,42 +19,42 @@ class MgmtPrivateServiceStub(object):
                 '/core.mgmt.v1beta.MgmtPrivateService/ListUsersAdmin',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListUsersAdminRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListUsersAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.GetUserAdmin = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPrivateService/GetUserAdmin',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserAdminRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.LookUpUserAdmin = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPrivateService/LookUpUserAdmin',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LookUpUserAdminRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LookUpUserAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.ListOrganizationsAdmin = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPrivateService/ListOrganizationsAdmin',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListOrganizationsAdminRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListOrganizationsAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.GetOrganizationAdmin = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPrivateService/GetOrganizationAdmin',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationAdminRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.LookUpOrganizationAdmin = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPrivateService/LookUpOrganizationAdmin',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LookUpOrganizationAdminRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LookUpOrganizationAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.CheckNamespaceAdmin = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPrivateService/CheckNamespaceAdmin',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceAdminRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.CheckNamespaceByUIDAdmin = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPrivateService/CheckNamespaceByUIDAdmin',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceByUIDAdminRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceByUIDAdminResponse.FromString,
-                )
+                _registered_method=True)
 
 
 class MgmtPrivateServiceServicer(object):
@@ -176,6 +176,7 @@ def add_MgmtPrivateServiceServicer_to_server(servicer, server):
     generic_handler = grpc.method_handlers_generic_handler(
             'core.mgmt.v1beta.MgmtPrivateService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('core.mgmt.v1beta.MgmtPrivateService', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -194,11 +195,21 @@ class MgmtPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPrivateService/ListUsersAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPrivateService/ListUsersAdmin',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListUsersAdminRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListUsersAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetUserAdmin(request,
@@ -211,11 +222,21 @@ class MgmtPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPrivateService/GetUserAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPrivateService/GetUserAdmin',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserAdminRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def LookUpUserAdmin(request,
@@ -228,11 +249,21 @@ class MgmtPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPrivateService/LookUpUserAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPrivateService/LookUpUserAdmin',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LookUpUserAdminRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LookUpUserAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListOrganizationsAdmin(request,
@@ -245,11 +276,21 @@ class MgmtPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPrivateService/ListOrganizationsAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPrivateService/ListOrganizationsAdmin',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListOrganizationsAdminRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListOrganizationsAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetOrganizationAdmin(request,
@@ -262,11 +303,21 @@ class MgmtPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPrivateService/GetOrganizationAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPrivateService/GetOrganizationAdmin',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationAdminRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetOrganizationAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def LookUpOrganizationAdmin(request,
@@ -279,11 +330,21 @@ class MgmtPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPrivateService/LookUpOrganizationAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPrivateService/LookUpOrganizationAdmin',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LookUpOrganizationAdminRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LookUpOrganizationAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def CheckNamespaceAdmin(request,
@@ -296,11 +357,21 @@ class MgmtPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPrivateService/CheckNamespaceAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPrivateService/CheckNamespaceAdmin',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceAdminRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def CheckNamespaceByUIDAdmin(request,
@@ -313,8 +384,18 @@ class MgmtPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPrivateService/CheckNamespaceByUIDAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPrivateService/CheckNamespaceByUIDAdmin',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceByUIDAdminRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceByUIDAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

@@ -19,22 +19,22 @@ class UsageServiceStub(object):
                 '/core.usage.v1beta.UsageService/Liveness',
                 request_serializer=core_dot_usage_dot_v1beta_dot_usage__pb2.LivenessRequest.SerializeToString,
                 response_deserializer=core_dot_usage_dot_v1beta_dot_usage__pb2.LivenessResponse.FromString,
-                )
+                _registered_method=True)
         self.Readiness = channel.unary_unary(
                 '/core.usage.v1beta.UsageService/Readiness',
                 request_serializer=core_dot_usage_dot_v1beta_dot_usage__pb2.ReadinessRequest.SerializeToString,
                 response_deserializer=core_dot_usage_dot_v1beta_dot_usage__pb2.ReadinessResponse.FromString,
-                )
+                _registered_method=True)
         self.CreateSession = channel.unary_unary(
                 '/core.usage.v1beta.UsageService/CreateSession',
                 request_serializer=core_dot_usage_dot_v1beta_dot_usage__pb2.CreateSessionRequest.SerializeToString,
                 response_deserializer=core_dot_usage_dot_v1beta_dot_usage__pb2.CreateSessionResponse.FromString,
-                )
+                _registered_method=True)
         self.SendSessionReport = channel.unary_unary(
                 '/core.usage.v1beta.UsageService/SendSessionReport',
                 request_serializer=core_dot_usage_dot_v1beta_dot_usage__pb2.SendSessionReportRequest.SerializeToString,
                 response_deserializer=core_dot_usage_dot_v1beta_dot_usage__pb2.SendSessionReportResponse.FromString,
-                )
+                _registered_method=True)
 
 
 class UsageServiceServicer(object):
@@ -102,6 +102,7 @@ def add_UsageServiceServicer_to_server(servicer, server):
     generic_handler = grpc.method_handlers_generic_handler(
             'core.usage.v1beta.UsageService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('core.usage.v1beta.UsageService', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -120,11 +121,21 @@ class UsageService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.usage.v1beta.UsageService/Liveness',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.usage.v1beta.UsageService/Liveness',
             core_dot_usage_dot_v1beta_dot_usage__pb2.LivenessRequest.SerializeToString,
             core_dot_usage_dot_v1beta_dot_usage__pb2.LivenessResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def Readiness(request,
@@ -137,11 +148,21 @@ class UsageService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.usage.v1beta.UsageService/Readiness',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.usage.v1beta.UsageService/Readiness',
             core_dot_usage_dot_v1beta_dot_usage__pb2.ReadinessRequest.SerializeToString,
             core_dot_usage_dot_v1beta_dot_usage__pb2.ReadinessResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def CreateSession(request,
@@ -154,11 +175,21 @@ class UsageService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.usage.v1beta.UsageService/CreateSession',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.usage.v1beta.UsageService/CreateSession',
             core_dot_usage_dot_v1beta_dot_usage__pb2.CreateSessionRequest.SerializeToString,
             core_dot_usage_dot_v1beta_dot_usage__pb2.CreateSessionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def SendSessionReport(request,
@@ -171,8 +202,18 @@ class UsageService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.usage.v1beta.UsageService/SendSessionReport',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.usage.v1beta.UsageService/SendSessionReport',
             core_dot_usage_dot_v1beta_dot_usage__pb2.SendSessionReportRequest.SerializeToString,
             core_dot_usage_dot_v1beta_dot_usage__pb2.SendSessionReportResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

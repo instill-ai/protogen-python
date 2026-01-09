@@ -23,122 +23,122 @@ class MgmtPublicServiceStub(object):
                 '/core.mgmt.v1beta.MgmtPublicService/Liveness',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LivenessRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LivenessResponse.FromString,
-                )
+                _registered_method=True)
         self.Readiness = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/Readiness',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ReadinessRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ReadinessResponse.FromString,
-                )
+                _registered_method=True)
         self.GetAuthenticatedUser = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/GetAuthenticatedUser',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserResponse.FromString,
-                )
+                _registered_method=True)
         self.PatchAuthenticatedUser = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/PatchAuthenticatedUser',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.PatchAuthenticatedUserRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.PatchAuthenticatedUserResponse.FromString,
-                )
+                _registered_method=True)
         self.ListUsers = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/ListUsers',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListUsersRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListUsersResponse.FromString,
-                )
+                _registered_method=True)
         self.GetUser = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/GetUser',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserResponse.FromString,
-                )
+                _registered_method=True)
         self.CreateToken = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/CreateToken',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CreateTokenRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CreateTokenResponse.FromString,
-                )
+                _registered_method=True)
         self.ListTokens = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/ListTokens',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListTokensRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListTokensResponse.FromString,
-                )
+                _registered_method=True)
         self.GetToken = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/GetToken',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetTokenRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetTokenResponse.FromString,
-                )
+                _registered_method=True)
         self.DeleteToken = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/DeleteToken',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.DeleteTokenRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.DeleteTokenResponse.FromString,
-                )
+                _registered_method=True)
         self.ValidateToken = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/ValidateToken',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ValidateTokenRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ValidateTokenResponse.FromString,
-                )
+                _registered_method=True)
         self.CheckNamespace = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/CheckNamespace',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceResponse.FromString,
-                )
+                _registered_method=True)
         self.GetPipelineTriggerCount = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/GetPipelineTriggerCount',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetPipelineTriggerCountRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetPipelineTriggerCountResponse.FromString,
-                )
+                _registered_method=True)
         self.GetModelTriggerCount = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/GetModelTriggerCount',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetModelTriggerCountRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetModelTriggerCountResponse.FromString,
-                )
+                _registered_method=True)
         self.ListPipelineTriggerChartRecords = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerChartRecords',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsResponse.FromString,
-                )
+                _registered_method=True)
         self.ListModelTriggerChartRecords = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/ListModelTriggerChartRecords',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerChartRecordsRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerChartRecordsResponse.FromString,
-                )
+                _registered_method=True)
         self.AuthTokenIssuer = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/AuthTokenIssuer',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthTokenIssuerRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthTokenIssuerResponse.FromString,
-                )
+                _registered_method=True)
         self.AuthLogin = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/AuthLogin',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthLoginRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthLoginResponse.FromString,
-                )
+                _registered_method=True)
         self.AuthLogout = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/AuthLogout',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthLogoutRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthLogoutResponse.FromString,
-                )
+                _registered_method=True)
         self.AuthChangePassword = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/AuthChangePassword',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthChangePasswordRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthChangePasswordResponse.FromString,
-                )
+                _registered_method=True)
         self.AuthValidateAccessToken = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/AuthValidateAccessToken',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenResponse.FromString,
-                )
+                _registered_method=True)
         self.ListPipelineTriggerRecords = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerRecords',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerRecordsRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerRecordsResponse.FromString,
-                )
+                _registered_method=True)
         self.ListPipelineTriggerTableRecords = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerTableRecords',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerTableRecordsRequest.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerTableRecordsResponse.FromString,
-                )
+                _registered_method=True)
         self.ListPipelineTriggerChartRecordsV0 = channel.unary_unary(
                 '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerChartRecordsV0',
                 request_serializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsV0Request.SerializeToString,
                 response_deserializer=core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsV0Response.FromString,
-                )
+                _registered_method=True)
 
 
 class MgmtPublicServiceServicer(object):
@@ -516,6 +516,7 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
     generic_handler = grpc.method_handlers_generic_handler(
             'core.mgmt.v1beta.MgmtPublicService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('core.mgmt.v1beta.MgmtPublicService', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -537,11 +538,21 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/Liveness',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPublicService/Liveness',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LivenessRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.LivenessResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def Readiness(request,
@@ -554,11 +565,21 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/Readiness',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPublicService/Readiness',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ReadinessRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ReadinessResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetAuthenticatedUser(request,
@@ -571,11 +592,21 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/GetAuthenticatedUser',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPublicService/GetAuthenticatedUser',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def PatchAuthenticatedUser(request,
@@ -588,11 +619,21 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/PatchAuthenticatedUser',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPublicService/PatchAuthenticatedUser',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.PatchAuthenticatedUserRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.PatchAuthenticatedUserResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListUsers(request,
@@ -605,11 +646,21 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListUsers',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPublicService/ListUsers',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListUsersRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListUsersResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetUser(request,
@@ -622,11 +673,21 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/GetUser',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPublicService/GetUser',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetUserResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def CreateToken(request,
@@ -639,11 +700,21 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/CreateToken',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPublicService/CreateToken',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CreateTokenRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CreateTokenResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListTokens(request,
@@ -656,11 +727,21 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListTokens',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPublicService/ListTokens',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListTokensRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ListTokensResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetToken(request,
@@ -673,11 +754,21 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/GetToken',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPublicService/GetToken',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetTokenRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.GetTokenResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def DeleteToken(request,
@@ -690,11 +781,21 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/DeleteToken',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPublicService/DeleteToken',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.DeleteTokenRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.DeleteTokenResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ValidateToken(request,
@@ -707,11 +808,21 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ValidateToken',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPublicService/ValidateToken',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ValidateTokenRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.ValidateTokenResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def CheckNamespace(request,
@@ -724,11 +835,21 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/CheckNamespace',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPublicService/CheckNamespace',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetPipelineTriggerCount(request,
@@ -741,11 +862,21 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/GetPipelineTriggerCount',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPublicService/GetPipelineTriggerCount',
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetPipelineTriggerCountRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetPipelineTriggerCountResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetModelTriggerCount(request,
@@ -758,11 +889,21 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/GetModelTriggerCount',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPublicService/GetModelTriggerCount',
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetModelTriggerCountRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.GetModelTriggerCountResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListPipelineTriggerChartRecords(request,
@@ -775,11 +916,21 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerChartRecords',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerChartRecords',
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListModelTriggerChartRecords(request,
@@ -792,11 +943,21 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListModelTriggerChartRecords',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPublicService/ListModelTriggerChartRecords',
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerChartRecordsRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerChartRecordsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def AuthTokenIssuer(request,
@@ -809,11 +970,21 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/AuthTokenIssuer',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPublicService/AuthTokenIssuer',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthTokenIssuerRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthTokenIssuerResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def AuthLogin(request,
@@ -826,11 +997,21 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/AuthLogin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPublicService/AuthLogin',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthLoginRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthLoginResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def AuthLogout(request,
@@ -843,11 +1024,21 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/AuthLogout',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPublicService/AuthLogout',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthLogoutRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthLogoutResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def AuthChangePassword(request,
@@ -860,11 +1051,21 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/AuthChangePassword',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPublicService/AuthChangePassword',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthChangePasswordRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthChangePasswordResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def AuthValidateAccessToken(request,
@@ -877,11 +1078,21 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/AuthValidateAccessToken',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPublicService/AuthValidateAccessToken',
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListPipelineTriggerRecords(request,
@@ -894,11 +1105,21 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerRecords',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerRecords',
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerRecordsRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerRecordsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListPipelineTriggerTableRecords(request,
@@ -911,11 +1132,21 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerTableRecords',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerTableRecords',
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerTableRecordsRequest.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerTableRecordsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListPipelineTriggerChartRecordsV0(request,
@@ -928,8 +1159,18 @@ class MgmtPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerChartRecordsV0',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/core.mgmt.v1beta.MgmtPublicService/ListPipelineTriggerChartRecordsV0',
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsV0Request.SerializeToString,
             core_dot_mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsV0Response.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

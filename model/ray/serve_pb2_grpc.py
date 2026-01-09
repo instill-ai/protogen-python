@@ -18,12 +18,12 @@ class RayServeAPIServiceStub(object):
                 '/ray.serve.RayServeAPIService/ListApplications',
                 request_serializer=model_dot_ray_dot_serve__pb2.ListApplicationsRequest.SerializeToString,
                 response_deserializer=model_dot_ray_dot_serve__pb2.ListApplicationsResponse.FromString,
-                )
+                _registered_method=True)
         self.Healthz = channel.unary_unary(
                 '/ray.serve.RayServeAPIService/Healthz',
                 request_serializer=model_dot_ray_dot_serve__pb2.HealthzRequest.SerializeToString,
                 response_deserializer=model_dot_ray_dot_serve__pb2.HealthzResponse.FromString,
-                )
+                _registered_method=True)
 
 
 class RayServeAPIServiceServicer(object):
@@ -58,6 +58,7 @@ def add_RayServeAPIServiceServicer_to_server(servicer, server):
     generic_handler = grpc.method_handlers_generic_handler(
             'ray.serve.RayServeAPIService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('ray.serve.RayServeAPIService', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -75,11 +76,21 @@ class RayServeAPIService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ray.serve.RayServeAPIService/ListApplications',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/ray.serve.RayServeAPIService/ListApplications',
             model_dot_ray_dot_serve__pb2.ListApplicationsRequest.SerializeToString,
             model_dot_ray_dot_serve__pb2.ListApplicationsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def Healthz(request,
@@ -92,11 +103,21 @@ class RayServeAPIService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ray.serve.RayServeAPIService/Healthz',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/ray.serve.RayServeAPIService/Healthz',
             model_dot_ray_dot_serve__pb2.HealthzRequest.SerializeToString,
             model_dot_ray_dot_serve__pb2.HealthzResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
 
 class UserDefinedServiceStub(object):
@@ -112,22 +133,22 @@ class UserDefinedServiceStub(object):
                 '/ray.serve.UserDefinedService/__call__',
                 request_serializer=model_dot_ray_dot_serve__pb2.UserDefinedMessage.SerializeToString,
                 response_deserializer=model_dot_ray_dot_serve__pb2.UserDefinedResponse.FromString,
-                )
+                _registered_method=True)
         self.Method1 = channel.unary_unary(
                 '/ray.serve.UserDefinedService/Method1',
                 request_serializer=model_dot_ray_dot_serve__pb2.UserDefinedMessage.SerializeToString,
                 response_deserializer=model_dot_ray_dot_serve__pb2.UserDefinedResponse.FromString,
-                )
+                _registered_method=True)
         self.Method2 = channel.unary_unary(
                 '/ray.serve.UserDefinedService/Method2',
                 request_serializer=model_dot_ray_dot_serve__pb2.UserDefinedMessage2.SerializeToString,
                 response_deserializer=model_dot_ray_dot_serve__pb2.UserDefinedResponse2.FromString,
-                )
+                _registered_method=True)
         self.Streaming = channel.unary_stream(
                 '/ray.serve.UserDefinedService/Streaming',
                 request_serializer=model_dot_ray_dot_serve__pb2.UserDefinedMessage.SerializeToString,
                 response_deserializer=model_dot_ray_dot_serve__pb2.UserDefinedResponse.FromString,
-                )
+                _registered_method=True)
 
 
 class UserDefinedServiceServicer(object):
@@ -184,6 +205,7 @@ def add_UserDefinedServiceServicer_to_server(servicer, server):
     generic_handler = grpc.method_handlers_generic_handler(
             'ray.serve.UserDefinedService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('ray.serve.UserDefinedService', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -201,11 +223,21 @@ class UserDefinedService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ray.serve.UserDefinedService/__call__',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/ray.serve.UserDefinedService/__call__',
             model_dot_ray_dot_serve__pb2.UserDefinedMessage.SerializeToString,
             model_dot_ray_dot_serve__pb2.UserDefinedResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def Method1(request,
@@ -218,11 +250,21 @@ class UserDefinedService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ray.serve.UserDefinedService/Method1',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/ray.serve.UserDefinedService/Method1',
             model_dot_ray_dot_serve__pb2.UserDefinedMessage.SerializeToString,
             model_dot_ray_dot_serve__pb2.UserDefinedResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def Method2(request,
@@ -235,11 +277,21 @@ class UserDefinedService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ray.serve.UserDefinedService/Method2',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/ray.serve.UserDefinedService/Method2',
             model_dot_ray_dot_serve__pb2.UserDefinedMessage2.SerializeToString,
             model_dot_ray_dot_serve__pb2.UserDefinedResponse2.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def Streaming(request,
@@ -252,11 +304,21 @@ class UserDefinedService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/ray.serve.UserDefinedService/Streaming',
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/ray.serve.UserDefinedService/Streaming',
             model_dot_ray_dot_serve__pb2.UserDefinedMessage.SerializeToString,
             model_dot_ray_dot_serve__pb2.UserDefinedResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
 
 class FruitServiceStub(object):
@@ -272,7 +334,7 @@ class FruitServiceStub(object):
                 '/ray.serve.FruitService/FruitStand',
                 request_serializer=model_dot_ray_dot_serve__pb2.FruitAmounts.SerializeToString,
                 response_deserializer=model_dot_ray_dot_serve__pb2.FruitCosts.FromString,
-                )
+                _registered_method=True)
 
 
 class FruitServiceServicer(object):
@@ -296,6 +358,7 @@ def add_FruitServiceServicer_to_server(servicer, server):
     generic_handler = grpc.method_handlers_generic_handler(
             'ray.serve.FruitService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('ray.serve.FruitService', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -313,11 +376,21 @@ class FruitService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ray.serve.FruitService/FruitStand',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/ray.serve.FruitService/FruitStand',
             model_dot_ray_dot_serve__pb2.FruitAmounts.SerializeToString,
             model_dot_ray_dot_serve__pb2.FruitCosts.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
 
 class RayServeBenchmarkServiceStub(object):
@@ -333,12 +406,12 @@ class RayServeBenchmarkServiceStub(object):
                 '/ray.serve.RayServeBenchmarkService/grpc_call',
                 request_serializer=model_dot_ray_dot_serve__pb2.ArrayData.SerializeToString,
                 response_deserializer=model_dot_ray_dot_serve__pb2.ModelOutput.FromString,
-                )
+                _registered_method=True)
         self.call_with_string = channel.unary_unary(
                 '/ray.serve.RayServeBenchmarkService/call_with_string',
                 request_serializer=model_dot_ray_dot_serve__pb2.StringData.SerializeToString,
                 response_deserializer=model_dot_ray_dot_serve__pb2.ModelOutput.FromString,
-                )
+                _registered_method=True)
 
 
 class RayServeBenchmarkServiceServicer(object):
@@ -373,6 +446,7 @@ def add_RayServeBenchmarkServiceServicer_to_server(servicer, server):
     generic_handler = grpc.method_handlers_generic_handler(
             'ray.serve.RayServeBenchmarkService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('ray.serve.RayServeBenchmarkService', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -390,11 +464,21 @@ class RayServeBenchmarkService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ray.serve.RayServeBenchmarkService/grpc_call',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/ray.serve.RayServeBenchmarkService/grpc_call',
             model_dot_ray_dot_serve__pb2.ArrayData.SerializeToString,
             model_dot_ray_dot_serve__pb2.ModelOutput.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def call_with_string(request,
@@ -407,8 +491,18 @@ class RayServeBenchmarkService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/ray.serve.RayServeBenchmarkService/call_with_string',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/ray.serve.RayServeBenchmarkService/call_with_string',
             model_dot_ray_dot_serve__pb2.StringData.SerializeToString,
             model_dot_ray_dot_serve__pb2.ModelOutput.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

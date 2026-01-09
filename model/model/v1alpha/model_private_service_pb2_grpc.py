@@ -20,62 +20,62 @@ class ModelPrivateServiceStub(object):
                 '/model.model.v1alpha.ModelPrivateService/ListModelsAdmin',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelsAdminRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListModelsAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.LookUpModelAdmin = channel.unary_unary(
                 '/model.model.v1alpha.ModelPrivateService/LookUpModelAdmin',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.DeployNamespaceModelAdmin = channel.unary_unary(
                 '/model.model.v1alpha.ModelPrivateService/DeployNamespaceModelAdmin',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployNamespaceModelAdminRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployNamespaceModelAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.DeployUserModelAdmin = channel.unary_unary(
                 '/model.model.v1alpha.ModelPrivateService/DeployUserModelAdmin',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployUserModelAdminRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployUserModelAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.DeployOrganizationModelAdmin = channel.unary_unary(
                 '/model.model.v1alpha.ModelPrivateService/DeployOrganizationModelAdmin',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployOrganizationModelAdminRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeployOrganizationModelAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.UndeployUserModelAdmin = channel.unary_unary(
                 '/model.model.v1alpha.ModelPrivateService/UndeployUserModelAdmin',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelAdminRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.UndeployNamespaceModelAdmin = channel.unary_unary(
                 '/model.model.v1alpha.ModelPrivateService/UndeployNamespaceModelAdmin',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployNamespaceModelAdminRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployNamespaceModelAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.UndeployOrganizationModelAdmin = channel.unary_unary(
                 '/model.model.v1alpha.ModelPrivateService/UndeployOrganizationModelAdmin',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelAdminRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.ListRepositoryTags = channel.unary_unary(
                 '/model.model.v1alpha.ModelPrivateService/ListRepositoryTags',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListRepositoryTagsRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.ListRepositoryTagsResponse.FromString,
-                )
+                _registered_method=True)
         self.GetRepositoryTag = channel.unary_unary(
                 '/model.model.v1alpha.ModelPrivateService/GetRepositoryTag',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetRepositoryTagRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.GetRepositoryTagResponse.FromString,
-                )
+                _registered_method=True)
         self.CreateRepositoryTag = channel.unary_unary(
                 '/model.model.v1alpha.ModelPrivateService/CreateRepositoryTag',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateRepositoryTagRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.CreateRepositoryTagResponse.FromString,
-                )
+                _registered_method=True)
         self.DeleteRepositoryTag = channel.unary_unary(
                 '/model.model.v1alpha.ModelPrivateService/DeleteRepositoryTag',
                 request_serializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteRepositoryTagRequest.SerializeToString,
                 response_deserializer=model_dot_model_dot_v1alpha_dot_model__pb2.DeleteRepositoryTagResponse.FromString,
-                )
+                _registered_method=True)
 
 
 class ModelPrivateServiceServicer(object):
@@ -247,6 +247,7 @@ def add_ModelPrivateServiceServicer_to_server(servicer, server):
     generic_handler = grpc.method_handlers_generic_handler(
             'model.model.v1alpha.ModelPrivateService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('model.model.v1alpha.ModelPrivateService', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -266,11 +267,21 @@ class ModelPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/ListModelsAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPrivateService/ListModelsAdmin',
             model_dot_model_dot_v1alpha_dot_model__pb2.ListModelsAdminRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.ListModelsAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def LookUpModelAdmin(request,
@@ -283,11 +294,21 @@ class ModelPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/LookUpModelAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPrivateService/LookUpModelAdmin',
             model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.LookUpModelAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def DeployNamespaceModelAdmin(request,
@@ -300,11 +321,21 @@ class ModelPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/DeployNamespaceModelAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPrivateService/DeployNamespaceModelAdmin',
             model_dot_model_dot_v1alpha_dot_model__pb2.DeployNamespaceModelAdminRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.DeployNamespaceModelAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def DeployUserModelAdmin(request,
@@ -317,11 +348,21 @@ class ModelPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/DeployUserModelAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPrivateService/DeployUserModelAdmin',
             model_dot_model_dot_v1alpha_dot_model__pb2.DeployUserModelAdminRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.DeployUserModelAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def DeployOrganizationModelAdmin(request,
@@ -334,11 +375,21 @@ class ModelPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/DeployOrganizationModelAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPrivateService/DeployOrganizationModelAdmin',
             model_dot_model_dot_v1alpha_dot_model__pb2.DeployOrganizationModelAdminRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.DeployOrganizationModelAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def UndeployUserModelAdmin(request,
@@ -351,11 +402,21 @@ class ModelPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/UndeployUserModelAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPrivateService/UndeployUserModelAdmin',
             model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelAdminRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.UndeployUserModelAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def UndeployNamespaceModelAdmin(request,
@@ -368,11 +429,21 @@ class ModelPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/UndeployNamespaceModelAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPrivateService/UndeployNamespaceModelAdmin',
             model_dot_model_dot_v1alpha_dot_model__pb2.UndeployNamespaceModelAdminRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.UndeployNamespaceModelAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def UndeployOrganizationModelAdmin(request,
@@ -385,11 +456,21 @@ class ModelPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/UndeployOrganizationModelAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPrivateService/UndeployOrganizationModelAdmin',
             model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelAdminRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.UndeployOrganizationModelAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListRepositoryTags(request,
@@ -402,11 +483,21 @@ class ModelPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/ListRepositoryTags',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPrivateService/ListRepositoryTags',
             model_dot_model_dot_v1alpha_dot_model__pb2.ListRepositoryTagsRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.ListRepositoryTagsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetRepositoryTag(request,
@@ -419,11 +510,21 @@ class ModelPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/GetRepositoryTag',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPrivateService/GetRepositoryTag',
             model_dot_model_dot_v1alpha_dot_model__pb2.GetRepositoryTagRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.GetRepositoryTagResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def CreateRepositoryTag(request,
@@ -436,11 +537,21 @@ class ModelPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/CreateRepositoryTag',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPrivateService/CreateRepositoryTag',
             model_dot_model_dot_v1alpha_dot_model__pb2.CreateRepositoryTagRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.CreateRepositoryTagResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def DeleteRepositoryTag(request,
@@ -453,8 +564,18 @@ class ModelPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/model.model.v1alpha.ModelPrivateService/DeleteRepositoryTag',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.model.v1alpha.ModelPrivateService/DeleteRepositoryTag',
             model_dot_model_dot_v1alpha_dot_model__pb2.DeleteRepositoryTagRequest.SerializeToString,
             model_dot_model_dot_v1alpha_dot_model__pb2.DeleteRepositoryTagResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

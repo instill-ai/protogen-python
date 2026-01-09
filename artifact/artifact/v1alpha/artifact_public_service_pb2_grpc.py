@@ -24,102 +24,102 @@ class ArtifactPublicServiceStub(object):
                 '/artifact.artifact.v1alpha.ArtifactPublicService/Liveness',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.LivenessRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.LivenessResponse.FromString,
-                )
+                _registered_method=True)
         self.Readiness = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/Readiness',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ReadinessRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ReadinessResponse.FromString,
-                )
+                _registered_method=True)
         self.CreateKnowledgeBase = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/CreateKnowledgeBase',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseResponse.FromString,
-                )
+                _registered_method=True)
         self.GetKnowledgeBase = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/GetKnowledgeBase',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.GetKnowledgeBaseRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.GetKnowledgeBaseResponse.FromString,
-                )
+                _registered_method=True)
         self.ListKnowledgeBases = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/ListKnowledgeBases',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.ListKnowledgeBasesRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.ListKnowledgeBasesResponse.FromString,
-                )
+                _registered_method=True)
         self.UpdateKnowledgeBase = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateKnowledgeBase',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.UpdateKnowledgeBaseRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.UpdateKnowledgeBaseResponse.FromString,
-                )
+                _registered_method=True)
         self.DeleteKnowledgeBase = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/DeleteKnowledgeBase',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseResponse.FromString,
-                )
+                _registered_method=True)
         self.CreateFile = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/CreateFile',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.CreateFileRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.CreateFileResponse.FromString,
-                )
+                _registered_method=True)
         self.GetFile = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/GetFile',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.GetFileRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.GetFileResponse.FromString,
-                )
+                _registered_method=True)
         self.ListFiles = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/ListFiles',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.ListFilesRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.ListFilesResponse.FromString,
-                )
+                _registered_method=True)
         self.UpdateFile = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateFile',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileResponse.FromString,
-                )
+                _registered_method=True)
         self.ReprocessFile = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/ReprocessFile',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.ReprocessFileRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.ReprocessFileResponse.FromString,
-                )
+                _registered_method=True)
         self.DeleteFile = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/DeleteFile',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.DeleteFileRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.DeleteFileResponse.FromString,
-                )
+                _registered_method=True)
         self.GetChunk = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/GetChunk',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetChunkRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetChunkResponse.FromString,
-                )
+                _registered_method=True)
         self.ListChunks = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/ListChunks',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ListChunksRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ListChunksResponse.FromString,
-                )
+                _registered_method=True)
         self.UpdateChunk = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateChunk',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.UpdateChunkRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.UpdateChunkResponse.FromString,
-                )
+                _registered_method=True)
         self.SearchChunks = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/SearchChunks',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksResponse.FromString,
-                )
+                _registered_method=True)
         self.ListKnowledgeBaseRuns = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/ListKnowledgeBaseRuns',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseRunsRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseRunsResponse.FromString,
-                )
+                _registered_method=True)
         self.GetObjectUploadURL = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/GetObjectUploadURL',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectUploadURLRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectUploadURLResponse.FromString,
-                )
+                _registered_method=True)
         self.GetObjectDownloadURL = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPublicService/GetObjectDownloadURL',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectDownloadURLRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectDownloadURLResponse.FromString,
-                )
+                _registered_method=True)
 
 
 class ArtifactPublicServiceServicer(object):
@@ -415,6 +415,7 @@ def add_ArtifactPublicServiceServicer_to_server(servicer, server):
     generic_handler = grpc.method_handlers_generic_handler(
             'artifact.artifact.v1alpha.ArtifactPublicService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('artifact.artifact.v1alpha.ArtifactPublicService', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -434,11 +435,21 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/Liveness',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPublicService/Liveness',
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.LivenessRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.LivenessResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def Readiness(request,
@@ -451,11 +462,21 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/Readiness',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPublicService/Readiness',
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ReadinessRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ReadinessResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def CreateKnowledgeBase(request,
@@ -468,11 +489,21 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/CreateKnowledgeBase',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPublicService/CreateKnowledgeBase',
             artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetKnowledgeBase(request,
@@ -485,11 +516,21 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/GetKnowledgeBase',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPublicService/GetKnowledgeBase',
             artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.GetKnowledgeBaseRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.GetKnowledgeBaseResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListKnowledgeBases(request,
@@ -502,11 +543,21 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ListKnowledgeBases',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPublicService/ListKnowledgeBases',
             artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.ListKnowledgeBasesRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.ListKnowledgeBasesResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def UpdateKnowledgeBase(request,
@@ -519,11 +570,21 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateKnowledgeBase',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateKnowledgeBase',
             artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.UpdateKnowledgeBaseRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.UpdateKnowledgeBaseResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def DeleteKnowledgeBase(request,
@@ -536,11 +597,21 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/DeleteKnowledgeBase',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPublicService/DeleteKnowledgeBase',
             artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def CreateFile(request,
@@ -553,11 +624,21 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/CreateFile',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPublicService/CreateFile',
             artifact_dot_artifact_dot_v1alpha_dot_file__pb2.CreateFileRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_file__pb2.CreateFileResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetFile(request,
@@ -570,11 +651,21 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/GetFile',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPublicService/GetFile',
             artifact_dot_artifact_dot_v1alpha_dot_file__pb2.GetFileRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_file__pb2.GetFileResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListFiles(request,
@@ -587,11 +678,21 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ListFiles',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPublicService/ListFiles',
             artifact_dot_artifact_dot_v1alpha_dot_file__pb2.ListFilesRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_file__pb2.ListFilesResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def UpdateFile(request,
@@ -604,11 +705,21 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateFile',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateFile',
             artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ReprocessFile(request,
@@ -621,11 +732,21 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ReprocessFile',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPublicService/ReprocessFile',
             artifact_dot_artifact_dot_v1alpha_dot_file__pb2.ReprocessFileRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_file__pb2.ReprocessFileResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def DeleteFile(request,
@@ -638,11 +759,21 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/DeleteFile',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPublicService/DeleteFile',
             artifact_dot_artifact_dot_v1alpha_dot_file__pb2.DeleteFileRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_file__pb2.DeleteFileResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetChunk(request,
@@ -655,11 +786,21 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/GetChunk',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPublicService/GetChunk',
             artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetChunkRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.GetChunkResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListChunks(request,
@@ -672,11 +813,21 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ListChunks',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPublicService/ListChunks',
             artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ListChunksRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.ListChunksResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def UpdateChunk(request,
@@ -689,11 +840,21 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateChunk',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPublicService/UpdateChunk',
             artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.UpdateChunkRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.UpdateChunkResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def SearchChunks(request,
@@ -706,11 +867,21 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/SearchChunks',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPublicService/SearchChunks',
             artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListKnowledgeBaseRuns(request,
@@ -723,11 +894,21 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/ListKnowledgeBaseRuns',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPublicService/ListKnowledgeBaseRuns',
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseRunsRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseRunsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetObjectUploadURL(request,
@@ -740,11 +921,21 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/GetObjectUploadURL',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPublicService/GetObjectUploadURL',
             artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectUploadURLRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectUploadURLResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetObjectDownloadURL(request,
@@ -757,8 +948,18 @@ class ArtifactPublicService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPublicService/GetObjectDownloadURL',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPublicService/GetObjectDownloadURL',
             artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectDownloadURLRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectDownloadURLResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

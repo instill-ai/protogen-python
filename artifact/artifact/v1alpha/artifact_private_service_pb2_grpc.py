@@ -24,102 +24,102 @@ class ArtifactPrivateServiceStub(object):
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/CreateKnowledgeBaseAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.UpdateKnowledgeBaseAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateKnowledgeBaseAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.UpdateKnowledgeBaseAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.UpdateKnowledgeBaseAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.UpdateFileAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateFileAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.GetObjectAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/GetObjectAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.UpdateObjectAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateObjectAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.UpdateObjectAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_object__pb2.UpdateObjectAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.DeleteFileAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/DeleteFileAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.DeleteFileAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_file__pb2.DeleteFileAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.ExecuteKnowledgeBaseUpdateAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/ExecuteKnowledgeBaseUpdateAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.ExecuteKnowledgeBaseUpdateAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.ExecuteKnowledgeBaseUpdateAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.AbortKnowledgeBaseUpdateAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/AbortKnowledgeBaseUpdateAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.AbortKnowledgeBaseUpdateAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.AbortKnowledgeBaseUpdateAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.RollbackAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/RollbackAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.RollbackAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.RollbackAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.PurgeRollbackAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/PurgeRollbackAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.PurgeRollbackAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.PurgeRollbackAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.SetRollbackRetentionAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/SetRollbackRetentionAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.SetRollbackRetentionAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.SetRollbackRetentionAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.GetKnowledgeBaseUpdateStatusAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/GetKnowledgeBaseUpdateStatusAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.GetKnowledgeBaseUpdateStatusAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_update__pb2.GetKnowledgeBaseUpdateStatusAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.CreateSystemAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/CreateSystemAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.CreateSystemAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.CreateSystemAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.GetSystemAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/GetSystemAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.GetSystemAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.GetSystemAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.UpdateSystemAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateSystemAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.UpdateSystemAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.UpdateSystemAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.DeleteSystemAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/DeleteSystemAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.DeleteSystemAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.DeleteSystemAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.ListSystemsAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/ListSystemsAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.ListSystemsAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.ListSystemsAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.RenameSystemAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/RenameSystemAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.RenameSystemAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.RenameSystemAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.SetDefaultSystemAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/SetDefaultSystemAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.SetDefaultSystemAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.SetDefaultSystemAdminResponse.FromString,
-                )
+                _registered_method=True)
         self.GetDefaultSystemAdmin = channel.unary_unary(
                 '/artifact.artifact.v1alpha.ArtifactPrivateService/GetDefaultSystemAdmin',
                 request_serializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.GetDefaultSystemAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_artifact_dot_v1alpha_dot_system__pb2.GetDefaultSystemAdminResponse.FromString,
-                )
+                _registered_method=True)
 
 
 class ArtifactPrivateServiceServicer(object):
@@ -403,6 +403,7 @@ def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
     generic_handler = grpc.method_handlers_generic_handler(
             'artifact.artifact.v1alpha.ArtifactPrivateService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('artifact.artifact.v1alpha.ArtifactPrivateService', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -422,11 +423,21 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/CreateKnowledgeBaseAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPrivateService/CreateKnowledgeBaseAdmin',
             artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseAdminRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def UpdateKnowledgeBaseAdmin(request,
@@ -439,11 +450,21 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateKnowledgeBaseAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateKnowledgeBaseAdmin',
             artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.UpdateKnowledgeBaseAdminRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_knowledge__base__pb2.UpdateKnowledgeBaseAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def UpdateFileAdmin(request,
@@ -456,11 +477,21 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateFileAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateFileAdmin',
             artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileAdminRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_file__pb2.UpdateFileAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetObjectAdmin(request,
@@ -473,11 +504,21 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/GetObjectAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPrivateService/GetObjectAdmin',
             artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectAdminRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_object__pb2.GetObjectAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def UpdateObjectAdmin(request,
@@ -490,11 +531,21 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateObjectAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateObjectAdmin',
             artifact_dot_artifact_dot_v1alpha_dot_object__pb2.UpdateObjectAdminRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_object__pb2.UpdateObjectAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def DeleteFileAdmin(request,
@@ -507,11 +558,21 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/DeleteFileAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPrivateService/DeleteFileAdmin',
             artifact_dot_artifact_dot_v1alpha_dot_file__pb2.DeleteFileAdminRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_file__pb2.DeleteFileAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ExecuteKnowledgeBaseUpdateAdmin(request,
@@ -524,11 +585,21 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/ExecuteKnowledgeBaseUpdateAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPrivateService/ExecuteKnowledgeBaseUpdateAdmin',
             artifact_dot_artifact_dot_v1alpha_dot_update__pb2.ExecuteKnowledgeBaseUpdateAdminRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_update__pb2.ExecuteKnowledgeBaseUpdateAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def AbortKnowledgeBaseUpdateAdmin(request,
@@ -541,11 +612,21 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/AbortKnowledgeBaseUpdateAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPrivateService/AbortKnowledgeBaseUpdateAdmin',
             artifact_dot_artifact_dot_v1alpha_dot_update__pb2.AbortKnowledgeBaseUpdateAdminRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_update__pb2.AbortKnowledgeBaseUpdateAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def RollbackAdmin(request,
@@ -558,11 +639,21 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/RollbackAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPrivateService/RollbackAdmin',
             artifact_dot_artifact_dot_v1alpha_dot_update__pb2.RollbackAdminRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_update__pb2.RollbackAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def PurgeRollbackAdmin(request,
@@ -575,11 +666,21 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/PurgeRollbackAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPrivateService/PurgeRollbackAdmin',
             artifact_dot_artifact_dot_v1alpha_dot_update__pb2.PurgeRollbackAdminRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_update__pb2.PurgeRollbackAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def SetRollbackRetentionAdmin(request,
@@ -592,11 +693,21 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/SetRollbackRetentionAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPrivateService/SetRollbackRetentionAdmin',
             artifact_dot_artifact_dot_v1alpha_dot_update__pb2.SetRollbackRetentionAdminRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_update__pb2.SetRollbackRetentionAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetKnowledgeBaseUpdateStatusAdmin(request,
@@ -609,11 +720,21 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/GetKnowledgeBaseUpdateStatusAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPrivateService/GetKnowledgeBaseUpdateStatusAdmin',
             artifact_dot_artifact_dot_v1alpha_dot_update__pb2.GetKnowledgeBaseUpdateStatusAdminRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_update__pb2.GetKnowledgeBaseUpdateStatusAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def CreateSystemAdmin(request,
@@ -626,11 +747,21 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/CreateSystemAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPrivateService/CreateSystemAdmin',
             artifact_dot_artifact_dot_v1alpha_dot_system__pb2.CreateSystemAdminRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_system__pb2.CreateSystemAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetSystemAdmin(request,
@@ -643,11 +774,21 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/GetSystemAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPrivateService/GetSystemAdmin',
             artifact_dot_artifact_dot_v1alpha_dot_system__pb2.GetSystemAdminRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_system__pb2.GetSystemAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def UpdateSystemAdmin(request,
@@ -660,11 +801,21 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateSystemAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPrivateService/UpdateSystemAdmin',
             artifact_dot_artifact_dot_v1alpha_dot_system__pb2.UpdateSystemAdminRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_system__pb2.UpdateSystemAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def DeleteSystemAdmin(request,
@@ -677,11 +828,21 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/DeleteSystemAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPrivateService/DeleteSystemAdmin',
             artifact_dot_artifact_dot_v1alpha_dot_system__pb2.DeleteSystemAdminRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_system__pb2.DeleteSystemAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListSystemsAdmin(request,
@@ -694,11 +855,21 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/ListSystemsAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPrivateService/ListSystemsAdmin',
             artifact_dot_artifact_dot_v1alpha_dot_system__pb2.ListSystemsAdminRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_system__pb2.ListSystemsAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def RenameSystemAdmin(request,
@@ -711,11 +882,21 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/RenameSystemAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPrivateService/RenameSystemAdmin',
             artifact_dot_artifact_dot_v1alpha_dot_system__pb2.RenameSystemAdminRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_system__pb2.RenameSystemAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def SetDefaultSystemAdmin(request,
@@ -728,11 +909,21 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/SetDefaultSystemAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPrivateService/SetDefaultSystemAdmin',
             artifact_dot_artifact_dot_v1alpha_dot_system__pb2.SetDefaultSystemAdminRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_system__pb2.SetDefaultSystemAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetDefaultSystemAdmin(request,
@@ -745,8 +936,18 @@ class ArtifactPrivateService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/artifact.artifact.v1alpha.ArtifactPrivateService/GetDefaultSystemAdmin',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.artifact.v1alpha.ArtifactPrivateService/GetDefaultSystemAdmin',
             artifact_dot_artifact_dot_v1alpha_dot_system__pb2.GetDefaultSystemAdminRequest.SerializeToString,
             artifact_dot_artifact_dot_v1alpha_dot_system__pb2.GetDefaultSystemAdminResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
