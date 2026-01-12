@@ -98,6 +98,7 @@ class KnowledgeBase(google.protobuf.message.Message):
     CREATOR_FIELD_NUMBER: builtins.int
     OWNER_UID_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
+    SYSTEM_ID_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """The knowledge base uid (internal UUID)."""
     id: builtins.str
@@ -136,6 +137,17 @@ class KnowledgeBase(google.protobuf.message.Message):
     type: global___KnowledgeBaseType.ValueType
     """The knowledge base type (persistent or ephemeral).
     Default is PERSISTENT if not specified during creation.
+    """
+    system_id: builtins.str
+    """System ID defines how the knowledge base will be created based on the system's
+    RAG configurations including:
+    - AI model family (e.g., "openai", "gemini")
+    - Embedding vector dimensionality
+    - Chunking method
+    - Other RAG-related settings
+
+    Available systems: "openai", "gemini", or custom systems defined in the system table.
+    If not specified, defaults to the default system.
     """
     @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
@@ -218,15 +230,18 @@ class KnowledgeBase(google.protobuf.message.Message):
         creator: core.mgmt.v1beta.mgmt_pb2.User | None = ...,
         owner_uid: builtins.str = ...,
         type: global___KnowledgeBaseType.ValueType = ...,
+        system_id: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_creator", b"_creator", "_creator_uid", b"_creator_uid", "_owner", b"_owner", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "embedding_config", b"embedding_config", "owner", b"owner", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_creator", b"_creator", "_creator_uid", b"_creator_uid", "_owner", b"_owner", "active_collection_uid", b"active_collection_uid", "converting_pipelines", b"converting_pipelines", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "description", b"description", "display_name", b"display_name", "downstream_apps", b"downstream_apps", "embedding_config", b"embedding_config", "embedding_pipelines", b"embedding_pipelines", "id", b"id", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "owner_uid", b"owner_uid", "splitting_pipelines", b"splitting_pipelines", "summarizing_pipelines", b"summarizing_pipelines", "tags", b"tags", "total_files", b"total_files", "total_tokens", b"total_tokens", "type", b"type", "uid", b"uid", "update_time", b"update_time", "used_storage", b"used_storage"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["_creator", b"_creator", "_creator_uid", b"_creator_uid", "_owner", b"_owner", "_system_id", b"_system_id", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "embedding_config", b"embedding_config", "owner", b"owner", "system_id", b"system_id", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_creator", b"_creator", "_creator_uid", b"_creator_uid", "_owner", b"_owner", "_system_id", b"_system_id", "active_collection_uid", b"active_collection_uid", "converting_pipelines", b"converting_pipelines", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "description", b"description", "display_name", b"display_name", "downstream_apps", b"downstream_apps", "embedding_config", b"embedding_config", "embedding_pipelines", b"embedding_pipelines", "id", b"id", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "owner_uid", b"owner_uid", "splitting_pipelines", b"splitting_pipelines", "summarizing_pipelines", b"summarizing_pipelines", "system_id", b"system_id", "tags", b"tags", "total_files", b"total_files", "total_tokens", b"total_tokens", "type", b"type", "uid", b"uid", "update_time", b"update_time", "used_storage", b"used_storage"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_creator", b"_creator"]) -> typing.Literal["creator"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_creator_uid", b"_creator_uid"]) -> typing.Literal["creator_uid"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_owner", b"_owner"]) -> typing.Literal["owner"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_system_id", b"_system_id"]) -> typing.Literal["system_id"] | None: ...
 
 global___KnowledgeBase = KnowledgeBase
 
