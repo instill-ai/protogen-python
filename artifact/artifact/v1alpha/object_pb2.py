@@ -26,7 +26,7 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&artifact/artifact/v1alpha/object.proto\x12\x19\x61rtifact.artifact.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf9\x03\n\x06Object\x12\x10\n\x03uid\x18\x01 \x01(\tR\x03uid\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12\x12\n\x04size\x18\x03 \x01(\x03R\x04size\x12!\n\x0c\x63ontent_type\x18\x04 \x01(\tR\x0b\x63ontentType\x12#\n\rnamespace_uid\x18\x06 \x01(\tR\x0cnamespaceUid\x12\x18\n\x07\x63reator\x18\x07 \x01(\tR\x07\x63reator\x12\x1f\n\x0bis_uploaded\x18\x08 \x01(\x08R\nisUploaded\x12\x17\n\x04path\x18\t \x01(\tH\x00R\x04path\x88\x01\x01\x12,\n\x12object_expire_days\x18\n \x01(\x05R\x10objectExpireDays\x12M\n\x12last_modified_time\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x01R\x10lastModifiedTime\x88\x01\x01\x12=\n\x0c\x63reated_time\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0b\x63reatedTime\x12=\n\x0cupdated_time\x18\r \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0bupdatedTimeB\x07\n\x05_pathB\x15\n\x13_last_modified_time\"\x98\x02\n\x19GetObjectUploadURLRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12$\n\x0bobject_name\x18\x02 \x01(\tB\x03\xe0\x41\x02R\nobjectName\x12+\n\x0furl_expire_days\x18\x03 \x01(\x05\x42\x03\xe0\x41\x01R\rurlExpireDays\x12M\n\x12last_modified_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x01R\x10lastModifiedTime\x12\x31\n\x12object_expire_days\x18\x05 \x01(\x05\x42\x03\xe0\x41\x01R\x10objectExpireDays\"\xb6\x01\n\x1aGetObjectUploadURLResponse\x12\x1d\n\nupload_url\x18\x01 \x01(\tR\tuploadUrl\x12>\n\rurl_expire_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0burlExpireAt\x12\x39\n\x06object\x18\x03 \x01(\x0b\x32!.artifact.artifact.v1alpha.ObjectR\x06object\"\xc8\x01\n\x1bGetObjectDownloadURLRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\"\n\nobject_uid\x18\x02 \x01(\tB\x03\xe0\x41\x02R\tobjectUid\x12+\n\x0furl_expire_days\x18\x03 \x01(\x05\x42\x03\xe0\x41\x01R\rurlExpireDays\x12\x30\n\x11\x64ownload_filename\x18\x04 \x01(\tB\x03\xe0\x41\x01R\x10\x64ownloadFilename\"\xbc\x01\n\x1cGetObjectDownloadURLResponse\x12!\n\x0c\x64ownload_url\x18\x01 \x01(\tR\x0b\x64ownloadUrl\x12>\n\rurl_expire_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0burlExpireAt\x12\x39\n\x06object\x18\x03 \x01(\x0b\x32!.artifact.artifact.v1alpha.ObjectR\x06object\"$\n\x10GetObjectRequest\x12\x10\n\x03uid\x18\x01 \x01(\tR\x03uid\"N\n\x11GetObjectResponse\x12\x39\n\x06object\x18\x01 \x01(\x0b\x32!.artifact.artifact.v1alpha.ObjectR\x06object\"\x87\x02\n\x13UpdateObjectRequest\x12\x10\n\x03uid\x18\x01 \x01(\tR\x03uid\x12\x17\n\x04size\x18\x02 \x01(\x03H\x00R\x04size\x88\x01\x01\x12\x17\n\x04type\x18\x03 \x01(\tH\x01R\x04type\x88\x01\x01\x12$\n\x0bis_uploaded\x18\x04 \x01(\x08H\x02R\nisUploaded\x88\x01\x01\x12M\n\x12last_modified_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x03R\x10lastModifiedTime\x88\x01\x01\x42\x07\n\x05_sizeB\x07\n\x05_typeB\x0e\n\x0c_is_uploadedB\x15\n\x13_last_modified_time\"Q\n\x14UpdateObjectResponse\x12\x39\n\x06object\x18\x01 \x01(\x0b\x32!.artifact.artifact.v1alpha.ObjectR\x06object\")\n\x15GetObjectAdminRequest\x12\x10\n\x03uid\x18\x01 \x01(\tR\x03uid\"S\n\x16GetObjectAdminResponse\x12\x39\n\x06object\x18\x01 \x01(\x0b\x32!.artifact.artifact.v1alpha.ObjectR\x06object\"\x8c\x02\n\x18UpdateObjectAdminRequest\x12\x10\n\x03uid\x18\x01 \x01(\tR\x03uid\x12\x17\n\x04size\x18\x02 \x01(\x03H\x00R\x04size\x88\x01\x01\x12\x17\n\x04type\x18\x03 \x01(\tH\x01R\x04type\x88\x01\x01\x12$\n\x0bis_uploaded\x18\x04 \x01(\x08H\x02R\nisUploaded\x88\x01\x01\x12M\n\x12last_modified_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x03R\x10lastModifiedTime\x88\x01\x01\x42\x07\n\x05_sizeB\x07\n\x05_typeB\x0e\n\x0c_is_uploadedB\x15\n\x13_last_modified_time\"V\n\x19UpdateObjectAdminResponse\x12\x39\n\x06object\x18\x01 \x01(\x0b\x32!.artifact.artifact.v1alpha.ObjectR\x06objectB\xff\x01\n\x1d\x63om.artifact.artifact.v1alphaB\x0bObjectProtoP\x01ZKgithub.com/instill-ai/protogen-go/artifact/artifact/v1alpha;artifactv1alpha\xa2\x02\x03\x41\x41X\xaa\x02\x19\x41rtifact.Artifact.V1alpha\xca\x02\x19\x41rtifact\\Artifact\\V1alpha\xe2\x02%Artifact\\Artifact\\V1alpha\\GPBMetadata\xea\x02\x1b\x41rtifact::Artifact::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&artifact/artifact/v1alpha/object.proto\x12\x19\x61rtifact.artifact.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf7\x03\n\x06Object\x12\x10\n\x03uid\x18\x01 \x01(\tR\x03uid\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12\x12\n\x04size\x18\x03 \x01(\x03R\x04size\x12!\n\x0c\x63ontent_type\x18\x04 \x01(\tR\x0b\x63ontentType\x12!\n\x0cnamespace_id\x18\x06 \x01(\tR\x0bnamespaceId\x12\x18\n\x07\x63reator\x18\x07 \x01(\tR\x07\x63reator\x12\x1f\n\x0bis_uploaded\x18\x08 \x01(\x08R\nisUploaded\x12\x17\n\x04path\x18\t \x01(\tH\x00R\x04path\x88\x01\x01\x12,\n\x12object_expire_days\x18\n \x01(\x05R\x10objectExpireDays\x12M\n\x12last_modified_time\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x01R\x10lastModifiedTime\x88\x01\x01\x12=\n\x0c\x63reated_time\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0b\x63reatedTime\x12=\n\x0cupdated_time\x18\r \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0bupdatedTimeB\x07\n\x05_pathB\x15\n\x13_last_modified_time\"\x98\x02\n\x19GetObjectUploadURLRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12$\n\x0bobject_name\x18\x02 \x01(\tB\x03\xe0\x41\x02R\nobjectName\x12+\n\x0furl_expire_days\x18\x03 \x01(\x05\x42\x03\xe0\x41\x01R\rurlExpireDays\x12M\n\x12last_modified_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x01R\x10lastModifiedTime\x12\x31\n\x12object_expire_days\x18\x05 \x01(\x05\x42\x03\xe0\x41\x01R\x10objectExpireDays\"\xb6\x01\n\x1aGetObjectUploadURLResponse\x12\x1d\n\nupload_url\x18\x01 \x01(\tR\tuploadUrl\x12>\n\rurl_expire_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0burlExpireAt\x12\x39\n\x06object\x18\x03 \x01(\x0b\x32!.artifact.artifact.v1alpha.ObjectR\x06object\"\xc8\x01\n\x1bGetObjectDownloadURLRequest\x12&\n\x0cnamespace_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x0bnamespaceId\x12\"\n\nobject_uid\x18\x02 \x01(\tB\x03\xe0\x41\x02R\tobjectUid\x12+\n\x0furl_expire_days\x18\x03 \x01(\x05\x42\x03\xe0\x41\x01R\rurlExpireDays\x12\x30\n\x11\x64ownload_filename\x18\x04 \x01(\tB\x03\xe0\x41\x01R\x10\x64ownloadFilename\"\xbc\x01\n\x1cGetObjectDownloadURLResponse\x12!\n\x0c\x64ownload_url\x18\x01 \x01(\tR\x0b\x64ownloadUrl\x12>\n\rurl_expire_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0burlExpireAt\x12\x39\n\x06object\x18\x03 \x01(\x0b\x32!.artifact.artifact.v1alpha.ObjectR\x06object\"$\n\x10GetObjectRequest\x12\x10\n\x03uid\x18\x01 \x01(\tR\x03uid\"N\n\x11GetObjectResponse\x12\x39\n\x06object\x18\x01 \x01(\x0b\x32!.artifact.artifact.v1alpha.ObjectR\x06object\"\x87\x02\n\x13UpdateObjectRequest\x12\x10\n\x03uid\x18\x01 \x01(\tR\x03uid\x12\x17\n\x04size\x18\x02 \x01(\x03H\x00R\x04size\x88\x01\x01\x12\x17\n\x04type\x18\x03 \x01(\tH\x01R\x04type\x88\x01\x01\x12$\n\x0bis_uploaded\x18\x04 \x01(\x08H\x02R\nisUploaded\x88\x01\x01\x12M\n\x12last_modified_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x03R\x10lastModifiedTime\x88\x01\x01\x42\x07\n\x05_sizeB\x07\n\x05_typeB\x0e\n\x0c_is_uploadedB\x15\n\x13_last_modified_time\"Q\n\x14UpdateObjectResponse\x12\x39\n\x06object\x18\x01 \x01(\x0b\x32!.artifact.artifact.v1alpha.ObjectR\x06object\")\n\x15GetObjectAdminRequest\x12\x10\n\x03uid\x18\x01 \x01(\tR\x03uid\"S\n\x16GetObjectAdminResponse\x12\x39\n\x06object\x18\x01 \x01(\x0b\x32!.artifact.artifact.v1alpha.ObjectR\x06object\"\x8c\x02\n\x18UpdateObjectAdminRequest\x12\x10\n\x03uid\x18\x01 \x01(\tR\x03uid\x12\x17\n\x04size\x18\x02 \x01(\x03H\x00R\x04size\x88\x01\x01\x12\x17\n\x04type\x18\x03 \x01(\tH\x01R\x04type\x88\x01\x01\x12$\n\x0bis_uploaded\x18\x04 \x01(\x08H\x02R\nisUploaded\x88\x01\x01\x12M\n\x12last_modified_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x03R\x10lastModifiedTime\x88\x01\x01\x42\x07\n\x05_sizeB\x07\n\x05_typeB\x0e\n\x0c_is_uploadedB\x15\n\x13_last_modified_time\"V\n\x19UpdateObjectAdminResponse\x12\x39\n\x06object\x18\x01 \x01(\x0b\x32!.artifact.artifact.v1alpha.ObjectR\x06objectB\xff\x01\n\x1d\x63om.artifact.artifact.v1alphaB\x0bObjectProtoP\x01ZKgithub.com/instill-ai/protogen-go/artifact/artifact/v1alpha;artifactv1alpha\xa2\x02\x03\x41\x41X\xaa\x02\x19\x41rtifact.Artifact.V1alpha\xca\x02\x19\x41rtifact\\Artifact\\V1alpha\xe2\x02%Artifact\\Artifact\\V1alpha\\GPBMetadata\xea\x02\x1b\x41rtifact::Artifact::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -53,29 +53,29 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_GETOBJECTDOWNLOADURLREQUEST'].fields_by_name['download_filename']._loaded_options = None
   _globals['_GETOBJECTDOWNLOADURLREQUEST'].fields_by_name['download_filename']._serialized_options = b'\340A\001'
   _globals['_OBJECT']._serialized_start=136
-  _globals['_OBJECT']._serialized_end=641
-  _globals['_GETOBJECTUPLOADURLREQUEST']._serialized_start=644
-  _globals['_GETOBJECTUPLOADURLREQUEST']._serialized_end=924
-  _globals['_GETOBJECTUPLOADURLRESPONSE']._serialized_start=927
-  _globals['_GETOBJECTUPLOADURLRESPONSE']._serialized_end=1109
-  _globals['_GETOBJECTDOWNLOADURLREQUEST']._serialized_start=1112
-  _globals['_GETOBJECTDOWNLOADURLREQUEST']._serialized_end=1312
-  _globals['_GETOBJECTDOWNLOADURLRESPONSE']._serialized_start=1315
-  _globals['_GETOBJECTDOWNLOADURLRESPONSE']._serialized_end=1503
-  _globals['_GETOBJECTREQUEST']._serialized_start=1505
-  _globals['_GETOBJECTREQUEST']._serialized_end=1541
-  _globals['_GETOBJECTRESPONSE']._serialized_start=1543
-  _globals['_GETOBJECTRESPONSE']._serialized_end=1621
-  _globals['_UPDATEOBJECTREQUEST']._serialized_start=1624
-  _globals['_UPDATEOBJECTREQUEST']._serialized_end=1887
-  _globals['_UPDATEOBJECTRESPONSE']._serialized_start=1889
-  _globals['_UPDATEOBJECTRESPONSE']._serialized_end=1970
-  _globals['_GETOBJECTADMINREQUEST']._serialized_start=1972
-  _globals['_GETOBJECTADMINREQUEST']._serialized_end=2013
-  _globals['_GETOBJECTADMINRESPONSE']._serialized_start=2015
-  _globals['_GETOBJECTADMINRESPONSE']._serialized_end=2098
-  _globals['_UPDATEOBJECTADMINREQUEST']._serialized_start=2101
-  _globals['_UPDATEOBJECTADMINREQUEST']._serialized_end=2369
-  _globals['_UPDATEOBJECTADMINRESPONSE']._serialized_start=2371
-  _globals['_UPDATEOBJECTADMINRESPONSE']._serialized_end=2457
+  _globals['_OBJECT']._serialized_end=639
+  _globals['_GETOBJECTUPLOADURLREQUEST']._serialized_start=642
+  _globals['_GETOBJECTUPLOADURLREQUEST']._serialized_end=922
+  _globals['_GETOBJECTUPLOADURLRESPONSE']._serialized_start=925
+  _globals['_GETOBJECTUPLOADURLRESPONSE']._serialized_end=1107
+  _globals['_GETOBJECTDOWNLOADURLREQUEST']._serialized_start=1110
+  _globals['_GETOBJECTDOWNLOADURLREQUEST']._serialized_end=1310
+  _globals['_GETOBJECTDOWNLOADURLRESPONSE']._serialized_start=1313
+  _globals['_GETOBJECTDOWNLOADURLRESPONSE']._serialized_end=1501
+  _globals['_GETOBJECTREQUEST']._serialized_start=1503
+  _globals['_GETOBJECTREQUEST']._serialized_end=1539
+  _globals['_GETOBJECTRESPONSE']._serialized_start=1541
+  _globals['_GETOBJECTRESPONSE']._serialized_end=1619
+  _globals['_UPDATEOBJECTREQUEST']._serialized_start=1622
+  _globals['_UPDATEOBJECTREQUEST']._serialized_end=1885
+  _globals['_UPDATEOBJECTRESPONSE']._serialized_start=1887
+  _globals['_UPDATEOBJECTRESPONSE']._serialized_end=1968
+  _globals['_GETOBJECTADMINREQUEST']._serialized_start=1970
+  _globals['_GETOBJECTADMINREQUEST']._serialized_end=2011
+  _globals['_GETOBJECTADMINRESPONSE']._serialized_start=2013
+  _globals['_GETOBJECTADMINRESPONSE']._serialized_end=2096
+  _globals['_UPDATEOBJECTADMINREQUEST']._serialized_start=2099
+  _globals['_UPDATEOBJECTADMINREQUEST']._serialized_end=2367
+  _globals['_UPDATEOBJECTADMINRESPONSE']._serialized_start=2369
+  _globals['_UPDATEOBJECTADMINRESPONSE']._serialized_end=2455
 # @@protoc_insertion_point(module_scope)

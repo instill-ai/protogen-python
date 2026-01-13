@@ -110,7 +110,7 @@ class KnowledgeBaseUpdateDetails(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    KNOWLEDGE_BASE_UID_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_ID_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
     WORKFLOW_ID_FIELD_NUMBER: builtins.int
     STARTED_AT_FIELD_NUMBER: builtins.int
@@ -120,8 +120,8 @@ class KnowledgeBaseUpdateDetails(google.protobuf.message.Message):
     ERROR_MESSAGE_FIELD_NUMBER: builtins.int
     CURRENT_SYSTEM_ID_FIELD_NUMBER: builtins.int
     PREVIOUS_SYSTEM_ID_FIELD_NUMBER: builtins.int
-    knowledge_base_uid: builtins.str
-    """UID of the knowledge base"""
+    knowledge_base_id: builtins.str
+    """ID of the knowledge base"""
     status: global___KnowledgeBaseUpdateStatus.ValueType
     """Status of the knowledge base update"""
     workflow_id: builtins.str
@@ -158,7 +158,7 @@ class KnowledgeBaseUpdateDetails(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        knowledge_base_uid: builtins.str = ...,
+        knowledge_base_id: builtins.str = ...,
         status: global___KnowledgeBaseUpdateStatus.ValueType = ...,
         workflow_id: builtins.str = ...,
         started_at: builtins.str = ...,
@@ -169,7 +169,7 @@ class KnowledgeBaseUpdateDetails(google.protobuf.message.Message):
         current_system_id: builtins.str = ...,
         previous_system_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["completed_at", b"completed_at", "current_system_id", b"current_system_id", "error_message", b"error_message", "files_processed", b"files_processed", "knowledge_base_uid", b"knowledge_base_uid", "previous_system_id", b"previous_system_id", "started_at", b"started_at", "status", b"status", "total_files", b"total_files", "workflow_id", b"workflow_id"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["completed_at", b"completed_at", "current_system_id", b"current_system_id", "error_message", b"error_message", "files_processed", b"files_processed", "knowledge_base_id", b"knowledge_base_id", "previous_system_id", b"previous_system_id", "started_at", b"started_at", "status", b"status", "total_files", b"total_files", "workflow_id", b"workflow_id"]) -> None: ...
 
 global___KnowledgeBaseUpdateDetails = KnowledgeBaseUpdateDetails
 
@@ -244,13 +244,13 @@ class PurgeRollbackAdminResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     SUCCESS_FIELD_NUMBER: builtins.int
-    PURGED_KNOWLEDGE_BASE_UID_FIELD_NUMBER: builtins.int
+    PURGED_KNOWLEDGE_BASE_ID_FIELD_NUMBER: builtins.int
     DELETED_FILES_FIELD_NUMBER: builtins.int
     MESSAGE_FIELD_NUMBER: builtins.int
     success: builtins.bool
     """Whether the purge was successful"""
-    purged_knowledge_base_uid: builtins.str
-    """UID of the purged knowledge base"""
+    purged_knowledge_base_id: builtins.str
+    """ID of the purged knowledge base"""
     deleted_files: builtins.int
     """Number of files deleted"""
     message: builtins.str
@@ -259,11 +259,11 @@ class PurgeRollbackAdminResponse(google.protobuf.message.Message):
         self,
         *,
         success: builtins.bool = ...,
-        purged_knowledge_base_uid: builtins.str = ...,
+        purged_knowledge_base_id: builtins.str = ...,
         deleted_files: builtins.int = ...,
         message: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["deleted_files", b"deleted_files", "message", b"message", "purged_knowledge_base_uid", b"purged_knowledge_base_uid", "success", b"success"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["deleted_files", b"deleted_files", "message", b"message", "purged_knowledge_base_id", b"purged_knowledge_base_id", "success", b"success"]) -> None: ...
 
 global___PurgeRollbackAdminResponse = PurgeRollbackAdminResponse
 

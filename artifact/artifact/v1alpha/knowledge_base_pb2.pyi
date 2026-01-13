@@ -92,7 +92,7 @@ class KnowledgeBase(google.protobuf.message.Message):
     USED_STORAGE_FIELD_NUMBER: builtins.int
     SUMMARIZING_PIPELINES_FIELD_NUMBER: builtins.int
     EMBEDDING_CONFIG_FIELD_NUMBER: builtins.int
-    ACTIVE_COLLECTION_UID_FIELD_NUMBER: builtins.int
+    ACTIVE_COLLECTION_ID_FIELD_NUMBER: builtins.int
     OWNER_FIELD_NUMBER: builtins.int
     CREATOR_UID_FIELD_NUMBER: builtins.int
     CREATOR_FIELD_NUMBER: builtins.int
@@ -103,7 +103,7 @@ class KnowledgeBase(google.protobuf.message.Message):
     uid: builtins.str
     """The knowledge base uid (internal UUID)."""
     id: builtins.str
-    """The knowledge base id (URL slug, user-provided or system-generated)."""
+    """The knowledge base id (URL-safe slug derived from display_name with hash suffix)."""
     name: builtins.str
     """The resource name of the knowledge base.
     Format: `namespaces/{namespace}/knowledge-bases/{knowledge_base}`.
@@ -122,8 +122,8 @@ class KnowledgeBase(google.protobuf.message.Message):
     """The total tokens in knowledge base."""
     used_storage: builtins.int
     """The current used storage in knowledge base."""
-    active_collection_uid: builtins.str
-    """The UID of the active Milvus collection for this knowledge base.
+    active_collection_id: builtins.str
+    """The ID of the active Milvus collection for this knowledge base.
     This supports collection versioning for embedding dimension changes.
     """
     creator_uid: builtins.str
@@ -232,7 +232,7 @@ class KnowledgeBase(google.protobuf.message.Message):
         used_storage: builtins.int = ...,
         summarizing_pipelines: collections.abc.Iterable[builtins.str] | None = ...,
         embedding_config: global___KnowledgeBase.EmbeddingConfig | None = ...,
-        active_collection_uid: builtins.str = ...,
+        active_collection_id: builtins.str = ...,
         owner: core.mgmt.v1beta.mgmt_pb2.Owner | None = ...,
         creator_uid: builtins.str | None = ...,
         creator: core.mgmt.v1beta.mgmt_pb2.User | None = ...,
@@ -242,7 +242,7 @@ class KnowledgeBase(google.protobuf.message.Message):
         aliases: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_creator", b"_creator", "_creator_uid", b"_creator_uid", "_owner", b"_owner", "_system_id", b"_system_id", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "embedding_config", b"embedding_config", "owner", b"owner", "system_id", b"system_id", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_creator", b"_creator", "_creator_uid", b"_creator_uid", "_owner", b"_owner", "_system_id", b"_system_id", "active_collection_uid", b"active_collection_uid", "aliases", b"aliases", "converting_pipelines", b"converting_pipelines", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "description", b"description", "display_name", b"display_name", "downstream_apps", b"downstream_apps", "embedding_config", b"embedding_config", "embedding_pipelines", b"embedding_pipelines", "id", b"id", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "owner_uid", b"owner_uid", "splitting_pipelines", b"splitting_pipelines", "summarizing_pipelines", b"summarizing_pipelines", "system_id", b"system_id", "tags", b"tags", "total_files", b"total_files", "total_tokens", b"total_tokens", "type", b"type", "uid", b"uid", "update_time", b"update_time", "used_storage", b"used_storage"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["_creator", b"_creator", "_creator_uid", b"_creator_uid", "_owner", b"_owner", "_system_id", b"_system_id", "active_collection_id", b"active_collection_id", "aliases", b"aliases", "converting_pipelines", b"converting_pipelines", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "description", b"description", "display_name", b"display_name", "downstream_apps", b"downstream_apps", "embedding_config", b"embedding_config", "embedding_pipelines", b"embedding_pipelines", "id", b"id", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "owner_uid", b"owner_uid", "splitting_pipelines", b"splitting_pipelines", "summarizing_pipelines", b"summarizing_pipelines", "system_id", b"system_id", "tags", b"tags", "total_files", b"total_files", "total_tokens", b"total_tokens", "type", b"type", "uid", b"uid", "update_time", b"update_time", "used_storage", b"used_storage"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_creator", b"_creator"]) -> typing.Literal["creator"] | None: ...
     @typing.overload

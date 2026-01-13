@@ -156,8 +156,8 @@ class KnowledgeBaseRun(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     UID_FIELD_NUMBER: builtins.int
-    KNOWLEDGE_BASE_UID_FIELD_NUMBER: builtins.int
-    FILE_UIDS_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_ID_FIELD_NUMBER: builtins.int
+    FILE_IDS_FIELD_NUMBER: builtins.int
     ACTION_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
     SOURCE_FIELD_NUMBER: builtins.int
@@ -171,8 +171,8 @@ class KnowledgeBaseRun(google.protobuf.message.Message):
     CREDIT_AMOUNT_FIELD_NUMBER: builtins.int
     uid: builtins.str
     """Unique identifier for each run."""
-    knowledge_base_uid: builtins.str
-    """knowledge base uid"""
+    knowledge_base_id: builtins.str
+    """knowledge base id"""
     action: global___KnowledgeBaseRunAction.ValueType
     """Action of the knowledge base run."""
     status: common.run.v1alpha.run_pb2.RunStatus.ValueType
@@ -190,8 +190,8 @@ class KnowledgeBaseRun(google.protobuf.message.Message):
     credit_amount: builtins.float
     """Credits used of internal accounting metric."""
     @property
-    def file_uids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """The file uids."""
+    def file_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """The file ids."""
 
     @property
     def payload(self) -> google.protobuf.struct_pb2.Struct:
@@ -209,8 +209,8 @@ class KnowledgeBaseRun(google.protobuf.message.Message):
         self,
         *,
         uid: builtins.str = ...,
-        knowledge_base_uid: builtins.str = ...,
-        file_uids: collections.abc.Iterable[builtins.str] | None = ...,
+        knowledge_base_id: builtins.str = ...,
+        file_ids: collections.abc.Iterable[builtins.str] | None = ...,
         action: global___KnowledgeBaseRunAction.ValueType = ...,
         status: common.run.v1alpha.run_pb2.RunStatus.ValueType = ...,
         source: common.run.v1alpha.run_pb2.RunSource.ValueType = ...,
@@ -224,7 +224,7 @@ class KnowledgeBaseRun(google.protobuf.message.Message):
         credit_amount: builtins.float | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_namespace_id", b"_namespace_id", "_payload", b"_payload", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "error", b"error", "namespace_id", b"namespace_id", "payload", b"payload", "runner_id", b"runner_id", "start_time", b"start_time", "total_duration", b"total_duration"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_namespace_id", b"_namespace_id", "_payload", b"_payload", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "action", b"action", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "error", b"error", "file_uids", b"file_uids", "knowledge_base_uid", b"knowledge_base_uid", "namespace_id", b"namespace_id", "payload", b"payload", "runner_id", b"runner_id", "source", b"source", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration", "uid", b"uid"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_namespace_id", b"_namespace_id", "_payload", b"_payload", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "action", b"action", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "error", b"error", "file_ids", b"file_ids", "knowledge_base_id", b"knowledge_base_id", "namespace_id", b"namespace_id", "payload", b"payload", "runner_id", b"runner_id", "source", b"source", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration", "uid", b"uid"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_complete_time", b"_complete_time"]) -> typing.Literal["complete_time"] | None: ...
     @typing.overload

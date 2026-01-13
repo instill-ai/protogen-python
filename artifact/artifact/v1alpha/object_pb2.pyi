@@ -21,7 +21,7 @@ class Object(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     SIZE_FIELD_NUMBER: builtins.int
     CONTENT_TYPE_FIELD_NUMBER: builtins.int
-    NAMESPACE_UID_FIELD_NUMBER: builtins.int
+    NAMESPACE_ID_FIELD_NUMBER: builtins.int
     CREATOR_FIELD_NUMBER: builtins.int
     IS_UPLOADED_FIELD_NUMBER: builtins.int
     PATH_FIELD_NUMBER: builtins.int
@@ -39,8 +39,8 @@ class Object(google.protobuf.message.Message):
     """content type
     this is mime type from content-type header of http request or from file extension
     """
-    namespace_uid: builtins.str
-    """namespace uid"""
+    namespace_id: builtins.str
+    """namespace id"""
     creator: builtins.str
     """creator"""
     is_uploaded: builtins.bool
@@ -70,7 +70,7 @@ class Object(google.protobuf.message.Message):
         name: builtins.str = ...,
         size: builtins.int = ...,
         content_type: builtins.str = ...,
-        namespace_uid: builtins.str = ...,
+        namespace_id: builtins.str = ...,
         creator: builtins.str = ...,
         is_uploaded: builtins.bool = ...,
         path: builtins.str | None = ...,
@@ -80,7 +80,7 @@ class Object(google.protobuf.message.Message):
         updated_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_last_modified_time", b"_last_modified_time", "_path", b"_path", "created_time", b"created_time", "last_modified_time", b"last_modified_time", "path", b"path", "updated_time", b"updated_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_last_modified_time", b"_last_modified_time", "_path", b"_path", "content_type", b"content_type", "created_time", b"created_time", "creator", b"creator", "is_uploaded", b"is_uploaded", "last_modified_time", b"last_modified_time", "name", b"name", "namespace_uid", b"namespace_uid", "object_expire_days", b"object_expire_days", "path", b"path", "size", b"size", "uid", b"uid", "updated_time", b"updated_time"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["_last_modified_time", b"_last_modified_time", "_path", b"_path", "content_type", b"content_type", "created_time", b"created_time", "creator", b"creator", "is_uploaded", b"is_uploaded", "last_modified_time", b"last_modified_time", "name", b"name", "namespace_id", b"namespace_id", "object_expire_days", b"object_expire_days", "path", b"path", "size", b"size", "uid", b"uid", "updated_time", b"updated_time"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_last_modified_time", b"_last_modified_time"]) -> typing.Literal["last_modified_time"] | None: ...
     @typing.overload
