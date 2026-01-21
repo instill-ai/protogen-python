@@ -608,53 +608,6 @@ class ListModelsResponse(google.protobuf.message.Message):
 global___ListModelsResponse = ListModelsResponse
 
 @typing.final
-class LookUpModelRequest(google.protobuf.message.Message):
-    """LookUpModelRequest represents a request to query a model by its UID."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    PERMALINK_FIELD_NUMBER: builtins.int
-    VIEW_FIELD_NUMBER: builtins.int
-    permalink: builtins.str
-    """The permalink of the model, which allows its access by UID.
-    - Format: `models/{model.uid}`.
-    """
-    view: model.v1alpha.model_definition_pb2.View.ValueType
-    """View allows clients to specify the desired model view in the response."""
-    def __init__(
-        self,
-        *,
-        permalink: builtins.str = ...,
-        view: model.v1alpha.model_definition_pb2.View.ValueType | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_view", b"_view", "permalink", b"permalink", "view", b"view"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing.Literal["_view", b"_view"]) -> typing.Literal["view"] | None: ...
-
-global___LookUpModelRequest = LookUpModelRequest
-
-@typing.final
-class LookUpModelResponse(google.protobuf.message.Message):
-    """LookUpModelResponse contains the requested model."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    MODEL_FIELD_NUMBER: builtins.int
-    @property
-    def model(self) -> global___Model:
-        """The requested model."""
-
-    def __init__(
-        self,
-        *,
-        model: global___Model | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing.Literal["model", b"model"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["model", b"model"]) -> None: ...
-
-global___LookUpModelResponse = LookUpModelResponse
-
-@typing.final
 class ListNamespaceModelsRequest(google.protobuf.message.Message):
     """ListNamespaceModelsRequest represents a request to list namepsace models.
     Follows AIP-132: https://google.aip.dev/132

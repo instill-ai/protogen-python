@@ -80,15 +80,6 @@ class ModelPublicServiceStub:
     Returns a paginated list of models.
     """
 
-    LookUpModel: grpc.UnaryUnaryMultiCallable[
-        model.v1alpha.model_pb2.LookUpModelRequest,
-        model.v1alpha.model_pb2.LookUpModelResponse,
-    ]
-    """Get a model by UID
-
-    Returns the details of a model by a permalink defined by the resource UID.
-    """
-
     ListNamespaceModels: grpc.UnaryUnaryMultiCallable[
         model.v1alpha.model_pb2.ListNamespaceModelsRequest,
         model.v1alpha.model_pb2.ListNamespaceModelsResponse,
@@ -369,15 +360,6 @@ class ModelPublicServiceAsyncStub:
     """List models
 
     Returns a paginated list of models.
-    """
-
-    LookUpModel: grpc.aio.UnaryUnaryMultiCallable[
-        model.v1alpha.model_pb2.LookUpModelRequest,
-        model.v1alpha.model_pb2.LookUpModelResponse,
-    ]
-    """Get a model by UID
-
-    Returns the details of a model by a permalink defined by the resource UID.
     """
 
     ListNamespaceModels: grpc.aio.UnaryUnaryMultiCallable[
@@ -672,17 +654,6 @@ class ModelPublicServiceServicer(metaclass=abc.ABCMeta):
         """List models
 
         Returns a paginated list of models.
-        """
-
-    @abc.abstractmethod
-    def LookUpModel(
-        self,
-        request: model.v1alpha.model_pb2.LookUpModelRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[model.v1alpha.model_pb2.LookUpModelResponse, collections.abc.Awaitable[model.v1alpha.model_pb2.LookUpModelResponse]]:
-        """Get a model by UID
-
-        Returns the details of a model by a permalink defined by the resource UID.
         """
 
     @abc.abstractmethod

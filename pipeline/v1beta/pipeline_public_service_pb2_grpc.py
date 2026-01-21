@@ -41,11 +41,6 @@ class PipelinePublicServiceStub(object):
                 request_serializer=pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelinesRequest.SerializeToString,
                 response_deserializer=pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelinesResponse.FromString,
                 _registered_method=True)
-        self.LookUpPipeline = channel.unary_unary(
-                '/pipeline.v1beta.PipelinePublicService/LookUpPipeline',
-                request_serializer=pipeline_dot_v1beta_dot_pipeline__pb2.LookUpPipelineRequest.SerializeToString,
-                response_deserializer=pipeline_dot_v1beta_dot_pipeline__pb2.LookUpPipelineResponse.FromString,
-                _registered_method=True)
         self.ListNamespacePipelines = channel.unary_unary(
                 '/pipeline.v1beta.PipelinePublicService/ListNamespacePipelines',
                 request_serializer=pipeline_dot_v1beta_dot_pipeline__pb2.ListNamespacePipelinesRequest.SerializeToString,
@@ -281,16 +276,6 @@ class PipelinePublicServiceServicer(object):
         """List accessible pipelines
 
         Returns a paginated list of pipelines that are visible to the requester.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def LookUpPipeline(self, request, context):
-        """Get a pipeline by UID
-
-        Returns the details of a pipeline by a permalink defined by the resource
-        UID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -765,11 +750,6 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     request_deserializer=pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelinesRequest.FromString,
                     response_serializer=pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelinesResponse.SerializeToString,
             ),
-            'LookUpPipeline': grpc.unary_unary_rpc_method_handler(
-                    servicer.LookUpPipeline,
-                    request_deserializer=pipeline_dot_v1beta_dot_pipeline__pb2.LookUpPipelineRequest.FromString,
-                    response_serializer=pipeline_dot_v1beta_dot_pipeline__pb2.LookUpPipelineResponse.SerializeToString,
-            ),
             'ListNamespacePipelines': grpc.unary_unary_rpc_method_handler(
                     servicer.ListNamespacePipelines,
                     request_deserializer=pipeline_dot_v1beta_dot_pipeline__pb2.ListNamespacePipelinesRequest.FromString,
@@ -1078,33 +1058,6 @@ class PipelinePublicService(object):
             '/pipeline.v1beta.PipelinePublicService/ListPipelines',
             pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelinesRequest.SerializeToString,
             pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelinesResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def LookUpPipeline(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/pipeline.v1beta.PipelinePublicService/LookUpPipeline',
-            pipeline_dot_v1beta_dot_pipeline__pb2.LookUpPipelineRequest.SerializeToString,
-            pipeline_dot_v1beta_dot_pipeline__pb2.LookUpPipelineResponse.FromString,
             options,
             channel_credentials,
             insecure,

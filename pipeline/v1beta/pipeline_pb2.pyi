@@ -930,53 +930,6 @@ class ListNamespacePipelinesResponse(google.protobuf.message.Message):
 global___ListNamespacePipelinesResponse = ListNamespacePipelinesResponse
 
 @typing.final
-class LookUpPipelineRequest(google.protobuf.message.Message):
-    """LookUpPipelineRequest represents a request to query a pipeline by its UID."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    PERMALINK_FIELD_NUMBER: builtins.int
-    VIEW_FIELD_NUMBER: builtins.int
-    permalink: builtins.str
-    """The permalink of the pipeline, which allows its access by UID.
-    - Format: `pipelines/{pipeline.uid}`.
-    """
-    view: global___Pipeline.View.ValueType
-    """View allows clients to specify the desired pipeline view in the response."""
-    def __init__(
-        self,
-        *,
-        permalink: builtins.str = ...,
-        view: global___Pipeline.View.ValueType | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_view", b"_view", "permalink", b"permalink", "view", b"view"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing.Literal["_view", b"_view"]) -> typing.Literal["view"] | None: ...
-
-global___LookUpPipelineRequest = LookUpPipelineRequest
-
-@typing.final
-class LookUpPipelineResponse(google.protobuf.message.Message):
-    """LookUpPipelineResponse contains the requested pipeline."""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    PIPELINE_FIELD_NUMBER: builtins.int
-    @property
-    def pipeline(self) -> global___Pipeline:
-        """The requested pipeline."""
-
-    def __init__(
-        self,
-        *,
-        pipeline: global___Pipeline | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing.Literal["pipeline", b"pipeline"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["pipeline", b"pipeline"]) -> None: ...
-
-global___LookUpPipelineResponse = LookUpPipelineResponse
-
-@typing.final
 class CreateNamespacePipelineRequest(google.protobuf.message.Message):
     """CreateNamespacePipelineRequest represents a request from a namespace to create a
     pipeline.

@@ -49,11 +49,6 @@ class ModelPublicServiceStub(object):
                 request_serializer=model_dot_v1alpha_dot_model__pb2.ListModelsRequest.SerializeToString,
                 response_deserializer=model_dot_v1alpha_dot_model__pb2.ListModelsResponse.FromString,
                 _registered_method=True)
-        self.LookUpModel = channel.unary_unary(
-                '/model.v1alpha.ModelPublicService/LookUpModel',
-                request_serializer=model_dot_v1alpha_dot_model__pb2.LookUpModelRequest.SerializeToString,
-                response_deserializer=model_dot_v1alpha_dot_model__pb2.LookUpModelResponse.FromString,
-                _registered_method=True)
         self.ListNamespaceModels = channel.unary_unary(
                 '/model.v1alpha.ModelPublicService/ListNamespaceModels',
                 request_serializer=model_dot_v1alpha_dot_model__pb2.ListNamespaceModelsRequest.SerializeToString,
@@ -217,15 +212,6 @@ class ModelPublicServiceServicer(object):
         """List models
 
         Returns a paginated list of models.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def LookUpModel(self, request, context):
-        """Get a model by UID
-
-        Returns the details of a model by a permalink defined by the resource UID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -484,11 +470,6 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     servicer.ListModels,
                     request_deserializer=model_dot_v1alpha_dot_model__pb2.ListModelsRequest.FromString,
                     response_serializer=model_dot_v1alpha_dot_model__pb2.ListModelsResponse.SerializeToString,
-            ),
-            'LookUpModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.LookUpModel,
-                    request_deserializer=model_dot_v1alpha_dot_model__pb2.LookUpModelRequest.FromString,
-                    response_serializer=model_dot_v1alpha_dot_model__pb2.LookUpModelResponse.SerializeToString,
             ),
             'ListNamespaceModels': grpc.unary_unary_rpc_method_handler(
                     servicer.ListNamespaceModels,
@@ -762,33 +743,6 @@ class ModelPublicService(object):
             '/model.v1alpha.ModelPublicService/ListModels',
             model_dot_v1alpha_dot_model__pb2.ListModelsRequest.SerializeToString,
             model_dot_v1alpha_dot_model__pb2.ListModelsResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def LookUpModel(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/model.v1alpha.ModelPublicService/LookUpModel',
-            model_dot_v1alpha_dot_model__pb2.LookUpModelRequest.SerializeToString,
-            model_dot_v1alpha_dot_model__pb2.LookUpModelResponse.FromString,
             options,
             channel_credentials,
             insecure,

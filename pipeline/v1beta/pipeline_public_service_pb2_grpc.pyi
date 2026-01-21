@@ -64,16 +64,6 @@ class PipelinePublicServiceStub:
     Returns a paginated list of pipelines that are visible to the requester.
     """
 
-    LookUpPipeline: grpc.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.LookUpPipelineRequest,
-        pipeline.v1beta.pipeline_pb2.LookUpPipelineResponse,
-    ]
-    """Get a pipeline by UID
-
-    Returns the details of a pipeline by a permalink defined by the resource
-    UID.
-    """
-
     ListNamespacePipelines: grpc.UnaryUnaryMultiCallable[
         pipeline.v1beta.pipeline_pb2.ListNamespacePipelinesRequest,
         pipeline.v1beta.pipeline_pb2.ListNamespacePipelinesResponse,
@@ -561,16 +551,6 @@ class PipelinePublicServiceAsyncStub:
     """List accessible pipelines
 
     Returns a paginated list of pipelines that are visible to the requester.
-    """
-
-    LookUpPipeline: grpc.aio.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.LookUpPipelineRequest,
-        pipeline.v1beta.pipeline_pb2.LookUpPipelineResponse,
-    ]
-    """Get a pipeline by UID
-
-    Returns the details of a pipeline by a permalink defined by the resource
-    UID.
     """
 
     ListNamespacePipelines: grpc.aio.UnaryUnaryMultiCallable[
@@ -1068,18 +1048,6 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         """List accessible pipelines
 
         Returns a paginated list of pipelines that are visible to the requester.
-        """
-
-    @abc.abstractmethod
-    def LookUpPipeline(
-        self,
-        request: pipeline.v1beta.pipeline_pb2.LookUpPipelineRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.LookUpPipelineResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.LookUpPipelineResponse]]:
-        """Get a pipeline by UID
-
-        Returns the details of a pipeline by a permalink defined by the resource
-        UID.
         """
 
     @abc.abstractmethod
