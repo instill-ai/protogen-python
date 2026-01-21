@@ -124,21 +124,6 @@ class MgmtPublicServiceStub(object):
                 request_serializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenRequest.SerializeToString,
                 response_deserializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenResponse.FromString,
                 _registered_method=True)
-        self.ListPipelineTriggerRecords = channel.unary_unary(
-                '/mgmt.v1beta.MgmtPublicService/ListPipelineTriggerRecords',
-                request_serializer=mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerRecordsRequest.SerializeToString,
-                response_deserializer=mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerRecordsResponse.FromString,
-                _registered_method=True)
-        self.ListPipelineTriggerTableRecords = channel.unary_unary(
-                '/mgmt.v1beta.MgmtPublicService/ListPipelineTriggerTableRecords',
-                request_serializer=mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerTableRecordsRequest.SerializeToString,
-                response_deserializer=mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerTableRecordsResponse.FromString,
-                _registered_method=True)
-        self.ListPipelineTriggerChartRecordsV0 = channel.unary_unary(
-                '/mgmt.v1beta.MgmtPublicService/ListPipelineTriggerChartRecordsV0',
-                request_serializer=mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsV0Request.SerializeToString,
-                response_deserializer=mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsV0Response.FromString,
-                _registered_method=True)
 
 
 class MgmtPublicServiceServicer(object):
@@ -352,43 +337,6 @@ class MgmtPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListPipelineTriggerRecords(self, request, context):
-        """===========================================================================
-        Deprecated endpoints, to be retired after new pipeline dashboard is rolled
-        out.
-        ===========================================================================
-
-        List pipeline triggers
-
-        Returns a paginated list of pipeline executions.
-        NOTE: This method is deprecated and will be retired soon.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ListPipelineTriggerTableRecords(self, request, context):
-        """List pipeline trigger metrics
-
-        Returns a paginated list of pipeline executions aggregated by pipeline ID.
-        NOTE: This method is deprecated and will be retired soon.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ListPipelineTriggerChartRecordsV0(self, request, context):
-        """List pipeline trigger time charts
-
-        Returns a timeline of pipeline trigger counts for the pipelines of a given
-        owner.
-        NOTE: This method will soon be retired and replaced by
-        ListPipelineTriggerChartRecords.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_MgmtPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -496,21 +444,6 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     servicer.AuthValidateAccessToken,
                     request_deserializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenRequest.FromString,
                     response_serializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenResponse.SerializeToString,
-            ),
-            'ListPipelineTriggerRecords': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListPipelineTriggerRecords,
-                    request_deserializer=mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerRecordsRequest.FromString,
-                    response_serializer=mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerRecordsResponse.SerializeToString,
-            ),
-            'ListPipelineTriggerTableRecords': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListPipelineTriggerTableRecords,
-                    request_deserializer=mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerTableRecordsRequest.FromString,
-                    response_serializer=mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerTableRecordsResponse.SerializeToString,
-            ),
-            'ListPipelineTriggerChartRecordsV0': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListPipelineTriggerChartRecordsV0,
-                    request_deserializer=mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsV0Request.FromString,
-                    response_serializer=mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsV0Response.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1084,87 +1017,6 @@ class MgmtPublicService(object):
             '/mgmt.v1beta.MgmtPublicService/AuthValidateAccessToken',
             mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenRequest.SerializeToString,
             mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def ListPipelineTriggerRecords(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/mgmt.v1beta.MgmtPublicService/ListPipelineTriggerRecords',
-            mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerRecordsRequest.SerializeToString,
-            mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerRecordsResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def ListPipelineTriggerTableRecords(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/mgmt.v1beta.MgmtPublicService/ListPipelineTriggerTableRecords',
-            mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerTableRecordsRequest.SerializeToString,
-            mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerTableRecordsResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def ListPipelineTriggerChartRecordsV0(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/mgmt.v1beta.MgmtPublicService/ListPipelineTriggerChartRecordsV0',
-            mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsV0Request.SerializeToString,
-            mgmt_dot_v1beta_dot_metric__pb2.ListPipelineTriggerChartRecordsV0Response.FromString,
             options,
             channel_credentials,
             insecure,

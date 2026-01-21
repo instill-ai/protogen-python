@@ -105,11 +105,6 @@ class ArtifactPublicServiceStub(object):
                 request_serializer=artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksRequest.SerializeToString,
                 response_deserializer=artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksResponse.FromString,
                 _registered_method=True)
-        self.ListKnowledgeBaseRuns = channel.unary_unary(
-                '/artifact.v1alpha.ArtifactPublicService/ListKnowledgeBaseRuns',
-                request_serializer=artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseRunsRequest.SerializeToString,
-                response_deserializer=artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseRunsResponse.FromString,
-                _registered_method=True)
         self.GetObjectUploadURL = channel.unary_unary(
                 '/artifact.v1alpha.ArtifactPublicService/GetObjectUploadURL',
                 request_serializer=artifact_dot_v1alpha_dot_object__pb2.GetObjectUploadURLRequest.SerializeToString,
@@ -296,15 +291,6 @@ class ArtifactPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListKnowledgeBaseRuns(self, request, context):
-        """List Knowledge Base Runs
-
-        Returns a paginated list of knowledge base runs.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def GetObjectUploadURL(self, request, context):
         """Get Object Upload URL
 
@@ -437,11 +423,6 @@ def add_ArtifactPublicServiceServicer_to_server(servicer, server):
                     servicer.SearchChunks,
                     request_deserializer=artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksRequest.FromString,
                     response_serializer=artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksResponse.SerializeToString,
-            ),
-            'ListKnowledgeBaseRuns': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListKnowledgeBaseRuns,
-                    request_deserializer=artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseRunsRequest.FromString,
-                    response_serializer=artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseRunsResponse.SerializeToString,
             ),
             'GetObjectUploadURL': grpc.unary_unary_rpc_method_handler(
                     servicer.GetObjectUploadURL,
@@ -930,33 +911,6 @@ class ArtifactPublicService(object):
             '/artifact.v1alpha.ArtifactPublicService/SearchChunks',
             artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksRequest.SerializeToString,
             artifact_dot_v1alpha_dot_chunk__pb2.SearchChunksResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def ListKnowledgeBaseRuns(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/artifact.v1alpha.ArtifactPublicService/ListKnowledgeBaseRuns',
-            artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseRunsRequest.SerializeToString,
-            artifact_dot_v1alpha_dot_artifact__pb2.ListKnowledgeBaseRunsResponse.FromString,
             options,
             channel_credentials,
             insecure,

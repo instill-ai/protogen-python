@@ -394,33 +394,37 @@ class SimilarityChunk(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    CHUNK_ID_FIELD_NUMBER: builtins.int
+    CHUNK_FIELD_NUMBER: builtins.int
     SIMILARITY_SCORE_FIELD_NUMBER: builtins.int
     TEXT_CONTENT_FIELD_NUMBER: builtins.int
-    SOURCE_FILE_FIELD_NUMBER: builtins.int
+    FILE_FIELD_NUMBER: builtins.int
     CHUNK_METADATA_FIELD_NUMBER: builtins.int
-    chunk_id: builtins.str
-    """chunk id"""
+    chunk: builtins.str
+    """Chunk resource name.
+    Full resource name: namespaces/{namespace}/files/{file}/chunks/{chunk}
+    """
     similarity_score: builtins.float
-    """similarity score"""
+    """Similarity score."""
     text_content: builtins.str
-    """content"""
-    source_file: builtins.str
-    """source file's name"""
+    """Content."""
+    file: builtins.str
+    """Source file resource name.
+    Full resource name: namespaces/{namespace}/files/{file}
+    """
     @property
     def chunk_metadata(self) -> global___Chunk:
-        """chunk metadata"""
+        """Chunk metadata."""
 
     def __init__(
         self,
         *,
-        chunk_id: builtins.str = ...,
+        chunk: builtins.str = ...,
         similarity_score: builtins.float = ...,
         text_content: builtins.str = ...,
-        source_file: builtins.str = ...,
+        file: builtins.str = ...,
         chunk_metadata: global___Chunk | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["chunk_metadata", b"chunk_metadata"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["chunk_id", b"chunk_id", "chunk_metadata", b"chunk_metadata", "similarity_score", b"similarity_score", "source_file", b"source_file", "text_content", b"text_content"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["chunk", b"chunk", "chunk_metadata", b"chunk_metadata", "file", b"file", "similarity_score", b"similarity_score", "text_content", b"text_content"]) -> None: ...
 
 global___SimilarityChunk = SimilarityChunk

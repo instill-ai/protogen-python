@@ -316,7 +316,7 @@ class Pipeline(google.protobuf.message.Message):
     PROFILE_IMAGE_FIELD_NUMBER: builtins.int
     OWNER_NAME_FIELD_NUMBER: builtins.int
     OWNER_FIELD_NUMBER: builtins.int
-    CREATOR_UID_FIELD_NUMBER: builtins.int
+    CREATOR_NAME_FIELD_NUMBER: builtins.int
     CREATOR_FIELD_NUMBER: builtins.int
     DELETE_TIME_FIELD_NUMBER: builtins.int
     name: builtins.str
@@ -357,8 +357,10 @@ class Pipeline(google.protobuf.message.Message):
 
     Resource name of the owner namespace.
     """
-    creator_uid: builtins.str
-    """The UID of the user who created this pipeline."""
+    creator_name: builtins.str
+    """Full resource name of the user who created this pipeline.
+    Format: `users/{user}`
+    """
     @property
     def aliases(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Field 5: Previous slugs for backward compatibility."""
@@ -454,16 +456,16 @@ class Pipeline(google.protobuf.message.Message):
         profile_image: builtins.str | None = ...,
         owner_name: builtins.str = ...,
         owner: mgmt.v1beta.mgmt_pb2.Owner | None = ...,
-        creator_uid: builtins.str | None = ...,
+        creator_name: builtins.str | None = ...,
         creator: mgmt.v1beta.mgmt_pb2.User | None = ...,
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_creator", b"_creator", "_creator_uid", b"_creator_uid", "_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_source_url", b"_source_url", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "data_specification", b"data_specification", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "endpoints", b"endpoints", "license", b"license", "metadata", b"metadata", "owner", b"owner", "permission", b"permission", "profile_image", b"profile_image", "recipe", b"recipe", "sharing", b"sharing", "source_url", b"source_url", "stats", b"stats", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_creator", b"_creator", "_creator_uid", b"_creator_uid", "_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_source_url", b"_source_url", "aliases", b"aliases", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "data_specification", b"data_specification", "delete_time", b"delete_time", "description", b"description", "display_name", b"display_name", "documentation_url", b"documentation_url", "endpoints", b"endpoints", "id", b"id", "license", b"license", "metadata", b"metadata", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "permission", b"permission", "profile_image", b"profile_image", "raw_recipe", b"raw_recipe", "readme", b"readme", "recipe", b"recipe", "releases", b"releases", "sharing", b"sharing", "slug", b"slug", "source_url", b"source_url", "stats", b"stats", "tags", b"tags", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["_creator", b"_creator", "_creator_name", b"_creator_name", "_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_source_url", b"_source_url", "create_time", b"create_time", "creator", b"creator", "creator_name", b"creator_name", "data_specification", b"data_specification", "delete_time", b"delete_time", "description", b"description", "documentation_url", b"documentation_url", "endpoints", b"endpoints", "license", b"license", "metadata", b"metadata", "owner", b"owner", "permission", b"permission", "profile_image", b"profile_image", "recipe", b"recipe", "sharing", b"sharing", "source_url", b"source_url", "stats", b"stats", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_creator", b"_creator", "_creator_name", b"_creator_name", "_description", b"_description", "_documentation_url", b"_documentation_url", "_license", b"_license", "_owner", b"_owner", "_profile_image", b"_profile_image", "_source_url", b"_source_url", "aliases", b"aliases", "create_time", b"create_time", "creator", b"creator", "creator_name", b"creator_name", "data_specification", b"data_specification", "delete_time", b"delete_time", "description", b"description", "display_name", b"display_name", "documentation_url", b"documentation_url", "endpoints", b"endpoints", "id", b"id", "license", b"license", "metadata", b"metadata", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "permission", b"permission", "profile_image", b"profile_image", "raw_recipe", b"raw_recipe", "readme", b"readme", "recipe", b"recipe", "releases", b"releases", "sharing", b"sharing", "slug", b"slug", "source_url", b"source_url", "stats", b"stats", "tags", b"tags", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_creator", b"_creator"]) -> typing.Literal["creator"] | None: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing.Literal["_creator_uid", b"_creator_uid"]) -> typing.Literal["creator_uid"] | None: ...
+    def WhichOneof(self, oneof_group: typing.Literal["_creator_name", b"_creator_name"]) -> typing.Literal["creator_name"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_description", b"_description"]) -> typing.Literal["description"] | None: ...
     @typing.overload
@@ -648,8 +650,8 @@ class PipelineRelease(google.protobuf.message.Message):
     RAW_RECIPE_FIELD_NUMBER: builtins.int
     ENDPOINTS_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Field 1: The name of the release, defined by its parent and ID.
-    - Format: `{parent_type}/{parent.id}/pipelines/{pipeline.id}/releases/{release.id}`.
+    """Field 1: The name of the release.
+    - Format: `namespaces/{namespace}/pipelines/{pipeline}/releases/{release}`.
     """
     id: builtins.str
     """Field 2: Release resource ID (used in `name` as the last segment). It must be a
@@ -1175,19 +1177,17 @@ class ValidateNamespacePipelineRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    PIPELINE_ID_FIELD_NUMBER: builtins.int
-    namespace_id: builtins.str
-    """Namespace ID"""
-    pipeline_id: builtins.str
-    """Pipeline ID"""
+    NAME_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the pipeline to validate.
+    Format: namespaces/{namespace}/pipelines/{pipeline}
+    """
     def __init__(
         self,
         *,
-        namespace_id: builtins.str = ...,
-        pipeline_id: builtins.str = ...,
+        name: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["name", b"name"]) -> None: ...
 
 global___ValidateNamespacePipelineRequest = ValidateNamespacePipelineRequest
 
@@ -1223,25 +1223,23 @@ class RenameNamespacePipelineRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
     NEW_PIPELINE_ID_FIELD_NUMBER: builtins.int
-    namespace_id: builtins.str
-    """Namespace ID"""
-    pipeline_id: builtins.str
-    """Pipeline ID"""
+    name: builtins.str
+    """The resource name of the pipeline to rename.
+    Format: namespaces/{namespace}/pipelines/{pipeline}
+    """
     new_pipeline_id: builtins.str
     """The new resource ID. This will transform the resource name into
-    `namespaces/{namespace.id}/pipelines/{new_pipeline_id}`.
+    `namespaces/{namespace}/pipelines/{new_pipeline_id}`.
     """
     def __init__(
         self,
         *,
-        namespace_id: builtins.str = ...,
-        pipeline_id: builtins.str = ...,
+        name: builtins.str = ...,
         new_pipeline_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["namespace_id", b"namespace_id", "new_pipeline_id", b"new_pipeline_id", "pipeline_id", b"pipeline_id"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["name", b"name", "new_pipeline_id", b"new_pipeline_id"]) -> None: ...
 
 global___RenameNamespacePipelineRequest = RenameNamespacePipelineRequest
 
@@ -1274,22 +1272,20 @@ class CloneNamespacePipelineRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
+    TARGET_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     SHARING_FIELD_NUMBER: builtins.int
-    TARGET_NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    TARGET_PIPELINE_ID_FIELD_NUMBER: builtins.int
-    namespace_id: builtins.str
-    """Namespace ID"""
-    pipeline_id: builtins.str
-    """Pipeline ID"""
+    name: builtins.str
+    """The resource name of the source pipeline to clone.
+    Format: namespaces/{namespace}/pipelines/{pipeline}
+    """
+    target: builtins.str
+    """The resource name of the target pipeline.
+    Format: namespaces/{namespace}/pipelines/{pipeline}
+    """
     description: builtins.str
     """Pipeline description."""
-    target_namespace_id: builtins.str
-    """Target Namespace ID."""
-    target_pipeline_id: builtins.str
-    """Target Pipeline ID."""
     @property
     def sharing(self) -> pipeline.v1beta.common_pb2.Sharing:
         """Pipeline sharing information."""
@@ -1297,15 +1293,13 @@ class CloneNamespacePipelineRequest(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        namespace_id: builtins.str = ...,
-        pipeline_id: builtins.str = ...,
+        name: builtins.str = ...,
+        target: builtins.str = ...,
         description: builtins.str = ...,
         sharing: pipeline.v1beta.common_pb2.Sharing | None = ...,
-        target_namespace_id: builtins.str = ...,
-        target_pipeline_id: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["sharing", b"sharing"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["description", b"description", "namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id", "sharing", b"sharing", "target_namespace_id", b"target_namespace_id", "target_pipeline_id", b"target_pipeline_id"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["description", b"description", "name", b"name", "sharing", b"sharing", "target", b"target"]) -> None: ...
 
 global___CloneNamespacePipelineRequest = CloneNamespacePipelineRequest
 
@@ -1329,25 +1323,20 @@ class CloneNamespacePipelineReleaseRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    PIPELINE_ID_FIELD_NUMBER: builtins.int
-    RELEASE_ID_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     SHARING_FIELD_NUMBER: builtins.int
-    TARGET_NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    TARGET_PIPELINE_ID_FIELD_NUMBER: builtins.int
-    namespace_id: builtins.str
-    """Namespace ID"""
-    pipeline_id: builtins.str
-    """Pipeline ID"""
-    release_id: builtins.str
-    """Release ID"""
+    TARGET_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the pipeline release to clone.
+    Format: namespaces/{namespace}/pipelines/{pipeline}/releases/{release}
+    """
     description: builtins.str
     """Pipeline description."""
-    target_namespace_id: builtins.str
-    """Target Namespace ID."""
-    target_pipeline_id: builtins.str
-    """Target Pipeline ID."""
+    target: builtins.str
+    """The target pipeline resource name.
+    Format: namespaces/{namespace}/pipelines/{pipeline}
+    """
     @property
     def sharing(self) -> pipeline.v1beta.common_pb2.Sharing:
         """Pipeline sharing information."""
@@ -1355,16 +1344,13 @@ class CloneNamespacePipelineReleaseRequest(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        namespace_id: builtins.str = ...,
-        pipeline_id: builtins.str = ...,
-        release_id: builtins.str = ...,
+        name: builtins.str = ...,
         description: builtins.str = ...,
         sharing: pipeline.v1beta.common_pb2.Sharing | None = ...,
-        target_namespace_id: builtins.str = ...,
-        target_pipeline_id: builtins.str = ...,
+        target: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["sharing", b"sharing"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["description", b"description", "namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id", "release_id", b"release_id", "sharing", b"sharing", "target_namespace_id", b"target_namespace_id", "target_pipeline_id", b"target_pipeline_id"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["description", b"description", "name", b"name", "sharing", b"sharing", "target", b"target"]) -> None: ...
 
 global___CloneNamespacePipelineReleaseRequest = CloneNamespacePipelineReleaseRequest
 
@@ -1386,15 +1372,14 @@ class HandleNamespacePipelineWebhookEventRequest(google.protobuf.message.Message
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
     EVENT_FIELD_NUMBER: builtins.int
     CODE_FIELD_NUMBER: builtins.int
     DATA_FIELD_NUMBER: builtins.int
-    namespace_id: builtins.str
-    """Namespace ID"""
-    pipeline_id: builtins.str
-    """Pipeline ID"""
+    name: builtins.str
+    """The resource name of the pipeline.
+    Format: namespaces/{namespace}/pipelines/{pipeline}
+    """
     event: builtins.str
     """Event"""
     code: builtins.str
@@ -1406,14 +1391,13 @@ class HandleNamespacePipelineWebhookEventRequest(google.protobuf.message.Message
     def __init__(
         self,
         *,
-        namespace_id: builtins.str = ...,
-        pipeline_id: builtins.str = ...,
+        name: builtins.str = ...,
         event: builtins.str = ...,
         code: builtins.str = ...,
         data: google.protobuf.struct_pb2.Struct | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["data", b"data"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["code", b"code", "data", b"data", "event", b"event", "namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["code", b"code", "data", b"data", "event", b"event", "name", b"name"]) -> None: ...
 
 global___HandleNamespacePipelineWebhookEventRequest = HandleNamespacePipelineWebhookEventRequest
 
@@ -1444,18 +1428,14 @@ class HandleNamespacePipelineReleaseWebhookEventRequest(google.protobuf.message.
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    PIPELINE_ID_FIELD_NUMBER: builtins.int
-    RELEASE_ID_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
     EVENT_FIELD_NUMBER: builtins.int
     CODE_FIELD_NUMBER: builtins.int
     DATA_FIELD_NUMBER: builtins.int
-    namespace_id: builtins.str
-    """Namespace ID"""
-    pipeline_id: builtins.str
-    """Pipeline ID"""
-    release_id: builtins.str
-    """Pipeline ID"""
+    name: builtins.str
+    """The resource name of the pipeline release.
+    Format: namespaces/{namespace}/pipelines/{pipeline}/releases/{release}
+    """
     event: builtins.str
     """Event"""
     code: builtins.str
@@ -1467,15 +1447,13 @@ class HandleNamespacePipelineReleaseWebhookEventRequest(google.protobuf.message.
     def __init__(
         self,
         *,
-        namespace_id: builtins.str = ...,
-        pipeline_id: builtins.str = ...,
-        release_id: builtins.str = ...,
+        name: builtins.str = ...,
         event: builtins.str = ...,
         code: builtins.str = ...,
         data: google.protobuf.struct_pb2.Struct | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["data", b"data"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["code", b"code", "data", b"data", "event", b"event", "namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id", "release_id", b"release_id"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["code", b"code", "data", b"data", "event", b"event", "name", b"name"]) -> None: ...
 
 global___HandleNamespacePipelineReleaseWebhookEventRequest = HandleNamespacePipelineReleaseWebhookEventRequest
 
@@ -1562,14 +1540,13 @@ class TriggerNamespacePipelineRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
     DATA_FIELD_NUMBER: builtins.int
-    namespace_id: builtins.str
-    """Namespace ID"""
-    pipeline_id: builtins.str
-    """Pipeline ID"""
+    name: builtins.str
+    """The resource name of the pipeline to trigger.
+    Format: namespaces/{namespace}/pipelines/{pipeline}
+    """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
         """Pipeline input parameters, it will be deprecated soon."""
@@ -1581,12 +1558,11 @@ class TriggerNamespacePipelineRequest(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        namespace_id: builtins.str = ...,
-        pipeline_id: builtins.str = ...,
+        name: builtins.str = ...,
         inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
         data: collections.abc.Iterable[global___TriggerData] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["data", b"data", "inputs", b"inputs", "namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["data", b"data", "inputs", b"inputs", "name", b"name"]) -> None: ...
 
 global___TriggerNamespacePipelineRequest = TriggerNamespacePipelineRequest
 
@@ -1627,14 +1603,13 @@ class TriggerNamespacePipelineWithStreamRequest(google.protobuf.message.Message)
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
     DATA_FIELD_NUMBER: builtins.int
-    namespace_id: builtins.str
-    """Namespace ID"""
-    pipeline_id: builtins.str
-    """Pipeline ID"""
+    name: builtins.str
+    """The resource name of the pipeline to trigger.
+    Format: namespaces/{namespace}/pipelines/{pipeline}
+    """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
         """Pipeline input parameters, it will be deprecated soon."""
@@ -1646,12 +1621,11 @@ class TriggerNamespacePipelineWithStreamRequest(google.protobuf.message.Message)
     def __init__(
         self,
         *,
-        namespace_id: builtins.str = ...,
-        pipeline_id: builtins.str = ...,
+        name: builtins.str = ...,
         inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
         data: collections.abc.Iterable[global___TriggerData] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["data", b"data", "inputs", b"inputs", "namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["data", b"data", "inputs", b"inputs", "name", b"name"]) -> None: ...
 
 global___TriggerNamespacePipelineWithStreamRequest = TriggerNamespacePipelineWithStreamRequest
 
@@ -1692,14 +1666,13 @@ class TriggerAsyncNamespacePipelineRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
     DATA_FIELD_NUMBER: builtins.int
-    namespace_id: builtins.str
-    """Namespace ID"""
-    pipeline_id: builtins.str
-    """Pipeline ID"""
+    name: builtins.str
+    """The resource name of the pipeline to trigger.
+    Format: namespaces/{namespace}/pipelines/{pipeline}
+    """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
         """Pipeline input parameters, it will be deprecated soon."""
@@ -1711,12 +1684,11 @@ class TriggerAsyncNamespacePipelineRequest(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        namespace_id: builtins.str = ...,
-        pipeline_id: builtins.str = ...,
+        name: builtins.str = ...,
         inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
         data: collections.abc.Iterable[global___TriggerData] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["data", b"data", "inputs", b"inputs", "namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["data", b"data", "inputs", b"inputs", "name", b"name"]) -> None: ...
 
 global___TriggerAsyncNamespacePipelineRequest = TriggerAsyncNamespacePipelineRequest
 
@@ -2033,17 +2005,13 @@ class TriggerNamespacePipelineReleaseRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    PIPELINE_ID_FIELD_NUMBER: builtins.int
-    RELEASE_ID_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
     DATA_FIELD_NUMBER: builtins.int
-    namespace_id: builtins.str
-    """Namespace ID"""
-    pipeline_id: builtins.str
-    """Pipeline ID"""
-    release_id: builtins.str
-    """Release ID"""
+    name: builtins.str
+    """The resource name of the pipeline release to trigger.
+    Format: namespaces/{namespace}/pipelines/{pipeline}/releases/{release}
+    """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
         """Pipeline input parameters, it will be deprecated soon."""
@@ -2055,13 +2023,11 @@ class TriggerNamespacePipelineReleaseRequest(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        namespace_id: builtins.str = ...,
-        pipeline_id: builtins.str = ...,
-        release_id: builtins.str = ...,
+        name: builtins.str = ...,
         inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
         data: collections.abc.Iterable[global___TriggerData] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["data", b"data", "inputs", b"inputs", "namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id", "release_id", b"release_id"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["data", b"data", "inputs", b"inputs", "name", b"name"]) -> None: ...
 
 global___TriggerNamespacePipelineReleaseRequest = TriggerNamespacePipelineReleaseRequest
 
@@ -2102,17 +2068,13 @@ class TriggerAsyncNamespacePipelineReleaseRequest(google.protobuf.message.Messag
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    PIPELINE_ID_FIELD_NUMBER: builtins.int
-    RELEASE_ID_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
     DATA_FIELD_NUMBER: builtins.int
-    namespace_id: builtins.str
-    """Namespace ID"""
-    pipeline_id: builtins.str
-    """Pipeline ID"""
-    release_id: builtins.str
-    """Release ID"""
+    name: builtins.str
+    """The resource name of the pipeline release to trigger.
+    Format: namespaces/{namespace}/pipelines/{pipeline}/releases/{release}
+    """
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
         """Pipeline input parameters, it will be deprecated soon."""
@@ -2124,13 +2086,11 @@ class TriggerAsyncNamespacePipelineReleaseRequest(google.protobuf.message.Messag
     def __init__(
         self,
         *,
-        namespace_id: builtins.str = ...,
-        pipeline_id: builtins.str = ...,
-        release_id: builtins.str = ...,
+        name: builtins.str = ...,
         inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
         data: collections.abc.Iterable[global___TriggerData] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["data", b"data", "inputs", b"inputs", "namespace_id", b"namespace_id", "pipeline_id", b"pipeline_id", "release_id", b"release_id"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["data", b"data", "inputs", b"inputs", "name", b"name"]) -> None: ...
 
 global___TriggerAsyncNamespacePipelineReleaseRequest = TriggerAsyncNamespacePipelineReleaseRequest
 
@@ -2534,16 +2494,15 @@ class ListPipelineRunsRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    PIPELINE_ID_FIELD_NUMBER: builtins.int
+    PARENT_FIELD_NUMBER: builtins.int
     PAGE_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     ORDER_BY_FIELD_NUMBER: builtins.int
-    namespace_id: builtins.str
-    """The ID of the owner of the pipeline."""
-    pipeline_id: builtins.str
-    """The ID of the pipeline for which the runs will be listed."""
+    parent: builtins.str
+    """The parent pipeline resource name.
+    Format: namespaces/{namespace}/pipelines/{pipeline}
+    """
     page: builtins.int
     """The page number to retrieve."""
     page_size: builtins.int
@@ -2562,15 +2521,14 @@ class ListPipelineRunsRequest(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        namespace_id: builtins.str = ...,
-        pipeline_id: builtins.str = ...,
+        parent: builtins.str = ...,
         page: builtins.int = ...,
         page_size: builtins.int = ...,
         filter: builtins.str | None = ...,
         order_by: builtins.str | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_filter", b"_filter", "_order_by", b"_order_by", "filter", b"filter", "order_by", b"order_by"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_filter", b"_filter", "_order_by", b"_order_by", "filter", b"filter", "namespace_id", b"namespace_id", "order_by", b"order_by", "page", b"page", "page_size", b"page_size", "pipeline_id", b"pipeline_id"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["_filter", b"_filter", "_order_by", b"_order_by", "filter", b"filter", "order_by", b"order_by", "page", b"page", "page_size", b"page_size", "parent", b"parent"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_filter", b"_filter"]) -> typing.Literal["filter"] | None: ...
     @typing.overload
@@ -2584,13 +2542,17 @@ class ListPipelineRunsByRequesterRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    REQUESTER_FIELD_NUMBER: builtins.int
     PAGE_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     ORDER_BY_FIELD_NUMBER: builtins.int
     START_FIELD_NUMBER: builtins.int
     STOP_FIELD_NUMBER: builtins.int
-    REQUESTER_ID_FIELD_NUMBER: builtins.int
+    requester: builtins.str
+    """Requester namespace resource name.
+    Format: namespaces/{namespace}
+    """
     page: builtins.int
     """The page number to retrieve."""
     page_size: builtins.int
@@ -2610,8 +2572,6 @@ class ListPipelineRunsByRequesterRequest(google.protobuf.message.Message):
     """Order by field, with options for ordering by `id`, `create_time` or `update_time`.
     Format: `order_by=id` or `order_by=create_time desc`, default is `asc`.
     """
-    requester_id: builtins.str
-    """Requester ID."""
     @property
     def start(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Beginning of the time range from which the records will be fetched.
@@ -2627,16 +2587,16 @@ class ListPipelineRunsByRequesterRequest(google.protobuf.message.Message):
     def __init__(
         self,
         *,
+        requester: builtins.str = ...,
         page: builtins.int = ...,
         page_size: builtins.int = ...,
         filter: builtins.str | None = ...,
         order_by: builtins.str | None = ...,
         start: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         stop: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        requester_id: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_start", b"_start", "_stop", b"_stop", "filter", b"filter", "order_by", b"order_by", "start", b"start", "stop", b"stop"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_start", b"_start", "_stop", b"_stop", "filter", b"filter", "order_by", b"order_by", "page", b"page", "page_size", b"page_size", "requester_id", b"requester_id", "start", b"start", "stop", b"stop"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_start", b"_start", "_stop", b"_stop", "filter", b"filter", "order_by", b"order_by", "page", b"page", "page_size", b"page_size", "requester", b"requester", "start", b"start", "stop", b"stop"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_filter", b"_filter"]) -> typing.Literal["filter"] | None: ...
     @typing.overload
@@ -2718,14 +2678,16 @@ class ListComponentRunsRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    PIPELINE_RUN_ID_FIELD_NUMBER: builtins.int
+    PARENT_FIELD_NUMBER: builtins.int
     PAGE_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     ORDER_BY_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
-    pipeline_run_id: builtins.str
-    """The unique identifier of the pipeline run to list component runs for."""
+    parent: builtins.str
+    """The parent pipeline run resource name.
+    Format: namespaces/{namespace}/pipelines/{pipeline}/runs/{run}
+    """
     page: builtins.int
     """The page number to retrieve."""
     page_size: builtins.int
@@ -2748,7 +2710,7 @@ class ListComponentRunsRequest(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        pipeline_run_id: builtins.str = ...,
+        parent: builtins.str = ...,
         page: builtins.int | None = ...,
         page_size: builtins.int | None = ...,
         filter: builtins.str | None = ...,
@@ -2756,7 +2718,7 @@ class ListComponentRunsRequest(google.protobuf.message.Message):
         view: global___Pipeline.View.ValueType | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page", b"_page", "_page_size", b"_page_size", "_view", b"_view", "filter", b"filter", "order_by", b"order_by", "page", b"page", "page_size", b"page_size", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page", b"_page", "_page_size", b"_page_size", "_view", b"_view", "filter", b"filter", "order_by", b"order_by", "page", b"page", "page_size", b"page_size", "pipeline_run_id", b"pipeline_run_id", "view", b"view"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["_filter", b"_filter", "_order_by", b"_order_by", "_page", b"_page", "_page_size", b"_page_size", "_view", b"_view", "filter", b"filter", "order_by", b"order_by", "page", b"page", "page_size", b"page_size", "parent", b"parent", "view", b"view"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_filter", b"_filter"]) -> typing.Literal["filter"] | None: ...
     @typing.overload
@@ -2838,12 +2800,17 @@ class PipelineRun(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    PIPELINE_RUN_UID_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
+    ID_FIELD_NUMBER: builtins.int
+    CREATE_TIME_FIELD_NUMBER: builtins.int
+    UPDATE_TIME_FIELD_NUMBER: builtins.int
+    RUNNER_FIELD_NUMBER: builtins.int
+    PIPELINE_FIELD_NUMBER: builtins.int
+    REQUESTER_FIELD_NUMBER: builtins.int
     PIPELINE_VERSION_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
     SOURCE_FIELD_NUMBER: builtins.int
     TOTAL_DURATION_FIELD_NUMBER: builtins.int
-    RUNNER_ID_FIELD_NUMBER: builtins.int
     INPUTS_FIELD_NUMBER: builtins.int
     OUTPUTS_FIELD_NUMBER: builtins.int
     RECIPE_SNAPSHOT_FIELD_NUMBER: builtins.int
@@ -2852,12 +2819,25 @@ class PipelineRun(google.protobuf.message.Message):
     ERROR_FIELD_NUMBER: builtins.int
     CREDIT_AMOUNT_FIELD_NUMBER: builtins.int
     DATA_SPECIFICATION_FIELD_NUMBER: builtins.int
-    PIPELINE_ID_FIELD_NUMBER: builtins.int
-    REQUESTER_ID_FIELD_NUMBER: builtins.int
-    PIPELINE_NAMESPACE_ID_FIELD_NUMBER: builtins.int
     BLOB_DATA_EXPIRATION_TIME_FIELD_NUMBER: builtins.int
-    pipeline_run_uid: builtins.str
-    """Unique identifier for each run."""
+    name: builtins.str
+    """The resource name of the pipeline run.
+    Format: namespaces/{namespace}/pipelines/{pipeline}/runs/{run}
+    """
+    id: builtins.str
+    """Unique identifier for each run (immutable)."""
+    runner: builtins.str
+    """Runner who triggered the run.
+    Full resource name: users/{user}.
+    """
+    pipeline: builtins.str
+    """The pipeline resource name.
+    Full resource name: namespaces/{namespace}/pipelines/{pipeline}
+    """
+    requester: builtins.str
+    """Requester namespace.
+    Full resource name: namespaces/{namespace}.
+    """
     pipeline_version: builtins.str
     """Pipeline version used in the run."""
     status: common.run.v1alpha.run_pb2.RunStatus.ValueType
@@ -2866,22 +2846,18 @@ class PipelineRun(google.protobuf.message.Message):
     """Origin of the run."""
     total_duration: builtins.int
     """Time taken to complete the run in milliseconds."""
-    runner_id: builtins.str
-    """Runner ID. The authenticated user that triggered the run. If current
-    viewing requester does not have enough permission, it will return null.
-    """
     error: builtins.str
     """Error message if the run failed."""
     credit_amount: builtins.float
     """Credits used of internal accounting metric."""
-    pipeline_id: builtins.str
-    """The ID of the pipeline"""
-    requester_id: builtins.str
-    """Requester ID. The namespace used to trigger the run. This field might be
-    empty if the pipeline run belongs to a deleted namespace.
-    """
-    pipeline_namespace_id: builtins.str
-    """ID of the namespace that owns the pipeline."""
+    @property
+    def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time when the run was created."""
+
+    @property
+    def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time when the run was last updated."""
+
     @property
     def inputs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[google.protobuf.struct_pb2.Struct]:
         """Pipeline input parameters."""
@@ -2908,21 +2884,22 @@ class PipelineRun(google.protobuf.message.Message):
 
     @property
     def blob_data_expiration_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Expiration time for the blob data associated with the pipeline run (e.g.
-        input data, recipe). When the run is accessed after the expiration, that
-        information will be empty, but this field will allow the user identify
-        that the data isn't there because it has expired.
-        """
+        """Expiration time for the blob data associated with the pipeline run."""
 
     def __init__(
         self,
         *,
-        pipeline_run_uid: builtins.str = ...,
+        name: builtins.str = ...,
+        id: builtins.str = ...,
+        create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        runner: builtins.str | None = ...,
+        pipeline: builtins.str | None = ...,
+        requester: builtins.str = ...,
         pipeline_version: builtins.str = ...,
         status: common.run.v1alpha.run_pb2.RunStatus.ValueType = ...,
         source: common.run.v1alpha.run_pb2.RunSource.ValueType = ...,
         total_duration: builtins.int | None = ...,
-        runner_id: builtins.str | None = ...,
         inputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
         outputs: collections.abc.Iterable[google.protobuf.struct_pb2.Struct] | None = ...,
         recipe_snapshot: google.protobuf.struct_pb2.Struct | None = ...,
@@ -2931,13 +2908,10 @@ class PipelineRun(google.protobuf.message.Message):
         error: builtins.str | None = ...,
         credit_amount: builtins.float | None = ...,
         data_specification: pipeline.v1beta.component_definition_pb2.DataSpecification | None = ...,
-        pipeline_id: builtins.str | None = ...,
-        requester_id: builtins.str = ...,
-        pipeline_namespace_id: builtins.str = ...,
         blob_data_expiration_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_blob_data_expiration_time", b"_blob_data_expiration_time", "_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_pipeline_id", b"_pipeline_id", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "blob_data_expiration_time", b"blob_data_expiration_time", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "data_specification", b"data_specification", "error", b"error", "pipeline_id", b"pipeline_id", "recipe_snapshot", b"recipe_snapshot", "runner_id", b"runner_id", "start_time", b"start_time", "total_duration", b"total_duration"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_blob_data_expiration_time", b"_blob_data_expiration_time", "_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_pipeline_id", b"_pipeline_id", "_runner_id", b"_runner_id", "_total_duration", b"_total_duration", "blob_data_expiration_time", b"blob_data_expiration_time", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "data_specification", b"data_specification", "error", b"error", "inputs", b"inputs", "outputs", b"outputs", "pipeline_id", b"pipeline_id", "pipeline_namespace_id", b"pipeline_namespace_id", "pipeline_run_uid", b"pipeline_run_uid", "pipeline_version", b"pipeline_version", "recipe_snapshot", b"recipe_snapshot", "requester_id", b"requester_id", "runner_id", b"runner_id", "source", b"source", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["_blob_data_expiration_time", b"_blob_data_expiration_time", "_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_pipeline", b"_pipeline", "_runner", b"_runner", "_total_duration", b"_total_duration", "blob_data_expiration_time", b"blob_data_expiration_time", "complete_time", b"complete_time", "create_time", b"create_time", "credit_amount", b"credit_amount", "data_specification", b"data_specification", "error", b"error", "pipeline", b"pipeline", "recipe_snapshot", b"recipe_snapshot", "runner", b"runner", "start_time", b"start_time", "total_duration", b"total_duration", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_blob_data_expiration_time", b"_blob_data_expiration_time", "_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_pipeline", b"_pipeline", "_runner", b"_runner", "_total_duration", b"_total_duration", "blob_data_expiration_time", b"blob_data_expiration_time", "complete_time", b"complete_time", "create_time", b"create_time", "credit_amount", b"credit_amount", "data_specification", b"data_specification", "error", b"error", "id", b"id", "inputs", b"inputs", "name", b"name", "outputs", b"outputs", "pipeline", b"pipeline", "pipeline_version", b"pipeline_version", "recipe_snapshot", b"recipe_snapshot", "requester", b"requester", "runner", b"runner", "source", b"source", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration", "update_time", b"update_time"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_blob_data_expiration_time", b"_blob_data_expiration_time"]) -> typing.Literal["blob_data_expiration_time"] | None: ...
     @typing.overload
@@ -2947,9 +2921,9 @@ class PipelineRun(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_error", b"_error"]) -> typing.Literal["error"] | None: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing.Literal["_pipeline_id", b"_pipeline_id"]) -> typing.Literal["pipeline_id"] | None: ...
+    def WhichOneof(self, oneof_group: typing.Literal["_pipeline", b"_pipeline"]) -> typing.Literal["pipeline"] | None: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing.Literal["_runner_id", b"_runner_id"]) -> typing.Literal["runner_id"] | None: ...
+    def WhichOneof(self, oneof_group: typing.Literal["_runner", b"_runner"]) -> typing.Literal["runner"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_total_duration", b"_total_duration"]) -> typing.Literal["total_duration"] | None: ...
 
@@ -2961,8 +2935,11 @@ class ComponentRun(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    PIPELINE_RUN_UID_FIELD_NUMBER: builtins.int
-    COMPONENT_ID_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
+    ID_FIELD_NUMBER: builtins.int
+    CREATE_TIME_FIELD_NUMBER: builtins.int
+    UPDATE_TIME_FIELD_NUMBER: builtins.int
+    PIPELINE_RUN_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
     TOTAL_DURATION_FIELD_NUMBER: builtins.int
     START_TIME_FIELD_NUMBER: builtins.int
@@ -2974,10 +2951,16 @@ class ComponentRun(google.protobuf.message.Message):
     OUTPUTS_FIELD_NUMBER: builtins.int
     CREDIT_AMOUNT_FIELD_NUMBER: builtins.int
     BLOB_DATA_EXPIRATION_TIME_FIELD_NUMBER: builtins.int
-    pipeline_run_uid: builtins.str
-    """Links to the parent PipelineRun."""
-    component_id: builtins.str
-    """Unique identifier for each pipeline component."""
+    name: builtins.str
+    """The resource name of the component run.
+    Format: namespaces/{namespace}/pipelines/{pipeline}/runs/{run}/components/{component}
+    """
+    id: builtins.str
+    """Unique identifier for the component within the pipeline."""
+    pipeline_run: builtins.str
+    """Parent pipeline run resource name.
+    Full resource name: namespaces/{namespace}/pipelines/{pipeline}/runs/{run}
+    """
     status: common.run.v1alpha.run_pb2.RunStatus.ValueType
     """Completion status of the component."""
     total_duration: builtins.int
@@ -2986,6 +2969,14 @@ class ComponentRun(google.protobuf.message.Message):
     """Error message if the component failed."""
     credit_amount: builtins.float
     """Credits used of internal accounting metric."""
+    @property
+    def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time when the component run was created."""
+
+    @property
+    def update_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Time when the component run was last updated."""
+
     @property
     def start_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Time when the component started execution."""
@@ -3012,17 +3003,16 @@ class ComponentRun(google.protobuf.message.Message):
 
     @property
     def blob_data_expiration_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Expiration time for the blob data associated with the component run (e.g.
-        input / output data). When the run is accessed after the expiration, that
-        information will be empty, but this field will allow the user identify
-        that the data isn't there because it has expired.
-        """
+        """Expiration time for the blob data associated with the component run."""
 
     def __init__(
         self,
         *,
-        pipeline_run_uid: builtins.str = ...,
-        component_id: builtins.str = ...,
+        name: builtins.str = ...,
+        id: builtins.str = ...,
+        create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        pipeline_run: builtins.str = ...,
         status: common.run.v1alpha.run_pb2.RunStatus.ValueType = ...,
         total_duration: builtins.int | None = ...,
         start_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
@@ -3035,8 +3025,8 @@ class ComponentRun(google.protobuf.message.Message):
         credit_amount: builtins.float | None = ...,
         blob_data_expiration_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_blob_data_expiration_time", b"_blob_data_expiration_time", "_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_total_duration", b"_total_duration", "blob_data_expiration_time", b"blob_data_expiration_time", "complete_time", b"complete_time", "credit_amount", b"credit_amount", "error", b"error", "start_time", b"start_time", "total_duration", b"total_duration"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_blob_data_expiration_time", b"_blob_data_expiration_time", "_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_total_duration", b"_total_duration", "blob_data_expiration_time", b"blob_data_expiration_time", "complete_time", b"complete_time", "component_id", b"component_id", "credit_amount", b"credit_amount", "error", b"error", "inputs", b"inputs", "inputs_reference", b"inputs_reference", "outputs", b"outputs", "outputs_reference", b"outputs_reference", "pipeline_run_uid", b"pipeline_run_uid", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["_blob_data_expiration_time", b"_blob_data_expiration_time", "_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_total_duration", b"_total_duration", "blob_data_expiration_time", b"blob_data_expiration_time", "complete_time", b"complete_time", "create_time", b"create_time", "credit_amount", b"credit_amount", "error", b"error", "start_time", b"start_time", "total_duration", b"total_duration", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_blob_data_expiration_time", b"_blob_data_expiration_time", "_complete_time", b"_complete_time", "_credit_amount", b"_credit_amount", "_error", b"_error", "_total_duration", b"_total_duration", "blob_data_expiration_time", b"blob_data_expiration_time", "complete_time", b"complete_time", "create_time", b"create_time", "credit_amount", b"credit_amount", "error", b"error", "id", b"id", "inputs", b"inputs", "inputs_reference", b"inputs_reference", "name", b"name", "outputs", b"outputs", "outputs_reference", b"outputs_reference", "pipeline_run", b"pipeline_run", "start_time", b"start_time", "status", b"status", "total_duration", b"total_duration", "update_time", b"update_time"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_blob_data_expiration_time", b"_blob_data_expiration_time"]) -> typing.Literal["blob_data_expiration_time"] | None: ...
     @typing.overload

@@ -32,8 +32,8 @@ class Object(google.protobuf.message.Message):
     LAST_MODIFIED_TIME_FIELD_NUMBER: builtins.int
     DELETE_TIME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Canonical resource name (e.g., "namespaces/{namespace_id}/objects/{id}").
-    Output only.
+    """Canonical resource name.
+    Format: `namespaces/{namespace}/objects/{object}`
     """
     id: builtins.str
     """Immutable canonical resource ID (e.g., "obj-3k7m9p2w5t1").
@@ -376,21 +376,23 @@ global___DeleteObjectResponse = DeleteObjectResponse
 class GetObjectAdminRequest(google.protobuf.message.Message):
     """Admin-only object operations
 
-    GetObjectAdminRequest represents a request to get an object by UID (admin
+    GetObjectAdminRequest represents a request to get an object by name (admin
     only).
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    OBJECT_UID_FIELD_NUMBER: builtins.int
-    object_uid: builtins.str
-    """Object UID (internal UUID)."""
+    NAME_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """Full resource name of the object.
+    Format: `objects/{object}`
+    """
     def __init__(
         self,
         *,
-        object_uid: builtins.str = ...,
+        name: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["object_uid", b"object_uid"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["name", b"name"]) -> None: ...
 
 global___GetObjectAdminRequest = GetObjectAdminRequest
 
@@ -417,19 +419,21 @@ global___GetObjectAdminResponse = GetObjectAdminResponse
 
 @typing.final
 class UpdateObjectAdminRequest(google.protobuf.message.Message):
-    """UpdateObjectAdminRequest represents a request to update an object by UID
+    """UpdateObjectAdminRequest represents a request to update an object by name
     (admin only).
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    OBJECT_UID_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
     SIZE_FIELD_NUMBER: builtins.int
     CONTENT_TYPE_FIELD_NUMBER: builtins.int
     IS_UPLOADED_FIELD_NUMBER: builtins.int
     LAST_MODIFIED_TIME_FIELD_NUMBER: builtins.int
-    object_uid: builtins.str
-    """Object UID (internal UUID)."""
+    name: builtins.str
+    """Full resource name of the object.
+    Format: `objects/{object}`
+    """
     size: builtins.int
     """Size in bytes."""
     content_type: builtins.str
@@ -443,14 +447,14 @@ class UpdateObjectAdminRequest(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        object_uid: builtins.str = ...,
+        name: builtins.str = ...,
         size: builtins.int | None = ...,
         content_type: builtins.str | None = ...,
         is_uploaded: builtins.bool | None = ...,
         last_modified_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_content_type", b"_content_type", "_is_uploaded", b"_is_uploaded", "_last_modified_time", b"_last_modified_time", "_size", b"_size", "content_type", b"content_type", "is_uploaded", b"is_uploaded", "last_modified_time", b"last_modified_time", "size", b"size"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_content_type", b"_content_type", "_is_uploaded", b"_is_uploaded", "_last_modified_time", b"_last_modified_time", "_size", b"_size", "content_type", b"content_type", "is_uploaded", b"is_uploaded", "last_modified_time", b"last_modified_time", "object_uid", b"object_uid", "size", b"size"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["_content_type", b"_content_type", "_is_uploaded", b"_is_uploaded", "_last_modified_time", b"_last_modified_time", "_size", b"_size", "content_type", b"content_type", "is_uploaded", b"is_uploaded", "last_modified_time", b"last_modified_time", "name", b"name", "size", b"size"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_content_type", b"_content_type"]) -> typing.Literal["content_type"] | None: ...
     @typing.overload

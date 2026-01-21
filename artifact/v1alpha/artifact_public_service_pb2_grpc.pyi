@@ -181,15 +181,6 @@ class ArtifactPublicServiceStub:
     Returns the top-K most similar chunks to a text prompt.
     """
 
-    ListKnowledgeBaseRuns: grpc.UnaryUnaryMultiCallable[
-        artifact.v1alpha.artifact_pb2.ListKnowledgeBaseRunsRequest,
-        artifact.v1alpha.artifact_pb2.ListKnowledgeBaseRunsResponse,
-    ]
-    """List Knowledge Base Runs
-
-    Returns a paginated list of knowledge base runs.
-    """
-
     GetObjectUploadURL: grpc.UnaryUnaryMultiCallable[
         artifact.v1alpha.object_pb2.GetObjectUploadURLRequest,
         artifact.v1alpha.object_pb2.GetObjectUploadURLResponse,
@@ -392,15 +383,6 @@ class ArtifactPublicServiceAsyncStub:
     """Search chunks
 
     Returns the top-K most similar chunks to a text prompt.
-    """
-
-    ListKnowledgeBaseRuns: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.v1alpha.artifact_pb2.ListKnowledgeBaseRunsRequest,
-        artifact.v1alpha.artifact_pb2.ListKnowledgeBaseRunsResponse,
-    ]
-    """List Knowledge Base Runs
-
-    Returns a paginated list of knowledge base runs.
     """
 
     GetObjectUploadURL: grpc.aio.UnaryUnaryMultiCallable[
@@ -639,17 +621,6 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
         """Search chunks
 
         Returns the top-K most similar chunks to a text prompt.
-        """
-
-    @abc.abstractmethod
-    def ListKnowledgeBaseRuns(
-        self,
-        request: artifact.v1alpha.artifact_pb2.ListKnowledgeBaseRunsRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[artifact.v1alpha.artifact_pb2.ListKnowledgeBaseRunsResponse, collections.abc.Awaitable[artifact.v1alpha.artifact_pb2.ListKnowledgeBaseRunsResponse]]:
-        """List Knowledge Base Runs
-
-        Returns a paginated list of knowledge base runs.
         """
 
     @abc.abstractmethod

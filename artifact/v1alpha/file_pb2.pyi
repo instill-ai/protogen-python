@@ -480,7 +480,7 @@ class File(google.protobuf.message.Message):
     KNOWLEDGE_BASE_IDS_FIELD_NUMBER: builtins.int
     OWNER_NAME_FIELD_NUMBER: builtins.int
     OWNER_FIELD_NUMBER: builtins.int
-    CREATOR_UID_FIELD_NUMBER: builtins.int
+    CREATOR_NAME_FIELD_NUMBER: builtins.int
     CREATOR_FIELD_NUMBER: builtins.int
     CONTENT_FIELD_NUMBER: builtins.int
     OBJECT_UID_FIELD_NUMBER: builtins.int
@@ -533,8 +533,10 @@ class File(google.protobuf.message.Message):
     Resource name of the owner namespace.
     Example: "namespaces/usr-7k2m9p4w1n3" or "namespaces/org-3t8f5q2x6b1"
     """
-    creator_uid: builtins.str
-    """The UID of the user who created this file."""
+    creator_name: builtins.str
+    """Full resource name of the user who created this file.
+    Format: `users/{user}`
+    """
     content: builtins.str
     """===== Upload and content fields =====
 
@@ -598,7 +600,7 @@ class File(google.protobuf.message.Message):
     @property
     def creator(self) -> mgmt.v1beta.mgmt_pb2.User:
         """The user who created this file.
-        Populated when creator_uid is present.
+        Populated when creator_name is present.
         """
 
     @property
@@ -637,7 +639,7 @@ class File(google.protobuf.message.Message):
         knowledge_base_ids: collections.abc.Iterable[builtins.str] | None = ...,
         owner_name: builtins.str = ...,
         owner: mgmt.v1beta.mgmt_pb2.Owner | None = ...,
-        creator_uid: builtins.str = ...,
+        creator_name: builtins.str = ...,
         creator: mgmt.v1beta.mgmt_pb2.User | None = ...,
         content: builtins.str = ...,
         object_uid: builtins.str = ...,
@@ -648,7 +650,7 @@ class File(google.protobuf.message.Message):
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_converting_pipeline", b"_converting_pipeline", "_creator", b"_creator", "_external_metadata", b"_external_metadata", "_owner", b"_owner", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator", b"creator", "delete_time", b"delete_time", "external_metadata", b"external_metadata", "length", b"length", "owner", b"owner", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_converting_pipeline", b"_converting_pipeline", "_creator", b"_creator", "_external_metadata", b"_external_metadata", "_owner", b"_owner", "aliases", b"aliases", "collection_ids", b"collection_ids", "content", b"content", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "delete_time", b"delete_time", "description", b"description", "display_name", b"display_name", "download_url", b"download_url", "external_metadata", b"external_metadata", "id", b"id", "knowledge_base_ids", b"knowledge_base_ids", "length", b"length", "name", b"name", "object_uid", b"object_uid", "owner", b"owner", "owner_name", b"owner_name", "process_outcome", b"process_outcome", "process_status", b"process_status", "size", b"size", "slug", b"slug", "tags", b"tags", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["_converting_pipeline", b"_converting_pipeline", "_creator", b"_creator", "_external_metadata", b"_external_metadata", "_owner", b"_owner", "aliases", b"aliases", "collection_ids", b"collection_ids", "content", b"content", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator", b"creator", "creator_name", b"creator_name", "delete_time", b"delete_time", "description", b"description", "display_name", b"display_name", "download_url", b"download_url", "external_metadata", b"external_metadata", "id", b"id", "knowledge_base_ids", b"knowledge_base_ids", "length", b"length", "name", b"name", "object_uid", b"object_uid", "owner", b"owner", "owner_name", b"owner_name", "process_outcome", b"process_outcome", "process_status", b"process_status", "size", b"size", "slug", b"slug", "tags", b"tags", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_converting_pipeline", b"_converting_pipeline"]) -> typing.Literal["converting_pipeline"] | None: ...
     @typing.overload

@@ -230,43 +230,6 @@ class MgmtPublicServiceStub:
     Checks the validity of an access token.
     """
 
-    ListPipelineTriggerRecords: grpc.UnaryUnaryMultiCallable[
-        mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsRequest,
-        mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsResponse,
-    ]
-    """===========================================================================
-    Deprecated endpoints, to be retired after new pipeline dashboard is rolled
-    out.
-    ===========================================================================
-
-    List pipeline triggers
-
-    Returns a paginated list of pipeline executions.
-    NOTE: This method is deprecated and will be retired soon.
-    """
-
-    ListPipelineTriggerTableRecords: grpc.UnaryUnaryMultiCallable[
-        mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsRequest,
-        mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsResponse,
-    ]
-    """List pipeline trigger metrics
-
-    Returns a paginated list of pipeline executions aggregated by pipeline ID.
-    NOTE: This method is deprecated and will be retired soon.
-    """
-
-    ListPipelineTriggerChartRecordsV0: grpc.UnaryUnaryMultiCallable[
-        mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsV0Request,
-        mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsV0Response,
-    ]
-    """List pipeline trigger time charts
-
-    Returns a timeline of pipeline trigger counts for the pipelines of a given
-    owner.
-    NOTE: This method will soon be retired and replaced by
-    ListPipelineTriggerChartRecords.
-    """
-
 class MgmtPublicServiceAsyncStub:
     """MGMT
 
@@ -476,43 +439,6 @@ class MgmtPublicServiceAsyncStub:
     """Validate an access token
 
     Checks the validity of an access token.
-    """
-
-    ListPipelineTriggerRecords: grpc.aio.UnaryUnaryMultiCallable[
-        mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsRequest,
-        mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsResponse,
-    ]
-    """===========================================================================
-    Deprecated endpoints, to be retired after new pipeline dashboard is rolled
-    out.
-    ===========================================================================
-
-    List pipeline triggers
-
-    Returns a paginated list of pipeline executions.
-    NOTE: This method is deprecated and will be retired soon.
-    """
-
-    ListPipelineTriggerTableRecords: grpc.aio.UnaryUnaryMultiCallable[
-        mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsRequest,
-        mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsResponse,
-    ]
-    """List pipeline trigger metrics
-
-    Returns a paginated list of pipeline executions aggregated by pipeline ID.
-    NOTE: This method is deprecated and will be retired soon.
-    """
-
-    ListPipelineTriggerChartRecordsV0: grpc.aio.UnaryUnaryMultiCallable[
-        mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsV0Request,
-        mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsV0Response,
-    ]
-    """List pipeline trigger time charts
-
-    Returns a timeline of pipeline trigger counts for the pipelines of a given
-    owner.
-    NOTE: This method will soon be retired and replaced by
-    ListPipelineTriggerChartRecords.
     """
 
 class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
@@ -766,49 +692,6 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         """Validate an access token
 
         Checks the validity of an access token.
-        """
-
-    @abc.abstractmethod
-    def ListPipelineTriggerRecords(
-        self,
-        request: mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsResponse, collections.abc.Awaitable[mgmt.v1beta.metric_pb2.ListPipelineTriggerRecordsResponse]]:
-        """===========================================================================
-        Deprecated endpoints, to be retired after new pipeline dashboard is rolled
-        out.
-        ===========================================================================
-
-        List pipeline triggers
-
-        Returns a paginated list of pipeline executions.
-        NOTE: This method is deprecated and will be retired soon.
-        """
-
-    @abc.abstractmethod
-    def ListPipelineTriggerTableRecords(
-        self,
-        request: mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsResponse, collections.abc.Awaitable[mgmt.v1beta.metric_pb2.ListPipelineTriggerTableRecordsResponse]]:
-        """List pipeline trigger metrics
-
-        Returns a paginated list of pipeline executions aggregated by pipeline ID.
-        NOTE: This method is deprecated and will be retired soon.
-        """
-
-    @abc.abstractmethod
-    def ListPipelineTriggerChartRecordsV0(
-        self,
-        request: mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsV0Request,
-        context: _ServicerContext,
-    ) -> typing.Union[mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsV0Response, collections.abc.Awaitable[mgmt.v1beta.metric_pb2.ListPipelineTriggerChartRecordsV0Response]]:
-        """List pipeline trigger time charts
-
-        Returns a timeline of pipeline trigger counts for the pipelines of a given
-        owner.
-        NOTE: This method will soon be retired and replaced by
-        ListPipelineTriggerChartRecords.
         """
 
 def add_MgmtPublicServiceServicer_to_server(servicer: MgmtPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

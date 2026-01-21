@@ -90,7 +90,7 @@ class KnowledgeBase(google.protobuf.message.Message):
     ACTIVE_COLLECTION_ID_FIELD_NUMBER: builtins.int
     OWNER_NAME_FIELD_NUMBER: builtins.int
     OWNER_FIELD_NUMBER: builtins.int
-    CREATOR_UID_FIELD_NUMBER: builtins.int
+    CREATOR_NAME_FIELD_NUMBER: builtins.int
     CREATOR_FIELD_NUMBER: builtins.int
     TOTAL_FILES_FIELD_NUMBER: builtins.int
     TOTAL_TOKENS_FIELD_NUMBER: builtins.int
@@ -142,8 +142,9 @@ class KnowledgeBase(google.protobuf.message.Message):
     Resource name of the owner namespace.
     Example: "namespaces/usr-7k2m9p4w1n3" or "namespaces/org-3t8f5q2x6b1"
     """
-    creator_uid: builtins.str
-    """The UID of the user who created this knowledge base.
+    creator_name: builtins.str
+    """Full resource name of the user who created this knowledge base.
+    Format: `users/{user}`
     Optional for system-created knowledge bases (e.g., instill-agent).
     """
     total_files: builtins.int
@@ -191,7 +192,7 @@ class KnowledgeBase(google.protobuf.message.Message):
     @property
     def creator(self) -> mgmt.v1beta.mgmt_pb2.User:
         """The user who created this knowledge base.
-        Populated when creator_uid is present.
+        Populated when creator_name is present.
         """
 
     @property
@@ -216,19 +217,19 @@ class KnowledgeBase(google.protobuf.message.Message):
         active_collection_id: builtins.str = ...,
         owner_name: builtins.str = ...,
         owner: mgmt.v1beta.mgmt_pb2.Owner | None = ...,
-        creator_uid: builtins.str | None = ...,
+        creator_name: builtins.str | None = ...,
         creator: mgmt.v1beta.mgmt_pb2.User | None = ...,
         total_files: builtins.int = ...,
         total_tokens: builtins.int = ...,
         used_storage: builtins.int = ...,
         downstream_apps: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_creator", b"_creator", "_creator_uid", b"_creator_uid", "_owner", b"_owner", "_system_id", b"_system_id", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "embedding_config", b"embedding_config", "owner", b"owner", "system_id", b"system_id", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_creator", b"_creator", "_creator_uid", b"_creator_uid", "_owner", b"_owner", "_system_id", b"_system_id", "active_collection_id", b"active_collection_id", "aliases", b"aliases", "create_time", b"create_time", "creator", b"creator", "creator_uid", b"creator_uid", "description", b"description", "display_name", b"display_name", "downstream_apps", b"downstream_apps", "embedding_config", b"embedding_config", "id", b"id", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "slug", b"slug", "system_id", b"system_id", "tags", b"tags", "total_files", b"total_files", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time", "used_storage", b"used_storage"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["_creator", b"_creator", "_creator_name", b"_creator_name", "_owner", b"_owner", "_system_id", b"_system_id", "create_time", b"create_time", "creator", b"creator", "creator_name", b"creator_name", "embedding_config", b"embedding_config", "owner", b"owner", "system_id", b"system_id", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_creator", b"_creator", "_creator_name", b"_creator_name", "_owner", b"_owner", "_system_id", b"_system_id", "active_collection_id", b"active_collection_id", "aliases", b"aliases", "create_time", b"create_time", "creator", b"creator", "creator_name", b"creator_name", "description", b"description", "display_name", b"display_name", "downstream_apps", b"downstream_apps", "embedding_config", b"embedding_config", "id", b"id", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "slug", b"slug", "system_id", b"system_id", "tags", b"tags", "total_files", b"total_files", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time", "used_storage", b"used_storage"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_creator", b"_creator"]) -> typing.Literal["creator"] | None: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing.Literal["_creator_uid", b"_creator_uid"]) -> typing.Literal["creator_uid"] | None: ...
+    def WhichOneof(self, oneof_group: typing.Literal["_creator_name", b"_creator_name"]) -> typing.Literal["creator_name"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_owner", b"_owner"]) -> typing.Literal["owner"] | None: ...
     @typing.overload

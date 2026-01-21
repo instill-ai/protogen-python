@@ -404,7 +404,7 @@ class AuthenticatedUser(google.protobuf.message.Message):
     IS_ELIGIBLE_FOR_ORGANIZATION_TRIAL_FIELD_NUMBER: builtins.int
     name: builtins.str
     """Field 1: Canonical resource name.
-    Format: `users/{user.id}`.
+    Format: `users/{user}`.
     """
     id: builtins.str
     """Field 2: Resource ID (used in `name` as the last segment). This conforms to
@@ -486,7 +486,9 @@ global___AuthenticatedUser = AuthenticatedUser
 
 @typing.final
 class Owner(google.protobuf.message.Message):
-    """Owner is a wrapper for User and Organization, used to embed owner information in other resources."""
+    """Owner is a wrapper for User and Organization, used to embed owner information
+    in other resources.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -542,7 +544,7 @@ class User(google.protobuf.message.Message):
     EMAIL_FIELD_NUMBER: builtins.int
     name: builtins.str
     """Field 1: Canonical resource name.
-    Format: `users/{user.id}`.
+    Format: `users/{user}`.
     Example: "users/john-doe"
     """
     id: builtins.str
@@ -769,7 +771,9 @@ global___LookUpUserAdminResponse = LookUpUserAdminResponse
 
 @typing.final
 class ListOrganizationsAdminRequest(google.protobuf.message.Message):
-    """ListOrganizationsAdminRequest represents a request to list all organizations by admin"""
+    """ListOrganizationsAdminRequest represents a request to list all organizations
+    by admin
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -814,7 +818,9 @@ global___ListOrganizationsAdminRequest = ListOrganizationsAdminRequest
 
 @typing.final
 class ListOrganizationsAdminResponse(google.protobuf.message.Message):
-    """ListOrganizationsAdminResponse represents a response for a list of organizations"""
+    """ListOrganizationsAdminResponse represents a response for a list of
+    organizations
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -842,8 +848,8 @@ global___ListOrganizationsAdminResponse = ListOrganizationsAdminResponse
 
 @typing.final
 class GetOrganizationAdminRequest(google.protobuf.message.Message):
-    """GetOrganizationAdminRequest represents a request to query an organization by admin.
-    Follows AIP-131: https://google.aip.dev/131
+    """GetOrganizationAdminRequest represents a request to query an organization by
+    admin. Follows AIP-131: https://google.aip.dev/131
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -870,7 +876,9 @@ global___GetOrganizationAdminRequest = GetOrganizationAdminRequest
 
 @typing.final
 class GetOrganizationAdminResponse(google.protobuf.message.Message):
-    """GetOrganizationAdminResponse represents a response for an organization resource"""
+    """GetOrganizationAdminResponse represents a response for an organization
+    resource
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -891,33 +899,37 @@ global___GetOrganizationAdminResponse = GetOrganizationAdminResponse
 
 @typing.final
 class LookUpOrganizationAdminRequest(google.protobuf.message.Message):
-    """LookUpOrganizationAdminRequest represents a request to query an organization via permalink by
-    admin
+    """LookUpOrganizationAdminRequest represents a request to query an organization
+    via permalink by admin
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    NAME_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
-    ORGANIZATION_UID_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """Full resource name of the organization.
+    Format: `organizations/{organization}`
+    """
     view: global___View.ValueType
     """View allows clients to specify the desired resource view in the response."""
-    organization_uid: builtins.str
-    """Organization UID"""
     def __init__(
         self,
         *,
+        name: builtins.str = ...,
         view: global___View.ValueType | None = ...,
-        organization_uid: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_view", b"_view", "organization_uid", b"organization_uid", "view", b"view"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["_view", b"_view", "name", b"name", "view", b"view"]) -> None: ...
     def WhichOneof(self, oneof_group: typing.Literal["_view", b"_view"]) -> typing.Literal["view"] | None: ...
 
 global___LookUpOrganizationAdminRequest = LookUpOrganizationAdminRequest
 
 @typing.final
 class LookUpOrganizationAdminResponse(google.protobuf.message.Message):
-    """LookUpOrganizationAdminResponse represents a response for an organization resource by admin"""
+    """LookUpOrganizationAdminResponse represents a response for an organization
+    resource by admin
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1242,8 +1254,8 @@ global___CheckNamespaceAdminRequest = CheckNamespaceAdminRequest
 
 @typing.final
 class CheckNamespaceAdminResponse(google.protobuf.message.Message):
-    """CheckNamespaceAdminResponse contains the availability of a namespace or the type
-    of resource that's using it.
+    """CheckNamespaceAdminResponse contains the availability of a namespace or the
+    type of resource that's using it.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1311,8 +1323,8 @@ global___CheckNamespaceAdminResponse = CheckNamespaceAdminResponse
 
 @typing.final
 class CheckNamespaceByUIDAdminRequest(google.protobuf.message.Message):
-    """CheckNamespaceByUIDAdminRequest represents a request to verify if a namespace is
-    available.
+    """CheckNamespaceByUIDAdminRequest represents a request to verify if a namespace
+    is available.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1331,8 +1343,8 @@ global___CheckNamespaceByUIDAdminRequest = CheckNamespaceByUIDAdminRequest
 
 @typing.final
 class CheckNamespaceByUIDAdminResponse(google.protobuf.message.Message):
-    """CheckNamespaceByUIDAdminResponse contains the availability of a namespace or the type
-    of resource that's using it.
+    """CheckNamespaceByUIDAdminResponse contains the availability of a namespace or
+    the type of resource that's using it.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1431,23 +1443,20 @@ class ApiToken(google.protobuf.message.Message):
     STATE_EXPIRED: ApiToken.State.ValueType  # 3
     """Expired."""
 
-    LAST_USE_TIME_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
-    UID_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     ACCESS_TOKEN_FIELD_NUMBER: builtins.int
     STATE_FIELD_NUMBER: builtins.int
     TOKEN_TYPE_FIELD_NUMBER: builtins.int
+    LAST_USE_TIME_FIELD_NUMBER: builtins.int
     TTL_FIELD_NUMBER: builtins.int
     EXPIRE_TIME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """The name of the token, define by its ID.
-    - Format: `tokens/{token.id}`.
+    """The resource name of the token.
+    Format: users/{user}/tokens/{token}
     """
-    uid: builtins.str
-    """API token UUID."""
     id: builtins.str
     """API token resource ID (used in `name` as the last segment). This conforms
     to RFC-1034, which restricts to letters, numbers, and hyphen, with the
@@ -1469,13 +1478,6 @@ class ApiToken(google.protobuf.message.Message):
     ttl: builtins.int
     """The time-to-live in seconds for this resource."""
     @property
-    def last_use_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """When users trigger a pipeline which uses an API token, the token is
-        updated with the current time. This field is used to track the last time
-        the token was used.
-        """
-
-    @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Creation time."""
 
@@ -1484,26 +1486,32 @@ class ApiToken(google.protobuf.message.Message):
         """Update time."""
 
     @property
+    def last_use_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """When users trigger a pipeline which uses an API token, the token is
+        updated with the current time. This field is used to track the last time
+        the token was used.
+        """
+
+    @property
     def expire_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Expiration time."""
 
     def __init__(
         self,
         *,
-        last_use_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         name: builtins.str = ...,
-        uid: builtins.str = ...,
         id: builtins.str = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         access_token: builtins.str = ...,
         state: global___ApiToken.State.ValueType = ...,
         token_type: builtins.str = ...,
+        last_use_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         ttl: builtins.int = ...,
         expire_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["create_time", b"create_time", "expiration", b"expiration", "expire_time", b"expire_time", "last_use_time", b"last_use_time", "ttl", b"ttl", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["access_token", b"access_token", "create_time", b"create_time", "expiration", b"expiration", "expire_time", b"expire_time", "id", b"id", "last_use_time", b"last_use_time", "name", b"name", "state", b"state", "token_type", b"token_type", "ttl", b"ttl", "uid", b"uid", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["access_token", b"access_token", "create_time", b"create_time", "expiration", b"expiration", "expire_time", b"expire_time", "id", b"id", "last_use_time", b"last_use_time", "name", b"name", "state", b"state", "token_type", b"token_type", "ttl", b"ttl", "update_time", b"update_time"]) -> None: ...
     def WhichOneof(self, oneof_group: typing.Literal["expiration", b"expiration"]) -> typing.Literal["ttl", "expire_time"] | None: ...
 
 global___ApiToken = ApiToken
@@ -1552,15 +1560,23 @@ global___CreateTokenResponse = CreateTokenResponse
 
 @typing.final
 class ListTokensRequest(google.protobuf.message.Message):
-    """ListTokensRequest represents a request to list the API tokens of a user."""
+    """ListTokensRequest represents a request to list the API tokens of a user.
+    Follows AIP-132: https://google.aip.dev/132
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    PARENT_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    parent: builtins.str
+    """The parent resource name.
+    Format: `users/{user}`
+    If not provided, defaults to the authenticated user.
+    """
     page_size: builtins.int
     """The maximum number of tokens to return. If this parameter is unspecified,
-    at most 10 pipelines will be returned. The cap value for this parameter is
+    at most 10 tokens will be returned. The cap value for this parameter is
     100 (i.e. any value above that will be coerced to 100).
     """
     page_token: builtins.str
@@ -1568,15 +1584,18 @@ class ListTokensRequest(google.protobuf.message.Message):
     def __init__(
         self,
         *,
+        parent: builtins.str | None = ...,
         page_size: builtins.int | None = ...,
         page_token: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_page_size", b"_page_size", "_page_token", b"_page_token", "page_size", b"page_size", "page_token", b"page_token"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_page_size", b"_page_size", "_page_token", b"_page_token", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["_page_size", b"_page_size", "_page_token", b"_page_token", "_parent", b"_parent", "page_size", b"page_size", "page_token", b"page_token", "parent", b"parent"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_page_size", b"_page_size", "_page_token", b"_page_token", "_parent", b"_parent", "page_size", b"page_size", "page_token", b"page_token", "parent", b"parent"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_page_size", b"_page_size"]) -> typing.Literal["page_size"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_page_token", b"_page_token"]) -> typing.Literal["page_token"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_parent", b"_parent"]) -> typing.Literal["parent"] | None: ...
 
 global___ListTokensRequest = ListTokensRequest
 
@@ -1619,7 +1638,7 @@ class GetTokenRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the token.
-    Format: `tokens/{token}`
+    Format: `users/{user}/tokens/{token}`
     """
     def __init__(
         self,
@@ -1662,7 +1681,7 @@ class DeleteTokenRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the token to delete.
-    Format: `tokens/{token}`
+    Format: `users/{user}/tokens/{token}`
     """
     def __init__(
         self,
@@ -1703,15 +1722,17 @@ class ValidateTokenResponse(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    USER_UID_FIELD_NUMBER: builtins.int
-    user_uid: builtins.str
-    """If token is valid, UUID of the user that owns it."""
+    USER_FIELD_NUMBER: builtins.int
+    user: builtins.str
+    """If token is valid, full resource name of the user that owns it.
+    Format: `users/{user}`
+    """
     def __init__(
         self,
         *,
-        user_uid: builtins.str = ...,
+        user: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["user_uid", b"user_uid"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["user", b"user"]) -> None: ...
 
 global___ValidateTokenResponse = ValidateTokenResponse
 
@@ -1858,7 +1879,9 @@ global___AuthLogoutResponse = AuthLogoutResponse
 
 @typing.final
 class AuthValidateAccessTokenRequest(google.protobuf.message.Message):
-    """AuthValidateAccessTokenRequest represents a request for access token validation."""
+    """AuthValidateAccessTokenRequest represents a request for access token
+    validation.
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1964,7 +1987,7 @@ class Organization(google.protobuf.message.Message):
     STATS_FIELD_NUMBER: builtins.int
     name: builtins.str
     """Field 1: Canonical resource name.
-    Format: `organizations/{organization.id}`.
+    Format: `organizations/{organization}`.
     Example: "organizations/acme-corp"
     """
     id: builtins.str
@@ -1985,7 +2008,7 @@ class Organization(google.protobuf.message.Message):
     """Field 6: Optional description / bio."""
     owner: builtins.str
     """Field 9: Owner reference (the user that owns the organization).
-    Format: `users/{user.id}`.
+    Format: `users/{user}`.
     """
     @property
     def aliases(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
@@ -2303,7 +2326,7 @@ class OrganizationMembership(google.protobuf.message.Message):
     name: builtins.str
     """The resource name of the membership, which allows its access by
     organization and user ID.
-    - Format: `organizations/{organization.id}/memberships/{user.id}`.
+    - Format: `organizations/{organization}/memberships/{user}`.
     """
     role: builtins.str
     """Role of the user in the organization."""
@@ -2347,7 +2370,7 @@ class UserMembership(google.protobuf.message.Message):
     name: builtins.str
     """The resource name of the membership, which allows its access by user and
     organization ID.
-    - Format: `users/{user.id}/memberships/{organization.id}`.
+    - Format: `users/{user}/memberships/{organization}`.
     """
     role: builtins.str
     """Role of the user in the organization."""

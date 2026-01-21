@@ -23,13 +23,10 @@ _sym_db = _symbol_database.Default()
 
 
 from common.healthcheck.v1beta import healthcheck_pb2 as common_dot_healthcheck_dot_v1beta_dot_healthcheck__pb2
-from common.run.v1alpha import run_pb2 as common_dot_run_dot_v1alpha_dot_run__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
-from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
-from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1f\x61rtifact/v1alpha/artifact.proto\x12\x10\x61rtifact.v1alpha\x1a+common/healthcheck/v1beta/healthcheck.proto\x1a\x1c\x63ommon/run/v1alpha/run.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x95\x01\n\x0fLivenessRequest\x12i\n\x14health_check_request\x18\x01 \x01(\x0b\x32-.common.healthcheck.v1beta.HealthCheckRequestB\x03\xe0\x41\x01H\x00R\x12healthCheckRequest\x88\x01\x01\x42\x17\n\x15_health_check_request\"v\n\x10LivenessResponse\x12\x62\n\x15health_check_response\x18\x01 \x01(\x0b\x32..common.healthcheck.v1beta.HealthCheckResponseR\x13healthCheckResponse\"\x96\x01\n\x10ReadinessRequest\x12i\n\x14health_check_request\x18\x01 \x01(\x0b\x32-.common.healthcheck.v1beta.HealthCheckRequestB\x03\xe0\x41\x01H\x00R\x12healthCheckRequest\x88\x01\x01\x42\x17\n\x15_health_check_request\"w\n\x11ReadinessResponse\x12\x62\n\x15health_check_response\x18\x01 \x01(\x0b\x32..common.healthcheck.v1beta.HealthCheckResponseR\x13healthCheckResponse\"\xd9\x06\n\x10KnowledgeBaseRun\x12\x15\n\x03uid\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x03uid\x12/\n\x11knowledge_base_id\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x0fknowledgeBaseId\x12!\n\x08\x66ile_ids\x18\x03 \x03(\tB\x06\xe0\x41\x03\xe0\x41\x01R\x07\x66ileIds\x12\x45\n\x06\x61\x63tion\x18\x04 \x01(\x0e\x32(.artifact.v1alpha.KnowledgeBaseRunActionB\x03\xe0\x41\x03R\x06\x61\x63tion\x12:\n\x06status\x18\x05 \x01(\x0e\x32\x1d.common.run.v1alpha.RunStatusB\x03\xe0\x41\x03R\x06status\x12:\n\x06source\x18\x06 \x01(\x0e\x32\x1d.common.run.v1alpha.RunSourceB\x03\xe0\x41\x03R\x06source\x12\x32\n\x0etotal_duration\x18\x07 \x01(\x05\x42\x06\xe0\x41\x03\xe0\x41\x01H\x00R\rtotalDuration\x88\x01\x01\x12(\n\trunner_id\x18\x08 \x01(\tB\x06\xe0\x41\x03\xe0\x41\x01H\x01R\x08runnerId\x88\x01\x01\x12.\n\x0cnamespace_id\x18\t \x01(\tB\x06\xe0\x41\x03\xe0\x41\x01H\x02R\x0bnamespaceId\x88\x01\x01\x12>\n\x07payload\x18\x0b \x01(\x0b\x32\x17.google.protobuf.StructB\x06\xe0\x41\x03\xe0\x41\x01H\x03R\x07payload\x88\x01\x01\x12>\n\nstart_time\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\tstartTime\x12L\n\rcomplete_time\x18\x0f \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x06\xe0\x41\x03\xe0\x41\x01H\x04R\x0c\x63ompleteTime\x88\x01\x01\x12!\n\x05\x65rror\x18\x10 \x01(\tB\x06\xe0\x41\x03\xe0\x41\x01H\x05R\x05\x65rror\x88\x01\x01\x12\x30\n\rcredit_amount\x18\x11 \x01(\x02\x42\x06\xe0\x41\x03\xe0\x41\x01H\x06R\x0c\x63reditAmount\x88\x01\x01\x42\x11\n\x0f_total_durationB\x0c\n\n_runner_idB\x0f\n\r_namespace_idB\n\n\x08_payloadB\x10\n\x0e_complete_timeB\x08\n\x06_errorB\x10\n\x0e_credit_amount\"\xd7\x01\n\x1dListKnowledgeBaseRunsResponse\x12W\n\x13knowledge_base_runs\x18\x01 \x03(\x0b\x32\".artifact.v1alpha.KnowledgeBaseRunB\x03\xe0\x41\x03R\x11knowledgeBaseRuns\x12\"\n\ntotal_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x03R\ttotalSize\x12\x17\n\x04page\x18\x03 \x01(\x05\x42\x03\xe0\x41\x03R\x04page\x12 \n\tpage_size\x18\x04 \x01(\x05\x42\x03\xe0\x41\x03R\x08pageSize\"\xd5\x01\n\x1cListKnowledgeBaseRunsRequest\x12\x1b\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x06parent\x12\x17\n\x04page\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01R\x04page\x12 \n\tpage_size\x18\x03 \x01(\x05\x42\x03\xe0\x41\x01R\x08pageSize\x12 \n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01H\x00R\x06\x66ilter\x88\x01\x01\x12#\n\x08order_by\x18\x07 \x01(\tB\x03\xe0\x41\x01H\x01R\x07orderBy\x88\x01\x01\x42\t\n\x07_filterB\x0b\n\t_order_by*\xb7\x02\n\x16KnowledgeBaseRunAction\x12)\n%KNOWLEDGE_BASE_RUN_ACTION_UNSPECIFIED\x10\x00\x12$\n KNOWLEDGE_BASE_RUN_ACTION_CREATE\x10\x01\x12$\n KNOWLEDGE_BASE_RUN_ACTION_UPDATE\x10\x02\x12$\n KNOWLEDGE_BASE_RUN_ACTION_DELETE\x10\x03\x12)\n%KNOWLEDGE_BASE_RUN_ACTION_CREATE_FILE\x10\x04\x12*\n&KNOWLEDGE_BASE_RUN_ACTION_PROCESS_FILE\x10\x05\x12)\n%KNOWLEDGE_BASE_RUN_ACTION_DELETE_FILE\x10\x06\x42\xca\x01\n\x14\x63om.artifact.v1alphaB\rArtifactProtoP\x01ZBgithub.com/instill-ai/protogen-go/artifact/v1alpha;artifactv1alpha\xa2\x02\x03\x41XX\xaa\x02\x10\x41rtifact.V1alpha\xca\x02\x10\x41rtifact\\V1alpha\xe2\x02\x1c\x41rtifact\\V1alpha\\GPBMetadata\xea\x02\x11\x41rtifact::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1f\x61rtifact/v1alpha/artifact.proto\x12\x10\x61rtifact.v1alpha\x1a+common/healthcheck/v1beta/healthcheck.proto\x1a\x1fgoogle/api/field_behavior.proto\"\x95\x01\n\x0fLivenessRequest\x12i\n\x14health_check_request\x18\x01 \x01(\x0b\x32-.common.healthcheck.v1beta.HealthCheckRequestB\x03\xe0\x41\x01H\x00R\x12healthCheckRequest\x88\x01\x01\x42\x17\n\x15_health_check_request\"v\n\x10LivenessResponse\x12\x62\n\x15health_check_response\x18\x01 \x01(\x0b\x32..common.healthcheck.v1beta.HealthCheckResponseR\x13healthCheckResponse\"\x96\x01\n\x10ReadinessRequest\x12i\n\x14health_check_request\x18\x01 \x01(\x0b\x32-.common.healthcheck.v1beta.HealthCheckRequestB\x03\xe0\x41\x01H\x00R\x12healthCheckRequest\x88\x01\x01\x42\x17\n\x15_health_check_request\"w\n\x11ReadinessResponse\x12\x62\n\x15health_check_response\x18\x01 \x01(\x0b\x32..common.healthcheck.v1beta.HealthCheckResponseR\x13healthCheckResponseB\xca\x01\n\x14\x63om.artifact.v1alphaB\rArtifactProtoP\x01ZBgithub.com/instill-ai/protogen-go/artifact/v1alpha;artifactv1alpha\xa2\x02\x03\x41XX\xaa\x02\x10\x41rtifact.V1alpha\xca\x02\x10\x41rtifact\\V1alpha\xe2\x02\x1c\x41rtifact\\V1alpha\\GPBMetadata\xea\x02\x11\x41rtifact::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -41,66 +38,12 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_LIVENESSREQUEST'].fields_by_name['health_check_request']._serialized_options = b'\340A\001'
   _globals['_READINESSREQUEST'].fields_by_name['health_check_request']._loaded_options = None
   _globals['_READINESSREQUEST'].fields_by_name['health_check_request']._serialized_options = b'\340A\001'
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['uid']._loaded_options = None
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['uid']._serialized_options = b'\340A\003'
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['knowledge_base_id']._loaded_options = None
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['knowledge_base_id']._serialized_options = b'\340A\003'
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['file_ids']._loaded_options = None
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['file_ids']._serialized_options = b'\340A\003\340A\001'
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['action']._loaded_options = None
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['action']._serialized_options = b'\340A\003'
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['status']._loaded_options = None
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['status']._serialized_options = b'\340A\003'
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['source']._loaded_options = None
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['source']._serialized_options = b'\340A\003'
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['total_duration']._loaded_options = None
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['total_duration']._serialized_options = b'\340A\003\340A\001'
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['runner_id']._loaded_options = None
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['runner_id']._serialized_options = b'\340A\003\340A\001'
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['namespace_id']._loaded_options = None
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['namespace_id']._serialized_options = b'\340A\003\340A\001'
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['payload']._loaded_options = None
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['payload']._serialized_options = b'\340A\003\340A\001'
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['start_time']._loaded_options = None
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['start_time']._serialized_options = b'\340A\003'
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['complete_time']._loaded_options = None
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['complete_time']._serialized_options = b'\340A\003\340A\001'
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['error']._loaded_options = None
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['error']._serialized_options = b'\340A\003\340A\001'
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['credit_amount']._loaded_options = None
-  _globals['_KNOWLEDGEBASERUN'].fields_by_name['credit_amount']._serialized_options = b'\340A\003\340A\001'
-  _globals['_LISTKNOWLEDGEBASERUNSRESPONSE'].fields_by_name['knowledge_base_runs']._loaded_options = None
-  _globals['_LISTKNOWLEDGEBASERUNSRESPONSE'].fields_by_name['knowledge_base_runs']._serialized_options = b'\340A\003'
-  _globals['_LISTKNOWLEDGEBASERUNSRESPONSE'].fields_by_name['total_size']._loaded_options = None
-  _globals['_LISTKNOWLEDGEBASERUNSRESPONSE'].fields_by_name['total_size']._serialized_options = b'\340A\003'
-  _globals['_LISTKNOWLEDGEBASERUNSRESPONSE'].fields_by_name['page']._loaded_options = None
-  _globals['_LISTKNOWLEDGEBASERUNSRESPONSE'].fields_by_name['page']._serialized_options = b'\340A\003'
-  _globals['_LISTKNOWLEDGEBASERUNSRESPONSE'].fields_by_name['page_size']._loaded_options = None
-  _globals['_LISTKNOWLEDGEBASERUNSRESPONSE'].fields_by_name['page_size']._serialized_options = b'\340A\003'
-  _globals['_LISTKNOWLEDGEBASERUNSREQUEST'].fields_by_name['parent']._loaded_options = None
-  _globals['_LISTKNOWLEDGEBASERUNSREQUEST'].fields_by_name['parent']._serialized_options = b'\340A\002'
-  _globals['_LISTKNOWLEDGEBASERUNSREQUEST'].fields_by_name['page']._loaded_options = None
-  _globals['_LISTKNOWLEDGEBASERUNSREQUEST'].fields_by_name['page']._serialized_options = b'\340A\001'
-  _globals['_LISTKNOWLEDGEBASERUNSREQUEST'].fields_by_name['page_size']._loaded_options = None
-  _globals['_LISTKNOWLEDGEBASERUNSREQUEST'].fields_by_name['page_size']._serialized_options = b'\340A\001'
-  _globals['_LISTKNOWLEDGEBASERUNSREQUEST'].fields_by_name['filter']._loaded_options = None
-  _globals['_LISTKNOWLEDGEBASERUNSREQUEST'].fields_by_name['filter']._serialized_options = b'\340A\001'
-  _globals['_LISTKNOWLEDGEBASERUNSREQUEST'].fields_by_name['order_by']._loaded_options = None
-  _globals['_LISTKNOWLEDGEBASERUNSREQUEST'].fields_by_name['order_by']._serialized_options = b'\340A\001'
-  _globals['_KNOWLEDGEBASERUNACTION']._serialized_start=2065
-  _globals['_KNOWLEDGEBASERUNACTION']._serialized_end=2376
-  _globals['_LIVENESSREQUEST']._serialized_start=225
-  _globals['_LIVENESSREQUEST']._serialized_end=374
-  _globals['_LIVENESSRESPONSE']._serialized_start=376
-  _globals['_LIVENESSRESPONSE']._serialized_end=494
-  _globals['_READINESSREQUEST']._serialized_start=497
-  _globals['_READINESSREQUEST']._serialized_end=647
-  _globals['_READINESSRESPONSE']._serialized_start=649
-  _globals['_READINESSRESPONSE']._serialized_end=768
-  _globals['_KNOWLEDGEBASERUN']._serialized_start=771
-  _globals['_KNOWLEDGEBASERUN']._serialized_end=1628
-  _globals['_LISTKNOWLEDGEBASERUNSRESPONSE']._serialized_start=1631
-  _globals['_LISTKNOWLEDGEBASERUNSRESPONSE']._serialized_end=1846
-  _globals['_LISTKNOWLEDGEBASERUNSREQUEST']._serialized_start=1849
-  _globals['_LISTKNOWLEDGEBASERUNSREQUEST']._serialized_end=2062
+  _globals['_LIVENESSREQUEST']._serialized_start=132
+  _globals['_LIVENESSREQUEST']._serialized_end=281
+  _globals['_LIVENESSRESPONSE']._serialized_start=283
+  _globals['_LIVENESSRESPONSE']._serialized_end=401
+  _globals['_READINESSREQUEST']._serialized_start=404
+  _globals['_READINESSREQUEST']._serialized_end=554
+  _globals['_READINESSRESPONSE']._serialized_start=556
+  _globals['_READINESSRESPONSE']._serialized_end=675
 # @@protoc_insertion_point(module_scope)
