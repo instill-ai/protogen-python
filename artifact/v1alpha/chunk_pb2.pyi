@@ -84,7 +84,7 @@ class Chunk(google.protobuf.message.Message):
     RETRIEVABLE_FIELD_NUMBER: builtins.int
     TOKENS_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
-    ORIGINAL_FILE_ID_FIELD_NUMBER: builtins.int
+    ORIGINAL_FILE_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
     REFERENCE_FIELD_NUMBER: builtins.int
     MARKDOWN_REFERENCE_FIELD_NUMBER: builtins.int
@@ -101,8 +101,10 @@ class Chunk(google.protobuf.message.Message):
     """
     tokens: builtins.int
     """tokens of the chunk"""
-    original_file_id: builtins.str
-    """original file unique identifier"""
+    original_file: builtins.str
+    """The resource name of the original file this chunk belongs to.
+    Format: `namespaces/{namespace}/files/{file}`
+    """
     type: global___Chunk.Type.ValueType
     """chunk type"""
     @property
@@ -125,13 +127,13 @@ class Chunk(google.protobuf.message.Message):
         retrievable: builtins.bool = ...,
         tokens: builtins.int = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
-        original_file_id: builtins.str = ...,
+        original_file: builtins.str = ...,
         type: global___Chunk.Type.ValueType = ...,
         reference: global___Chunk.Reference | None = ...,
         markdown_reference: global___Chunk.Reference | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["create_time", b"create_time", "markdown_reference", b"markdown_reference", "reference", b"reference"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["create_time", b"create_time", "id", b"id", "markdown_reference", b"markdown_reference", "name", b"name", "original_file_id", b"original_file_id", "reference", b"reference", "retrievable", b"retrievable", "tokens", b"tokens", "type", b"type"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["create_time", b"create_time", "id", b"id", "markdown_reference", b"markdown_reference", "name", b"name", "original_file", b"original_file", "reference", b"reference", "retrievable", b"retrievable", "tokens", b"tokens", "type", b"type"]) -> None: ...
 
 global___Chunk = Chunk
 
@@ -319,19 +321,21 @@ class SearchChunksRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     PARENT_FIELD_NUMBER: builtins.int
-    KNOWLEDGE_BASE_ID_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
     TEXT_PROMPT_FIELD_NUMBER: builtins.int
     TOP_K_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
     FILE_MEDIA_TYPE_FIELD_NUMBER: builtins.int
-    FILE_IDS_FIELD_NUMBER: builtins.int
+    FILES_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
     parent: builtins.str
     """The parent resource name (namespace).
     Format: `namespaces/{namespace}`
     """
-    knowledge_base_id: builtins.str
-    """ID of the knowledge base (optional filter)."""
+    knowledge_base: builtins.str
+    """The knowledge base resource name to filter by (optional).
+    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}`
+    """
     text_prompt: builtins.str
     """Text prompt to look for similarities."""
     top_k: builtins.int
@@ -341,30 +345,31 @@ class SearchChunksRequest(google.protobuf.message.Message):
     file_media_type: artifact.v1alpha.file_pb2.File.FileMediaType.ValueType
     """File media type."""
     @property
-    def file_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """File IDs. When this field is provided, the response will return only
-        chunks that belong to the specified file IDs.
+    def files(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """File resource names to filter by. When this field is provided, the response
+        will return only chunks that belong to the specified files.
+        Format: `namespaces/{namespace}/files/{file}`
         """
 
     @property
     def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Tags to filter by. When multiple tags are provided, OR logic is applied.
-        Note: File ID filter takes precedence over tags, as tags apply to files.
+        Note: File filter takes precedence over tags, as tags apply to files.
         """
 
     def __init__(
         self,
         *,
         parent: builtins.str = ...,
-        knowledge_base_id: builtins.str = ...,
+        knowledge_base: builtins.str = ...,
         text_prompt: builtins.str = ...,
         top_k: builtins.int = ...,
         type: global___Chunk.Type.ValueType = ...,
         file_media_type: artifact.v1alpha.file_pb2.File.FileMediaType.ValueType = ...,
-        file_ids: collections.abc.Iterable[builtins.str] | None = ...,
+        files: collections.abc.Iterable[builtins.str] | None = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["file_ids", b"file_ids", "file_media_type", b"file_media_type", "knowledge_base_id", b"knowledge_base_id", "parent", b"parent", "tags", b"tags", "text_prompt", b"text_prompt", "top_k", b"top_k", "type", b"type"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["file_media_type", b"file_media_type", "files", b"files", "knowledge_base", b"knowledge_base", "parent", b"parent", "tags", b"tags", "text_prompt", b"text_prompt", "top_k", b"top_k", "type", b"type"]) -> None: ...
 
 global___SearchChunksRequest = SearchChunksRequest
 

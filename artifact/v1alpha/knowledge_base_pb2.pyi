@@ -85,9 +85,9 @@ class KnowledgeBase(google.protobuf.message.Message):
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
-    SYSTEM_ID_FIELD_NUMBER: builtins.int
+    SYSTEM_FIELD_NUMBER: builtins.int
     EMBEDDING_CONFIG_FIELD_NUMBER: builtins.int
-    ACTIVE_COLLECTION_ID_FIELD_NUMBER: builtins.int
+    ACTIVE_COLLECTION_FIELD_NUMBER: builtins.int
     OWNER_NAME_FIELD_NUMBER: builtins.int
     OWNER_FIELD_NUMBER: builtins.int
     CREATOR_NAME_FIELD_NUMBER: builtins.int
@@ -121,7 +121,7 @@ class KnowledgeBase(google.protobuf.message.Message):
     """The knowledge base type (persistent or ephemeral).
     Default is PERSISTENT if not specified during creation.
     """
-    system_id: builtins.str
+    system: builtins.str
     """System ID defines how the knowledge base will be created based on the
     system's RAG configurations including:
     - AI model family (e.g., "openai", "gemini")
@@ -129,11 +129,14 @@ class KnowledgeBase(google.protobuf.message.Message):
     - Chunking method
     - Other RAG-related settings
 
-    Available systems: "openai", "gemini", or custom systems defined in the
-    system table. If not specified, defaults to the default system.
+    The resource name of the system configuration.
+    Format: `systems/{system}`
+    Available systems: "systems/openai", "systems/gemini", or custom systems.
+    If not specified, defaults to the default system.
     """
-    active_collection_id: builtins.str
-    """The ID of the active Milvus collection for this knowledge base.
+    active_collection: builtins.str
+    """The resource name of the active Milvus collection for this knowledge base.
+    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/collections/{collection}`
     This supports collection versioning for embedding dimension changes.
     """
     owner_name: builtins.str
@@ -212,9 +215,9 @@ class KnowledgeBase(google.protobuf.message.Message):
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
         type: global___KnowledgeBaseType.ValueType = ...,
-        system_id: builtins.str | None = ...,
+        system: builtins.str | None = ...,
         embedding_config: global___KnowledgeBase.EmbeddingConfig | None = ...,
-        active_collection_id: builtins.str = ...,
+        active_collection: builtins.str = ...,
         owner_name: builtins.str = ...,
         owner: mgmt.v1beta.mgmt_pb2.Owner | None = ...,
         creator_name: builtins.str | None = ...,
@@ -224,8 +227,8 @@ class KnowledgeBase(google.protobuf.message.Message):
         used_storage: builtins.int = ...,
         downstream_apps: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_creator", b"_creator", "_creator_name", b"_creator_name", "_owner", b"_owner", "_system_id", b"_system_id", "create_time", b"create_time", "creator", b"creator", "creator_name", b"creator_name", "embedding_config", b"embedding_config", "owner", b"owner", "system_id", b"system_id", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_creator", b"_creator", "_creator_name", b"_creator_name", "_owner", b"_owner", "_system_id", b"_system_id", "active_collection_id", b"active_collection_id", "aliases", b"aliases", "create_time", b"create_time", "creator", b"creator", "creator_name", b"creator_name", "description", b"description", "display_name", b"display_name", "downstream_apps", b"downstream_apps", "embedding_config", b"embedding_config", "id", b"id", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "slug", b"slug", "system_id", b"system_id", "tags", b"tags", "total_files", b"total_files", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time", "used_storage", b"used_storage"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["_creator", b"_creator", "_creator_name", b"_creator_name", "_owner", b"_owner", "_system", b"_system", "create_time", b"create_time", "creator", b"creator", "creator_name", b"creator_name", "embedding_config", b"embedding_config", "owner", b"owner", "system", b"system", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_creator", b"_creator", "_creator_name", b"_creator_name", "_owner", b"_owner", "_system", b"_system", "active_collection", b"active_collection", "aliases", b"aliases", "create_time", b"create_time", "creator", b"creator", "creator_name", b"creator_name", "description", b"description", "display_name", b"display_name", "downstream_apps", b"downstream_apps", "embedding_config", b"embedding_config", "id", b"id", "name", b"name", "owner", b"owner", "owner_name", b"owner_name", "slug", b"slug", "system", b"system", "tags", b"tags", "total_files", b"total_files", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time", "used_storage", b"used_storage"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_creator", b"_creator"]) -> typing.Literal["creator"] | None: ...
     @typing.overload
@@ -233,7 +236,7 @@ class KnowledgeBase(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_owner", b"_owner"]) -> typing.Literal["owner"] | None: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing.Literal["_system_id", b"_system_id"]) -> typing.Literal["system_id"] | None: ...
+    def WhichOneof(self, oneof_group: typing.Literal["_system", b"_system"]) -> typing.Literal["system"] | None: ...
 
 global___KnowledgeBase = KnowledgeBase
 
