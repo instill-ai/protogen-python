@@ -514,8 +514,8 @@ class Model(google.protobuf.message.Message):
 global___Model = Model
 
 @typing.final
-class ListModelsRequest(google.protobuf.message.Message):
-    """ListModelsRequest represents a request to list  models."""
+class ListPublicModelsRequest(google.protobuf.message.Message):
+    """ListPublicModelsRequest represents a request to list public models."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -577,11 +577,11 @@ class ListModelsRequest(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_visibility", b"_visibility"]) -> typing.Literal["visibility"] | None: ...
 
-global___ListModelsRequest = ListModelsRequest
+global___ListPublicModelsRequest = ListPublicModelsRequest
 
 @typing.final
-class ListModelsResponse(google.protobuf.message.Message):
-    """ListModelsResponse contains a list of models."""
+class ListPublicModelsResponse(google.protobuf.message.Message):
+    """ListPublicModelsResponse contains a list of public models."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -605,11 +605,11 @@ class ListModelsResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["models", b"models", "next_page_token", b"next_page_token", "total_size", b"total_size"]) -> None: ...
 
-global___ListModelsResponse = ListModelsResponse
+global___ListPublicModelsResponse = ListPublicModelsResponse
 
 @typing.final
-class ListNamespaceModelsRequest(google.protobuf.message.Message):
-    """ListNamespaceModelsRequest represents a request to list namepsace models.
+class ListModelsRequest(google.protobuf.message.Message):
+    """ListModelsRequest represents a request to list models.
     Follows AIP-132: https://google.aip.dev/132
     """
 
@@ -679,11 +679,11 @@ class ListNamespaceModelsRequest(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_visibility", b"_visibility"]) -> typing.Literal["visibility"] | None: ...
 
-global___ListNamespaceModelsRequest = ListNamespaceModelsRequest
+global___ListModelsRequest = ListModelsRequest
 
 @typing.final
-class ListNamespaceModelsResponse(google.protobuf.message.Message):
-    """ListNamespaceModelsResponse contains a list of models."""
+class ListModelsResponse(google.protobuf.message.Message):
+    """ListModelsResponse contains a list of models."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -707,11 +707,11 @@ class ListNamespaceModelsResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["models", b"models", "next_page_token", b"next_page_token", "total_size", b"total_size"]) -> None: ...
 
-global___ListNamespaceModelsResponse = ListNamespaceModelsResponse
+global___ListModelsResponse = ListModelsResponse
 
 @typing.final
-class CreateNamespaceModelRequest(google.protobuf.message.Message):
-    """CreateNamespaceModelRequest represents a request from a namespace to create a
+class CreateModelRequest(google.protobuf.message.Message):
+    """CreateModelRequest represents a request from a namespace to create a
     model.
     Follows AIP-133: https://google.aip.dev/133
     """
@@ -737,11 +737,11 @@ class CreateNamespaceModelRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["model", b"model"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["model", b"model", "parent", b"parent"]) -> None: ...
 
-global___CreateNamespaceModelRequest = CreateNamespaceModelRequest
+global___CreateModelRequest = CreateModelRequest
 
 @typing.final
-class CreateNamespaceModelResponse(google.protobuf.message.Message):
-    """CreateNamespaceModelResponse contains the created model."""
+class CreateModelResponse(google.protobuf.message.Message):
+    """CreateModelResponse contains the created model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -758,11 +758,11 @@ class CreateNamespaceModelResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["model", b"model"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["model", b"model"]) -> None: ...
 
-global___CreateNamespaceModelResponse = CreateNamespaceModelResponse
+global___CreateModelResponse = CreateModelResponse
 
 @typing.final
-class GetNamespaceModelRequest(google.protobuf.message.Message):
-    """GetNamespaceModelRequest represents a request to fetch the details of a model
+class GetModelRequest(google.protobuf.message.Message):
+    """GetModelRequest represents a request to fetch the details of a model
     owned by a namespace.
     Follows AIP-131: https://google.aip.dev/131
     """
@@ -787,11 +787,11 @@ class GetNamespaceModelRequest(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["_view", b"_view", "name", b"name", "view", b"view"]) -> None: ...
     def WhichOneof(self, oneof_group: typing.Literal["_view", b"_view"]) -> typing.Literal["view"] | None: ...
 
-global___GetNamespaceModelRequest = GetNamespaceModelRequest
+global___GetModelRequest = GetModelRequest
 
 @typing.final
-class GetNamespaceModelResponse(google.protobuf.message.Message):
-    """GetNamespaceModelResponse contains the requested model."""
+class GetModelResponse(google.protobuf.message.Message):
+    """GetModelResponse contains the requested model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -808,11 +808,11 @@ class GetNamespaceModelResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["model", b"model"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["model", b"model"]) -> None: ...
 
-global___GetNamespaceModelResponse = GetNamespaceModelResponse
+global___GetModelResponse = GetModelResponse
 
 @typing.final
-class UpdateNamespaceModelRequest(google.protobuf.message.Message):
-    """UpdateNamespaceModelRequest represents a request to update a model owned by a
+class UpdateModelRequest(google.protobuf.message.Message):
+    """UpdateModelRequest represents a request to update a model owned by a
     namespace.
     Follows AIP-134: https://google.aip.dev/134
     """
@@ -829,11 +829,7 @@ class UpdateNamespaceModelRequest(google.protobuf.message.Message):
 
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
-        """The update mask specifies the subset of fields that should be modified.
-
-        For more information about this field, see
-        https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#field-mask.
-        """
+        """The update mask specifies the subset of fields that should be modified."""
 
     def __init__(
         self,
@@ -844,11 +840,11 @@ class UpdateNamespaceModelRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["model", b"model", "update_mask", b"update_mask"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["model", b"model", "update_mask", b"update_mask"]) -> None: ...
 
-global___UpdateNamespaceModelRequest = UpdateNamespaceModelRequest
+global___UpdateModelRequest = UpdateModelRequest
 
 @typing.final
-class UpdateNamespaceModelResponse(google.protobuf.message.Message):
-    """UpdateNamespaceModelResponse contains the updated model."""
+class UpdateModelResponse(google.protobuf.message.Message):
+    """UpdateModelResponse contains the updated model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -865,11 +861,11 @@ class UpdateNamespaceModelResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["model", b"model"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["model", b"model"]) -> None: ...
 
-global___UpdateNamespaceModelResponse = UpdateNamespaceModelResponse
+global___UpdateModelResponse = UpdateModelResponse
 
 @typing.final
-class DeleteNamespaceModelRequest(google.protobuf.message.Message):
-    """DeleteNamespaceModelRequest represents a request to delete a model owned by a
+class DeleteModelRequest(google.protobuf.message.Message):
+    """DeleteModelRequest represents a request to delete a model owned by a
     namespace.
     Follows AIP-135: https://google.aip.dev/135
     """
@@ -888,11 +884,11 @@ class DeleteNamespaceModelRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["name", b"name"]) -> None: ...
 
-global___DeleteNamespaceModelRequest = DeleteNamespaceModelRequest
+global___DeleteModelRequest = DeleteModelRequest
 
 @typing.final
-class DeleteNamespaceModelResponse(google.protobuf.message.Message):
-    """DeleteNamespaceModelResponse is an empty response."""
+class DeleteModelResponse(google.protobuf.message.Message):
+    """DeleteModelResponse is an empty response."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -900,11 +896,11 @@ class DeleteNamespaceModelResponse(google.protobuf.message.Message):
         self,
     ) -> None: ...
 
-global___DeleteNamespaceModelResponse = DeleteNamespaceModelResponse
+global___DeleteModelResponse = DeleteModelResponse
 
 @typing.final
-class RenameNamespaceModelRequest(google.protobuf.message.Message):
-    """RenameNamespaceModelRequest represents a request to rename a model"""
+class RenameModelRequest(google.protobuf.message.Message):
+    """RenameModelRequest represents a request to rename a model"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -926,11 +922,11 @@ class RenameNamespaceModelRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["name", b"name", "new_model_id", b"new_model_id"]) -> None: ...
 
-global___RenameNamespaceModelRequest = RenameNamespaceModelRequest
+global___RenameModelRequest = RenameModelRequest
 
 @typing.final
-class RenameNamespaceModelResponse(google.protobuf.message.Message):
-    """RenameNamespaceModelResponse contains a renamed model."""
+class RenameModelResponse(google.protobuf.message.Message):
+    """RenameModelResponse contains a renamed model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -947,11 +943,11 @@ class RenameNamespaceModelResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["model", b"model"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["model", b"model"]) -> None: ...
 
-global___RenameNamespaceModelResponse = RenameNamespaceModelResponse
+global___RenameModelResponse = RenameModelResponse
 
 @typing.final
-class WatchNamespaceModelRequest(google.protobuf.message.Message):
-    """WatchNamespaceModelRequest represents a request to fetch current state of a
+class WatchModelVersionRequest(google.protobuf.message.Message):
+    """WatchModelVersionRequest represents a request to fetch current state of a
     model
     """
 
@@ -973,11 +969,11 @@ class WatchNamespaceModelRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["name", b"name", "version", b"version"]) -> None: ...
 
-global___WatchNamespaceModelRequest = WatchNamespaceModelRequest
+global___WatchModelVersionRequest = WatchModelVersionRequest
 
 @typing.final
-class WatchNamespaceModelResponse(google.protobuf.message.Message):
-    """WatchNamespaceModelResponse contains the state of a model."""
+class WatchModelVersionResponse(google.protobuf.message.Message):
+    """WatchModelVersionResponse contains the state of a model."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -995,11 +991,11 @@ class WatchNamespaceModelResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["message", b"message", "state", b"state"]) -> None: ...
 
-global___WatchNamespaceModelResponse = WatchNamespaceModelResponse
+global___WatchModelVersionResponse = WatchModelVersionResponse
 
 @typing.final
-class WatchNamespaceLatestModelRequest(google.protobuf.message.Message):
-    """WatchNamespaceNamespaceLatestModelRequest represents a request to fetch
+class WatchModelRequest(google.protobuf.message.Message):
+    """WatchModelRequest represents a request to fetch
     current state of the latest model version.
     """
 
@@ -1017,11 +1013,11 @@ class WatchNamespaceLatestModelRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["name", b"name"]) -> None: ...
 
-global___WatchNamespaceLatestModelRequest = WatchNamespaceLatestModelRequest
+global___WatchModelRequest = WatchModelRequest
 
 @typing.final
-class WatchNamespaceLatestModelResponse(google.protobuf.message.Message):
-    """WatchNamespaceLatestModelResponse contains the state of the latest model
+class WatchModelResponse(google.protobuf.message.Message):
+    """WatchModelResponse contains the state of the latest model
     version.
     """
 
@@ -1041,11 +1037,11 @@ class WatchNamespaceLatestModelResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["message", b"message", "state", b"state"]) -> None: ...
 
-global___WatchNamespaceLatestModelResponse = WatchNamespaceLatestModelResponse
+global___WatchModelResponse = WatchModelResponse
 
 @typing.final
-class ListNamespaceModelVersionsRequest(google.protobuf.message.Message):
-    """ListNamespaceModelVersionsRequest represents a request to list all the
+class ListModelVersionsRequest(google.protobuf.message.Message):
+    """ListModelVersionsRequest represents a request to list all the
     versions of a model namespace of a namespace.
     Follows AIP-132: https://google.aip.dev/132
     """
@@ -1079,11 +1075,11 @@ class ListNamespaceModelVersionsRequest(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_page_size", b"_page_size"]) -> typing.Literal["page_size"] | None: ...
 
-global___ListNamespaceModelVersionsRequest = ListNamespaceModelVersionsRequest
+global___ListModelVersionsRequest = ListModelVersionsRequest
 
 @typing.final
-class ListNamespaceModelVersionsResponse(google.protobuf.message.Message):
-    """ListNamespaceModelVersionsResponse contains a list of models."""
+class ListModelVersionsResponse(google.protobuf.message.Message):
+    """ListModelVersionsResponse contains a list of models."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1111,11 +1107,11 @@ class ListNamespaceModelVersionsResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["page", b"page", "page_size", b"page_size", "total_size", b"total_size", "versions", b"versions"]) -> None: ...
 
-global___ListNamespaceModelVersionsResponse = ListNamespaceModelVersionsResponse
+global___ListModelVersionsResponse = ListModelVersionsResponse
 
 @typing.final
-class DeleteNamespaceModelVersionRequest(google.protobuf.message.Message):
-    """DeleteNamespaceModelVersionRequest represents a request to delete a model
+class DeleteModelVersionRequest(google.protobuf.message.Message):
+    """DeleteModelVersionRequest represents a request to delete a model
     version owned by a namespace.
     Follows AIP-135: https://google.aip.dev/135
     """
@@ -1134,11 +1130,11 @@ class DeleteNamespaceModelVersionRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["name", b"name"]) -> None: ...
 
-global___DeleteNamespaceModelVersionRequest = DeleteNamespaceModelVersionRequest
+global___DeleteModelVersionRequest = DeleteModelVersionRequest
 
 @typing.final
-class DeleteNamespaceModelVersionResponse(google.protobuf.message.Message):
-    """DeleteNamespaceModelVersionResponse is an empty response."""
+class DeleteModelVersionResponse(google.protobuf.message.Message):
+    """DeleteModelVersionResponse is an empty response."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1146,11 +1142,11 @@ class DeleteNamespaceModelVersionResponse(google.protobuf.message.Message):
         self,
     ) -> None: ...
 
-global___DeleteNamespaceModelVersionResponse = DeleteNamespaceModelVersionResponse
+global___DeleteModelVersionResponse = DeleteModelVersionResponse
 
 @typing.final
-class TriggerNamespaceModelRequest(google.protobuf.message.Message):
-    """TriggerNamespaceModelRequest represents a request to trigger a model
+class TriggerModelVersionRequest(google.protobuf.message.Message):
+    """TriggerModelVersionRequest represents a request to trigger a model
     inference.
     """
 
@@ -1174,11 +1170,11 @@ class TriggerNamespaceModelRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["name", b"name", "task_inputs", b"task_inputs"]) -> None: ...
 
-global___TriggerNamespaceModelRequest = TriggerNamespaceModelRequest
+global___TriggerModelVersionRequest = TriggerModelVersionRequest
 
 @typing.final
-class TriggerNamespaceModelResponse(google.protobuf.message.Message):
-    """TriggerNamespaceModelResponse contains the model inference results."""
+class TriggerModelVersionResponse(google.protobuf.message.Message):
+    """TriggerModelVersionResponse contains the model inference results."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1198,11 +1194,11 @@ class TriggerNamespaceModelResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["task", b"task", "task_outputs", b"task_outputs"]) -> None: ...
 
-global___TriggerNamespaceModelResponse = TriggerNamespaceModelResponse
+global___TriggerModelVersionResponse = TriggerModelVersionResponse
 
 @typing.final
-class TriggerAsyncNamespaceModelRequest(google.protobuf.message.Message):
-    """TriggerAsyncNamespaceModelRequest represents a request to trigger a model
+class TriggerAsyncModelVersionRequest(google.protobuf.message.Message):
+    """TriggerAsyncModelVersionRequest represents a request to trigger a model
     inference asynchronously.
     """
 
@@ -1226,11 +1222,11 @@ class TriggerAsyncNamespaceModelRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["name", b"name", "task_inputs", b"task_inputs"]) -> None: ...
 
-global___TriggerAsyncNamespaceModelRequest = TriggerAsyncNamespaceModelRequest
+global___TriggerAsyncModelVersionRequest = TriggerAsyncModelVersionRequest
 
 @typing.final
-class TriggerAsyncNamespaceModelResponse(google.protobuf.message.Message):
-    """TriggerAsyncNamespaceModelResponse contains the information to access the
+class TriggerAsyncModelVersionResponse(google.protobuf.message.Message):
+    """TriggerAsyncModelVersionResponse contains the information to access the
     status of an asynchronous model inference.
     """
 
@@ -1249,11 +1245,11 @@ class TriggerAsyncNamespaceModelResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["operation", b"operation"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["operation", b"operation"]) -> None: ...
 
-global___TriggerAsyncNamespaceModelResponse = TriggerAsyncNamespaceModelResponse
+global___TriggerAsyncModelVersionResponse = TriggerAsyncModelVersionResponse
 
 @typing.final
-class TriggerNamespaceLatestModelRequest(google.protobuf.message.Message):
-    """TriggerNamespaceLatestModelRequest represents a request to trigger a model
+class TriggerModelRequest(google.protobuf.message.Message):
+    """TriggerModelRequest represents a request to trigger a model
     inference with the latest uploaded version.
     """
 
@@ -1277,11 +1273,11 @@ class TriggerNamespaceLatestModelRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["name", b"name", "task_inputs", b"task_inputs"]) -> None: ...
 
-global___TriggerNamespaceLatestModelRequest = TriggerNamespaceLatestModelRequest
+global___TriggerModelRequest = TriggerModelRequest
 
 @typing.final
-class TriggerNamespaceLatestModelResponse(google.protobuf.message.Message):
-    """TriggerNamespaceLatestModelResponse contains the model inference results."""
+class TriggerModelResponse(google.protobuf.message.Message):
+    """TriggerModelResponse contains the model inference results."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1301,11 +1297,11 @@ class TriggerNamespaceLatestModelResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["task", b"task", "task_outputs", b"task_outputs"]) -> None: ...
 
-global___TriggerNamespaceLatestModelResponse = TriggerNamespaceLatestModelResponse
+global___TriggerModelResponse = TriggerModelResponse
 
 @typing.final
-class TriggerAsyncNamespaceLatestModelRequest(google.protobuf.message.Message):
-    """TriggerAsyncNamespaceLatestModelRequest represents a request to trigger a
+class TriggerAsyncModelRequest(google.protobuf.message.Message):
+    """TriggerAsyncModelRequest represents a request to trigger a
     model inference asynchronously with the latest uploaded version.
     """
 
@@ -1329,11 +1325,11 @@ class TriggerAsyncNamespaceLatestModelRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["name", b"name", "task_inputs", b"task_inputs"]) -> None: ...
 
-global___TriggerAsyncNamespaceLatestModelRequest = TriggerAsyncNamespaceLatestModelRequest
+global___TriggerAsyncModelRequest = TriggerAsyncModelRequest
 
 @typing.final
-class TriggerAsyncNamespaceLatestModelResponse(google.protobuf.message.Message):
-    """TriggerAsyncNamespaceLatestModelResponse contains the information to access
+class TriggerAsyncModelResponse(google.protobuf.message.Message):
+    """TriggerAsyncModelResponse contains the information to access
     the status of an asynchronous model inference.
     """
 
@@ -1352,11 +1348,11 @@ class TriggerAsyncNamespaceLatestModelResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["operation", b"operation"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["operation", b"operation"]) -> None: ...
 
-global___TriggerAsyncNamespaceLatestModelResponse = TriggerAsyncNamespaceLatestModelResponse
+global___TriggerAsyncModelResponse = TriggerAsyncModelResponse
 
 @typing.final
-class TriggerNamespaceModelBinaryFileUploadRequest(google.protobuf.message.Message):
-    """TriggerNamespaceModelBinaryFileUploadRequest represents a request trigger a
+class TriggerModelVersionBinaryFileUploadRequest(google.protobuf.message.Message):
+    """TriggerModelVersionBinaryFileUploadRequest represents a request trigger a
     model inference by uploading a binary file as the input.
     """
 
@@ -1380,11 +1376,11 @@ class TriggerNamespaceModelBinaryFileUploadRequest(google.protobuf.message.Messa
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["name", b"name", "task_input", b"task_input"]) -> None: ...
 
-global___TriggerNamespaceModelBinaryFileUploadRequest = TriggerNamespaceModelBinaryFileUploadRequest
+global___TriggerModelVersionBinaryFileUploadRequest = TriggerModelVersionBinaryFileUploadRequest
 
 @typing.final
-class TriggerNamespaceModelBinaryFileUploadResponse(google.protobuf.message.Message):
-    """TriggerNamespaceModelBinaryFileUploadResponse contains the model inference
+class TriggerModelVersionBinaryFileUploadResponse(google.protobuf.message.Message):
+    """TriggerModelVersionBinaryFileUploadResponse contains the model inference
     results.
     """
 
@@ -1406,11 +1402,11 @@ class TriggerNamespaceModelBinaryFileUploadResponse(google.protobuf.message.Mess
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["task", b"task", "task_outputs", b"task_outputs"]) -> None: ...
 
-global___TriggerNamespaceModelBinaryFileUploadResponse = TriggerNamespaceModelBinaryFileUploadResponse
+global___TriggerModelVersionBinaryFileUploadResponse = TriggerModelVersionBinaryFileUploadResponse
 
 @typing.final
-class TriggerNamespaceLatestModelBinaryFileUploadRequest(google.protobuf.message.Message):
-    """TriggerNamespaceModelLatestBinaryFileUploadRequest represents a request
+class TriggerModelBinaryFileUploadRequest(google.protobuf.message.Message):
+    """TriggerModelVersionLatestBinaryFileUploadRequest represents a request
     trigger a model inference by uploading a binary file as the input.
     """
 
@@ -1434,11 +1430,11 @@ class TriggerNamespaceLatestModelBinaryFileUploadRequest(google.protobuf.message
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["name", b"name", "task_input", b"task_input"]) -> None: ...
 
-global___TriggerNamespaceLatestModelBinaryFileUploadRequest = TriggerNamespaceLatestModelBinaryFileUploadRequest
+global___TriggerModelBinaryFileUploadRequest = TriggerModelBinaryFileUploadRequest
 
 @typing.final
-class TriggerNamespaceLatestModelBinaryFileUploadResponse(google.protobuf.message.Message):
-    """TriggerNamespaceLatestModelBinaryFileUploadResponse contains the model
+class TriggerModelBinaryFileUploadResponse(google.protobuf.message.Message):
+    """TriggerModelBinaryFileUploadResponse contains the model
     inference results.
     """
 
@@ -1460,11 +1456,11 @@ class TriggerNamespaceLatestModelBinaryFileUploadResponse(google.protobuf.messag
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["task", b"task", "task_outputs", b"task_outputs"]) -> None: ...
 
-global___TriggerNamespaceLatestModelBinaryFileUploadResponse = TriggerNamespaceLatestModelBinaryFileUploadResponse
+global___TriggerModelBinaryFileUploadResponse = TriggerModelBinaryFileUploadResponse
 
 @typing.final
-class GetNamespaceLatestModelOperationRequest(google.protobuf.message.Message):
-    """GetNamespaceLatestModelOperationRequest represents a request to fetch the
+class GetModelOperationRequest(google.protobuf.message.Message):
+    """GetModelOperationRequest represents a request to fetch the
     latest long-running operation performed on a model for a namespace.
     """
 
@@ -1490,11 +1486,11 @@ class GetNamespaceLatestModelOperationRequest(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["_view", b"_view", "name", b"name", "view", b"view"]) -> None: ...
     def WhichOneof(self, oneof_group: typing.Literal["_view", b"_view"]) -> typing.Literal["view"] | None: ...
 
-global___GetNamespaceLatestModelOperationRequest = GetNamespaceLatestModelOperationRequest
+global___GetModelOperationRequest = GetModelOperationRequest
 
 @typing.final
-class GetNamespaceLatestModelOperationResponse(google.protobuf.message.Message):
-    """GetNamespaceLatestModelOperationResponse represents a response to query a
+class GetModelOperationResponse(google.protobuf.message.Message):
+    """GetModelOperationResponse represents a response to query a
     long-running operation.
     """
 
@@ -1513,13 +1509,12 @@ class GetNamespaceLatestModelOperationResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["operation", b"operation"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["operation", b"operation"]) -> None: ...
 
-global___GetNamespaceLatestModelOperationResponse = GetNamespaceLatestModelOperationResponse
+global___GetModelOperationResponse = GetModelOperationResponse
 
 @typing.final
-class GetNamespaceModelOperationRequest(google.protobuf.message.Message):
-    """GetNamespaceModelOperationRequest represents a request to fetch the
-    long-running operation performed on a particular model version for a
-    namespace.
+class GetModelVersionOperationRequest(google.protobuf.message.Message):
+    """GetModelVersionOperationRequest represents a request to fetch the
+    long-running operation performed on a particular model version.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -1544,11 +1539,11 @@ class GetNamespaceModelOperationRequest(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["_view", b"_view", "name", b"name", "view", b"view"]) -> None: ...
     def WhichOneof(self, oneof_group: typing.Literal["_view", b"_view"]) -> typing.Literal["view"] | None: ...
 
-global___GetNamespaceModelOperationRequest = GetNamespaceModelOperationRequest
+global___GetModelVersionOperationRequest = GetModelVersionOperationRequest
 
 @typing.final
-class GetNamespaceModelOperationResponse(google.protobuf.message.Message):
-    """GetNamespaceModelOperationResponse represents a response to query a
+class GetModelVersionOperationResponse(google.protobuf.message.Message):
+    """GetModelVersionOperationResponse represents a response to query a
     long-running operation.
     """
 
@@ -1567,11 +1562,11 @@ class GetNamespaceModelOperationResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["operation", b"operation"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["operation", b"operation"]) -> None: ...
 
-global___GetNamespaceModelOperationResponse = GetNamespaceModelOperationResponse
+global___GetModelVersionOperationResponse = GetModelVersionOperationResponse
 
 @typing.final
-class DeployNamespaceModelAdminRequest(google.protobuf.message.Message):
-    """DeployNamespaceModelAdminRequest represents a request to deploy a model to
+class DeployModelAdminRequest(google.protobuf.message.Message):
+    """DeployModelAdminRequest represents a request to deploy a model to
     online state
     """
 
@@ -1593,11 +1588,11 @@ class DeployNamespaceModelAdminRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["digest", b"digest", "name", b"name"]) -> None: ...
 
-global___DeployNamespaceModelAdminRequest = DeployNamespaceModelAdminRequest
+global___DeployModelAdminRequest = DeployModelAdminRequest
 
 @typing.final
-class DeployNamespaceModelAdminResponse(google.protobuf.message.Message):
-    """DeployNamespaceModelAdminResponse represents a response for a deployed model"""
+class DeployModelAdminResponse(google.protobuf.message.Message):
+    """DeployModelAdminResponse represents a response for a deployed model"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1605,11 +1600,11 @@ class DeployNamespaceModelAdminResponse(google.protobuf.message.Message):
         self,
     ) -> None: ...
 
-global___DeployNamespaceModelAdminResponse = DeployNamespaceModelAdminResponse
+global___DeployModelAdminResponse = DeployModelAdminResponse
 
 @typing.final
-class UndeployNamespaceModelAdminRequest(google.protobuf.message.Message):
-    """UndeployNamespaceModelAdminRequest represents a request to undeploy a model
+class UndeployModelAdminRequest(google.protobuf.message.Message):
+    """UndeployModelAdminRequest represents a request to undeploy a model
     to offline state
     """
 
@@ -1631,11 +1626,11 @@ class UndeployNamespaceModelAdminRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["digest", b"digest", "name", b"name"]) -> None: ...
 
-global___UndeployNamespaceModelAdminRequest = UndeployNamespaceModelAdminRequest
+global___UndeployModelAdminRequest = UndeployModelAdminRequest
 
 @typing.final
-class UndeployNamespaceModelAdminResponse(google.protobuf.message.Message):
-    """UndeployNamespaceModelAdminResponse represents a response for a undeployed
+class UndeployModelAdminResponse(google.protobuf.message.Message):
+    """UndeployModelAdminResponse represents a response for a undeployed
     model
     """
 
@@ -1645,19 +1640,19 @@ class UndeployNamespaceModelAdminResponse(google.protobuf.message.Message):
         self,
     ) -> None: ...
 
-global___UndeployNamespaceModelAdminResponse = UndeployNamespaceModelAdminResponse
+global___UndeployModelAdminResponse = UndeployModelAdminResponse
 
 @typing.final
-class GetModelOperationRequest(google.protobuf.message.Message):
-    """GetModelOperationRequest represents a request to fetch a long-running
-    operation performed on a model.
+class GetOperationRequest(google.protobuf.message.Message):
+    """GetOperationRequest represents a request to fetch a long-running
+    operation by its ID.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     OPERATION_ID_FIELD_NUMBER: builtins.int
     operation_id: builtins.str
-    """The resource name of the model, which allows its access ID."""
+    """The operation ID."""
     def __init__(
         self,
         *,
@@ -1665,11 +1660,11 @@ class GetModelOperationRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["operation_id", b"operation_id"]) -> None: ...
 
-global___GetModelOperationRequest = GetModelOperationRequest
+global___GetOperationRequest = GetOperationRequest
 
 @typing.final
-class GetModelOperationResponse(google.protobuf.message.Message):
-    """GetModelOperationRequest represents a request to query a long-running
+class GetOperationResponse(google.protobuf.message.Message):
+    """GetOperationResponse represents a response to query a long-running
     operation.
     """
 
@@ -1688,11 +1683,11 @@ class GetModelOperationResponse(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["operation", b"operation"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["operation", b"operation"]) -> None: ...
 
-global___GetModelOperationResponse = GetModelOperationResponse
+global___GetOperationResponse = GetOperationResponse
 
 @typing.final
 class LatestOperation(google.protobuf.message.Message):
-    """LatestOperation represents an internal message for GetLatestModelOperation
+    """LatestOperation represents an internal message for GetModelOperation
     Response
     """
 
@@ -1701,18 +1696,18 @@ class LatestOperation(google.protobuf.message.Message):
     REQUEST_FIELD_NUMBER: builtins.int
     RESPONSE_FIELD_NUMBER: builtins.int
     @property
-    def request(self) -> global___TriggerNamespaceModelRequest:
+    def request(self) -> global___TriggerModelVersionRequest:
         """Input request"""
 
     @property
-    def response(self) -> global___TriggerNamespaceModelResponse:
+    def response(self) -> global___TriggerModelVersionResponse:
         """Output response"""
 
     def __init__(
         self,
         *,
-        request: global___TriggerNamespaceModelRequest | None = ...,
-        response: global___TriggerNamespaceModelResponse | None = ...,
+        request: global___TriggerModelVersionRequest | None = ...,
+        response: global___TriggerModelVersionResponse | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["request", b"request", "response", b"response"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["request", b"request", "response", b"response"]) -> None: ...

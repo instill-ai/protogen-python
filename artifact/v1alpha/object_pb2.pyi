@@ -21,8 +21,8 @@ class Object(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
     DISPLAY_NAME_FIELD_NUMBER: builtins.int
-    NAMESPACE_ID_FIELD_NUMBER: builtins.int
-    CREATOR_FIELD_NUMBER: builtins.int
+    OWNER_NAME_FIELD_NUMBER: builtins.int
+    CREATOR_NAME_FIELD_NUMBER: builtins.int
     CREATE_TIME_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
     SIZE_FIELD_NUMBER: builtins.int
@@ -41,10 +41,14 @@ class Object(google.protobuf.message.Message):
     """
     display_name: builtins.str
     """Human-readable display name (user-provided filename)."""
-    namespace_id: builtins.str
-    """Namespace ID that owns this object."""
-    creator: builtins.str
-    """Creator's user ID."""
+    owner_name: builtins.str
+    """Resource name of the owner namespace.
+    Format: `namespaces/{namespace}`
+    """
+    creator_name: builtins.str
+    """Full resource name of the user who created this object.
+    Format: `users/{user}`
+    """
     size: builtins.int
     """Size in bytes."""
     content_type: builtins.str
@@ -77,8 +81,8 @@ class Object(google.protobuf.message.Message):
         name: builtins.str = ...,
         id: builtins.str = ...,
         display_name: builtins.str = ...,
-        namespace_id: builtins.str = ...,
-        creator: builtins.str = ...,
+        owner_name: builtins.str = ...,
+        creator_name: builtins.str = ...,
         create_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         update_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         size: builtins.int = ...,
@@ -89,7 +93,7 @@ class Object(google.protobuf.message.Message):
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_delete_time", b"_delete_time", "_last_modified_time", b"_last_modified_time", "create_time", b"create_time", "delete_time", b"delete_time", "last_modified_time", b"last_modified_time", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_delete_time", b"_delete_time", "_last_modified_time", b"_last_modified_time", "content_type", b"content_type", "create_time", b"create_time", "creator", b"creator", "delete_time", b"delete_time", "display_name", b"display_name", "id", b"id", "is_uploaded", b"is_uploaded", "last_modified_time", b"last_modified_time", "name", b"name", "namespace_id", b"namespace_id", "object_expire_days", b"object_expire_days", "size", b"size", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["_delete_time", b"_delete_time", "_last_modified_time", b"_last_modified_time", "content_type", b"content_type", "create_time", b"create_time", "creator_name", b"creator_name", "delete_time", b"delete_time", "display_name", b"display_name", "id", b"id", "is_uploaded", b"is_uploaded", "last_modified_time", b"last_modified_time", "name", b"name", "object_expire_days", b"object_expire_days", "owner_name", b"owner_name", "size", b"size", "update_time", b"update_time"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_delete_time", b"_delete_time"]) -> typing.Literal["delete_time"] | None: ...
     @typing.overload
@@ -384,8 +388,8 @@ class GetObjectAdminRequest(google.protobuf.message.Message):
 
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Full resource name of the object.
-    Format: `objects/{object}`
+    """The resource name of the object.
+    Format: `namespaces/{namespace}/objects/{object}`
     """
     def __init__(
         self,
@@ -431,8 +435,8 @@ class UpdateObjectAdminRequest(google.protobuf.message.Message):
     IS_UPLOADED_FIELD_NUMBER: builtins.int
     LAST_MODIFIED_TIME_FIELD_NUMBER: builtins.int
     name: builtins.str
-    """Full resource name of the object.
-    Format: `objects/{object}`
+    """The resource name of the object.
+    Format: `namespaces/{namespace}/objects/{object}`
     """
     size: builtins.int
     """Size in bytes."""

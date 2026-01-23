@@ -44,105 +44,105 @@ class ModelPublicServiceStub(object):
                 request_serializer=model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionRequest.SerializeToString,
                 response_deserializer=model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionResponse.FromString,
                 _registered_method=True)
+        self.ListPublicModels = channel.unary_unary(
+                '/model.v1alpha.ModelPublicService/ListPublicModels',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.ListPublicModelsRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.ListPublicModelsResponse.FromString,
+                _registered_method=True)
         self.ListModels = channel.unary_unary(
                 '/model.v1alpha.ModelPublicService/ListModels',
                 request_serializer=model_dot_v1alpha_dot_model__pb2.ListModelsRequest.SerializeToString,
                 response_deserializer=model_dot_v1alpha_dot_model__pb2.ListModelsResponse.FromString,
                 _registered_method=True)
-        self.ListNamespaceModels = channel.unary_unary(
-                '/model.v1alpha.ModelPublicService/ListNamespaceModels',
-                request_serializer=model_dot_v1alpha_dot_model__pb2.ListNamespaceModelsRequest.SerializeToString,
-                response_deserializer=model_dot_v1alpha_dot_model__pb2.ListNamespaceModelsResponse.FromString,
+        self.CreateModel = channel.unary_unary(
+                '/model.v1alpha.ModelPublicService/CreateModel',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.CreateModelRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.CreateModelResponse.FromString,
                 _registered_method=True)
-        self.CreateNamespaceModel = channel.unary_unary(
-                '/model.v1alpha.ModelPublicService/CreateNamespaceModel',
-                request_serializer=model_dot_v1alpha_dot_model__pb2.CreateNamespaceModelRequest.SerializeToString,
-                response_deserializer=model_dot_v1alpha_dot_model__pb2.CreateNamespaceModelResponse.FromString,
+        self.GetModel = channel.unary_unary(
+                '/model.v1alpha.ModelPublicService/GetModel',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.GetModelRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.GetModelResponse.FromString,
                 _registered_method=True)
-        self.GetNamespaceModel = channel.unary_unary(
-                '/model.v1alpha.ModelPublicService/GetNamespaceModel',
-                request_serializer=model_dot_v1alpha_dot_model__pb2.GetNamespaceModelRequest.SerializeToString,
-                response_deserializer=model_dot_v1alpha_dot_model__pb2.GetNamespaceModelResponse.FromString,
+        self.UpdateModel = channel.unary_unary(
+                '/model.v1alpha.ModelPublicService/UpdateModel',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.UpdateModelRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.UpdateModelResponse.FromString,
                 _registered_method=True)
-        self.UpdateNamespaceModel = channel.unary_unary(
-                '/model.v1alpha.ModelPublicService/UpdateNamespaceModel',
-                request_serializer=model_dot_v1alpha_dot_model__pb2.UpdateNamespaceModelRequest.SerializeToString,
-                response_deserializer=model_dot_v1alpha_dot_model__pb2.UpdateNamespaceModelResponse.FromString,
+        self.DeleteModel = channel.unary_unary(
+                '/model.v1alpha.ModelPublicService/DeleteModel',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.DeleteModelRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.DeleteModelResponse.FromString,
                 _registered_method=True)
-        self.DeleteNamespaceModel = channel.unary_unary(
-                '/model.v1alpha.ModelPublicService/DeleteNamespaceModel',
-                request_serializer=model_dot_v1alpha_dot_model__pb2.DeleteNamespaceModelRequest.SerializeToString,
-                response_deserializer=model_dot_v1alpha_dot_model__pb2.DeleteNamespaceModelResponse.FromString,
+        self.RenameModel = channel.unary_unary(
+                '/model.v1alpha.ModelPublicService/RenameModel',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.RenameModelRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.RenameModelResponse.FromString,
                 _registered_method=True)
-        self.RenameNamespaceModel = channel.unary_unary(
-                '/model.v1alpha.ModelPublicService/RenameNamespaceModel',
-                request_serializer=model_dot_v1alpha_dot_model__pb2.RenameNamespaceModelRequest.SerializeToString,
-                response_deserializer=model_dot_v1alpha_dot_model__pb2.RenameNamespaceModelResponse.FromString,
+        self.WatchModelVersion = channel.unary_unary(
+                '/model.v1alpha.ModelPublicService/WatchModelVersion',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.WatchModelVersionRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.WatchModelVersionResponse.FromString,
                 _registered_method=True)
-        self.WatchNamespaceModel = channel.unary_unary(
-                '/model.v1alpha.ModelPublicService/WatchNamespaceModel',
-                request_serializer=model_dot_v1alpha_dot_model__pb2.WatchNamespaceModelRequest.SerializeToString,
-                response_deserializer=model_dot_v1alpha_dot_model__pb2.WatchNamespaceModelResponse.FromString,
+        self.WatchModel = channel.unary_unary(
+                '/model.v1alpha.ModelPublicService/WatchModel',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.WatchModelRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.WatchModelResponse.FromString,
                 _registered_method=True)
-        self.WatchNamespaceLatestModel = channel.unary_unary(
-                '/model.v1alpha.ModelPublicService/WatchNamespaceLatestModel',
-                request_serializer=model_dot_v1alpha_dot_model__pb2.WatchNamespaceLatestModelRequest.SerializeToString,
-                response_deserializer=model_dot_v1alpha_dot_model__pb2.WatchNamespaceLatestModelResponse.FromString,
+        self.ListModelVersions = channel.unary_unary(
+                '/model.v1alpha.ModelPublicService/ListModelVersions',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.ListModelVersionsRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.ListModelVersionsResponse.FromString,
                 _registered_method=True)
-        self.ListNamespaceModelVersions = channel.unary_unary(
-                '/model.v1alpha.ModelPublicService/ListNamespaceModelVersions',
-                request_serializer=model_dot_v1alpha_dot_model__pb2.ListNamespaceModelVersionsRequest.SerializeToString,
-                response_deserializer=model_dot_v1alpha_dot_model__pb2.ListNamespaceModelVersionsResponse.FromString,
+        self.DeleteModelVersion = channel.unary_unary(
+                '/model.v1alpha.ModelPublicService/DeleteModelVersion',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.DeleteModelVersionRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.DeleteModelVersionResponse.FromString,
                 _registered_method=True)
-        self.DeleteNamespaceModelVersion = channel.unary_unary(
-                '/model.v1alpha.ModelPublicService/DeleteNamespaceModelVersion',
-                request_serializer=model_dot_v1alpha_dot_model__pb2.DeleteNamespaceModelVersionRequest.SerializeToString,
-                response_deserializer=model_dot_v1alpha_dot_model__pb2.DeleteNamespaceModelVersionResponse.FromString,
+        self.TriggerModelVersion = channel.unary_unary(
+                '/model.v1alpha.ModelPublicService/TriggerModelVersion',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.TriggerModelVersionRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerModelVersionResponse.FromString,
                 _registered_method=True)
-        self.TriggerNamespaceModel = channel.unary_unary(
-                '/model.v1alpha.ModelPublicService/TriggerNamespaceModel',
-                request_serializer=model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelRequest.SerializeToString,
-                response_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelResponse.FromString,
+        self.TriggerAsyncModelVersion = channel.unary_unary(
+                '/model.v1alpha.ModelPublicService/TriggerAsyncModelVersion',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.TriggerAsyncModelVersionRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerAsyncModelVersionResponse.FromString,
                 _registered_method=True)
-        self.TriggerAsyncNamespaceModel = channel.unary_unary(
-                '/model.v1alpha.ModelPublicService/TriggerAsyncNamespaceModel',
-                request_serializer=model_dot_v1alpha_dot_model__pb2.TriggerAsyncNamespaceModelRequest.SerializeToString,
-                response_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerAsyncNamespaceModelResponse.FromString,
+        self.TriggerModel = channel.unary_unary(
+                '/model.v1alpha.ModelPublicService/TriggerModel',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.TriggerModelRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerModelResponse.FromString,
                 _registered_method=True)
-        self.TriggerNamespaceLatestModel = channel.unary_unary(
-                '/model.v1alpha.ModelPublicService/TriggerNamespaceLatestModel',
-                request_serializer=model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelRequest.SerializeToString,
-                response_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelResponse.FromString,
+        self.TriggerAsyncModel = channel.unary_unary(
+                '/model.v1alpha.ModelPublicService/TriggerAsyncModel',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.TriggerAsyncModelRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerAsyncModelResponse.FromString,
                 _registered_method=True)
-        self.TriggerAsyncNamespaceLatestModel = channel.unary_unary(
-                '/model.v1alpha.ModelPublicService/TriggerAsyncNamespaceLatestModel',
-                request_serializer=model_dot_v1alpha_dot_model__pb2.TriggerAsyncNamespaceLatestModelRequest.SerializeToString,
-                response_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerAsyncNamespaceLatestModelResponse.FromString,
+        self.TriggerModelVersionBinaryFileUpload = channel.stream_unary(
+                '/model.v1alpha.ModelPublicService/TriggerModelVersionBinaryFileUpload',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.TriggerModelVersionBinaryFileUploadRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerModelVersionBinaryFileUploadResponse.FromString,
                 _registered_method=True)
-        self.TriggerNamespaceModelBinaryFileUpload = channel.stream_unary(
-                '/model.v1alpha.ModelPublicService/TriggerNamespaceModelBinaryFileUpload',
-                request_serializer=model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelBinaryFileUploadRequest.SerializeToString,
-                response_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelBinaryFileUploadResponse.FromString,
+        self.TriggerModelBinaryFileUpload = channel.stream_unary(
+                '/model.v1alpha.ModelPublicService/TriggerModelBinaryFileUpload',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.TriggerModelBinaryFileUploadRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerModelBinaryFileUploadResponse.FromString,
                 _registered_method=True)
-        self.TriggerNamespaceLatestModelBinaryFileUpload = channel.stream_unary(
-                '/model.v1alpha.ModelPublicService/TriggerNamespaceLatestModelBinaryFileUpload',
-                request_serializer=model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelBinaryFileUploadRequest.SerializeToString,
-                response_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelBinaryFileUploadResponse.FromString,
-                _registered_method=True)
-        self.GetNamespaceModelOperation = channel.unary_unary(
-                '/model.v1alpha.ModelPublicService/GetNamespaceModelOperation',
-                request_serializer=model_dot_v1alpha_dot_model__pb2.GetNamespaceModelOperationRequest.SerializeToString,
-                response_deserializer=model_dot_v1alpha_dot_model__pb2.GetNamespaceModelOperationResponse.FromString,
-                _registered_method=True)
-        self.GetNamespaceLatestModelOperation = channel.unary_unary(
-                '/model.v1alpha.ModelPublicService/GetNamespaceLatestModelOperation',
-                request_serializer=model_dot_v1alpha_dot_model__pb2.GetNamespaceLatestModelOperationRequest.SerializeToString,
-                response_deserializer=model_dot_v1alpha_dot_model__pb2.GetNamespaceLatestModelOperationResponse.FromString,
+        self.GetModelVersionOperation = channel.unary_unary(
+                '/model.v1alpha.ModelPublicService/GetModelVersionOperation',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.GetModelVersionOperationRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.GetModelVersionOperationResponse.FromString,
                 _registered_method=True)
         self.GetModelOperation = channel.unary_unary(
                 '/model.v1alpha.ModelPublicService/GetModelOperation',
                 request_serializer=model_dot_v1alpha_dot_model__pb2.GetModelOperationRequest.SerializeToString,
                 response_deserializer=model_dot_v1alpha_dot_model__pb2.GetModelOperationResponse.FromString,
+                _registered_method=True)
+        self.GetOperation = channel.unary_unary(
+                '/model.v1alpha.ModelPublicService/GetOperation',
+                request_serializer=model_dot_v1alpha_dot_model__pb2.GetOperationRequest.SerializeToString,
+                response_deserializer=model_dot_v1alpha_dot_model__pb2.GetOperationResponse.FromString,
                 _registered_method=True)
         self.ListModelRuns = channel.unary_unary(
                 '/model.v1alpha.ModelPublicService/ListModelRuns',
@@ -208,6 +208,15 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListPublicModels(self, request, context):
+        """List public models
+
+        Returns a paginated list of public models.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListModels(self, request, context):
         """List models
 
@@ -217,16 +226,7 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListNamespaceModels(self, request, context):
-        """List namespace models
-
-        Returns a paginated list of models.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def CreateNamespaceModel(self, request, context):
+    def CreateModel(self, request, context):
         """Create a new model
 
         Creates a new model under the parenthood of a namespace. This is an
@@ -239,7 +239,7 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetNamespaceModel(self, request, context):
+    def GetModel(self, request, context):
         """Get a model
 
         Returns the detail of a model, accessing it by the model ID and its parent
@@ -249,7 +249,7 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UpdateNamespaceModel(self, request, context):
+    def UpdateModel(self, request, context):
         """Update a model
 
         Updates a model, accessing it by its resource name, which is defined by
@@ -262,7 +262,7 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def DeleteNamespaceModel(self, request, context):
+    def DeleteModel(self, request, context):
         """Delete a model
 
         Deletes a model, accesing it by its resource name, which is defined by the
@@ -272,7 +272,7 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def RenameNamespaceModel(self, request, context):
+    def RenameModel(self, request, context):
         """Rename a model
 
         Renames a model, accesing it by its resource name, which is defined by the
@@ -282,7 +282,7 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def WatchNamespaceModel(self, request, context):
+    def WatchModelVersion(self, request, context):
         """Watch the state of a model version
 
         Returns the state of a model. The model resource allocation and scaling
@@ -293,7 +293,7 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def WatchNamespaceLatestModel(self, request, context):
+    def WatchModel(self, request, context):
         """Watch the state of the latest model version
 
         Returns the state of the latest model version. The model resource
@@ -304,7 +304,7 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListNamespaceModelVersions(self, request, context):
+    def ListModelVersions(self, request, context):
         """List namespace model versions
 
         Returns a paginated list of version of a model namespace that belong to the
@@ -314,7 +314,7 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def DeleteNamespaceModelVersion(self, request, context):
+    def DeleteModelVersion(self, request, context):
         """Delete a model version
 
         Deletes a model version, accesing it by its resource name, which is defined
@@ -324,7 +324,7 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def TriggerNamespaceModel(self, request, context):
+    def TriggerModelVersion(self, request, context):
         """Trigger model inference
 
         Triggers a deployed model to infer the result of a set of task or
@@ -334,7 +334,7 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def TriggerAsyncNamespaceModel(self, request, context):
+    def TriggerAsyncModelVersion(self, request, context):
         """Trigger model inference asynchronously
 
         Triggers a deployed model to infer the result of a set of task or
@@ -344,7 +344,7 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def TriggerNamespaceLatestModel(self, request, context):
+    def TriggerModel(self, request, context):
         """Trigger model inference
 
         Triggers the latest deployed model version to infer the result of a set of
@@ -354,7 +354,7 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def TriggerAsyncNamespaceLatestModel(self, request, context):
+    def TriggerAsyncModel(self, request, context):
         """Trigger model inference asynchronously
 
         Triggers the latest deployed model version to infer the result of a set of
@@ -364,7 +364,7 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def TriggerNamespaceModelBinaryFileUpload(self, request_iterator, context):
+    def TriggerModelVersionBinaryFileUpload(self, request_iterator, context):
         """Trigger model inference with a binary input
 
         Triggers a deployed model to infer the result of a task or question,
@@ -374,7 +374,7 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def TriggerNamespaceLatestModelBinaryFileUpload(self, request_iterator, context):
+    def TriggerModelBinaryFileUpload(self, request_iterator, context):
         """Trigger model inference with a binary input
 
         Triggers the latest deployed model version to infer the result of a set of
@@ -384,19 +384,8 @@ class ModelPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetNamespaceModelOperation(self, request, context):
-        """Get the details of the long-running operation from a namespace model
-        with a particular version
-
-        This method allows requesters to request the status and outcome of
-        long-running operations in a model, such as trigger.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetNamespaceLatestModelOperation(self, request, context):
-        """Get the details of the latest long-running operation from a namespace model
+    def GetModelVersionOperation(self, request, context):
+        """Get the details of the long-running operation from a model version
 
         This method allows requesters to request the status and outcome of
         long-running operations in a model, such as trigger.
@@ -406,6 +395,16 @@ class ModelPublicServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetModelOperation(self, request, context):
+        """Get the details of the latest long-running operation from a model
+
+        This method allows requesters to request the status and outcome of
+        long-running operations in a model, such as trigger.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetOperation(self, request, context):
         """Get the details of a long-running operation
 
         This method allows requesters to request the status and outcome of
@@ -466,105 +465,105 @@ def add_ModelPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionRequest.FromString,
                     response_serializer=model_dot_v1alpha_dot_model__definition__pb2.GetModelDefinitionResponse.SerializeToString,
             ),
+            'ListPublicModels': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListPublicModels,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.ListPublicModelsRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.ListPublicModelsResponse.SerializeToString,
+            ),
             'ListModels': grpc.unary_unary_rpc_method_handler(
                     servicer.ListModels,
                     request_deserializer=model_dot_v1alpha_dot_model__pb2.ListModelsRequest.FromString,
                     response_serializer=model_dot_v1alpha_dot_model__pb2.ListModelsResponse.SerializeToString,
             ),
-            'ListNamespaceModels': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListNamespaceModels,
-                    request_deserializer=model_dot_v1alpha_dot_model__pb2.ListNamespaceModelsRequest.FromString,
-                    response_serializer=model_dot_v1alpha_dot_model__pb2.ListNamespaceModelsResponse.SerializeToString,
+            'CreateModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateModel,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.CreateModelRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.CreateModelResponse.SerializeToString,
             ),
-            'CreateNamespaceModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreateNamespaceModel,
-                    request_deserializer=model_dot_v1alpha_dot_model__pb2.CreateNamespaceModelRequest.FromString,
-                    response_serializer=model_dot_v1alpha_dot_model__pb2.CreateNamespaceModelResponse.SerializeToString,
+            'GetModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetModel,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.GetModelRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.GetModelResponse.SerializeToString,
             ),
-            'GetNamespaceModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetNamespaceModel,
-                    request_deserializer=model_dot_v1alpha_dot_model__pb2.GetNamespaceModelRequest.FromString,
-                    response_serializer=model_dot_v1alpha_dot_model__pb2.GetNamespaceModelResponse.SerializeToString,
+            'UpdateModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateModel,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.UpdateModelRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.UpdateModelResponse.SerializeToString,
             ),
-            'UpdateNamespaceModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateNamespaceModel,
-                    request_deserializer=model_dot_v1alpha_dot_model__pb2.UpdateNamespaceModelRequest.FromString,
-                    response_serializer=model_dot_v1alpha_dot_model__pb2.UpdateNamespaceModelResponse.SerializeToString,
+            'DeleteModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteModel,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.DeleteModelRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.DeleteModelResponse.SerializeToString,
             ),
-            'DeleteNamespaceModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteNamespaceModel,
-                    request_deserializer=model_dot_v1alpha_dot_model__pb2.DeleteNamespaceModelRequest.FromString,
-                    response_serializer=model_dot_v1alpha_dot_model__pb2.DeleteNamespaceModelResponse.SerializeToString,
+            'RenameModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.RenameModel,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.RenameModelRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.RenameModelResponse.SerializeToString,
             ),
-            'RenameNamespaceModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.RenameNamespaceModel,
-                    request_deserializer=model_dot_v1alpha_dot_model__pb2.RenameNamespaceModelRequest.FromString,
-                    response_serializer=model_dot_v1alpha_dot_model__pb2.RenameNamespaceModelResponse.SerializeToString,
+            'WatchModelVersion': grpc.unary_unary_rpc_method_handler(
+                    servicer.WatchModelVersion,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.WatchModelVersionRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.WatchModelVersionResponse.SerializeToString,
             ),
-            'WatchNamespaceModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.WatchNamespaceModel,
-                    request_deserializer=model_dot_v1alpha_dot_model__pb2.WatchNamespaceModelRequest.FromString,
-                    response_serializer=model_dot_v1alpha_dot_model__pb2.WatchNamespaceModelResponse.SerializeToString,
+            'WatchModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.WatchModel,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.WatchModelRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.WatchModelResponse.SerializeToString,
             ),
-            'WatchNamespaceLatestModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.WatchNamespaceLatestModel,
-                    request_deserializer=model_dot_v1alpha_dot_model__pb2.WatchNamespaceLatestModelRequest.FromString,
-                    response_serializer=model_dot_v1alpha_dot_model__pb2.WatchNamespaceLatestModelResponse.SerializeToString,
+            'ListModelVersions': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListModelVersions,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.ListModelVersionsRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.ListModelVersionsResponse.SerializeToString,
             ),
-            'ListNamespaceModelVersions': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListNamespaceModelVersions,
-                    request_deserializer=model_dot_v1alpha_dot_model__pb2.ListNamespaceModelVersionsRequest.FromString,
-                    response_serializer=model_dot_v1alpha_dot_model__pb2.ListNamespaceModelVersionsResponse.SerializeToString,
+            'DeleteModelVersion': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteModelVersion,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.DeleteModelVersionRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.DeleteModelVersionResponse.SerializeToString,
             ),
-            'DeleteNamespaceModelVersion': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteNamespaceModelVersion,
-                    request_deserializer=model_dot_v1alpha_dot_model__pb2.DeleteNamespaceModelVersionRequest.FromString,
-                    response_serializer=model_dot_v1alpha_dot_model__pb2.DeleteNamespaceModelVersionResponse.SerializeToString,
+            'TriggerModelVersion': grpc.unary_unary_rpc_method_handler(
+                    servicer.TriggerModelVersion,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerModelVersionRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.TriggerModelVersionResponse.SerializeToString,
             ),
-            'TriggerNamespaceModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.TriggerNamespaceModel,
-                    request_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelRequest.FromString,
-                    response_serializer=model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelResponse.SerializeToString,
+            'TriggerAsyncModelVersion': grpc.unary_unary_rpc_method_handler(
+                    servicer.TriggerAsyncModelVersion,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerAsyncModelVersionRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.TriggerAsyncModelVersionResponse.SerializeToString,
             ),
-            'TriggerAsyncNamespaceModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.TriggerAsyncNamespaceModel,
-                    request_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerAsyncNamespaceModelRequest.FromString,
-                    response_serializer=model_dot_v1alpha_dot_model__pb2.TriggerAsyncNamespaceModelResponse.SerializeToString,
+            'TriggerModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.TriggerModel,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerModelRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.TriggerModelResponse.SerializeToString,
             ),
-            'TriggerNamespaceLatestModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.TriggerNamespaceLatestModel,
-                    request_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelRequest.FromString,
-                    response_serializer=model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelResponse.SerializeToString,
+            'TriggerAsyncModel': grpc.unary_unary_rpc_method_handler(
+                    servicer.TriggerAsyncModel,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerAsyncModelRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.TriggerAsyncModelResponse.SerializeToString,
             ),
-            'TriggerAsyncNamespaceLatestModel': grpc.unary_unary_rpc_method_handler(
-                    servicer.TriggerAsyncNamespaceLatestModel,
-                    request_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerAsyncNamespaceLatestModelRequest.FromString,
-                    response_serializer=model_dot_v1alpha_dot_model__pb2.TriggerAsyncNamespaceLatestModelResponse.SerializeToString,
+            'TriggerModelVersionBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
+                    servicer.TriggerModelVersionBinaryFileUpload,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerModelVersionBinaryFileUploadRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.TriggerModelVersionBinaryFileUploadResponse.SerializeToString,
             ),
-            'TriggerNamespaceModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
-                    servicer.TriggerNamespaceModelBinaryFileUpload,
-                    request_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelBinaryFileUploadRequest.FromString,
-                    response_serializer=model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelBinaryFileUploadResponse.SerializeToString,
+            'TriggerModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
+                    servicer.TriggerModelBinaryFileUpload,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerModelBinaryFileUploadRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.TriggerModelBinaryFileUploadResponse.SerializeToString,
             ),
-            'TriggerNamespaceLatestModelBinaryFileUpload': grpc.stream_unary_rpc_method_handler(
-                    servicer.TriggerNamespaceLatestModelBinaryFileUpload,
-                    request_deserializer=model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelBinaryFileUploadRequest.FromString,
-                    response_serializer=model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelBinaryFileUploadResponse.SerializeToString,
-            ),
-            'GetNamespaceModelOperation': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetNamespaceModelOperation,
-                    request_deserializer=model_dot_v1alpha_dot_model__pb2.GetNamespaceModelOperationRequest.FromString,
-                    response_serializer=model_dot_v1alpha_dot_model__pb2.GetNamespaceModelOperationResponse.SerializeToString,
-            ),
-            'GetNamespaceLatestModelOperation': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetNamespaceLatestModelOperation,
-                    request_deserializer=model_dot_v1alpha_dot_model__pb2.GetNamespaceLatestModelOperationRequest.FromString,
-                    response_serializer=model_dot_v1alpha_dot_model__pb2.GetNamespaceLatestModelOperationResponse.SerializeToString,
+            'GetModelVersionOperation': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetModelVersionOperation,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.GetModelVersionOperationRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.GetModelVersionOperationResponse.SerializeToString,
             ),
             'GetModelOperation': grpc.unary_unary_rpc_method_handler(
                     servicer.GetModelOperation,
                     request_deserializer=model_dot_v1alpha_dot_model__pb2.GetModelOperationRequest.FromString,
                     response_serializer=model_dot_v1alpha_dot_model__pb2.GetModelOperationResponse.SerializeToString,
+            ),
+            'GetOperation': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOperation,
+                    request_deserializer=model_dot_v1alpha_dot_model__pb2.GetOperationRequest.FromString,
+                    response_serializer=model_dot_v1alpha_dot_model__pb2.GetOperationResponse.SerializeToString,
             ),
             'ListModelRuns': grpc.unary_unary_rpc_method_handler(
                     servicer.ListModelRuns,
@@ -727,6 +726,33 @@ class ModelPublicService(object):
             _registered_method=True)
 
     @staticmethod
+    def ListPublicModels(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.v1alpha.ModelPublicService/ListPublicModels',
+            model_dot_v1alpha_dot_model__pb2.ListPublicModelsRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.ListPublicModelsResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
     def ListModels(request,
             target,
             options=(),
@@ -754,7 +780,7 @@ class ModelPublicService(object):
             _registered_method=True)
 
     @staticmethod
-    def ListNamespaceModels(request,
+    def CreateModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -767,9 +793,9 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/model.v1alpha.ModelPublicService/ListNamespaceModels',
-            model_dot_v1alpha_dot_model__pb2.ListNamespaceModelsRequest.SerializeToString,
-            model_dot_v1alpha_dot_model__pb2.ListNamespaceModelsResponse.FromString,
+            '/model.v1alpha.ModelPublicService/CreateModel',
+            model_dot_v1alpha_dot_model__pb2.CreateModelRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.CreateModelResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -781,7 +807,7 @@ class ModelPublicService(object):
             _registered_method=True)
 
     @staticmethod
-    def CreateNamespaceModel(request,
+    def GetModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -794,9 +820,9 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/model.v1alpha.ModelPublicService/CreateNamespaceModel',
-            model_dot_v1alpha_dot_model__pb2.CreateNamespaceModelRequest.SerializeToString,
-            model_dot_v1alpha_dot_model__pb2.CreateNamespaceModelResponse.FromString,
+            '/model.v1alpha.ModelPublicService/GetModel',
+            model_dot_v1alpha_dot_model__pb2.GetModelRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.GetModelResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -808,7 +834,7 @@ class ModelPublicService(object):
             _registered_method=True)
 
     @staticmethod
-    def GetNamespaceModel(request,
+    def UpdateModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -821,9 +847,9 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/model.v1alpha.ModelPublicService/GetNamespaceModel',
-            model_dot_v1alpha_dot_model__pb2.GetNamespaceModelRequest.SerializeToString,
-            model_dot_v1alpha_dot_model__pb2.GetNamespaceModelResponse.FromString,
+            '/model.v1alpha.ModelPublicService/UpdateModel',
+            model_dot_v1alpha_dot_model__pb2.UpdateModelRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.UpdateModelResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -835,7 +861,7 @@ class ModelPublicService(object):
             _registered_method=True)
 
     @staticmethod
-    def UpdateNamespaceModel(request,
+    def DeleteModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -848,9 +874,9 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/model.v1alpha.ModelPublicService/UpdateNamespaceModel',
-            model_dot_v1alpha_dot_model__pb2.UpdateNamespaceModelRequest.SerializeToString,
-            model_dot_v1alpha_dot_model__pb2.UpdateNamespaceModelResponse.FromString,
+            '/model.v1alpha.ModelPublicService/DeleteModel',
+            model_dot_v1alpha_dot_model__pb2.DeleteModelRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.DeleteModelResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -862,7 +888,7 @@ class ModelPublicService(object):
             _registered_method=True)
 
     @staticmethod
-    def DeleteNamespaceModel(request,
+    def RenameModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -875,9 +901,9 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/model.v1alpha.ModelPublicService/DeleteNamespaceModel',
-            model_dot_v1alpha_dot_model__pb2.DeleteNamespaceModelRequest.SerializeToString,
-            model_dot_v1alpha_dot_model__pb2.DeleteNamespaceModelResponse.FromString,
+            '/model.v1alpha.ModelPublicService/RenameModel',
+            model_dot_v1alpha_dot_model__pb2.RenameModelRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.RenameModelResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -889,7 +915,7 @@ class ModelPublicService(object):
             _registered_method=True)
 
     @staticmethod
-    def RenameNamespaceModel(request,
+    def WatchModelVersion(request,
             target,
             options=(),
             channel_credentials=None,
@@ -902,9 +928,9 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/model.v1alpha.ModelPublicService/RenameNamespaceModel',
-            model_dot_v1alpha_dot_model__pb2.RenameNamespaceModelRequest.SerializeToString,
-            model_dot_v1alpha_dot_model__pb2.RenameNamespaceModelResponse.FromString,
+            '/model.v1alpha.ModelPublicService/WatchModelVersion',
+            model_dot_v1alpha_dot_model__pb2.WatchModelVersionRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.WatchModelVersionResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -916,7 +942,7 @@ class ModelPublicService(object):
             _registered_method=True)
 
     @staticmethod
-    def WatchNamespaceModel(request,
+    def WatchModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -929,9 +955,9 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/model.v1alpha.ModelPublicService/WatchNamespaceModel',
-            model_dot_v1alpha_dot_model__pb2.WatchNamespaceModelRequest.SerializeToString,
-            model_dot_v1alpha_dot_model__pb2.WatchNamespaceModelResponse.FromString,
+            '/model.v1alpha.ModelPublicService/WatchModel',
+            model_dot_v1alpha_dot_model__pb2.WatchModelRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.WatchModelResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -943,7 +969,7 @@ class ModelPublicService(object):
             _registered_method=True)
 
     @staticmethod
-    def WatchNamespaceLatestModel(request,
+    def ListModelVersions(request,
             target,
             options=(),
             channel_credentials=None,
@@ -956,9 +982,9 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/model.v1alpha.ModelPublicService/WatchNamespaceLatestModel',
-            model_dot_v1alpha_dot_model__pb2.WatchNamespaceLatestModelRequest.SerializeToString,
-            model_dot_v1alpha_dot_model__pb2.WatchNamespaceLatestModelResponse.FromString,
+            '/model.v1alpha.ModelPublicService/ListModelVersions',
+            model_dot_v1alpha_dot_model__pb2.ListModelVersionsRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.ListModelVersionsResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -970,7 +996,7 @@ class ModelPublicService(object):
             _registered_method=True)
 
     @staticmethod
-    def ListNamespaceModelVersions(request,
+    def DeleteModelVersion(request,
             target,
             options=(),
             channel_credentials=None,
@@ -983,9 +1009,9 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/model.v1alpha.ModelPublicService/ListNamespaceModelVersions',
-            model_dot_v1alpha_dot_model__pb2.ListNamespaceModelVersionsRequest.SerializeToString,
-            model_dot_v1alpha_dot_model__pb2.ListNamespaceModelVersionsResponse.FromString,
+            '/model.v1alpha.ModelPublicService/DeleteModelVersion',
+            model_dot_v1alpha_dot_model__pb2.DeleteModelVersionRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.DeleteModelVersionResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -997,7 +1023,7 @@ class ModelPublicService(object):
             _registered_method=True)
 
     @staticmethod
-    def DeleteNamespaceModelVersion(request,
+    def TriggerModelVersion(request,
             target,
             options=(),
             channel_credentials=None,
@@ -1010,9 +1036,9 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/model.v1alpha.ModelPublicService/DeleteNamespaceModelVersion',
-            model_dot_v1alpha_dot_model__pb2.DeleteNamespaceModelVersionRequest.SerializeToString,
-            model_dot_v1alpha_dot_model__pb2.DeleteNamespaceModelVersionResponse.FromString,
+            '/model.v1alpha.ModelPublicService/TriggerModelVersion',
+            model_dot_v1alpha_dot_model__pb2.TriggerModelVersionRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.TriggerModelVersionResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1024,7 +1050,7 @@ class ModelPublicService(object):
             _registered_method=True)
 
     @staticmethod
-    def TriggerNamespaceModel(request,
+    def TriggerAsyncModelVersion(request,
             target,
             options=(),
             channel_credentials=None,
@@ -1037,9 +1063,9 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/model.v1alpha.ModelPublicService/TriggerNamespaceModel',
-            model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelRequest.SerializeToString,
-            model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelResponse.FromString,
+            '/model.v1alpha.ModelPublicService/TriggerAsyncModelVersion',
+            model_dot_v1alpha_dot_model__pb2.TriggerAsyncModelVersionRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.TriggerAsyncModelVersionResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1051,7 +1077,7 @@ class ModelPublicService(object):
             _registered_method=True)
 
     @staticmethod
-    def TriggerAsyncNamespaceModel(request,
+    def TriggerModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -1064,9 +1090,9 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/model.v1alpha.ModelPublicService/TriggerAsyncNamespaceModel',
-            model_dot_v1alpha_dot_model__pb2.TriggerAsyncNamespaceModelRequest.SerializeToString,
-            model_dot_v1alpha_dot_model__pb2.TriggerAsyncNamespaceModelResponse.FromString,
+            '/model.v1alpha.ModelPublicService/TriggerModel',
+            model_dot_v1alpha_dot_model__pb2.TriggerModelRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.TriggerModelResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1078,7 +1104,7 @@ class ModelPublicService(object):
             _registered_method=True)
 
     @staticmethod
-    def TriggerNamespaceLatestModel(request,
+    def TriggerAsyncModel(request,
             target,
             options=(),
             channel_credentials=None,
@@ -1091,9 +1117,9 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/model.v1alpha.ModelPublicService/TriggerNamespaceLatestModel',
-            model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelRequest.SerializeToString,
-            model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelResponse.FromString,
+            '/model.v1alpha.ModelPublicService/TriggerAsyncModel',
+            model_dot_v1alpha_dot_model__pb2.TriggerAsyncModelRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.TriggerAsyncModelResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1105,34 +1131,7 @@ class ModelPublicService(object):
             _registered_method=True)
 
     @staticmethod
-    def TriggerAsyncNamespaceLatestModel(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/model.v1alpha.ModelPublicService/TriggerAsyncNamespaceLatestModel',
-            model_dot_v1alpha_dot_model__pb2.TriggerAsyncNamespaceLatestModelRequest.SerializeToString,
-            model_dot_v1alpha_dot_model__pb2.TriggerAsyncNamespaceLatestModelResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def TriggerNamespaceModelBinaryFileUpload(request_iterator,
+    def TriggerModelVersionBinaryFileUpload(request_iterator,
             target,
             options=(),
             channel_credentials=None,
@@ -1145,9 +1144,9 @@ class ModelPublicService(object):
         return grpc.experimental.stream_unary(
             request_iterator,
             target,
-            '/model.v1alpha.ModelPublicService/TriggerNamespaceModelBinaryFileUpload',
-            model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelBinaryFileUploadRequest.SerializeToString,
-            model_dot_v1alpha_dot_model__pb2.TriggerNamespaceModelBinaryFileUploadResponse.FromString,
+            '/model.v1alpha.ModelPublicService/TriggerModelVersionBinaryFileUpload',
+            model_dot_v1alpha_dot_model__pb2.TriggerModelVersionBinaryFileUploadRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.TriggerModelVersionBinaryFileUploadResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1159,7 +1158,7 @@ class ModelPublicService(object):
             _registered_method=True)
 
     @staticmethod
-    def TriggerNamespaceLatestModelBinaryFileUpload(request_iterator,
+    def TriggerModelBinaryFileUpload(request_iterator,
             target,
             options=(),
             channel_credentials=None,
@@ -1172,9 +1171,9 @@ class ModelPublicService(object):
         return grpc.experimental.stream_unary(
             request_iterator,
             target,
-            '/model.v1alpha.ModelPublicService/TriggerNamespaceLatestModelBinaryFileUpload',
-            model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelBinaryFileUploadRequest.SerializeToString,
-            model_dot_v1alpha_dot_model__pb2.TriggerNamespaceLatestModelBinaryFileUploadResponse.FromString,
+            '/model.v1alpha.ModelPublicService/TriggerModelBinaryFileUpload',
+            model_dot_v1alpha_dot_model__pb2.TriggerModelBinaryFileUploadRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.TriggerModelBinaryFileUploadResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1186,7 +1185,7 @@ class ModelPublicService(object):
             _registered_method=True)
 
     @staticmethod
-    def GetNamespaceModelOperation(request,
+    def GetModelVersionOperation(request,
             target,
             options=(),
             channel_credentials=None,
@@ -1199,36 +1198,9 @@ class ModelPublicService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/model.v1alpha.ModelPublicService/GetNamespaceModelOperation',
-            model_dot_v1alpha_dot_model__pb2.GetNamespaceModelOperationRequest.SerializeToString,
-            model_dot_v1alpha_dot_model__pb2.GetNamespaceModelOperationResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def GetNamespaceLatestModelOperation(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/model.v1alpha.ModelPublicService/GetNamespaceLatestModelOperation',
-            model_dot_v1alpha_dot_model__pb2.GetNamespaceLatestModelOperationRequest.SerializeToString,
-            model_dot_v1alpha_dot_model__pb2.GetNamespaceLatestModelOperationResponse.FromString,
+            '/model.v1alpha.ModelPublicService/GetModelVersionOperation',
+            model_dot_v1alpha_dot_model__pb2.GetModelVersionOperationRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.GetModelVersionOperationResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1256,6 +1228,33 @@ class ModelPublicService(object):
             '/model.v1alpha.ModelPublicService/GetModelOperation',
             model_dot_v1alpha_dot_model__pb2.GetModelOperationRequest.SerializeToString,
             model_dot_v1alpha_dot_model__pb2.GetModelOperationResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetOperation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/model.v1alpha.ModelPublicService/GetOperation',
+            model_dot_v1alpha_dot_model__pb2.GetOperationRequest.SerializeToString,
+            model_dot_v1alpha_dot_model__pb2.GetOperationResponse.FromString,
             options,
             channel_credentials,
             insecure,

@@ -55,45 +55,45 @@ class PipelinePublicServiceStub:
     Return the stats of the hub
     """
 
-    ListPipelines: grpc.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.ListPipelinesRequest,
-        pipeline.v1beta.pipeline_pb2.ListPipelinesResponse,
+    ListPublicPipelines: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.ListPublicPipelinesRequest,
+        pipeline.v1beta.pipeline_pb2.ListPublicPipelinesResponse,
     ]
     """List accessible pipelines
 
     Returns a paginated list of pipelines that are visible to the requester.
     """
 
-    ListNamespacePipelines: grpc.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.ListNamespacePipelinesRequest,
-        pipeline.v1beta.pipeline_pb2.ListNamespacePipelinesResponse,
+    ListPipelines: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.ListPipelinesRequest,
+        pipeline.v1beta.pipeline_pb2.ListPipelinesResponse,
     ]
     """List namespace pipelines
 
     Returns a paginated list of pipelines of a namespace
     """
 
-    CreateNamespacePipeline: grpc.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineRequest,
-        pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineResponse,
+    CreatePipeline: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.CreatePipelineRequest,
+        pipeline.v1beta.pipeline_pb2.CreatePipelineResponse,
     ]
     """Create a new pipeline
 
     Creates a new pipeline under a namespace.
     """
 
-    GetNamespacePipeline: grpc.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.GetNamespacePipelineRequest,
-        pipeline.v1beta.pipeline_pb2.GetNamespacePipelineResponse,
+    GetPipeline: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.GetPipelineRequest,
+        pipeline.v1beta.pipeline_pb2.GetPipelineResponse,
     ]
     """Get a pipeline
 
     Returns the details of a pipeline.
     """
 
-    UpdateNamespacePipeline: grpc.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineRequest,
-        pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineResponse,
+    UpdatePipeline: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.UpdatePipelineRequest,
+        pipeline.v1beta.pipeline_pb2.UpdatePipelineResponse,
     ]
     """Update a pipeline
 
@@ -105,9 +105,9 @@ class PipelinePublicServiceStub:
     account when updating the resource.
     """
 
-    DeleteNamespacePipeline: grpc.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineRequest,
-        pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineResponse,
+    DeletePipeline: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.DeletePipelineRequest,
+        pipeline.v1beta.pipeline_pb2.DeletePipelineResponse,
     ]
     """Delete a pipeline
 
@@ -116,9 +116,9 @@ class PipelinePublicServiceStub:
     namespace must be the parent of the pipeline in order to delete it.
     """
 
-    ValidateNamespacePipeline: grpc.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.ValidateNamespacePipelineRequest,
-        pipeline.v1beta.pipeline_pb2.ValidateNamespacePipelineResponse,
+    ValidatePipeline: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.ValidatePipelineRequest,
+        pipeline.v1beta.pipeline_pb2.ValidatePipelineResponse,
     ]
     """Validate a pipeline
 
@@ -129,9 +129,9 @@ class PipelinePublicServiceStub:
     components.
     """
 
-    RenameNamespacePipeline: grpc.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.RenameNamespacePipelineRequest,
-        pipeline.v1beta.pipeline_pb2.RenameNamespacePipelineResponse,
+    RenamePipeline: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.RenamePipelineRequest,
+        pipeline.v1beta.pipeline_pb2.RenamePipelineResponse,
     ]
     """Rename a pipeline
 
@@ -146,9 +146,9 @@ class PipelinePublicServiceStub:
     perform this action.
     """
 
-    CloneNamespacePipeline: grpc.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineRequest,
-        pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineResponse,
+    ClonePipeline: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.ClonePipelineRequest,
+        pipeline.v1beta.pipeline_pb2.ClonePipelineResponse,
     ]
     """Clone a pipeline
 
@@ -169,9 +169,9 @@ class PipelinePublicServiceStub:
     handlers and returns a response to the webhook sender.
     """
 
-    TriggerNamespacePipeline: grpc.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineRequest,
-        pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineResponse,
+    TriggerPipeline: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.TriggerPipelineRequest,
+        pipeline.v1beta.pipeline_pb2.TriggerPipelineResponse,
     ]
     """Trigger a pipeline
 
@@ -183,12 +183,12 @@ class PipelinePublicServiceStub:
     namespace and ID of the pipeline.
 
     For more information, see [Run
-    NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+    Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
 
-    TriggerNamespacePipelineWithStream: grpc.UnaryStreamMultiCallable[
-        pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineWithStreamRequest,
-        pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineWithStreamResponse,
+    TriggerPipelineWithStream: grpc.UnaryStreamMultiCallable[
+        pipeline.v1beta.pipeline_pb2.TriggerPipelineWithStreamRequest,
+        pipeline.v1beta.pipeline_pb2.TriggerPipelineWithStreamResponse,
     ]
     """Trigger a pipeline via streaming
 
@@ -200,9 +200,9 @@ class PipelinePublicServiceStub:
     namespace and ID of the pipeline.
     """
 
-    TriggerAsyncNamespacePipeline: grpc.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineRequest,
-        pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineResponse,
+    TriggerAsyncPipeline: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.TriggerAsyncPipelineRequest,
+        pipeline.v1beta.pipeline_pb2.TriggerAsyncPipelineResponse,
     ]
     """Trigger a pipeline asynchronously
 
@@ -215,12 +215,12 @@ class PipelinePublicServiceStub:
     namespace and ID of the pipeline.
 
     For more information, see [Run
-    NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+    Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
 
-    CreateNamespacePipelineRelease: grpc.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineReleaseRequest,
-        pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineReleaseResponse,
+    CreatePipelineRelease: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.CreatePipelineReleaseRequest,
+        pipeline.v1beta.pipeline_pb2.CreatePipelineReleaseResponse,
     ]
     """Create a pipeline release
 
@@ -231,9 +231,9 @@ class PipelinePublicServiceStub:
     perform this action.
     """
 
-    ListNamespacePipelineReleases: grpc.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.ListNamespacePipelineReleasesRequest,
-        pipeline.v1beta.pipeline_pb2.ListNamespacePipelineReleasesResponse,
+    ListPipelineReleases: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.ListPipelineReleasesRequest,
+        pipeline.v1beta.pipeline_pb2.ListPipelineReleasesResponse,
     ]
     """List the releases in a pipeline
 
@@ -241,9 +241,9 @@ class PipelinePublicServiceStub:
     name, which is formed by the parent namespace and ID of the pipeline.
     """
 
-    GetNamespacePipelineRelease: grpc.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.GetNamespacePipelineReleaseRequest,
-        pipeline.v1beta.pipeline_pb2.GetNamespacePipelineReleaseResponse,
+    GetPipelineRelease: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.GetPipelineReleaseRequest,
+        pipeline.v1beta.pipeline_pb2.GetPipelineReleaseResponse,
     ]
     """Get a pipeline release
 
@@ -251,9 +251,9 @@ class PipelinePublicServiceStub:
     by its resource name, formed by its parent namespace and ID.
     """
 
-    UpdateNamespacePipelineRelease: grpc.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineReleaseRequest,
-        pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineReleaseResponse,
+    UpdatePipelineRelease: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.UpdatePipelineReleaseRequest,
+        pipeline.v1beta.pipeline_pb2.UpdatePipelineReleaseResponse,
     ]
     """Update a pipeline release
 
@@ -264,9 +264,9 @@ class PipelinePublicServiceStub:
     perform this action.
     """
 
-    DeleteNamespacePipelineRelease: grpc.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineReleaseRequest,
-        pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineReleaseResponse,
+    DeletePipelineRelease: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.DeletePipelineReleaseRequest,
+        pipeline.v1beta.pipeline_pb2.DeletePipelineReleaseResponse,
     ]
     """Delete a pipeline release
 
@@ -277,9 +277,9 @@ class PipelinePublicServiceStub:
     perform this action.
     """
 
-    CloneNamespacePipelineRelease: grpc.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineReleaseRequest,
-        pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineReleaseResponse,
+    ClonePipelineRelease: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.ClonePipelineReleaseRequest,
+        pipeline.v1beta.pipeline_pb2.ClonePipelineReleaseResponse,
     ]
     """Clone a pipeline release
 
@@ -287,9 +287,9 @@ class PipelinePublicServiceStub:
     different parent, and this can be either a namespace or an organization.
     """
 
-    TriggerNamespacePipelineRelease: grpc.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineReleaseRequest,
-        pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineReleaseResponse,
+    TriggerPipelineRelease: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.TriggerPipelineReleaseRequest,
+        pipeline.v1beta.pipeline_pb2.TriggerPipelineReleaseResponse,
     ]
     """Trigger a pipeline release
 
@@ -302,9 +302,9 @@ class PipelinePublicServiceStub:
     namespace and ID.
     """
 
-    TriggerAsyncNamespacePipelineRelease: grpc.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineReleaseRequest,
-        pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineReleaseResponse,
+    TriggerAsyncPipelineRelease: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.TriggerAsyncPipelineReleaseRequest,
+        pipeline.v1beta.pipeline_pb2.TriggerAsyncPipelineReleaseResponse,
     ]
     """Trigger a pipeline release asynchronously
 
@@ -544,45 +544,45 @@ class PipelinePublicServiceAsyncStub:
     Return the stats of the hub
     """
 
-    ListPipelines: grpc.aio.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.ListPipelinesRequest,
-        pipeline.v1beta.pipeline_pb2.ListPipelinesResponse,
+    ListPublicPipelines: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.ListPublicPipelinesRequest,
+        pipeline.v1beta.pipeline_pb2.ListPublicPipelinesResponse,
     ]
     """List accessible pipelines
 
     Returns a paginated list of pipelines that are visible to the requester.
     """
 
-    ListNamespacePipelines: grpc.aio.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.ListNamespacePipelinesRequest,
-        pipeline.v1beta.pipeline_pb2.ListNamespacePipelinesResponse,
+    ListPipelines: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.ListPipelinesRequest,
+        pipeline.v1beta.pipeline_pb2.ListPipelinesResponse,
     ]
     """List namespace pipelines
 
     Returns a paginated list of pipelines of a namespace
     """
 
-    CreateNamespacePipeline: grpc.aio.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineRequest,
-        pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineResponse,
+    CreatePipeline: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.CreatePipelineRequest,
+        pipeline.v1beta.pipeline_pb2.CreatePipelineResponse,
     ]
     """Create a new pipeline
 
     Creates a new pipeline under a namespace.
     """
 
-    GetNamespacePipeline: grpc.aio.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.GetNamespacePipelineRequest,
-        pipeline.v1beta.pipeline_pb2.GetNamespacePipelineResponse,
+    GetPipeline: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.GetPipelineRequest,
+        pipeline.v1beta.pipeline_pb2.GetPipelineResponse,
     ]
     """Get a pipeline
 
     Returns the details of a pipeline.
     """
 
-    UpdateNamespacePipeline: grpc.aio.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineRequest,
-        pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineResponse,
+    UpdatePipeline: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.UpdatePipelineRequest,
+        pipeline.v1beta.pipeline_pb2.UpdatePipelineResponse,
     ]
     """Update a pipeline
 
@@ -594,9 +594,9 @@ class PipelinePublicServiceAsyncStub:
     account when updating the resource.
     """
 
-    DeleteNamespacePipeline: grpc.aio.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineRequest,
-        pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineResponse,
+    DeletePipeline: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.DeletePipelineRequest,
+        pipeline.v1beta.pipeline_pb2.DeletePipelineResponse,
     ]
     """Delete a pipeline
 
@@ -605,9 +605,9 @@ class PipelinePublicServiceAsyncStub:
     namespace must be the parent of the pipeline in order to delete it.
     """
 
-    ValidateNamespacePipeline: grpc.aio.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.ValidateNamespacePipelineRequest,
-        pipeline.v1beta.pipeline_pb2.ValidateNamespacePipelineResponse,
+    ValidatePipeline: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.ValidatePipelineRequest,
+        pipeline.v1beta.pipeline_pb2.ValidatePipelineResponse,
     ]
     """Validate a pipeline
 
@@ -618,9 +618,9 @@ class PipelinePublicServiceAsyncStub:
     components.
     """
 
-    RenameNamespacePipeline: grpc.aio.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.RenameNamespacePipelineRequest,
-        pipeline.v1beta.pipeline_pb2.RenameNamespacePipelineResponse,
+    RenamePipeline: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.RenamePipelineRequest,
+        pipeline.v1beta.pipeline_pb2.RenamePipelineResponse,
     ]
     """Rename a pipeline
 
@@ -635,9 +635,9 @@ class PipelinePublicServiceAsyncStub:
     perform this action.
     """
 
-    CloneNamespacePipeline: grpc.aio.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineRequest,
-        pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineResponse,
+    ClonePipeline: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.ClonePipelineRequest,
+        pipeline.v1beta.pipeline_pb2.ClonePipelineResponse,
     ]
     """Clone a pipeline
 
@@ -658,9 +658,9 @@ class PipelinePublicServiceAsyncStub:
     handlers and returns a response to the webhook sender.
     """
 
-    TriggerNamespacePipeline: grpc.aio.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineRequest,
-        pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineResponse,
+    TriggerPipeline: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.TriggerPipelineRequest,
+        pipeline.v1beta.pipeline_pb2.TriggerPipelineResponse,
     ]
     """Trigger a pipeline
 
@@ -672,12 +672,12 @@ class PipelinePublicServiceAsyncStub:
     namespace and ID of the pipeline.
 
     For more information, see [Run
-    NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+    Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
 
-    TriggerNamespacePipelineWithStream: grpc.aio.UnaryStreamMultiCallable[
-        pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineWithStreamRequest,
-        pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineWithStreamResponse,
+    TriggerPipelineWithStream: grpc.aio.UnaryStreamMultiCallable[
+        pipeline.v1beta.pipeline_pb2.TriggerPipelineWithStreamRequest,
+        pipeline.v1beta.pipeline_pb2.TriggerPipelineWithStreamResponse,
     ]
     """Trigger a pipeline via streaming
 
@@ -689,9 +689,9 @@ class PipelinePublicServiceAsyncStub:
     namespace and ID of the pipeline.
     """
 
-    TriggerAsyncNamespacePipeline: grpc.aio.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineRequest,
-        pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineResponse,
+    TriggerAsyncPipeline: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.TriggerAsyncPipelineRequest,
+        pipeline.v1beta.pipeline_pb2.TriggerAsyncPipelineResponse,
     ]
     """Trigger a pipeline asynchronously
 
@@ -704,12 +704,12 @@ class PipelinePublicServiceAsyncStub:
     namespace and ID of the pipeline.
 
     For more information, see [Run
-    NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+    Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
     """
 
-    CreateNamespacePipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineReleaseRequest,
-        pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineReleaseResponse,
+    CreatePipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.CreatePipelineReleaseRequest,
+        pipeline.v1beta.pipeline_pb2.CreatePipelineReleaseResponse,
     ]
     """Create a pipeline release
 
@@ -720,9 +720,9 @@ class PipelinePublicServiceAsyncStub:
     perform this action.
     """
 
-    ListNamespacePipelineReleases: grpc.aio.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.ListNamespacePipelineReleasesRequest,
-        pipeline.v1beta.pipeline_pb2.ListNamespacePipelineReleasesResponse,
+    ListPipelineReleases: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.ListPipelineReleasesRequest,
+        pipeline.v1beta.pipeline_pb2.ListPipelineReleasesResponse,
     ]
     """List the releases in a pipeline
 
@@ -730,9 +730,9 @@ class PipelinePublicServiceAsyncStub:
     name, which is formed by the parent namespace and ID of the pipeline.
     """
 
-    GetNamespacePipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.GetNamespacePipelineReleaseRequest,
-        pipeline.v1beta.pipeline_pb2.GetNamespacePipelineReleaseResponse,
+    GetPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.GetPipelineReleaseRequest,
+        pipeline.v1beta.pipeline_pb2.GetPipelineReleaseResponse,
     ]
     """Get a pipeline release
 
@@ -740,9 +740,9 @@ class PipelinePublicServiceAsyncStub:
     by its resource name, formed by its parent namespace and ID.
     """
 
-    UpdateNamespacePipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineReleaseRequest,
-        pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineReleaseResponse,
+    UpdatePipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.UpdatePipelineReleaseRequest,
+        pipeline.v1beta.pipeline_pb2.UpdatePipelineReleaseResponse,
     ]
     """Update a pipeline release
 
@@ -753,9 +753,9 @@ class PipelinePublicServiceAsyncStub:
     perform this action.
     """
 
-    DeleteNamespacePipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineReleaseRequest,
-        pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineReleaseResponse,
+    DeletePipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.DeletePipelineReleaseRequest,
+        pipeline.v1beta.pipeline_pb2.DeletePipelineReleaseResponse,
     ]
     """Delete a pipeline release
 
@@ -766,9 +766,9 @@ class PipelinePublicServiceAsyncStub:
     perform this action.
     """
 
-    CloneNamespacePipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineReleaseRequest,
-        pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineReleaseResponse,
+    ClonePipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.ClonePipelineReleaseRequest,
+        pipeline.v1beta.pipeline_pb2.ClonePipelineReleaseResponse,
     ]
     """Clone a pipeline release
 
@@ -776,9 +776,9 @@ class PipelinePublicServiceAsyncStub:
     different parent, and this can be either a namespace or an organization.
     """
 
-    TriggerNamespacePipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineReleaseRequest,
-        pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineReleaseResponse,
+    TriggerPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.TriggerPipelineReleaseRequest,
+        pipeline.v1beta.pipeline_pb2.TriggerPipelineReleaseResponse,
     ]
     """Trigger a pipeline release
 
@@ -791,9 +791,9 @@ class PipelinePublicServiceAsyncStub:
     namespace and ID.
     """
 
-    TriggerAsyncNamespacePipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
-        pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineReleaseRequest,
-        pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineReleaseResponse,
+    TriggerAsyncPipelineRelease: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.pipeline_pb2.TriggerAsyncPipelineReleaseRequest,
+        pipeline.v1beta.pipeline_pb2.TriggerAsyncPipelineReleaseResponse,
     ]
     """Trigger a pipeline release asynchronously
 
@@ -1040,55 +1040,55 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         """
 
     @abc.abstractmethod
-    def ListPipelines(
+    def ListPublicPipelines(
         self,
-        request: pipeline.v1beta.pipeline_pb2.ListPipelinesRequest,
+        request: pipeline.v1beta.pipeline_pb2.ListPublicPipelinesRequest,
         context: _ServicerContext,
-    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.ListPipelinesResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.ListPipelinesResponse]]:
+    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.ListPublicPipelinesResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.ListPublicPipelinesResponse]]:
         """List accessible pipelines
 
         Returns a paginated list of pipelines that are visible to the requester.
         """
 
     @abc.abstractmethod
-    def ListNamespacePipelines(
+    def ListPipelines(
         self,
-        request: pipeline.v1beta.pipeline_pb2.ListNamespacePipelinesRequest,
+        request: pipeline.v1beta.pipeline_pb2.ListPipelinesRequest,
         context: _ServicerContext,
-    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.ListNamespacePipelinesResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.ListNamespacePipelinesResponse]]:
+    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.ListPipelinesResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.ListPipelinesResponse]]:
         """List namespace pipelines
 
         Returns a paginated list of pipelines of a namespace
         """
 
     @abc.abstractmethod
-    def CreateNamespacePipeline(
+    def CreatePipeline(
         self,
-        request: pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineRequest,
+        request: pipeline.v1beta.pipeline_pb2.CreatePipelineRequest,
         context: _ServicerContext,
-    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineResponse]]:
+    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.CreatePipelineResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.CreatePipelineResponse]]:
         """Create a new pipeline
 
         Creates a new pipeline under a namespace.
         """
 
     @abc.abstractmethod
-    def GetNamespacePipeline(
+    def GetPipeline(
         self,
-        request: pipeline.v1beta.pipeline_pb2.GetNamespacePipelineRequest,
+        request: pipeline.v1beta.pipeline_pb2.GetPipelineRequest,
         context: _ServicerContext,
-    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.GetNamespacePipelineResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.GetNamespacePipelineResponse]]:
+    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.GetPipelineResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.GetPipelineResponse]]:
         """Get a pipeline
 
         Returns the details of a pipeline.
         """
 
     @abc.abstractmethod
-    def UpdateNamespacePipeline(
+    def UpdatePipeline(
         self,
-        request: pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineRequest,
+        request: pipeline.v1beta.pipeline_pb2.UpdatePipelineRequest,
         context: _ServicerContext,
-    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineResponse]]:
+    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.UpdatePipelineResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.UpdatePipelineResponse]]:
         """Update a pipeline
 
         Udpates a pipeline, accessing it by its resource name, which is defined by
@@ -1100,11 +1100,11 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         """
 
     @abc.abstractmethod
-    def DeleteNamespacePipeline(
+    def DeletePipeline(
         self,
-        request: pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineRequest,
+        request: pipeline.v1beta.pipeline_pb2.DeletePipelineRequest,
         context: _ServicerContext,
-    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineResponse]]:
+    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.DeletePipelineResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.DeletePipelineResponse]]:
         """Delete a pipeline
 
         Deletes a pipeline, accesing it by its resource name, which is defined by
@@ -1113,11 +1113,11 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         """
 
     @abc.abstractmethod
-    def ValidateNamespacePipeline(
+    def ValidatePipeline(
         self,
-        request: pipeline.v1beta.pipeline_pb2.ValidateNamespacePipelineRequest,
+        request: pipeline.v1beta.pipeline_pb2.ValidatePipelineRequest,
         context: _ServicerContext,
-    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.ValidateNamespacePipelineResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.ValidateNamespacePipelineResponse]]:
+    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.ValidatePipelineResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.ValidatePipelineResponse]]:
         """Validate a pipeline
 
         Validates a pipeline by its resource name, which is defined by the parent
@@ -1128,11 +1128,11 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         """
 
     @abc.abstractmethod
-    def RenameNamespacePipeline(
+    def RenamePipeline(
         self,
-        request: pipeline.v1beta.pipeline_pb2.RenameNamespacePipelineRequest,
+        request: pipeline.v1beta.pipeline_pb2.RenamePipelineRequest,
         context: _ServicerContext,
-    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.RenameNamespacePipelineResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.RenameNamespacePipelineResponse]]:
+    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.RenamePipelineResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.RenamePipelineResponse]]:
         """Rename a pipeline
 
         Updates the ID of a pipeline. Since this is an output-only field, a custom
@@ -1147,11 +1147,11 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         """
 
     @abc.abstractmethod
-    def CloneNamespacePipeline(
+    def ClonePipeline(
         self,
-        request: pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineRequest,
+        request: pipeline.v1beta.pipeline_pb2.ClonePipelineRequest,
         context: _ServicerContext,
-    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineResponse]]:
+    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.ClonePipelineResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.ClonePipelineResponse]]:
         """Clone a pipeline
 
         Clones a pipeline owned by a namespace. The new pipeline may have a
@@ -1174,11 +1174,11 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         """
 
     @abc.abstractmethod
-    def TriggerNamespacePipeline(
+    def TriggerPipeline(
         self,
-        request: pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineRequest,
+        request: pipeline.v1beta.pipeline_pb2.TriggerPipelineRequest,
         context: _ServicerContext,
-    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineResponse]]:
+    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.TriggerPipelineResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.TriggerPipelineResponse]]:
         """Trigger a pipeline
 
         Triggers the execution of a pipeline synchronously, i.e., the result is
@@ -1189,15 +1189,15 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         namespace and ID of the pipeline.
 
         For more information, see [Run
-        NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+        Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
 
     @abc.abstractmethod
-    def TriggerNamespacePipelineWithStream(
+    def TriggerPipelineWithStream(
         self,
-        request: pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineWithStreamRequest,
+        request: pipeline.v1beta.pipeline_pb2.TriggerPipelineWithStreamRequest,
         context: _ServicerContext,
-    ) -> typing.Union[collections.abc.Iterator[pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineWithStreamResponse], collections.abc.AsyncIterator[pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineWithStreamResponse]]:
+    ) -> typing.Union[collections.abc.Iterator[pipeline.v1beta.pipeline_pb2.TriggerPipelineWithStreamResponse], collections.abc.AsyncIterator[pipeline.v1beta.pipeline_pb2.TriggerPipelineWithStreamResponse]]:
         """Trigger a pipeline via streaming
 
         Triggers the execution of a pipeline asynchronously and streams back the
@@ -1209,11 +1209,11 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         """
 
     @abc.abstractmethod
-    def TriggerAsyncNamespacePipeline(
+    def TriggerAsyncPipeline(
         self,
-        request: pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineRequest,
+        request: pipeline.v1beta.pipeline_pb2.TriggerAsyncPipelineRequest,
         context: _ServicerContext,
-    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineResponse]]:
+    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.TriggerAsyncPipelineResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.TriggerAsyncPipelineResponse]]:
         """Trigger a pipeline asynchronously
 
         Triggers the execution of a pipeline asynchronously, i.e., the result
@@ -1225,15 +1225,15 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         namespace and ID of the pipeline.
 
         For more information, see [Run
-        NamespacePipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
+        Pipeline](https://instill-ai.dev/docs/pipeline/run-pipeline).
         """
 
     @abc.abstractmethod
-    def CreateNamespacePipelineRelease(
+    def CreatePipelineRelease(
         self,
-        request: pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineReleaseRequest,
+        request: pipeline.v1beta.pipeline_pb2.CreatePipelineReleaseRequest,
         context: _ServicerContext,
-    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineReleaseResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.CreateNamespacePipelineReleaseResponse]]:
+    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.CreatePipelineReleaseResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.CreatePipelineReleaseResponse]]:
         """Create a pipeline release
 
         Commits the version of a pipeline, identified by its resource name, which
@@ -1244,11 +1244,11 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         """
 
     @abc.abstractmethod
-    def ListNamespacePipelineReleases(
+    def ListPipelineReleases(
         self,
-        request: pipeline.v1beta.pipeline_pb2.ListNamespacePipelineReleasesRequest,
+        request: pipeline.v1beta.pipeline_pb2.ListPipelineReleasesRequest,
         context: _ServicerContext,
-    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.ListNamespacePipelineReleasesResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.ListNamespacePipelineReleasesResponse]]:
+    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.ListPipelineReleasesResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.ListPipelineReleasesResponse]]:
         """List the releases in a pipeline
 
         Lists the commited versions of a pipeline, identified by its resource
@@ -1256,11 +1256,11 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         """
 
     @abc.abstractmethod
-    def GetNamespacePipelineRelease(
+    def GetPipelineRelease(
         self,
-        request: pipeline.v1beta.pipeline_pb2.GetNamespacePipelineReleaseRequest,
+        request: pipeline.v1beta.pipeline_pb2.GetPipelineReleaseRequest,
         context: _ServicerContext,
-    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.GetNamespacePipelineReleaseResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.GetNamespacePipelineReleaseResponse]]:
+    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.GetPipelineReleaseResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.GetPipelineReleaseResponse]]:
         """Get a pipeline release
 
         Gets the details of a pipeline release, where the pipeline is identified
@@ -1268,11 +1268,11 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         """
 
     @abc.abstractmethod
-    def UpdateNamespacePipelineRelease(
+    def UpdatePipelineRelease(
         self,
-        request: pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineReleaseRequest,
+        request: pipeline.v1beta.pipeline_pb2.UpdatePipelineReleaseRequest,
         context: _ServicerContext,
-    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineReleaseResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.UpdateNamespacePipelineReleaseResponse]]:
+    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.UpdatePipelineReleaseResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.UpdatePipelineReleaseResponse]]:
         """Update a pipeline release
 
         Updates the details of a pipeline release, where the pipeline is
@@ -1283,11 +1283,11 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         """
 
     @abc.abstractmethod
-    def DeleteNamespacePipelineRelease(
+    def DeletePipelineRelease(
         self,
-        request: pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineReleaseRequest,
+        request: pipeline.v1beta.pipeline_pb2.DeletePipelineReleaseRequest,
         context: _ServicerContext,
-    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineReleaseResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.DeleteNamespacePipelineReleaseResponse]]:
+    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.DeletePipelineReleaseResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.DeletePipelineReleaseResponse]]:
         """Delete a pipeline release
 
         Deletes a pipeline release, where the pipeline is identified by its
@@ -1298,11 +1298,11 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         """
 
     @abc.abstractmethod
-    def CloneNamespacePipelineRelease(
+    def ClonePipelineRelease(
         self,
-        request: pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineReleaseRequest,
+        request: pipeline.v1beta.pipeline_pb2.ClonePipelineReleaseRequest,
         context: _ServicerContext,
-    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineReleaseResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.CloneNamespacePipelineReleaseResponse]]:
+    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.ClonePipelineReleaseResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.ClonePipelineReleaseResponse]]:
         """Clone a pipeline release
 
         Clones a pipeline release owned by a namespace. The new pipeline may have a
@@ -1310,11 +1310,11 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         """
 
     @abc.abstractmethod
-    def TriggerNamespacePipelineRelease(
+    def TriggerPipelineRelease(
         self,
-        request: pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineReleaseRequest,
+        request: pipeline.v1beta.pipeline_pb2.TriggerPipelineReleaseRequest,
         context: _ServicerContext,
-    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineReleaseResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.TriggerNamespacePipelineReleaseResponse]]:
+    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.TriggerPipelineReleaseResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.TriggerPipelineReleaseResponse]]:
         """Trigger a pipeline release
 
         Triggers the synchronous execution of of a pipeline. While the trigger
@@ -1327,11 +1327,11 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
         """
 
     @abc.abstractmethod
-    def TriggerAsyncNamespacePipelineRelease(
+    def TriggerAsyncPipelineRelease(
         self,
-        request: pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineReleaseRequest,
+        request: pipeline.v1beta.pipeline_pb2.TriggerAsyncPipelineReleaseRequest,
         context: _ServicerContext,
-    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineReleaseResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.TriggerAsyncNamespacePipelineReleaseResponse]]:
+    ) -> typing.Union[pipeline.v1beta.pipeline_pb2.TriggerAsyncPipelineReleaseResponse, collections.abc.Awaitable[pipeline.v1beta.pipeline_pb2.TriggerAsyncPipelineReleaseResponse]]:
         """Trigger a pipeline release asynchronously
 
         Triggers the asynchronous execution of of a pipeline. While the trigger

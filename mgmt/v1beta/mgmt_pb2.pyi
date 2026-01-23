@@ -1121,11 +1121,7 @@ class PatchAuthenticatedUserRequest(google.protobuf.message.Message):
 
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
-        """The update mask specifies the subset of fields that should be modified.
-
-        For more information about this field, see
-        https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#field-mask.
-        """
+        """The update mask specifies the subset of fields that should be modified."""
 
     def __init__(
         self,
@@ -2238,11 +2234,7 @@ class UpdateOrganizationRequest(google.protobuf.message.Message):
 
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
-        """The update mask specifies the subset of fields that should be modified.
-
-        For more information about this field, see
-        https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#field-mask.
-        """
+        """The update mask specifies the subset of fields that should be modified."""
 
     def __init__(
         self,
@@ -2508,11 +2500,7 @@ class UpdateUserMembershipRequest(google.protobuf.message.Message):
 
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
-        """The update mask specifies the subset of fields that should be modified.
-
-        For more information about this field, see
-        https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#field-mask.
-        """
+        """The update mask specifies the subset of fields that should be modified."""
 
     def __init__(
         self,
@@ -2695,11 +2683,7 @@ class UpdateOrganizationMembershipRequest(google.protobuf.message.Message):
 
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
-        """The update mask specifies the subset of fields that should be modified.
-
-        For more information about this field, see
-        https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#field-mask.
-        """
+        """The update mask specifies the subset of fields that should be modified."""
 
     def __init__(
         self,

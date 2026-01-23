@@ -29,7 +29,7 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from mgmt.v1beta import mgmt_pb2 as mgmt_dot_v1beta_dot_mgmt__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%artifact/v1alpha/knowledge_base.proto\x12\x10\x61rtifact.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x16mgmt/v1beta/mgmt.proto\"\xaf\t\n\rKnowledgeBase\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x13\n\x02id\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x02id\x12&\n\x0c\x64isplay_name\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x0b\x64isplayName\x12\x17\n\x04slug\x18\x04 \x01(\tB\x03\xe0\x41\x01R\x04slug\x12\x1d\n\x07\x61liases\x18\x05 \x03(\tB\x03\xe0\x41\x03R\x07\x61liases\x12%\n\x0b\x64\x65scription\x18\x06 \x01(\tB\x03\xe0\x41\x01R\x0b\x64\x65scription\x12@\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\x12\x17\n\x04tags\x18\t \x03(\tB\x03\xe0\x41\x01R\x04tags\x12<\n\x04type\x18\n \x01(\x0e\x32#.artifact.v1alpha.KnowledgeBaseTypeB\x03\xe0\x41\x01R\x04type\x12%\n\tsystem_id\x18\x0b \x01(\tB\x03\xe0\x41\x01H\x00R\x08systemId\x88\x01\x01\x12_\n\x10\x65mbedding_config\x18\x0c \x01(\x0b\x32/.artifact.v1alpha.KnowledgeBase.EmbeddingConfigB\x03\xe0\x41\x01R\x0f\x65mbeddingConfig\x12\x35\n\x14\x61\x63tive_collection_id\x18\r \x01(\tB\x03\xe0\x41\x03R\x12\x61\x63tiveCollectionId\x12\"\n\nowner_name\x18\x0e \x01(\tB\x03\xe0\x41\x03R\townerName\x12\x32\n\x05owner\x18\x0f \x01(\x0b\x32\x12.mgmt.v1beta.OwnerB\x03\xe0\x41\x03H\x01R\x05owner\x88\x01\x01\x12+\n\x0c\x63reator_name\x18\x10 \x01(\tB\x03\xe0\x41\x03H\x02R\x0b\x63reatorName\x88\x01\x01\x12\x35\n\x07\x63reator\x18\x11 \x01(\x0b\x32\x11.mgmt.v1beta.UserB\x03\xe0\x41\x03H\x03R\x07\x63reator\x88\x01\x01\x12$\n\x0btotal_files\x18\x12 \x01(\rB\x03\xe0\x41\x03R\ntotalFiles\x12&\n\x0ctotal_tokens\x18\x13 \x01(\rB\x03\xe0\x41\x03R\x0btotalTokens\x12&\n\x0cused_storage\x18\x14 \x01(\x04\x42\x03\xe0\x41\x03R\x0busedStorage\x12,\n\x0f\x64ownstream_apps\x18\x15 \x03(\tB\x03\xe0\x41\x03R\x0e\x64ownstreamApps\x1a\\\n\x0f\x45mbeddingConfig\x12!\n\x0cmodel_family\x18\x01 \x01(\tR\x0bmodelFamily\x12&\n\x0e\x64imensionality\x18\x02 \x01(\rR\x0e\x64imensionality:\\\xea\x41Y\n\x1e\x61pi.instill.tech/KnowledgeBase\x12\x37namespaces/{namespace}/knowledge-bases/{knowledge_base}B\x0c\n\n_system_idB\x08\n\x06_ownerB\x0f\n\r_creator_nameB\n\n\x08_creator\"\x86\x01\n\x1a\x43reateKnowledgeBaseRequest\x12\x1b\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x06parent\x12K\n\x0eknowledge_base\x18\x02 \x01(\x0b\x32\x1f.artifact.v1alpha.KnowledgeBaseB\x03\xe0\x41\x02R\rknowledgeBase\"j\n\x1b\x43reateKnowledgeBaseResponse\x12K\n\x0eknowledge_base\x18\x01 \x01(\x0b\x32\x1f.artifact.v1alpha.KnowledgeBaseB\x03\xe0\x41\x03R\rknowledgeBase\"2\n\x17GetKnowledgeBaseRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\"g\n\x18GetKnowledgeBaseResponse\x12K\n\x0eknowledge_base\x18\x01 \x01(\x0b\x32\x1f.artifact.v1alpha.KnowledgeBaseB\x03\xe0\x41\x03R\rknowledgeBase\"\xd2\x01\n\x19ListKnowledgeBasesRequest\x12\x1b\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x06parent\x12%\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01H\x00R\x08pageSize\x88\x01\x01\x12\'\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01H\x01R\tpageToken\x88\x01\x01\x12 \n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01H\x02R\x06\x66ilter\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\t\n\x07_filter\"\xbc\x01\n\x1aListKnowledgeBasesResponse\x12M\n\x0fknowledge_bases\x18\x01 \x03(\x0b\x32\x1f.artifact.v1alpha.KnowledgeBaseB\x03\xe0\x41\x03R\x0eknowledgeBases\x12+\n\x0fnext_page_token\x18\x02 \x01(\tB\x03\xe0\x41\x03R\rnextPageToken\x12\"\n\ntotal_size\x18\x03 \x01(\x05\x42\x03\xe0\x41\x03R\ttotalSize\"\xab\x01\n\x1aUpdateKnowledgeBaseRequest\x12K\n\x0eknowledge_base\x18\x01 \x01(\x0b\x32\x1f.artifact.v1alpha.KnowledgeBaseB\x03\xe0\x41\x02R\rknowledgeBase\x12@\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\nupdateMask\"j\n\x1bUpdateKnowledgeBaseResponse\x12K\n\x0eknowledge_base\x18\x01 \x01(\x0b\x32\x1f.artifact.v1alpha.KnowledgeBaseB\x03\xe0\x41\x03R\rknowledgeBase\"5\n\x1a\x44\x65leteKnowledgeBaseRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x04name\"j\n\x1b\x44\x65leteKnowledgeBaseResponse\x12K\n\x0eknowledge_base\x18\x01 \x01(\x0b\x32\x1f.artifact.v1alpha.KnowledgeBaseB\x03\xe0\x41\x03R\rknowledgeBase\"\x8b\x01\n\x1f\x43reateKnowledgeBaseAdminRequest\x12\x1b\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x06parent\x12K\n\x0eknowledge_base\x18\x02 \x01(\x0b\x32\x1f.artifact.v1alpha.KnowledgeBaseB\x03\xe0\x41\x02R\rknowledgeBase\"o\n CreateKnowledgeBaseAdminResponse\x12K\n\x0eknowledge_base\x18\x01 \x01(\x0b\x32\x1f.artifact.v1alpha.KnowledgeBaseB\x03\xe0\x41\x03R\rknowledgeBase\"\xb0\x01\n\x1fUpdateKnowledgeBaseAdminRequest\x12K\n\x0eknowledge_base\x18\x01 \x01(\x0b\x32\x1f.artifact.v1alpha.KnowledgeBaseB\x03\xe0\x41\x02R\rknowledgeBase\x12@\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\nupdateMask\"o\n UpdateKnowledgeBaseAdminResponse\x12K\n\x0eknowledge_base\x18\x01 \x01(\x0b\x32\x1f.artifact.v1alpha.KnowledgeBaseB\x03\xe0\x41\x03R\rknowledgeBase*\x7f\n\x11KnowledgeBaseType\x12#\n\x1fKNOWLEDGE_BASE_TYPE_UNSPECIFIED\x10\x00\x12\"\n\x1eKNOWLEDGE_BASE_TYPE_PERSISTENT\x10\x01\x12!\n\x1dKNOWLEDGE_BASE_TYPE_EPHEMERAL\x10\x02\x42\xcf\x01\n\x14\x63om.artifact.v1alphaB\x12KnowledgeBaseProtoP\x01ZBgithub.com/instill-ai/protogen-go/artifact/v1alpha;artifactv1alpha\xa2\x02\x03\x41XX\xaa\x02\x10\x41rtifact.V1alpha\xca\x02\x10\x41rtifact\\V1alpha\xe2\x02\x1c\x41rtifact\\V1alpha\\GPBMetadata\xea\x02\x11\x41rtifact::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%artifact/v1alpha/knowledge_base.proto\x12\x10\x61rtifact.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x16mgmt/v1beta/mgmt.proto\"\xaf\t\n\rKnowledgeBase\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x13\n\x02id\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x02id\x12&\n\x0c\x64isplay_name\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x0b\x64isplayName\x12\x17\n\x04slug\x18\x04 \x01(\tB\x03\xe0\x41\x01R\x04slug\x12\x1d\n\x07\x61liases\x18\x05 \x03(\tB\x03\xe0\x41\x03R\x07\x61liases\x12%\n\x0b\x64\x65scription\x18\x06 \x01(\tB\x03\xe0\x41\x01R\x0b\x64\x65scription\x12@\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\x12\x17\n\x04tags\x18\t \x03(\tB\x03\xe0\x41\x01R\x04tags\x12<\n\x04type\x18\n \x01(\x0e\x32#.artifact.v1alpha.KnowledgeBaseTypeB\x03\xe0\x41\x01R\x04type\x12%\n\tsystem_id\x18\x0b \x01(\tB\x03\xe0\x41\x01H\x00R\x08systemId\x88\x01\x01\x12_\n\x10\x65mbedding_config\x18\x0c \x01(\x0b\x32/.artifact.v1alpha.KnowledgeBase.EmbeddingConfigB\x03\xe0\x41\x01R\x0f\x65mbeddingConfig\x12\x35\n\x14\x61\x63tive_collection_id\x18\r \x01(\tB\x03\xe0\x41\x03R\x12\x61\x63tiveCollectionId\x12\"\n\nowner_name\x18\x0e \x01(\tB\x03\xe0\x41\x03R\townerName\x12\x32\n\x05owner\x18\x0f \x01(\x0b\x32\x12.mgmt.v1beta.OwnerB\x03\xe0\x41\x03H\x01R\x05owner\x88\x01\x01\x12+\n\x0c\x63reator_name\x18\x10 \x01(\tB\x03\xe0\x41\x03H\x02R\x0b\x63reatorName\x88\x01\x01\x12\x35\n\x07\x63reator\x18\x11 \x01(\x0b\x32\x11.mgmt.v1beta.UserB\x03\xe0\x41\x03H\x03R\x07\x63reator\x88\x01\x01\x12$\n\x0btotal_files\x18\x12 \x01(\rB\x03\xe0\x41\x03R\ntotalFiles\x12&\n\x0ctotal_tokens\x18\x13 \x01(\rB\x03\xe0\x41\x03R\x0btotalTokens\x12&\n\x0cused_storage\x18\x14 \x01(\x04\x42\x03\xe0\x41\x03R\x0busedStorage\x12,\n\x0f\x64ownstream_apps\x18\x15 \x03(\tB\x03\xe0\x41\x03R\x0e\x64ownstreamApps\x1a\\\n\x0f\x45mbeddingConfig\x12!\n\x0cmodel_family\x18\x01 \x01(\tR\x0bmodelFamily\x12&\n\x0e\x64imensionality\x18\x02 \x01(\rR\x0e\x64imensionality:\\\xea\x41Y\n\x1e\x61pi.instill.tech/KnowledgeBase\x12\x37namespaces/{namespace}/knowledge-bases/{knowledge_base}B\x0c\n\n_system_idB\x08\n\x06_ownerB\x0f\n\r_creator_nameB\n\n\x08_creator\"\x86\x01\n\x1a\x43reateKnowledgeBaseRequest\x12\x1b\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x06parent\x12K\n\x0eknowledge_base\x18\x02 \x01(\x0b\x32\x1f.artifact.v1alpha.KnowledgeBaseB\x03\xe0\x41\x02R\rknowledgeBase\"j\n\x1b\x43reateKnowledgeBaseResponse\x12K\n\x0eknowledge_base\x18\x01 \x01(\x0b\x32\x1f.artifact.v1alpha.KnowledgeBaseB\x03\xe0\x41\x03R\rknowledgeBase\"U\n\x17GetKnowledgeBaseRequest\x12:\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x61pi.instill.tech/KnowledgeBaseR\x04name\"g\n\x18GetKnowledgeBaseResponse\x12K\n\x0eknowledge_base\x18\x01 \x01(\x0b\x32\x1f.artifact.v1alpha.KnowledgeBaseB\x03\xe0\x41\x03R\rknowledgeBase\"\xd2\x01\n\x19ListKnowledgeBasesRequest\x12\x1b\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x06parent\x12%\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01H\x00R\x08pageSize\x88\x01\x01\x12\'\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01H\x01R\tpageToken\x88\x01\x01\x12 \n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01H\x02R\x06\x66ilter\x88\x01\x01\x42\x0c\n\n_page_sizeB\r\n\x0b_page_tokenB\t\n\x07_filter\"\xbc\x01\n\x1aListKnowledgeBasesResponse\x12M\n\x0fknowledge_bases\x18\x01 \x03(\x0b\x32\x1f.artifact.v1alpha.KnowledgeBaseB\x03\xe0\x41\x03R\x0eknowledgeBases\x12+\n\x0fnext_page_token\x18\x02 \x01(\tB\x03\xe0\x41\x03R\rnextPageToken\x12\"\n\ntotal_size\x18\x03 \x01(\x05\x42\x03\xe0\x41\x03R\ttotalSize\"\xab\x01\n\x1aUpdateKnowledgeBaseRequest\x12K\n\x0eknowledge_base\x18\x01 \x01(\x0b\x32\x1f.artifact.v1alpha.KnowledgeBaseB\x03\xe0\x41\x02R\rknowledgeBase\x12@\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\nupdateMask\"j\n\x1bUpdateKnowledgeBaseResponse\x12K\n\x0eknowledge_base\x18\x01 \x01(\x0b\x32\x1f.artifact.v1alpha.KnowledgeBaseB\x03\xe0\x41\x03R\rknowledgeBase\"X\n\x1a\x44\x65leteKnowledgeBaseRequest\x12:\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x61pi.instill.tech/KnowledgeBaseR\x04name\"j\n\x1b\x44\x65leteKnowledgeBaseResponse\x12K\n\x0eknowledge_base\x18\x01 \x01(\x0b\x32\x1f.artifact.v1alpha.KnowledgeBaseB\x03\xe0\x41\x03R\rknowledgeBase\"\x8b\x01\n\x1f\x43reateKnowledgeBaseAdminRequest\x12\x1b\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x06parent\x12K\n\x0eknowledge_base\x18\x02 \x01(\x0b\x32\x1f.artifact.v1alpha.KnowledgeBaseB\x03\xe0\x41\x02R\rknowledgeBase\"o\n CreateKnowledgeBaseAdminResponse\x12K\n\x0eknowledge_base\x18\x01 \x01(\x0b\x32\x1f.artifact.v1alpha.KnowledgeBaseB\x03\xe0\x41\x03R\rknowledgeBase\"\xb0\x01\n\x1fUpdateKnowledgeBaseAdminRequest\x12K\n\x0eknowledge_base\x18\x01 \x01(\x0b\x32\x1f.artifact.v1alpha.KnowledgeBaseB\x03\xe0\x41\x02R\rknowledgeBase\x12@\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\nupdateMask\"o\n UpdateKnowledgeBaseAdminResponse\x12K\n\x0eknowledge_base\x18\x01 \x01(\x0b\x32\x1f.artifact.v1alpha.KnowledgeBaseB\x03\xe0\x41\x03R\rknowledgeBase*\x7f\n\x11KnowledgeBaseType\x12#\n\x1fKNOWLEDGE_BASE_TYPE_UNSPECIFIED\x10\x00\x12\"\n\x1eKNOWLEDGE_BASE_TYPE_PERSISTENT\x10\x01\x12!\n\x1dKNOWLEDGE_BASE_TYPE_EPHEMERAL\x10\x02\x42\xcf\x01\n\x14\x63om.artifact.v1alphaB\x12KnowledgeBaseProtoP\x01ZBgithub.com/instill-ai/protogen-go/artifact/v1alpha;artifactv1alpha\xa2\x02\x03\x41XX\xaa\x02\x10\x41rtifact.V1alpha\xca\x02\x10\x41rtifact\\V1alpha\xe2\x02\x1c\x41rtifact\\V1alpha\\GPBMetadata\xea\x02\x11\x41rtifact::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -88,7 +88,7 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_CREATEKNOWLEDGEBASERESPONSE'].fields_by_name['knowledge_base']._loaded_options = None
   _globals['_CREATEKNOWLEDGEBASERESPONSE'].fields_by_name['knowledge_base']._serialized_options = b'\340A\003'
   _globals['_GETKNOWLEDGEBASEREQUEST'].fields_by_name['name']._loaded_options = None
-  _globals['_GETKNOWLEDGEBASEREQUEST'].fields_by_name['name']._serialized_options = b'\340A\002'
+  _globals['_GETKNOWLEDGEBASEREQUEST'].fields_by_name['name']._serialized_options = b'\340A\002\372A \n\036api.instill.tech/KnowledgeBase'
   _globals['_GETKNOWLEDGEBASERESPONSE'].fields_by_name['knowledge_base']._loaded_options = None
   _globals['_GETKNOWLEDGEBASERESPONSE'].fields_by_name['knowledge_base']._serialized_options = b'\340A\003'
   _globals['_LISTKNOWLEDGEBASESREQUEST'].fields_by_name['parent']._loaded_options = None
@@ -112,7 +112,7 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_UPDATEKNOWLEDGEBASERESPONSE'].fields_by_name['knowledge_base']._loaded_options = None
   _globals['_UPDATEKNOWLEDGEBASERESPONSE'].fields_by_name['knowledge_base']._serialized_options = b'\340A\003'
   _globals['_DELETEKNOWLEDGEBASEREQUEST'].fields_by_name['name']._loaded_options = None
-  _globals['_DELETEKNOWLEDGEBASEREQUEST'].fields_by_name['name']._serialized_options = b'\340A\002'
+  _globals['_DELETEKNOWLEDGEBASEREQUEST'].fields_by_name['name']._serialized_options = b'\340A\002\372A \n\036api.instill.tech/KnowledgeBase'
   _globals['_DELETEKNOWLEDGEBASERESPONSE'].fields_by_name['knowledge_base']._loaded_options = None
   _globals['_DELETEKNOWLEDGEBASERESPONSE'].fields_by_name['knowledge_base']._serialized_options = b'\340A\003'
   _globals['_CREATEKNOWLEDGEBASEADMINREQUEST'].fields_by_name['parent']._loaded_options = None
@@ -127,8 +127,8 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_UPDATEKNOWLEDGEBASEADMINREQUEST'].fields_by_name['update_mask']._serialized_options = b'\340A\002'
   _globals['_UPDATEKNOWLEDGEBASEADMINRESPONSE'].fields_by_name['knowledge_base']._loaded_options = None
   _globals['_UPDATEKNOWLEDGEBASEADMINRESPONSE'].fields_by_name['knowledge_base']._serialized_options = b'\340A\003'
-  _globals['_KNOWLEDGEBASETYPE']._serialized_start=3210
-  _globals['_KNOWLEDGEBASETYPE']._serialized_end=3337
+  _globals['_KNOWLEDGEBASETYPE']._serialized_start=3280
+  _globals['_KNOWLEDGEBASETYPE']._serialized_end=3407
   _globals['_KNOWLEDGEBASE']._serialized_start=211
   _globals['_KNOWLEDGEBASE']._serialized_end=1410
   _globals['_KNOWLEDGEBASE_EMBEDDINGCONFIG']._serialized_start=1171
@@ -138,27 +138,27 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_CREATEKNOWLEDGEBASERESPONSE']._serialized_start=1549
   _globals['_CREATEKNOWLEDGEBASERESPONSE']._serialized_end=1655
   _globals['_GETKNOWLEDGEBASEREQUEST']._serialized_start=1657
-  _globals['_GETKNOWLEDGEBASEREQUEST']._serialized_end=1707
-  _globals['_GETKNOWLEDGEBASERESPONSE']._serialized_start=1709
-  _globals['_GETKNOWLEDGEBASERESPONSE']._serialized_end=1812
-  _globals['_LISTKNOWLEDGEBASESREQUEST']._serialized_start=1815
-  _globals['_LISTKNOWLEDGEBASESREQUEST']._serialized_end=2025
-  _globals['_LISTKNOWLEDGEBASESRESPONSE']._serialized_start=2028
-  _globals['_LISTKNOWLEDGEBASESRESPONSE']._serialized_end=2216
-  _globals['_UPDATEKNOWLEDGEBASEREQUEST']._serialized_start=2219
-  _globals['_UPDATEKNOWLEDGEBASEREQUEST']._serialized_end=2390
-  _globals['_UPDATEKNOWLEDGEBASERESPONSE']._serialized_start=2392
-  _globals['_UPDATEKNOWLEDGEBASERESPONSE']._serialized_end=2498
-  _globals['_DELETEKNOWLEDGEBASEREQUEST']._serialized_start=2500
-  _globals['_DELETEKNOWLEDGEBASEREQUEST']._serialized_end=2553
-  _globals['_DELETEKNOWLEDGEBASERESPONSE']._serialized_start=2555
-  _globals['_DELETEKNOWLEDGEBASERESPONSE']._serialized_end=2661
-  _globals['_CREATEKNOWLEDGEBASEADMINREQUEST']._serialized_start=2664
-  _globals['_CREATEKNOWLEDGEBASEADMINREQUEST']._serialized_end=2803
-  _globals['_CREATEKNOWLEDGEBASEADMINRESPONSE']._serialized_start=2805
-  _globals['_CREATEKNOWLEDGEBASEADMINRESPONSE']._serialized_end=2916
-  _globals['_UPDATEKNOWLEDGEBASEADMINREQUEST']._serialized_start=2919
-  _globals['_UPDATEKNOWLEDGEBASEADMINREQUEST']._serialized_end=3095
-  _globals['_UPDATEKNOWLEDGEBASEADMINRESPONSE']._serialized_start=3097
-  _globals['_UPDATEKNOWLEDGEBASEADMINRESPONSE']._serialized_end=3208
+  _globals['_GETKNOWLEDGEBASEREQUEST']._serialized_end=1742
+  _globals['_GETKNOWLEDGEBASERESPONSE']._serialized_start=1744
+  _globals['_GETKNOWLEDGEBASERESPONSE']._serialized_end=1847
+  _globals['_LISTKNOWLEDGEBASESREQUEST']._serialized_start=1850
+  _globals['_LISTKNOWLEDGEBASESREQUEST']._serialized_end=2060
+  _globals['_LISTKNOWLEDGEBASESRESPONSE']._serialized_start=2063
+  _globals['_LISTKNOWLEDGEBASESRESPONSE']._serialized_end=2251
+  _globals['_UPDATEKNOWLEDGEBASEREQUEST']._serialized_start=2254
+  _globals['_UPDATEKNOWLEDGEBASEREQUEST']._serialized_end=2425
+  _globals['_UPDATEKNOWLEDGEBASERESPONSE']._serialized_start=2427
+  _globals['_UPDATEKNOWLEDGEBASERESPONSE']._serialized_end=2533
+  _globals['_DELETEKNOWLEDGEBASEREQUEST']._serialized_start=2535
+  _globals['_DELETEKNOWLEDGEBASEREQUEST']._serialized_end=2623
+  _globals['_DELETEKNOWLEDGEBASERESPONSE']._serialized_start=2625
+  _globals['_DELETEKNOWLEDGEBASERESPONSE']._serialized_end=2731
+  _globals['_CREATEKNOWLEDGEBASEADMINREQUEST']._serialized_start=2734
+  _globals['_CREATEKNOWLEDGEBASEADMINREQUEST']._serialized_end=2873
+  _globals['_CREATEKNOWLEDGEBASEADMINRESPONSE']._serialized_start=2875
+  _globals['_CREATEKNOWLEDGEBASEADMINRESPONSE']._serialized_end=2986
+  _globals['_UPDATEKNOWLEDGEBASEADMINREQUEST']._serialized_start=2989
+  _globals['_UPDATEKNOWLEDGEBASEADMINREQUEST']._serialized_end=3165
+  _globals['_UPDATEKNOWLEDGEBASEADMINRESPONSE']._serialized_start=3167
+  _globals['_UPDATEKNOWLEDGEBASEADMINRESPONSE']._serialized_end=3278
 # @@protoc_insertion_point(module_scope)

@@ -23,12 +23,13 @@ _sym_db = _symbol_database.Default()
 
 
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
+from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1d\x61rtifact/v1alpha/system.proto\x12\x10\x61rtifact.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x87\x04\n\x06System\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x13\n\x02id\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x02id\x12&\n\x0c\x64isplay_name\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x0b\x64isplayName\x12\x17\n\x04slug\x18\x04 \x01(\tB\x03\xe0\x41\x01R\x04slug\x12\x1d\n\x07\x61liases\x18\x05 \x03(\tB\x03\xe0\x41\x03R\x07\x61liases\x12*\n\x0b\x64\x65scription\x18\x06 \x01(\tB\x03\xe0\x41\x01H\x00R\x0b\x64\x65scription\x88\x01\x01\x12@\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\x12\x34\n\x06\x63onfig\x18\t \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x02R\x06\x63onfig\x12\"\n\nis_default\x18\n \x01(\x08\x42\x03\xe0\x41\x03R\tisDefault\x12\x45\n\x0b\x64\x65lete_time\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03H\x01R\ndeleteTime\x88\x01\x01\x42\x0e\n\x0c_descriptionB\x0e\n\x0c_delete_time\"4\n\x15GetSystemAdminRequest\x12\x1b\n\tsystem_id\x18\x01 \x01(\tR\x08systemId\"J\n\x16GetSystemAdminResponse\x12\x30\n\x06system\x18\x01 \x01(\x0b\x32\x18.artifact.v1alpha.SystemR\x06system\"L\n\x18\x43reateSystemAdminRequest\x12\x30\n\x06system\x18\x01 \x01(\x0b\x32\x18.artifact.v1alpha.SystemR\x06system\"M\n\x19\x43reateSystemAdminResponse\x12\x30\n\x06system\x18\x01 \x01(\x0b\x32\x18.artifact.v1alpha.SystemR\x06system\"\x8e\x01\n\x18UpdateSystemAdminRequest\x12\x30\n\x06system\x18\x01 \x01(\x0b\x32\x18.artifact.v1alpha.SystemR\x06system\x12@\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\nupdateMask\"M\n\x19UpdateSystemAdminResponse\x12\x30\n\x06system\x18\x01 \x01(\x0b\x32\x18.artifact.v1alpha.SystemR\x06system\"\x19\n\x17ListSystemsAdminRequest\"N\n\x18ListSystemsAdminResponse\x12\x32\n\x07systems\x18\x01 \x03(\x0b\x32\x18.artifact.v1alpha.SystemR\x07systems\"7\n\x18\x44\x65leteSystemAdminRequest\x12\x1b\n\tsystem_id\x18\x01 \x01(\tR\x08systemId\"O\n\x19\x44\x65leteSystemAdminResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12\x18\n\x07message\x18\x02 \x01(\tR\x07message\"k\n\x18RenameSystemAdminRequest\x12 \n\tsystem_id\x18\x01 \x01(\tB\x03\xe0\x41\x02R\x08systemId\x12-\n\x10new_display_name\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x0enewDisplayName\"M\n\x19RenameSystemAdminResponse\x12\x30\n\x06system\x18\x01 \x01(\x0b\x32\x18.artifact.v1alpha.SystemR\x06system\";\n\x1cSetDefaultSystemAdminRequest\x12\x1b\n\tsystem_id\x18\x01 \x01(\tR\x08systemId\"Q\n\x1dSetDefaultSystemAdminResponse\x12\x30\n\x06system\x18\x01 \x01(\x0b\x32\x18.artifact.v1alpha.SystemR\x06system\"\x1e\n\x1cGetDefaultSystemAdminRequest\"Q\n\x1dGetDefaultSystemAdminResponse\x12\x30\n\x06system\x18\x01 \x01(\x0b\x32\x18.artifact.v1alpha.SystemR\x06systemB\xc8\x01\n\x14\x63om.artifact.v1alphaB\x0bSystemProtoP\x01ZBgithub.com/instill-ai/protogen-go/artifact/v1alpha;artifactv1alpha\xa2\x02\x03\x41XX\xaa\x02\x10\x41rtifact.V1alpha\xca\x02\x10\x41rtifact\\V1alpha\xe2\x02\x1c\x41rtifact\\V1alpha\\GPBMetadata\xea\x02\x11\x41rtifact::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1d\x61rtifact/v1alpha/system.proto\x12\x10\x61rtifact.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb7\x04\n\x06System\x12\x17\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03R\x04name\x12\x13\n\x02id\x18\x02 \x01(\tB\x03\xe0\x41\x03R\x02id\x12&\n\x0c\x64isplay_name\x18\x03 \x01(\tB\x03\xe0\x41\x02R\x0b\x64isplayName\x12\x17\n\x04slug\x18\x04 \x01(\tB\x03\xe0\x41\x01R\x04slug\x12\x1d\n\x07\x61liases\x18\x05 \x03(\tB\x03\xe0\x41\x03R\x07\x61liases\x12*\n\x0b\x64\x65scription\x18\x06 \x01(\tB\x03\xe0\x41\x01H\x00R\x0b\x64\x65scription\x88\x01\x01\x12@\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\ncreateTime\x12@\n\x0bupdate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03R\nupdateTime\x12\x34\n\x06\x63onfig\x18\t \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x02R\x06\x63onfig\x12\"\n\nis_default\x18\n \x01(\x08\x42\x03\xe0\x41\x03R\tisDefault\x12\x45\n\x0b\x64\x65lete_time\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03H\x01R\ndeleteTime\x88\x01\x01:.\xea\x41+\n\x17\x61pi.instill.tech/System\x12\x10systems/{system}B\x0e\n\x0c_descriptionB\x0e\n\x0c_delete_time\"L\n\x15GetSystemAdminRequest\x12\x33\n\x04name\x18\x01 \x01(\tB\x1f\xe0\x41\x01\xfa\x41\x19\n\x17\x61pi.instill.tech/SystemR\x04name\"J\n\x16GetSystemAdminResponse\x12\x30\n\x06system\x18\x01 \x01(\x0b\x32\x18.artifact.v1alpha.SystemR\x06system\"L\n\x18\x43reateSystemAdminRequest\x12\x30\n\x06system\x18\x01 \x01(\x0b\x32\x18.artifact.v1alpha.SystemR\x06system\"M\n\x19\x43reateSystemAdminResponse\x12\x30\n\x06system\x18\x01 \x01(\x0b\x32\x18.artifact.v1alpha.SystemR\x06system\"\x8e\x01\n\x18UpdateSystemAdminRequest\x12\x30\n\x06system\x18\x01 \x01(\x0b\x32\x18.artifact.v1alpha.SystemR\x06system\x12@\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02R\nupdateMask\"M\n\x19UpdateSystemAdminResponse\x12\x30\n\x06system\x18\x01 \x01(\x0b\x32\x18.artifact.v1alpha.SystemR\x06system\"\x19\n\x17ListSystemsAdminRequest\"N\n\x18ListSystemsAdminResponse\x12\x32\n\x07systems\x18\x01 \x03(\x0b\x32\x18.artifact.v1alpha.SystemR\x07systems\"O\n\x18\x44\x65leteSystemAdminRequest\x12\x33\n\x04name\x18\x01 \x01(\tB\x1f\xe0\x41\x02\xfa\x41\x19\n\x17\x61pi.instill.tech/SystemR\x04name\"O\n\x19\x44\x65leteSystemAdminResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12\x18\n\x07message\x18\x02 \x01(\tR\x07message\"~\n\x18RenameSystemAdminRequest\x12\x33\n\x04name\x18\x01 \x01(\tB\x1f\xe0\x41\x02\xfa\x41\x19\n\x17\x61pi.instill.tech/SystemR\x04name\x12-\n\x10new_display_name\x18\x02 \x01(\tB\x03\xe0\x41\x02R\x0enewDisplayName\"M\n\x19RenameSystemAdminResponse\x12\x30\n\x06system\x18\x01 \x01(\x0b\x32\x18.artifact.v1alpha.SystemR\x06system\"S\n\x1cSetDefaultSystemAdminRequest\x12\x33\n\x04name\x18\x01 \x01(\tB\x1f\xe0\x41\x02\xfa\x41\x19\n\x17\x61pi.instill.tech/SystemR\x04name\"Q\n\x1dSetDefaultSystemAdminResponse\x12\x30\n\x06system\x18\x01 \x01(\x0b\x32\x18.artifact.v1alpha.SystemR\x06system\"\x1e\n\x1cGetDefaultSystemAdminRequest\"Q\n\x1dGetDefaultSystemAdminResponse\x12\x30\n\x06system\x18\x01 \x01(\x0b\x32\x18.artifact.v1alpha.SystemR\x06systemB\xc8\x01\n\x14\x63om.artifact.v1alphaB\x0bSystemProtoP\x01ZBgithub.com/instill-ai/protogen-go/artifact/v1alpha;artifactv1alpha\xa2\x02\x03\x41XX\xaa\x02\x10\x41rtifact.V1alpha\xca\x02\x10\x41rtifact\\V1alpha\xe2\x02\x1c\x41rtifact\\V1alpha\\GPBMetadata\xea\x02\x11\x41rtifact::V1alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -58,44 +59,52 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_SYSTEM'].fields_by_name['is_default']._serialized_options = b'\340A\003'
   _globals['_SYSTEM'].fields_by_name['delete_time']._loaded_options = None
   _globals['_SYSTEM'].fields_by_name['delete_time']._serialized_options = b'\340A\003'
+  _globals['_SYSTEM']._loaded_options = None
+  _globals['_SYSTEM']._serialized_options = b'\352A+\n\027api.instill.tech/System\022\020systems/{system}'
+  _globals['_GETSYSTEMADMINREQUEST'].fields_by_name['name']._loaded_options = None
+  _globals['_GETSYSTEMADMINREQUEST'].fields_by_name['name']._serialized_options = b'\340A\001\372A\031\n\027api.instill.tech/System'
   _globals['_UPDATESYSTEMADMINREQUEST'].fields_by_name['update_mask']._loaded_options = None
   _globals['_UPDATESYSTEMADMINREQUEST'].fields_by_name['update_mask']._serialized_options = b'\340A\002'
-  _globals['_RENAMESYSTEMADMINREQUEST'].fields_by_name['system_id']._loaded_options = None
-  _globals['_RENAMESYSTEMADMINREQUEST'].fields_by_name['system_id']._serialized_options = b'\340A\002'
+  _globals['_DELETESYSTEMADMINREQUEST'].fields_by_name['name']._loaded_options = None
+  _globals['_DELETESYSTEMADMINREQUEST'].fields_by_name['name']._serialized_options = b'\340A\002\372A\031\n\027api.instill.tech/System'
+  _globals['_RENAMESYSTEMADMINREQUEST'].fields_by_name['name']._loaded_options = None
+  _globals['_RENAMESYSTEMADMINREQUEST'].fields_by_name['name']._serialized_options = b'\340A\002\372A\031\n\027api.instill.tech/System'
   _globals['_RENAMESYSTEMADMINREQUEST'].fields_by_name['new_display_name']._loaded_options = None
   _globals['_RENAMESYSTEMADMINREQUEST'].fields_by_name['new_display_name']._serialized_options = b'\340A\002'
-  _globals['_SYSTEM']._serialized_start=182
-  _globals['_SYSTEM']._serialized_end=701
-  _globals['_GETSYSTEMADMINREQUEST']._serialized_start=703
-  _globals['_GETSYSTEMADMINREQUEST']._serialized_end=755
-  _globals['_GETSYSTEMADMINRESPONSE']._serialized_start=757
-  _globals['_GETSYSTEMADMINRESPONSE']._serialized_end=831
-  _globals['_CREATESYSTEMADMINREQUEST']._serialized_start=833
-  _globals['_CREATESYSTEMADMINREQUEST']._serialized_end=909
-  _globals['_CREATESYSTEMADMINRESPONSE']._serialized_start=911
-  _globals['_CREATESYSTEMADMINRESPONSE']._serialized_end=988
-  _globals['_UPDATESYSTEMADMINREQUEST']._serialized_start=991
-  _globals['_UPDATESYSTEMADMINREQUEST']._serialized_end=1133
-  _globals['_UPDATESYSTEMADMINRESPONSE']._serialized_start=1135
-  _globals['_UPDATESYSTEMADMINRESPONSE']._serialized_end=1212
-  _globals['_LISTSYSTEMSADMINREQUEST']._serialized_start=1214
-  _globals['_LISTSYSTEMSADMINREQUEST']._serialized_end=1239
-  _globals['_LISTSYSTEMSADMINRESPONSE']._serialized_start=1241
-  _globals['_LISTSYSTEMSADMINRESPONSE']._serialized_end=1319
-  _globals['_DELETESYSTEMADMINREQUEST']._serialized_start=1321
-  _globals['_DELETESYSTEMADMINREQUEST']._serialized_end=1376
-  _globals['_DELETESYSTEMADMINRESPONSE']._serialized_start=1378
-  _globals['_DELETESYSTEMADMINRESPONSE']._serialized_end=1457
-  _globals['_RENAMESYSTEMADMINREQUEST']._serialized_start=1459
-  _globals['_RENAMESYSTEMADMINREQUEST']._serialized_end=1566
-  _globals['_RENAMESYSTEMADMINRESPONSE']._serialized_start=1568
-  _globals['_RENAMESYSTEMADMINRESPONSE']._serialized_end=1645
-  _globals['_SETDEFAULTSYSTEMADMINREQUEST']._serialized_start=1647
-  _globals['_SETDEFAULTSYSTEMADMINREQUEST']._serialized_end=1706
-  _globals['_SETDEFAULTSYSTEMADMINRESPONSE']._serialized_start=1708
-  _globals['_SETDEFAULTSYSTEMADMINRESPONSE']._serialized_end=1789
-  _globals['_GETDEFAULTSYSTEMADMINREQUEST']._serialized_start=1791
-  _globals['_GETDEFAULTSYSTEMADMINREQUEST']._serialized_end=1821
-  _globals['_GETDEFAULTSYSTEMADMINRESPONSE']._serialized_start=1823
-  _globals['_GETDEFAULTSYSTEMADMINRESPONSE']._serialized_end=1904
+  _globals['_SETDEFAULTSYSTEMADMINREQUEST'].fields_by_name['name']._loaded_options = None
+  _globals['_SETDEFAULTSYSTEMADMINREQUEST'].fields_by_name['name']._serialized_options = b'\340A\002\372A\031\n\027api.instill.tech/System'
+  _globals['_SYSTEM']._serialized_start=209
+  _globals['_SYSTEM']._serialized_end=776
+  _globals['_GETSYSTEMADMINREQUEST']._serialized_start=778
+  _globals['_GETSYSTEMADMINREQUEST']._serialized_end=854
+  _globals['_GETSYSTEMADMINRESPONSE']._serialized_start=856
+  _globals['_GETSYSTEMADMINRESPONSE']._serialized_end=930
+  _globals['_CREATESYSTEMADMINREQUEST']._serialized_start=932
+  _globals['_CREATESYSTEMADMINREQUEST']._serialized_end=1008
+  _globals['_CREATESYSTEMADMINRESPONSE']._serialized_start=1010
+  _globals['_CREATESYSTEMADMINRESPONSE']._serialized_end=1087
+  _globals['_UPDATESYSTEMADMINREQUEST']._serialized_start=1090
+  _globals['_UPDATESYSTEMADMINREQUEST']._serialized_end=1232
+  _globals['_UPDATESYSTEMADMINRESPONSE']._serialized_start=1234
+  _globals['_UPDATESYSTEMADMINRESPONSE']._serialized_end=1311
+  _globals['_LISTSYSTEMSADMINREQUEST']._serialized_start=1313
+  _globals['_LISTSYSTEMSADMINREQUEST']._serialized_end=1338
+  _globals['_LISTSYSTEMSADMINRESPONSE']._serialized_start=1340
+  _globals['_LISTSYSTEMSADMINRESPONSE']._serialized_end=1418
+  _globals['_DELETESYSTEMADMINREQUEST']._serialized_start=1420
+  _globals['_DELETESYSTEMADMINREQUEST']._serialized_end=1499
+  _globals['_DELETESYSTEMADMINRESPONSE']._serialized_start=1501
+  _globals['_DELETESYSTEMADMINRESPONSE']._serialized_end=1580
+  _globals['_RENAMESYSTEMADMINREQUEST']._serialized_start=1582
+  _globals['_RENAMESYSTEMADMINREQUEST']._serialized_end=1708
+  _globals['_RENAMESYSTEMADMINRESPONSE']._serialized_start=1710
+  _globals['_RENAMESYSTEMADMINRESPONSE']._serialized_end=1787
+  _globals['_SETDEFAULTSYSTEMADMINREQUEST']._serialized_start=1789
+  _globals['_SETDEFAULTSYSTEMADMINREQUEST']._serialized_end=1872
+  _globals['_SETDEFAULTSYSTEMADMINRESPONSE']._serialized_start=1874
+  _globals['_SETDEFAULTSYSTEMADMINRESPONSE']._serialized_end=1955
+  _globals['_GETDEFAULTSYSTEMADMINREQUEST']._serialized_start=1957
+  _globals['_GETDEFAULTSYSTEMADMINREQUEST']._serialized_end=1987
+  _globals['_GETDEFAULTSYSTEMADMINRESPONSE']._serialized_start=1989
+  _globals['_GETDEFAULTSYSTEMADMINRESPONSE']._serialized_end=2070
 # @@protoc_insertion_point(module_scope)

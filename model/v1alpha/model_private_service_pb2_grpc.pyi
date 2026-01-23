@@ -39,17 +39,17 @@ class ModelPrivateServiceStub:
     returns a LookUpModelAdminResponse
     """
 
-    DeployNamespaceModelAdmin: grpc.UnaryUnaryMultiCallable[
-        model.v1alpha.model_pb2.DeployNamespaceModelAdminRequest,
-        model.v1alpha.model_pb2.DeployNamespaceModelAdminResponse,
+    DeployModelAdmin: grpc.UnaryUnaryMultiCallable[
+        model.v1alpha.model_pb2.DeployModelAdminRequest,
+        model.v1alpha.model_pb2.DeployModelAdminResponse,
     ]
-    """DeployNamespaceModelAdmin deploy a model to online state"""
+    """DeployModelAdmin deploy a model to online state"""
 
-    UndeployNamespaceModelAdmin: grpc.UnaryUnaryMultiCallable[
-        model.v1alpha.model_pb2.UndeployNamespaceModelAdminRequest,
-        model.v1alpha.model_pb2.UndeployNamespaceModelAdminResponse,
+    UndeployModelAdmin: grpc.UnaryUnaryMultiCallable[
+        model.v1alpha.model_pb2.UndeployModelAdminRequest,
+        model.v1alpha.model_pb2.UndeployModelAdminResponse,
     ]
-    """UndeployNamespaceModelAdmin undeploy a model to offline state"""
+    """UndeployModelAdmin undeploy a model to offline state"""
 
     ListRepositoryTags: grpc.UnaryUnaryMultiCallable[
         model.v1alpha.model_pb2.ListRepositoryTagsRequest,
@@ -109,17 +109,17 @@ class ModelPrivateServiceAsyncStub:
     returns a LookUpModelAdminResponse
     """
 
-    DeployNamespaceModelAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        model.v1alpha.model_pb2.DeployNamespaceModelAdminRequest,
-        model.v1alpha.model_pb2.DeployNamespaceModelAdminResponse,
+    DeployModelAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        model.v1alpha.model_pb2.DeployModelAdminRequest,
+        model.v1alpha.model_pb2.DeployModelAdminResponse,
     ]
-    """DeployNamespaceModelAdmin deploy a model to online state"""
+    """DeployModelAdmin deploy a model to online state"""
 
-    UndeployNamespaceModelAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        model.v1alpha.model_pb2.UndeployNamespaceModelAdminRequest,
-        model.v1alpha.model_pb2.UndeployNamespaceModelAdminResponse,
+    UndeployModelAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        model.v1alpha.model_pb2.UndeployModelAdminRequest,
+        model.v1alpha.model_pb2.UndeployModelAdminResponse,
     ]
-    """UndeployNamespaceModelAdmin undeploy a model to offline state"""
+    """UndeployModelAdmin undeploy a model to offline state"""
 
     ListRepositoryTags: grpc.aio.UnaryUnaryMultiCallable[
         model.v1alpha.model_pb2.ListRepositoryTagsRequest,
@@ -184,20 +184,20 @@ class ModelPrivateServiceServicer(metaclass=abc.ABCMeta):
         """
 
     @abc.abstractmethod
-    def DeployNamespaceModelAdmin(
+    def DeployModelAdmin(
         self,
-        request: model.v1alpha.model_pb2.DeployNamespaceModelAdminRequest,
+        request: model.v1alpha.model_pb2.DeployModelAdminRequest,
         context: _ServicerContext,
-    ) -> typing.Union[model.v1alpha.model_pb2.DeployNamespaceModelAdminResponse, collections.abc.Awaitable[model.v1alpha.model_pb2.DeployNamespaceModelAdminResponse]]:
-        """DeployNamespaceModelAdmin deploy a model to online state"""
+    ) -> typing.Union[model.v1alpha.model_pb2.DeployModelAdminResponse, collections.abc.Awaitable[model.v1alpha.model_pb2.DeployModelAdminResponse]]:
+        """DeployModelAdmin deploy a model to online state"""
 
     @abc.abstractmethod
-    def UndeployNamespaceModelAdmin(
+    def UndeployModelAdmin(
         self,
-        request: model.v1alpha.model_pb2.UndeployNamespaceModelAdminRequest,
+        request: model.v1alpha.model_pb2.UndeployModelAdminRequest,
         context: _ServicerContext,
-    ) -> typing.Union[model.v1alpha.model_pb2.UndeployNamespaceModelAdminResponse, collections.abc.Awaitable[model.v1alpha.model_pb2.UndeployNamespaceModelAdminResponse]]:
-        """UndeployNamespaceModelAdmin undeploy a model to offline state"""
+    ) -> typing.Union[model.v1alpha.model_pb2.UndeployModelAdminResponse, collections.abc.Awaitable[model.v1alpha.model_pb2.UndeployModelAdminResponse]]:
+        """UndeployModelAdmin undeploy a model to offline state"""
 
     @abc.abstractmethod
     def ListRepositoryTags(

@@ -33,7 +33,6 @@ class System(google.protobuf.message.Message):
 
     Field ordering follows AIP standard: name(1), id(2), display_name(3),
     slug(4), aliases(5), description(6)
-    ===== Standard AIP fields 1-6 (ALL resources must follow this order) =====
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -135,17 +134,18 @@ class GetSystemAdminRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    SYSTEM_ID_FIELD_NUMBER: builtins.int
-    system_id: builtins.str
-    """System ID (e.g., "sys-8f3a2k9e7c1") or slug (e.g., "openai")
+    NAME_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the system to retrieve.
+    Format: `systems/{system}`
     If not specified, returns the default system.
     """
     def __init__(
         self,
         *,
-        system_id: builtins.str = ...,
+        name: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["system_id", b"system_id"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["name", b"name"]) -> None: ...
 
 global___GetSystemAdminRequest = GetSystemAdminRequest
 
@@ -226,13 +226,7 @@ class UpdateSystemAdminRequest(google.protobuf.message.Message):
 
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
-        """The update mask specifies the subset of fields that should be modified.
-        Fields specified in the mask are relative to the system (e.g., `config`,
-        `description`).
-
-        For more information about field masks, see:
-        https://google.aip.dev/161
-        """
+        """The update mask specifies the subset of fields that should be modified."""
 
     def __init__(
         self,
@@ -306,17 +300,18 @@ class DeleteSystemAdminRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    SYSTEM_ID_FIELD_NUMBER: builtins.int
-    system_id: builtins.str
-    """System ID (e.g., "sys-8f3a2k9e7c1") or slug (e.g., "openai") to delete.
+    NAME_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the system to delete.
+    Format: `systems/{system}`
     The default system cannot be deleted.
     """
     def __init__(
         self,
         *,
-        system_id: builtins.str = ...,
+        name: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["system_id", b"system_id"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["name", b"name"]) -> None: ...
 
 global___DeleteSystemAdminRequest = DeleteSystemAdminRequest
 
@@ -352,10 +347,12 @@ class RenameSystemAdminRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    SYSTEM_ID_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
     NEW_DISPLAY_NAME_FIELD_NUMBER: builtins.int
-    system_id: builtins.str
-    """System ID (e.g., "sys-8f3a2k9e7c1") or slug (e.g., "openai") to rename."""
+    name: builtins.str
+    """The resource name of the system to rename.
+    Format: `systems/{system}`
+    """
     new_display_name: builtins.str
     """The new display name. A new slug will be generated from this.
     The old slug will be added to aliases for backward compatibility.
@@ -363,10 +360,10 @@ class RenameSystemAdminRequest(google.protobuf.message.Message):
     def __init__(
         self,
         *,
-        system_id: builtins.str = ...,
+        name: builtins.str = ...,
         new_display_name: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["new_display_name", b"new_display_name", "system_id", b"system_id"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["name", b"name", "new_display_name", b"new_display_name"]) -> None: ...
 
 global___RenameSystemAdminRequest = RenameSystemAdminRequest
 
@@ -399,17 +396,17 @@ class SetDefaultSystemAdminRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    SYSTEM_ID_FIELD_NUMBER: builtins.int
-    system_id: builtins.str
-    """System ID (e.g., "sys-8f3a2k9e7c1") or slug (e.g., "openai") to set as
-    default.
+    NAME_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the system to set as default.
+    Format: `systems/{system}`
     """
     def __init__(
         self,
         *,
-        system_id: builtins.str = ...,
+        name: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["system_id", b"system_id"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["name", b"name"]) -> None: ...
 
 global___SetDefaultSystemAdminRequest = SetDefaultSystemAdminRequest
 

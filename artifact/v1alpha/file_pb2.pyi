@@ -477,7 +477,7 @@ class File(google.protobuf.message.Message):
     TOTAL_TOKENS_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
     EXTERNAL_METADATA_FIELD_NUMBER: builtins.int
-    KNOWLEDGE_BASE_IDS_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASES_FIELD_NUMBER: builtins.int
     OWNER_NAME_FIELD_NUMBER: builtins.int
     OWNER_FIELD_NUMBER: builtins.int
     CREATOR_NAME_FIELD_NUMBER: builtins.int
@@ -487,7 +487,7 @@ class File(google.protobuf.message.Message):
     DOWNLOAD_URL_FIELD_NUMBER: builtins.int
     CONVERTING_PIPELINE_FIELD_NUMBER: builtins.int
     LENGTH_FIELD_NUMBER: builtins.int
-    COLLECTION_IDS_FIELD_NUMBER: builtins.int
+    COLLECTIONS_FIELD_NUMBER: builtins.int
     DELETE_TIME_FIELD_NUMBER: builtins.int
     name: builtins.str
     """===== Standard AIP fields 1-6 (ALL resources must follow this order) =====
@@ -585,12 +585,14 @@ class File(google.protobuf.message.Message):
         """Custom metadata provided by the user during file upload."""
 
     @property
-    def knowledge_base_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+    def knowledge_bases(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """===== Knowledge base associations =====
 
-        Knowledge base IDs (hash-based) that this file is associated with.
+        Knowledge base resource names that this file is associated with.
+        Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}`
         A file can belong to multiple knowledge bases within the same namespace.
         This field is populated from the file_knowledge_base junction table.
+        Follows AIP-122 for resource name references.
         """
 
     @property
@@ -608,9 +610,11 @@ class File(google.protobuf.message.Message):
         """Length of the file in the specified unit type."""
 
     @property
-    def collection_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """Collection IDs (hash-based) that this file belongs to.
+    def collections(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """Collection resource names that this file belongs to.
+        Format: `namespaces/{namespace}/collections/{collection}`
         This field is system-managed and populated from collection membership.
+        Follows AIP-122 for resource name references.
         """
 
     @property
@@ -636,7 +640,7 @@ class File(google.protobuf.message.Message):
         total_tokens: builtins.int = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
         external_metadata: google.protobuf.struct_pb2.Struct | None = ...,
-        knowledge_base_ids: collections.abc.Iterable[builtins.str] | None = ...,
+        knowledge_bases: collections.abc.Iterable[builtins.str] | None = ...,
         owner_name: builtins.str = ...,
         owner: mgmt.v1beta.mgmt_pb2.Owner | None = ...,
         creator_name: builtins.str = ...,
@@ -646,11 +650,11 @@ class File(google.protobuf.message.Message):
         download_url: builtins.str = ...,
         converting_pipeline: builtins.str | None = ...,
         length: global___File.Position | None = ...,
-        collection_ids: collections.abc.Iterable[builtins.str] | None = ...,
+        collections: collections.abc.Iterable[builtins.str] | None = ...,
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_converting_pipeline", b"_converting_pipeline", "_creator", b"_creator", "_external_metadata", b"_external_metadata", "_owner", b"_owner", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator", b"creator", "delete_time", b"delete_time", "external_metadata", b"external_metadata", "length", b"length", "owner", b"owner", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_converting_pipeline", b"_converting_pipeline", "_creator", b"_creator", "_external_metadata", b"_external_metadata", "_owner", b"_owner", "aliases", b"aliases", "collection_ids", b"collection_ids", "content", b"content", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator", b"creator", "creator_name", b"creator_name", "delete_time", b"delete_time", "description", b"description", "display_name", b"display_name", "download_url", b"download_url", "external_metadata", b"external_metadata", "id", b"id", "knowledge_base_ids", b"knowledge_base_ids", "length", b"length", "name", b"name", "object_uid", b"object_uid", "owner", b"owner", "owner_name", b"owner_name", "process_outcome", b"process_outcome", "process_status", b"process_status", "size", b"size", "slug", b"slug", "tags", b"tags", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["_converting_pipeline", b"_converting_pipeline", "_creator", b"_creator", "_external_metadata", b"_external_metadata", "_owner", b"_owner", "aliases", b"aliases", "collections", b"collections", "content", b"content", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator", b"creator", "creator_name", b"creator_name", "delete_time", b"delete_time", "description", b"description", "display_name", b"display_name", "download_url", b"download_url", "external_metadata", b"external_metadata", "id", b"id", "knowledge_bases", b"knowledge_bases", "length", b"length", "name", b"name", "object_uid", b"object_uid", "owner", b"owner", "owner_name", b"owner_name", "process_outcome", b"process_outcome", "process_status", b"process_status", "size", b"size", "slug", b"slug", "tags", b"tags", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_converting_pipeline", b"_converting_pipeline"]) -> typing.Literal["converting_pipeline"] | None: ...
     @typing.overload
@@ -672,15 +676,16 @@ class CreateFileRequest(google.protobuf.message.Message):
 
     PARENT_FIELD_NUMBER: builtins.int
     FILE_FIELD_NUMBER: builtins.int
-    KNOWLEDGE_BASE_ID_FIELD_NUMBER: builtins.int
+    KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
     parent: builtins.str
     """The parent resource name.
     Format: `namespaces/{namespace}`
     """
-    knowledge_base_id: builtins.str
-    """The knowledge base ID to associate this file with.
+    knowledge_base: builtins.str
+    """The knowledge base resource name to associate this file with.
+    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}`
     Files can be associated with multiple KBs, this specifies the initial
-    association.
+    association. Follows AIP-122 for resource name references.
     """
     @property
     def file(self) -> global___File:
@@ -691,10 +696,10 @@ class CreateFileRequest(google.protobuf.message.Message):
         *,
         parent: builtins.str = ...,
         file: global___File | None = ...,
-        knowledge_base_id: builtins.str = ...,
+        knowledge_base: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["file", b"file"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["file", b"file", "knowledge_base_id", b"knowledge_base_id", "parent", b"parent"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["file", b"file", "knowledge_base", b"knowledge_base", "parent", b"parent"]) -> None: ...
 
 global___CreateFileRequest = CreateFileRequest
 
@@ -747,15 +752,17 @@ class DeleteFileResponse(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    FILE_ID_FIELD_NUMBER: builtins.int
-    file_id: builtins.str
-    """The file id."""
+    NAME_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the deleted file.
+    Format: `namespaces/{namespace}/files/{file}`
+    """
     def __init__(
         self,
         *,
-        file_id: builtins.str = ...,
+        name: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["file_id", b"file_id"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["name", b"name"]) -> None: ...
 
 global___DeleteFileResponse = DeleteFileResponse
 
@@ -768,15 +775,17 @@ class DeleteFileAdminRequest(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    FILE_ID_FIELD_NUMBER: builtins.int
-    file_id: builtins.str
-    """The file id."""
+    NAME_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the file to delete.
+    Format: `namespaces/{namespace}/files/{file}`
+    """
     def __init__(
         self,
         *,
-        file_id: builtins.str = ...,
+        name: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["file_id", b"file_id"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["name", b"name"]) -> None: ...
 
 global___DeleteFileAdminRequest = DeleteFileAdminRequest
 
@@ -788,15 +797,17 @@ class DeleteFileAdminResponse(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    FILE_ID_FIELD_NUMBER: builtins.int
-    file_id: builtins.str
-    """The file id."""
+    NAME_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the deleted file.
+    Format: `namespaces/{namespace}/files/{file}`
+    """
     def __init__(
         self,
         *,
-        file_id: builtins.str = ...,
+        name: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["file_id", b"file_id"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["name", b"name"]) -> None: ...
 
 global___DeleteFileAdminResponse = DeleteFileAdminResponse
 
@@ -977,11 +988,7 @@ class UpdateFileRequest(google.protobuf.message.Message):
 
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
-        """The update mask specifies the subset of fields that should be modified.
-
-        For more information about this field, see
-        https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#field-mask.
-        """
+        """The update mask specifies the subset of fields that should be modified."""
 
     def __init__(
         self,
