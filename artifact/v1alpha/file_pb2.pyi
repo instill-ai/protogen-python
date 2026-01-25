@@ -483,12 +483,12 @@ class File(google.protobuf.message.Message):
     CREATOR_NAME_FIELD_NUMBER: builtins.int
     CREATOR_FIELD_NUMBER: builtins.int
     CONTENT_FIELD_NUMBER: builtins.int
-    OBJECT_UID_FIELD_NUMBER: builtins.int
     DOWNLOAD_URL_FIELD_NUMBER: builtins.int
     CONVERTING_PIPELINE_FIELD_NUMBER: builtins.int
     LENGTH_FIELD_NUMBER: builtins.int
     COLLECTIONS_FIELD_NUMBER: builtins.int
     DELETE_TIME_FIELD_NUMBER: builtins.int
+    OBJECT_FIELD_NUMBER: builtins.int
     name: builtins.str
     """===== Standard AIP fields 1-6 (ALL resources must follow this order) =====
 
@@ -541,22 +541,24 @@ class File(google.protobuf.message.Message):
     """===== Upload and content fields =====
 
     Base64-encoded file content for inline upload.
-    Alternative to object_uid for smaller files.
-    """
-    object_uid: builtins.str
-    """Object UID referencing a file already uploaded to blob storage.
-    Two upload approaches are supported:
-    1. Direct upload: Upload file directly to MinIO via GetObjectUploadURL,
-    then provide the object_uid here.
-       This avoids base64 encoding overhead and is preferred for large files.
-    2. Inline content: Provide base64-encoded file content in the 'content'
-    field. When object_uid is provided, the 'content' field is ignored.
+    Alternative to object field for smaller files.
     """
     download_url: builtins.str
     """Pre-signed download URL for the file."""
     converting_pipeline: builtins.str
     """Pipeline used for converting the file to Markdown if the file is a
     document (i.e., a file with pdf, doc[x] or ppt[x] extension).
+    """
+    object: builtins.str
+    """Object resource name reference for blob storage upload.
+    Format: `namespaces/{namespace}/objects/{object}`
+    Two upload approaches are supported:
+    1. Direct upload: Upload file directly to MinIO via GetObjectUploadURL,
+       then provide the object resource name here.
+       This avoids base64 encoding overhead and is preferred for large files.
+    2. Inline content: Provide base64-encoded file content in the 'content'
+       field. When object is provided, the 'content' field is ignored.
+    Follows AIP-122 for resource name references.
     """
     @property
     def aliases(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
@@ -646,15 +648,15 @@ class File(google.protobuf.message.Message):
         creator_name: builtins.str = ...,
         creator: mgmt.v1beta.mgmt_pb2.User | None = ...,
         content: builtins.str = ...,
-        object_uid: builtins.str = ...,
         download_url: builtins.str = ...,
         converting_pipeline: builtins.str | None = ...,
         length: global___File.Position | None = ...,
         collections: collections.abc.Iterable[builtins.str] | None = ...,
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        object: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_converting_pipeline", b"_converting_pipeline", "_creator", b"_creator", "_external_metadata", b"_external_metadata", "_owner", b"_owner", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator", b"creator", "delete_time", b"delete_time", "external_metadata", b"external_metadata", "length", b"length", "owner", b"owner", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_converting_pipeline", b"_converting_pipeline", "_creator", b"_creator", "_external_metadata", b"_external_metadata", "_owner", b"_owner", "aliases", b"aliases", "collections", b"collections", "content", b"content", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator", b"creator", "creator_name", b"creator_name", "delete_time", b"delete_time", "description", b"description", "display_name", b"display_name", "download_url", b"download_url", "external_metadata", b"external_metadata", "id", b"id", "knowledge_bases", b"knowledge_bases", "length", b"length", "name", b"name", "object_uid", b"object_uid", "owner", b"owner", "owner_name", b"owner_name", "process_outcome", b"process_outcome", "process_status", b"process_status", "size", b"size", "slug", b"slug", "tags", b"tags", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["_converting_pipeline", b"_converting_pipeline", "_creator", b"_creator", "_external_metadata", b"_external_metadata", "_owner", b"_owner", "aliases", b"aliases", "collections", b"collections", "content", b"content", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator", b"creator", "creator_name", b"creator_name", "delete_time", b"delete_time", "description", b"description", "display_name", b"display_name", "download_url", b"download_url", "external_metadata", b"external_metadata", "id", b"id", "knowledge_bases", b"knowledge_bases", "length", b"length", "name", b"name", "object", b"object", "owner", b"owner", "owner_name", b"owner_name", "process_outcome", b"process_outcome", "process_status", b"process_status", "size", b"size", "slug", b"slug", "tags", b"tags", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_converting_pipeline", b"_converting_pipeline"]) -> typing.Literal["converting_pipeline"] | None: ...
     @typing.overload
