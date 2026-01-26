@@ -7,6 +7,7 @@ import abc
 import collections.abc
 import grpc
 import grpc.aio
+import mgmt.v1beta.integration_pb2
 import mgmt.v1beta.metric_pb2
 import mgmt.v1beta.mgmt_pb2
 import typing
@@ -230,6 +231,95 @@ class MgmtPublicServiceStub:
     Checks the validity of an access token.
     """
 
+    ListNamespaceConnections: grpc.UnaryUnaryMultiCallable[
+        mgmt.v1beta.integration_pb2.ListNamespaceConnectionsRequest,
+        mgmt.v1beta.integration_pb2.ListNamespaceConnectionsResponse,
+    ]
+    """List namespace connections
+
+    Returns a paginated list of connections created by a namespace.
+    """
+
+    GetNamespaceConnection: grpc.UnaryUnaryMultiCallable[
+        mgmt.v1beta.integration_pb2.GetNamespaceConnectionRequest,
+        mgmt.v1beta.integration_pb2.GetNamespaceConnectionResponse,
+    ]
+    """Get a namespace connection
+
+    Returns the details of a connection.
+    """
+
+    CreateNamespaceConnection: grpc.UnaryUnaryMultiCallable[
+        mgmt.v1beta.integration_pb2.CreateNamespaceConnectionRequest,
+        mgmt.v1beta.integration_pb2.CreateNamespaceConnectionResponse,
+    ]
+    """Create a connection
+
+    Creates a connection under the ownership of a namespace.
+    """
+
+    UpdateNamespaceConnection: grpc.UnaryUnaryMultiCallable[
+        mgmt.v1beta.integration_pb2.UpdateNamespaceConnectionRequest,
+        mgmt.v1beta.integration_pb2.UpdateNamespaceConnectionResponse,
+    ]
+    """Update a connection
+
+    Updates a connection with the supplied connection fields.
+    """
+
+    DeleteNamespaceConnection: grpc.UnaryUnaryMultiCallable[
+        mgmt.v1beta.integration_pb2.DeleteNamespaceConnectionRequest,
+        mgmt.v1beta.integration_pb2.DeleteNamespaceConnectionResponse,
+    ]
+    """Delete a connection
+
+    Deletes a connection.
+    """
+
+    TestNamespaceConnection: grpc.UnaryUnaryMultiCallable[
+        mgmt.v1beta.integration_pb2.TestNamespaceConnectionRequest,
+        mgmt.v1beta.integration_pb2.TestNamespaceConnectionResponse,
+    ]
+    """Test a connection
+
+    Makes a request to the 3rd party app that the connection is configured to
+    communicate with, and checks the result of the call. If the test fails,
+    the response status and error message will provide more information about
+    the failure.
+
+    Note that this action might affect the quota or billing of the integrated
+    account in the 3rd party app.
+    """
+
+    ListPipelineIDsByConnectionID: grpc.UnaryUnaryMultiCallable[
+        mgmt.v1beta.integration_pb2.ListPipelineIDsByConnectionIDRequest,
+        mgmt.v1beta.integration_pb2.ListPipelineIDsByConnectionIDResponse,
+    ]
+    """List pipelines that reference a connection
+
+    Returns a paginated list with the IDs of the pipelines that reference a
+    given connection. All the pipelines will belong to the same namespace as
+    the connection.
+    """
+
+    ListIntegrations: grpc.UnaryUnaryMultiCallable[
+        mgmt.v1beta.integration_pb2.ListIntegrationsRequest,
+        mgmt.v1beta.integration_pb2.ListIntegrationsResponse,
+    ]
+    """List integrations
+
+    Returns a paginated list of available integrations.
+    """
+
+    GetIntegration: grpc.UnaryUnaryMultiCallable[
+        mgmt.v1beta.integration_pb2.GetIntegrationRequest,
+        mgmt.v1beta.integration_pb2.GetIntegrationResponse,
+    ]
+    """Get an integration
+
+    Returns the details of an integration.
+    """
+
 class MgmtPublicServiceAsyncStub:
     """MGMT
 
@@ -439,6 +529,95 @@ class MgmtPublicServiceAsyncStub:
     """Validate an access token
 
     Checks the validity of an access token.
+    """
+
+    ListNamespaceConnections: grpc.aio.UnaryUnaryMultiCallable[
+        mgmt.v1beta.integration_pb2.ListNamespaceConnectionsRequest,
+        mgmt.v1beta.integration_pb2.ListNamespaceConnectionsResponse,
+    ]
+    """List namespace connections
+
+    Returns a paginated list of connections created by a namespace.
+    """
+
+    GetNamespaceConnection: grpc.aio.UnaryUnaryMultiCallable[
+        mgmt.v1beta.integration_pb2.GetNamespaceConnectionRequest,
+        mgmt.v1beta.integration_pb2.GetNamespaceConnectionResponse,
+    ]
+    """Get a namespace connection
+
+    Returns the details of a connection.
+    """
+
+    CreateNamespaceConnection: grpc.aio.UnaryUnaryMultiCallable[
+        mgmt.v1beta.integration_pb2.CreateNamespaceConnectionRequest,
+        mgmt.v1beta.integration_pb2.CreateNamespaceConnectionResponse,
+    ]
+    """Create a connection
+
+    Creates a connection under the ownership of a namespace.
+    """
+
+    UpdateNamespaceConnection: grpc.aio.UnaryUnaryMultiCallable[
+        mgmt.v1beta.integration_pb2.UpdateNamespaceConnectionRequest,
+        mgmt.v1beta.integration_pb2.UpdateNamespaceConnectionResponse,
+    ]
+    """Update a connection
+
+    Updates a connection with the supplied connection fields.
+    """
+
+    DeleteNamespaceConnection: grpc.aio.UnaryUnaryMultiCallable[
+        mgmt.v1beta.integration_pb2.DeleteNamespaceConnectionRequest,
+        mgmt.v1beta.integration_pb2.DeleteNamespaceConnectionResponse,
+    ]
+    """Delete a connection
+
+    Deletes a connection.
+    """
+
+    TestNamespaceConnection: grpc.aio.UnaryUnaryMultiCallable[
+        mgmt.v1beta.integration_pb2.TestNamespaceConnectionRequest,
+        mgmt.v1beta.integration_pb2.TestNamespaceConnectionResponse,
+    ]
+    """Test a connection
+
+    Makes a request to the 3rd party app that the connection is configured to
+    communicate with, and checks the result of the call. If the test fails,
+    the response status and error message will provide more information about
+    the failure.
+
+    Note that this action might affect the quota or billing of the integrated
+    account in the 3rd party app.
+    """
+
+    ListPipelineIDsByConnectionID: grpc.aio.UnaryUnaryMultiCallable[
+        mgmt.v1beta.integration_pb2.ListPipelineIDsByConnectionIDRequest,
+        mgmt.v1beta.integration_pb2.ListPipelineIDsByConnectionIDResponse,
+    ]
+    """List pipelines that reference a connection
+
+    Returns a paginated list with the IDs of the pipelines that reference a
+    given connection. All the pipelines will belong to the same namespace as
+    the connection.
+    """
+
+    ListIntegrations: grpc.aio.UnaryUnaryMultiCallable[
+        mgmt.v1beta.integration_pb2.ListIntegrationsRequest,
+        mgmt.v1beta.integration_pb2.ListIntegrationsResponse,
+    ]
+    """List integrations
+
+    Returns a paginated list of available integrations.
+    """
+
+    GetIntegration: grpc.aio.UnaryUnaryMultiCallable[
+        mgmt.v1beta.integration_pb2.GetIntegrationRequest,
+        mgmt.v1beta.integration_pb2.GetIntegrationResponse,
+    ]
+    """Get an integration
+
+    Returns the details of an integration.
     """
 
 class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
@@ -692,6 +871,113 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         """Validate an access token
 
         Checks the validity of an access token.
+        """
+
+    @abc.abstractmethod
+    def ListNamespaceConnections(
+        self,
+        request: mgmt.v1beta.integration_pb2.ListNamespaceConnectionsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[mgmt.v1beta.integration_pb2.ListNamespaceConnectionsResponse, collections.abc.Awaitable[mgmt.v1beta.integration_pb2.ListNamespaceConnectionsResponse]]:
+        """List namespace connections
+
+        Returns a paginated list of connections created by a namespace.
+        """
+
+    @abc.abstractmethod
+    def GetNamespaceConnection(
+        self,
+        request: mgmt.v1beta.integration_pb2.GetNamespaceConnectionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[mgmt.v1beta.integration_pb2.GetNamespaceConnectionResponse, collections.abc.Awaitable[mgmt.v1beta.integration_pb2.GetNamespaceConnectionResponse]]:
+        """Get a namespace connection
+
+        Returns the details of a connection.
+        """
+
+    @abc.abstractmethod
+    def CreateNamespaceConnection(
+        self,
+        request: mgmt.v1beta.integration_pb2.CreateNamespaceConnectionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[mgmt.v1beta.integration_pb2.CreateNamespaceConnectionResponse, collections.abc.Awaitable[mgmt.v1beta.integration_pb2.CreateNamespaceConnectionResponse]]:
+        """Create a connection
+
+        Creates a connection under the ownership of a namespace.
+        """
+
+    @abc.abstractmethod
+    def UpdateNamespaceConnection(
+        self,
+        request: mgmt.v1beta.integration_pb2.UpdateNamespaceConnectionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[mgmt.v1beta.integration_pb2.UpdateNamespaceConnectionResponse, collections.abc.Awaitable[mgmt.v1beta.integration_pb2.UpdateNamespaceConnectionResponse]]:
+        """Update a connection
+
+        Updates a connection with the supplied connection fields.
+        """
+
+    @abc.abstractmethod
+    def DeleteNamespaceConnection(
+        self,
+        request: mgmt.v1beta.integration_pb2.DeleteNamespaceConnectionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[mgmt.v1beta.integration_pb2.DeleteNamespaceConnectionResponse, collections.abc.Awaitable[mgmt.v1beta.integration_pb2.DeleteNamespaceConnectionResponse]]:
+        """Delete a connection
+
+        Deletes a connection.
+        """
+
+    @abc.abstractmethod
+    def TestNamespaceConnection(
+        self,
+        request: mgmt.v1beta.integration_pb2.TestNamespaceConnectionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[mgmt.v1beta.integration_pb2.TestNamespaceConnectionResponse, collections.abc.Awaitable[mgmt.v1beta.integration_pb2.TestNamespaceConnectionResponse]]:
+        """Test a connection
+
+        Makes a request to the 3rd party app that the connection is configured to
+        communicate with, and checks the result of the call. If the test fails,
+        the response status and error message will provide more information about
+        the failure.
+
+        Note that this action might affect the quota or billing of the integrated
+        account in the 3rd party app.
+        """
+
+    @abc.abstractmethod
+    def ListPipelineIDsByConnectionID(
+        self,
+        request: mgmt.v1beta.integration_pb2.ListPipelineIDsByConnectionIDRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[mgmt.v1beta.integration_pb2.ListPipelineIDsByConnectionIDResponse, collections.abc.Awaitable[mgmt.v1beta.integration_pb2.ListPipelineIDsByConnectionIDResponse]]:
+        """List pipelines that reference a connection
+
+        Returns a paginated list with the IDs of the pipelines that reference a
+        given connection. All the pipelines will belong to the same namespace as
+        the connection.
+        """
+
+    @abc.abstractmethod
+    def ListIntegrations(
+        self,
+        request: mgmt.v1beta.integration_pb2.ListIntegrationsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[mgmt.v1beta.integration_pb2.ListIntegrationsResponse, collections.abc.Awaitable[mgmt.v1beta.integration_pb2.ListIntegrationsResponse]]:
+        """List integrations
+
+        Returns a paginated list of available integrations.
+        """
+
+    @abc.abstractmethod
+    def GetIntegration(
+        self,
+        request: mgmt.v1beta.integration_pb2.GetIntegrationRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[mgmt.v1beta.integration_pb2.GetIntegrationResponse, collections.abc.Awaitable[mgmt.v1beta.integration_pb2.GetIntegrationResponse]]:
+        """Get an integration
+
+        Returns the details of an integration.
         """
 
 def add_MgmtPublicServiceServicer_to_server(servicer: MgmtPublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

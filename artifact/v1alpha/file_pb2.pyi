@@ -493,7 +493,7 @@ class File(google.protobuf.message.Message):
     """===== Standard AIP fields 1-6 (ALL resources must follow this order) =====
 
     Field 1: Canonical resource name.
-    Format: `namespaces/{namespace}/files/{file}`.
+    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}`.
     """
     id: builtins.str
     """Field 2: Immutable canonical resource ID (80-96 bits entropy, base62).
@@ -670,7 +670,7 @@ global___File = File
 
 @typing.final
 class CreateFileRequest(google.protobuf.message.Message):
-    """CreateFileRequest represents a request to create a file.
+    """CreateFileRequest represents a request to create a file in a knowledge base.
     Follows AIP-133: https://google.aip.dev/133
     """
 
@@ -678,16 +678,9 @@ class CreateFileRequest(google.protobuf.message.Message):
 
     PARENT_FIELD_NUMBER: builtins.int
     FILE_FIELD_NUMBER: builtins.int
-    KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
     parent: builtins.str
-    """The parent resource name.
-    Format: `namespaces/{namespace}`
-    """
-    knowledge_base: builtins.str
-    """The knowledge base resource name to associate this file with.
+    """The parent resource name (knowledge base).
     Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}`
-    Files can be associated with multiple KBs, this specifies the initial
-    association. Follows AIP-122 for resource name references.
     """
     @property
     def file(self) -> global___File:
@@ -698,10 +691,9 @@ class CreateFileRequest(google.protobuf.message.Message):
         *,
         parent: builtins.str = ...,
         file: global___File | None = ...,
-        knowledge_base: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["file", b"file"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["file", b"file", "knowledge_base", b"knowledge_base", "parent", b"parent"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["file", b"file", "parent", b"parent"]) -> None: ...
 
 global___CreateFileRequest = CreateFileRequest
 
@@ -737,7 +729,7 @@ class DeleteFileRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the file to delete.
-    Format: `namespaces/{namespace}/files/{file}`
+    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}`
     """
     def __init__(
         self,
@@ -757,7 +749,7 @@ class DeleteFileResponse(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the deleted file.
-    Format: `namespaces/{namespace}/files/{file}`
+    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}`
     """
     def __init__(
         self,
@@ -780,7 +772,7 @@ class DeleteFileAdminRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the file to delete.
-    Format: `namespaces/{namespace}/files/{file}`
+    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}`
     """
     def __init__(
         self,
@@ -802,7 +794,7 @@ class DeleteFileAdminResponse(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the deleted file.
-    Format: `namespaces/{namespace}/files/{file}`
+    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}`
     """
     def __init__(
         self,
@@ -815,7 +807,7 @@ global___DeleteFileAdminResponse = DeleteFileAdminResponse
 
 @typing.final
 class ListFilesRequest(google.protobuf.message.Message):
-    """ListFilesRequest represents a request to list files.
+    """ListFilesRequest represents a request to list files in a knowledge base.
     Follows AIP-132: https://google.aip.dev/132
     """
 
@@ -826,8 +818,8 @@ class ListFilesRequest(google.protobuf.message.Message):
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     parent: builtins.str
-    """The parent resource name.
-    Format: `namespaces/{namespace}`
+    """The parent resource name (knowledge base).
+    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}`
     """
     page_size: builtins.int
     """The page size (default:10; max 100)."""
@@ -909,7 +901,7 @@ class GetFileRequest(google.protobuf.message.Message):
     STORAGE_PROVIDER_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the file to retrieve.
-    Format: `namespaces/{namespace}/files/{file}`
+    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}`
     """
     view: global___File.View.ValueType
     """View allows clients to specify the desired file view in the response."""
@@ -985,7 +977,7 @@ class UpdateFileRequest(google.protobuf.message.Message):
     @property
     def file(self) -> global___File:
         """The file resource to update. The file's `name` field identifies the
-        resource. Format: `namespaces/{namespace}/files/{file}`
+        resource. Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}`
         """
 
     @property
@@ -1033,7 +1025,7 @@ class ReprocessFileRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the file to reprocess.
-    Format: `namespaces/{namespace}/files/{file}`
+    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}`
     """
     def __init__(
         self,
@@ -1085,7 +1077,7 @@ class UpdateFileAdminRequest(google.protobuf.message.Message):
     @property
     def file(self) -> global___File:
         """The file resource to update. The file's `name` field identifies the
-        resource. Format: `namespaces/{namespace}/files/{file}`
+        resource. Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}`
         """
 
     @property

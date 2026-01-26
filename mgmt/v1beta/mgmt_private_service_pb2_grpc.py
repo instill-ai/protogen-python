@@ -2,6 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+from mgmt.v1beta import integration_pb2 as mgmt_dot_v1beta_dot_integration__pb2
 from mgmt.v1beta import mgmt_pb2 as mgmt_dot_v1beta_dot_mgmt__pb2
 
 
@@ -54,6 +55,11 @@ class MgmtPrivateServiceStub(object):
                 '/mgmt.v1beta.MgmtPrivateService/CheckNamespaceByUIDAdmin',
                 request_serializer=mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceByUIDAdminRequest.SerializeToString,
                 response_deserializer=mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceByUIDAdminResponse.FromString,
+                _registered_method=True)
+        self.LookUpConnectionAdmin = channel.unary_unary(
+                '/mgmt.v1beta.MgmtPrivateService/LookUpConnectionAdmin',
+                request_serializer=mgmt_dot_v1beta_dot_integration__pb2.LookUpConnectionAdminRequest.SerializeToString,
+                response_deserializer=mgmt_dot_v1beta_dot_integration__pb2.LookUpConnectionAdminResponse.FromString,
                 _registered_method=True)
 
 
@@ -129,6 +135,16 @@ class MgmtPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def LookUpConnectionAdmin(self, request, context):
+        """Get a connection by UID (admin only)
+
+        This *private* method allows internal clients to access any connection
+        resource by UID.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_MgmtPrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -171,6 +187,11 @@ def add_MgmtPrivateServiceServicer_to_server(servicer, server):
                     servicer.CheckNamespaceByUIDAdmin,
                     request_deserializer=mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceByUIDAdminRequest.FromString,
                     response_serializer=mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceByUIDAdminResponse.SerializeToString,
+            ),
+            'LookUpConnectionAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.LookUpConnectionAdmin,
+                    request_deserializer=mgmt_dot_v1beta_dot_integration__pb2.LookUpConnectionAdminRequest.FromString,
+                    response_serializer=mgmt_dot_v1beta_dot_integration__pb2.LookUpConnectionAdminResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -390,6 +411,33 @@ class MgmtPrivateService(object):
             '/mgmt.v1beta.MgmtPrivateService/CheckNamespaceByUIDAdmin',
             mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceByUIDAdminRequest.SerializeToString,
             mgmt_dot_v1beta_dot_mgmt__pb2.CheckNamespaceByUIDAdminResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def LookUpConnectionAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/mgmt.v1beta.MgmtPrivateService/LookUpConnectionAdmin',
+            mgmt_dot_v1beta_dot_integration__pb2.LookUpConnectionAdminRequest.SerializeToString,
+            mgmt_dot_v1beta_dot_integration__pb2.LookUpConnectionAdminResponse.FromString,
             options,
             channel_credentials,
             insecure,

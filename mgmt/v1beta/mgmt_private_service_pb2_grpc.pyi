@@ -7,6 +7,7 @@ import abc
 import collections.abc
 import grpc
 import grpc.aio
+import mgmt.v1beta.integration_pb2
 import mgmt.v1beta.mgmt_pb2
 import typing
 
@@ -89,6 +90,16 @@ class MgmtPrivateServiceStub:
     resource that is using it.
     """
 
+    LookUpConnectionAdmin: grpc.UnaryUnaryMultiCallable[
+        mgmt.v1beta.integration_pb2.LookUpConnectionAdminRequest,
+        mgmt.v1beta.integration_pb2.LookUpConnectionAdminResponse,
+    ]
+    """Get a connection by UID (admin only)
+
+    This *private* method allows internal clients to access any connection
+    resource by UID.
+    """
+
 class MgmtPrivateServiceAsyncStub:
     """Mgmt service responds to internal access"""
 
@@ -158,6 +169,16 @@ class MgmtPrivateServiceAsyncStub:
 
     Returns the availability of a namespace or, alternatively, the type of
     resource that is using it.
+    """
+
+    LookUpConnectionAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        mgmt.v1beta.integration_pb2.LookUpConnectionAdminRequest,
+        mgmt.v1beta.integration_pb2.LookUpConnectionAdminResponse,
+    ]
+    """Get a connection by UID (admin only)
+
+    This *private* method allows internal clients to access any connection
+    resource by UID.
     """
 
 class MgmtPrivateServiceServicer(metaclass=abc.ABCMeta):
@@ -245,6 +266,18 @@ class MgmtPrivateServiceServicer(metaclass=abc.ABCMeta):
 
         Returns the availability of a namespace or, alternatively, the type of
         resource that is using it.
+        """
+
+    @abc.abstractmethod
+    def LookUpConnectionAdmin(
+        self,
+        request: mgmt.v1beta.integration_pb2.LookUpConnectionAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[mgmt.v1beta.integration_pb2.LookUpConnectionAdminResponse, collections.abc.Awaitable[mgmt.v1beta.integration_pb2.LookUpConnectionAdminResponse]]:
+        """Get a connection by UID (admin only)
+
+        This *private* method allows internal clients to access any connection
+        resource by UID.
         """
 
 def add_MgmtPrivateServiceServicer_to_server(servicer: MgmtPrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

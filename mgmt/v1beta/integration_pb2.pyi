@@ -12,7 +12,7 @@ import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.struct_pb2
 import google.protobuf.timestamp_pb2
-import pipeline.v1beta.common_pb2
+import mgmt.v1beta.mgmt_pb2
 import sys
 import typing
 
@@ -117,7 +117,7 @@ class Connection(google.protobuf.message.Message):
     """Field 12: Connection method. It references the setup schema provided by the
     integration.
     """
-    view: pipeline.v1beta.common_pb2.View.ValueType
+    view: mgmt.v1beta.mgmt_pb2.View.ValueType
     """Field 14: View defines how the connection is presented. The following
     fields are only shown in the FULL view:
     - setup
@@ -185,7 +185,7 @@ class Connection(google.protobuf.message.Message):
         integration_title: builtins.str = ...,
         method: global___Connection.Method.ValueType = ...,
         setup: google.protobuf.struct_pb2.Struct | None = ...,
-        view: pipeline.v1beta.common_pb2.View.ValueType = ...,
+        view: mgmt.v1beta.mgmt_pb2.View.ValueType = ...,
         scopes: collections.abc.Iterable[builtins.str] | None = ...,
         o_auth_access_details: google.protobuf.struct_pb2.Struct | None = ...,
         identity: builtins.str | None = ...,
@@ -297,13 +297,13 @@ class GetNamespaceConnectionRequest(google.protobuf.message.Message):
     """The resource name of the connection.
     Format: `namespaces/{namespace}/connections/{connection}`
     """
-    view: pipeline.v1beta.common_pb2.View.ValueType
+    view: mgmt.v1beta.mgmt_pb2.View.ValueType
     """View allows clients to specify the desired view in the response."""
     def __init__(
         self,
         *,
         name: builtins.str = ...,
-        view: pipeline.v1beta.common_pb2.View.ValueType | None = ...,
+        view: mgmt.v1beta.mgmt_pb2.View.ValueType | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["_view", b"_view", "name", b"name", "view", b"view"]) -> None: ...
@@ -595,7 +595,7 @@ class Integration(google.protobuf.message.Message):
     See the `icon` field in the `ComponentDefinition` entity for more
     information.
     """
-    view: pipeline.v1beta.common_pb2.View.ValueType
+    view: mgmt.v1beta.mgmt_pb2.View.ValueType
     """Field 9: View defines how the integration is presented. The following
     fields are only shown in the FULL view:
     - setupSchema
@@ -630,7 +630,7 @@ class Integration(google.protobuf.message.Message):
         help_link: global___Integration.Link | None = ...,
         setup_schema: google.protobuf.struct_pb2.Struct | None = ...,
         o_auth_config: global___Integration.OAuthConfig | None = ...,
-        view: pipeline.v1beta.common_pb2.View.ValueType = ...,
+        view: mgmt.v1beta.mgmt_pb2.View.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_help_link", b"_help_link", "_o_auth_config", b"_o_auth_config", "help_link", b"help_link", "o_auth_config", b"o_auth_config", "setup_schema", b"setup_schema"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["_help_link", b"_help_link", "_o_auth_config", b"_o_auth_config", "description", b"description", "help_link", b"help_link", "icon", b"icon", "id", b"id", "o_auth_config", b"o_auth_config", "setup_schema", b"setup_schema", "title", b"title", "vendor", b"vendor", "view", b"view"]) -> None: ...
@@ -802,13 +802,13 @@ class GetIntegrationRequest(google.protobuf.message.Message):
     VIEW_FIELD_NUMBER: builtins.int
     integration_id: builtins.str
     """Integration ID."""
-    view: pipeline.v1beta.common_pb2.View.ValueType
+    view: mgmt.v1beta.mgmt_pb2.View.ValueType
     """View allows clients to specify the desired view in the response."""
     def __init__(
         self,
         *,
         integration_id: builtins.str = ...,
-        view: pipeline.v1beta.common_pb2.View.ValueType | None = ...,
+        view: mgmt.v1beta.mgmt_pb2.View.ValueType | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["_view", b"_view", "integration_id", b"integration_id", "view", b"view"]) -> None: ...
@@ -851,7 +851,7 @@ class LookUpConnectionAdminRequest(google.protobuf.message.Message):
     """The permalink of the connection, which allows its access by UID.
     - Format: `connections/{connection.uid}`.
     """
-    view: pipeline.v1beta.common_pb2.View.ValueType
+    view: mgmt.v1beta.mgmt_pb2.View.ValueType
     """View allows clients to specify the desired view in the response. It
     defaults to `VIEW_BASIC`.
     """
@@ -859,7 +859,7 @@ class LookUpConnectionAdminRequest(google.protobuf.message.Message):
         self,
         *,
         permalink: builtins.str = ...,
-        view: pipeline.v1beta.common_pb2.View.ValueType | None = ...,
+        view: mgmt.v1beta.mgmt_pb2.View.ValueType | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["_view", b"_view", "permalink", b"permalink", "view", b"view"]) -> None: ...

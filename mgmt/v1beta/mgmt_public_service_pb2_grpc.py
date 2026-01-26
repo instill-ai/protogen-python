@@ -2,6 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+from mgmt.v1beta import integration_pb2 as mgmt_dot_v1beta_dot_integration__pb2
 from mgmt.v1beta import metric_pb2 as mgmt_dot_v1beta_dot_metric__pb2
 from mgmt.v1beta import mgmt_pb2 as mgmt_dot_v1beta_dot_mgmt__pb2
 
@@ -123,6 +124,51 @@ class MgmtPublicServiceStub(object):
                 '/mgmt.v1beta.MgmtPublicService/AuthValidateAccessToken',
                 request_serializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenRequest.SerializeToString,
                 response_deserializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenResponse.FromString,
+                _registered_method=True)
+        self.ListNamespaceConnections = channel.unary_unary(
+                '/mgmt.v1beta.MgmtPublicService/ListNamespaceConnections',
+                request_serializer=mgmt_dot_v1beta_dot_integration__pb2.ListNamespaceConnectionsRequest.SerializeToString,
+                response_deserializer=mgmt_dot_v1beta_dot_integration__pb2.ListNamespaceConnectionsResponse.FromString,
+                _registered_method=True)
+        self.GetNamespaceConnection = channel.unary_unary(
+                '/mgmt.v1beta.MgmtPublicService/GetNamespaceConnection',
+                request_serializer=mgmt_dot_v1beta_dot_integration__pb2.GetNamespaceConnectionRequest.SerializeToString,
+                response_deserializer=mgmt_dot_v1beta_dot_integration__pb2.GetNamespaceConnectionResponse.FromString,
+                _registered_method=True)
+        self.CreateNamespaceConnection = channel.unary_unary(
+                '/mgmt.v1beta.MgmtPublicService/CreateNamespaceConnection',
+                request_serializer=mgmt_dot_v1beta_dot_integration__pb2.CreateNamespaceConnectionRequest.SerializeToString,
+                response_deserializer=mgmt_dot_v1beta_dot_integration__pb2.CreateNamespaceConnectionResponse.FromString,
+                _registered_method=True)
+        self.UpdateNamespaceConnection = channel.unary_unary(
+                '/mgmt.v1beta.MgmtPublicService/UpdateNamespaceConnection',
+                request_serializer=mgmt_dot_v1beta_dot_integration__pb2.UpdateNamespaceConnectionRequest.SerializeToString,
+                response_deserializer=mgmt_dot_v1beta_dot_integration__pb2.UpdateNamespaceConnectionResponse.FromString,
+                _registered_method=True)
+        self.DeleteNamespaceConnection = channel.unary_unary(
+                '/mgmt.v1beta.MgmtPublicService/DeleteNamespaceConnection',
+                request_serializer=mgmt_dot_v1beta_dot_integration__pb2.DeleteNamespaceConnectionRequest.SerializeToString,
+                response_deserializer=mgmt_dot_v1beta_dot_integration__pb2.DeleteNamespaceConnectionResponse.FromString,
+                _registered_method=True)
+        self.TestNamespaceConnection = channel.unary_unary(
+                '/mgmt.v1beta.MgmtPublicService/TestNamespaceConnection',
+                request_serializer=mgmt_dot_v1beta_dot_integration__pb2.TestNamespaceConnectionRequest.SerializeToString,
+                response_deserializer=mgmt_dot_v1beta_dot_integration__pb2.TestNamespaceConnectionResponse.FromString,
+                _registered_method=True)
+        self.ListPipelineIDsByConnectionID = channel.unary_unary(
+                '/mgmt.v1beta.MgmtPublicService/ListPipelineIDsByConnectionID',
+                request_serializer=mgmt_dot_v1beta_dot_integration__pb2.ListPipelineIDsByConnectionIDRequest.SerializeToString,
+                response_deserializer=mgmt_dot_v1beta_dot_integration__pb2.ListPipelineIDsByConnectionIDResponse.FromString,
+                _registered_method=True)
+        self.ListIntegrations = channel.unary_unary(
+                '/mgmt.v1beta.MgmtPublicService/ListIntegrations',
+                request_serializer=mgmt_dot_v1beta_dot_integration__pb2.ListIntegrationsRequest.SerializeToString,
+                response_deserializer=mgmt_dot_v1beta_dot_integration__pb2.ListIntegrationsResponse.FromString,
+                _registered_method=True)
+        self.GetIntegration = channel.unary_unary(
+                '/mgmt.v1beta.MgmtPublicService/GetIntegration',
+                request_serializer=mgmt_dot_v1beta_dot_integration__pb2.GetIntegrationRequest.SerializeToString,
+                response_deserializer=mgmt_dot_v1beta_dot_integration__pb2.GetIntegrationResponse.FromString,
                 _registered_method=True)
 
 
@@ -337,6 +383,95 @@ class MgmtPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListNamespaceConnections(self, request, context):
+        """List namespace connections
+
+        Returns a paginated list of connections created by a namespace.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetNamespaceConnection(self, request, context):
+        """Get a namespace connection
+
+        Returns the details of a connection.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateNamespaceConnection(self, request, context):
+        """Create a connection
+
+        Creates a connection under the ownership of a namespace.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateNamespaceConnection(self, request, context):
+        """Update a connection
+
+        Updates a connection with the supplied connection fields.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteNamespaceConnection(self, request, context):
+        """Delete a connection
+
+        Deletes a connection.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TestNamespaceConnection(self, request, context):
+        """Test a connection
+
+        Makes a request to the 3rd party app that the connection is configured to
+        communicate with, and checks the result of the call. If the test fails,
+        the response status and error message will provide more information about
+        the failure.
+
+        Note that this action might affect the quota or billing of the integrated
+        account in the 3rd party app.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListPipelineIDsByConnectionID(self, request, context):
+        """List pipelines that reference a connection
+
+        Returns a paginated list with the IDs of the pipelines that reference a
+        given connection. All the pipelines will belong to the same namespace as
+        the connection.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListIntegrations(self, request, context):
+        """List integrations
+
+        Returns a paginated list of available integrations.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetIntegration(self, request, context):
+        """Get an integration
+
+        Returns the details of an integration.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_MgmtPublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -444,6 +579,51 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     servicer.AuthValidateAccessToken,
                     request_deserializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenRequest.FromString,
                     response_serializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenResponse.SerializeToString,
+            ),
+            'ListNamespaceConnections': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListNamespaceConnections,
+                    request_deserializer=mgmt_dot_v1beta_dot_integration__pb2.ListNamespaceConnectionsRequest.FromString,
+                    response_serializer=mgmt_dot_v1beta_dot_integration__pb2.ListNamespaceConnectionsResponse.SerializeToString,
+            ),
+            'GetNamespaceConnection': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetNamespaceConnection,
+                    request_deserializer=mgmt_dot_v1beta_dot_integration__pb2.GetNamespaceConnectionRequest.FromString,
+                    response_serializer=mgmt_dot_v1beta_dot_integration__pb2.GetNamespaceConnectionResponse.SerializeToString,
+            ),
+            'CreateNamespaceConnection': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateNamespaceConnection,
+                    request_deserializer=mgmt_dot_v1beta_dot_integration__pb2.CreateNamespaceConnectionRequest.FromString,
+                    response_serializer=mgmt_dot_v1beta_dot_integration__pb2.CreateNamespaceConnectionResponse.SerializeToString,
+            ),
+            'UpdateNamespaceConnection': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateNamespaceConnection,
+                    request_deserializer=mgmt_dot_v1beta_dot_integration__pb2.UpdateNamespaceConnectionRequest.FromString,
+                    response_serializer=mgmt_dot_v1beta_dot_integration__pb2.UpdateNamespaceConnectionResponse.SerializeToString,
+            ),
+            'DeleteNamespaceConnection': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteNamespaceConnection,
+                    request_deserializer=mgmt_dot_v1beta_dot_integration__pb2.DeleteNamespaceConnectionRequest.FromString,
+                    response_serializer=mgmt_dot_v1beta_dot_integration__pb2.DeleteNamespaceConnectionResponse.SerializeToString,
+            ),
+            'TestNamespaceConnection': grpc.unary_unary_rpc_method_handler(
+                    servicer.TestNamespaceConnection,
+                    request_deserializer=mgmt_dot_v1beta_dot_integration__pb2.TestNamespaceConnectionRequest.FromString,
+                    response_serializer=mgmt_dot_v1beta_dot_integration__pb2.TestNamespaceConnectionResponse.SerializeToString,
+            ),
+            'ListPipelineIDsByConnectionID': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListPipelineIDsByConnectionID,
+                    request_deserializer=mgmt_dot_v1beta_dot_integration__pb2.ListPipelineIDsByConnectionIDRequest.FromString,
+                    response_serializer=mgmt_dot_v1beta_dot_integration__pb2.ListPipelineIDsByConnectionIDResponse.SerializeToString,
+            ),
+            'ListIntegrations': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListIntegrations,
+                    request_deserializer=mgmt_dot_v1beta_dot_integration__pb2.ListIntegrationsRequest.FromString,
+                    response_serializer=mgmt_dot_v1beta_dot_integration__pb2.ListIntegrationsResponse.SerializeToString,
+            ),
+            'GetIntegration': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetIntegration,
+                    request_deserializer=mgmt_dot_v1beta_dot_integration__pb2.GetIntegrationRequest.FromString,
+                    response_serializer=mgmt_dot_v1beta_dot_integration__pb2.GetIntegrationResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1017,6 +1197,249 @@ class MgmtPublicService(object):
             '/mgmt.v1beta.MgmtPublicService/AuthValidateAccessToken',
             mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenRequest.SerializeToString,
             mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def ListNamespaceConnections(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/mgmt.v1beta.MgmtPublicService/ListNamespaceConnections',
+            mgmt_dot_v1beta_dot_integration__pb2.ListNamespaceConnectionsRequest.SerializeToString,
+            mgmt_dot_v1beta_dot_integration__pb2.ListNamespaceConnectionsResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetNamespaceConnection(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/mgmt.v1beta.MgmtPublicService/GetNamespaceConnection',
+            mgmt_dot_v1beta_dot_integration__pb2.GetNamespaceConnectionRequest.SerializeToString,
+            mgmt_dot_v1beta_dot_integration__pb2.GetNamespaceConnectionResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def CreateNamespaceConnection(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/mgmt.v1beta.MgmtPublicService/CreateNamespaceConnection',
+            mgmt_dot_v1beta_dot_integration__pb2.CreateNamespaceConnectionRequest.SerializeToString,
+            mgmt_dot_v1beta_dot_integration__pb2.CreateNamespaceConnectionResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def UpdateNamespaceConnection(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/mgmt.v1beta.MgmtPublicService/UpdateNamespaceConnection',
+            mgmt_dot_v1beta_dot_integration__pb2.UpdateNamespaceConnectionRequest.SerializeToString,
+            mgmt_dot_v1beta_dot_integration__pb2.UpdateNamespaceConnectionResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def DeleteNamespaceConnection(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/mgmt.v1beta.MgmtPublicService/DeleteNamespaceConnection',
+            mgmt_dot_v1beta_dot_integration__pb2.DeleteNamespaceConnectionRequest.SerializeToString,
+            mgmt_dot_v1beta_dot_integration__pb2.DeleteNamespaceConnectionResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def TestNamespaceConnection(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/mgmt.v1beta.MgmtPublicService/TestNamespaceConnection',
+            mgmt_dot_v1beta_dot_integration__pb2.TestNamespaceConnectionRequest.SerializeToString,
+            mgmt_dot_v1beta_dot_integration__pb2.TestNamespaceConnectionResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def ListPipelineIDsByConnectionID(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/mgmt.v1beta.MgmtPublicService/ListPipelineIDsByConnectionID',
+            mgmt_dot_v1beta_dot_integration__pb2.ListPipelineIDsByConnectionIDRequest.SerializeToString,
+            mgmt_dot_v1beta_dot_integration__pb2.ListPipelineIDsByConnectionIDResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def ListIntegrations(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/mgmt.v1beta.MgmtPublicService/ListIntegrations',
+            mgmt_dot_v1beta_dot_integration__pb2.ListIntegrationsRequest.SerializeToString,
+            mgmt_dot_v1beta_dot_integration__pb2.ListIntegrationsResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetIntegration(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/mgmt.v1beta.MgmtPublicService/GetIntegration',
+            mgmt_dot_v1beta_dot_integration__pb2.GetIntegrationRequest.SerializeToString,
+            mgmt_dot_v1beta_dot_integration__pb2.GetIntegrationResponse.FromString,
             options,
             channel_credentials,
             insecure,

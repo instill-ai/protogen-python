@@ -90,7 +90,7 @@ class Chunk(google.protobuf.message.Message):
     MARKDOWN_REFERENCE_FIELD_NUMBER: builtins.int
     name: builtins.str
     """Field 1: The resource name of the chunk.
-    Format: `namespaces/{namespace}/files/{file}/chunks/{chunk}`.
+    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}/chunks/{chunk}`.
     """
     id: builtins.str
     """Field 2: The chunk id (unique identifier)."""
@@ -103,7 +103,7 @@ class Chunk(google.protobuf.message.Message):
     """tokens of the chunk"""
     original_file: builtins.str
     """The resource name of the original file this chunk belongs to.
-    Format: `namespaces/{namespace}/files/{file}`
+    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}`
     """
     type: global___Chunk.Type.ValueType
     """chunk type"""
@@ -151,7 +151,7 @@ class ListChunksRequest(google.protobuf.message.Message):
     FILTER_FIELD_NUMBER: builtins.int
     parent: builtins.str
     """The parent resource name.
-    Format: `namespaces/{namespace}/files/{file}`
+    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}`
     """
     page_size: builtins.int
     """The maximum number of chunks to return. If this parameter is unspecified,
@@ -225,7 +225,7 @@ class GetChunkRequest(google.protobuf.message.Message):
     CHUNK_TYPE_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the chunk to retrieve.
-    Format: `namespaces/{namespace}/files/{file}/chunks/{chunk}`
+    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}/chunks/{chunk}`
     """
     chunk_type: global___Chunk.Type.ValueType
     """Optional chunk type filter. If specified, returns a chunk of this type
@@ -279,7 +279,7 @@ class UpdateChunkRequest(google.protobuf.message.Message):
     RETRIEVABLE_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the chunk to update.
-    Format: `namespaces/{namespace}/files/{file}/chunks/{chunk}`
+    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}/chunks/{chunk}`
     """
     retrievable: builtins.bool
     """whether the chunk is retrievable"""
@@ -348,7 +348,7 @@ class SearchChunksRequest(google.protobuf.message.Message):
     def files(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """File resource names to filter by. When this field is provided, the response
         will return only chunks that belong to the specified files.
-        Format: `namespaces/{namespace}/files/{file}`
+        Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}`
         """
 
     @property
@@ -406,7 +406,7 @@ class SimilarityChunk(google.protobuf.message.Message):
     CHUNK_METADATA_FIELD_NUMBER: builtins.int
     chunk: builtins.str
     """Chunk resource name.
-    Full resource name: namespaces/{namespace}/files/{file}/chunks/{chunk}
+    Full resource name: namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}/chunks/{chunk}
     """
     similarity_score: builtins.float
     """Similarity score."""
@@ -414,7 +414,7 @@ class SimilarityChunk(google.protobuf.message.Message):
     """Content."""
     file: builtins.str
     """Source file resource name.
-    Full resource name: namespaces/{namespace}/files/{file}
+    Full resource name: namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}
     """
     @property
     def chunk_metadata(self) -> global___Chunk:

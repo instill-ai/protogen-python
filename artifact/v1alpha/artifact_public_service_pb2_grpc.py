@@ -221,7 +221,7 @@ class ArtifactPublicServiceServicer(object):
     def ListFiles(self, request, context):
         """List files
 
-        Returns a paginated list of files.
+        Returns a paginated list of files in a knowledge base.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
