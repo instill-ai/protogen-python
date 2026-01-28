@@ -280,7 +280,7 @@ class UserProfile(google.protobuf.message.Message):
     company_name: builtins.str
     """Company name."""
     full_name: builtins.str
-    """Full legal name. Used for billing, invoices, and formal communications.
+    """Full legal name. Used for formal communications.
     Example: "John Doe" - this is also used to auto-generate the user ID.
     """
     @property
@@ -348,6 +348,7 @@ class OrganizationProfile(google.protobuf.message.Message):
     PUBLIC_EMAIL_FIELD_NUMBER: builtins.int
     SOCIAL_PROFILE_LINKS_FIELD_NUMBER: builtins.int
     METADATA_FIELD_NUMBER: builtins.int
+    FULL_NAME_FIELD_NUMBER: builtins.int
     display_name: builtins.str
     """Display name. Required, human-readable name for UI display.
     Example: "Instill AI" for organization ID "instill-ai"
@@ -358,6 +359,8 @@ class OrganizationProfile(google.protobuf.message.Message):
     """Avatar in base64 format."""
     public_email: builtins.str
     """Public email."""
+    full_name: builtins.str
+    """Full legal name. Used for formal communications."""
     @property
     def social_profile_links(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Social profile links list the links to the organization's social profiles.
@@ -377,13 +380,16 @@ class OrganizationProfile(google.protobuf.message.Message):
         public_email: builtins.str | None = ...,
         social_profile_links: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         metadata: google.protobuf.struct_pb2.Struct | None = ...,
+        full_name: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_avatar", b"_avatar", "_bio", b"_bio", "_public_email", b"_public_email", "avatar", b"avatar", "bio", b"bio", "metadata", b"metadata", "public_email", b"public_email"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_avatar", b"_avatar", "_bio", b"_bio", "_public_email", b"_public_email", "avatar", b"avatar", "bio", b"bio", "display_name", b"display_name", "metadata", b"metadata", "public_email", b"public_email", "social_profile_links", b"social_profile_links"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["_avatar", b"_avatar", "_bio", b"_bio", "_full_name", b"_full_name", "_public_email", b"_public_email", "avatar", b"avatar", "bio", b"bio", "full_name", b"full_name", "metadata", b"metadata", "public_email", b"public_email"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_avatar", b"_avatar", "_bio", b"_bio", "_full_name", b"_full_name", "_public_email", b"_public_email", "avatar", b"avatar", "bio", b"bio", "display_name", b"display_name", "full_name", b"full_name", "metadata", b"metadata", "public_email", b"public_email", "social_profile_links", b"social_profile_links"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_avatar", b"_avatar"]) -> typing.Literal["avatar"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_bio", b"_bio"]) -> typing.Literal["bio"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_full_name", b"_full_name"]) -> typing.Literal["full_name"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_public_email", b"_public_email"]) -> typing.Literal["public_email"] | None: ...
 
