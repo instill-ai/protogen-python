@@ -25,6 +25,11 @@ class ArtifactPrivateServiceStub(object):
                 request_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseAdminResponse.FromString,
                 _registered_method=True)
+        self.ListKnowledgeBasesAdmin = channel.unary_unary(
+                '/artifact.v1alpha.ArtifactPrivateService/ListKnowledgeBasesAdmin',
+                request_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ListKnowledgeBasesAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ListKnowledgeBasesAdminResponse.FromString,
+                _registered_method=True)
         self.UpdateKnowledgeBaseAdmin = channel.unary_unary(
                 '/artifact.v1alpha.ArtifactPrivateService/UpdateKnowledgeBaseAdmin',
                 request_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.UpdateKnowledgeBaseAdminRequest.SerializeToString,
@@ -49,6 +54,11 @@ class ArtifactPrivateServiceStub(object):
                 '/artifact.v1alpha.ArtifactPrivateService/DeleteFileAdmin',
                 request_serializer=artifact_dot_v1alpha_dot_file__pb2.DeleteFileAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_v1alpha_dot_file__pb2.DeleteFileAdminResponse.FromString,
+                _registered_method=True)
+        self.ReprocessFileAdmin = channel.unary_unary(
+                '/artifact.v1alpha.ArtifactPrivateService/ReprocessFileAdmin',
+                request_serializer=artifact_dot_v1alpha_dot_file__pb2.ReprocessFileAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_v1alpha_dot_file__pb2.ReprocessFileAdminResponse.FromString,
                 _registered_method=True)
         self.ExecuteKnowledgeBaseUpdateAdmin = channel.unary_unary(
                 '/artifact.v1alpha.ArtifactPrivateService/ExecuteKnowledgeBaseUpdateAdmin',
@@ -138,11 +148,26 @@ class ArtifactPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListKnowledgeBasesAdmin(self, request, context):
+        """List knowledge bases without ACL filtering (admin only)
+
+        Lists all knowledge bases in a namespace without ACL filtering. Unlike the
+        public ListKnowledgeBases endpoint which filters results based on user
+        permissions, this admin endpoint returns all knowledge bases including
+        system-created ones (e.g., those created via CreateKnowledgeBaseAdmin).
+        Used by internal services (e.g., agent-backend) to find existing system
+        knowledge bases.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def UpdateKnowledgeBaseAdmin(self, request, context):
         """Update a knowledge base with system-reserved tags (admin only)
 
-        Updates a knowledge base allowing system-reserved tag prefixes like "instill-".
-        Used by internal services to manage system-level knowledge base metadata.
+        Updates a knowledge base allowing system-reserved tag prefixes like
+        "instill-". Used by internal services to manage system-level knowledge base
+        metadata.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -152,7 +177,8 @@ class ArtifactPrivateServiceServicer(object):
         """Update a file with system-reserved tags (admin only)
 
         Updates a file allowing system-reserved tag prefixes like "agent:".
-        Used by agent-backend to set collection association tags (e.g., "agent:collection:{uid}").
+        Used by agent-backend to set collection association tags (e.g.,
+        "agent:collection:{uid}").
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -174,16 +200,31 @@ class ArtifactPrivateServiceServicer(object):
 
     def DeleteFileAdmin(self, request, context):
         """GetFileAsMarkdownAdmin and GetChatFileAdmin have been removed.
-        Use GetFile with VIEW_CONTENT instead to get the converted markdown via pre-signed URL.
+        Use GetFile with VIEW_CONTENT instead to get the converted markdown via
+        pre-signed URL.
 
         Delete a knowledge base file (admin only)
 
-        Deletes a file from a knowledge base using only the file ID. Unlike the public
-        DeleteFile endpoint which requires namespace and knowledge base IDs, this
-        admin endpoint automatically looks up the file's knowledge base and owner to
-        perform the deletion. Primarily used for integration testing and internal
-        operations where the caller has a file ID but not the full resource path.
-        Authentication metadata is injected automatically based on the file owner.
+        Deletes a file from a knowledge base using only the file ID. Unlike the
+        public DeleteFile endpoint which requires namespace and knowledge base IDs,
+        this admin endpoint automatically looks up the file's knowledge base and
+        owner to perform the deletion. Primarily used for integration testing and
+        internal operations where the caller has a file ID but not the full
+        resource path. Authentication metadata is injected automatically based on
+        the file owner.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ReprocessFileAdmin(self, request, context):
+        """Reprocess a file (admin only)
+
+        Triggers file reprocessing without ACL checks. This allows admin tools like
+        commander to reprocess files directly by UID, bypassing OpenFGA permission
+        validation. The file's knowledge base and owner are automatically looked
+        up. Used for administrative operations where the caller needs to force
+        reprocess files without authentication context.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -203,8 +244,8 @@ class ArtifactPrivateServiceServicer(object):
 
         Cancels ongoing update workflows and cleans up staging KB resources
         (both finished and unfinished). Can abort specific knowledge bases by ID or
-        all currently updating knowledge bases if no IDs provided. Sets knowledge base status
-        to 'aborted'.
+        all currently updating knowledge bases if no IDs provided. Sets knowledge
+        base status to 'aborted'.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -304,6 +345,11 @@ def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
                     request_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseAdminRequest.FromString,
                     response_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseAdminResponse.SerializeToString,
             ),
+            'ListKnowledgeBasesAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListKnowledgeBasesAdmin,
+                    request_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ListKnowledgeBasesAdminRequest.FromString,
+                    response_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ListKnowledgeBasesAdminResponse.SerializeToString,
+            ),
             'UpdateKnowledgeBaseAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateKnowledgeBaseAdmin,
                     request_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.UpdateKnowledgeBaseAdminRequest.FromString,
@@ -328,6 +374,11 @@ def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
                     servicer.DeleteFileAdmin,
                     request_deserializer=artifact_dot_v1alpha_dot_file__pb2.DeleteFileAdminRequest.FromString,
                     response_serializer=artifact_dot_v1alpha_dot_file__pb2.DeleteFileAdminResponse.SerializeToString,
+            ),
+            'ReprocessFileAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReprocessFileAdmin,
+                    request_deserializer=artifact_dot_v1alpha_dot_file__pb2.ReprocessFileAdminRequest.FromString,
+                    response_serializer=artifact_dot_v1alpha_dot_file__pb2.ReprocessFileAdminResponse.SerializeToString,
             ),
             'ExecuteKnowledgeBaseUpdateAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.ExecuteKnowledgeBaseUpdateAdmin,
@@ -429,6 +480,33 @@ class ArtifactPrivateService(object):
             '/artifact.v1alpha.ArtifactPrivateService/CreateKnowledgeBaseAdmin',
             artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseAdminRequest.SerializeToString,
             artifact_dot_v1alpha_dot_knowledge__base__pb2.CreateKnowledgeBaseAdminResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def ListKnowledgeBasesAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.v1alpha.ArtifactPrivateService/ListKnowledgeBasesAdmin',
+            artifact_dot_v1alpha_dot_knowledge__base__pb2.ListKnowledgeBasesAdminRequest.SerializeToString,
+            artifact_dot_v1alpha_dot_knowledge__base__pb2.ListKnowledgeBasesAdminResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -564,6 +642,33 @@ class ArtifactPrivateService(object):
             '/artifact.v1alpha.ArtifactPrivateService/DeleteFileAdmin',
             artifact_dot_v1alpha_dot_file__pb2.DeleteFileAdminRequest.SerializeToString,
             artifact_dot_v1alpha_dot_file__pb2.DeleteFileAdminResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def ReprocessFileAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.v1alpha.ArtifactPrivateService/ReprocessFileAdmin',
+            artifact_dot_v1alpha_dot_file__pb2.ReprocessFileAdminRequest.SerializeToString,
+            artifact_dot_v1alpha_dot_file__pb2.ReprocessFileAdminResponse.FromString,
             options,
             channel_credentials,
             insecure,

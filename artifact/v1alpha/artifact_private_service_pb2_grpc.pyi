@@ -38,14 +38,29 @@ class ArtifactPrivateServiceStub:
     "instill-agent" that are not owned by any specific user.
     """
 
+    ListKnowledgeBasesAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.v1alpha.knowledge_base_pb2.ListKnowledgeBasesAdminRequest,
+        artifact.v1alpha.knowledge_base_pb2.ListKnowledgeBasesAdminResponse,
+    ]
+    """List knowledge bases without ACL filtering (admin only)
+
+    Lists all knowledge bases in a namespace without ACL filtering. Unlike the
+    public ListKnowledgeBases endpoint which filters results based on user
+    permissions, this admin endpoint returns all knowledge bases including
+    system-created ones (e.g., those created via CreateKnowledgeBaseAdmin).
+    Used by internal services (e.g., agent-backend) to find existing system
+    knowledge bases.
+    """
+
     UpdateKnowledgeBaseAdmin: grpc.UnaryUnaryMultiCallable[
         artifact.v1alpha.knowledge_base_pb2.UpdateKnowledgeBaseAdminRequest,
         artifact.v1alpha.knowledge_base_pb2.UpdateKnowledgeBaseAdminResponse,
     ]
     """Update a knowledge base with system-reserved tags (admin only)
 
-    Updates a knowledge base allowing system-reserved tag prefixes like "instill-".
-    Used by internal services to manage system-level knowledge base metadata.
+    Updates a knowledge base allowing system-reserved tag prefixes like
+    "instill-". Used by internal services to manage system-level knowledge base
+    metadata.
     """
 
     UpdateFileAdmin: grpc.UnaryUnaryMultiCallable[
@@ -55,7 +70,8 @@ class ArtifactPrivateServiceStub:
     """Update a file with system-reserved tags (admin only)
 
     Updates a file allowing system-reserved tag prefixes like "agent:".
-    Used by agent-backend to set collection association tags (e.g., "agent:collection:{uid}").
+    Used by agent-backend to set collection association tags (e.g.,
+    "agent:collection:{uid}").
     """
 
     GetObjectAdmin: grpc.UnaryUnaryMultiCallable[
@@ -75,16 +91,31 @@ class ArtifactPrivateServiceStub:
         artifact.v1alpha.file_pb2.DeleteFileAdminResponse,
     ]
     """GetFileAsMarkdownAdmin and GetChatFileAdmin have been removed.
-    Use GetFile with VIEW_CONTENT instead to get the converted markdown via pre-signed URL.
+    Use GetFile with VIEW_CONTENT instead to get the converted markdown via
+    pre-signed URL.
 
     Delete a knowledge base file (admin only)
 
-    Deletes a file from a knowledge base using only the file ID. Unlike the public
-    DeleteFile endpoint which requires namespace and knowledge base IDs, this
-    admin endpoint automatically looks up the file's knowledge base and owner to
-    perform the deletion. Primarily used for integration testing and internal
-    operations where the caller has a file ID but not the full resource path.
-    Authentication metadata is injected automatically based on the file owner.
+    Deletes a file from a knowledge base using only the file ID. Unlike the
+    public DeleteFile endpoint which requires namespace and knowledge base IDs,
+    this admin endpoint automatically looks up the file's knowledge base and
+    owner to perform the deletion. Primarily used for integration testing and
+    internal operations where the caller has a file ID but not the full
+    resource path. Authentication metadata is injected automatically based on
+    the file owner.
+    """
+
+    ReprocessFileAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.v1alpha.file_pb2.ReprocessFileAdminRequest,
+        artifact.v1alpha.file_pb2.ReprocessFileAdminResponse,
+    ]
+    """Reprocess a file (admin only)
+
+    Triggers file reprocessing without ACL checks. This allows admin tools like
+    commander to reprocess files directly by UID, bypassing OpenFGA permission
+    validation. The file's knowledge base and owner are automatically looked
+    up. Used for administrative operations where the caller needs to force
+    reprocess files without authentication context.
     """
 
     ExecuteKnowledgeBaseUpdateAdmin: grpc.UnaryUnaryMultiCallable[
@@ -104,8 +135,8 @@ class ArtifactPrivateServiceStub:
 
     Cancels ongoing update workflows and cleans up staging KB resources
     (both finished and unfinished). Can abort specific knowledge bases by ID or
-    all currently updating knowledge bases if no IDs provided. Sets knowledge base status
-    to 'aborted'.
+    all currently updating knowledge bases if no IDs provided. Sets knowledge
+    base status to 'aborted'.
     """
 
     RollbackAdmin: grpc.UnaryUnaryMultiCallable[
@@ -199,14 +230,29 @@ class ArtifactPrivateServiceAsyncStub:
     "instill-agent" that are not owned by any specific user.
     """
 
+    ListKnowledgeBasesAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.v1alpha.knowledge_base_pb2.ListKnowledgeBasesAdminRequest,
+        artifact.v1alpha.knowledge_base_pb2.ListKnowledgeBasesAdminResponse,
+    ]
+    """List knowledge bases without ACL filtering (admin only)
+
+    Lists all knowledge bases in a namespace without ACL filtering. Unlike the
+    public ListKnowledgeBases endpoint which filters results based on user
+    permissions, this admin endpoint returns all knowledge bases including
+    system-created ones (e.g., those created via CreateKnowledgeBaseAdmin).
+    Used by internal services (e.g., agent-backend) to find existing system
+    knowledge bases.
+    """
+
     UpdateKnowledgeBaseAdmin: grpc.aio.UnaryUnaryMultiCallable[
         artifact.v1alpha.knowledge_base_pb2.UpdateKnowledgeBaseAdminRequest,
         artifact.v1alpha.knowledge_base_pb2.UpdateKnowledgeBaseAdminResponse,
     ]
     """Update a knowledge base with system-reserved tags (admin only)
 
-    Updates a knowledge base allowing system-reserved tag prefixes like "instill-".
-    Used by internal services to manage system-level knowledge base metadata.
+    Updates a knowledge base allowing system-reserved tag prefixes like
+    "instill-". Used by internal services to manage system-level knowledge base
+    metadata.
     """
 
     UpdateFileAdmin: grpc.aio.UnaryUnaryMultiCallable[
@@ -216,7 +262,8 @@ class ArtifactPrivateServiceAsyncStub:
     """Update a file with system-reserved tags (admin only)
 
     Updates a file allowing system-reserved tag prefixes like "agent:".
-    Used by agent-backend to set collection association tags (e.g., "agent:collection:{uid}").
+    Used by agent-backend to set collection association tags (e.g.,
+    "agent:collection:{uid}").
     """
 
     GetObjectAdmin: grpc.aio.UnaryUnaryMultiCallable[
@@ -236,16 +283,31 @@ class ArtifactPrivateServiceAsyncStub:
         artifact.v1alpha.file_pb2.DeleteFileAdminResponse,
     ]
     """GetFileAsMarkdownAdmin and GetChatFileAdmin have been removed.
-    Use GetFile with VIEW_CONTENT instead to get the converted markdown via pre-signed URL.
+    Use GetFile with VIEW_CONTENT instead to get the converted markdown via
+    pre-signed URL.
 
     Delete a knowledge base file (admin only)
 
-    Deletes a file from a knowledge base using only the file ID. Unlike the public
-    DeleteFile endpoint which requires namespace and knowledge base IDs, this
-    admin endpoint automatically looks up the file's knowledge base and owner to
-    perform the deletion. Primarily used for integration testing and internal
-    operations where the caller has a file ID but not the full resource path.
-    Authentication metadata is injected automatically based on the file owner.
+    Deletes a file from a knowledge base using only the file ID. Unlike the
+    public DeleteFile endpoint which requires namespace and knowledge base IDs,
+    this admin endpoint automatically looks up the file's knowledge base and
+    owner to perform the deletion. Primarily used for integration testing and
+    internal operations where the caller has a file ID but not the full
+    resource path. Authentication metadata is injected automatically based on
+    the file owner.
+    """
+
+    ReprocessFileAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.v1alpha.file_pb2.ReprocessFileAdminRequest,
+        artifact.v1alpha.file_pb2.ReprocessFileAdminResponse,
+    ]
+    """Reprocess a file (admin only)
+
+    Triggers file reprocessing without ACL checks. This allows admin tools like
+    commander to reprocess files directly by UID, bypassing OpenFGA permission
+    validation. The file's knowledge base and owner are automatically looked
+    up. Used for administrative operations where the caller needs to force
+    reprocess files without authentication context.
     """
 
     ExecuteKnowledgeBaseUpdateAdmin: grpc.aio.UnaryUnaryMultiCallable[
@@ -265,8 +327,8 @@ class ArtifactPrivateServiceAsyncStub:
 
     Cancels ongoing update workflows and cleans up staging KB resources
     (both finished and unfinished). Can abort specific knowledge bases by ID or
-    all currently updating knowledge bases if no IDs provided. Sets knowledge base status
-    to 'aborted'.
+    all currently updating knowledge bases if no IDs provided. Sets knowledge
+    base status to 'aborted'.
     """
 
     RollbackAdmin: grpc.aio.UnaryUnaryMultiCallable[
@@ -363,6 +425,22 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
         """
 
     @abc.abstractmethod
+    def ListKnowledgeBasesAdmin(
+        self,
+        request: artifact.v1alpha.knowledge_base_pb2.ListKnowledgeBasesAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.v1alpha.knowledge_base_pb2.ListKnowledgeBasesAdminResponse, collections.abc.Awaitable[artifact.v1alpha.knowledge_base_pb2.ListKnowledgeBasesAdminResponse]]:
+        """List knowledge bases without ACL filtering (admin only)
+
+        Lists all knowledge bases in a namespace without ACL filtering. Unlike the
+        public ListKnowledgeBases endpoint which filters results based on user
+        permissions, this admin endpoint returns all knowledge bases including
+        system-created ones (e.g., those created via CreateKnowledgeBaseAdmin).
+        Used by internal services (e.g., agent-backend) to find existing system
+        knowledge bases.
+        """
+
+    @abc.abstractmethod
     def UpdateKnowledgeBaseAdmin(
         self,
         request: artifact.v1alpha.knowledge_base_pb2.UpdateKnowledgeBaseAdminRequest,
@@ -370,8 +448,9 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[artifact.v1alpha.knowledge_base_pb2.UpdateKnowledgeBaseAdminResponse, collections.abc.Awaitable[artifact.v1alpha.knowledge_base_pb2.UpdateKnowledgeBaseAdminResponse]]:
         """Update a knowledge base with system-reserved tags (admin only)
 
-        Updates a knowledge base allowing system-reserved tag prefixes like "instill-".
-        Used by internal services to manage system-level knowledge base metadata.
+        Updates a knowledge base allowing system-reserved tag prefixes like
+        "instill-". Used by internal services to manage system-level knowledge base
+        metadata.
         """
 
     @abc.abstractmethod
@@ -383,7 +462,8 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
         """Update a file with system-reserved tags (admin only)
 
         Updates a file allowing system-reserved tag prefixes like "agent:".
-        Used by agent-backend to set collection association tags (e.g., "agent:collection:{uid}").
+        Used by agent-backend to set collection association tags (e.g.,
+        "agent:collection:{uid}").
         """
 
     @abc.abstractmethod
@@ -409,16 +489,33 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
         context: _ServicerContext,
     ) -> typing.Union[artifact.v1alpha.file_pb2.DeleteFileAdminResponse, collections.abc.Awaitable[artifact.v1alpha.file_pb2.DeleteFileAdminResponse]]:
         """GetFileAsMarkdownAdmin and GetChatFileAdmin have been removed.
-        Use GetFile with VIEW_CONTENT instead to get the converted markdown via pre-signed URL.
+        Use GetFile with VIEW_CONTENT instead to get the converted markdown via
+        pre-signed URL.
 
         Delete a knowledge base file (admin only)
 
-        Deletes a file from a knowledge base using only the file ID. Unlike the public
-        DeleteFile endpoint which requires namespace and knowledge base IDs, this
-        admin endpoint automatically looks up the file's knowledge base and owner to
-        perform the deletion. Primarily used for integration testing and internal
-        operations where the caller has a file ID but not the full resource path.
-        Authentication metadata is injected automatically based on the file owner.
+        Deletes a file from a knowledge base using only the file ID. Unlike the
+        public DeleteFile endpoint which requires namespace and knowledge base IDs,
+        this admin endpoint automatically looks up the file's knowledge base and
+        owner to perform the deletion. Primarily used for integration testing and
+        internal operations where the caller has a file ID but not the full
+        resource path. Authentication metadata is injected automatically based on
+        the file owner.
+        """
+
+    @abc.abstractmethod
+    def ReprocessFileAdmin(
+        self,
+        request: artifact.v1alpha.file_pb2.ReprocessFileAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.v1alpha.file_pb2.ReprocessFileAdminResponse, collections.abc.Awaitable[artifact.v1alpha.file_pb2.ReprocessFileAdminResponse]]:
+        """Reprocess a file (admin only)
+
+        Triggers file reprocessing without ACL checks. This allows admin tools like
+        commander to reprocess files directly by UID, bypassing OpenFGA permission
+        validation. The file's knowledge base and owner are automatically looked
+        up. Used for administrative operations where the caller needs to force
+        reprocess files without authentication context.
         """
 
     @abc.abstractmethod
@@ -442,8 +539,8 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
 
         Cancels ongoing update workflows and cleans up staging KB resources
         (both finished and unfinished). Can abort specific knowledge bases by ID or
-        all currently updating knowledge bases if no IDs provided. Sets knowledge base status
-        to 'aborted'.
+        all currently updating knowledge bases if no IDs provided. Sets knowledge
+        base status to 'aborted'.
         """
 
     @abc.abstractmethod

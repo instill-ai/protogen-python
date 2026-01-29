@@ -136,7 +136,8 @@ class KnowledgeBase(google.protobuf.message.Message):
     """
     active_collection: builtins.str
     """The resource name of the active Milvus collection for this knowledge base.
-    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/collections/{collection}`
+    Format:
+    `namespaces/{namespace}/knowledgeBases/{knowledge_base}/collections/{collection}`
     This supports collection versioning for embedding dimension changes.
     """
     owner_name: builtins.str
@@ -576,6 +577,79 @@ class CreateKnowledgeBaseAdminResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["knowledge_base", b"knowledge_base"]) -> None: ...
 
 global___CreateKnowledgeBaseAdminResponse = CreateKnowledgeBaseAdminResponse
+
+@typing.final
+class ListKnowledgeBasesAdminRequest(google.protobuf.message.Message):
+    """ListKnowledgeBasesAdminRequest represents a request to list all knowledge
+    bases in a namespace without ACL filtering (admin only).
+    Follows AIP-132: https://google.aip.dev/132
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PARENT_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    parent: builtins.str
+    """The parent resource name.
+    Format: `namespaces/{namespace}`
+    """
+    page_size: builtins.int
+    """The maximum number of knowledge bases to return. If this parameter is
+    unspecified, at most 10 knowledge bases will be returned. The cap value for
+    this parameter is 100. Any value above 100 will be coerced to 100.
+    """
+    page_token: builtins.str
+    """The page token, received from a previous ListKnowledgeBasesAdmin call.
+    Provide this to retrieve the subsequent page.
+    """
+    def __init__(
+        self,
+        *,
+        parent: builtins.str = ...,
+        page_size: builtins.int | None = ...,
+        page_token: builtins.str | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["_page_size", b"_page_size", "_page_token", b"_page_token", "page_size", b"page_size", "page_token", b"page_token"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_page_size", b"_page_size", "_page_token", b"_page_token", "page_size", b"page_size", "page_token", b"page_token", "parent", b"parent"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_page_size", b"_page_size"]) -> typing.Literal["page_size"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_page_token", b"_page_token"]) -> typing.Literal["page_token"] | None: ...
+
+global___ListKnowledgeBasesAdminRequest = ListKnowledgeBasesAdminRequest
+
+@typing.final
+class ListKnowledgeBasesAdminResponse(google.protobuf.message.Message):
+    """ListKnowledgeBasesAdminResponse represents a response for listing knowledge
+    bases without ACL filtering.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    KNOWLEDGE_BASES_FIELD_NUMBER: builtins.int
+    NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    next_page_token: builtins.str
+    """A token that can be sent as `page_token` to retrieve the next page.
+    If this field is omitted, there are no subsequent pages.
+    """
+    total_size: builtins.int
+    """Total number of knowledge bases."""
+    @property
+    def knowledge_bases(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___KnowledgeBase]:
+        """A list of knowledge bases."""
+
+    def __init__(
+        self,
+        *,
+        knowledge_bases: collections.abc.Iterable[global___KnowledgeBase] | None = ...,
+        next_page_token: builtins.str = ...,
+        total_size: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["knowledge_bases", b"knowledge_bases", "next_page_token", b"next_page_token", "total_size", b"total_size"]) -> None: ...
+
+global___ListKnowledgeBasesAdminResponse = ListKnowledgeBasesAdminResponse
 
 @typing.final
 class UpdateKnowledgeBaseAdminRequest(google.protobuf.message.Message):

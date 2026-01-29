@@ -4,8 +4,10 @@ isort:skip_file
 """
 
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.field_mask_pb2
+import google.protobuf.internal.containers
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
 import typing
@@ -31,6 +33,8 @@ class Object(google.protobuf.message.Message):
     OBJECT_EXPIRE_DAYS_FIELD_NUMBER: builtins.int
     LAST_MODIFIED_TIME_FIELD_NUMBER: builtins.int
     DELETE_TIME_FIELD_NUMBER: builtins.int
+    SLUG_FIELD_NUMBER: builtins.int
+    ALIASES_FIELD_NUMBER: builtins.int
     name: builtins.str
     """Canonical resource name.
     Format: `namespaces/{namespace}/objects/{object}`
@@ -59,6 +63,10 @@ class Object(google.protobuf.message.Message):
     """Object expiration time in days.
     If set to 0, the object will not be deleted automatically.
     """
+    slug: builtins.str
+    """URL-friendly slug derived from display_name.
+    Example: "my-document-pdf"
+    """
     @property
     def create_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Object creation time."""
@@ -74,6 +82,10 @@ class Object(google.protobuf.message.Message):
     @property
     def delete_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Object delete time (for soft delete). Output only."""
+
+    @property
+    def aliases(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """Previous slugs for backward compatibility when display_name changes."""
 
     def __init__(
         self,
@@ -91,9 +103,11 @@ class Object(google.protobuf.message.Message):
         object_expire_days: builtins.int = ...,
         last_modified_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        slug: builtins.str = ...,
+        aliases: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_delete_time", b"_delete_time", "_last_modified_time", b"_last_modified_time", "create_time", b"create_time", "delete_time", b"delete_time", "last_modified_time", b"last_modified_time", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_delete_time", b"_delete_time", "_last_modified_time", b"_last_modified_time", "content_type", b"content_type", "create_time", b"create_time", "creator_name", b"creator_name", "delete_time", b"delete_time", "display_name", b"display_name", "id", b"id", "is_uploaded", b"is_uploaded", "last_modified_time", b"last_modified_time", "name", b"name", "object_expire_days", b"object_expire_days", "owner_name", b"owner_name", "size", b"size", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["_delete_time", b"_delete_time", "_last_modified_time", b"_last_modified_time", "aliases", b"aliases", "content_type", b"content_type", "create_time", b"create_time", "creator_name", b"creator_name", "delete_time", b"delete_time", "display_name", b"display_name", "id", b"id", "is_uploaded", b"is_uploaded", "last_modified_time", b"last_modified_time", "name", b"name", "object_expire_days", b"object_expire_days", "owner_name", b"owner_name", "size", b"size", "slug", b"slug", "update_time", b"update_time"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_delete_time", b"_delete_time"]) -> typing.Literal["delete_time"] | None: ...
     @typing.overload

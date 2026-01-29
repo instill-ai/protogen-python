@@ -806,6 +806,47 @@ class DeleteFileAdminResponse(google.protobuf.message.Message):
 global___DeleteFileAdminResponse = DeleteFileAdminResponse
 
 @typing.final
+class ReprocessFileAdminRequest(google.protobuf.message.Message):
+    """ReprocessFileAdminRequest represents a request to reprocess a file (admin only).
+    This bypasses ACL checks and triggers the ProcessFileWorkflow directly.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_UID_FIELD_NUMBER: builtins.int
+    file_uid: builtins.str
+    """The file UID to reprocess."""
+    def __init__(
+        self,
+        *,
+        file_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["file_uid", b"file_uid"]) -> None: ...
+
+global___ReprocessFileAdminRequest = ReprocessFileAdminRequest
+
+@typing.final
+class ReprocessFileAdminResponse(google.protobuf.message.Message):
+    """ReprocessFileAdminResponse represents a response for reprocessing a file (admin only)."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_FIELD_NUMBER: builtins.int
+    @property
+    def file(self) -> global___File:
+        """The reprocessed file."""
+
+    def __init__(
+        self,
+        *,
+        file: global___File | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["file", b"file"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["file", b"file"]) -> None: ...
+
+global___ReprocessFileAdminResponse = ReprocessFileAdminResponse
+
+@typing.final
 class ListFilesRequest(google.protobuf.message.Message):
     """ListFilesRequest represents a request to list files in a knowledge base.
     Follows AIP-132: https://google.aip.dev/132
