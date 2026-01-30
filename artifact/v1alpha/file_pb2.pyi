@@ -493,7 +493,8 @@ class File(google.protobuf.message.Message):
     """===== Standard AIP fields 1-6 (ALL resources must follow this order) =====
 
     Field 1: Canonical resource name.
-    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}`.
+    Format:
+    `namespaces/{namespace}/knowledge-bases/{knowledge_base}/files/{file}`.
     """
     id: builtins.str
     """Field 2: Immutable canonical resource ID (80-96 bits entropy, base62).
@@ -591,7 +592,7 @@ class File(google.protobuf.message.Message):
         """===== Knowledge base associations =====
 
         Knowledge base resource names that this file is associated with.
-        Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}`
+        Format: `namespaces/{namespace}/knowledge-bases/{knowledge_base}`
         A file can belong to multiple knowledge bases within the same namespace.
         This field is populated from the file_knowledge_base junction table.
         Follows AIP-122 for resource name references.
@@ -680,7 +681,7 @@ class CreateFileRequest(google.protobuf.message.Message):
     FILE_FIELD_NUMBER: builtins.int
     parent: builtins.str
     """The parent resource name (knowledge base).
-    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}`
+    Format: `namespaces/{namespace}/knowledge-bases/{knowledge_base}`
     """
     @property
     def file(self) -> global___File:
@@ -729,7 +730,8 @@ class DeleteFileRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the file to delete.
-    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}`
+    Format:
+    `namespaces/{namespace}/knowledge-bases/{knowledge_base}/files/{file}`
     """
     def __init__(
         self,
@@ -749,7 +751,8 @@ class DeleteFileResponse(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the deleted file.
-    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}`
+    Format:
+    `namespaces/{namespace}/knowledge-bases/{knowledge_base}/files/{file}`
     """
     def __init__(
         self,
@@ -772,7 +775,8 @@ class DeleteFileAdminRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the file to delete.
-    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}`
+    Format:
+    `namespaces/{namespace}/knowledge-bases/{knowledge_base}/files/{file}`
     """
     def __init__(
         self,
@@ -794,7 +798,8 @@ class DeleteFileAdminResponse(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the deleted file.
-    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}`
+    Format:
+    `namespaces/{namespace}/knowledge-bases/{knowledge_base}/files/{file}`
     """
     def __init__(
         self,
@@ -807,8 +812,9 @@ global___DeleteFileAdminResponse = DeleteFileAdminResponse
 
 @typing.final
 class ReprocessFileAdminRequest(google.protobuf.message.Message):
-    """ReprocessFileAdminRequest represents a request to reprocess a file (admin only).
-    This bypasses ACL checks and triggers the ProcessFileWorkflow directly.
+    """ReprocessFileAdminRequest represents a request to reprocess a file (admin
+    only). This bypasses ACL checks and triggers the ProcessFileWorkflow
+    directly.
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -827,7 +833,9 @@ global___ReprocessFileAdminRequest = ReprocessFileAdminRequest
 
 @typing.final
 class ReprocessFileAdminResponse(google.protobuf.message.Message):
-    """ReprocessFileAdminResponse represents a response for reprocessing a file (admin only)."""
+    """ReprocessFileAdminResponse represents a response for reprocessing a file
+    (admin only).
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -860,7 +868,7 @@ class ListFilesRequest(google.protobuf.message.Message):
     FILTER_FIELD_NUMBER: builtins.int
     parent: builtins.str
     """The parent resource name (knowledge base).
-    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}`
+    Format: `namespaces/{namespace}/knowledge-bases/{knowledge_base}`
     """
     page_size: builtins.int
     """The page size (default:10; max 100)."""
@@ -942,7 +950,8 @@ class GetFileRequest(google.protobuf.message.Message):
     STORAGE_PROVIDER_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the file to retrieve.
-    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}`
+    Format:
+    `namespaces/{namespace}/knowledge-bases/{knowledge_base}/files/{file}`
     """
     view: global___File.View.ValueType
     """View allows clients to specify the desired file view in the response."""
@@ -1018,7 +1027,8 @@ class UpdateFileRequest(google.protobuf.message.Message):
     @property
     def file(self) -> global___File:
         """The file resource to update. The file's `name` field identifies the
-        resource. Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}`
+        resource. Format:
+        `namespaces/{namespace}/knowledge-bases/{knowledge_base}/files/{file}`
         """
 
     @property
@@ -1066,7 +1076,8 @@ class ReprocessFileRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the file to reprocess.
-    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}`
+    Format:
+    `namespaces/{namespace}/knowledge-bases/{knowledge_base}/files/{file}`
     """
     def __init__(
         self,
@@ -1118,7 +1129,8 @@ class UpdateFileAdminRequest(google.protobuf.message.Message):
     @property
     def file(self) -> global___File:
         """The file resource to update. The file's `name` field identifies the
-        resource. Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}/files/{file}`
+        resource. Format:
+        `namespaces/{namespace}/knowledge-bases/{knowledge_base}/files/{file}`
         """
 
     @property

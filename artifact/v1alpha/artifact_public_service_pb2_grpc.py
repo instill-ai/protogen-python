@@ -203,7 +203,7 @@ class ArtifactPublicServiceServicer(object):
     def CreateFile(self, request, context):
         """Create a file
 
-        Uploads and converts a file to a knowledge base.
+        Uploads and converts a file.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -221,7 +221,7 @@ class ArtifactPublicServiceServicer(object):
     def ListFiles(self, request, context):
         """List files
 
-        Returns a paginated list of files in a knowledge base.
+        Returns a paginated list of files.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

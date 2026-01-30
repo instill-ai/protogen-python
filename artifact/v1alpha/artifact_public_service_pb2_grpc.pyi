@@ -96,7 +96,7 @@ class ArtifactPublicServiceStub:
     ]
     """Create a file
 
-    Uploads and converts a file to a knowledge base.
+    Uploads and converts a file.
     """
 
     GetFile: grpc.UnaryUnaryMultiCallable[
@@ -114,7 +114,7 @@ class ArtifactPublicServiceStub:
     ]
     """List files
 
-    Returns a paginated list of files in a knowledge base.
+    Returns a paginated list of files.
     """
 
     UpdateFile: grpc.UnaryUnaryMultiCallable[
@@ -300,7 +300,7 @@ class ArtifactPublicServiceAsyncStub:
     ]
     """Create a file
 
-    Uploads and converts a file to a knowledge base.
+    Uploads and converts a file.
     """
 
     GetFile: grpc.aio.UnaryUnaryMultiCallable[
@@ -318,7 +318,7 @@ class ArtifactPublicServiceAsyncStub:
     ]
     """List files
 
-    Returns a paginated list of files in a knowledge base.
+    Returns a paginated list of files.
     """
 
     UpdateFile: grpc.aio.UnaryUnaryMultiCallable[
@@ -520,7 +520,7 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[artifact.v1alpha.file_pb2.CreateFileResponse, collections.abc.Awaitable[artifact.v1alpha.file_pb2.CreateFileResponse]]:
         """Create a file
 
-        Uploads and converts a file to a knowledge base.
+        Uploads and converts a file.
         """
 
     @abc.abstractmethod
@@ -542,7 +542,7 @@ class ArtifactPublicServiceServicer(metaclass=abc.ABCMeta):
     ) -> typing.Union[artifact.v1alpha.file_pb2.ListFilesResponse, collections.abc.Awaitable[artifact.v1alpha.file_pb2.ListFilesResponse]]:
         """List files
 
-        Returns a paginated list of files in a knowledge base.
+        Returns a paginated list of files.
         """
 
     @abc.abstractmethod

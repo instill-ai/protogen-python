@@ -137,7 +137,7 @@ class KnowledgeBase(google.protobuf.message.Message):
     active_collection: builtins.str
     """The resource name of the active Milvus collection for this knowledge base.
     Format:
-    `namespaces/{namespace}/knowledgeBases/{knowledge_base}/collections/{collection}`
+    `namespaces/{namespace}/knowledge-bases/{knowledge_base}/collections/{collection}`
     This supports collection versioning for embedding dimension changes.
     """
     owner_name: builtins.str

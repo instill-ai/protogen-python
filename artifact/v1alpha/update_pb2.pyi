@@ -29,10 +29,13 @@ class _KnowledgeBaseUpdateStatusEnumTypeWrapper(google.protobuf.internal.enum_ty
     KNOWLEDGE_BASE_UPDATE_STATUS_UNSPECIFIED: _KnowledgeBaseUpdateStatus.ValueType  # 0
     """KNOWLEDGE_BASE_UPDATE_STATUS_UNSPECIFIED - Invalid/unknown state"""
     KNOWLEDGE_BASE_UPDATE_STATUS_NONE: _KnowledgeBaseUpdateStatus.ValueType  # 1
-    """KNOWLEDGE_BASE_UPDATE_STATUS_NONE - KB has never been updated (default state for new KBs)"""
+    """KNOWLEDGE_BASE_UPDATE_STATUS_NONE - KB has never been updated (default
+    state for new KBs)
+    """
     KNOWLEDGE_BASE_UPDATE_STATUS_UPDATING: _KnowledgeBaseUpdateStatus.ValueType  # 2
-    """KNOWLEDGE_BASE_UPDATE_STATUS_UPDATING - Phase 1-2: Preparing and reprocessing
-    The staging KB is being created and populated by reprocessing all files with new configuration
+    """KNOWLEDGE_BASE_UPDATE_STATUS_UPDATING - Phase 1-2: Preparing and
+    reprocessing The staging KB is being created and populated by reprocessing
+    all files with new configuration
     """
     KNOWLEDGE_BASE_UPDATE_STATUS_SYNCING: _KnowledgeBaseUpdateStatus.ValueType  # 3
     """KNOWLEDGE_BASE_UPDATE_STATUS_SYNCING - Phase 3: Synchronization
@@ -64,15 +67,20 @@ class _KnowledgeBaseUpdateStatusEnumTypeWrapper(google.protobuf.internal.enum_ty
     """
 
 class KnowledgeBaseUpdateStatus(_KnowledgeBaseUpdateStatus, metaclass=_KnowledgeBaseUpdateStatusEnumTypeWrapper):
-    """KnowledgeBaseUpdateStatus represents the various states of a Knowledge Base update lifecycle"""
+    """KnowledgeBaseUpdateStatus represents the various states of a Knowledge Base
+    update lifecycle
+    """
 
 KNOWLEDGE_BASE_UPDATE_STATUS_UNSPECIFIED: KnowledgeBaseUpdateStatus.ValueType  # 0
 """KNOWLEDGE_BASE_UPDATE_STATUS_UNSPECIFIED - Invalid/unknown state"""
 KNOWLEDGE_BASE_UPDATE_STATUS_NONE: KnowledgeBaseUpdateStatus.ValueType  # 1
-"""KNOWLEDGE_BASE_UPDATE_STATUS_NONE - KB has never been updated (default state for new KBs)"""
+"""KNOWLEDGE_BASE_UPDATE_STATUS_NONE - KB has never been updated (default
+state for new KBs)
+"""
 KNOWLEDGE_BASE_UPDATE_STATUS_UPDATING: KnowledgeBaseUpdateStatus.ValueType  # 2
-"""KNOWLEDGE_BASE_UPDATE_STATUS_UPDATING - Phase 1-2: Preparing and reprocessing
-The staging KB is being created and populated by reprocessing all files with new configuration
+"""KNOWLEDGE_BASE_UPDATE_STATUS_UPDATING - Phase 1-2: Preparing and
+reprocessing The staging KB is being created and populated by reprocessing
+all files with new configuration
 """
 KNOWLEDGE_BASE_UPDATE_STATUS_SYNCING: KnowledgeBaseUpdateStatus.ValueType  # 3
 """KNOWLEDGE_BASE_UPDATE_STATUS_SYNCING - Phase 3: Synchronization
@@ -106,7 +114,9 @@ global___KnowledgeBaseUpdateStatus = KnowledgeBaseUpdateStatus
 
 @typing.final
 class KnowledgeBaseUpdateDetails(google.protobuf.message.Message):
-    """KnowledgeBaseUpdateDetails provides detailed information about a knowledge base update"""
+    """KnowledgeBaseUpdateDetails provides detailed information about a knowledge
+    base update
+    """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -122,7 +132,7 @@ class KnowledgeBaseUpdateDetails(google.protobuf.message.Message):
     PREVIOUS_SYSTEM_FIELD_NUMBER: builtins.int
     knowledge_base: builtins.str
     """The resource name of the knowledge base.
-    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}`
+    Format: `namespaces/{namespace}/knowledge-bases/{knowledge_base}`
     """
     status: global___KnowledgeBaseUpdateStatus.ValueType
     """Status of the knowledge base update"""
@@ -139,15 +149,17 @@ class KnowledgeBaseUpdateDetails(google.protobuf.message.Message):
     error_message: builtins.str
     """Error message explaining why the update failed
     Populated ONLY when status is KNOWLEDGE_BASE_UPDATE_STATUS_FAILED
-    Empty for all other statuses (NONE, UPDATING, SYNCING, VALIDATING, SWAPPING, COMPLETED, ROLLED_BACK, ABORTED)
+    Empty for all other statuses (NONE, UPDATING, SYNCING, VALIDATING,
+    SWAPPING, COMPLETED, ROLLED_BACK, ABORTED)
     """
     current_system: builtins.str
-    """The resource name of the current system (e.g., "systems/openai", "systems/gemini").
-    Format: `systems/{system}`
-    The system configuration currently active in the production KB.
-    - For UPDATING: The system being updated to (from staging KB - will become current after swap)
-    - For COMPLETED/FAILED/ROLLED_BACK/ABORTED/NONE: The current production system
-    Always reflects the KB's current state.
+    """The resource name of the current system (e.g., "systems/openai",
+    "systems/gemini"). Format: `systems/{system}` The system configuration
+    currently active in the production KB.
+    - For UPDATING: The system being updated to (from staging KB - will become
+    current after swap)
+    - For COMPLETED/FAILED/ROLLED_BACK/ABORTED/NONE: The current production
+    system Always reflects the KB's current state.
     """
     previous_system: builtins.str
     """The resource name of the previous system before the update.
@@ -155,7 +167,8 @@ class KnowledgeBaseUpdateDetails(google.protobuf.message.Message):
     Captured at update start for historical audit trail.
     - For UPDATING: The system before update started
     - For COMPLETED: The system before successful update (what was replaced)
-    - For FAILED/ABORTED: The system before failed attempt (same as current, since update didn't complete)
+    - For FAILED/ABORTED: The system before failed attempt (same as current,
+    since update didn't complete)
     - For ROLLED_BACK: The system that was rolled back FROM (before rollback)
     - For NONE: Empty (never been updated)
     """
@@ -255,7 +268,7 @@ class PurgeRollbackAdminResponse(google.protobuf.message.Message):
     """Whether the purge was successful"""
     purged_knowledge_base: builtins.str
     """The resource name of the purged knowledge base.
-    Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}`
+    Format: `namespaces/{namespace}/knowledge-bases/{knowledge_base}`
     """
     deleted_files: builtins.int
     """Number of files deleted"""
@@ -415,13 +428,16 @@ class ExecuteKnowledgeBaseUpdateAdminRequest(google.protobuf.message.Message):
     """
     @property
     def knowledge_bases(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """Optional: Specific knowledge base resource names to update. If empty, updates all eligible knowledge bases.
-        Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}`
+        """Optional: Specific knowledge base resource names to update. If empty,
+        updates all eligible knowledge bases. Format:
+        `namespaces/{namespace}/knowledge-bases/{knowledge_base}`
         """
 
     @property
     def tags(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """Optional: Tags to filter which knowledge bases to update (OR logic - match any tag)."""
+        """Optional: Tags to filter which knowledge bases to update (OR logic - match
+        any tag).
+        """
 
     def __init__(
         self,
@@ -451,7 +467,9 @@ class ExecuteKnowledgeBaseUpdateAdminResponse(google.protobuf.message.Message):
     """Human-readable status message explaining the result"""
     @property
     def details(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___KnowledgeBaseUpdateDetails]:
-        """List of knowledge base update details (populated when update already in progress)"""
+        """List of knowledge base update details (populated when update already in
+        progress)
+        """
 
     def __init__(
         self,
@@ -473,8 +491,9 @@ class AbortKnowledgeBaseUpdateAdminRequest(google.protobuf.message.Message):
     KNOWLEDGE_BASES_FIELD_NUMBER: builtins.int
     @property
     def knowledge_bases(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """Optional: Specific knowledge base resource names to abort. If empty, aborts all currently updating knowledge bases.
-        Format: `namespaces/{namespace}/knowledgeBases/{knowledge_base}`
+        """Optional: Specific knowledge base resource names to abort. If empty, aborts
+        all currently updating knowledge bases. Format:
+        `namespaces/{namespace}/knowledge-bases/{knowledge_base}`
         """
 
     def __init__(
