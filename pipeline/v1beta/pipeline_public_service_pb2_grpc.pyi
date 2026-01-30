@@ -8,6 +8,7 @@ import collections.abc
 import grpc
 import grpc.aio
 import pipeline.v1beta.component_definition_pb2
+import pipeline.v1beta.integration_pb2
 import pipeline.v1beta.pipeline_pb2
 import pipeline.v1beta.secret_pb2
 import typing
@@ -420,6 +421,95 @@ class PipelinePublicServiceStub:
     response may contain runs from several pipelines.
     """
 
+    ListIntegrations: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.integration_pb2.ListIntegrationsRequest,
+        pipeline.v1beta.integration_pb2.ListIntegrationsResponse,
+    ]
+    """List integrations
+
+    Returns a paginated list of available integrations.
+    """
+
+    GetIntegration: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.integration_pb2.GetIntegrationRequest,
+        pipeline.v1beta.integration_pb2.GetIntegrationResponse,
+    ]
+    """Get an integration
+
+    Returns the details of an integration.
+    """
+
+    ListConnections: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.integration_pb2.ListConnectionsRequest,
+        pipeline.v1beta.integration_pb2.ListConnectionsResponse,
+    ]
+    """List connections
+
+    Returns a paginated list of connections created by a namespace.
+    """
+
+    GetConnection: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.integration_pb2.GetConnectionRequest,
+        pipeline.v1beta.integration_pb2.GetConnectionResponse,
+    ]
+    """Get a connection
+
+    Returns the details of a connection.
+    """
+
+    CreateConnection: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.integration_pb2.CreateConnectionRequest,
+        pipeline.v1beta.integration_pb2.CreateConnectionResponse,
+    ]
+    """Create a connection
+
+    Creates a connection under the ownership of a namespace.
+    """
+
+    UpdateConnection: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.integration_pb2.UpdateConnectionRequest,
+        pipeline.v1beta.integration_pb2.UpdateConnectionResponse,
+    ]
+    """Update a connection
+
+    Updates a connection with the supplied connection fields.
+    """
+
+    DeleteConnection: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.integration_pb2.DeleteConnectionRequest,
+        pipeline.v1beta.integration_pb2.DeleteConnectionResponse,
+    ]
+    """Delete a connection
+
+    Deletes a connection.
+    """
+
+    TestConnection: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.integration_pb2.TestConnectionRequest,
+        pipeline.v1beta.integration_pb2.TestConnectionResponse,
+    ]
+    """Test a connection
+
+    Makes a request to the 3rd party app that the connection is configured to
+    communicate with, and checks the result of the call. If the test fails,
+    the response status and error message will provide more information about
+    the failure.
+
+    Note that this action might affect the quota or billing of the integrated
+    account in the 3rd party app.
+    """
+
+    ListPipelineIDsByConnectionID: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.integration_pb2.ListPipelineIDsByConnectionIDRequest,
+        pipeline.v1beta.integration_pb2.ListPipelineIDsByConnectionIDResponse,
+    ]
+    """List pipelines that reference a connection
+
+    Returns a paginated list with the IDs of the pipelines that reference a
+    given connection. All the pipelines will belong to the same namespace as
+    the connection.
+    """
+
 class PipelinePublicServiceAsyncStub:
     """Pipeline
 
@@ -818,6 +908,95 @@ class PipelinePublicServiceAsyncStub:
 
     Returns a paginated list of runs for requested by a namespace. The
     response may contain runs from several pipelines.
+    """
+
+    ListIntegrations: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.integration_pb2.ListIntegrationsRequest,
+        pipeline.v1beta.integration_pb2.ListIntegrationsResponse,
+    ]
+    """List integrations
+
+    Returns a paginated list of available integrations.
+    """
+
+    GetIntegration: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.integration_pb2.GetIntegrationRequest,
+        pipeline.v1beta.integration_pb2.GetIntegrationResponse,
+    ]
+    """Get an integration
+
+    Returns the details of an integration.
+    """
+
+    ListConnections: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.integration_pb2.ListConnectionsRequest,
+        pipeline.v1beta.integration_pb2.ListConnectionsResponse,
+    ]
+    """List connections
+
+    Returns a paginated list of connections created by a namespace.
+    """
+
+    GetConnection: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.integration_pb2.GetConnectionRequest,
+        pipeline.v1beta.integration_pb2.GetConnectionResponse,
+    ]
+    """Get a connection
+
+    Returns the details of a connection.
+    """
+
+    CreateConnection: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.integration_pb2.CreateConnectionRequest,
+        pipeline.v1beta.integration_pb2.CreateConnectionResponse,
+    ]
+    """Create a connection
+
+    Creates a connection under the ownership of a namespace.
+    """
+
+    UpdateConnection: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.integration_pb2.UpdateConnectionRequest,
+        pipeline.v1beta.integration_pb2.UpdateConnectionResponse,
+    ]
+    """Update a connection
+
+    Updates a connection with the supplied connection fields.
+    """
+
+    DeleteConnection: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.integration_pb2.DeleteConnectionRequest,
+        pipeline.v1beta.integration_pb2.DeleteConnectionResponse,
+    ]
+    """Delete a connection
+
+    Deletes a connection.
+    """
+
+    TestConnection: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.integration_pb2.TestConnectionRequest,
+        pipeline.v1beta.integration_pb2.TestConnectionResponse,
+    ]
+    """Test a connection
+
+    Makes a request to the 3rd party app that the connection is configured to
+    communicate with, and checks the result of the call. If the test fails,
+    the response status and error message will provide more information about
+    the failure.
+
+    Note that this action might affect the quota or billing of the integrated
+    account in the 3rd party app.
+    """
+
+    ListPipelineIDsByConnectionID: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.integration_pb2.ListPipelineIDsByConnectionIDRequest,
+        pipeline.v1beta.integration_pb2.ListPipelineIDsByConnectionIDResponse,
+    ]
+    """List pipelines that reference a connection
+
+    Returns a paginated list with the IDs of the pipelines that reference a
+    given connection. All the pipelines will belong to the same namespace as
+    the connection.
     """
 
 class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
@@ -1286,6 +1465,113 @@ class PipelinePublicServiceServicer(metaclass=abc.ABCMeta):
 
         Returns a paginated list of runs for requested by a namespace. The
         response may contain runs from several pipelines.
+        """
+
+    @abc.abstractmethod
+    def ListIntegrations(
+        self,
+        request: pipeline.v1beta.integration_pb2.ListIntegrationsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[pipeline.v1beta.integration_pb2.ListIntegrationsResponse, collections.abc.Awaitable[pipeline.v1beta.integration_pb2.ListIntegrationsResponse]]:
+        """List integrations
+
+        Returns a paginated list of available integrations.
+        """
+
+    @abc.abstractmethod
+    def GetIntegration(
+        self,
+        request: pipeline.v1beta.integration_pb2.GetIntegrationRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[pipeline.v1beta.integration_pb2.GetIntegrationResponse, collections.abc.Awaitable[pipeline.v1beta.integration_pb2.GetIntegrationResponse]]:
+        """Get an integration
+
+        Returns the details of an integration.
+        """
+
+    @abc.abstractmethod
+    def ListConnections(
+        self,
+        request: pipeline.v1beta.integration_pb2.ListConnectionsRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[pipeline.v1beta.integration_pb2.ListConnectionsResponse, collections.abc.Awaitable[pipeline.v1beta.integration_pb2.ListConnectionsResponse]]:
+        """List connections
+
+        Returns a paginated list of connections created by a namespace.
+        """
+
+    @abc.abstractmethod
+    def GetConnection(
+        self,
+        request: pipeline.v1beta.integration_pb2.GetConnectionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[pipeline.v1beta.integration_pb2.GetConnectionResponse, collections.abc.Awaitable[pipeline.v1beta.integration_pb2.GetConnectionResponse]]:
+        """Get a connection
+
+        Returns the details of a connection.
+        """
+
+    @abc.abstractmethod
+    def CreateConnection(
+        self,
+        request: pipeline.v1beta.integration_pb2.CreateConnectionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[pipeline.v1beta.integration_pb2.CreateConnectionResponse, collections.abc.Awaitable[pipeline.v1beta.integration_pb2.CreateConnectionResponse]]:
+        """Create a connection
+
+        Creates a connection under the ownership of a namespace.
+        """
+
+    @abc.abstractmethod
+    def UpdateConnection(
+        self,
+        request: pipeline.v1beta.integration_pb2.UpdateConnectionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[pipeline.v1beta.integration_pb2.UpdateConnectionResponse, collections.abc.Awaitable[pipeline.v1beta.integration_pb2.UpdateConnectionResponse]]:
+        """Update a connection
+
+        Updates a connection with the supplied connection fields.
+        """
+
+    @abc.abstractmethod
+    def DeleteConnection(
+        self,
+        request: pipeline.v1beta.integration_pb2.DeleteConnectionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[pipeline.v1beta.integration_pb2.DeleteConnectionResponse, collections.abc.Awaitable[pipeline.v1beta.integration_pb2.DeleteConnectionResponse]]:
+        """Delete a connection
+
+        Deletes a connection.
+        """
+
+    @abc.abstractmethod
+    def TestConnection(
+        self,
+        request: pipeline.v1beta.integration_pb2.TestConnectionRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[pipeline.v1beta.integration_pb2.TestConnectionResponse, collections.abc.Awaitable[pipeline.v1beta.integration_pb2.TestConnectionResponse]]:
+        """Test a connection
+
+        Makes a request to the 3rd party app that the connection is configured to
+        communicate with, and checks the result of the call. If the test fails,
+        the response status and error message will provide more information about
+        the failure.
+
+        Note that this action might affect the quota or billing of the integrated
+        account in the 3rd party app.
+        """
+
+    @abc.abstractmethod
+    def ListPipelineIDsByConnectionID(
+        self,
+        request: pipeline.v1beta.integration_pb2.ListPipelineIDsByConnectionIDRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[pipeline.v1beta.integration_pb2.ListPipelineIDsByConnectionIDResponse, collections.abc.Awaitable[pipeline.v1beta.integration_pb2.ListPipelineIDsByConnectionIDResponse]]:
+        """List pipelines that reference a connection
+
+        Returns a paginated list with the IDs of the pipelines that reference a
+        given connection. All the pipelines will belong to the same namespace as
+        the connection.
         """
 
 def add_PipelinePublicServiceServicer_to_server(servicer: PipelinePublicServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

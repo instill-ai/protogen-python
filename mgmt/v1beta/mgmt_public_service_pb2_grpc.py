@@ -2,6 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+from mgmt.v1beta import auth_pb2 as mgmt_dot_v1beta_dot_auth__pb2
 from mgmt.v1beta import integration_pb2 as mgmt_dot_v1beta_dot_integration__pb2
 from mgmt.v1beta import metric_pb2 as mgmt_dot_v1beta_dot_metric__pb2
 from mgmt.v1beta import mgmt_pb2 as mgmt_dot_v1beta_dot_mgmt__pb2
@@ -29,6 +30,11 @@ class MgmtPublicServiceStub(object):
                 '/mgmt.v1beta.MgmtPublicService/Readiness',
                 request_serializer=mgmt_dot_v1beta_dot_mgmt__pb2.ReadinessRequest.SerializeToString,
                 response_deserializer=mgmt_dot_v1beta_dot_mgmt__pb2.ReadinessResponse.FromString,
+                _registered_method=True)
+        self.AuthenticateUser = channel.unary_unary(
+                '/mgmt.v1beta.MgmtPublicService/AuthenticateUser',
+                request_serializer=mgmt_dot_v1beta_dot_auth__pb2.AuthenticateUserRequest.SerializeToString,
+                response_deserializer=mgmt_dot_v1beta_dot_auth__pb2.AuthenticateUserResponse.FromString,
                 _registered_method=True)
         self.GetAuthenticatedUser = channel.unary_unary(
                 '/mgmt.v1beta.MgmtPublicService/GetAuthenticatedUser',
@@ -100,30 +106,10 @@ class MgmtPublicServiceStub(object):
                 request_serializer=mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerChartRecordsRequest.SerializeToString,
                 response_deserializer=mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerChartRecordsResponse.FromString,
                 _registered_method=True)
-        self.AuthTokenIssuer = channel.unary_unary(
-                '/mgmt.v1beta.MgmtPublicService/AuthTokenIssuer',
-                request_serializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthTokenIssuerRequest.SerializeToString,
-                response_deserializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthTokenIssuerResponse.FromString,
-                _registered_method=True)
-        self.AuthLogin = channel.unary_unary(
-                '/mgmt.v1beta.MgmtPublicService/AuthLogin',
-                request_serializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthLoginRequest.SerializeToString,
-                response_deserializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthLoginResponse.FromString,
-                _registered_method=True)
-        self.AuthLogout = channel.unary_unary(
-                '/mgmt.v1beta.MgmtPublicService/AuthLogout',
-                request_serializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthLogoutRequest.SerializeToString,
-                response_deserializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthLogoutResponse.FromString,
-                _registered_method=True)
         self.AuthChangePassword = channel.unary_unary(
                 '/mgmt.v1beta.MgmtPublicService/AuthChangePassword',
                 request_serializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthChangePasswordRequest.SerializeToString,
                 response_deserializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthChangePasswordResponse.FromString,
-                _registered_method=True)
-        self.AuthValidateAccessToken = channel.unary_unary(
-                '/mgmt.v1beta.MgmtPublicService/AuthValidateAccessToken',
-                request_serializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenRequest.SerializeToString,
-                response_deserializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenResponse.FromString,
                 _registered_method=True)
         self.ListNamespaceConnections = channel.unary_unary(
                 '/mgmt.v1beta.MgmtPublicService/ListNamespaceConnections',
@@ -192,6 +178,16 @@ class MgmtPublicServiceServicer(object):
         """Check if the pipeline server is ready
 
         See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AuthenticateUser(self, request, context):
+        """Authenticate user with username and password
+
+        Validates Basic Auth credentials and returns the user UID.
+        Used internally by API Gateway for authentication.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -333,51 +329,10 @@ class MgmtPublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def AuthTokenIssuer(self, request, context):
-        """Auth endpoints are only used in the community edition and the OpenAPI
-        documentation references Instill Cloud. Therefore, these endpoints are
-        hidden.
-
-        Get Auth token issuer
-
-        Returns the auth token issuer details. This operation requires admin
-        permissions.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def AuthLogin(self, request, context):
-        """Log in a user
-
-        Authenticates a user and returns an access token.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def AuthLogout(self, request, context):
-        """Log out a user
-
-        Logs out an authenticated user.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def AuthChangePassword(self, request, context):
         """Change password
 
         Updates the password of a user.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def AuthValidateAccessToken(self, request, context):
-        """Validate an access token
-
-        Checks the validity of an access token.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -485,6 +440,11 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=mgmt_dot_v1beta_dot_mgmt__pb2.ReadinessRequest.FromString,
                     response_serializer=mgmt_dot_v1beta_dot_mgmt__pb2.ReadinessResponse.SerializeToString,
             ),
+            'AuthenticateUser': grpc.unary_unary_rpc_method_handler(
+                    servicer.AuthenticateUser,
+                    request_deserializer=mgmt_dot_v1beta_dot_auth__pb2.AuthenticateUserRequest.FromString,
+                    response_serializer=mgmt_dot_v1beta_dot_auth__pb2.AuthenticateUserResponse.SerializeToString,
+            ),
             'GetAuthenticatedUser': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAuthenticatedUser,
                     request_deserializer=mgmt_dot_v1beta_dot_mgmt__pb2.GetAuthenticatedUserRequest.FromString,
@@ -555,30 +515,10 @@ def add_MgmtPublicServiceServicer_to_server(servicer, server):
                     request_deserializer=mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerChartRecordsRequest.FromString,
                     response_serializer=mgmt_dot_v1beta_dot_metric__pb2.ListModelTriggerChartRecordsResponse.SerializeToString,
             ),
-            'AuthTokenIssuer': grpc.unary_unary_rpc_method_handler(
-                    servicer.AuthTokenIssuer,
-                    request_deserializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthTokenIssuerRequest.FromString,
-                    response_serializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthTokenIssuerResponse.SerializeToString,
-            ),
-            'AuthLogin': grpc.unary_unary_rpc_method_handler(
-                    servicer.AuthLogin,
-                    request_deserializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthLoginRequest.FromString,
-                    response_serializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthLoginResponse.SerializeToString,
-            ),
-            'AuthLogout': grpc.unary_unary_rpc_method_handler(
-                    servicer.AuthLogout,
-                    request_deserializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthLogoutRequest.FromString,
-                    response_serializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthLogoutResponse.SerializeToString,
-            ),
             'AuthChangePassword': grpc.unary_unary_rpc_method_handler(
                     servicer.AuthChangePassword,
                     request_deserializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthChangePasswordRequest.FromString,
                     response_serializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthChangePasswordResponse.SerializeToString,
-            ),
-            'AuthValidateAccessToken': grpc.unary_unary_rpc_method_handler(
-                    servicer.AuthValidateAccessToken,
-                    request_deserializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenRequest.FromString,
-                    response_serializer=mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenResponse.SerializeToString,
             ),
             'ListNamespaceConnections': grpc.unary_unary_rpc_method_handler(
                     servicer.ListNamespaceConnections,
@@ -684,6 +624,33 @@ class MgmtPublicService(object):
             '/mgmt.v1beta.MgmtPublicService/Readiness',
             mgmt_dot_v1beta_dot_mgmt__pb2.ReadinessRequest.SerializeToString,
             mgmt_dot_v1beta_dot_mgmt__pb2.ReadinessResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def AuthenticateUser(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/mgmt.v1beta.MgmtPublicService/AuthenticateUser',
+            mgmt_dot_v1beta_dot_auth__pb2.AuthenticateUserRequest.SerializeToString,
+            mgmt_dot_v1beta_dot_auth__pb2.AuthenticateUserResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1073,87 +1040,6 @@ class MgmtPublicService(object):
             _registered_method=True)
 
     @staticmethod
-    def AuthTokenIssuer(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/mgmt.v1beta.MgmtPublicService/AuthTokenIssuer',
-            mgmt_dot_v1beta_dot_mgmt__pb2.AuthTokenIssuerRequest.SerializeToString,
-            mgmt_dot_v1beta_dot_mgmt__pb2.AuthTokenIssuerResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def AuthLogin(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/mgmt.v1beta.MgmtPublicService/AuthLogin',
-            mgmt_dot_v1beta_dot_mgmt__pb2.AuthLoginRequest.SerializeToString,
-            mgmt_dot_v1beta_dot_mgmt__pb2.AuthLoginResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def AuthLogout(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/mgmt.v1beta.MgmtPublicService/AuthLogout',
-            mgmt_dot_v1beta_dot_mgmt__pb2.AuthLogoutRequest.SerializeToString,
-            mgmt_dot_v1beta_dot_mgmt__pb2.AuthLogoutResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
     def AuthChangePassword(request,
             target,
             options=(),
@@ -1170,33 +1056,6 @@ class MgmtPublicService(object):
             '/mgmt.v1beta.MgmtPublicService/AuthChangePassword',
             mgmt_dot_v1beta_dot_mgmt__pb2.AuthChangePasswordRequest.SerializeToString,
             mgmt_dot_v1beta_dot_mgmt__pb2.AuthChangePasswordResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def AuthValidateAccessToken(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/mgmt.v1beta.MgmtPublicService/AuthValidateAccessToken',
-            mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenRequest.SerializeToString,
-            mgmt_dot_v1beta_dot_mgmt__pb2.AuthValidateAccessTokenResponse.FromString,
             options,
             channel_credentials,
             insecure,

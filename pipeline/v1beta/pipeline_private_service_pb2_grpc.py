@@ -2,6 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+from pipeline.v1beta import integration_pb2 as pipeline_dot_v1beta_dot_integration__pb2
 from pipeline.v1beta import pipeline_pb2 as pipeline_dot_v1beta_dot_pipeline__pb2
 
 
@@ -30,6 +31,11 @@ class PipelinePrivateServiceStub(object):
                 '/pipeline.v1beta.PipelinePrivateService/ListPipelineReleasesAdmin',
                 request_serializer=pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineReleasesAdminRequest.SerializeToString,
                 response_deserializer=pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineReleasesAdminResponse.FromString,
+                _registered_method=True)
+        self.LookUpConnectionAdmin = channel.unary_unary(
+                '/pipeline.v1beta.PipelinePrivateService/LookUpConnectionAdmin',
+                request_serializer=pipeline_dot_v1beta_dot_integration__pb2.LookUpConnectionAdminRequest.SerializeToString,
+                response_deserializer=pipeline_dot_v1beta_dot_integration__pb2.LookUpConnectionAdminResponse.FromString,
                 _registered_method=True)
 
 
@@ -67,6 +73,16 @@ class PipelinePrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def LookUpConnectionAdmin(self, request, context):
+        """Look up a connection by UID (admin only)
+
+        This *private* method allows internal clients to access any connection
+        resource by UID.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_PipelinePrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -84,6 +100,11 @@ def add_PipelinePrivateServiceServicer_to_server(servicer, server):
                     servicer.ListPipelineReleasesAdmin,
                     request_deserializer=pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineReleasesAdminRequest.FromString,
                     response_serializer=pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineReleasesAdminResponse.SerializeToString,
+            ),
+            'LookUpConnectionAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.LookUpConnectionAdmin,
+                    request_deserializer=pipeline_dot_v1beta_dot_integration__pb2.LookUpConnectionAdminRequest.FromString,
+                    response_serializer=pipeline_dot_v1beta_dot_integration__pb2.LookUpConnectionAdminResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -169,6 +190,33 @@ class PipelinePrivateService(object):
             '/pipeline.v1beta.PipelinePrivateService/ListPipelineReleasesAdmin',
             pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineReleasesAdminRequest.SerializeToString,
             pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineReleasesAdminResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def LookUpConnectionAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/pipeline.v1beta.PipelinePrivateService/LookUpConnectionAdmin',
+            pipeline_dot_v1beta_dot_integration__pb2.LookUpConnectionAdminRequest.SerializeToString,
+            pipeline_dot_v1beta_dot_integration__pb2.LookUpConnectionAdminResponse.FromString,
             options,
             channel_credentials,
             insecure,

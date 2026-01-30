@@ -22,11 +22,12 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
+from pipeline.v1beta import integration_pb2 as pipeline_dot_v1beta_dot_integration__pb2
 from pipeline.v1beta import pipeline_pb2 as pipeline_dot_v1beta_dot_pipeline__pb2
 from protoc_gen_openapiv2.options import annotations_pb2 as protoc__gen__openapiv2_dot_options_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.pipeline/v1beta/pipeline_private_service.proto\x12\x0fpipeline.v1beta\x1a\x1epipeline/v1beta/pipeline.proto\x1a.protoc-gen-openapiv2/options/annotations.proto2\xbf\x03\n\x16PipelinePrivateService\x12o\n\x12ListPipelinesAdmin\x12*.pipeline.v1beta.ListPipelinesAdminRequest\x1a+.pipeline.v1beta.ListPipelinesAdminResponse\"\x00\x12r\n\x13LookUpPipelineAdmin\x12+.pipeline.v1beta.LookUpPipelineAdminRequest\x1a,.pipeline.v1beta.LookUpPipelineAdminResponse\"\x00\x12\x84\x01\n\x19ListPipelineReleasesAdmin\x12\x31.pipeline.v1beta.ListPipelineReleasesAdminRequest\x1a\x32.pipeline.v1beta.ListPipelineReleasesAdminResponse\"\x00\x1a\x39\x92\x41\x36\x12\x34Private methods to interact with Pipeline resources.B\xd1\x01\n\x13\x63om.pipeline.v1betaB\x1bPipelinePrivateServiceProtoP\x01Z@github.com/instill-ai/protogen-go/pipeline/v1beta;pipelinev1beta\xa2\x02\x03PXX\xaa\x02\x0fPipeline.V1beta\xca\x02\x0fPipeline\\V1beta\xe2\x02\x1bPipeline\\V1beta\\GPBMetadata\xea\x02\x10Pipeline::V1betab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.pipeline/v1beta/pipeline_private_service.proto\x12\x0fpipeline.v1beta\x1a!pipeline/v1beta/integration.proto\x1a\x1epipeline/v1beta/pipeline.proto\x1a.protoc-gen-openapiv2/options/annotations.proto2\xb9\x04\n\x16PipelinePrivateService\x12o\n\x12ListPipelinesAdmin\x12*.pipeline.v1beta.ListPipelinesAdminRequest\x1a+.pipeline.v1beta.ListPipelinesAdminResponse\"\x00\x12r\n\x13LookUpPipelineAdmin\x12+.pipeline.v1beta.LookUpPipelineAdminRequest\x1a,.pipeline.v1beta.LookUpPipelineAdminResponse\"\x00\x12\x84\x01\n\x19ListPipelineReleasesAdmin\x12\x31.pipeline.v1beta.ListPipelineReleasesAdminRequest\x1a\x32.pipeline.v1beta.ListPipelineReleasesAdminResponse\"\x00\x12x\n\x15LookUpConnectionAdmin\x12-.pipeline.v1beta.LookUpConnectionAdminRequest\x1a..pipeline.v1beta.LookUpConnectionAdminResponse\"\x00\x1a\x39\x92\x41\x36\x12\x34Private methods to interact with Pipeline resources.B\xd1\x01\n\x13\x63om.pipeline.v1betaB\x1bPipelinePrivateServiceProtoP\x01Z@github.com/instill-ai/protogen-go/pipeline/v1beta;pipelinev1beta\xa2\x02\x03PXX\xaa\x02\x0fPipeline.V1beta\xca\x02\x0fPipeline\\V1beta\xe2\x02\x1bPipeline\\V1beta\\GPBMetadata\xea\x02\x10Pipeline::V1betab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -36,6 +37,6 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._serialized_options = b'\n\023com.pipeline.v1betaB\033PipelinePrivateServiceProtoP\001Z@github.com/instill-ai/protogen-go/pipeline/v1beta;pipelinev1beta\242\002\003PXX\252\002\017Pipeline.V1beta\312\002\017Pipeline\\V1beta\342\002\033Pipeline\\V1beta\\GPBMetadata\352\002\020Pipeline::V1beta'
   _globals['_PIPELINEPRIVATESERVICE']._loaded_options = None
   _globals['_PIPELINEPRIVATESERVICE']._serialized_options = b'\222A6\0224Private methods to interact with Pipeline resources.'
-  _globals['_PIPELINEPRIVATESERVICE']._serialized_start=148
-  _globals['_PIPELINEPRIVATESERVICE']._serialized_end=595
+  _globals['_PIPELINEPRIVATESERVICE']._serialized_start=183
+  _globals['_PIPELINEPRIVATESERVICE']._serialized_end=752
 # @@protoc_insertion_point(module_scope)

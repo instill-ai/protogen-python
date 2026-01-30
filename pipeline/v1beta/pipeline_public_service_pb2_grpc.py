@@ -3,6 +3,7 @@
 import grpc
 
 from pipeline.v1beta import component_definition_pb2 as pipeline_dot_v1beta_dot_component__definition__pb2
+from pipeline.v1beta import integration_pb2 as pipeline_dot_v1beta_dot_integration__pb2
 from pipeline.v1beta import pipeline_pb2 as pipeline_dot_v1beta_dot_pipeline__pb2
 from pipeline.v1beta import secret_pb2 as pipeline_dot_v1beta_dot_secret__pb2
 
@@ -189,6 +190,51 @@ class PipelinePublicServiceStub(object):
                 '/pipeline.v1beta.PipelinePublicService/ListPipelineRunsByRequester',
                 request_serializer=pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsByRequesterRequest.SerializeToString,
                 response_deserializer=pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsByRequesterResponse.FromString,
+                _registered_method=True)
+        self.ListIntegrations = channel.unary_unary(
+                '/pipeline.v1beta.PipelinePublicService/ListIntegrations',
+                request_serializer=pipeline_dot_v1beta_dot_integration__pb2.ListIntegrationsRequest.SerializeToString,
+                response_deserializer=pipeline_dot_v1beta_dot_integration__pb2.ListIntegrationsResponse.FromString,
+                _registered_method=True)
+        self.GetIntegration = channel.unary_unary(
+                '/pipeline.v1beta.PipelinePublicService/GetIntegration',
+                request_serializer=pipeline_dot_v1beta_dot_integration__pb2.GetIntegrationRequest.SerializeToString,
+                response_deserializer=pipeline_dot_v1beta_dot_integration__pb2.GetIntegrationResponse.FromString,
+                _registered_method=True)
+        self.ListConnections = channel.unary_unary(
+                '/pipeline.v1beta.PipelinePublicService/ListConnections',
+                request_serializer=pipeline_dot_v1beta_dot_integration__pb2.ListConnectionsRequest.SerializeToString,
+                response_deserializer=pipeline_dot_v1beta_dot_integration__pb2.ListConnectionsResponse.FromString,
+                _registered_method=True)
+        self.GetConnection = channel.unary_unary(
+                '/pipeline.v1beta.PipelinePublicService/GetConnection',
+                request_serializer=pipeline_dot_v1beta_dot_integration__pb2.GetConnectionRequest.SerializeToString,
+                response_deserializer=pipeline_dot_v1beta_dot_integration__pb2.GetConnectionResponse.FromString,
+                _registered_method=True)
+        self.CreateConnection = channel.unary_unary(
+                '/pipeline.v1beta.PipelinePublicService/CreateConnection',
+                request_serializer=pipeline_dot_v1beta_dot_integration__pb2.CreateConnectionRequest.SerializeToString,
+                response_deserializer=pipeline_dot_v1beta_dot_integration__pb2.CreateConnectionResponse.FromString,
+                _registered_method=True)
+        self.UpdateConnection = channel.unary_unary(
+                '/pipeline.v1beta.PipelinePublicService/UpdateConnection',
+                request_serializer=pipeline_dot_v1beta_dot_integration__pb2.UpdateConnectionRequest.SerializeToString,
+                response_deserializer=pipeline_dot_v1beta_dot_integration__pb2.UpdateConnectionResponse.FromString,
+                _registered_method=True)
+        self.DeleteConnection = channel.unary_unary(
+                '/pipeline.v1beta.PipelinePublicService/DeleteConnection',
+                request_serializer=pipeline_dot_v1beta_dot_integration__pb2.DeleteConnectionRequest.SerializeToString,
+                response_deserializer=pipeline_dot_v1beta_dot_integration__pb2.DeleteConnectionResponse.FromString,
+                _registered_method=True)
+        self.TestConnection = channel.unary_unary(
+                '/pipeline.v1beta.PipelinePublicService/TestConnection',
+                request_serializer=pipeline_dot_v1beta_dot_integration__pb2.TestConnectionRequest.SerializeToString,
+                response_deserializer=pipeline_dot_v1beta_dot_integration__pb2.TestConnectionResponse.FromString,
+                _registered_method=True)
+        self.ListPipelineIDsByConnectionID = channel.unary_unary(
+                '/pipeline.v1beta.PipelinePublicService/ListPipelineIDsByConnectionID',
+                request_serializer=pipeline_dot_v1beta_dot_integration__pb2.ListPipelineIDsByConnectionIDRequest.SerializeToString,
+                response_deserializer=pipeline_dot_v1beta_dot_integration__pb2.ListPipelineIDsByConnectionIDResponse.FromString,
                 _registered_method=True)
 
 
@@ -592,6 +638,95 @@ class PipelinePublicServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListIntegrations(self, request, context):
+        """List integrations
+
+        Returns a paginated list of available integrations.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetIntegration(self, request, context):
+        """Get an integration
+
+        Returns the details of an integration.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListConnections(self, request, context):
+        """List connections
+
+        Returns a paginated list of connections created by a namespace.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetConnection(self, request, context):
+        """Get a connection
+
+        Returns the details of a connection.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateConnection(self, request, context):
+        """Create a connection
+
+        Creates a connection under the ownership of a namespace.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateConnection(self, request, context):
+        """Update a connection
+
+        Updates a connection with the supplied connection fields.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteConnection(self, request, context):
+        """Delete a connection
+
+        Deletes a connection.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TestConnection(self, request, context):
+        """Test a connection
+
+        Makes a request to the 3rd party app that the connection is configured to
+        communicate with, and checks the result of the call. If the test fails,
+        the response status and error message will provide more information about
+        the failure.
+
+        Note that this action might affect the quota or billing of the integrated
+        account in the 3rd party app.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListPipelineIDsByConnectionID(self, request, context):
+        """List pipelines that reference a connection
+
+        Returns a paginated list with the IDs of the pipelines that reference a
+        given connection. All the pipelines will belong to the same namespace as
+        the connection.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_PipelinePublicServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -764,6 +899,51 @@ def add_PipelinePublicServiceServicer_to_server(servicer, server):
                     servicer.ListPipelineRunsByRequester,
                     request_deserializer=pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsByRequesterRequest.FromString,
                     response_serializer=pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsByRequesterResponse.SerializeToString,
+            ),
+            'ListIntegrations': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListIntegrations,
+                    request_deserializer=pipeline_dot_v1beta_dot_integration__pb2.ListIntegrationsRequest.FromString,
+                    response_serializer=pipeline_dot_v1beta_dot_integration__pb2.ListIntegrationsResponse.SerializeToString,
+            ),
+            'GetIntegration': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetIntegration,
+                    request_deserializer=pipeline_dot_v1beta_dot_integration__pb2.GetIntegrationRequest.FromString,
+                    response_serializer=pipeline_dot_v1beta_dot_integration__pb2.GetIntegrationResponse.SerializeToString,
+            ),
+            'ListConnections': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListConnections,
+                    request_deserializer=pipeline_dot_v1beta_dot_integration__pb2.ListConnectionsRequest.FromString,
+                    response_serializer=pipeline_dot_v1beta_dot_integration__pb2.ListConnectionsResponse.SerializeToString,
+            ),
+            'GetConnection': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetConnection,
+                    request_deserializer=pipeline_dot_v1beta_dot_integration__pb2.GetConnectionRequest.FromString,
+                    response_serializer=pipeline_dot_v1beta_dot_integration__pb2.GetConnectionResponse.SerializeToString,
+            ),
+            'CreateConnection': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateConnection,
+                    request_deserializer=pipeline_dot_v1beta_dot_integration__pb2.CreateConnectionRequest.FromString,
+                    response_serializer=pipeline_dot_v1beta_dot_integration__pb2.CreateConnectionResponse.SerializeToString,
+            ),
+            'UpdateConnection': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateConnection,
+                    request_deserializer=pipeline_dot_v1beta_dot_integration__pb2.UpdateConnectionRequest.FromString,
+                    response_serializer=pipeline_dot_v1beta_dot_integration__pb2.UpdateConnectionResponse.SerializeToString,
+            ),
+            'DeleteConnection': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteConnection,
+                    request_deserializer=pipeline_dot_v1beta_dot_integration__pb2.DeleteConnectionRequest.FromString,
+                    response_serializer=pipeline_dot_v1beta_dot_integration__pb2.DeleteConnectionResponse.SerializeToString,
+            ),
+            'TestConnection': grpc.unary_unary_rpc_method_handler(
+                    servicer.TestConnection,
+                    request_deserializer=pipeline_dot_v1beta_dot_integration__pb2.TestConnectionRequest.FromString,
+                    response_serializer=pipeline_dot_v1beta_dot_integration__pb2.TestConnectionResponse.SerializeToString,
+            ),
+            'ListPipelineIDsByConnectionID': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListPipelineIDsByConnectionID,
+                    request_deserializer=pipeline_dot_v1beta_dot_integration__pb2.ListPipelineIDsByConnectionIDRequest.FromString,
+                    response_serializer=pipeline_dot_v1beta_dot_integration__pb2.ListPipelineIDsByConnectionIDResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1688,6 +1868,249 @@ class PipelinePublicService(object):
             '/pipeline.v1beta.PipelinePublicService/ListPipelineRunsByRequester',
             pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsByRequesterRequest.SerializeToString,
             pipeline_dot_v1beta_dot_pipeline__pb2.ListPipelineRunsByRequesterResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def ListIntegrations(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/pipeline.v1beta.PipelinePublicService/ListIntegrations',
+            pipeline_dot_v1beta_dot_integration__pb2.ListIntegrationsRequest.SerializeToString,
+            pipeline_dot_v1beta_dot_integration__pb2.ListIntegrationsResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetIntegration(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/pipeline.v1beta.PipelinePublicService/GetIntegration',
+            pipeline_dot_v1beta_dot_integration__pb2.GetIntegrationRequest.SerializeToString,
+            pipeline_dot_v1beta_dot_integration__pb2.GetIntegrationResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def ListConnections(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/pipeline.v1beta.PipelinePublicService/ListConnections',
+            pipeline_dot_v1beta_dot_integration__pb2.ListConnectionsRequest.SerializeToString,
+            pipeline_dot_v1beta_dot_integration__pb2.ListConnectionsResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetConnection(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/pipeline.v1beta.PipelinePublicService/GetConnection',
+            pipeline_dot_v1beta_dot_integration__pb2.GetConnectionRequest.SerializeToString,
+            pipeline_dot_v1beta_dot_integration__pb2.GetConnectionResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def CreateConnection(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/pipeline.v1beta.PipelinePublicService/CreateConnection',
+            pipeline_dot_v1beta_dot_integration__pb2.CreateConnectionRequest.SerializeToString,
+            pipeline_dot_v1beta_dot_integration__pb2.CreateConnectionResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def UpdateConnection(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/pipeline.v1beta.PipelinePublicService/UpdateConnection',
+            pipeline_dot_v1beta_dot_integration__pb2.UpdateConnectionRequest.SerializeToString,
+            pipeline_dot_v1beta_dot_integration__pb2.UpdateConnectionResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def DeleteConnection(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/pipeline.v1beta.PipelinePublicService/DeleteConnection',
+            pipeline_dot_v1beta_dot_integration__pb2.DeleteConnectionRequest.SerializeToString,
+            pipeline_dot_v1beta_dot_integration__pb2.DeleteConnectionResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def TestConnection(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/pipeline.v1beta.PipelinePublicService/TestConnection',
+            pipeline_dot_v1beta_dot_integration__pb2.TestConnectionRequest.SerializeToString,
+            pipeline_dot_v1beta_dot_integration__pb2.TestConnectionResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def ListPipelineIDsByConnectionID(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/pipeline.v1beta.PipelinePublicService/ListPipelineIDsByConnectionID',
+            pipeline_dot_v1beta_dot_integration__pb2.ListPipelineIDsByConnectionIDRequest.SerializeToString,
+            pipeline_dot_v1beta_dot_integration__pb2.ListPipelineIDsByConnectionIDResponse.FromString,
             options,
             channel_credentials,
             insecure,

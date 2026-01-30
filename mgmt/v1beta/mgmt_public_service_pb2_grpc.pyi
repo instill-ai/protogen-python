@@ -7,6 +7,7 @@ import abc
 import collections.abc
 import grpc
 import grpc.aio
+import mgmt.v1beta.auth_pb2
 import mgmt.v1beta.integration_pb2
 import mgmt.v1beta.metric_pb2
 import mgmt.v1beta.mgmt_pb2
@@ -43,6 +44,16 @@ class MgmtPublicServiceStub:
     """Check if the pipeline server is ready
 
     See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+    """
+
+    AuthenticateUser: grpc.UnaryUnaryMultiCallable[
+        mgmt.v1beta.auth_pb2.AuthenticateUserRequest,
+        mgmt.v1beta.auth_pb2.AuthenticateUserResponse,
+    ]
+    """Authenticate user with username and password
+
+    Validates Basic Auth credentials and returns the user UID.
+    Used internally by API Gateway for authentication.
     """
 
     GetAuthenticatedUser: grpc.UnaryUnaryMultiCallable[
@@ -181,38 +192,6 @@ class MgmtPublicServiceStub:
     amount of triggers in a time bucket.
     """
 
-    AuthTokenIssuer: grpc.UnaryUnaryMultiCallable[
-        mgmt.v1beta.mgmt_pb2.AuthTokenIssuerRequest,
-        mgmt.v1beta.mgmt_pb2.AuthTokenIssuerResponse,
-    ]
-    """Auth endpoints are only used in the community edition and the OpenAPI
-    documentation references Instill Cloud. Therefore, these endpoints are
-    hidden.
-
-    Get Auth token issuer
-
-    Returns the auth token issuer details. This operation requires admin
-    permissions.
-    """
-
-    AuthLogin: grpc.UnaryUnaryMultiCallable[
-        mgmt.v1beta.mgmt_pb2.AuthLoginRequest,
-        mgmt.v1beta.mgmt_pb2.AuthLoginResponse,
-    ]
-    """Log in a user
-
-    Authenticates a user and returns an access token.
-    """
-
-    AuthLogout: grpc.UnaryUnaryMultiCallable[
-        mgmt.v1beta.mgmt_pb2.AuthLogoutRequest,
-        mgmt.v1beta.mgmt_pb2.AuthLogoutResponse,
-    ]
-    """Log out a user
-
-    Logs out an authenticated user.
-    """
-
     AuthChangePassword: grpc.UnaryUnaryMultiCallable[
         mgmt.v1beta.mgmt_pb2.AuthChangePasswordRequest,
         mgmt.v1beta.mgmt_pb2.AuthChangePasswordResponse,
@@ -220,15 +199,6 @@ class MgmtPublicServiceStub:
     """Change password
 
     Updates the password of a user.
-    """
-
-    AuthValidateAccessToken: grpc.UnaryUnaryMultiCallable[
-        mgmt.v1beta.mgmt_pb2.AuthValidateAccessTokenRequest,
-        mgmt.v1beta.mgmt_pb2.AuthValidateAccessTokenResponse,
-    ]
-    """Validate an access token
-
-    Checks the validity of an access token.
     """
 
     ListNamespaceConnections: grpc.UnaryUnaryMultiCallable[
@@ -343,6 +313,16 @@ class MgmtPublicServiceAsyncStub:
     """Check if the pipeline server is ready
 
     See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+    """
+
+    AuthenticateUser: grpc.aio.UnaryUnaryMultiCallable[
+        mgmt.v1beta.auth_pb2.AuthenticateUserRequest,
+        mgmt.v1beta.auth_pb2.AuthenticateUserResponse,
+    ]
+    """Authenticate user with username and password
+
+    Validates Basic Auth credentials and returns the user UID.
+    Used internally by API Gateway for authentication.
     """
 
     GetAuthenticatedUser: grpc.aio.UnaryUnaryMultiCallable[
@@ -481,38 +461,6 @@ class MgmtPublicServiceAsyncStub:
     amount of triggers in a time bucket.
     """
 
-    AuthTokenIssuer: grpc.aio.UnaryUnaryMultiCallable[
-        mgmt.v1beta.mgmt_pb2.AuthTokenIssuerRequest,
-        mgmt.v1beta.mgmt_pb2.AuthTokenIssuerResponse,
-    ]
-    """Auth endpoints are only used in the community edition and the OpenAPI
-    documentation references Instill Cloud. Therefore, these endpoints are
-    hidden.
-
-    Get Auth token issuer
-
-    Returns the auth token issuer details. This operation requires admin
-    permissions.
-    """
-
-    AuthLogin: grpc.aio.UnaryUnaryMultiCallable[
-        mgmt.v1beta.mgmt_pb2.AuthLoginRequest,
-        mgmt.v1beta.mgmt_pb2.AuthLoginResponse,
-    ]
-    """Log in a user
-
-    Authenticates a user and returns an access token.
-    """
-
-    AuthLogout: grpc.aio.UnaryUnaryMultiCallable[
-        mgmt.v1beta.mgmt_pb2.AuthLogoutRequest,
-        mgmt.v1beta.mgmt_pb2.AuthLogoutResponse,
-    ]
-    """Log out a user
-
-    Logs out an authenticated user.
-    """
-
     AuthChangePassword: grpc.aio.UnaryUnaryMultiCallable[
         mgmt.v1beta.mgmt_pb2.AuthChangePasswordRequest,
         mgmt.v1beta.mgmt_pb2.AuthChangePasswordResponse,
@@ -520,15 +468,6 @@ class MgmtPublicServiceAsyncStub:
     """Change password
 
     Updates the password of a user.
-    """
-
-    AuthValidateAccessToken: grpc.aio.UnaryUnaryMultiCallable[
-        mgmt.v1beta.mgmt_pb2.AuthValidateAccessTokenRequest,
-        mgmt.v1beta.mgmt_pb2.AuthValidateAccessTokenResponse,
-    ]
-    """Validate an access token
-
-    Checks the validity of an access token.
     """
 
     ListNamespaceConnections: grpc.aio.UnaryUnaryMultiCallable[
@@ -647,6 +586,18 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         """Check if the pipeline server is ready
 
         See https://github.com/grpc/grpc/blob/master/doc/health-checking.md
+        """
+
+    @abc.abstractmethod
+    def AuthenticateUser(
+        self,
+        request: mgmt.v1beta.auth_pb2.AuthenticateUserRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[mgmt.v1beta.auth_pb2.AuthenticateUserResponse, collections.abc.Awaitable[mgmt.v1beta.auth_pb2.AuthenticateUserResponse]]:
+        """Authenticate user with username and password
+
+        Validates Basic Auth credentials and returns the user UID.
+        Used internally by API Gateway for authentication.
         """
 
     @abc.abstractmethod
@@ -814,44 +765,6 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         """
 
     @abc.abstractmethod
-    def AuthTokenIssuer(
-        self,
-        request: mgmt.v1beta.mgmt_pb2.AuthTokenIssuerRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[mgmt.v1beta.mgmt_pb2.AuthTokenIssuerResponse, collections.abc.Awaitable[mgmt.v1beta.mgmt_pb2.AuthTokenIssuerResponse]]:
-        """Auth endpoints are only used in the community edition and the OpenAPI
-        documentation references Instill Cloud. Therefore, these endpoints are
-        hidden.
-
-        Get Auth token issuer
-
-        Returns the auth token issuer details. This operation requires admin
-        permissions.
-        """
-
-    @abc.abstractmethod
-    def AuthLogin(
-        self,
-        request: mgmt.v1beta.mgmt_pb2.AuthLoginRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[mgmt.v1beta.mgmt_pb2.AuthLoginResponse, collections.abc.Awaitable[mgmt.v1beta.mgmt_pb2.AuthLoginResponse]]:
-        """Log in a user
-
-        Authenticates a user and returns an access token.
-        """
-
-    @abc.abstractmethod
-    def AuthLogout(
-        self,
-        request: mgmt.v1beta.mgmt_pb2.AuthLogoutRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[mgmt.v1beta.mgmt_pb2.AuthLogoutResponse, collections.abc.Awaitable[mgmt.v1beta.mgmt_pb2.AuthLogoutResponse]]:
-        """Log out a user
-
-        Logs out an authenticated user.
-        """
-
-    @abc.abstractmethod
     def AuthChangePassword(
         self,
         request: mgmt.v1beta.mgmt_pb2.AuthChangePasswordRequest,
@@ -860,17 +773,6 @@ class MgmtPublicServiceServicer(metaclass=abc.ABCMeta):
         """Change password
 
         Updates the password of a user.
-        """
-
-    @abc.abstractmethod
-    def AuthValidateAccessToken(
-        self,
-        request: mgmt.v1beta.mgmt_pb2.AuthValidateAccessTokenRequest,
-        context: _ServicerContext,
-    ) -> typing.Union[mgmt.v1beta.mgmt_pb2.AuthValidateAccessTokenResponse, collections.abc.Awaitable[mgmt.v1beta.mgmt_pb2.AuthValidateAccessTokenResponse]]:
-        """Validate an access token
-
-        Checks the validity of an access token.
         """
 
     @abc.abstractmethod

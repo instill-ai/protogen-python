@@ -7,6 +7,7 @@ import abc
 import collections.abc
 import grpc
 import grpc.aio
+import pipeline.v1beta.integration_pb2
 import pipeline.v1beta.pipeline_pb2
 import typing
 
@@ -52,6 +53,16 @@ class PipelinePrivateServiceStub:
     This *private* method allows admin users to list *all* pipeline releases.
     """
 
+    LookUpConnectionAdmin: grpc.UnaryUnaryMultiCallable[
+        pipeline.v1beta.integration_pb2.LookUpConnectionAdminRequest,
+        pipeline.v1beta.integration_pb2.LookUpConnectionAdminResponse,
+    ]
+    """Look up a connection by UID (admin only)
+
+    This *private* method allows internal clients to access any connection
+    resource by UID.
+    """
+
 class PipelinePrivateServiceAsyncStub:
     """PipelinePrivateService defines private methods to interact with Pipeline
     resources.
@@ -84,6 +95,16 @@ class PipelinePrivateServiceAsyncStub:
     """List pipeline releases (admin only)
 
     This *private* method allows admin users to list *all* pipeline releases.
+    """
+
+    LookUpConnectionAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        pipeline.v1beta.integration_pb2.LookUpConnectionAdminRequest,
+        pipeline.v1beta.integration_pb2.LookUpConnectionAdminResponse,
+    ]
+    """Look up a connection by UID (admin only)
+
+    This *private* method allows internal clients to access any connection
+    resource by UID.
     """
 
 class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
@@ -124,6 +145,18 @@ class PipelinePrivateServiceServicer(metaclass=abc.ABCMeta):
         """List pipeline releases (admin only)
 
         This *private* method allows admin users to list *all* pipeline releases.
+        """
+
+    @abc.abstractmethod
+    def LookUpConnectionAdmin(
+        self,
+        request: pipeline.v1beta.integration_pb2.LookUpConnectionAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[pipeline.v1beta.integration_pb2.LookUpConnectionAdminResponse, collections.abc.Awaitable[pipeline.v1beta.integration_pb2.LookUpConnectionAdminResponse]]:
+        """Look up a connection by UID (admin only)
+
+        This *private* method allows internal clients to access any connection
+        resource by UID.
         """
 
 def add_PipelinePrivateServiceServicer_to_server(servicer: PipelinePrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
