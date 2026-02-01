@@ -145,6 +145,11 @@ class ArtifactPrivateServiceStub(object):
                 request_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseAdminResponse.FromString,
                 _registered_method=True)
+        self.ListFilesAdmin = channel.unary_unary(
+                '/artifact.v1alpha.ArtifactPrivateService/ListFilesAdmin',
+                request_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ListFilesAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ListFilesAdminResponse.FromString,
+                _registered_method=True)
 
 
 class ArtifactPrivateServiceServicer(object):
@@ -381,6 +386,18 @@ class ArtifactPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListFilesAdmin(self, request, context):
+        """List files in a knowledge base (admin only)
+
+        Lists all files in a knowledge base without ACL checks. Unlike the public
+        ListKnowledgeBaseFiles endpoint which requires authentication context, this
+        admin endpoint allows internal services to list files during migrations and
+        administrative operations.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -508,6 +525,11 @@ def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
                     servicer.DeleteKnowledgeBaseAdmin,
                     request_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseAdminRequest.FromString,
                     response_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseAdminResponse.SerializeToString,
+            ),
+            'ListFilesAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListFilesAdmin,
+                    request_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ListFilesAdminRequest.FromString,
+                    response_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ListFilesAdminResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1187,6 +1209,33 @@ class ArtifactPrivateService(object):
             '/artifact.v1alpha.ArtifactPrivateService/DeleteKnowledgeBaseAdmin',
             artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseAdminRequest.SerializeToString,
             artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseAdminResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def ListFilesAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.v1alpha.ArtifactPrivateService/ListFilesAdmin',
+            artifact_dot_v1alpha_dot_knowledge__base__pb2.ListFilesAdminRequest.SerializeToString,
+            artifact_dot_v1alpha_dot_knowledge__base__pb2.ListFilesAdminResponse.FromString,
             options,
             channel_credentials,
             insecure,

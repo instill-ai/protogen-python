@@ -242,6 +242,18 @@ class ArtifactPrivateServiceStub:
     KB consolidation migrations after files have been moved to another KB.
     """
 
+    ListFilesAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.v1alpha.knowledge_base_pb2.ListFilesAdminRequest,
+        artifact.v1alpha.knowledge_base_pb2.ListFilesAdminResponse,
+    ]
+    """List files in a knowledge base (admin only)
+
+    Lists all files in a knowledge base without ACL checks. Unlike the public
+    ListKnowledgeBaseFiles endpoint which requires authentication context, this
+    admin endpoint allows internal services to list files during migrations and
+    administrative operations.
+    """
+
 class ArtifactPrivateServiceAsyncStub:
     """ArtifactPrivateService exposes the private endpoints that allow clients to
     manage artifacts.
@@ -460,6 +472,18 @@ class ArtifactPrivateServiceAsyncStub:
     Force deletes a knowledge base even if it contains files. The files remain
     in the file table but lose their KB association (orphaned). Used during
     KB consolidation migrations after files have been moved to another KB.
+    """
+
+    ListFilesAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.v1alpha.knowledge_base_pb2.ListFilesAdminRequest,
+        artifact.v1alpha.knowledge_base_pb2.ListFilesAdminResponse,
+    ]
+    """List files in a knowledge base (admin only)
+
+    Lists all files in a knowledge base without ACL checks. Unlike the public
+    ListKnowledgeBaseFiles endpoint which requires authentication context, this
+    admin endpoint allows internal services to list files during migrations and
+    administrative operations.
     """
 
 class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
@@ -730,6 +754,20 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
         Force deletes a knowledge base even if it contains files. The files remain
         in the file table but lose their KB association (orphaned). Used during
         KB consolidation migrations after files have been moved to another KB.
+        """
+
+    @abc.abstractmethod
+    def ListFilesAdmin(
+        self,
+        request: artifact.v1alpha.knowledge_base_pb2.ListFilesAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.v1alpha.knowledge_base_pb2.ListFilesAdminResponse, collections.abc.Awaitable[artifact.v1alpha.knowledge_base_pb2.ListFilesAdminResponse]]:
+        """List files in a knowledge base (admin only)
+
+        Lists all files in a knowledge base without ACL checks. Unlike the public
+        ListKnowledgeBaseFiles endpoint which requires authentication context, this
+        admin endpoint allows internal services to list files during migrations and
+        administrative operations.
         """
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer: ArtifactPrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

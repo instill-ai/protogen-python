@@ -3,6 +3,7 @@
 isort:skip_file
 """
 
+import artifact.v1alpha.file_pb2
 import builtins
 import collections.abc
 import google.protobuf.descriptor
@@ -843,3 +844,61 @@ class DeleteKnowledgeBaseAdminResponse(google.protobuf.message.Message):
     ) -> None: ...
 
 global___DeleteKnowledgeBaseAdminResponse = DeleteKnowledgeBaseAdminResponse
+
+@typing.final
+class ListFilesAdminRequest(google.protobuf.message.Message):
+    """ListFilesAdminRequest represents a request to list files in a knowledge base
+    (admin only).
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PARENT_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    parent: builtins.str
+    """The resource name of the knowledge base.
+    Format: `namespaces/{namespace}/knowledge-bases/{knowledge_base}`
+    """
+    page_size: builtins.int
+    """Maximum number of files to return. Default is 100."""
+    page_token: builtins.str
+    """Page token for pagination."""
+    def __init__(
+        self,
+        *,
+        parent: builtins.str = ...,
+        page_size: builtins.int = ...,
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["page_size", b"page_size", "page_token", b"page_token", "parent", b"parent"]) -> None: ...
+
+global___ListFilesAdminRequest = ListFilesAdminRequest
+
+@typing.final
+class ListFilesAdminResponse(google.protobuf.message.Message):
+    """ListFilesAdminResponse represents a response for listing files (admin only)."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILES_FIELD_NUMBER: builtins.int
+    NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    TOTAL_SIZE_FIELD_NUMBER: builtins.int
+    next_page_token: builtins.str
+    """Token for the next page."""
+    total_size: builtins.int
+    """Total number of files."""
+    @property
+    def files(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[artifact.v1alpha.file_pb2.File]:
+        """The files in the knowledge base."""
+
+    def __init__(
+        self,
+        *,
+        files: collections.abc.Iterable[artifact.v1alpha.file_pb2.File] | None = ...,
+        next_page_token: builtins.str = ...,
+        total_size: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["files", b"files", "next_page_token", b"next_page_token", "total_size", b"total_size"]) -> None: ...
+
+global___ListFilesAdminResponse = ListFilesAdminResponse
