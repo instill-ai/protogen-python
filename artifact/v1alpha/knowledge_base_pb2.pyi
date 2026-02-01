@@ -755,3 +755,91 @@ class ResetKnowledgeBaseEmbeddingsAdminResponse(google.protobuf.message.Message)
     def ClearField(self, field_name: typing.Literal["files_to_reembed", b"files_to_reembed", "knowledge_base", b"knowledge_base"]) -> None: ...
 
 global___ResetKnowledgeBaseEmbeddingsAdminResponse = ResetKnowledgeBaseEmbeddingsAdminResponse
+
+@typing.final
+class AddFilesToKnowledgeBaseAdminRequest(google.protobuf.message.Message):
+    """MoveFilesToKnowledgeBaseAdminRequest represents a request to move files from
+    source knowledge bases to a target knowledge base (admin only).
+    Adds file associations to a knowledge base (admin only).
+    Files can belong to multiple KBs (many-to-many relationship).
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TARGET_KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
+    FILES_FIELD_NUMBER: builtins.int
+    target_knowledge_base: builtins.str
+    """The resource name of the target knowledge base to add files to.
+    Format: `namespaces/{namespace}/knowledge-bases/{knowledge_base}`
+    """
+    @property
+    def files(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """The resource names of files to add to the target knowledge base.
+        Format: `namespaces/{namespace}/files/{file}`
+        Files that already exist in the target KB are skipped (no duplicates).
+        """
+
+    def __init__(
+        self,
+        *,
+        target_knowledge_base: builtins.str = ...,
+        files: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["files", b"files", "target_knowledge_base", b"target_knowledge_base"]) -> None: ...
+
+global___AddFilesToKnowledgeBaseAdminRequest = AddFilesToKnowledgeBaseAdminRequest
+
+@typing.final
+class AddFilesToKnowledgeBaseAdminResponse(google.protobuf.message.Message):
+    """AddFilesToKnowledgeBaseAdminResponse represents a response for adding files."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILES_ADDED_FIELD_NUMBER: builtins.int
+    files_added: builtins.int
+    """Number of files added to the target knowledge base."""
+    def __init__(
+        self,
+        *,
+        files_added: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["files_added", b"files_added"]) -> None: ...
+
+global___AddFilesToKnowledgeBaseAdminResponse = AddFilesToKnowledgeBaseAdminResponse
+
+@typing.final
+class DeleteKnowledgeBaseAdminRequest(google.protobuf.message.Message):
+    """DeleteKnowledgeBaseAdminRequest represents a request to delete a knowledge
+    base (admin only). This force deletes the KB even if it contains files.
+    Files are NOT deleted - they remain orphaned (no KB association).
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the knowledge base to delete.
+    Format: `namespaces/{namespace}/knowledge-bases/{knowledge_base}`
+    """
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["name", b"name"]) -> None: ...
+
+global___DeleteKnowledgeBaseAdminRequest = DeleteKnowledgeBaseAdminRequest
+
+@typing.final
+class DeleteKnowledgeBaseAdminResponse(google.protobuf.message.Message):
+    """DeleteKnowledgeBaseAdminResponse represents a response for deleting a KB.
+    Empty response on success.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    def __init__(
+        self,
+    ) -> None: ...
+
+global___DeleteKnowledgeBaseAdminResponse = DeleteKnowledgeBaseAdminResponse

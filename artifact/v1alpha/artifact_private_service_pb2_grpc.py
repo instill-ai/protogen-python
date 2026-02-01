@@ -135,6 +135,16 @@ class ArtifactPrivateServiceStub(object):
                 request_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ResetKnowledgeBaseEmbeddingsAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ResetKnowledgeBaseEmbeddingsAdminResponse.FromString,
                 _registered_method=True)
+        self.AddFilesToKnowledgeBaseAdmin = channel.unary_unary(
+                '/artifact.v1alpha.ArtifactPrivateService/AddFilesToKnowledgeBaseAdmin',
+                request_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.AddFilesToKnowledgeBaseAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.AddFilesToKnowledgeBaseAdminResponse.FromString,
+                _registered_method=True)
+        self.DeleteKnowledgeBaseAdmin = channel.unary_unary(
+                '/artifact.v1alpha.ArtifactPrivateService/DeleteKnowledgeBaseAdmin',
+                request_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseAdminResponse.FromString,
+                _registered_method=True)
 
 
 class ArtifactPrivateServiceServicer(object):
@@ -349,6 +359,28 @@ class ArtifactPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def AddFilesToKnowledgeBaseAdmin(self, request, context):
+        """Add files to knowledge base (admin only)
+
+        Adds file associations to a target knowledge base by file UIDs.
+        Files can belong to multiple KBs (many-to-many relationship).
+        Files that already exist in the target KB are skipped (no duplicates).
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteKnowledgeBaseAdmin(self, request, context):
+        """Delete knowledge base (admin only)
+
+        Force deletes a knowledge base even if it contains files. The files remain
+        in the file table but lose their KB association (orphaned). Used during
+        KB consolidation migrations after files have been moved to another KB.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -466,6 +498,16 @@ def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
                     servicer.ResetKnowledgeBaseEmbeddingsAdmin,
                     request_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ResetKnowledgeBaseEmbeddingsAdminRequest.FromString,
                     response_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ResetKnowledgeBaseEmbeddingsAdminResponse.SerializeToString,
+            ),
+            'AddFilesToKnowledgeBaseAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddFilesToKnowledgeBaseAdmin,
+                    request_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.AddFilesToKnowledgeBaseAdminRequest.FromString,
+                    response_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.AddFilesToKnowledgeBaseAdminResponse.SerializeToString,
+            ),
+            'DeleteKnowledgeBaseAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteKnowledgeBaseAdmin,
+                    request_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseAdminRequest.FromString,
+                    response_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseAdminResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1091,6 +1133,60 @@ class ArtifactPrivateService(object):
             '/artifact.v1alpha.ArtifactPrivateService/ResetKnowledgeBaseEmbeddingsAdmin',
             artifact_dot_v1alpha_dot_knowledge__base__pb2.ResetKnowledgeBaseEmbeddingsAdminRequest.SerializeToString,
             artifact_dot_v1alpha_dot_knowledge__base__pb2.ResetKnowledgeBaseEmbeddingsAdminResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def AddFilesToKnowledgeBaseAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.v1alpha.ArtifactPrivateService/AddFilesToKnowledgeBaseAdmin',
+            artifact_dot_v1alpha_dot_knowledge__base__pb2.AddFilesToKnowledgeBaseAdminRequest.SerializeToString,
+            artifact_dot_v1alpha_dot_knowledge__base__pb2.AddFilesToKnowledgeBaseAdminResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def DeleteKnowledgeBaseAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.v1alpha.ArtifactPrivateService/DeleteKnowledgeBaseAdmin',
+            artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseAdminRequest.SerializeToString,
+            artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseAdminResponse.FromString,
             options,
             channel_credentials,
             insecure,

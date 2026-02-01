@@ -220,6 +220,28 @@ class ArtifactPrivateServiceStub:
     ]
     """Reset knowledge base embeddings (admin only)"""
 
+    AddFilesToKnowledgeBaseAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.v1alpha.knowledge_base_pb2.AddFilesToKnowledgeBaseAdminRequest,
+        artifact.v1alpha.knowledge_base_pb2.AddFilesToKnowledgeBaseAdminResponse,
+    ]
+    """Add files to knowledge base (admin only)
+
+    Adds file associations to a target knowledge base by file UIDs.
+    Files can belong to multiple KBs (many-to-many relationship).
+    Files that already exist in the target KB are skipped (no duplicates).
+    """
+
+    DeleteKnowledgeBaseAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.v1alpha.knowledge_base_pb2.DeleteKnowledgeBaseAdminRequest,
+        artifact.v1alpha.knowledge_base_pb2.DeleteKnowledgeBaseAdminResponse,
+    ]
+    """Delete knowledge base (admin only)
+
+    Force deletes a knowledge base even if it contains files. The files remain
+    in the file table but lose their KB association (orphaned). Used during
+    KB consolidation migrations after files have been moved to another KB.
+    """
+
 class ArtifactPrivateServiceAsyncStub:
     """ArtifactPrivateService exposes the private endpoints that allow clients to
     manage artifacts.
@@ -417,6 +439,28 @@ class ArtifactPrivateServiceAsyncStub:
         artifact.v1alpha.knowledge_base_pb2.ResetKnowledgeBaseEmbeddingsAdminResponse,
     ]
     """Reset knowledge base embeddings (admin only)"""
+
+    AddFilesToKnowledgeBaseAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.v1alpha.knowledge_base_pb2.AddFilesToKnowledgeBaseAdminRequest,
+        artifact.v1alpha.knowledge_base_pb2.AddFilesToKnowledgeBaseAdminResponse,
+    ]
+    """Add files to knowledge base (admin only)
+
+    Adds file associations to a target knowledge base by file UIDs.
+    Files can belong to multiple KBs (many-to-many relationship).
+    Files that already exist in the target KB are skipped (no duplicates).
+    """
+
+    DeleteKnowledgeBaseAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.v1alpha.knowledge_base_pb2.DeleteKnowledgeBaseAdminRequest,
+        artifact.v1alpha.knowledge_base_pb2.DeleteKnowledgeBaseAdminResponse,
+    ]
+    """Delete knowledge base (admin only)
+
+    Force deletes a knowledge base even if it contains files. The files remain
+    in the file table but lose their KB association (orphaned). Used during
+    KB consolidation migrations after files have been moved to another KB.
+    """
 
 class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
     """ArtifactPrivateService exposes the private endpoints that allow clients to
@@ -661,5 +705,31 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
         context: _ServicerContext,
     ) -> typing.Union[artifact.v1alpha.knowledge_base_pb2.ResetKnowledgeBaseEmbeddingsAdminResponse, collections.abc.Awaitable[artifact.v1alpha.knowledge_base_pb2.ResetKnowledgeBaseEmbeddingsAdminResponse]]:
         """Reset knowledge base embeddings (admin only)"""
+
+    @abc.abstractmethod
+    def AddFilesToKnowledgeBaseAdmin(
+        self,
+        request: artifact.v1alpha.knowledge_base_pb2.AddFilesToKnowledgeBaseAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.v1alpha.knowledge_base_pb2.AddFilesToKnowledgeBaseAdminResponse, collections.abc.Awaitable[artifact.v1alpha.knowledge_base_pb2.AddFilesToKnowledgeBaseAdminResponse]]:
+        """Add files to knowledge base (admin only)
+
+        Adds file associations to a target knowledge base by file UIDs.
+        Files can belong to multiple KBs (many-to-many relationship).
+        Files that already exist in the target KB are skipped (no duplicates).
+        """
+
+    @abc.abstractmethod
+    def DeleteKnowledgeBaseAdmin(
+        self,
+        request: artifact.v1alpha.knowledge_base_pb2.DeleteKnowledgeBaseAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.v1alpha.knowledge_base_pb2.DeleteKnowledgeBaseAdminResponse, collections.abc.Awaitable[artifact.v1alpha.knowledge_base_pb2.DeleteKnowledgeBaseAdminResponse]]:
+        """Delete knowledge base (admin only)
+
+        Force deletes a knowledge base even if it contains files. The files remain
+        in the file table but lose their KB association (orphaned). Used during
+        KB consolidation migrations after files have been moved to another KB.
+        """
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer: ArtifactPrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
