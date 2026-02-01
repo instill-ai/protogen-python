@@ -71,7 +71,7 @@ class ArtifactPrivateServiceStub:
 
     Updates a file allowing system-reserved tag prefixes like "agent:".
     Used by agent-backend to set collection association tags (e.g.,
-    "agent:collection:{uid}").
+    "agent:collection:{id}" where {id} is hash-based like col-xxx).
     """
 
     GetObjectAdmin: grpc.UnaryUnaryMultiCallable[
@@ -214,6 +214,12 @@ class ArtifactPrivateServiceStub:
     ]
     """Get the current default system configuration (admin only)"""
 
+    ResetKnowledgeBaseEmbeddingsAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.v1alpha.knowledge_base_pb2.ResetKnowledgeBaseEmbeddingsAdminRequest,
+        artifact.v1alpha.knowledge_base_pb2.ResetKnowledgeBaseEmbeddingsAdminResponse,
+    ]
+    """Reset knowledge base embeddings (admin only)"""
+
 class ArtifactPrivateServiceAsyncStub:
     """ArtifactPrivateService exposes the private endpoints that allow clients to
     manage artifacts.
@@ -263,7 +269,7 @@ class ArtifactPrivateServiceAsyncStub:
 
     Updates a file allowing system-reserved tag prefixes like "agent:".
     Used by agent-backend to set collection association tags (e.g.,
-    "agent:collection:{uid}").
+    "agent:collection:{id}" where {id} is hash-based like col-xxx).
     """
 
     GetObjectAdmin: grpc.aio.UnaryUnaryMultiCallable[
@@ -406,6 +412,12 @@ class ArtifactPrivateServiceAsyncStub:
     ]
     """Get the current default system configuration (admin only)"""
 
+    ResetKnowledgeBaseEmbeddingsAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.v1alpha.knowledge_base_pb2.ResetKnowledgeBaseEmbeddingsAdminRequest,
+        artifact.v1alpha.knowledge_base_pb2.ResetKnowledgeBaseEmbeddingsAdminResponse,
+    ]
+    """Reset knowledge base embeddings (admin only)"""
+
 class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
     """ArtifactPrivateService exposes the private endpoints that allow clients to
     manage artifacts.
@@ -463,7 +475,7 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
 
         Updates a file allowing system-reserved tag prefixes like "agent:".
         Used by agent-backend to set collection association tags (e.g.,
-        "agent:collection:{uid}").
+        "agent:collection:{id}" where {id} is hash-based like col-xxx).
         """
 
     @abc.abstractmethod
@@ -641,5 +653,13 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
         context: _ServicerContext,
     ) -> typing.Union[artifact.v1alpha.system_pb2.GetDefaultSystemAdminResponse, collections.abc.Awaitable[artifact.v1alpha.system_pb2.GetDefaultSystemAdminResponse]]:
         """Get the current default system configuration (admin only)"""
+
+    @abc.abstractmethod
+    def ResetKnowledgeBaseEmbeddingsAdmin(
+        self,
+        request: artifact.v1alpha.knowledge_base_pb2.ResetKnowledgeBaseEmbeddingsAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.v1alpha.knowledge_base_pb2.ResetKnowledgeBaseEmbeddingsAdminResponse, collections.abc.Awaitable[artifact.v1alpha.knowledge_base_pb2.ResetKnowledgeBaseEmbeddingsAdminResponse]]:
+        """Reset knowledge base embeddings (admin only)"""
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer: ArtifactPrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

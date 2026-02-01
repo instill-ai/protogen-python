@@ -706,3 +706,52 @@ class UpdateKnowledgeBaseAdminResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["knowledge_base", b"knowledge_base"]) -> None: ...
 
 global___UpdateKnowledgeBaseAdminResponse = UpdateKnowledgeBaseAdminResponse
+
+@typing.final
+class ResetKnowledgeBaseEmbeddingsAdminRequest(google.protobuf.message.Message):
+    """ResetKnowledgeBaseEmbeddingsAdminRequest represents a request to reset all
+    embeddings for a knowledge base (admin only).
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """The resource name of the knowledge base to reset embeddings for.
+    Format: `namespaces/{namespace}/knowledge-bases/{knowledge_base}`
+    """
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["name", b"name"]) -> None: ...
+
+global___ResetKnowledgeBaseEmbeddingsAdminRequest = ResetKnowledgeBaseEmbeddingsAdminRequest
+
+@typing.final
+class ResetKnowledgeBaseEmbeddingsAdminResponse(google.protobuf.message.Message):
+    """ResetKnowledgeBaseEmbeddingsAdminResponse represents a response for resetting
+    knowledge base embeddings.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
+    FILES_TO_REEMBED_FIELD_NUMBER: builtins.int
+    files_to_reembed: builtins.int
+    """Number of files that will be re-embedded."""
+    @property
+    def knowledge_base(self) -> global___KnowledgeBase:
+        """The knowledge base that had its embeddings reset."""
+
+    def __init__(
+        self,
+        *,
+        knowledge_base: global___KnowledgeBase | None = ...,
+        files_to_reembed: builtins.int = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["knowledge_base", b"knowledge_base"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["files_to_reembed", b"files_to_reembed", "knowledge_base", b"knowledge_base"]) -> None: ...
+
+global___ResetKnowledgeBaseEmbeddingsAdminResponse = ResetKnowledgeBaseEmbeddingsAdminResponse

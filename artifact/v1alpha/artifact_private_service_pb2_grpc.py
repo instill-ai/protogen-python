@@ -130,6 +130,11 @@ class ArtifactPrivateServiceStub(object):
                 request_serializer=artifact_dot_v1alpha_dot_system__pb2.GetDefaultSystemAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_v1alpha_dot_system__pb2.GetDefaultSystemAdminResponse.FromString,
                 _registered_method=True)
+        self.ResetKnowledgeBaseEmbeddingsAdmin = channel.unary_unary(
+                '/artifact.v1alpha.ArtifactPrivateService/ResetKnowledgeBaseEmbeddingsAdmin',
+                request_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ResetKnowledgeBaseEmbeddingsAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ResetKnowledgeBaseEmbeddingsAdminResponse.FromString,
+                _registered_method=True)
 
 
 class ArtifactPrivateServiceServicer(object):
@@ -178,7 +183,7 @@ class ArtifactPrivateServiceServicer(object):
 
         Updates a file allowing system-reserved tag prefixes like "agent:".
         Used by agent-backend to set collection association tags (e.g.,
-        "agent:collection:{uid}").
+        "agent:collection:{id}" where {id} is hash-based like col-xxx).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -337,6 +342,13 @@ class ArtifactPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ResetKnowledgeBaseEmbeddingsAdmin(self, request, context):
+        """Reset knowledge base embeddings (admin only)
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -449,6 +461,11 @@ def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
                     servicer.GetDefaultSystemAdmin,
                     request_deserializer=artifact_dot_v1alpha_dot_system__pb2.GetDefaultSystemAdminRequest.FromString,
                     response_serializer=artifact_dot_v1alpha_dot_system__pb2.GetDefaultSystemAdminResponse.SerializeToString,
+            ),
+            'ResetKnowledgeBaseEmbeddingsAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.ResetKnowledgeBaseEmbeddingsAdmin,
+                    request_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ResetKnowledgeBaseEmbeddingsAdminRequest.FromString,
+                    response_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ResetKnowledgeBaseEmbeddingsAdminResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1047,6 +1064,33 @@ class ArtifactPrivateService(object):
             '/artifact.v1alpha.ArtifactPrivateService/GetDefaultSystemAdmin',
             artifact_dot_v1alpha_dot_system__pb2.GetDefaultSystemAdminRequest.SerializeToString,
             artifact_dot_v1alpha_dot_system__pb2.GetDefaultSystemAdminResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def ResetKnowledgeBaseEmbeddingsAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.v1alpha.ArtifactPrivateService/ResetKnowledgeBaseEmbeddingsAdmin',
+            artifact_dot_v1alpha_dot_knowledge__base__pb2.ResetKnowledgeBaseEmbeddingsAdminRequest.SerializeToString,
+            artifact_dot_v1alpha_dot_knowledge__base__pb2.ResetKnowledgeBaseEmbeddingsAdminResponse.FromString,
             options,
             channel_credentials,
             insecure,
