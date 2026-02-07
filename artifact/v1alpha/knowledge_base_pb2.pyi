@@ -848,7 +848,7 @@ global___DeleteKnowledgeBaseAdminResponse = DeleteKnowledgeBaseAdminResponse
 @typing.final
 class ListFilesAdminRequest(google.protobuf.message.Message):
     """ListFilesAdminRequest represents a request to list files in a knowledge base
-    (admin only).
+    (admin only, bypasses ACL checks).
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -856,6 +856,7 @@ class ListFilesAdminRequest(google.protobuf.message.Message):
     PARENT_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
     parent: builtins.str
     """The resource name of the knowledge base.
     Format: `namespaces/{namespace}/knowledge-bases/{knowledge_base}`
@@ -864,14 +865,22 @@ class ListFilesAdminRequest(google.protobuf.message.Message):
     """Maximum number of files to return. Default is 100."""
     page_token: builtins.str
     """Page token for pagination."""
+    filter: builtins.str
+    """AIP-160 filter expression. Supports the same syntax as the public ListFiles API.
+    Examples:
+      - `id="file-abc123"` - filter by hash-based file ID
+      - `tags:"agent:collection:col-xxx"` - filter by tag
+      - `(id="file-a" OR id="file-b") AND tags:"mytag"` - compound filter
+    """
     def __init__(
         self,
         *,
         parent: builtins.str = ...,
         page_size: builtins.int = ...,
         page_token: builtins.str = ...,
+        filter: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["page_size", b"page_size", "page_token", b"page_token", "parent", b"parent"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "parent", b"parent"]) -> None: ...
 
 global___ListFilesAdminRequest = ListFilesAdminRequest
 

@@ -135,20 +135,20 @@ class ArtifactPrivateServiceStub(object):
                 request_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ResetKnowledgeBaseEmbeddingsAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ResetKnowledgeBaseEmbeddingsAdminResponse.FromString,
                 _registered_method=True)
-        self.AddFilesToKnowledgeBaseAdmin = channel.unary_unary(
-                '/artifact.v1alpha.ArtifactPrivateService/AddFilesToKnowledgeBaseAdmin',
-                request_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.AddFilesToKnowledgeBaseAdminRequest.SerializeToString,
-                response_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.AddFilesToKnowledgeBaseAdminResponse.FromString,
+        self.ListFilesAdmin = channel.unary_unary(
+                '/artifact.v1alpha.ArtifactPrivateService/ListFilesAdmin',
+                request_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ListFilesAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ListFilesAdminResponse.FromString,
                 _registered_method=True)
         self.DeleteKnowledgeBaseAdmin = channel.unary_unary(
                 '/artifact.v1alpha.ArtifactPrivateService/DeleteKnowledgeBaseAdmin',
                 request_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseAdminResponse.FromString,
                 _registered_method=True)
-        self.ListFilesAdmin = channel.unary_unary(
-                '/artifact.v1alpha.ArtifactPrivateService/ListFilesAdmin',
-                request_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ListFilesAdminRequest.SerializeToString,
-                response_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ListFilesAdminResponse.FromString,
+        self.AddFilesToKnowledgeBaseAdmin = channel.unary_unary(
+                '/artifact.v1alpha.ArtifactPrivateService/AddFilesToKnowledgeBaseAdmin',
+                request_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.AddFilesToKnowledgeBaseAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.AddFilesToKnowledgeBaseAdminResponse.FromString,
                 _registered_method=True)
 
 
@@ -364,35 +364,37 @@ class ArtifactPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def AddFilesToKnowledgeBaseAdmin(self, request, context):
-        """Add files to knowledge base (admin only)
+    def ListFilesAdmin(self, request, context):
+        """List files in a knowledge base without ACL filtering (admin only)
 
-        Adds file associations to a target knowledge base by file UIDs.
-        Files can belong to multiple KBs (many-to-many relationship).
-        Files that already exist in the target KB are skipped (no duplicates).
+        Lists all files in a knowledge base without per-file FGA permission checks.
+        Unlike the public ListFiles endpoint which filters results based on
+        can_read_file permission, this admin endpoint returns all files.
+        Supports AIP-160 filter expressions for filtering by file ID and tags.
+        Used by internal services (e.g., agent-backend) for service-to-service
+        file lookups where the calling service handles authorization at its own
+        level.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteKnowledgeBaseAdmin(self, request, context):
-        """Delete knowledge base (admin only)
+        """Delete a knowledge base (admin only)
 
-        Force deletes a knowledge base even if it contains files. The files remain
-        in the file table but lose their KB association (orphaned). Used during
-        KB consolidation migrations after files have been moved to another KB.
+        Force-deletes a knowledge base and CASCADE removes file-KB associations.
+        Used by admin consolidation operations to remove duplicate KBs after moving
+        files.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListFilesAdmin(self, request, context):
-        """List files in a knowledge base (admin only)
+    def AddFilesToKnowledgeBaseAdmin(self, request, context):
+        """Add files to a knowledge base (admin only)
 
-        Lists all files in a knowledge base without ACL checks. Unlike the public
-        ListKnowledgeBaseFiles endpoint which requires authentication context, this
-        admin endpoint allows internal services to list files during migrations and
-        administrative operations.
+        Adds file associations to a target KB by file resource names. Files can
+        belong to multiple KBs (many-to-many relationship).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -516,20 +518,20 @@ def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
                     request_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ResetKnowledgeBaseEmbeddingsAdminRequest.FromString,
                     response_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ResetKnowledgeBaseEmbeddingsAdminResponse.SerializeToString,
             ),
-            'AddFilesToKnowledgeBaseAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.AddFilesToKnowledgeBaseAdmin,
-                    request_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.AddFilesToKnowledgeBaseAdminRequest.FromString,
-                    response_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.AddFilesToKnowledgeBaseAdminResponse.SerializeToString,
+            'ListFilesAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListFilesAdmin,
+                    request_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ListFilesAdminRequest.FromString,
+                    response_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ListFilesAdminResponse.SerializeToString,
             ),
             'DeleteKnowledgeBaseAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteKnowledgeBaseAdmin,
                     request_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseAdminRequest.FromString,
                     response_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.DeleteKnowledgeBaseAdminResponse.SerializeToString,
             ),
-            'ListFilesAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListFilesAdmin,
-                    request_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ListFilesAdminRequest.FromString,
-                    response_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.ListFilesAdminResponse.SerializeToString,
+            'AddFilesToKnowledgeBaseAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddFilesToKnowledgeBaseAdmin,
+                    request_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.AddFilesToKnowledgeBaseAdminRequest.FromString,
+                    response_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.AddFilesToKnowledgeBaseAdminResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1166,7 +1168,7 @@ class ArtifactPrivateService(object):
             _registered_method=True)
 
     @staticmethod
-    def AddFilesToKnowledgeBaseAdmin(request,
+    def ListFilesAdmin(request,
             target,
             options=(),
             channel_credentials=None,
@@ -1179,9 +1181,9 @@ class ArtifactPrivateService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/artifact.v1alpha.ArtifactPrivateService/AddFilesToKnowledgeBaseAdmin',
-            artifact_dot_v1alpha_dot_knowledge__base__pb2.AddFilesToKnowledgeBaseAdminRequest.SerializeToString,
-            artifact_dot_v1alpha_dot_knowledge__base__pb2.AddFilesToKnowledgeBaseAdminResponse.FromString,
+            '/artifact.v1alpha.ArtifactPrivateService/ListFilesAdmin',
+            artifact_dot_v1alpha_dot_knowledge__base__pb2.ListFilesAdminRequest.SerializeToString,
+            artifact_dot_v1alpha_dot_knowledge__base__pb2.ListFilesAdminResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1220,7 +1222,7 @@ class ArtifactPrivateService(object):
             _registered_method=True)
 
     @staticmethod
-    def ListFilesAdmin(request,
+    def AddFilesToKnowledgeBaseAdmin(request,
             target,
             options=(),
             channel_credentials=None,
@@ -1233,9 +1235,9 @@ class ArtifactPrivateService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/artifact.v1alpha.ArtifactPrivateService/ListFilesAdmin',
-            artifact_dot_v1alpha_dot_knowledge__base__pb2.ListFilesAdminRequest.SerializeToString,
-            artifact_dot_v1alpha_dot_knowledge__base__pb2.ListFilesAdminResponse.FromString,
+            '/artifact.v1alpha.ArtifactPrivateService/AddFilesToKnowledgeBaseAdmin',
+            artifact_dot_v1alpha_dot_knowledge__base__pb2.AddFilesToKnowledgeBaseAdminRequest.SerializeToString,
+            artifact_dot_v1alpha_dot_knowledge__base__pb2.AddFilesToKnowledgeBaseAdminResponse.FromString,
             options,
             channel_credentials,
             insecure,

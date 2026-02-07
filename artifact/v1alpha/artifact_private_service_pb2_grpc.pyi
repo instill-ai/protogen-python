@@ -220,38 +220,40 @@ class ArtifactPrivateServiceStub:
     ]
     """Reset knowledge base embeddings (admin only)"""
 
-    AddFilesToKnowledgeBaseAdmin: grpc.UnaryUnaryMultiCallable[
-        artifact.v1alpha.knowledge_base_pb2.AddFilesToKnowledgeBaseAdminRequest,
-        artifact.v1alpha.knowledge_base_pb2.AddFilesToKnowledgeBaseAdminResponse,
+    ListFilesAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.v1alpha.knowledge_base_pb2.ListFilesAdminRequest,
+        artifact.v1alpha.knowledge_base_pb2.ListFilesAdminResponse,
     ]
-    """Add files to knowledge base (admin only)
+    """List files in a knowledge base without ACL filtering (admin only)
 
-    Adds file associations to a target knowledge base by file UIDs.
-    Files can belong to multiple KBs (many-to-many relationship).
-    Files that already exist in the target KB are skipped (no duplicates).
+    Lists all files in a knowledge base without per-file FGA permission checks.
+    Unlike the public ListFiles endpoint which filters results based on
+    can_read_file permission, this admin endpoint returns all files.
+    Supports AIP-160 filter expressions for filtering by file ID and tags.
+    Used by internal services (e.g., agent-backend) for service-to-service
+    file lookups where the calling service handles authorization at its own
+    level.
     """
 
     DeleteKnowledgeBaseAdmin: grpc.UnaryUnaryMultiCallable[
         artifact.v1alpha.knowledge_base_pb2.DeleteKnowledgeBaseAdminRequest,
         artifact.v1alpha.knowledge_base_pb2.DeleteKnowledgeBaseAdminResponse,
     ]
-    """Delete knowledge base (admin only)
+    """Delete a knowledge base (admin only)
 
-    Force deletes a knowledge base even if it contains files. The files remain
-    in the file table but lose their KB association (orphaned). Used during
-    KB consolidation migrations after files have been moved to another KB.
+    Force-deletes a knowledge base and CASCADE removes file-KB associations.
+    Used by admin consolidation operations to remove duplicate KBs after moving
+    files.
     """
 
-    ListFilesAdmin: grpc.UnaryUnaryMultiCallable[
-        artifact.v1alpha.knowledge_base_pb2.ListFilesAdminRequest,
-        artifact.v1alpha.knowledge_base_pb2.ListFilesAdminResponse,
+    AddFilesToKnowledgeBaseAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.v1alpha.knowledge_base_pb2.AddFilesToKnowledgeBaseAdminRequest,
+        artifact.v1alpha.knowledge_base_pb2.AddFilesToKnowledgeBaseAdminResponse,
     ]
-    """List files in a knowledge base (admin only)
+    """Add files to a knowledge base (admin only)
 
-    Lists all files in a knowledge base without ACL checks. Unlike the public
-    ListKnowledgeBaseFiles endpoint which requires authentication context, this
-    admin endpoint allows internal services to list files during migrations and
-    administrative operations.
+    Adds file associations to a target KB by file resource names. Files can
+    belong to multiple KBs (many-to-many relationship).
     """
 
 class ArtifactPrivateServiceAsyncStub:
@@ -452,38 +454,40 @@ class ArtifactPrivateServiceAsyncStub:
     ]
     """Reset knowledge base embeddings (admin only)"""
 
-    AddFilesToKnowledgeBaseAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.v1alpha.knowledge_base_pb2.AddFilesToKnowledgeBaseAdminRequest,
-        artifact.v1alpha.knowledge_base_pb2.AddFilesToKnowledgeBaseAdminResponse,
+    ListFilesAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.v1alpha.knowledge_base_pb2.ListFilesAdminRequest,
+        artifact.v1alpha.knowledge_base_pb2.ListFilesAdminResponse,
     ]
-    """Add files to knowledge base (admin only)
+    """List files in a knowledge base without ACL filtering (admin only)
 
-    Adds file associations to a target knowledge base by file UIDs.
-    Files can belong to multiple KBs (many-to-many relationship).
-    Files that already exist in the target KB are skipped (no duplicates).
+    Lists all files in a knowledge base without per-file FGA permission checks.
+    Unlike the public ListFiles endpoint which filters results based on
+    can_read_file permission, this admin endpoint returns all files.
+    Supports AIP-160 filter expressions for filtering by file ID and tags.
+    Used by internal services (e.g., agent-backend) for service-to-service
+    file lookups where the calling service handles authorization at its own
+    level.
     """
 
     DeleteKnowledgeBaseAdmin: grpc.aio.UnaryUnaryMultiCallable[
         artifact.v1alpha.knowledge_base_pb2.DeleteKnowledgeBaseAdminRequest,
         artifact.v1alpha.knowledge_base_pb2.DeleteKnowledgeBaseAdminResponse,
     ]
-    """Delete knowledge base (admin only)
+    """Delete a knowledge base (admin only)
 
-    Force deletes a knowledge base even if it contains files. The files remain
-    in the file table but lose their KB association (orphaned). Used during
-    KB consolidation migrations after files have been moved to another KB.
+    Force-deletes a knowledge base and CASCADE removes file-KB associations.
+    Used by admin consolidation operations to remove duplicate KBs after moving
+    files.
     """
 
-    ListFilesAdmin: grpc.aio.UnaryUnaryMultiCallable[
-        artifact.v1alpha.knowledge_base_pb2.ListFilesAdminRequest,
-        artifact.v1alpha.knowledge_base_pb2.ListFilesAdminResponse,
+    AddFilesToKnowledgeBaseAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.v1alpha.knowledge_base_pb2.AddFilesToKnowledgeBaseAdminRequest,
+        artifact.v1alpha.knowledge_base_pb2.AddFilesToKnowledgeBaseAdminResponse,
     ]
-    """List files in a knowledge base (admin only)
+    """Add files to a knowledge base (admin only)
 
-    Lists all files in a knowledge base without ACL checks. Unlike the public
-    ListKnowledgeBaseFiles endpoint which requires authentication context, this
-    admin endpoint allows internal services to list files during migrations and
-    administrative operations.
+    Adds file associations to a target KB by file resource names. Files can
+    belong to multiple KBs (many-to-many relationship).
     """
 
 class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
@@ -731,16 +735,20 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
         """Reset knowledge base embeddings (admin only)"""
 
     @abc.abstractmethod
-    def AddFilesToKnowledgeBaseAdmin(
+    def ListFilesAdmin(
         self,
-        request: artifact.v1alpha.knowledge_base_pb2.AddFilesToKnowledgeBaseAdminRequest,
+        request: artifact.v1alpha.knowledge_base_pb2.ListFilesAdminRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.v1alpha.knowledge_base_pb2.AddFilesToKnowledgeBaseAdminResponse, collections.abc.Awaitable[artifact.v1alpha.knowledge_base_pb2.AddFilesToKnowledgeBaseAdminResponse]]:
-        """Add files to knowledge base (admin only)
+    ) -> typing.Union[artifact.v1alpha.knowledge_base_pb2.ListFilesAdminResponse, collections.abc.Awaitable[artifact.v1alpha.knowledge_base_pb2.ListFilesAdminResponse]]:
+        """List files in a knowledge base without ACL filtering (admin only)
 
-        Adds file associations to a target knowledge base by file UIDs.
-        Files can belong to multiple KBs (many-to-many relationship).
-        Files that already exist in the target KB are skipped (no duplicates).
+        Lists all files in a knowledge base without per-file FGA permission checks.
+        Unlike the public ListFiles endpoint which filters results based on
+        can_read_file permission, this admin endpoint returns all files.
+        Supports AIP-160 filter expressions for filtering by file ID and tags.
+        Used by internal services (e.g., agent-backend) for service-to-service
+        file lookups where the calling service handles authorization at its own
+        level.
         """
 
     @abc.abstractmethod
@@ -749,25 +757,23 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
         request: artifact.v1alpha.knowledge_base_pb2.DeleteKnowledgeBaseAdminRequest,
         context: _ServicerContext,
     ) -> typing.Union[artifact.v1alpha.knowledge_base_pb2.DeleteKnowledgeBaseAdminResponse, collections.abc.Awaitable[artifact.v1alpha.knowledge_base_pb2.DeleteKnowledgeBaseAdminResponse]]:
-        """Delete knowledge base (admin only)
+        """Delete a knowledge base (admin only)
 
-        Force deletes a knowledge base even if it contains files. The files remain
-        in the file table but lose their KB association (orphaned). Used during
-        KB consolidation migrations after files have been moved to another KB.
+        Force-deletes a knowledge base and CASCADE removes file-KB associations.
+        Used by admin consolidation operations to remove duplicate KBs after moving
+        files.
         """
 
     @abc.abstractmethod
-    def ListFilesAdmin(
+    def AddFilesToKnowledgeBaseAdmin(
         self,
-        request: artifact.v1alpha.knowledge_base_pb2.ListFilesAdminRequest,
+        request: artifact.v1alpha.knowledge_base_pb2.AddFilesToKnowledgeBaseAdminRequest,
         context: _ServicerContext,
-    ) -> typing.Union[artifact.v1alpha.knowledge_base_pb2.ListFilesAdminResponse, collections.abc.Awaitable[artifact.v1alpha.knowledge_base_pb2.ListFilesAdminResponse]]:
-        """List files in a knowledge base (admin only)
+    ) -> typing.Union[artifact.v1alpha.knowledge_base_pb2.AddFilesToKnowledgeBaseAdminResponse, collections.abc.Awaitable[artifact.v1alpha.knowledge_base_pb2.AddFilesToKnowledgeBaseAdminResponse]]:
+        """Add files to a knowledge base (admin only)
 
-        Lists all files in a knowledge base without ACL checks. Unlike the public
-        ListKnowledgeBaseFiles endpoint which requires authentication context, this
-        admin endpoint allows internal services to list files during migrations and
-        administrative operations.
+        Adds file associations to a target KB by file resource names. Files can
+        belong to multiple KBs (many-to-many relationship).
         """
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer: ArtifactPrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
