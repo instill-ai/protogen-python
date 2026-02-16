@@ -591,6 +591,7 @@ class ListKnowledgeBasesAdminRequest(google.protobuf.message.Message):
     PARENT_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
     parent: builtins.str
     """The parent resource name.
     Format: `namespaces/{namespace}`
@@ -604,15 +605,22 @@ class ListKnowledgeBasesAdminRequest(google.protobuf.message.Message):
     """The page token, received from a previous ListKnowledgeBasesAdmin call.
     Provide this to retrieve the subsequent page.
     """
+    filter: builtins.str
+    """Optional AIP-160 filter expression. Supports:
+      - q="<text>" for fuzzy search on display_name using pg_trgm
+    """
     def __init__(
         self,
         *,
         parent: builtins.str = ...,
         page_size: builtins.int | None = ...,
         page_token: builtins.str | None = ...,
+        filter: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_page_size", b"_page_size", "_page_token", b"_page_token", "page_size", b"page_size", "page_token", b"page_token"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_page_size", b"_page_size", "_page_token", b"_page_token", "page_size", b"page_size", "page_token", b"page_token", "parent", b"parent"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_filter", b"_filter", "_page_size", b"_page_size", "_page_token", b"_page_token", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "parent", b"parent"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_filter", b"_filter"]) -> typing.Literal["filter"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_page_size", b"_page_size"]) -> typing.Literal["page_size"] | None: ...
     @typing.overload
