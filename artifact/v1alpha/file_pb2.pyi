@@ -206,6 +206,8 @@ class File(google.protobuf.message.Message):
         """HTML"""
         TYPE_CSV: File._Type.ValueType  # 4
         """CSV"""
+        TYPE_JSON: File._Type.ValueType  # 39
+        """JSON"""
         TYPE_PDF: File._Type.ValueType  # 5
         """Container-based document types
         PDF
@@ -242,6 +244,8 @@ class File(google.protobuf.message.Message):
         """HEIF"""
         TYPE_AVIF: File._Type.ValueType  # 20
         """AVIF"""
+        TYPE_SVG: File._Type.ValueType  # 38
+        """SVG"""
         TYPE_MP3: File._Type.ValueType  # 21
         """Audio types
         MP3
@@ -296,6 +300,8 @@ class File(google.protobuf.message.Message):
     """HTML"""
     TYPE_CSV: File.Type.ValueType  # 4
     """CSV"""
+    TYPE_JSON: File.Type.ValueType  # 39
+    """JSON"""
     TYPE_PDF: File.Type.ValueType  # 5
     """Container-based document types
     PDF
@@ -332,6 +338,8 @@ class File(google.protobuf.message.Message):
     """HEIF"""
     TYPE_AVIF: File.Type.ValueType  # 20
     """AVIF"""
+    TYPE_SVG: File.Type.ValueType  # 38
+    """SVG"""
     TYPE_MP3: File.Type.ValueType  # 21
     """Audio types
     MP3
