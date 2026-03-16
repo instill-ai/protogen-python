@@ -256,6 +256,20 @@ class ArtifactPrivateServiceStub:
     belong to multiple KBs (many-to-many relationship).
     """
 
+    CopyFileToKnowledgeBaseAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.v1alpha.file_pb2.CopyFileToKnowledgeBaseAdminRequest,
+        artifact.v1alpha.file_pb2.CopyFileToKnowledgeBaseAdminResponse,
+    ]
+    """Copy a file to a different knowledge base (admin only)
+
+    Performs a lightweight copy of a file: copies the MinIO object, creates a
+    new file record, and copies converted files (content markdown + summary)
+    to the target KB. Does NOT re-run the processing pipeline (no chunking or
+    embedding). The new file is marked as COMPLETED immediately.
+    Used by agent-backend for DeepCopyCollection to clone published collection
+    files without AI cost.
+    """
+
 class ArtifactPrivateServiceAsyncStub:
     """ArtifactPrivateService exposes the private endpoints that allow clients to
     manage artifacts.
@@ -488,6 +502,20 @@ class ArtifactPrivateServiceAsyncStub:
 
     Adds file associations to a target KB by file resource names. Files can
     belong to multiple KBs (many-to-many relationship).
+    """
+
+    CopyFileToKnowledgeBaseAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.v1alpha.file_pb2.CopyFileToKnowledgeBaseAdminRequest,
+        artifact.v1alpha.file_pb2.CopyFileToKnowledgeBaseAdminResponse,
+    ]
+    """Copy a file to a different knowledge base (admin only)
+
+    Performs a lightweight copy of a file: copies the MinIO object, creates a
+    new file record, and copies converted files (content markdown + summary)
+    to the target KB. Does NOT re-run the processing pipeline (no chunking or
+    embedding). The new file is marked as COMPLETED immediately.
+    Used by agent-backend for DeepCopyCollection to clone published collection
+    files without AI cost.
     """
 
 class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
@@ -774,6 +802,22 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
 
         Adds file associations to a target KB by file resource names. Files can
         belong to multiple KBs (many-to-many relationship).
+        """
+
+    @abc.abstractmethod
+    def CopyFileToKnowledgeBaseAdmin(
+        self,
+        request: artifact.v1alpha.file_pb2.CopyFileToKnowledgeBaseAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.v1alpha.file_pb2.CopyFileToKnowledgeBaseAdminResponse, collections.abc.Awaitable[artifact.v1alpha.file_pb2.CopyFileToKnowledgeBaseAdminResponse]]:
+        """Copy a file to a different knowledge base (admin only)
+
+        Performs a lightweight copy of a file: copies the MinIO object, creates a
+        new file record, and copies converted files (content markdown + summary)
+        to the target KB. Does NOT re-run the processing pipeline (no chunking or
+        embedding). The new file is marked as COMPLETED immediately.
+        Used by agent-backend for DeepCopyCollection to clone published collection
+        files without AI cost.
         """
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer: ArtifactPrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

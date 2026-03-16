@@ -150,6 +150,11 @@ class ArtifactPrivateServiceStub(object):
                 request_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.AddFilesToKnowledgeBaseAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.AddFilesToKnowledgeBaseAdminResponse.FromString,
                 _registered_method=True)
+        self.CopyFileToKnowledgeBaseAdmin = channel.unary_unary(
+                '/artifact.v1alpha.ArtifactPrivateService/CopyFileToKnowledgeBaseAdmin',
+                request_serializer=artifact_dot_v1alpha_dot_file__pb2.CopyFileToKnowledgeBaseAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_v1alpha_dot_file__pb2.CopyFileToKnowledgeBaseAdminResponse.FromString,
+                _registered_method=True)
 
 
 class ArtifactPrivateServiceServicer(object):
@@ -400,6 +405,20 @@ class ArtifactPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CopyFileToKnowledgeBaseAdmin(self, request, context):
+        """Copy a file to a different knowledge base (admin only)
+
+        Performs a lightweight copy of a file: copies the MinIO object, creates a
+        new file record, and copies converted files (content markdown + summary)
+        to the target KB. Does NOT re-run the processing pipeline (no chunking or
+        embedding). The new file is marked as COMPLETED immediately.
+        Used by agent-backend for DeepCopyCollection to clone published collection
+        files without AI cost.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -532,6 +551,11 @@ def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
                     servicer.AddFilesToKnowledgeBaseAdmin,
                     request_deserializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.AddFilesToKnowledgeBaseAdminRequest.FromString,
                     response_serializer=artifact_dot_v1alpha_dot_knowledge__base__pb2.AddFilesToKnowledgeBaseAdminResponse.SerializeToString,
+            ),
+            'CopyFileToKnowledgeBaseAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.CopyFileToKnowledgeBaseAdmin,
+                    request_deserializer=artifact_dot_v1alpha_dot_file__pb2.CopyFileToKnowledgeBaseAdminRequest.FromString,
+                    response_serializer=artifact_dot_v1alpha_dot_file__pb2.CopyFileToKnowledgeBaseAdminResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1238,6 +1262,33 @@ class ArtifactPrivateService(object):
             '/artifact.v1alpha.ArtifactPrivateService/AddFilesToKnowledgeBaseAdmin',
             artifact_dot_v1alpha_dot_knowledge__base__pb2.AddFilesToKnowledgeBaseAdminRequest.SerializeToString,
             artifact_dot_v1alpha_dot_knowledge__base__pb2.AddFilesToKnowledgeBaseAdminResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def CopyFileToKnowledgeBaseAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.v1alpha.ArtifactPrivateService/CopyFileToKnowledgeBaseAdmin',
+            artifact_dot_v1alpha_dot_file__pb2.CopyFileToKnowledgeBaseAdminRequest.SerializeToString,
+            artifact_dot_v1alpha_dot_file__pb2.CopyFileToKnowledgeBaseAdminResponse.FromString,
             options,
             channel_credentials,
             insecure,

@@ -863,6 +863,61 @@ class ReprocessFileAdminResponse(google.protobuf.message.Message):
 global___ReprocessFileAdminResponse = ReprocessFileAdminResponse
 
 @typing.final
+class CopyFileToKnowledgeBaseAdminRequest(google.protobuf.message.Message):
+    """CopyFileToKnowledgeBaseAdminRequest represents a request to copy a file to
+    a different knowledge base (admin only). This performs a lightweight copy:
+    copies the MinIO object, file record, and converted files (markdown/summary)
+    without re-running the processing pipeline (no chunking/embedding).
+    Used by agent-backend for DeepCopyCollection.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    SOURCE_FILE_FIELD_NUMBER: builtins.int
+    TARGET_KNOWLEDGE_BASE_FIELD_NUMBER: builtins.int
+    source_file: builtins.str
+    """The resource name of the source file to copy.
+    Format:
+    `namespaces/{namespace}/knowledge-bases/{knowledge_base}/files/{file}`
+    """
+    target_knowledge_base: builtins.str
+    """The resource name of the target knowledge base to copy the file into.
+    Format: `namespaces/{namespace}/knowledge-bases/{knowledge_base}`
+    """
+    def __init__(
+        self,
+        *,
+        source_file: builtins.str = ...,
+        target_knowledge_base: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["source_file", b"source_file", "target_knowledge_base", b"target_knowledge_base"]) -> None: ...
+
+global___CopyFileToKnowledgeBaseAdminRequest = CopyFileToKnowledgeBaseAdminRequest
+
+@typing.final
+class CopyFileToKnowledgeBaseAdminResponse(google.protobuf.message.Message):
+    """CopyFileToKnowledgeBaseAdminResponse represents a response for copying a
+    file (admin only).
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_FIELD_NUMBER: builtins.int
+    @property
+    def file(self) -> global___File:
+        """The newly created file in the target knowledge base."""
+
+    def __init__(
+        self,
+        *,
+        file: global___File | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["file", b"file"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["file", b"file"]) -> None: ...
+
+global___CopyFileToKnowledgeBaseAdminResponse = CopyFileToKnowledgeBaseAdminResponse
+
+@typing.final
 class ListFilesRequest(google.protobuf.message.Message):
     """ListFilesRequest represents a request to list files in a knowledge base.
     Follows AIP-132: https://google.aip.dev/132
