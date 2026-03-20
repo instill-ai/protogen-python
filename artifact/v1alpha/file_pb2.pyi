@@ -139,6 +139,8 @@ class File(google.protobuf.message.Message):
         """Returns MinIO pre-signed URL to the original uploaded file."""
         VIEW_CACHE: File._View.ValueType  # 7
         """Returns Gemini cache resource name."""
+        VIEW_PATCH: File._View.ValueType  # 8
+        """Returns MinIO pre-signed URL to patch.md (user-submitted content patches)."""
 
     class View(_View, metaclass=_ViewEnumTypeWrapper):
         """View defines how a file is presented."""
@@ -164,6 +166,8 @@ class File(google.protobuf.message.Message):
     """Returns MinIO pre-signed URL to the original uploaded file."""
     VIEW_CACHE: File.View.ValueType  # 7
     """Returns Gemini cache resource name."""
+    VIEW_PATCH: File.View.ValueType  # 8
+    """Returns MinIO pre-signed URL to patch.md (user-submitted content patches)."""
 
     class _StorageProvider:
         ValueType = typing.NewType("ValueType", builtins.int)
