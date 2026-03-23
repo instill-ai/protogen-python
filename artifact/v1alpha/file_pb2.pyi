@@ -501,6 +501,7 @@ class File(google.protobuf.message.Message):
     COLLECTIONS_FIELD_NUMBER: builtins.int
     DELETE_TIME_FIELD_NUMBER: builtins.int
     OBJECT_FIELD_NUMBER: builtins.int
+    IS_TEXT_BASED_FIELD_NUMBER: builtins.int
     name: builtins.str
     """===== Standard AIP fields 1-6 (ALL resources must follow this order) =====
 
@@ -572,6 +573,14 @@ class File(google.protobuf.message.Message):
     2. Inline content: Provide base64-encoded file content in the 'content'
        field. When object is provided, the 'content' field is ignored.
     Follows AIP-122 for resource name references.
+    """
+    is_text_based: builtins.bool
+    """Whether the document contains a native text layer (true) or is
+    image-based / scanned (false). Determined during file processing by
+    attempting PDF text extraction. Used for visual grounding: text-based
+    documents get precise text highlighting while image-based documents
+    get bounding-box overlays.
+    Only meaningful for document file types (PDF, DOCX, PPTX, etc.).
     """
     @property
     def aliases(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
@@ -667,9 +676,10 @@ class File(google.protobuf.message.Message):
         collections: collections.abc.Iterable[builtins.str] | None = ...,
         delete_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         object: builtins.str = ...,
+        is_text_based: builtins.bool = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_converting_pipeline", b"_converting_pipeline", "_creator", b"_creator", "_external_metadata", b"_external_metadata", "_owner", b"_owner", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator", b"creator", "delete_time", b"delete_time", "external_metadata", b"external_metadata", "length", b"length", "owner", b"owner", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_converting_pipeline", b"_converting_pipeline", "_creator", b"_creator", "_external_metadata", b"_external_metadata", "_owner", b"_owner", "aliases", b"aliases", "collections", b"collections", "content", b"content", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator", b"creator", "creator_name", b"creator_name", "delete_time", b"delete_time", "description", b"description", "display_name", b"display_name", "download_url", b"download_url", "external_metadata", b"external_metadata", "id", b"id", "knowledge_bases", b"knowledge_bases", "length", b"length", "name", b"name", "object", b"object", "owner", b"owner", "owner_name", b"owner_name", "process_outcome", b"process_outcome", "process_status", b"process_status", "size", b"size", "slug", b"slug", "tags", b"tags", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["_converting_pipeline", b"_converting_pipeline", "_creator", b"_creator", "_external_metadata", b"_external_metadata", "_owner", b"_owner", "aliases", b"aliases", "collections", b"collections", "content", b"content", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator", b"creator", "creator_name", b"creator_name", "delete_time", b"delete_time", "description", b"description", "display_name", b"display_name", "download_url", b"download_url", "external_metadata", b"external_metadata", "id", b"id", "is_text_based", b"is_text_based", "knowledge_bases", b"knowledge_bases", "length", b"length", "name", b"name", "object", b"object", "owner", b"owner", "owner_name", b"owner_name", "process_outcome", b"process_outcome", "process_status", b"process_status", "size", b"size", "slug", b"slug", "tags", b"tags", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_converting_pipeline", b"_converting_pipeline"]) -> typing.Literal["converting_pipeline"] | None: ...
     @typing.overload
