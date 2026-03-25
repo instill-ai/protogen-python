@@ -207,6 +207,7 @@ class GetObjectDownloadURLRequest(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     URL_EXPIRE_DAYS_FIELD_NUMBER: builtins.int
     DOWNLOAD_FILENAME_FIELD_NUMBER: builtins.int
+    FORMAT_FIELD_NUMBER: builtins.int
     name: builtins.str
     """The resource name of the object.
     Format: `namespaces/{namespace}/objects/{object}`
@@ -219,14 +220,22 @@ class GetObjectDownloadURLRequest(google.protobuf.message.Message):
     """Optional custom filename for the download.
     If provided, this filename will be used in the Content-Disposition header.
     """
+    format: builtins.str
+    """Optional output format for the download.
+    Supported values: "pdf". When set, the backend converts the object
+    on-demand (supported for DOC, DOCX, PPT, PPTX, XLS, XLSX) and returns
+    a presigned URL to the converted file. The result is cached in storage
+    so subsequent requests are served instantly.
+    """
     def __init__(
         self,
         *,
         name: builtins.str = ...,
         url_expire_days: builtins.int = ...,
         download_filename: builtins.str = ...,
+        format: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["download_filename", b"download_filename", "name", b"name", "url_expire_days", b"url_expire_days"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["download_filename", b"download_filename", "format", b"format", "name", b"name", "url_expire_days", b"url_expire_days"]) -> None: ...
 
 global___GetObjectDownloadURLRequest = GetObjectDownloadURLRequest
 
