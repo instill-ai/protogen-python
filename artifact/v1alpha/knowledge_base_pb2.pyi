@@ -878,6 +878,7 @@ class ListFilesAdminRequest(google.protobuf.message.Message):
     Examples:
       - `id="file-abc123"` - filter by hash-based file ID
       - `tags:"agent:collection:col-xxx"` - filter by tag
+      - `q="aws"` - fuzzy search on file display name, ID, and description
       - `(id="file-a" OR id="file-b") AND tags:"mytag"` - compound filter
     """
     def __init__(
