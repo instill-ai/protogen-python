@@ -12,7 +12,6 @@ import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.struct_pb2
 import google.protobuf.timestamp_pb2
-import mgmt.v1beta.mgmt_pb2
 import sys
 import typing
 
@@ -491,9 +490,7 @@ class File(google.protobuf.message.Message):
     EXTERNAL_METADATA_FIELD_NUMBER: builtins.int
     KNOWLEDGE_BASES_FIELD_NUMBER: builtins.int
     OWNER_NAME_FIELD_NUMBER: builtins.int
-    OWNER_FIELD_NUMBER: builtins.int
     CREATOR_NAME_FIELD_NUMBER: builtins.int
-    CREATOR_FIELD_NUMBER: builtins.int
     CONTENT_FIELD_NUMBER: builtins.int
     DOWNLOAD_URL_FIELD_NUMBER: builtins.int
     CONVERTING_PIPELINE_FIELD_NUMBER: builtins.int
@@ -503,6 +500,10 @@ class File(google.protobuf.message.Message):
     OBJECT_FIELD_NUMBER: builtins.int
     IS_TEXT_BASED_FIELD_NUMBER: builtins.int
     CONTENT_SHA256_FIELD_NUMBER: builtins.int
+    OWNER_DISPLAY_NAME_FIELD_NUMBER: builtins.int
+    OWNER_AVATAR_FIELD_NUMBER: builtins.int
+    CREATOR_DISPLAY_NAME_FIELD_NUMBER: builtins.int
+    CREATOR_AVATAR_FIELD_NUMBER: builtins.int
     name: builtins.str
     """===== Standard AIP fields 1-6 (ALL resources must follow this order) =====
 
@@ -588,6 +589,28 @@ class File(google.protobuf.message.Message):
     Computed at ingestion time for both inline content uploads and object
     reference uploads.
     """
+    owner_display_name: builtins.str
+    """===== Denormalized display fields =====
+    These replace the removed embedded owner/creator objects (fields 19, 21)
+    to avoid leaking internal user data to cross-workspace callers.
+    Same pattern as Collection (collection.proto fields 23-26).
+
+    Human-readable display name of the owner namespace.
+    Populated server-side to avoid an extra frontend API call.
+    Example: "Instill AI" (for an org) or "John Doe" (for a user).
+    """
+    owner_avatar: builtins.str
+    """Avatar URL of the owner namespace.
+    Populated server-side alongside owner_display_name.
+    """
+    creator_display_name: builtins.str
+    """Human-readable display name of the user who created this file.
+    Populated server-side to avoid an extra frontend API call.
+    """
+    creator_avatar: builtins.str
+    """Avatar URL of the user who created this file.
+    Populated server-side alongside creator_display_name.
+    """
     @property
     def aliases(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Field 5: Previous slugs for backward compatibility.
@@ -623,16 +646,6 @@ class File(google.protobuf.message.Message):
         A file can belong to multiple knowledge bases within the same namespace.
         This field is populated from the file_knowledge_base junction table.
         Follows AIP-122 for resource name references.
-        """
-
-    @property
-    def owner(self) -> mgmt.v1beta.mgmt_pb2.Owner:
-        """File owner (User or Organization)."""
-
-    @property
-    def creator(self) -> mgmt.v1beta.mgmt_pb2.User:
-        """The user who created this file.
-        Populated when creator_name is present.
         """
 
     @property
@@ -672,9 +685,7 @@ class File(google.protobuf.message.Message):
         external_metadata: google.protobuf.struct_pb2.Struct | None = ...,
         knowledge_bases: collections.abc.Iterable[builtins.str] | None = ...,
         owner_name: builtins.str = ...,
-        owner: mgmt.v1beta.mgmt_pb2.Owner | None = ...,
         creator_name: builtins.str = ...,
-        creator: mgmt.v1beta.mgmt_pb2.User | None = ...,
         content: builtins.str = ...,
         download_url: builtins.str = ...,
         converting_pipeline: builtins.str | None = ...,
@@ -684,17 +695,21 @@ class File(google.protobuf.message.Message):
         object: builtins.str = ...,
         is_text_based: builtins.bool = ...,
         content_sha256: builtins.str = ...,
+        owner_display_name: builtins.str = ...,
+        owner_avatar: builtins.str | None = ...,
+        creator_display_name: builtins.str = ...,
+        creator_avatar: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_converting_pipeline", b"_converting_pipeline", "_creator", b"_creator", "_external_metadata", b"_external_metadata", "_owner", b"_owner", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator", b"creator", "delete_time", b"delete_time", "external_metadata", b"external_metadata", "length", b"length", "owner", b"owner", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_converting_pipeline", b"_converting_pipeline", "_creator", b"_creator", "_external_metadata", b"_external_metadata", "_owner", b"_owner", "aliases", b"aliases", "collections", b"collections", "content", b"content", "content_sha256", b"content_sha256", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator", b"creator", "creator_name", b"creator_name", "delete_time", b"delete_time", "description", b"description", "display_name", b"display_name", "download_url", b"download_url", "external_metadata", b"external_metadata", "id", b"id", "is_text_based", b"is_text_based", "knowledge_bases", b"knowledge_bases", "length", b"length", "name", b"name", "object", b"object", "owner", b"owner", "owner_name", b"owner_name", "process_outcome", b"process_outcome", "process_status", b"process_status", "size", b"size", "slug", b"slug", "tags", b"tags", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["_converting_pipeline", b"_converting_pipeline", "_creator_avatar", b"_creator_avatar", "_external_metadata", b"_external_metadata", "_owner_avatar", b"_owner_avatar", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator_avatar", b"creator_avatar", "delete_time", b"delete_time", "external_metadata", b"external_metadata", "length", b"length", "owner_avatar", b"owner_avatar", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_converting_pipeline", b"_converting_pipeline", "_creator_avatar", b"_creator_avatar", "_external_metadata", b"_external_metadata", "_owner_avatar", b"_owner_avatar", "aliases", b"aliases", "collections", b"collections", "content", b"content", "content_sha256", b"content_sha256", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator_avatar", b"creator_avatar", "creator_display_name", b"creator_display_name", "creator_name", b"creator_name", "delete_time", b"delete_time", "description", b"description", "display_name", b"display_name", "download_url", b"download_url", "external_metadata", b"external_metadata", "id", b"id", "is_text_based", b"is_text_based", "knowledge_bases", b"knowledge_bases", "length", b"length", "name", b"name", "object", b"object", "owner_avatar", b"owner_avatar", "owner_display_name", b"owner_display_name", "owner_name", b"owner_name", "process_outcome", b"process_outcome", "process_status", b"process_status", "size", b"size", "slug", b"slug", "tags", b"tags", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_converting_pipeline", b"_converting_pipeline"]) -> typing.Literal["converting_pipeline"] | None: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing.Literal["_creator", b"_creator"]) -> typing.Literal["creator"] | None: ...
+    def WhichOneof(self, oneof_group: typing.Literal["_creator_avatar", b"_creator_avatar"]) -> typing.Literal["creator_avatar"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_external_metadata", b"_external_metadata"]) -> typing.Literal["external_metadata"] | None: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing.Literal["_owner", b"_owner"]) -> typing.Literal["owner"] | None: ...
+    def WhichOneof(self, oneof_group: typing.Literal["_owner_avatar", b"_owner_avatar"]) -> typing.Literal["owner_avatar"] | None: ...
 
 global___File = File
 
