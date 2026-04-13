@@ -333,6 +333,8 @@ class SearchChunksRequest(google.protobuf.message.Message):
     FILE_MEDIA_TYPE_FIELD_NUMBER: builtins.int
     FILES_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
+    GROUP_BY_FILE_FIELD_NUMBER: builtins.int
+    GROUP_SIZE_FIELD_NUMBER: builtins.int
     parent: builtins.str
     """The parent resource name (namespace).
     Format: `namespaces/{namespace}`
@@ -349,6 +351,12 @@ class SearchChunksRequest(google.protobuf.message.Message):
     """Chunk type."""
     file_media_type: artifact.v1alpha.file_pb2.File.FileMediaType.ValueType
     """File media type."""
+    group_by_file: builtins.bool
+    """When true, results are grouped by file so that no single file dominates
+    the result set. At most group_size chunks are returned per file.
+    """
+    group_size: builtins.int
+    """Max chunks per file when group_by_file is true. Default: 1."""
     @property
     def files(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """File resource names to filter by. When this field is provided, the response
@@ -374,8 +382,10 @@ class SearchChunksRequest(google.protobuf.message.Message):
         file_media_type: artifact.v1alpha.file_pb2.File.FileMediaType.ValueType = ...,
         files: collections.abc.Iterable[builtins.str] | None = ...,
         tags: collections.abc.Iterable[builtins.str] | None = ...,
+        group_by_file: builtins.bool = ...,
+        group_size: builtins.int = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["file_media_type", b"file_media_type", "files", b"files", "knowledge_base", b"knowledge_base", "parent", b"parent", "tags", b"tags", "text_prompt", b"text_prompt", "top_k", b"top_k", "type", b"type"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["file_media_type", b"file_media_type", "files", b"files", "group_by_file", b"group_by_file", "group_size", b"group_size", "knowledge_base", b"knowledge_base", "parent", b"parent", "tags", b"tags", "text_prompt", b"text_prompt", "top_k", b"top_k", "type", b"type"]) -> None: ...
 
 global___SearchChunksRequest = SearchChunksRequest
 

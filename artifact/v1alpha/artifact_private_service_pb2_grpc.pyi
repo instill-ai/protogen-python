@@ -270,6 +270,17 @@ class ArtifactPrivateServiceStub:
     files without AI cost.
     """
 
+    EntityHopAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.v1alpha.file_pb2.EntityHopAdminRequest,
+        artifact.v1alpha.file_pb2.EntityHopAdminResponse,
+    ]
+    """Entity hop (admin only)
+
+    Given a set of seed file IDs, returns file IDs that share KB entities with
+    the seeds via the kb_entity / kb_entity_file graph. Used by agent-backend
+    for two-phase semantic search expansion.
+    """
+
 class ArtifactPrivateServiceAsyncStub:
     """ArtifactPrivateService exposes the private endpoints that allow clients to
     manage artifacts.
@@ -516,6 +527,17 @@ class ArtifactPrivateServiceAsyncStub:
     embedding). The new file is marked as COMPLETED immediately.
     Used by agent-backend for DeepCopyCollection to clone published collection
     files without AI cost.
+    """
+
+    EntityHopAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.v1alpha.file_pb2.EntityHopAdminRequest,
+        artifact.v1alpha.file_pb2.EntityHopAdminResponse,
+    ]
+    """Entity hop (admin only)
+
+    Given a set of seed file IDs, returns file IDs that share KB entities with
+    the seeds via the kb_entity / kb_entity_file graph. Used by agent-backend
+    for two-phase semantic search expansion.
     """
 
 class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
@@ -818,6 +840,19 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
         embedding). The new file is marked as COMPLETED immediately.
         Used by agent-backend for DeepCopyCollection to clone published collection
         files without AI cost.
+        """
+
+    @abc.abstractmethod
+    def EntityHopAdmin(
+        self,
+        request: artifact.v1alpha.file_pb2.EntityHopAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.v1alpha.file_pb2.EntityHopAdminResponse, collections.abc.Awaitable[artifact.v1alpha.file_pb2.EntityHopAdminResponse]]:
+        """Entity hop (admin only)
+
+        Given a set of seed file IDs, returns file IDs that share KB entities with
+        the seeds via the kb_entity / kb_entity_file graph. Used by agent-backend
+        for two-phase semantic search expansion.
         """
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer: ArtifactPrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...

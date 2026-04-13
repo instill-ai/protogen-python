@@ -155,6 +155,11 @@ class ArtifactPrivateServiceStub(object):
                 request_serializer=artifact_dot_v1alpha_dot_file__pb2.CopyFileToKnowledgeBaseAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_v1alpha_dot_file__pb2.CopyFileToKnowledgeBaseAdminResponse.FromString,
                 _registered_method=True)
+        self.EntityHopAdmin = channel.unary_unary(
+                '/artifact.v1alpha.ArtifactPrivateService/EntityHopAdmin',
+                request_serializer=artifact_dot_v1alpha_dot_file__pb2.EntityHopAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_v1alpha_dot_file__pb2.EntityHopAdminResponse.FromString,
+                _registered_method=True)
 
 
 class ArtifactPrivateServiceServicer(object):
@@ -419,6 +424,17 @@ class ArtifactPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def EntityHopAdmin(self, request, context):
+        """Entity hop (admin only)
+
+        Given a set of seed file IDs, returns file IDs that share KB entities with
+        the seeds via the kb_entity / kb_entity_file graph. Used by agent-backend
+        for two-phase semantic search expansion.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -556,6 +572,11 @@ def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
                     servicer.CopyFileToKnowledgeBaseAdmin,
                     request_deserializer=artifact_dot_v1alpha_dot_file__pb2.CopyFileToKnowledgeBaseAdminRequest.FromString,
                     response_serializer=artifact_dot_v1alpha_dot_file__pb2.CopyFileToKnowledgeBaseAdminResponse.SerializeToString,
+            ),
+            'EntityHopAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.EntityHopAdmin,
+                    request_deserializer=artifact_dot_v1alpha_dot_file__pb2.EntityHopAdminRequest.FromString,
+                    response_serializer=artifact_dot_v1alpha_dot_file__pb2.EntityHopAdminResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1289,6 +1310,33 @@ class ArtifactPrivateService(object):
             '/artifact.v1alpha.ArtifactPrivateService/CopyFileToKnowledgeBaseAdmin',
             artifact_dot_v1alpha_dot_file__pb2.CopyFileToKnowledgeBaseAdminRequest.SerializeToString,
             artifact_dot_v1alpha_dot_file__pb2.CopyFileToKnowledgeBaseAdminResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def EntityHopAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.v1alpha.ArtifactPrivateService/EntityHopAdmin',
+            artifact_dot_v1alpha_dot_file__pb2.EntityHopAdminRequest.SerializeToString,
+            artifact_dot_v1alpha_dot_file__pb2.EntityHopAdminResponse.FromString,
             options,
             channel_credentials,
             insecure,

@@ -1269,3 +1269,48 @@ class UpdateFileAdminResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["file", b"file"]) -> None: ...
 
 global___UpdateFileAdminResponse = UpdateFileAdminResponse
+
+@typing.final
+class EntityHopAdminRequest(google.protobuf.message.Message):
+    """EntityHopAdminRequest represents a request to find files linked through
+    shared KB entities (admin only). Given seed file IDs, returns other file IDs
+    that share at least one entity in the kb_entity_file graph.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_IDS_FIELD_NUMBER: builtins.int
+    @property
+    def file_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """Seed file IDs (hash-based, e.g. "file-xxx") to hop from."""
+
+    def __init__(
+        self,
+        *,
+        file_ids: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["file_ids", b"file_ids"]) -> None: ...
+
+global___EntityHopAdminRequest = EntityHopAdminRequest
+
+@typing.final
+class EntityHopAdminResponse(google.protobuf.message.Message):
+    """EntityHopAdminResponse represents the result of an entity hop query."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_IDS_FIELD_NUMBER: builtins.int
+    @property
+    def file_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """File IDs (hash-based) that share entities with the seed files,
+        excluding the seed files themselves.
+        """
+
+    def __init__(
+        self,
+        *,
+        file_ids: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["file_ids", b"file_ids"]) -> None: ...
+
+global___EntityHopAdminResponse = EntityHopAdminResponse
