@@ -160,6 +160,11 @@ class ArtifactPrivateServiceStub(object):
                 request_serializer=artifact_dot_v1alpha_dot_file__pb2.EntityHopAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_v1alpha_dot_file__pb2.EntityHopAdminResponse.FromString,
                 _registered_method=True)
+        self.TransferObjectsNamespaceAdmin = channel.unary_unary(
+                '/artifact.v1alpha.ArtifactPrivateService/TransferObjectsNamespaceAdmin',
+                request_serializer=artifact_dot_v1alpha_dot_object__pb2.TransferObjectsNamespaceAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_v1alpha_dot_object__pb2.TransferObjectsNamespaceAdminResponse.FromString,
+                _registered_method=True)
 
 
 class ArtifactPrivateServiceServicer(object):
@@ -435,6 +440,19 @@ class ArtifactPrivateServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def TransferObjectsNamespaceAdmin(self, request, context):
+        """Transfer objects to a different namespace (admin only)
+
+        Batch-updates the namespace and creator of the specified objects. The
+        underlying blob storage is not moved — only the ownership metadata in the
+        database is changed. Used by agent-backend to transfer visitor-generated
+        artifacts (images, code outputs, etc.) to the user's namespace after
+        signup.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -577,6 +595,11 @@ def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
                     servicer.EntityHopAdmin,
                     request_deserializer=artifact_dot_v1alpha_dot_file__pb2.EntityHopAdminRequest.FromString,
                     response_serializer=artifact_dot_v1alpha_dot_file__pb2.EntityHopAdminResponse.SerializeToString,
+            ),
+            'TransferObjectsNamespaceAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.TransferObjectsNamespaceAdmin,
+                    request_deserializer=artifact_dot_v1alpha_dot_object__pb2.TransferObjectsNamespaceAdminRequest.FromString,
+                    response_serializer=artifact_dot_v1alpha_dot_object__pb2.TransferObjectsNamespaceAdminResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1337,6 +1360,33 @@ class ArtifactPrivateService(object):
             '/artifact.v1alpha.ArtifactPrivateService/EntityHopAdmin',
             artifact_dot_v1alpha_dot_file__pb2.EntityHopAdminRequest.SerializeToString,
             artifact_dot_v1alpha_dot_file__pb2.EntityHopAdminResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def TransferObjectsNamespaceAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.v1alpha.ArtifactPrivateService/TransferObjectsNamespaceAdmin',
+            artifact_dot_v1alpha_dot_object__pb2.TransferObjectsNamespaceAdminRequest.SerializeToString,
+            artifact_dot_v1alpha_dot_object__pb2.TransferObjectsNamespaceAdminResponse.FromString,
             options,
             channel_credentials,
             insecure,

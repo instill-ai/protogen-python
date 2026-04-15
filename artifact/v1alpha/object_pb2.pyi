@@ -513,3 +513,62 @@ class UpdateObjectAdminResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["object", b"object"]) -> None: ...
 
 global___UpdateObjectAdminResponse = UpdateObjectAdminResponse
+
+@typing.final
+class TransferObjectsNamespaceAdminRequest(google.protobuf.message.Message):
+    """TransferObjectsNamespaceAdminRequest transfers objects from one namespace to
+    another (admin only). Follows AIP-136 (custom method).
+
+    Used by agent-backend during visitor chat claim to move generated artifacts
+    (images, code outputs, etc.) to the new user's namespace after signup.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    OBJECT_IDS_FIELD_NUMBER: builtins.int
+    NEW_NAMESPACE_FIELD_NUMBER: builtins.int
+    NEW_CREATOR_FIELD_NUMBER: builtins.int
+    new_namespace: builtins.str
+    """The target namespace resource name.
+    Format: `namespaces/{namespace}`
+    """
+    new_creator: builtins.str
+    """The new creator's user resource name.
+    Format: `users/{user}`
+    """
+    @property
+    def object_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """The object IDs to transfer.
+        Format: hash-based IDs (e.g., "obj-a1b2c3d4e5f6g7h8").
+        """
+
+    def __init__(
+        self,
+        *,
+        object_ids: collections.abc.Iterable[builtins.str] | None = ...,
+        new_namespace: builtins.str = ...,
+        new_creator: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["new_creator", b"new_creator", "new_namespace", b"new_namespace", "object_ids", b"object_ids"]) -> None: ...
+
+global___TransferObjectsNamespaceAdminRequest = TransferObjectsNamespaceAdminRequest
+
+@typing.final
+class TransferObjectsNamespaceAdminResponse(google.protobuf.message.Message):
+    """TransferObjectsNamespaceAdminResponse is the response after transferring
+    objects.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TRANSFERRED_COUNT_FIELD_NUMBER: builtins.int
+    transferred_count: builtins.int
+    """The number of objects successfully transferred."""
+    def __init__(
+        self,
+        *,
+        transferred_count: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["transferred_count", b"transferred_count"]) -> None: ...
+
+global___TransferObjectsNamespaceAdminResponse = TransferObjectsNamespaceAdminResponse

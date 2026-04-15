@@ -281,6 +281,19 @@ class ArtifactPrivateServiceStub:
     for two-phase semantic search expansion.
     """
 
+    TransferObjectsNamespaceAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.v1alpha.object_pb2.TransferObjectsNamespaceAdminRequest,
+        artifact.v1alpha.object_pb2.TransferObjectsNamespaceAdminResponse,
+    ]
+    """Transfer objects to a different namespace (admin only)
+
+    Batch-updates the namespace and creator of the specified objects. The
+    underlying blob storage is not moved — only the ownership metadata in the
+    database is changed. Used by agent-backend to transfer visitor-generated
+    artifacts (images, code outputs, etc.) to the user's namespace after
+    signup.
+    """
+
 class ArtifactPrivateServiceAsyncStub:
     """ArtifactPrivateService exposes the private endpoints that allow clients to
     manage artifacts.
@@ -538,6 +551,19 @@ class ArtifactPrivateServiceAsyncStub:
     Given a set of seed file IDs, returns file IDs that share KB entities with
     the seeds via the kb_entity / kb_entity_file graph. Used by agent-backend
     for two-phase semantic search expansion.
+    """
+
+    TransferObjectsNamespaceAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.v1alpha.object_pb2.TransferObjectsNamespaceAdminRequest,
+        artifact.v1alpha.object_pb2.TransferObjectsNamespaceAdminResponse,
+    ]
+    """Transfer objects to a different namespace (admin only)
+
+    Batch-updates the namespace and creator of the specified objects. The
+    underlying blob storage is not moved — only the ownership metadata in the
+    database is changed. Used by agent-backend to transfer visitor-generated
+    artifacts (images, code outputs, etc.) to the user's namespace after
+    signup.
     """
 
 class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
@@ -853,6 +879,21 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
         Given a set of seed file IDs, returns file IDs that share KB entities with
         the seeds via the kb_entity / kb_entity_file graph. Used by agent-backend
         for two-phase semantic search expansion.
+        """
+
+    @abc.abstractmethod
+    def TransferObjectsNamespaceAdmin(
+        self,
+        request: artifact.v1alpha.object_pb2.TransferObjectsNamespaceAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.v1alpha.object_pb2.TransferObjectsNamespaceAdminResponse, collections.abc.Awaitable[artifact.v1alpha.object_pb2.TransferObjectsNamespaceAdminResponse]]:
+        """Transfer objects to a different namespace (admin only)
+
+        Batch-updates the namespace and creator of the specified objects. The
+        underlying blob storage is not moved — only the ownership metadata in the
+        database is changed. Used by agent-backend to transfer visitor-generated
+        artifacts (images, code outputs, etc.) to the user's namespace after
+        signup.
         """
 
 def add_ArtifactPrivateServiceServicer_to_server(servicer: ArtifactPrivateServiceServicer, server: typing.Union[grpc.Server, grpc.aio.Server]) -> None: ...
