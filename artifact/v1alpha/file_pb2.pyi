@@ -413,6 +413,40 @@ class File(google.protobuf.message.Message):
     FILE_MEDIA_TYPE_VIDEO: File.FileMediaType.ValueType  # 4
     """Video."""
 
+    class _Visibility:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _VisibilityEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[File._Visibility.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        VISIBILITY_UNSPECIFIED: File._Visibility.ValueType  # 0
+        """Unspecified, treated as WORKSPACE."""
+        VISIBILITY_PRIVATE: File._Visibility.ValueType  # 1
+        """Reserved for future: truly private (only creator + invited users)."""
+        VISIBILITY_PUBLIC: File._Visibility.ValueType  # 2
+        """Discoverable by anyone, including anonymous visitors."""
+        VISIBILITY_WORKSPACE: File._Visibility.ValueType  # 3
+        """Org members can access via all-members grant. Default for files."""
+        VISIBILITY_LINK_SHARED: File._Visibility.ValueType  # 4
+        """Anyone with the share link (/r/{token}) can access via capability token."""
+
+    class Visibility(_Visibility, metaclass=_VisibilityEnumTypeWrapper):
+        """===== Visibility =====
+
+        Visibility defines who can discover and access the file.
+        """
+
+    VISIBILITY_UNSPECIFIED: File.Visibility.ValueType  # 0
+    """Unspecified, treated as WORKSPACE."""
+    VISIBILITY_PRIVATE: File.Visibility.ValueType  # 1
+    """Reserved for future: truly private (only creator + invited users)."""
+    VISIBILITY_PUBLIC: File.Visibility.ValueType  # 2
+    """Discoverable by anyone, including anonymous visitors."""
+    VISIBILITY_WORKSPACE: File.Visibility.ValueType  # 3
+    """Org members can access via all-members grant. Default for files."""
+    VISIBILITY_LINK_SHARED: File.Visibility.ValueType  # 4
+    """Anyone with the share link (/r/{token}) can access via capability token."""
+
     @typing.final
     class Position(google.protobuf.message.Message):
         """Position within a file, as coordinates in a specific unit. The
@@ -504,6 +538,7 @@ class File(google.protobuf.message.Message):
     OWNER_AVATAR_FIELD_NUMBER: builtins.int
     CREATOR_DISPLAY_NAME_FIELD_NUMBER: builtins.int
     CREATOR_AVATAR_FIELD_NUMBER: builtins.int
+    VISIBILITY_FIELD_NUMBER: builtins.int
     name: builtins.str
     """===== Standard AIP fields 1-6 (ALL resources must follow this order) =====
 
@@ -611,6 +646,8 @@ class File(google.protobuf.message.Message):
     """Avatar URL of the user who created this file.
     Populated server-side alongside creator_display_name.
     """
+    visibility: global___File.Visibility.ValueType
+    """Visibility of the file."""
     @property
     def aliases(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Field 5: Previous slugs for backward compatibility.
@@ -699,9 +736,10 @@ class File(google.protobuf.message.Message):
         owner_avatar: builtins.str | None = ...,
         creator_display_name: builtins.str = ...,
         creator_avatar: builtins.str | None = ...,
+        visibility: global___File.Visibility.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_converting_pipeline", b"_converting_pipeline", "_creator_avatar", b"_creator_avatar", "_external_metadata", b"_external_metadata", "_owner_avatar", b"_owner_avatar", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator_avatar", b"creator_avatar", "delete_time", b"delete_time", "external_metadata", b"external_metadata", "length", b"length", "owner_avatar", b"owner_avatar", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_converting_pipeline", b"_converting_pipeline", "_creator_avatar", b"_creator_avatar", "_external_metadata", b"_external_metadata", "_owner_avatar", b"_owner_avatar", "aliases", b"aliases", "collections", b"collections", "content", b"content", "content_sha256", b"content_sha256", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator_avatar", b"creator_avatar", "creator_display_name", b"creator_display_name", "creator_name", b"creator_name", "delete_time", b"delete_time", "description", b"description", "display_name", b"display_name", "download_url", b"download_url", "external_metadata", b"external_metadata", "id", b"id", "is_text_based", b"is_text_based", "knowledge_bases", b"knowledge_bases", "length", b"length", "name", b"name", "object", b"object", "owner_avatar", b"owner_avatar", "owner_display_name", b"owner_display_name", "owner_name", b"owner_name", "process_outcome", b"process_outcome", "process_status", b"process_status", "size", b"size", "slug", b"slug", "tags", b"tags", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["_converting_pipeline", b"_converting_pipeline", "_creator_avatar", b"_creator_avatar", "_external_metadata", b"_external_metadata", "_owner_avatar", b"_owner_avatar", "aliases", b"aliases", "collections", b"collections", "content", b"content", "content_sha256", b"content_sha256", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator_avatar", b"creator_avatar", "creator_display_name", b"creator_display_name", "creator_name", b"creator_name", "delete_time", b"delete_time", "description", b"description", "display_name", b"display_name", "download_url", b"download_url", "external_metadata", b"external_metadata", "id", b"id", "is_text_based", b"is_text_based", "knowledge_bases", b"knowledge_bases", "length", b"length", "name", b"name", "object", b"object", "owner_avatar", b"owner_avatar", "owner_display_name", b"owner_display_name", "owner_name", b"owner_name", "process_outcome", b"process_outcome", "process_status", b"process_status", "size", b"size", "slug", b"slug", "tags", b"tags", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_converting_pipeline", b"_converting_pipeline"]) -> typing.Literal["converting_pipeline"] | None: ...
     @typing.overload
