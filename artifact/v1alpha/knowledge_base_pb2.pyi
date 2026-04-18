@@ -865,6 +865,7 @@ class ListFilesAdminRequest(google.protobuf.message.Message):
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
+    VIEW_FIELD_NUMBER: builtins.int
     parent: builtins.str
     """The resource name of the knowledge base.
     Format: `namespaces/{namespace}/knowledge-bases/{knowledge_base}`
@@ -881,6 +882,13 @@ class ListFilesAdminRequest(google.protobuf.message.Message):
       - `q="aws"` - fuzzy search on file display name, ID, and description
       - `(id="file-a" OR id="file-b") AND tags:"mytag"` - compound filter
     """
+    view: artifact.v1alpha.file_pb2.File.View.ValueType
+    """View allows trusted admin callers to request an explicit file view so
+    that each returned `File` carries a populated `derived_resource_uri`
+    (see `File.derived_resource_uri`). Mirrors `ListFilesRequest.view`;
+    forwarded to the underlying CE public handler verbatim. Unset leaves
+    `derived_resource_uri` empty for every row.
+    """
     def __init__(
         self,
         *,
@@ -888,8 +896,11 @@ class ListFilesAdminRequest(google.protobuf.message.Message):
         page_size: builtins.int = ...,
         page_token: builtins.str = ...,
         filter: builtins.str = ...,
+        view: artifact.v1alpha.file_pb2.File.View.ValueType | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "parent", b"parent"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_view", b"_view", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "parent", b"parent", "view", b"view"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing.Literal["_view", b"_view"]) -> typing.Literal["view"] | None: ...
 
 global___ListFilesAdminRequest = ListFilesAdminRequest
 
