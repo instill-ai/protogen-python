@@ -21,6 +21,50 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+class _Ranker:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _RankerEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Ranker.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    RANKER_UNSPECIFIED: _Ranker.ValueType  # 0
+    """RANKER_UNSPECIFIED is the default zero value and indicates the
+    server did not populate the field. Treat it as "unknown" — do not
+    apply ranker-specific floor logic.
+    """
+    RANKER_WEIGHTED: _Ranker.ValueType  # 1
+    """RANKER_WEIGHTED is Milvus' WeightedRanker (dense + BM25 combined
+    with static weights); scores are normalised to [0,1].
+    """
+    RANKER_RRF: _Ranker.ValueType  # 2
+    """RANKER_RRF is Reciprocal Rank Fusion with smoothing constant k
+    (Milvus default 60); scores live in (0, 2/(k+1)].
+    """
+
+class Ranker(_Ranker, metaclass=_RankerEnumTypeWrapper):
+    """Ranker identifies which Milvus hybrid-search reranker produced the
+    scores on a `SearchChunksResponse`. The score distribution depends on
+    the reranker, and downstream consumers that apply score-based
+    thresholds MUST read this field so they can pick the correct floor
+    shape (absolute [0,1] floor for `RANKER_WEIGHTED`; rank-structural
+    `1/(k+topK)` floor for `RANKER_RRF`).
+    """
+
+RANKER_UNSPECIFIED: Ranker.ValueType  # 0
+"""RANKER_UNSPECIFIED is the default zero value and indicates the
+server did not populate the field. Treat it as "unknown" — do not
+apply ranker-specific floor logic.
+"""
+RANKER_WEIGHTED: Ranker.ValueType  # 1
+"""RANKER_WEIGHTED is Milvus' WeightedRanker (dense + BM25 combined
+with static weights); scores are normalised to [0,1].
+"""
+RANKER_RRF: Ranker.ValueType  # 2
+"""RANKER_RRF is Reciprocal Rank Fusion with smoothing constant k
+(Milvus default 60); scores live in (0, 2/(k+1)].
+"""
+global___Ranker = Ranker
+
 @typing.final
 class Chunk(google.protobuf.message.Message):
     """The Chunk message represents a chunk of data in the artifact system."""
@@ -396,6 +440,12 @@ class SearchChunksResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     SIMILAR_CHUNKS_FIELD_NUMBER: builtins.int
+    RANKER_FIELD_NUMBER: builtins.int
+    ranker: global___Ranker.ValueType
+    """The reranker that produced the scores in `similar_chunks`. Read
+    this before applying any score threshold — see the `Ranker` enum
+    for why.
+    """
     @property
     def similar_chunks(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___SimilarityChunk]:
         """chunks"""
@@ -404,8 +454,9 @@ class SearchChunksResponse(google.protobuf.message.Message):
         self,
         *,
         similar_chunks: collections.abc.Iterable[global___SimilarityChunk] | None = ...,
+        ranker: global___Ranker.ValueType = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["similar_chunks", b"similar_chunks"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["ranker", b"ranker", "similar_chunks", b"similar_chunks"]) -> None: ...
 
 global___SearchChunksResponse = SearchChunksResponse
 
