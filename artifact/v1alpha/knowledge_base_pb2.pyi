@@ -866,6 +866,7 @@ class ListFilesAdminRequest(google.protobuf.message.Message):
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
+    PERMISSION_CLAUSES_FIELD_NUMBER: builtins.int
     parent: builtins.str
     """The resource name of the knowledge base.
     Format: `namespaces/{namespace}/knowledge-bases/{knowledge_base}`
@@ -889,6 +890,18 @@ class ListFilesAdminRequest(google.protobuf.message.Message):
     forwarded to the underlying CE public handler verbatim. Unset leaves
     `derived_resource_uri` empty for every row.
     """
+    @property
+    def permission_clauses(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___FilePermissionClause]:
+        """Optional permission filter compiled into the SQL WHERE clause alongside
+        pagination. When present, both the returned files and total_size reflect
+        only rows that satisfy at least one clause (OR semantics across clauses,
+        AND semantics within a clause). When absent, no permission narrowing is
+        applied and the query returns all files the AIP-160 filter matches.
+
+        Callers are responsible for computing the clauses (e.g. from an
+        authorization system); the server treats them as opaque predicates.
+        """
+
     def __init__(
         self,
         *,
@@ -897,12 +910,66 @@ class ListFilesAdminRequest(google.protobuf.message.Message):
         page_token: builtins.str = ...,
         filter: builtins.str = ...,
         view: artifact.v1alpha.file_pb2.File.View.ValueType | None = ...,
+        permission_clauses: collections.abc.Iterable[global___FilePermissionClause] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_view", b"_view", "view", b"view"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_view", b"_view", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "parent", b"parent", "view", b"view"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["_view", b"_view", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token", "parent", b"parent", "permission_clauses", b"permission_clauses", "view", b"view"]) -> None: ...
     def WhichOneof(self, oneof_group: typing.Literal["_view", b"_view"]) -> typing.Literal["view"] | None: ...
 
 global___ListFilesAdminRequest = ListFilesAdminRequest
+
+@typing.final
+class FilePermissionClause(google.protobuf.message.Message):
+    """FilePermissionClause is a single conjunction of predicates. Within a clause,
+    every populated field must hold (AND). Across clauses in the request, the
+    semantics are OR: a file passes if it satisfies any one clause.
+
+    Each field maps to a PostgreSQL predicate on the `file` table. Empty /
+    absent fields are ignored (not applied as a predicate).
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TAGS_OVERLAP_FIELD_NUMBER: builtins.int
+    UIDS_IN_FIELD_NUMBER: builtins.int
+    TAGS_LIKE_NONE_FIELD_NUMBER: builtins.int
+    VISIBILITY_IN_FIELD_NUMBER: builtins.int
+    @property
+    def tags_overlap(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """Match files whose `tags` column overlaps with the supplied set.
+        SQL: `file.tags && $tags_overlap` (PostgreSQL array-overlap operator).
+        """
+
+    @property
+    def uids_in(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """Match files whose primary UID is in the supplied set.
+        SQL: `file.uid = ANY($uids_in)`.
+        """
+
+    @property
+    def tags_like_none(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """Exclude files that have any tag matching the supplied LIKE patterns.
+        SQL: `NOT EXISTS (SELECT 1 FROM unnest(file.tags) t WHERE t LIKE $pattern)`
+        for each pattern.
+        """
+
+    @property
+    def visibility_in(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """Match files whose `visibility` column is in the supplied set.
+        SQL: `file.visibility = ANY($visibility_in)`.
+        """
+
+    def __init__(
+        self,
+        *,
+        tags_overlap: collections.abc.Iterable[builtins.str] | None = ...,
+        uids_in: collections.abc.Iterable[builtins.str] | None = ...,
+        tags_like_none: collections.abc.Iterable[builtins.str] | None = ...,
+        visibility_in: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["tags_like_none", b"tags_like_none", "tags_overlap", b"tags_overlap", "uids_in", b"uids_in", "visibility_in", b"visibility_in"]) -> None: ...
+
+global___FilePermissionClause = FilePermissionClause
 
 @typing.final
 class ListFilesAdminResponse(google.protobuf.message.Message):
