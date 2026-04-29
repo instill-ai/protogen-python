@@ -557,6 +557,7 @@ class File(google.protobuf.message.Message):
     VISIBILITY_FIELD_NUMBER: builtins.int
     DERIVED_RESOURCE_URI_FIELD_NUMBER: builtins.int
     THUMBNAIL_URI_FIELD_NUMBER: builtins.int
+    PARENT_PROJECT_FIELD_NUMBER: builtins.int
     name: builtins.str
     """===== Standard AIP fields 1-6 (ALL resources must follow this order) =====
 
@@ -687,6 +688,15 @@ class File(google.protobuf.message.Message):
     the preferred card-tile source and fall back to `derived_resource_uri`
     / mime-type icon when absent.
     """
+    parent_project: builtins.str
+    """The project that this file belongs to (single parent).
+    File permissions cascade from this project — the file inherits
+    viewer/editor/commenter/resource_owner from its parent project.
+    Format: `namespaces/{namespace}/projects/{project}`
+    Populated server-side from the file's parent_project_uid DB column.
+    Files without an explicit parent project default to the namespace's
+    root project ("Workspace").
+    """
     @property
     def aliases(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Field 5: Previous slugs for backward compatibility.
@@ -778,9 +788,10 @@ class File(google.protobuf.message.Message):
         visibility: global___File.Visibility.ValueType = ...,
         derived_resource_uri: builtins.str | None = ...,
         thumbnail_uri: builtins.str | None = ...,
+        parent_project: builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_converting_pipeline", b"_converting_pipeline", "_creator_avatar", b"_creator_avatar", "_derived_resource_uri", b"_derived_resource_uri", "_external_metadata", b"_external_metadata", "_owner_avatar", b"_owner_avatar", "_thumbnail_uri", b"_thumbnail_uri", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator_avatar", b"creator_avatar", "delete_time", b"delete_time", "derived_resource_uri", b"derived_resource_uri", "external_metadata", b"external_metadata", "length", b"length", "owner_avatar", b"owner_avatar", "thumbnail_uri", b"thumbnail_uri", "update_time", b"update_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_converting_pipeline", b"_converting_pipeline", "_creator_avatar", b"_creator_avatar", "_derived_resource_uri", b"_derived_resource_uri", "_external_metadata", b"_external_metadata", "_owner_avatar", b"_owner_avatar", "_thumbnail_uri", b"_thumbnail_uri", "aliases", b"aliases", "collections", b"collections", "content", b"content", "content_sha256", b"content_sha256", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator_avatar", b"creator_avatar", "creator_display_name", b"creator_display_name", "creator_name", b"creator_name", "delete_time", b"delete_time", "derived_resource_uri", b"derived_resource_uri", "description", b"description", "display_name", b"display_name", "download_url", b"download_url", "external_metadata", b"external_metadata", "id", b"id", "is_text_based", b"is_text_based", "knowledge_bases", b"knowledge_bases", "length", b"length", "name", b"name", "object", b"object", "owner_avatar", b"owner_avatar", "owner_display_name", b"owner_display_name", "owner_name", b"owner_name", "process_outcome", b"process_outcome", "process_status", b"process_status", "size", b"size", "slug", b"slug", "tags", b"tags", "thumbnail_uri", b"thumbnail_uri", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["_converting_pipeline", b"_converting_pipeline", "_creator_avatar", b"_creator_avatar", "_derived_resource_uri", b"_derived_resource_uri", "_external_metadata", b"_external_metadata", "_owner_avatar", b"_owner_avatar", "_parent_project", b"_parent_project", "_thumbnail_uri", b"_thumbnail_uri", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator_avatar", b"creator_avatar", "delete_time", b"delete_time", "derived_resource_uri", b"derived_resource_uri", "external_metadata", b"external_metadata", "length", b"length", "owner_avatar", b"owner_avatar", "parent_project", b"parent_project", "thumbnail_uri", b"thumbnail_uri", "update_time", b"update_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_converting_pipeline", b"_converting_pipeline", "_creator_avatar", b"_creator_avatar", "_derived_resource_uri", b"_derived_resource_uri", "_external_metadata", b"_external_metadata", "_owner_avatar", b"_owner_avatar", "_parent_project", b"_parent_project", "_thumbnail_uri", b"_thumbnail_uri", "aliases", b"aliases", "collections", b"collections", "content", b"content", "content_sha256", b"content_sha256", "converting_pipeline", b"converting_pipeline", "create_time", b"create_time", "creator_avatar", b"creator_avatar", "creator_display_name", b"creator_display_name", "creator_name", b"creator_name", "delete_time", b"delete_time", "derived_resource_uri", b"derived_resource_uri", "description", b"description", "display_name", b"display_name", "download_url", b"download_url", "external_metadata", b"external_metadata", "id", b"id", "is_text_based", b"is_text_based", "knowledge_bases", b"knowledge_bases", "length", b"length", "name", b"name", "object", b"object", "owner_avatar", b"owner_avatar", "owner_display_name", b"owner_display_name", "owner_name", b"owner_name", "parent_project", b"parent_project", "process_outcome", b"process_outcome", "process_status", b"process_status", "size", b"size", "slug", b"slug", "tags", b"tags", "thumbnail_uri", b"thumbnail_uri", "total_chunks", b"total_chunks", "total_tokens", b"total_tokens", "type", b"type", "update_time", b"update_time", "visibility", b"visibility"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_converting_pipeline", b"_converting_pipeline"]) -> typing.Literal["converting_pipeline"] | None: ...
     @typing.overload
@@ -791,6 +802,8 @@ class File(google.protobuf.message.Message):
     def WhichOneof(self, oneof_group: typing.Literal["_external_metadata", b"_external_metadata"]) -> typing.Literal["external_metadata"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_owner_avatar", b"_owner_avatar"]) -> typing.Literal["owner_avatar"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_parent_project", b"_parent_project"]) -> typing.Literal["parent_project"] | None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_thumbnail_uri", b"_thumbnail_uri"]) -> typing.Literal["thumbnail_uri"] | None: ...
 
