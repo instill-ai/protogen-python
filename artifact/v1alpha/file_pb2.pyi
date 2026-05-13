@@ -118,6 +118,160 @@ clients via `File.thumbnail_uri` as a stable
 """
 global___ConvertedFileType = ConvertedFileType
 
+class _IntegrityState:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _IntegrityStateEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_IntegrityState.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    INTEGRITY_STATE_UNSPECIFIED: _IntegrityState.ValueType  # 0
+    """Default; never returned by a successful probe."""
+    INTEGRITY_STATE_HEALTHY: _IntegrityState.ValueType  # 1
+    """The file's `process_status` is `COMPLETED`, the chunk row count, Milvus
+    vector count, and the file row's `total_chunks` agree, and the converted
+    markdown object exists in MinIO. Safe to dispatch.
+    """
+    INTEGRITY_STATE_NOT_COMPLETED: _IntegrityState.ValueType  # 2
+    """The file's `process_status` is anything except `COMPLETED` (e.g. still
+    processing, failed, not started). Drift detection is not meaningful in
+    this state — the upstream `process_status` gate handles it.
+    """
+    INTEGRITY_STATE_EMPTY_PG: _IntegrityState.ValueType  # 3
+    """PG row says COMPLETED but the chunk inventory in the `chunk` table is
+    empty (or non-zero but does not match the file row's `total_chunks`
+    under strict equality). Indicates the chunks were hard-deleted or never
+    persisted. Recoverable via `ReprocessFileAdmin`.
+    """
+    INTEGRITY_STATE_MISSING_MILVUS: _IntegrityState.ValueType  # 4
+    """PG row says COMPLETED, chunk rows exist, but the Milvus collection for
+    the parent knowledge base is missing entirely OR the per-file vector
+    count in Milvus does not match the PG chunk count under strict equality.
+    Indicates Milvus collection was dropped, never created, or partially
+    ingested. Recoverable via `ReprocessFileAdmin`.
+    """
+    INTEGRITY_STATE_MISSING_CONVERTED_FILE: _IntegrityState.ValueType  # 5
+    """PG row says COMPLETED, chunks + vectors agree, but the converted-file
+    object is missing from MinIO. The LLM's `get-file-content` tool will
+    404. Recoverable via `ReprocessFileAdmin`.
+    """
+    INTEGRITY_STATE_FILE_NOT_FOUND: _IntegrityState.ValueType  # 6
+    """The file row itself does not exist (or is soft-deleted). The caller
+    should treat this as a tombstone; reprocess is not the right recovery.
+    """
+
+class IntegrityState(_IntegrityState, metaclass=_IntegrityStateEnumTypeWrapper):
+    """IntegrityState classifies the cross-datastore consistency of a knowledge-base
+    file's derived RAG state (PostgreSQL chunk rows, Milvus vectors, MinIO
+    converted-file) against its declared `process_status`. Values that are NOT
+    `INTEGRITY_STATE_HEALTHY` indicate drift that the caller MUST recover from
+    before dispatching downstream work that depends on the file's chunks.
+
+    Boundary by gRPC code (per `CheckFileChunkIntegrityAdmin` semantics):
+      - `INTEGRITY_STATE_FILE_NOT_FOUND` is reported only when the file row is
+        soft-deleted or never existed; in that case the RPC still returns OK
+        with this enum value rather than `NotFound`, so the caller can read the
+        `recommended_action` and decide whether to surface the absence to the
+        end user or skip the gate entirely.
+      - All other "drift" classes report `IntegrityState != HEALTHY` while the
+        file row itself is intact.
+    """
+
+INTEGRITY_STATE_UNSPECIFIED: IntegrityState.ValueType  # 0
+"""Default; never returned by a successful probe."""
+INTEGRITY_STATE_HEALTHY: IntegrityState.ValueType  # 1
+"""The file's `process_status` is `COMPLETED`, the chunk row count, Milvus
+vector count, and the file row's `total_chunks` agree, and the converted
+markdown object exists in MinIO. Safe to dispatch.
+"""
+INTEGRITY_STATE_NOT_COMPLETED: IntegrityState.ValueType  # 2
+"""The file's `process_status` is anything except `COMPLETED` (e.g. still
+processing, failed, not started). Drift detection is not meaningful in
+this state — the upstream `process_status` gate handles it.
+"""
+INTEGRITY_STATE_EMPTY_PG: IntegrityState.ValueType  # 3
+"""PG row says COMPLETED but the chunk inventory in the `chunk` table is
+empty (or non-zero but does not match the file row's `total_chunks`
+under strict equality). Indicates the chunks were hard-deleted or never
+persisted. Recoverable via `ReprocessFileAdmin`.
+"""
+INTEGRITY_STATE_MISSING_MILVUS: IntegrityState.ValueType  # 4
+"""PG row says COMPLETED, chunk rows exist, but the Milvus collection for
+the parent knowledge base is missing entirely OR the per-file vector
+count in Milvus does not match the PG chunk count under strict equality.
+Indicates Milvus collection was dropped, never created, or partially
+ingested. Recoverable via `ReprocessFileAdmin`.
+"""
+INTEGRITY_STATE_MISSING_CONVERTED_FILE: IntegrityState.ValueType  # 5
+"""PG row says COMPLETED, chunks + vectors agree, but the converted-file
+object is missing from MinIO. The LLM's `get-file-content` tool will
+404. Recoverable via `ReprocessFileAdmin`.
+"""
+INTEGRITY_STATE_FILE_NOT_FOUND: IntegrityState.ValueType  # 6
+"""The file row itself does not exist (or is soft-deleted). The caller
+should treat this as a tombstone; reprocess is not the right recovery.
+"""
+global___IntegrityState = IntegrityState
+
+class _RecommendedAction:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _RecommendedActionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_RecommendedAction.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    RECOMMENDED_ACTION_UNSPECIFIED: _RecommendedAction.ValueType  # 0
+    """Default; never returned by a successful probe."""
+    RECOMMENDED_ACTION_NONE: _RecommendedAction.ValueType  # 1
+    """No action needed. The file is healthy; safe to dispatch downstream work."""
+    RECOMMENDED_ACTION_REPROCESS_FILE: _RecommendedAction.ValueType  # 2
+    """The caller should kick `ReprocessFileAdmin(file_uid)` to re-derive the
+    missing chunks / vectors / converted-file, and defer the dependent work
+    until the file's `process_status` returns to `COMPLETED`. Idempotent —
+    safe to send concurrently for the same file UID; `ReprocessFileAdmin`
+    already short-circuits in-flight reprocesses.
+    """
+    RECOMMENDED_ACTION_SKIP_FILE_NOT_FOUND: _RecommendedAction.ValueType  # 3
+    """The file row is gone. The caller should NOT reprocess; instead it should
+    surface the absence to the end user (e.g. mark the dependent record as
+    referencing a deleted file) or skip the gate entirely so downstream
+    tools handle the missing-file at their own granularity.
+    """
+    RECOMMENDED_ACTION_DEFER_PROCESSING: _RecommendedAction.ValueType  # 4
+    """The file's `process_status` is not COMPLETED yet (still processing,
+    failed, etc.). The caller should defer and let the upstream
+    `process_status` gate retry once processing finishes.
+    """
+
+class RecommendedAction(_RecommendedAction, metaclass=_RecommendedActionEnumTypeWrapper):
+    """RecommendedAction tells the caller what to do with the probe result. Kept
+    separate from `IntegrityState` so the caller does not have to enumerate
+    state values to decide on behavior, and so future drift classes can map to
+    the same recovery path without breaking callers.
+    """
+
+RECOMMENDED_ACTION_UNSPECIFIED: RecommendedAction.ValueType  # 0
+"""Default; never returned by a successful probe."""
+RECOMMENDED_ACTION_NONE: RecommendedAction.ValueType  # 1
+"""No action needed. The file is healthy; safe to dispatch downstream work."""
+RECOMMENDED_ACTION_REPROCESS_FILE: RecommendedAction.ValueType  # 2
+"""The caller should kick `ReprocessFileAdmin(file_uid)` to re-derive the
+missing chunks / vectors / converted-file, and defer the dependent work
+until the file's `process_status` returns to `COMPLETED`. Idempotent —
+safe to send concurrently for the same file UID; `ReprocessFileAdmin`
+already short-circuits in-flight reprocesses.
+"""
+RECOMMENDED_ACTION_SKIP_FILE_NOT_FOUND: RecommendedAction.ValueType  # 3
+"""The file row is gone. The caller should NOT reprocess; instead it should
+surface the absence to the end user (e.g. mark the dependent record as
+referencing a deleted file) or skip the gate entirely so downstream
+tools handle the missing-file at their own granularity.
+"""
+RECOMMENDED_ACTION_DEFER_PROCESSING: RecommendedAction.ValueType  # 4
+"""The file's `process_status` is not COMPLETED yet (still processing,
+failed, etc.). The caller should defer and let the upstream
+`process_status` gate retry once processing finishes.
+"""
+global___RecommendedAction = RecommendedAction
+
 @typing.final
 class File(google.protobuf.message.Message):
     """File represents a file in a knowledge base.
@@ -993,6 +1147,87 @@ class ReprocessFileAdminResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["file", b"file"]) -> None: ...
 
 global___ReprocessFileAdminResponse = ReprocessFileAdminResponse
+
+@typing.final
+class CheckFileChunkIntegrityAdminRequest(google.protobuf.message.Message):
+    """CheckFileChunkIntegrityAdminRequest represents a request to probe the
+    cross-datastore consistency of a knowledge-base file (admin only).
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    FILE_UID_FIELD_NUMBER: builtins.int
+    file_uid: builtins.str
+    """The file UID to probe."""
+    def __init__(
+        self,
+        *,
+        file_uid: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["file_uid", b"file_uid"]) -> None: ...
+
+global___CheckFileChunkIntegrityAdminRequest = CheckFileChunkIntegrityAdminRequest
+
+@typing.final
+class CheckFileChunkIntegrityAdminResponse(google.protobuf.message.Message):
+    """CheckFileChunkIntegrityAdminResponse reports the integrity probe result.
+    All count fields are populated when reachable; the absence of a count is
+    reflected in `state` and is not separately signalled.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    STATE_FIELD_NUMBER: builtins.int
+    RECOMMENDED_ACTION_FIELD_NUMBER: builtins.int
+    PROCESS_STATUS_FIELD_NUMBER: builtins.int
+    TOTAL_CHUNKS_DECLARED_FIELD_NUMBER: builtins.int
+    CHUNK_ROWS_IN_PG_FIELD_NUMBER: builtins.int
+    VECTORS_IN_MILVUS_FIELD_NUMBER: builtins.int
+    CONVERTED_FILE_PRESENT_FIELD_NUMBER: builtins.int
+    MESSAGE_FIELD_NUMBER: builtins.int
+    state: global___IntegrityState.ValueType
+    """The drift classification."""
+    recommended_action: global___RecommendedAction.ValueType
+    """The recovery recommendation derived from `state`."""
+    process_status: global___FileProcessStatus.ValueType
+    """The file's current `process_status` from the `file` table at probe time.
+    Repeating this here lets a caller short-circuit additional lookups.
+    """
+    total_chunks_declared: builtins.int
+    """The `file.total_chunks` advertised on the file row. May be zero when
+    `state = INTEGRITY_STATE_FILE_NOT_FOUND` or when chunk count tracking
+    was not yet populated.
+    """
+    chunk_rows_in_pg: builtins.int
+    """The number of non-deleted rows in the `chunk` table for this file_uid
+    at probe time. Always populated when the file row exists.
+    """
+    vectors_in_milvus: builtins.int
+    """The number of vectors found in the Milvus collection (`kb_<kb_uid>`)
+    matching this file_uid at probe time. -1 when the Milvus collection
+    does not exist; non-negative otherwise.
+    """
+    converted_file_present: builtins.bool
+    """True iff the converted-file MinIO object for this file is present."""
+    message: builtins.str
+    """Free-form human-readable diagnostic message for ops/log purposes. Not
+    intended for parsing by callers.
+    """
+    def __init__(
+        self,
+        *,
+        state: global___IntegrityState.ValueType = ...,
+        recommended_action: global___RecommendedAction.ValueType = ...,
+        process_status: global___FileProcessStatus.ValueType = ...,
+        total_chunks_declared: builtins.int = ...,
+        chunk_rows_in_pg: builtins.int = ...,
+        vectors_in_milvus: builtins.int = ...,
+        converted_file_present: builtins.bool = ...,
+        message: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing.Literal["chunk_rows_in_pg", b"chunk_rows_in_pg", "converted_file_present", b"converted_file_present", "message", b"message", "process_status", b"process_status", "recommended_action", b"recommended_action", "state", b"state", "total_chunks_declared", b"total_chunks_declared", "vectors_in_milvus", b"vectors_in_milvus"]) -> None: ...
+
+global___CheckFileChunkIntegrityAdminResponse = CheckFileChunkIntegrityAdminResponse
 
 @typing.final
 class CopyFileToKnowledgeBaseAdminRequest(google.protobuf.message.Message):

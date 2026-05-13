@@ -60,6 +60,11 @@ class ArtifactPrivateServiceStub(object):
                 request_serializer=artifact_dot_v1alpha_dot_file__pb2.ReprocessFileAdminRequest.SerializeToString,
                 response_deserializer=artifact_dot_v1alpha_dot_file__pb2.ReprocessFileAdminResponse.FromString,
                 _registered_method=True)
+        self.CheckFileChunkIntegrityAdmin = channel.unary_unary(
+                '/artifact.v1alpha.ArtifactPrivateService/CheckFileChunkIntegrityAdmin',
+                request_serializer=artifact_dot_v1alpha_dot_file__pb2.CheckFileChunkIntegrityAdminRequest.SerializeToString,
+                response_deserializer=artifact_dot_v1alpha_dot_file__pb2.CheckFileChunkIntegrityAdminResponse.FromString,
+                _registered_method=True)
         self.ExecuteKnowledgeBaseUpdateAdmin = channel.unary_unary(
                 '/artifact.v1alpha.ArtifactPrivateService/ExecuteKnowledgeBaseUpdateAdmin',
                 request_serializer=artifact_dot_v1alpha_dot_update__pb2.ExecuteKnowledgeBaseUpdateAdminRequest.SerializeToString,
@@ -260,6 +265,26 @@ class ArtifactPrivateServiceServicer(object):
         validation. The file's knowledge base and owner are automatically looked
         up. Used for administrative operations where the caller needs to force
         reprocess files without authentication context.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CheckFileChunkIntegrityAdmin(self, request, context):
+        """Check file chunk integrity (admin only)
+
+        Probes the cross-datastore consistency of a knowledge-base file's derived
+        RAG state against its `process_status`. Specifically reports drift between
+        the artifact-backend's PostgreSQL row (which advertises `process_status`
+        and `total_chunks`), the chunk inventory in the `chunk` table, the vector
+        inventory in the Milvus collection (`kb_<kb_uid>`), and the converted
+        markdown object in MinIO (`converted-file/<file_uid>...`). Used by
+        downstream readiness-gate consumers so dependent work is never dispatched
+        against a `process_status = COMPLETED` file whose chunks / vectors /
+        converted-file have silently disappeared (missing Milvus collection,
+        deleted converted-file, manual chunk wipe, etc.). The recommended action
+        lets the caller safely kick `ReprocessFileAdmin` and defer the dependent
+        work.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -495,6 +520,11 @@ def add_ArtifactPrivateServiceServicer_to_server(servicer, server):
                     servicer.ReprocessFileAdmin,
                     request_deserializer=artifact_dot_v1alpha_dot_file__pb2.ReprocessFileAdminRequest.FromString,
                     response_serializer=artifact_dot_v1alpha_dot_file__pb2.ReprocessFileAdminResponse.SerializeToString,
+            ),
+            'CheckFileChunkIntegrityAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.CheckFileChunkIntegrityAdmin,
+                    request_deserializer=artifact_dot_v1alpha_dot_file__pb2.CheckFileChunkIntegrityAdminRequest.FromString,
+                    response_serializer=artifact_dot_v1alpha_dot_file__pb2.CheckFileChunkIntegrityAdminResponse.SerializeToString,
             ),
             'ExecuteKnowledgeBaseUpdateAdmin': grpc.unary_unary_rpc_method_handler(
                     servicer.ExecuteKnowledgeBaseUpdateAdmin,
@@ -820,6 +850,33 @@ class ArtifactPrivateService(object):
             '/artifact.v1alpha.ArtifactPrivateService/ReprocessFileAdmin',
             artifact_dot_v1alpha_dot_file__pb2.ReprocessFileAdminRequest.SerializeToString,
             artifact_dot_v1alpha_dot_file__pb2.ReprocessFileAdminResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def CheckFileChunkIntegrityAdmin(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/artifact.v1alpha.ArtifactPrivateService/CheckFileChunkIntegrityAdmin',
+            artifact_dot_v1alpha_dot_file__pb2.CheckFileChunkIntegrityAdminRequest.SerializeToString,
+            artifact_dot_v1alpha_dot_file__pb2.CheckFileChunkIntegrityAdminResponse.FromString,
             options,
             channel_credentials,
             insecure,

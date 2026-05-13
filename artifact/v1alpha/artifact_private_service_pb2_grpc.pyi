@@ -118,6 +118,26 @@ class ArtifactPrivateServiceStub:
     reprocess files without authentication context.
     """
 
+    CheckFileChunkIntegrityAdmin: grpc.UnaryUnaryMultiCallable[
+        artifact.v1alpha.file_pb2.CheckFileChunkIntegrityAdminRequest,
+        artifact.v1alpha.file_pb2.CheckFileChunkIntegrityAdminResponse,
+    ]
+    """Check file chunk integrity (admin only)
+
+    Probes the cross-datastore consistency of a knowledge-base file's derived
+    RAG state against its `process_status`. Specifically reports drift between
+    the artifact-backend's PostgreSQL row (which advertises `process_status`
+    and `total_chunks`), the chunk inventory in the `chunk` table, the vector
+    inventory in the Milvus collection (`kb_<kb_uid>`), and the converted
+    markdown object in MinIO (`converted-file/<file_uid>...`). Used by
+    downstream readiness-gate consumers so dependent work is never dispatched
+    against a `process_status = COMPLETED` file whose chunks / vectors /
+    converted-file have silently disappeared (missing Milvus collection,
+    deleted converted-file, manual chunk wipe, etc.). The recommended action
+    lets the caller safely kick `ReprocessFileAdmin` and defer the dependent
+    work.
+    """
+
     ExecuteKnowledgeBaseUpdateAdmin: grpc.UnaryUnaryMultiCallable[
         artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminRequest,
         artifact.v1alpha.update_pb2.ExecuteKnowledgeBaseUpdateAdminResponse,
@@ -388,6 +408,26 @@ class ArtifactPrivateServiceAsyncStub:
     validation. The file's knowledge base and owner are automatically looked
     up. Used for administrative operations where the caller needs to force
     reprocess files without authentication context.
+    """
+
+    CheckFileChunkIntegrityAdmin: grpc.aio.UnaryUnaryMultiCallable[
+        artifact.v1alpha.file_pb2.CheckFileChunkIntegrityAdminRequest,
+        artifact.v1alpha.file_pb2.CheckFileChunkIntegrityAdminResponse,
+    ]
+    """Check file chunk integrity (admin only)
+
+    Probes the cross-datastore consistency of a knowledge-base file's derived
+    RAG state against its `process_status`. Specifically reports drift between
+    the artifact-backend's PostgreSQL row (which advertises `process_status`
+    and `total_chunks`), the chunk inventory in the `chunk` table, the vector
+    inventory in the Milvus collection (`kb_<kb_uid>`), and the converted
+    markdown object in MinIO (`converted-file/<file_uid>...`). Used by
+    downstream readiness-gate consumers so dependent work is never dispatched
+    against a `process_status = COMPLETED` file whose chunks / vectors /
+    converted-file have silently disappeared (missing Milvus collection,
+    deleted converted-file, manual chunk wipe, etc.). The recommended action
+    lets the caller safely kick `ReprocessFileAdmin` and defer the dependent
+    work.
     """
 
     ExecuteKnowledgeBaseUpdateAdmin: grpc.aio.UnaryUnaryMultiCallable[
@@ -676,6 +716,28 @@ class ArtifactPrivateServiceServicer(metaclass=abc.ABCMeta):
         validation. The file's knowledge base and owner are automatically looked
         up. Used for administrative operations where the caller needs to force
         reprocess files without authentication context.
+        """
+
+    @abc.abstractmethod
+    def CheckFileChunkIntegrityAdmin(
+        self,
+        request: artifact.v1alpha.file_pb2.CheckFileChunkIntegrityAdminRequest,
+        context: _ServicerContext,
+    ) -> typing.Union[artifact.v1alpha.file_pb2.CheckFileChunkIntegrityAdminResponse, collections.abc.Awaitable[artifact.v1alpha.file_pb2.CheckFileChunkIntegrityAdminResponse]]:
+        """Check file chunk integrity (admin only)
+
+        Probes the cross-datastore consistency of a knowledge-base file's derived
+        RAG state against its `process_status`. Specifically reports drift between
+        the artifact-backend's PostgreSQL row (which advertises `process_status`
+        and `total_chunks`), the chunk inventory in the `chunk` table, the vector
+        inventory in the Milvus collection (`kb_<kb_uid>`), and the converted
+        markdown object in MinIO (`converted-file/<file_uid>...`). Used by
+        downstream readiness-gate consumers so dependent work is never dispatched
+        against a `process_status = COMPLETED` file whose chunks / vectors /
+        converted-file have silently disappeared (missing Milvus collection,
+        deleted converted-file, manual chunk wipe, etc.). The recommended action
+        lets the caller safely kick `ReprocessFileAdmin` and defer the dependent
+        work.
         """
 
     @abc.abstractmethod
